@@ -107,7 +107,7 @@ var Du = function (t, e, u) { return e in t ? _e(t, e, { enumerable: !0, configu
             finally { if (e_2) throw e_2.error; }
         }
     return t;
-}, ge = function (t, e) { return Hr(t, zr(e)); };
+}, pe = function (t, e) { return Hr(t, zr(e)); };
 var Xr = function (t, e) { return function () { return (e || t((e = { exports: {} }).exports, e), e.exports); }; }, Dt = function (t, e) { for (var u in e)
     _e(t, u, { get: e[u], enumerable: !0 }); }, Iu = function (t, e, u, a) {
     var e_3, _b;
@@ -132,7 +132,7 @@ var Xr = function (t, e) { return function () { return (e || t((e = { exports: {
     return t;
 };
 var me = function (t, e, u) { return (u = t != null ? Rr($r(t)) : {}, Iu(e || !t || !t.__esModule ? _e(u, "default", { value: t, enumerable: !0 }) : u, t)); }, Jr = function (t) { return Iu(_e({}, "__esModule", { value: !0 }), t); };
-var pe = Xr(function (J0, sr) { sr.exports = { trueFunc: function () { return !0; }, falseFunc: function () { return !1; } }; });
+var ge = Xr(function (J0, sr) { sr.exports = { trueFunc: function () { return !0; }, falseFunc: function () { return !1; } }; });
 var vi = {};
 Dt(vi, { default: function () { return wi; } });
 module.exports = Jr(vi);
@@ -217,19 +217,19 @@ function Ou(t) { var e = "", u = new Ee(t, function (a) { return e += Ae(a); });
         break;
     }
     h = b + x, b = x === 0 ? h + 1 : h;
-} var g = e + n.slice(h); return e = "", g; }; }
+} var p = e + n.slice(h); return e = "", p; }; }
 function ta(t, e, u, a) { var n = (e & le.BRANCH_LENGTH) >> 7, s = e & le.JUMP_TABLE; if (n === 0)
     return s !== 0 && a === s ? u : -1; if (s) {
-    var g = a - s;
-    return g < 0 || g >= n ? -1 : t[u + g] - 1;
+    var p = a - s;
+    return p < 0 || p >= n ? -1 : t[u + p] - 1;
 } var h = u, b = h + n - 1; for (; h <= b;) {
-    var g = h + b >>> 1, x = t[g];
+    var p = h + b >>> 1, x = t[p];
     if (x < a)
-        h = g + 1;
+        h = p + 1;
     else if (x > a)
-        b = g - 1;
+        b = p - 1;
     else
-        return t[g + n];
+        return t[p + n];
 } return -1; }
 var Ci = Ou(Ze), Di = Ou(Ke);
 var D;
@@ -430,8 +430,8 @@ var $ = { Cdata: new Uint8Array([67, 68, 65, 84, 65, 91]), CdataEnd: new Uint8Ar
 var Te = new Set(["input", "option", "optgroup", "select", "button", "datalist", "textarea"]), _ = new Set(["p"]), Uu = new Set(["thead", "tbody"]), Mu = new Set(["dd", "dt"]), _u = new Set(["rt", "rp"]), ra = new Map([["tr", new Set(["tr", "th", "td"])], ["th", new Set(["th"])], ["td", new Set(["thead", "th", "td"])], ["body", new Set(["head", "link", "script"])], ["li", new Set(["li"])], ["p", _], ["h1", _], ["h2", _], ["h3", _], ["h4", _], ["h5", _], ["h6", _], ["select", Te], ["input", Te], ["output", Te], ["button", Te], ["datalist", Te], ["textarea", Te], ["option", new Set(["option"])], ["optgroup", new Set(["optgroup", "option"])], ["dd", Mu], ["dt", Mu], ["address", _], ["article", _], ["aside", _], ["blockquote", _], ["details", _], ["div", _], ["dl", _], ["fieldset", _], ["figcaption", _], ["figure", _], ["footer", _], ["form", _], ["header", _], ["hr", _], ["main", _], ["nav", _], ["ol", _], ["pre", _], ["section", _], ["table", _], ["ul", _], ["rt", _u], ["rp", _u], ["tbody", Uu], ["tfoot", Uu]]), aa = new Set(["area", "base", "basefont", "br", "col", "command", "embed", "frame", "hr", "img", "input", "isindex", "keygen", "link", "meta", "param", "source", "track", "wbr"]), Pu = new Set(["math", "svg"]), Bu = new Set(["mi", "mo", "mn", "ms", "mtext", "annotation-xml", "foreignobject", "desc", "title"]), ia = /\s|\//, Pe = (function () {
     function Pe(e, u) {
         if (u === void 0) { u = {}; }
-        var a, n, s, h, b, g;
-        this.options = u, this.startIndex = 0, this.endIndex = 0, this.openTagStart = 0, this.tagname = "", this.attribname = "", this.attribvalue = "", this.attribs = null, this.stack = [], this.buffers = [], this.bufferOffset = 0, this.writeIndex = 0, this.ended = !1, this.cbs = e != null ? e : {}, this.htmlMode = !this.options.xmlMode, this.lowerCaseTagNames = (a = u.lowerCaseTags) !== null && a !== void 0 ? a : this.htmlMode, this.lowerCaseAttributeNames = (n = u.lowerCaseAttributeNames) !== null && n !== void 0 ? n : this.htmlMode, this.recognizeSelfClosing = (s = u.recognizeSelfClosing) !== null && s !== void 0 ? s : !this.htmlMode, this.tokenizer = new ((h = u.Tokenizer) !== null && h !== void 0 ? h : ke)(this.options, this), this.foreignContext = [!this.htmlMode], (g = (b = this.cbs).onparserinit) === null || g === void 0 || g.call(b, this);
+        var a, n, s, h, b, p;
+        this.options = u, this.startIndex = 0, this.endIndex = 0, this.openTagStart = 0, this.tagname = "", this.attribname = "", this.attribvalue = "", this.attribs = null, this.stack = [], this.buffers = [], this.bufferOffset = 0, this.writeIndex = 0, this.ended = !1, this.cbs = e != null ? e : {}, this.htmlMode = !this.options.xmlMode, this.lowerCaseTagNames = (a = u.lowerCaseTags) !== null && a !== void 0 ? a : this.htmlMode, this.lowerCaseAttributeNames = (n = u.lowerCaseAttributeNames) !== null && n !== void 0 ? n : this.htmlMode, this.recognizeSelfClosing = (s = u.recognizeSelfClosing) !== null && s !== void 0 ? s : !this.htmlMode, this.tokenizer = new ((h = u.Tokenizer) !== null && h !== void 0 ? h : ke)(this.options, this), this.foreignContext = [!this.htmlMode], (p = (b = this.cbs).onparserinit) === null || p === void 0 || p.call(b, this);
     }
     Pe.prototype.ontext = function (e, u) { var a, n; var s = this.getSlice(e, u); this.endIndex = u - 1, (n = (a = this.cbs).ontext) === null || n === void 0 || n.call(a, s), this.startIndex = u; };
     Pe.prototype.ontextentity = function (e, u) { var a, n; this.endIndex = u - 1, (n = (a = this.cbs).ontext) === null || n === void 0 || n.call(a, Ae(e)), this.startIndex = u; };
@@ -444,8 +444,8 @@ var Te = new Set(["input", "option", "optgroup", "select", "button", "datalist",
         } this.isVoidElement(e) || (this.stack.unshift(e), this.htmlMode && (Pu.has(e) ? this.foreignContext.unshift(!0) : Bu.has(e) && this.foreignContext.unshift(!1))), (s = (n = this.cbs).onopentagname) === null || s === void 0 || s.call(n, e), this.cbs.onopentag && (this.attribs = {}); };
     Pe.prototype.endOpenTag = function (e) { var u, a; this.startIndex = this.openTagStart, this.attribs && ((a = (u = this.cbs).onopentag) === null || a === void 0 || a.call(u, this.tagname, this.attribs, e), this.attribs = null), this.cbs.onclosetag && this.isVoidElement(this.tagname) && this.cbs.onclosetag(this.tagname, !0), this.tagname = ""; };
     Pe.prototype.onopentagend = function (e) { this.endIndex = e, this.endOpenTag(!1), this.startIndex = e + 1; };
-    Pe.prototype.onclosetag = function (e, u) { var a, n, s, h, b, g, x, A; this.endIndex = u; var L = this.getSlice(e, u); if (this.lowerCaseTagNames && (L = L.toLowerCase()), this.htmlMode && (Pu.has(L) || Bu.has(L)) && this.foreignContext.shift(), this.isVoidElement(L))
-        this.htmlMode && L === "br" && ((h = (s = this.cbs).onopentagname) === null || h === void 0 || h.call(s, "br"), (g = (b = this.cbs).onopentag) === null || g === void 0 || g.call(b, "br", {}, !0), (A = (x = this.cbs).onclosetag) === null || A === void 0 || A.call(x, "br", !1));
+    Pe.prototype.onclosetag = function (e, u) { var a, n, s, h, b, p, x, A; this.endIndex = u; var L = this.getSlice(e, u); if (this.lowerCaseTagNames && (L = L.toLowerCase()), this.htmlMode && (Pu.has(L) || Bu.has(L)) && this.foreignContext.shift(), this.isVoidElement(L))
+        this.htmlMode && L === "br" && ((h = (s = this.cbs).onopentagname) === null || h === void 0 || h.call(s, "br"), (p = (b = this.cbs).onopentag) === null || p === void 0 || p.call(b, "br", {}, !0), (A = (x = this.cbs).onclosetag) === null || A === void 0 || A.call(x, "br", !1));
     else {
         var q = this.stack.indexOf(L);
         if (q !== -1)
@@ -472,7 +472,7 @@ var Te = new Set(["input", "option", "optgroup", "select", "button", "datalist",
         this.cbs.onprocessinginstruction("?".concat(n), "?".concat(a));
     } this.startIndex = u + 1; };
     Pe.prototype.oncomment = function (e, u, a) { var n, s, h, b; this.endIndex = u, (s = (n = this.cbs).oncomment) === null || s === void 0 || s.call(n, this.getSlice(e, u - a)), (b = (h = this.cbs).oncommentend) === null || b === void 0 || b.call(h), this.startIndex = u + 1; };
-    Pe.prototype.oncdata = function (e, u, a) { var n, s, h, b, g, x, A, L, q, N; this.endIndex = u; var I = this.getSlice(e, u - a); !this.htmlMode || this.options.recognizeCDATA ? ((s = (n = this.cbs).oncdatastart) === null || s === void 0 || s.call(n), (b = (h = this.cbs).ontext) === null || b === void 0 || b.call(h, I), (x = (g = this.cbs).oncdataend) === null || x === void 0 || x.call(g)) : ((L = (A = this.cbs).oncomment) === null || L === void 0 || L.call(A, "[CDATA[".concat(I, "]]")), (N = (q = this.cbs).oncommentend) === null || N === void 0 || N.call(q)), this.startIndex = u + 1; };
+    Pe.prototype.oncdata = function (e, u, a) { var n, s, h, b, p, x, A, L, q, N; this.endIndex = u; var I = this.getSlice(e, u - a); !this.htmlMode || this.options.recognizeCDATA ? ((s = (n = this.cbs).oncdatastart) === null || s === void 0 || s.call(n), (b = (h = this.cbs).ontext) === null || b === void 0 || b.call(h, I), (x = (p = this.cbs).oncdataend) === null || x === void 0 || x.call(p)) : ((L = (A = this.cbs).oncomment) === null || L === void 0 || L.call(A, "[CDATA[".concat(I, "]]")), (N = (q = this.cbs).oncommentend) === null || N === void 0 || N.call(q)), this.startIndex = u + 1; };
     Pe.prototype.onend = function () { var e, u; if (this.cbs.onclosetag) {
         this.endIndex = this.startIndex;
         for (var a = 0; a < this.stack.length; a++)
@@ -766,17 +766,17 @@ var Le = Qt;
 function da(t, e) { switch (t.type) {
     case Mt: return Qt(t.children, e);
     case jt:
-    case Pt: return ga(t);
+    case Pt: return pa(t);
     case Bt: return wa(t);
     case Ht: return xa(t);
     case Ft:
     case Vt:
-    case Rt: return pa(t, e);
+    case Rt: return ga(t, e);
     case _t: return ma(t, e);
 } }
 var ha = new Set(["mi", "mo", "mn", "ms", "mtext", "annotation-xml", "foreignObject", "desc", "title"]), ba = new Set(["svg", "math"]);
-function pa(t, e) { var u; e.xmlMode === "foreign" && (t.name = (u = Xu.get(t.name)) !== null && u !== void 0 ? u : t.name, t.parent && ha.has(t.parent.name) && (e = ge(ue({}, e), { xmlMode: !1 }))), !e.xmlMode && ba.has(t.name) && (e = ge(ue({}, e), { xmlMode: "foreign" })); var a = "<".concat(t.name), n = la(t.attribs, e); return n && (a += " ".concat(n)), t.children.length === 0 && (e.xmlMode ? e.selfClosingTags !== !1 : e.selfClosingTags && Qu.has(t.name)) ? (e.xmlMode || (a += " "), a += "/>") : (a += ">", t.children.length > 0 && (a += Qt(t.children, e)), (e.xmlMode || !Qu.has(t.name)) && (a += "</".concat(t.name, ">"))), a; }
-function ga(t) { return "<".concat(t.data, ">"); }
+function ga(t, e) { var u; e.xmlMode === "foreign" && (t.name = (u = Xu.get(t.name)) !== null && u !== void 0 ? u : t.name, t.parent && ha.has(t.parent.name) && (e = pe(ue({}, e), { xmlMode: !1 }))), !e.xmlMode && ba.has(t.name) && (e = pe(ue({}, e), { xmlMode: "foreign" })); var a = "<".concat(t.name), n = la(t.attribs, e); return n && (a += " ".concat(n)), t.children.length === 0 && (e.xmlMode ? e.selfClosingTags !== !1 : e.selfClosingTags && Qu.has(t.name)) ? (e.xmlMode || (a += " "), a += "/>") : (a += ">", t.children.length > 0 && (a += Qt(t.children, e)), (e.xmlMode || !Qu.has(t.name)) && (a += "</".concat(t.name, ">"))), a; }
+function pa(t) { return "<".concat(t.data, ">"); }
 function ma(t, e) { var u; var a = t.data || ""; return ((u = e.encodeEntities) !== null && u !== void 0 ? u : e.decodeEntities) !== !1 && !(!e.xmlMode && t.parent && oa.has(t.parent.name)) && (a = e.xmlMode || e.encodeEntities !== "utf8" ? Ge(a) : at(a)), a; }
 function xa(t) { return "<![CDATA[".concat(t.children[0].data, "]]>"); }
 function wa(t) { return "<!--".concat(t.data, "-->"); }
@@ -942,11 +942,11 @@ function tr(t, e) { var u = [], a = []; if (t === e)
     u.unshift(n), n = n.parent; for (n = W(e) ? e : e.parent; n;)
     a.unshift(n), n = n.parent; var s = Math.min(u.length, a.length), h = 0; for (; h < s && u[h] === a[h];)
     h++; if (h === 0)
-    return ee.DISCONNECTED; var b = u[h - 1], g = b.children, x = u[h], A = a[h]; return g.indexOf(x) > g.indexOf(A) ? b === e ? ee.FOLLOWING | ee.CONTAINED_BY : ee.FOLLOWING : b === t ? ee.PRECEDING | ee.CONTAINS : ee.PRECEDING; }
+    return ee.DISCONNECTED; var b = u[h - 1], p = b.children, x = u[h], A = a[h]; return p.indexOf(x) > p.indexOf(A) ? b === e ? ee.FOLLOWING | ee.CONTAINED_BY : ee.FOLLOWING : b === t ? ee.PRECEDING | ee.CONTAINS : ee.PRECEDING; }
 function uu(t) { return t = t.filter(function (e, u, a) { return !a.includes(e, u + 1); }), t.sort(function (e, u) { var a = tr(e, u); return a & ee.PRECEDING ? -1 : a & ee.FOLLOWING ? 1 : 0; }), t; }
 function ru(t) { var e = lt(Ra, t); return e ? e.name === "feed" ? Pa(e) : Ba(e) : null; }
-function Pa(t) { var e; var u = t.children, a = { type: "atom", items: xe("entry", u).map(function (h) { var b; var g = h.children, x = { media: ur(g) }; J(x, "id", "id", g), J(x, "title", "title", g); var A = (b = lt("link", g)) === null || b === void 0 ? void 0 : b.attribs.href; A && (x.link = A); var L = he("summary", g) || he("content", g); L && (x.description = L); var q = he("updated", g); return q && (x.pubDate = new Date(q)), x; }) }; J(a, "id", "id", u), J(a, "title", "title", u); var n = (e = lt("link", u)) === null || e === void 0 ? void 0 : e.attribs.href; n && (a.link = n), J(a, "description", "subtitle", u); var s = he("updated", u); return s && (a.updated = new Date(s)), J(a, "author", "email", u, !0), a; }
-function Ba(t) { var e, u; var a = (u = (e = lt("channel", t.children)) === null || e === void 0 ? void 0 : e.children) !== null && u !== void 0 ? u : [], n = { type: t.name.substr(0, 3), id: "", items: xe("item", t.children).map(function (h) { var b = h.children, g = { media: ur(b) }; J(g, "id", "guid", b), J(g, "title", "title", b), J(g, "link", "link", b), J(g, "description", "description", b); var x = he("pubDate", b) || he("dc:date", b); return x && (g.pubDate = new Date(x)), g; }) }; J(n, "title", "title", a), J(n, "link", "link", a), J(n, "description", "description", a); var s = he("lastBuildDate", a); return s && (n.updated = new Date(s)), J(n, "author", "managingEditor", a, !0), n; }
+function Pa(t) { var e; var u = t.children, a = { type: "atom", items: xe("entry", u).map(function (h) { var b; var p = h.children, x = { media: ur(p) }; J(x, "id", "id", p), J(x, "title", "title", p); var A = (b = lt("link", p)) === null || b === void 0 ? void 0 : b.attribs.href; A && (x.link = A); var L = he("summary", p) || he("content", p); L && (x.description = L); var q = he("updated", p); return q && (x.pubDate = new Date(q)), x; }) }; J(a, "id", "id", u), J(a, "title", "title", u); var n = (e = lt("link", u)) === null || e === void 0 ? void 0 : e.attribs.href; n && (a.link = n), J(a, "description", "subtitle", u); var s = he("updated", u); return s && (a.updated = new Date(s)), J(a, "author", "email", u, !0), a; }
+function Ba(t) { var e, u; var a = (u = (e = lt("channel", t.children)) === null || e === void 0 ? void 0 : e.children) !== null && u !== void 0 ? u : [], n = { type: t.name.substr(0, 3), id: "", items: xe("item", t.children).map(function (h) { var b = h.children, p = { media: ur(b) }; J(p, "id", "guid", b), J(p, "title", "title", b), J(p, "link", "link", b), J(p, "description", "description", b); var x = he("pubDate", b) || he("dc:date", b); return x && (p.pubDate = new Date(x)), p; }) }; J(n, "title", "title", a), J(n, "link", "link", a), J(n, "description", "description", a); var s = he("lastBuildDate", a); return s && (n.updated = new Date(s)), J(n, "author", "managingEditor", a, !0), n; }
 var Fa = ["url", "type", "lang"], Va = ["fileSize", "bitrate", "framerate", "samplingrate", "channels", "duration", "height", "width"];
 function ur(t) { return xe("media:content", t).map(function (e) {
     var e_4, _b, e_5, _c;
@@ -1017,11 +1017,11 @@ function nr(t, e, u) { var a = []; function n(q) { var N = e.slice(u + q).match(
     u++; } function h() { u += 1; var q = u, N = 1; for (; N > 0 && u < e.length; u++)
     e.charCodeAt(u) === 40 && !b(u) ? N++ : e.charCodeAt(u) === 41 && !b(u) && N--; if (N)
     throw new Error("Parenthesis not matched"); return $e(e.slice(q, u - 1)); } function b(q) { var N = 0; for (; e.charCodeAt(--q) === 92;)
-    N++; return (N & 1) === 1; } function g() { if (a.length > 0 && we(a[a.length - 1]))
+    N++; return (N & 1) === 1; } function p() { if (a.length > 0 && we(a[a.length - 1]))
     throw new Error("Did not expect successive traversals."); } function x(q) { if (a.length > 0 && a[a.length - 1].type === C.Descendant) {
     a[a.length - 1].type = q;
     return;
-} g(), a.push({ type: q }); } function A(q, N) { a.push({ type: C.Attribute, name: q, action: N, value: n(1), namespace: null, ignoreCase: "quirks" }); } function L() { if (a.length && a[a.length - 1].type === C.Descendant && a.pop(), a.length === 0)
+} p(), a.push({ type: q }); } function A(q, N) { a.push({ type: C.Attribute, name: q, action: N, value: n(1), namespace: null, ignoreCase: "quirks" }); } function L() { if (a.length && a[a.length - 1].type === C.Descendant && a.pop(), a.length === 0)
     throw new Error("Empty sub-selector"); t.push(a); } if (s(0), e.length === u)
     return u; e: for (; u < e.length;) {
     var q = e.charCodeAt(u);
@@ -1031,7 +1031,7 @@ function nr(t, e, u) { var a = []; function n(q) { var N = e.slice(u + q).match(
         case 10:
         case 12:
         case 13: {
-            (a.length === 0 || a[0].type !== C.Descendant) && (g(), a.push({ type: C.Descendant })), s(1);
+            (a.length === 0 || a[0].type !== C.Descendant) && (p(), a.push({ type: C.Descendant })), s(1);
             break;
         }
         case 62: {
@@ -1150,8 +1150,8 @@ function nr(t, e, u) { var a = []; function n(q) { var N = e.slice(u + q).match(
         }
     }
 } return L(), u; }
-var pu = me(pe(), 1);
-var oe = me(pe(), 1);
+var gu = me(ge(), 1);
+var oe = me(ge(), 1);
 var cr = new Map([[C.Universal, 50], [C.Tag, 30], [C.Attribute, 1], [C.Pseudo, 0]]);
 function We(t) { return !cr.has(t.type); }
 var Wa = new Map([[V.Exists, 10], [V.Equals, 8], [V.Not, 7], [V.Start, 6], [V.End, 6], [V.Any, 5]]);
@@ -1164,35 +1164,35 @@ function iu(t) { var e = t.map(or); for (var u = 1; u < t.length; u++) {
         }
 } }
 function or(t) { var e, u; var a = (e = cr.get(t.type)) !== null && e !== void 0 ? e : -1; return t.type === C.Attribute ? (a = (u = Wa.get(t.action)) !== null && u !== void 0 ? u : 4, t.action === V.Equals && t.name === "id" && (a = 9), t.ignoreCase && (a >>= 1)) : t.type === C.Pseudo && (t.data ? t.name === "has" || t.name === "contains" ? a = 0 : Array.isArray(t.data) ? (a = Math.min.apply(Math, __spreadArray([], __read(t.data.map(function (n) { return Math.min.apply(Math, __spreadArray([], __read(n.map(or)), false)); })), false)), a < 0 && (a = 0)) : a = 2 : a = 3), a; }
-var Xe = me(pe(), 1), Xa = /[-[\]{}()*+?.,\\^$|#\s]/g;
+var Xe = me(ge(), 1), Xa = /[-[\]{}()*+?.,\\^$|#\s]/g;
 function fr(t) { return t.replace(Xa, "\\$&"); }
 var Ja = new Set(["accept", "accept-charset", "align", "alink", "axis", "bgcolor", "charset", "checked", "clear", "codetype", "color", "compact", "declare", "defer", "dir", "direction", "disabled", "enctype", "face", "frame", "hreflang", "http-equiv", "lang", "language", "link", "media", "method", "multiple", "nohref", "noresize", "noshade", "nowrap", "readonly", "rel", "rev", "rules", "scope", "scrolling", "selected", "shape", "target", "text", "type", "valign", "valuetype", "vlink"]);
 function ve(t, e) { return typeof t.ignoreCase == "boolean" ? t.ignoreCase : t.ignoreCase === "quirks" ? !!e.quirksMode : !e.xmlMode && Ja.has(t.name); }
-var lr = { equals: function (t, e, u) { var a = u.adapter, n = e.name, s = e.value; return ve(e, u) ? (s = s.toLowerCase(), function (h) { var b = a.getAttributeValue(h, n); return b != null && b.length === s.length && b.toLowerCase() === s && t(h); }) : function (h) { return a.getAttributeValue(h, n) === s && t(h); }; }, hyphen: function (t, e, u) { var a = u.adapter, n = e.name, s = e.value, h = s.length; return ve(e, u) ? (s = s.toLowerCase(), function (g) { var x = a.getAttributeValue(g, n); return x != null && (x.length === h || x.charAt(h) === "-") && x.substr(0, h).toLowerCase() === s && t(g); }) : function (g) { var x = a.getAttributeValue(g, n); return x != null && (x.length === h || x.charAt(h) === "-") && x.substr(0, h) === s && t(g); }; }, element: function (t, e, u) { var a = u.adapter, n = e.name, s = e.value; if (/\s/.test(s))
-        return Xe.default.falseFunc; var h = new RegExp("(?:^|\\s)".concat(fr(s), "(?:$|\\s)"), ve(e, u) ? "i" : ""); return function (g) { var x = a.getAttributeValue(g, n); return x != null && x.length >= s.length && h.test(x) && t(g); }; }, exists: function (t, _b, _c) {
+var lr = { equals: function (t, e, u) { var a = u.adapter, n = e.name, s = e.value; return ve(e, u) ? (s = s.toLowerCase(), function (h) { var b = a.getAttributeValue(h, n); return b != null && b.length === s.length && b.toLowerCase() === s && t(h); }) : function (h) { return a.getAttributeValue(h, n) === s && t(h); }; }, hyphen: function (t, e, u) { var a = u.adapter, n = e.name, s = e.value, h = s.length; return ve(e, u) ? (s = s.toLowerCase(), function (p) { var x = a.getAttributeValue(p, n); return x != null && (x.length === h || x.charAt(h) === "-") && x.substr(0, h).toLowerCase() === s && t(p); }) : function (p) { var x = a.getAttributeValue(p, n); return x != null && (x.length === h || x.charAt(h) === "-") && x.substr(0, h) === s && t(p); }; }, element: function (t, e, u) { var a = u.adapter, n = e.name, s = e.value; if (/\s/.test(s))
+        return Xe.default.falseFunc; var h = new RegExp("(?:^|\\s)".concat(fr(s), "(?:$|\\s)"), ve(e, u) ? "i" : ""); return function (p) { var x = a.getAttributeValue(p, n); return x != null && x.length >= s.length && h.test(x) && t(p); }; }, exists: function (t, _b, _c) {
         var e = _b.name;
         var u = _c.adapter;
         return function (a) { return u.hasAttrib(a, e) && t(a); };
-    }, start: function (t, e, u) { var a = u.adapter, n = e.name, s = e.value, h = s.length; return h === 0 ? Xe.default.falseFunc : ve(e, u) ? (s = s.toLowerCase(), function (b) { var g = a.getAttributeValue(b, n); return g != null && g.length >= h && g.substr(0, h).toLowerCase() === s && t(b); }) : function (b) { var g; return !!(!((g = a.getAttributeValue(b, n)) === null || g === void 0) && g.startsWith(s)) && t(b); }; }, end: function (t, e, u) { var a = u.adapter, n = e.name, s = e.value, h = -s.length; return h === 0 ? Xe.default.falseFunc : ve(e, u) ? (s = s.toLowerCase(), function (b) { var g; return ((g = a.getAttributeValue(b, n)) === null || g === void 0 ? void 0 : g.substr(h).toLowerCase()) === s && t(b); }) : function (b) { var g; return !!(!((g = a.getAttributeValue(b, n)) === null || g === void 0) && g.endsWith(s)) && t(b); }; }, any: function (t, e, u) { var a = u.adapter, n = e.name, s = e.value; if (s === "")
+    }, start: function (t, e, u) { var a = u.adapter, n = e.name, s = e.value, h = s.length; return h === 0 ? Xe.default.falseFunc : ve(e, u) ? (s = s.toLowerCase(), function (b) { var p = a.getAttributeValue(b, n); return p != null && p.length >= h && p.substr(0, h).toLowerCase() === s && t(b); }) : function (b) { var p; return !!(!((p = a.getAttributeValue(b, n)) === null || p === void 0) && p.startsWith(s)) && t(b); }; }, end: function (t, e, u) { var a = u.adapter, n = e.name, s = e.value, h = -s.length; return h === 0 ? Xe.default.falseFunc : ve(e, u) ? (s = s.toLowerCase(), function (b) { var p; return ((p = a.getAttributeValue(b, n)) === null || p === void 0 ? void 0 : p.substr(h).toLowerCase()) === s && t(b); }) : function (b) { var p; return !!(!((p = a.getAttributeValue(b, n)) === null || p === void 0) && p.endsWith(s)) && t(b); }; }, any: function (t, e, u) { var a = u.adapter, n = e.name, s = e.value; if (s === "")
         return Xe.default.falseFunc; if (ve(e, u)) {
         var h_1 = new RegExp(fr(s), "i");
-        return function (g) { var x = a.getAttributeValue(g, n); return x != null && x.length >= s.length && h_1.test(x) && t(g); };
+        return function (p) { var x = a.getAttributeValue(p, n); return x != null && x.length >= s.length && h_1.test(x) && t(p); };
     } return function (h) { var b; return !!(!((b = a.getAttributeValue(h, n)) === null || b === void 0) && b.includes(s)) && t(h); }; }, not: function (t, e, u) { var a = u.adapter, n = e.name, s = e.value; return s === "" ? function (h) { return !!a.getAttributeValue(h, n) && t(h); } : ve(e, u) ? (s = s.toLowerCase(), function (h) { var b = a.getAttributeValue(h, n); return (b == null || b.length !== s.length || b.toLowerCase() !== s) && t(h); }) : function (h) { return a.getAttributeValue(h, n) !== s && t(h); }; } };
 var Qa = new Set([9, 10, 12, 13, 32]), dr = 48, Za = 57;
 function hr(t) { if (t = t.trim().toLowerCase(), t === "even")
     return [2, 0]; if (t === "odd")
     return [2, 1]; var e = 0, u = 0, a = s(), n = h(); if (e < t.length && t.charAt(e) === "n" && (e++, u = a * (n != null ? n : 1), b(), e < t.length ? (a = s(), b(), n = h()) : a = n = 0), n === null || e < t.length)
-    throw new Error("n-th rule couldn't be parsed ('".concat(t, "')")); return [u, a * n]; function s() { return t.charAt(e) === "-" ? (e++, -1) : (t.charAt(e) === "+" && e++, 1); } function h() { var g = e, x = 0; for (; e < t.length && t.charCodeAt(e) >= dr && t.charCodeAt(e) <= Za;)
-    x = x * 10 + (t.charCodeAt(e) - dr), e++; return e === g ? null : x; } function b() { for (; e < t.length && Qa.has(t.charCodeAt(e));)
+    throw new Error("n-th rule couldn't be parsed ('".concat(t, "')")); return [u, a * n]; function s() { return t.charAt(e) === "-" ? (e++, -1) : (t.charAt(e) === "+" && e++, 1); } function h() { var p = e, x = 0; for (; e < t.length && t.charCodeAt(e) >= dr && t.charCodeAt(e) <= Za;)
+    x = x * 10 + (t.charCodeAt(e) - dr), e++; return e === p ? null : x; } function b() { for (; e < t.length && Qa.has(t.charCodeAt(e));)
     e++; } }
-var nu = me(pe(), 1);
+var nu = me(ge(), 1);
 function br(t) { var e = t[0], u = t[1] - 1; if (u < 0 && e <= 0)
     return nu.default.falseFunc; if (e === -1)
     return function (s) { return s <= u; }; if (e === 0)
     return function (s) { return s === u; }; if (e === 1)
     return u < 0 ? nu.default.trueFunc : function (s) { return s >= u; }; var a = Math.abs(e), n = (u % a + a) % a; return e > 1 ? function (s) { return s >= u && s % a === n; } : function (s) { return s <= u && s % a === n; }; }
 function Oe(t) { return br(hr(t)); }
-var Q = me(pe(), 1);
+var Q = me(ge(), 1);
 function dt(t, e) { return function (u) { var a = e.getParent(u); return a != null && e.isTag(a) && t(u); }; }
 var Ue = { contains: function (t, e, _b) {
         var u = _b.adapter;
@@ -1204,31 +1204,31 @@ var Ue = { contains: function (t, e, _b) {
     }, "nth-child": function (t, e, _b) {
         var u = _b.adapter, a = _b.equals;
         var n = Oe(e);
-        return n === Q.default.falseFunc ? Q.default.falseFunc : n === Q.default.trueFunc ? dt(t, u) : function (h) { var b = u.getSiblings(h), g = 0; for (var x = 0; x < b.length && !a(h, b[x]); x++)
-            u.isTag(b[x]) && g++; return n(g) && t(h); };
+        return n === Q.default.falseFunc ? Q.default.falseFunc : n === Q.default.trueFunc ? dt(t, u) : function (h) { var b = u.getSiblings(h), p = 0; for (var x = 0; x < b.length && !a(h, b[x]); x++)
+            u.isTag(b[x]) && p++; return n(p) && t(h); };
     }, "nth-last-child": function (t, e, _b) {
         var u = _b.adapter, a = _b.equals;
         var n = Oe(e);
-        return n === Q.default.falseFunc ? Q.default.falseFunc : n === Q.default.trueFunc ? dt(t, u) : function (h) { var b = u.getSiblings(h), g = 0; for (var x = b.length - 1; x >= 0 && !a(h, b[x]); x--)
-            u.isTag(b[x]) && g++; return n(g) && t(h); };
+        return n === Q.default.falseFunc ? Q.default.falseFunc : n === Q.default.trueFunc ? dt(t, u) : function (h) { var b = u.getSiblings(h), p = 0; for (var x = b.length - 1; x >= 0 && !a(h, b[x]); x--)
+            u.isTag(b[x]) && p++; return n(p) && t(h); };
     }, "nth-of-type": function (t, e, _b) {
         var u = _b.adapter, a = _b.equals;
         var n = Oe(e);
-        return n === Q.default.falseFunc ? Q.default.falseFunc : n === Q.default.trueFunc ? dt(t, u) : function (h) { var b = u.getSiblings(h), g = 0; for (var x = 0; x < b.length; x++) {
+        return n === Q.default.falseFunc ? Q.default.falseFunc : n === Q.default.trueFunc ? dt(t, u) : function (h) { var b = u.getSiblings(h), p = 0; for (var x = 0; x < b.length; x++) {
             var A = b[x];
             if (a(h, A))
                 break;
-            u.isTag(A) && u.getName(A) === u.getName(h) && g++;
-        } return n(g) && t(h); };
+            u.isTag(A) && u.getName(A) === u.getName(h) && p++;
+        } return n(p) && t(h); };
     }, "nth-last-of-type": function (t, e, _b) {
         var u = _b.adapter, a = _b.equals;
         var n = Oe(e);
-        return n === Q.default.falseFunc ? Q.default.falseFunc : n === Q.default.trueFunc ? dt(t, u) : function (h) { var b = u.getSiblings(h), g = 0; for (var x = b.length - 1; x >= 0; x--) {
+        return n === Q.default.falseFunc ? Q.default.falseFunc : n === Q.default.trueFunc ? dt(t, u) : function (h) { var b = u.getSiblings(h), p = 0; for (var x = b.length - 1; x >= 0; x--) {
             var A = b[x];
             if (a(h, A))
                 break;
-            u.isTag(A) && u.getName(A) === u.getName(h) && g++;
-        } return n(g) && t(h); };
+            u.isTag(A) && u.getName(A) === u.getName(h) && p++;
+        } return n(p) && t(h); };
     }, root: function (t, e, _b) {
         var u = _b.adapter;
         return function (a) { var n = u.getParent(a); return (n == null || !u.isTag(n)) && t(a); };
@@ -1294,35 +1294,35 @@ function cu(t, e, u, a) { if (u === null) {
 else if (t.length === a)
     throw new Error("Pseudo-class :".concat(e, " doesn't have any arguments")); }
 var ht = { "any-link": ":is(a, area, link)[href]", link: ":any-link:not(:visited)", disabled: ":is(\n        :is(button, input, select, textarea, optgroup, option)[disabled],\n        optgroup[disabled] > option,\n        fieldset[disabled]:not(fieldset[disabled] legend:first-of-type *)\n    )", enabled: ":not(:disabled)", checked: ":is(:is(input[type=radio], input[type=checkbox])[checked], option:selected)", required: ":is(input, select, textarea)[required]", optional: ":is(input, select, textarea):not([required])", selected: "option:is([selected], select:not([multiple]):not(:has(> option[selected])) > :first-of-type)", checkbox: "[type=checkbox]", file: "[type=file]", password: "[type=password]", radio: "[type=radio]", reset: "[type=reset]", image: "[type=image]", submit: "[type=submit]", parent: ":not(:empty)", header: ":is(h1, h2, h3, h4, h5, h6)", button: ":is(button, input[type=button])", input: ":is(input, textarea, select, button)", text: "input:is(:not([type!='']), [type=text])" };
-var te = me(pe(), 1);
+var te = me(ge(), 1);
 var lu = {};
 function du(t, e) { return t === te.default.falseFunc ? te.default.falseFunc : function (u) { return e.isTag(u) && t(u); }; }
 function hu(t, e) { var u = e.getSiblings(t); if (u.length <= 1)
     return []; var a = u.indexOf(t); return a < 0 || a === u.length - 1 ? [] : u.slice(a + 1).filter(e.isTag); }
 function fu(t) { return { xmlMode: !!t.xmlMode, lowerCaseAttributeNames: !!t.lowerCaseAttributeNames, lowerCaseTags: !!t.lowerCaseTags, quirksMode: !!t.quirksMode, cacheResults: !!t.cacheResults, pseudos: t.pseudos, adapter: t.adapter, equals: t.equals }; }
-var ou = function (t, e, u, a, n) { var s = n(e, fu(u), a); return s === te.default.trueFunc ? t : s === te.default.falseFunc ? te.default.falseFunc : function (h) { return s(h) && t(h); }; }, bt = { is: ou, matches: ou, where: ou, not: function (t, e, u, a, n) { var s = n(e, fu(u), a); return s === te.default.falseFunc ? t : s === te.default.trueFunc ? te.default.falseFunc : function (h) { return !s(h) && t(h); }; }, has: function (t, e, u, a, n) { var s = u.adapter, h = fu(u); h.relativeSelector = !0; var b = e.some(function (A) { return A.some(We); }) ? [lu] : void 0, g = n(e, h, b); if (g === te.default.falseFunc)
-        return te.default.falseFunc; var x = du(g, s); if (b && g !== te.default.trueFunc) {
-        var _b = g.shouldTestNextSiblings, A_1 = _b === void 0 ? !1 : _b;
+var ou = function (t, e, u, a, n) { var s = n(e, fu(u), a); return s === te.default.trueFunc ? t : s === te.default.falseFunc ? te.default.falseFunc : function (h) { return s(h) && t(h); }; }, bt = { is: ou, matches: ou, where: ou, not: function (t, e, u, a, n) { var s = n(e, fu(u), a); return s === te.default.falseFunc ? t : s === te.default.trueFunc ? te.default.falseFunc : function (h) { return !s(h) && t(h); }; }, has: function (t, e, u, a, n) { var s = u.adapter, h = fu(u); h.relativeSelector = !0; var b = e.some(function (A) { return A.some(We); }) ? [lu] : void 0, p = n(e, h, b); if (p === te.default.falseFunc)
+        return te.default.falseFunc; var x = du(p, s); if (b && p !== te.default.trueFunc) {
+        var _b = p.shouldTestNextSiblings, A_1 = _b === void 0 ? !1 : _b;
         return function (L) { if (!t(L))
             return !1; b[0] = L; var q = s.getChildren(L), N = A_1 ? __spreadArray(__spreadArray([], __read(q), false), __read(hu(L, s)), false) : q; return s.existsOne(x, N); };
     } return function (A) { return t(A) && s.existsOne(x, s.getChildren(A)); }; } };
-function pr(t, e, u, a, n) { var s; var h = e.name, b = e.data; if (Array.isArray(b)) {
+function gr(t, e, u, a, n) { var s; var h = e.name, b = e.data; if (Array.isArray(b)) {
     if (!(h in bt))
         throw new Error("Unknown pseudo-class :".concat(h, "(").concat(b, ")"));
     return bt[h](t, b, u, a, n);
-} var g = (s = u.pseudos) === null || s === void 0 ? void 0 : s[h], x = typeof g == "string" ? g : ht[h]; if (typeof x == "string") {
+} var p = (s = u.pseudos) === null || s === void 0 ? void 0 : s[h], x = typeof p == "string" ? p : ht[h]; if (typeof x == "string") {
     if (b != null)
         throw new Error("Pseudo ".concat(h, " doesn't have any arguments"));
     var A = be(x);
     return bt.is(t, A, u, a, n);
-} if (typeof g == "function")
-    return cu(g, h, b, 1), function (A) { return g(A, b) && t(A); }; if (h in Ue)
+} if (typeof p == "function")
+    return cu(p, h, b, 1), function (A) { return p(A, b) && t(A); }; if (h in Ue)
     return Ue[h](t, b, u, a); if (h in Je) {
     var A_2 = Je[h];
     return cu(A_2, h, b, 2), function (L) { return A_2(L, u, b) && t(L); };
 } throw new Error("Unknown pseudo-class :".concat(h)); }
 function bu(t, e) { var u = e.getParent(t); return u && e.isTag(u) ? u : null; }
-function gr(t, e, u, a, n) { var s = u.adapter, h = u.equals; switch (e.type) {
+function pr(t, e, u, a, n) { var s = u.adapter, h = u.equals; switch (e.type) {
     case C.PseudoElement: throw new Error("Pseudo-elements are not supported by css-select");
     case C.ColumnCombinator: throw new Error("Column combinators are not yet supported by css-select");
     case C.Attribute: {
@@ -1330,7 +1330,7 @@ function gr(t, e, u, a, n) { var s = u.adapter, h = u.equals; switch (e.type) {
             throw new Error("Namespaced attributes are not yet supported by css-select");
         return (!u.xmlMode || u.lowerCaseAttributeNames) && (e.name = e.name.toLowerCase()), lr[e.action](t, e, u);
     }
-    case C.Pseudo: return pr(t, e, u, a, n);
+    case C.Pseudo: return gr(t, e, u, a, n);
     case C.Tag: {
         if (e.namespace != null)
             throw new Error("Namespaced tag names are not yet supported by css-select");
@@ -1350,22 +1350,22 @@ function gr(t, e, u, a, n) { var s = u.adapter, h = u.equals; switch (e.type) {
                 b_2.add(A);
             } return !1; };
     }
-    case "_flexibleDescendant": return function (g) { var x = g; do
+    case "_flexibleDescendant": return function (p) { var x = p; do
         if (t(x))
             return !0;
     while (x = bu(x, s)); return !1; };
-    case C.Parent: return function (g) { return s.getChildren(g).some(function (x) { return s.isTag(x) && t(x); }); };
-    case C.Child: return function (g) { var x = s.getParent(g); return x != null && s.isTag(x) && t(x); };
-    case C.Sibling: return function (g) { var x = s.getSiblings(g); for (var A = 0; A < x.length; A++) {
+    case C.Parent: return function (p) { return s.getChildren(p).some(function (x) { return s.isTag(x) && t(x); }); };
+    case C.Child: return function (p) { var x = s.getParent(p); return x != null && s.isTag(x) && t(x); };
+    case C.Sibling: return function (p) { var x = s.getSiblings(p); for (var A = 0; A < x.length; A++) {
         var L = x[A];
-        if (h(g, L))
+        if (h(p, L))
             break;
         if (s.isTag(L) && t(L))
             return !0;
     } return !1; };
-    case C.Adjacent: return s.prevElementSibling ? function (g) { var x = s.prevElementSibling(g); return x != null && t(x); } : function (g) { var x = s.getSiblings(g), A; for (var L = 0; L < x.length; L++) {
+    case C.Adjacent: return s.prevElementSibling ? function (p) { var x = s.prevElementSibling(p); return x != null && t(x); } : function (p) { var x = s.getSiblings(p), A; for (var L = 0; L < x.length; L++) {
         var q = x[L];
-        if (h(g, q))
+        if (h(p, q))
             break;
         s.isTag(q) && (A = q);
     } return !!A && t(A); };
@@ -1375,8 +1375,8 @@ function gr(t, e, u, a, n) { var s = u.adapter, h = u.equals; switch (e.type) {
         return t;
     }
 } }
-function mr(t, e, u) { var a = pt(t, e, u); return du(a, e.adapter); }
-function pt(t, e, u) { var a = typeof t == "string" ? be(t) : t; return gt(a, e, u); }
+function mr(t, e, u) { var a = gt(t, e, u); return du(a, e.adapter); }
+function gt(t, e, u) { var a = typeof t == "string" ? be(t) : t; return pt(a, e, u); }
 function xr(t) { return t.type === C.Pseudo && (t.name === "scope" || Array.isArray(t.data) && t.data.some(function (e) { return e.some(xr); })); }
 var Ka = { type: C.Descendant }, Ya = { type: "_flexibleDescendant" }, ei = { type: C.Pseudo, name: "scope", data: null };
 function ti(t, _b, u) {
@@ -1402,20 +1402,20 @@ function ti(t, _b, u) {
         finally { if (e_6) throw e_6.error; }
     }
 }
-function gt(t, e, u) { var a; t.forEach(iu), u = (a = e.context) !== null && a !== void 0 ? a : u; var n = Array.isArray(u), s = u && (Array.isArray(u) ? u : [u]); if (e.relativeSelector !== !1)
+function pt(t, e, u) { var a; t.forEach(iu), u = (a = e.context) !== null && a !== void 0 ? a : u; var n = Array.isArray(u), s = u && (Array.isArray(u) ? u : [u]); if (e.relativeSelector !== !1)
     ti(t, e, s);
-else if (t.some(function (g) { return g.length > 0 && We(g[0]); }))
-    throw new Error("Relative selectors are not allowed when the `relativeSelector` option is disabled"); var h = !1, b = t.map(function (g) { if (g.length >= 2) {
-    var _b = __read(g, 2), x = _b[0], A = _b[1];
-    x.type !== C.Pseudo || x.name !== "scope" || (n && A.type === C.Descendant ? g[1] = Ya : (A.type === C.Adjacent || A.type === C.Sibling) && (h = !0));
-} return ui(g, e, s); }).reduce(ri, oe.default.falseFunc); return b.shouldTestNextSiblings = h, b; }
-function ui(t, e, u) { var a; return t.reduce(function (n, s) { return n === oe.default.falseFunc ? oe.default.falseFunc : gr(n, s, e, u, gt); }, (a = e.rootFunc) !== null && a !== void 0 ? a : oe.default.trueFunc); }
+else if (t.some(function (p) { return p.length > 0 && We(p[0]); }))
+    throw new Error("Relative selectors are not allowed when the `relativeSelector` option is disabled"); var h = !1, b = t.map(function (p) { if (p.length >= 2) {
+    var _b = __read(p, 2), x = _b[0], A = _b[1];
+    x.type !== C.Pseudo || x.name !== "scope" || (n && A.type === C.Descendant ? p[1] = Ya : (A.type === C.Adjacent || A.type === C.Sibling) && (h = !0));
+} return ui(p, e, s); }).reduce(ri, oe.default.falseFunc); return b.shouldTestNextSiblings = h, b; }
+function ui(t, e, u) { var a; return t.reduce(function (n, s) { return n === oe.default.falseFunc ? oe.default.falseFunc : pr(n, s, e, u, pt); }, (a = e.rootFunc) !== null && a !== void 0 ? a : oe.default.trueFunc); }
 function ri(t, e) { return e === oe.default.falseFunc || t === oe.default.trueFunc ? t : t === oe.default.falseFunc || e === oe.default.trueFunc ? e : function (a) { return t(a) || e(a); }; }
 var wr = function (t, e) { return t === e; }, ai = { adapter: ae, equals: wr };
 function vr(t) { var e, u, a, n; var s = t != null ? t : ai; return (e = s.adapter) !== null && e !== void 0 || (s.adapter = ae), (u = s.equals) !== null && u !== void 0 || (s.equals = (n = (a = s.adapter) === null || a === void 0 ? void 0 : a.equals) !== null && n !== void 0 ? n : wr), s; }
-function gu(t) { return function (u, a, n) { var s = vr(a); return t(u, s, n); }; }
-var Cn = gu(mr), Dn = gu(pt), mt = gu(gt);
-function yr(t) { return function (u, a, n) { var s = vr(n); typeof u != "function" && (u = pt(u, s, a)); var h = xt(a, s.adapter, u.shouldTestNextSiblings); return t(u, h, s); }; }
+function pu(t) { return function (u, a, n) { var s = vr(a); return t(u, s, n); }; }
+var Cn = pu(mr), Dn = pu(gt), mt = pu(pt);
+function yr(t) { return function (u, a, n) { var s = vr(n); typeof u != "function" && (u = gt(u, s, a)); var h = xt(a, s.adapter, u.shouldTestNextSiblings); return t(u, h, s); }; }
 function xt(t, e, u) {
     if (u === void 0) { u = !1; }
     return u && (t = ii(t, e)), Array.isArray(t) ? e.removeSubsets(t) : e.getChildren(t);
@@ -1424,8 +1424,8 @@ function ii(t, e) { var u = Array.isArray(t) ? t.slice(0) : [t], a = u.length; f
     var s = hu(u[n], e);
     u.push.apply(u, __spreadArray([], __read(s), false));
 } return u; }
-var Ln = yr(function (t, e, u) { return t === pu.default.falseFunc || !e || e.length === 0 ? [] : u.adapter.findAll(t, e); }), In = yr(function (t, e, u) { return t === pu.default.falseFunc || !e || e.length === 0 ? null : u.adapter.findOne(t, e); });
-var vt = me(pe(), 1);
+var Ln = yr(function (t, e, u) { return t === gu.default.falseFunc || !e || e.length === 0 ? [] : u.adapter.findAll(t, e); }), In = yr(function (t, e, u) { return t === gu.default.falseFunc || !e || e.length === 0 ? null : u.adapter.findOne(t, e); });
+var vt = me(ge(), 1);
 var ni = new Set(["first", "last", "eq", "gt", "nth", "lt", "even", "odd"]);
 function Me(t) { return t.type !== "pseudo" ? !1 : ni.has(t.name) ? !0 : t.name === "not" && Array.isArray(t.data) ? t.data.some(function (e) { return e.some(Me); }) : !1; }
 function Sr(t, e, u) { var a = e != null ? parseInt(e, 10) : NaN; switch (t) {
@@ -1506,7 +1506,7 @@ function li(t, e, u) { if (e.length === 0)
         }
 } return typeof s != "undefined" ? s.size === e.length ? e : e.filter(function (h) { return s.has(h); }) : []; }
 function Er(t, e, u) { var a; if (t.some(we)) {
-    var n = (a = u.root) !== null && a !== void 0 ? a : Ar(e[0]), s = ge(ue({}, u), { context: e, relativeSelector: !1 });
+    var n = (a = u.root) !== null && a !== void 0 ? a : Ar(e[0]), s = pe(ue({}, u), { context: e, relativeSelector: !1 });
     return t.push(ci), yt(n, t, s, !0, e.length);
 } return yt(e, t, u, !1, e.length); }
 function vu(t, e, u, a) {
@@ -1515,19 +1515,19 @@ function vu(t, e, u, a) {
     if (typeof t == "function")
         return kr(e, t);
     var _b = __read(wt(be(t)), 2), n = _b[0], s = _b[1], h = s.map(function (b) { return yt(e, b, u, !0, a); });
-    return n.length && h.push(mu(e, n, u, a)), h.length === 0 ? [] : h.length === 1 ? h[0] : uu(h.reduce(function (b, g) { return __spreadArray(__spreadArray([], __read(b), false), __read(g), false); }));
+    return n.length && h.push(mu(e, n, u, a)), h.length === 0 ? [] : h.length === 1 ? h[0] : uu(h.reduce(function (b, p) { return __spreadArray(__spreadArray([], __read(b), false), __read(p), false); }));
 }
-function yt(t, e, u, a, n) { var s = e.findIndex(Me), h = e.slice(0, s), b = e[s], g = e.length - 1 === s ? n : 1 / 0, x = Sr(b.name, b.data, g); if (x === 0)
+function yt(t, e, u, a, n) { var s = e.findIndex(Me), h = e.slice(0, s), b = e[s], p = e.length - 1 === s ? n : 1 / 0, x = Sr(b.name, b.data, p); if (x === 0)
     return []; var L = (h.length === 0 && !Array.isArray(t) ? nt(t).filter(M) : h.length === 0 ? (Array.isArray(t) ? t : [t]).filter(M) : a || h.some(we) ? mu(t, [h], u, x) : xu(t, [h], u)).slice(0, x), q = fi(b.name, L, b.data, u); if (q.length === 0 || e.length === s + 1)
     return q; var N = e.slice(s + 1), I = N.some(we); if (I) {
     if (we(N[0])) {
         var U = N[0].type;
         (U === C.Sibling || U === C.Adjacent) && (q = xt(q, ae, !0)), N.unshift(si);
     }
-    u = ge(ue({}, u), { relativeSelector: !1, rootFunc: function (U) { return q.includes(U); } });
+    u = pe(ue({}, u), { relativeSelector: !1, rootFunc: function (U) { return q.includes(U); } });
 }
 else
-    u.rootFunc && u.rootFunc !== vt.trueFunc && (u = ge(ue({}, u), { rootFunc: vt.trueFunc })); return N.some(Me) ? yt(q, N, u, !1, n) : I ? mu(q, [N], u, n) : xu(q, [N], u); }
+    u.rootFunc && u.rootFunc !== vt.trueFunc && (u = pe(ue({}, u), { rootFunc: vt.trueFunc })); return N.some(Me) ? yt(q, N, u, !1, n) : I ? mu(q, [N], u, n) : xu(q, [N], u); }
 function mu(t, e, u, a) { var n = mt(e, u, t); return kr(t, n, a); }
 function kr(t, e, u) {
     if (u === void 0) { u = 1 / 0; }
@@ -1829,8 +1829,8 @@ function Ur(t, e) { var u = new Set((e || ["p", "br", "b", "i", "em", "strong", 
                 var b = (h.children || []).slice();
                 try {
                     for (var b_3 = (e_18 = void 0, __values(b)), b_3_1 = b_3.next(); !b_3_1.done; b_3_1 = b_3.next()) {
-                        var g = b_3_1.value;
-                        eu(h, g);
+                        var p = b_3_1.value;
+                        eu(h, p);
                     }
                 }
                 catch (e_18_1) { e_18 = { error: e_18_1 }; }
@@ -1857,7 +1857,7 @@ function bi(t) { if (typeof Buffer != "undefined")
     return Buffer.from(t).toString("base64"); var e = ""; for (var u = 0; u < t.length; u++)
     e += String.fromCharCode(t[u]); return qr(e); }
 function Mr(t) { return typeof TextEncoder != "undefined" ? new TextEncoder().encode(t) : Uint8Array.from(unescape(encodeURIComponent(t)), function (e) { return e.charCodeAt(0); }); }
-function pi(t) { var e = ""; for (var u = 0; u < t.length; u++) {
+function gi(t) { var e = ""; for (var u = 0; u < t.length; u++) {
     var a = t.charCodeAt(u);
     if (a < 128) {
         e += t[u];
@@ -1879,7 +1879,7 @@ var Tu = (function () {
         try {
             return new TextDecoder(String(e).toLowerCase()).decode(this._raw.bytes);
         }
-        catch (a) { } var u = this._raw.text == null ? "" : String(this._raw.text); return e || (e = (String(this.header("content-type") || "").match(/charset=([\w-]+)/i) || [])[1]), e && /^(gbk|gb2312|gb18030)$/i.test(String(e)) && typeof __GBK_TABLE == "string" && /[\x80-\xff]/.test(u) && !/[^\x00-\xff]/.test(u) ? pi(u) : u; };
+        catch (a) { } var u = this._raw.text == null ? "" : String(this._raw.text); return e || (e = (String(this.header("content-type") || "").match(/charset=([\w-]+)/i) || [])[1]), e && /^(gbk|gb2312|gb18030)$/i.test(String(e)) && typeof __GBK_TABLE == "string" && /[\x80-\xff]/.test(u) && !/[^\x00-\xff]/.test(u) ? gi(u) : u; };
     Tu.prototype.string = function (e) { return this.text(e); };
     Tu.prototype.html = function (e) { return Tt(this.text(e), this.url); };
     Tu.prototype.json = function () { try {
@@ -1892,7 +1892,7 @@ var Tu = (function () {
     Tu.prototype.blob = function () { var e = this; return { size: (this._raw.bytes || Mr(this.text())).length, type: this.header("content-type"), base64: function () { return e.base64(); } }; };
     return Tu;
 }());
-function gi(t) {
+function pi(t) {
     var e_19, _b;
     var e = {};
     if (!t)
@@ -1914,22 +1914,22 @@ function gi(t) {
     }
     return e;
 }
-function Pr(t, e) { var u = function (h) { return ({ getItem: function (b) { var g = t.storageGet(h + b); return g == null ? null : g; }, setItem: function (b, g) { return t.storageSet(h + b, g == null ? null : String(g)); }, removeItem: function (b) { return t.storageSet(h + b, null); }, clear: function () { return t.storageClear && t.storageClear(h); } }); }, a = "__cookie__", n = {}; n.Response = { success: function (h, b) { return ({ code: 0, data: h === void 0 ? null : h, data2: b === void 0 ? null : b }); }, error: function (h) { return ({ code: 1, data: h == null ? "" : String(h) }); } }, n.fetch = function (b, g) {
+function Pr(t, e) { var u = function (h) { return ({ getItem: function (b) { var p = t.storageGet(h + b); return p == null ? null : p; }, setItem: function (b, p) { return t.storageSet(h + b, p == null ? null : String(p)); }, removeItem: function (b) { return t.storageSet(h + b, null); }, clear: function () { return t.storageClear && t.storageClear(h); } }); }, a = "__cookie__", n = {}; n.Response = { success: function (h, b) { return ({ code: 0, data: h === void 0 ? null : h, data2: b === void 0 ? null : b }); }, error: function (h) { return ({ code: 1, data: h == null ? "" : String(h) }); } }, n.fetch = function (b, p) {
     return __awaiter(this, void 0, void 0, function () { var x, U, A, L, q, U, N, I, U_1; return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                g = g || {};
+                p = p || {};
                 x = String(b);
-                if (g.queries) {
-                    U = Object.entries(g.queries).map(function (_b) {
+                if (p.queries) {
+                    U = Object.entries(p.queries).map(function (_b) {
                         var _c = __read(_b, 2), X = _c[0], Z = _c[1];
                         return encodeURIComponent(X) + "=" + encodeURIComponent(Z);
                     }).join("&");
                     U && (x += (x.includes("?") ? "&" : "?") + U);
                 }
-                A = Object.assign({ "User-Agent": qt }, gi(g.headers)), L = t.storageGet(a);
+                A = Object.assign({ "User-Agent": qt }, pi(p.headers)), L = t.storageGet(a);
                 L && !Object.keys(A).some(function (U) { return U.toLowerCase() === "cookie"; }) && (A.Cookie = L);
-                q = g.body;
+                q = p.body;
                 if (q != null && typeof q == "object") {
                     U = Object.keys(A).find(function (X) { return X.toLowerCase() === "content-type"; });
                     U && /json/i.test(A[U]) ? q = JSON.stringify(q) : (q = Object.entries(q).map(function (_b) {
@@ -1937,7 +1937,7 @@ function Pr(t, e) { var u = function (h) { return ({ getItem: function (b) { var
                         return encodeURIComponent(X) + "=" + encodeURIComponent(Z);
                     }).join("&"), U || (A["Content-Type"] = "application/x-www-form-urlencoded"));
                 }
-                N = { url: x, method: (g.method || (q != null ? "POST" : "GET")).toUpperCase(), headers: A, body: q, timeout: g.timeout };
+                N = { url: x, method: (p.method || (q != null ? "POST" : "GET")).toUpperCase(), headers: A, body: q, timeout: p.timeout };
                 _b.label = 1;
             case 1:
                 _b.trys.push([1, 3, , 4]);
@@ -2026,7 +2026,7 @@ var F = function (t) { return t == null ? "" : String(t); }, mi = function (t) {
                         a = this.scripts[e];
                         if (!a)
                             throw new Error("script " + e + " missing");
-                        n = function (b) { var g = _this.host.config(b); return g == null ? (_this.meta.configDefaults || {})[b] : g; };
+                        n = function (b) { var p = _this.host.config(b); return p == null ? (_this.meta.configDefaults || {})[b] : p; };
                         return [4, a(this.env, n)];
                     case 1:
                         s = _b.sent();
@@ -2086,7 +2086,7 @@ var F = function (t) { return t == null ? "" : String(t); }, mi = function (t) {
     };
     class_1.prototype.list = function (e, u, a) {
         return __awaiter(this, void 0, void 0, function () {
-            var n, s, h, b, g;
+            var n, s, h, b, p;
             var _this = this;
             return __generator(this, function (_b) {
                 switch (_b.label) {
@@ -2100,8 +2100,8 @@ var F = function (t) { return t == null ? "" : String(t); }, mi = function (t) {
                     case 1:
                         h = _b.sent(), b = F(h.data2);
                         b && (this.tokens[n + "|" + (a + 1)] = b);
-                        g = (h.data || []).filter(Boolean).map(function (x) { return ({ name: F(x.name).trim(), link: Se(x.host || _this.base + "/", x.link), cover: Se(x.host || _this.base + "/", x.cover), description: F(x.description), tag: F(x.tag) }); }).filter(function (x) { return x.name && x.link; });
-                        return [2, { items: g, hasNext: !!b && g.length > 0 }];
+                        p = (h.data || []).filter(Boolean).map(function (x) { return ({ name: F(x.name).trim(), link: Se(x.host || _this.base + "/", x.link), cover: Se(x.host || _this.base + "/", x.cover), description: F(x.description), tag: F(x.tag) }); }).filter(function (x) { return x.name && x.link; });
+                        return [2, { items: p, hasNext: !!b && p.length > 0 }];
                 }
             });
         });
@@ -2270,7 +2270,7 @@ var F = function (t) { return t == null ? "" : String(t); }, mi = function (t) {
                         try {
                             for (h_2 = (e_22 = void 0, __values(h)), h_2_1 = h_2.next(); !h_2_1.done; h_2_1 = h_2.next()) {
                                 b = h_2_1.value;
-                                !b || !b.data || b.type !== "webview" && a.push({ url: Se(b.host || this.base + "/", b.data), quality: n.title + (b.quality ? " " + b.quality : ""), headers: b.headers || { Referer: this.base + "/" }, subtitles: (b.subtitles || (b.subtitle ? [{ data: b.subtitle, label: "Sub" }] : [])).map(function (g) { return ({ file: Se(_this.base + "/", g.data || g.file), label: F(g.label || g.language || "Sub") }); }), mimeType: F(b.mimeType) });
+                                !b || !b.data || b.type !== "webview" && a.push({ url: Se(b.host || this.base + "/", b.data), quality: n.title + (b.quality ? " " + b.quality : ""), headers: b.headers || { Referer: this.base + "/" }, subtitles: (b.subtitles || (b.subtitle ? [{ data: b.subtitle, label: "Sub" }] : [])).map(function (p) { return ({ file: Se(_this.base + "/", p.data || p.file), label: F(p.label || p.language || "Sub") }); }), mimeType: F(b.mimeType) });
                             }
                         }
                         catch (e_22_1) { e_22 = { error: e_22_1 }; }
@@ -2332,7 +2332,7 @@ function z(t, e) {
 }
 var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type: "novel", locale: "zh-CN", nsfw: !1, version: 1, config: { DOMAIN: { title: "Tên miền", subtitle: "Đổi khi trang đổi tên miền", default: "https://www.deqixs.org", values: ["https://www.deqixs.org", "https://www.deqixss.com"], mode: "select", format: "single" } }, configDefaults: { DOMAIN: "https://www.deqixs.org" }, itemType: 2, lnId: "kiritokmn.deqixs", lnIcon: "", lnVersion: "1.1.1" }, Fr = { home: function (t, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, a, n, s, h, b, g, x, A, L, q, N, I, U, X, Z, ne) {
+            return [2, (function (u, a, n, s, h, b, p, x, A, L, q, N, I, U, X, Z, ne) {
                     return __awaiter(this, void 0, void 0, function () { var R; return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0:
@@ -2377,7 +2377,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         }
                                                     }); });
                                                 }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, _b; return __generator(this, function (_c) {
+                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, g, _b; return __generator(this, function (_c) {
                                                         switch (_c.label) {
                                                             case 0:
                                                                 i = i || {};
@@ -2387,10 +2387,10 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                         o[l] = i.headers[l];
                                                                 return [4, u(r, { method: i.method, headers: o, body: i.body })];
                                                             case 1:
-                                                                f = _c.sent(), p = 0;
+                                                                f = _c.sent(), g = 0;
                                                                 _c.label = 2;
                                                             case 2:
-                                                                _b = f && f.status === 429 && p < 3;
+                                                                _b = f && f.status === 429 && g < 3;
                                                                 if (!_b) return [3, 4];
                                                                 return [4, d.cf(f)];
                                                             case 3:
@@ -2398,7 +2398,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 _c.label = 4;
                                                             case 4:
                                                                 if (!_b) return [3, 8];
-                                                                return [4, A(1500 * (p + 1))];
+                                                                return [4, A(1500 * (g + 1))];
                                                             case 5:
                                                                 _c.sent();
                                                                 return [4, u(r, { method: i.method, headers: o, body: i.body })];
@@ -2406,7 +2406,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 f = _c.sent();
                                                                 _c.label = 7;
                                                             case 7:
-                                                                p++;
+                                                                g++;
                                                                 return [3, 2];
                                                             case 8: return [2, f];
                                                         }
@@ -2469,7 +2469,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         }
                                                     }); });
                                                 }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, m = { pick: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v, k, _b, _c; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, g, w, y, v, k, _b, _c; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
                                                                 if (!i || !r)
@@ -2478,23 +2478,23 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 _d.label = 1;
                                                             case 1:
                                                                 if (!(l < o.length)) return [3, 9];
-                                                                f = o[l], p = "text", w = f.lastIndexOf("@");
-                                                                w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (p = f.slice(w + 1), f = f.slice(0, w));
+                                                                f = o[l], g = "text", w = f.lastIndexOf("@");
+                                                                w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (g = f.slice(w + 1), f = f.slice(0, w));
                                                                 y = f === ":self" ? null : r.select(f), v = f === ":self" ? r : y.size() ? y.first() : null;
                                                                 if (!v) return [3, 8];
-                                                                if (!(p === "text")) return [3, 3];
+                                                                if (!(g === "text")) return [3, 3];
                                                                 return [4, v.text()];
                                                             case 2:
                                                                 _b = _d.sent();
                                                                 return [3, 7];
                                                             case 3:
-                                                                if (!(p === "html")) return [3, 5];
+                                                                if (!(g === "html")) return [3, 5];
                                                                 return [4, v.html()];
                                                             case 4:
                                                                 _c = _d.sent();
                                                                 return [3, 6];
                                                             case 5:
-                                                                _c = p === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : p === "own" ? v.ownText() : v.attr(p);
+                                                                _c = g === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : g === "own" ? v.ownText() : v.attr(g);
                                                                 _d.label = 6;
                                                             case 6:
                                                                 _b = _c;
@@ -2510,9 +2510,9 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                             case 9: return [2, ""];
                                                         }
                                                     }); });
-                                                }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (p, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
+                                                }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (g, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, w, y, _b, _c, _d;
+                                                        var i, o, l, f, g, w, y, _b, _c, _d;
                                                         var _f;
                                                         return __generator(this, function (_g) {
                                                             switch (_g.label) {
@@ -2523,12 +2523,12 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     if (!(f < i.size())) return [3, 9];
                                                                     return [4, i.get(f)];
                                                                 case 2:
-                                                                    p = _g.sent();
-                                                                    return [4, m.pick(p, c.link || "a@href")];
+                                                                    g = _g.sent();
+                                                                    return [4, m.pick(g, c.link || "a@href")];
                                                                 case 3:
                                                                     w = _g.sent();
                                                                     if (!!(!w || l[w] || /^javascript|#$/.test(w))) return [3, 8];
-                                                                    return [4, m.pick(p, c.title || "h3 || h2 || a@title || img@alt")];
+                                                                    return [4, m.pick(g, c.title || "h3 || h2 || a@title || img@alt")];
                                                                 case 4:
                                                                     y = _g.sent();
                                                                     _b = y;
@@ -2536,10 +2536,10 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     l[w] = 1;
                                                                     _d = (_c = o).push;
                                                                     _f = { name: y, link: d.fix(w) };
-                                                                    return [4, m.pick(p, c.cover || "img@img")];
+                                                                    return [4, m.pick(g, c.cover || "img@img")];
                                                                 case 5:
                                                                     _f.cover = _g.sent();
-                                                                    return [4, m.pick(p, c.desc || "")];
+                                                                    return [4, m.pick(g, c.desc || "")];
                                                                 case 6:
                                                                     _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = E, _f)]));
                                                                     _g.label = 7;
@@ -2554,15 +2554,15 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         });
                                                     });
                                                 }, listPage: function (r, i, o) {
-                                                    return __awaiter(this, void 0, void 0, function () { var l, f, p; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var l, f, g; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0: return [4, d.html(m.url(r, i, o), c.req)];
                                                             case 1:
                                                                 l = _b.sent();
                                                                 return [4, m.items(l)];
                                                             case 2:
-                                                                f = _b.sent(), p = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
-                                                                return [2, s.success(f, d.next(p && f.length > 0, i))];
+                                                                f = _b.sent(), g = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
+                                                                return [2, s.success(f, d.next(g && f.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, browse: function (r, i) {
@@ -2666,7 +2666,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                     });
                                                 }, toc: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, _b, w, y, v, k, T, _c, _d, _f, _g, P, B, _h;
+                                                        var i, o, l, f, g, _b, w, y, v, k, T, _c, _d, _f, _g, P, B, _h;
                                                         var _j;
                                                         return __generator(this, function (_k) {
                                                             switch (_k.label) {
@@ -2680,10 +2680,10 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     if (!c.ch_url) return [3, 5];
                                                                     return [4, m.pick(f, c.ch_url)];
                                                                 case 2:
-                                                                    p = _k.sent();
-                                                                    _b = p;
+                                                                    g = _k.sent();
+                                                                    _b = g;
                                                                     if (!_b) return [3, 4];
-                                                                    return [4, d.html(d.fix(p), c.req)];
+                                                                    return [4, d.html(d.fix(g), c.req)];
                                                                 case 3:
                                                                     _b = (f = _k.sent());
                                                                     _k.label = 4;
@@ -2753,7 +2753,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         });
                                                     });
                                                 }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, p, w, y, v, _b, _c, k, T; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, g, w, y, v, _b, _c, k, T; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
                                                                 i = [], o = [r], l = r, f = 0;
@@ -2762,7 +2762,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 if (!(f < (c.pages_max || 40))) return [3, 8];
                                                                 return [4, d.html(l, c.req)];
                                                             case 2:
-                                                                p = _d.sent(), w = p.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
+                                                                g = _d.sent(), w = g.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
                                                                 _d.label = 3;
                                                             case 3:
                                                                 if (!(y < w.size())) return [3, 6];
@@ -2778,7 +2778,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                             case 6:
                                                                 if (!c.pages_next)
                                                                     return [3, 8];
-                                                                k = p.select(c.pages_next).first();
+                                                                k = g.select(c.pages_next).first();
                                                                 if (!k)
                                                                     return [3, 8];
                                                                 T = d.fix(k.attr("href"));
@@ -2810,7 +2810,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 _f = (_d = s).error;
                                                                 _g = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                 return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)"])];
+                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                             case 5:
                                                                 _j = (_h = s).success;
                                                                 return [4, d.cleanContent(f)];
@@ -2851,7 +2851,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         }
                                                     }); });
                                                 }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var i = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return i ? i[0] : ""; }, track: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, g, w, y, v; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
                                                                 if (i = i || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
@@ -2870,9 +2870,9 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     return [2, s.success({ type: "native", data: d.fix(f), headers: { Referer: E + "/" } })];
                                                                 _b.label = 4;
                                                             case 4:
-                                                                p = m.sniff(l);
-                                                                if (p)
-                                                                    return [2, s.success({ type: "native", data: p, headers: { Referer: i ? r : E + "/" } })];
+                                                                g = m.sniff(l);
+                                                                if (g)
+                                                                    return [2, s.success({ type: "native", data: g, headers: { Referer: i ? r : E + "/" } })];
                                                                 w = n.parse(l, r), y = w.select(c.iframe || "iframe[src], iframe[data-src]").first();
                                                                 if (!(y && i < 2)) return [3, 6];
                                                                 v = d.fix(y.attr("src") || y.attr("data-src"));
@@ -2893,7 +2893,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
         }); });
     }, search: function (t, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, a, n, s, h, b, g, x, A, L, q, N, I, U, X, Z, ne) {
+            return [2, (function (u, a, n, s, h, b, p, x, A, L, q, N, I, U, X, Z, ne) {
                     return __awaiter(this, void 0, void 0, function () { var R; return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0:
@@ -2938,7 +2938,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         }
                                                     }); });
                                                 }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, _b; return __generator(this, function (_c) {
+                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, g, _b; return __generator(this, function (_c) {
                                                         switch (_c.label) {
                                                             case 0:
                                                                 i = i || {};
@@ -2948,10 +2948,10 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                         o[l] = i.headers[l];
                                                                 return [4, u(r, { method: i.method, headers: o, body: i.body })];
                                                             case 1:
-                                                                f = _c.sent(), p = 0;
+                                                                f = _c.sent(), g = 0;
                                                                 _c.label = 2;
                                                             case 2:
-                                                                _b = f && f.status === 429 && p < 3;
+                                                                _b = f && f.status === 429 && g < 3;
                                                                 if (!_b) return [3, 4];
                                                                 return [4, d.cf(f)];
                                                             case 3:
@@ -2959,7 +2959,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 _c.label = 4;
                                                             case 4:
                                                                 if (!_b) return [3, 8];
-                                                                return [4, A(1500 * (p + 1))];
+                                                                return [4, A(1500 * (g + 1))];
                                                             case 5:
                                                                 _c.sent();
                                                                 return [4, u(r, { method: i.method, headers: o, body: i.body })];
@@ -2967,7 +2967,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 f = _c.sent();
                                                                 _c.label = 7;
                                                             case 7:
-                                                                p++;
+                                                                g++;
                                                                 return [3, 2];
                                                             case 8: return [2, f];
                                                         }
@@ -3030,7 +3030,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         }
                                                     }); });
                                                 }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, m = { pick: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v, k, _b, _c; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, g, w, y, v, k, _b, _c; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
                                                                 if (!i || !r)
@@ -3039,23 +3039,23 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 _d.label = 1;
                                                             case 1:
                                                                 if (!(l < o.length)) return [3, 9];
-                                                                f = o[l], p = "text", w = f.lastIndexOf("@");
-                                                                w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (p = f.slice(w + 1), f = f.slice(0, w));
+                                                                f = o[l], g = "text", w = f.lastIndexOf("@");
+                                                                w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (g = f.slice(w + 1), f = f.slice(0, w));
                                                                 y = f === ":self" ? null : r.select(f), v = f === ":self" ? r : y.size() ? y.first() : null;
                                                                 if (!v) return [3, 8];
-                                                                if (!(p === "text")) return [3, 3];
+                                                                if (!(g === "text")) return [3, 3];
                                                                 return [4, v.text()];
                                                             case 2:
                                                                 _b = _d.sent();
                                                                 return [3, 7];
                                                             case 3:
-                                                                if (!(p === "html")) return [3, 5];
+                                                                if (!(g === "html")) return [3, 5];
                                                                 return [4, v.html()];
                                                             case 4:
                                                                 _c = _d.sent();
                                                                 return [3, 6];
                                                             case 5:
-                                                                _c = p === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : p === "own" ? v.ownText() : v.attr(p);
+                                                                _c = g === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : g === "own" ? v.ownText() : v.attr(g);
                                                                 _d.label = 6;
                                                             case 6:
                                                                 _b = _c;
@@ -3071,9 +3071,9 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                             case 9: return [2, ""];
                                                         }
                                                     }); });
-                                                }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (p, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
+                                                }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (g, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, w, y, _b, _c, _d;
+                                                        var i, o, l, f, g, w, y, _b, _c, _d;
                                                         var _f;
                                                         return __generator(this, function (_g) {
                                                             switch (_g.label) {
@@ -3084,12 +3084,12 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     if (!(f < i.size())) return [3, 9];
                                                                     return [4, i.get(f)];
                                                                 case 2:
-                                                                    p = _g.sent();
-                                                                    return [4, m.pick(p, c.link || "a@href")];
+                                                                    g = _g.sent();
+                                                                    return [4, m.pick(g, c.link || "a@href")];
                                                                 case 3:
                                                                     w = _g.sent();
                                                                     if (!!(!w || l[w] || /^javascript|#$/.test(w))) return [3, 8];
-                                                                    return [4, m.pick(p, c.title || "h3 || h2 || a@title || img@alt")];
+                                                                    return [4, m.pick(g, c.title || "h3 || h2 || a@title || img@alt")];
                                                                 case 4:
                                                                     y = _g.sent();
                                                                     _b = y;
@@ -3097,10 +3097,10 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     l[w] = 1;
                                                                     _d = (_c = o).push;
                                                                     _f = { name: y, link: d.fix(w) };
-                                                                    return [4, m.pick(p, c.cover || "img@img")];
+                                                                    return [4, m.pick(g, c.cover || "img@img")];
                                                                 case 5:
                                                                     _f.cover = _g.sent();
-                                                                    return [4, m.pick(p, c.desc || "")];
+                                                                    return [4, m.pick(g, c.desc || "")];
                                                                 case 6:
                                                                     _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = E, _f)]));
                                                                     _g.label = 7;
@@ -3115,15 +3115,15 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         });
                                                     });
                                                 }, listPage: function (r, i, o) {
-                                                    return __awaiter(this, void 0, void 0, function () { var l, f, p; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var l, f, g; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0: return [4, d.html(m.url(r, i, o), c.req)];
                                                             case 1:
                                                                 l = _b.sent();
                                                                 return [4, m.items(l)];
                                                             case 2:
-                                                                f = _b.sent(), p = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
-                                                                return [2, s.success(f, d.next(p && f.length > 0, i))];
+                                                                f = _b.sent(), g = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
+                                                                return [2, s.success(f, d.next(g && f.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, browse: function (r, i) {
@@ -3227,7 +3227,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                     });
                                                 }, toc: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, _b, w, y, v, k, T, _c, _d, _f, _g, P, B, _h;
+                                                        var i, o, l, f, g, _b, w, y, v, k, T, _c, _d, _f, _g, P, B, _h;
                                                         var _j;
                                                         return __generator(this, function (_k) {
                                                             switch (_k.label) {
@@ -3241,10 +3241,10 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     if (!c.ch_url) return [3, 5];
                                                                     return [4, m.pick(f, c.ch_url)];
                                                                 case 2:
-                                                                    p = _k.sent();
-                                                                    _b = p;
+                                                                    g = _k.sent();
+                                                                    _b = g;
                                                                     if (!_b) return [3, 4];
-                                                                    return [4, d.html(d.fix(p), c.req)];
+                                                                    return [4, d.html(d.fix(g), c.req)];
                                                                 case 3:
                                                                     _b = (f = _k.sent());
                                                                     _k.label = 4;
@@ -3314,7 +3314,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         });
                                                     });
                                                 }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, p, w, y, v, _b, _c, k, T; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, g, w, y, v, _b, _c, k, T; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
                                                                 i = [], o = [r], l = r, f = 0;
@@ -3323,7 +3323,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 if (!(f < (c.pages_max || 40))) return [3, 8];
                                                                 return [4, d.html(l, c.req)];
                                                             case 2:
-                                                                p = _d.sent(), w = p.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
+                                                                g = _d.sent(), w = g.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
                                                                 _d.label = 3;
                                                             case 3:
                                                                 if (!(y < w.size())) return [3, 6];
@@ -3339,7 +3339,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                             case 6:
                                                                 if (!c.pages_next)
                                                                     return [3, 8];
-                                                                k = p.select(c.pages_next).first();
+                                                                k = g.select(c.pages_next).first();
                                                                 if (!k)
                                                                     return [3, 8];
                                                                 T = d.fix(k.attr("href"));
@@ -3371,7 +3371,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 _f = (_d = s).error;
                                                                 _g = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                 return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)"])];
+                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                             case 5:
                                                                 _j = (_h = s).success;
                                                                 return [4, d.cleanContent(f)];
@@ -3412,7 +3412,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         }
                                                     }); });
                                                 }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var i = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return i ? i[0] : ""; }, track: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, g, w, y, v; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
                                                                 if (i = i || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
@@ -3431,9 +3431,9 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     return [2, s.success({ type: "native", data: d.fix(f), headers: { Referer: E + "/" } })];
                                                                 _b.label = 4;
                                                             case 4:
-                                                                p = m.sniff(l);
-                                                                if (p)
-                                                                    return [2, s.success({ type: "native", data: p, headers: { Referer: i ? r : E + "/" } })];
+                                                                g = m.sniff(l);
+                                                                if (g)
+                                                                    return [2, s.success({ type: "native", data: g, headers: { Referer: i ? r : E + "/" } })];
                                                                 w = n.parse(l, r), y = w.select(c.iframe || "iframe[src], iframe[data-src]").first();
                                                                 if (!(y && i < 2)) return [3, 6];
                                                                 v = d.fix(y.attr("src") || y.attr("data-src"));
@@ -3454,7 +3454,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
         }); });
     }, detail: function (t, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, a, n, s, h, b, g, x, A, L, q, N, I, U, X, Z, ne) {
+            return [2, (function (u, a, n, s, h, b, p, x, A, L, q, N, I, U, X, Z, ne) {
                     return __awaiter(this, void 0, void 0, function () { var R; return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0:
@@ -3499,7 +3499,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         }
                                                     }); });
                                                 }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, _b; return __generator(this, function (_c) {
+                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, g, _b; return __generator(this, function (_c) {
                                                         switch (_c.label) {
                                                             case 0:
                                                                 i = i || {};
@@ -3509,10 +3509,10 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                         o[l] = i.headers[l];
                                                                 return [4, u(r, { method: i.method, headers: o, body: i.body })];
                                                             case 1:
-                                                                f = _c.sent(), p = 0;
+                                                                f = _c.sent(), g = 0;
                                                                 _c.label = 2;
                                                             case 2:
-                                                                _b = f && f.status === 429 && p < 3;
+                                                                _b = f && f.status === 429 && g < 3;
                                                                 if (!_b) return [3, 4];
                                                                 return [4, d.cf(f)];
                                                             case 3:
@@ -3520,7 +3520,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 _c.label = 4;
                                                             case 4:
                                                                 if (!_b) return [3, 8];
-                                                                return [4, A(1500 * (p + 1))];
+                                                                return [4, A(1500 * (g + 1))];
                                                             case 5:
                                                                 _c.sent();
                                                                 return [4, u(r, { method: i.method, headers: o, body: i.body })];
@@ -3528,7 +3528,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 f = _c.sent();
                                                                 _c.label = 7;
                                                             case 7:
-                                                                p++;
+                                                                g++;
                                                                 return [3, 2];
                                                             case 8: return [2, f];
                                                         }
@@ -3591,7 +3591,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         }
                                                     }); });
                                                 }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, m = { pick: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v, k, _b, _c; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, g, w, y, v, k, _b, _c; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
                                                                 if (!i || !r)
@@ -3600,23 +3600,23 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 _d.label = 1;
                                                             case 1:
                                                                 if (!(l < o.length)) return [3, 9];
-                                                                f = o[l], p = "text", w = f.lastIndexOf("@");
-                                                                w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (p = f.slice(w + 1), f = f.slice(0, w));
+                                                                f = o[l], g = "text", w = f.lastIndexOf("@");
+                                                                w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (g = f.slice(w + 1), f = f.slice(0, w));
                                                                 y = f === ":self" ? null : r.select(f), v = f === ":self" ? r : y.size() ? y.first() : null;
                                                                 if (!v) return [3, 8];
-                                                                if (!(p === "text")) return [3, 3];
+                                                                if (!(g === "text")) return [3, 3];
                                                                 return [4, v.text()];
                                                             case 2:
                                                                 _b = _d.sent();
                                                                 return [3, 7];
                                                             case 3:
-                                                                if (!(p === "html")) return [3, 5];
+                                                                if (!(g === "html")) return [3, 5];
                                                                 return [4, v.html()];
                                                             case 4:
                                                                 _c = _d.sent();
                                                                 return [3, 6];
                                                             case 5:
-                                                                _c = p === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : p === "own" ? v.ownText() : v.attr(p);
+                                                                _c = g === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : g === "own" ? v.ownText() : v.attr(g);
                                                                 _d.label = 6;
                                                             case 6:
                                                                 _b = _c;
@@ -3632,9 +3632,9 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                             case 9: return [2, ""];
                                                         }
                                                     }); });
-                                                }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (p, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
+                                                }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (g, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, w, y, _b, _c, _d;
+                                                        var i, o, l, f, g, w, y, _b, _c, _d;
                                                         var _f;
                                                         return __generator(this, function (_g) {
                                                             switch (_g.label) {
@@ -3645,12 +3645,12 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     if (!(f < i.size())) return [3, 9];
                                                                     return [4, i.get(f)];
                                                                 case 2:
-                                                                    p = _g.sent();
-                                                                    return [4, m.pick(p, c.link || "a@href")];
+                                                                    g = _g.sent();
+                                                                    return [4, m.pick(g, c.link || "a@href")];
                                                                 case 3:
                                                                     w = _g.sent();
                                                                     if (!!(!w || l[w] || /^javascript|#$/.test(w))) return [3, 8];
-                                                                    return [4, m.pick(p, c.title || "h3 || h2 || a@title || img@alt")];
+                                                                    return [4, m.pick(g, c.title || "h3 || h2 || a@title || img@alt")];
                                                                 case 4:
                                                                     y = _g.sent();
                                                                     _b = y;
@@ -3658,10 +3658,10 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     l[w] = 1;
                                                                     _d = (_c = o).push;
                                                                     _f = { name: y, link: d.fix(w) };
-                                                                    return [4, m.pick(p, c.cover || "img@img")];
+                                                                    return [4, m.pick(g, c.cover || "img@img")];
                                                                 case 5:
                                                                     _f.cover = _g.sent();
-                                                                    return [4, m.pick(p, c.desc || "")];
+                                                                    return [4, m.pick(g, c.desc || "")];
                                                                 case 6:
                                                                     _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = E, _f)]));
                                                                     _g.label = 7;
@@ -3676,15 +3676,15 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         });
                                                     });
                                                 }, listPage: function (r, i, o) {
-                                                    return __awaiter(this, void 0, void 0, function () { var l, f, p; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var l, f, g; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0: return [4, d.html(m.url(r, i, o), c.req)];
                                                             case 1:
                                                                 l = _b.sent();
                                                                 return [4, m.items(l)];
                                                             case 2:
-                                                                f = _b.sent(), p = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
-                                                                return [2, s.success(f, d.next(p && f.length > 0, i))];
+                                                                f = _b.sent(), g = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
+                                                                return [2, s.success(f, d.next(g && f.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, browse: function (r, i) {
@@ -3788,7 +3788,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                     });
                                                 }, toc: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, _b, w, y, v, k, T, _c, _d, _f, _g, P, B, _h;
+                                                        var i, o, l, f, g, _b, w, y, v, k, T, _c, _d, _f, _g, P, B, _h;
                                                         var _j;
                                                         return __generator(this, function (_k) {
                                                             switch (_k.label) {
@@ -3802,10 +3802,10 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     if (!c.ch_url) return [3, 5];
                                                                     return [4, m.pick(f, c.ch_url)];
                                                                 case 2:
-                                                                    p = _k.sent();
-                                                                    _b = p;
+                                                                    g = _k.sent();
+                                                                    _b = g;
                                                                     if (!_b) return [3, 4];
-                                                                    return [4, d.html(d.fix(p), c.req)];
+                                                                    return [4, d.html(d.fix(g), c.req)];
                                                                 case 3:
                                                                     _b = (f = _k.sent());
                                                                     _k.label = 4;
@@ -3875,7 +3875,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         });
                                                     });
                                                 }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, p, w, y, v, _b, _c, k, T; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, g, w, y, v, _b, _c, k, T; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
                                                                 i = [], o = [r], l = r, f = 0;
@@ -3884,7 +3884,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 if (!(f < (c.pages_max || 40))) return [3, 8];
                                                                 return [4, d.html(l, c.req)];
                                                             case 2:
-                                                                p = _d.sent(), w = p.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
+                                                                g = _d.sent(), w = g.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
                                                                 _d.label = 3;
                                                             case 3:
                                                                 if (!(y < w.size())) return [3, 6];
@@ -3900,7 +3900,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                             case 6:
                                                                 if (!c.pages_next)
                                                                     return [3, 8];
-                                                                k = p.select(c.pages_next).first();
+                                                                k = g.select(c.pages_next).first();
                                                                 if (!k)
                                                                     return [3, 8];
                                                                 T = d.fix(k.attr("href"));
@@ -3932,7 +3932,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 _f = (_d = s).error;
                                                                 _g = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                 return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)"])];
+                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                             case 5:
                                                                 _j = (_h = s).success;
                                                                 return [4, d.cleanContent(f)];
@@ -3973,7 +3973,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         }
                                                     }); });
                                                 }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var i = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return i ? i[0] : ""; }, track: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, g, w, y, v; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
                                                                 if (i = i || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
@@ -3992,9 +3992,9 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     return [2, s.success({ type: "native", data: d.fix(f), headers: { Referer: E + "/" } })];
                                                                 _b.label = 4;
                                                             case 4:
-                                                                p = m.sniff(l);
-                                                                if (p)
-                                                                    return [2, s.success({ type: "native", data: p, headers: { Referer: i ? r : E + "/" } })];
+                                                                g = m.sniff(l);
+                                                                if (g)
+                                                                    return [2, s.success({ type: "native", data: g, headers: { Referer: i ? r : E + "/" } })];
                                                                 w = n.parse(l, r), y = w.select(c.iframe || "iframe[src], iframe[data-src]").first();
                                                                 if (!(y && i < 2)) return [3, 6];
                                                                 v = d.fix(y.attr("src") || y.attr("data-src"));
@@ -4015,7 +4015,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
         }); });
     }, toc: function (t, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, a, n, s, h, b, g, x, A, L, q, N, I, U, X, Z, ne) {
+            return [2, (function (u, a, n, s, h, b, p, x, A, L, q, N, I, U, X, Z, ne) {
                     return __awaiter(this, void 0, void 0, function () { var R; return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0:
@@ -4060,7 +4060,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         }
                                                     }); });
                                                 }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, _b; return __generator(this, function (_c) {
+                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, g, _b; return __generator(this, function (_c) {
                                                         switch (_c.label) {
                                                             case 0:
                                                                 i = i || {};
@@ -4070,10 +4070,10 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                         o[l] = i.headers[l];
                                                                 return [4, u(r, { method: i.method, headers: o, body: i.body })];
                                                             case 1:
-                                                                f = _c.sent(), p = 0;
+                                                                f = _c.sent(), g = 0;
                                                                 _c.label = 2;
                                                             case 2:
-                                                                _b = f && f.status === 429 && p < 3;
+                                                                _b = f && f.status === 429 && g < 3;
                                                                 if (!_b) return [3, 4];
                                                                 return [4, d.cf(f)];
                                                             case 3:
@@ -4081,7 +4081,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 _c.label = 4;
                                                             case 4:
                                                                 if (!_b) return [3, 8];
-                                                                return [4, A(1500 * (p + 1))];
+                                                                return [4, A(1500 * (g + 1))];
                                                             case 5:
                                                                 _c.sent();
                                                                 return [4, u(r, { method: i.method, headers: o, body: i.body })];
@@ -4089,7 +4089,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 f = _c.sent();
                                                                 _c.label = 7;
                                                             case 7:
-                                                                p++;
+                                                                g++;
                                                                 return [3, 2];
                                                             case 8: return [2, f];
                                                         }
@@ -4152,7 +4152,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         }
                                                     }); });
                                                 }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, m = { pick: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v, k, _b, _c; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, g, w, y, v, k, _b, _c; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
                                                                 if (!i || !r)
@@ -4161,23 +4161,23 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 _d.label = 1;
                                                             case 1:
                                                                 if (!(l < o.length)) return [3, 9];
-                                                                f = o[l], p = "text", w = f.lastIndexOf("@");
-                                                                w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (p = f.slice(w + 1), f = f.slice(0, w));
+                                                                f = o[l], g = "text", w = f.lastIndexOf("@");
+                                                                w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (g = f.slice(w + 1), f = f.slice(0, w));
                                                                 y = f === ":self" ? null : r.select(f), v = f === ":self" ? r : y.size() ? y.first() : null;
                                                                 if (!v) return [3, 8];
-                                                                if (!(p === "text")) return [3, 3];
+                                                                if (!(g === "text")) return [3, 3];
                                                                 return [4, v.text()];
                                                             case 2:
                                                                 _b = _d.sent();
                                                                 return [3, 7];
                                                             case 3:
-                                                                if (!(p === "html")) return [3, 5];
+                                                                if (!(g === "html")) return [3, 5];
                                                                 return [4, v.html()];
                                                             case 4:
                                                                 _c = _d.sent();
                                                                 return [3, 6];
                                                             case 5:
-                                                                _c = p === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : p === "own" ? v.ownText() : v.attr(p);
+                                                                _c = g === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : g === "own" ? v.ownText() : v.attr(g);
                                                                 _d.label = 6;
                                                             case 6:
                                                                 _b = _c;
@@ -4193,9 +4193,9 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                             case 9: return [2, ""];
                                                         }
                                                     }); });
-                                                }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (p, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
+                                                }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (g, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, w, y, _b, _c, _d;
+                                                        var i, o, l, f, g, w, y, _b, _c, _d;
                                                         var _f;
                                                         return __generator(this, function (_g) {
                                                             switch (_g.label) {
@@ -4206,12 +4206,12 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     if (!(f < i.size())) return [3, 9];
                                                                     return [4, i.get(f)];
                                                                 case 2:
-                                                                    p = _g.sent();
-                                                                    return [4, m.pick(p, c.link || "a@href")];
+                                                                    g = _g.sent();
+                                                                    return [4, m.pick(g, c.link || "a@href")];
                                                                 case 3:
                                                                     w = _g.sent();
                                                                     if (!!(!w || l[w] || /^javascript|#$/.test(w))) return [3, 8];
-                                                                    return [4, m.pick(p, c.title || "h3 || h2 || a@title || img@alt")];
+                                                                    return [4, m.pick(g, c.title || "h3 || h2 || a@title || img@alt")];
                                                                 case 4:
                                                                     y = _g.sent();
                                                                     _b = y;
@@ -4219,10 +4219,10 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     l[w] = 1;
                                                                     _d = (_c = o).push;
                                                                     _f = { name: y, link: d.fix(w) };
-                                                                    return [4, m.pick(p, c.cover || "img@img")];
+                                                                    return [4, m.pick(g, c.cover || "img@img")];
                                                                 case 5:
                                                                     _f.cover = _g.sent();
-                                                                    return [4, m.pick(p, c.desc || "")];
+                                                                    return [4, m.pick(g, c.desc || "")];
                                                                 case 6:
                                                                     _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = E, _f)]));
                                                                     _g.label = 7;
@@ -4237,15 +4237,15 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         });
                                                     });
                                                 }, listPage: function (r, i, o) {
-                                                    return __awaiter(this, void 0, void 0, function () { var l, f, p; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var l, f, g; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0: return [4, d.html(m.url(r, i, o), c.req)];
                                                             case 1:
                                                                 l = _b.sent();
                                                                 return [4, m.items(l)];
                                                             case 2:
-                                                                f = _b.sent(), p = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
-                                                                return [2, s.success(f, d.next(p && f.length > 0, i))];
+                                                                f = _b.sent(), g = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
+                                                                return [2, s.success(f, d.next(g && f.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, browse: function (r, i) {
@@ -4349,7 +4349,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                     });
                                                 }, toc: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, _b, w, y, v, k, T, _c, _d, _f, _g, P, B, _h;
+                                                        var i, o, l, f, g, _b, w, y, v, k, T, _c, _d, _f, _g, P, B, _h;
                                                         var _j;
                                                         return __generator(this, function (_k) {
                                                             switch (_k.label) {
@@ -4363,10 +4363,10 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     if (!c.ch_url) return [3, 5];
                                                                     return [4, m.pick(f, c.ch_url)];
                                                                 case 2:
-                                                                    p = _k.sent();
-                                                                    _b = p;
+                                                                    g = _k.sent();
+                                                                    _b = g;
                                                                     if (!_b) return [3, 4];
-                                                                    return [4, d.html(d.fix(p), c.req)];
+                                                                    return [4, d.html(d.fix(g), c.req)];
                                                                 case 3:
                                                                     _b = (f = _k.sent());
                                                                     _k.label = 4;
@@ -4436,7 +4436,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         });
                                                     });
                                                 }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, p, w, y, v, _b, _c, k, T; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, g, w, y, v, _b, _c, k, T; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
                                                                 i = [], o = [r], l = r, f = 0;
@@ -4445,7 +4445,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 if (!(f < (c.pages_max || 40))) return [3, 8];
                                                                 return [4, d.html(l, c.req)];
                                                             case 2:
-                                                                p = _d.sent(), w = p.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
+                                                                g = _d.sent(), w = g.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
                                                                 _d.label = 3;
                                                             case 3:
                                                                 if (!(y < w.size())) return [3, 6];
@@ -4461,7 +4461,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                             case 6:
                                                                 if (!c.pages_next)
                                                                     return [3, 8];
-                                                                k = p.select(c.pages_next).first();
+                                                                k = g.select(c.pages_next).first();
                                                                 if (!k)
                                                                     return [3, 8];
                                                                 T = d.fix(k.attr("href"));
@@ -4493,7 +4493,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 _f = (_d = s).error;
                                                                 _g = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                 return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)"])];
+                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                             case 5:
                                                                 _j = (_h = s).success;
                                                                 return [4, d.cleanContent(f)];
@@ -4534,7 +4534,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         }
                                                     }); });
                                                 }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var i = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return i ? i[0] : ""; }, track: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, g, w, y, v; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
                                                                 if (i = i || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
@@ -4553,9 +4553,9 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     return [2, s.success({ type: "native", data: d.fix(f), headers: { Referer: E + "/" } })];
                                                                 _b.label = 4;
                                                             case 4:
-                                                                p = m.sniff(l);
-                                                                if (p)
-                                                                    return [2, s.success({ type: "native", data: p, headers: { Referer: i ? r : E + "/" } })];
+                                                                g = m.sniff(l);
+                                                                if (g)
+                                                                    return [2, s.success({ type: "native", data: g, headers: { Referer: i ? r : E + "/" } })];
                                                                 w = n.parse(l, r), y = w.select(c.iframe || "iframe[src], iframe[data-src]").first();
                                                                 if (!(y && i < 2)) return [3, 6];
                                                                 v = d.fix(y.attr("src") || y.attr("data-src"));
@@ -4576,7 +4576,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
         }); });
     }, chap: function (t, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, a, n, s, h, b, g, x, A, L, q, N, I, U, X, Z, ne) {
+            return [2, (function (u, a, n, s, h, b, p, x, A, L, q, N, I, U, X, Z, ne) {
                     return __awaiter(this, void 0, void 0, function () { var R; return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0:
@@ -4621,7 +4621,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         }
                                                     }); });
                                                 }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, _b; return __generator(this, function (_c) {
+                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, g, _b; return __generator(this, function (_c) {
                                                         switch (_c.label) {
                                                             case 0:
                                                                 i = i || {};
@@ -4631,10 +4631,10 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                         o[l] = i.headers[l];
                                                                 return [4, u(r, { method: i.method, headers: o, body: i.body })];
                                                             case 1:
-                                                                f = _c.sent(), p = 0;
+                                                                f = _c.sent(), g = 0;
                                                                 _c.label = 2;
                                                             case 2:
-                                                                _b = f && f.status === 429 && p < 3;
+                                                                _b = f && f.status === 429 && g < 3;
                                                                 if (!_b) return [3, 4];
                                                                 return [4, d.cf(f)];
                                                             case 3:
@@ -4642,7 +4642,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 _c.label = 4;
                                                             case 4:
                                                                 if (!_b) return [3, 8];
-                                                                return [4, A(1500 * (p + 1))];
+                                                                return [4, A(1500 * (g + 1))];
                                                             case 5:
                                                                 _c.sent();
                                                                 return [4, u(r, { method: i.method, headers: o, body: i.body })];
@@ -4650,7 +4650,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 f = _c.sent();
                                                                 _c.label = 7;
                                                             case 7:
-                                                                p++;
+                                                                g++;
                                                                 return [3, 2];
                                                             case 8: return [2, f];
                                                         }
@@ -4713,7 +4713,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         }
                                                     }); });
                                                 }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, m = { pick: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v, k, _b, _c; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, g, w, y, v, k, _b, _c; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
                                                                 if (!i || !r)
@@ -4722,23 +4722,23 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 _d.label = 1;
                                                             case 1:
                                                                 if (!(l < o.length)) return [3, 9];
-                                                                f = o[l], p = "text", w = f.lastIndexOf("@");
-                                                                w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (p = f.slice(w + 1), f = f.slice(0, w));
+                                                                f = o[l], g = "text", w = f.lastIndexOf("@");
+                                                                w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (g = f.slice(w + 1), f = f.slice(0, w));
                                                                 y = f === ":self" ? null : r.select(f), v = f === ":self" ? r : y.size() ? y.first() : null;
                                                                 if (!v) return [3, 8];
-                                                                if (!(p === "text")) return [3, 3];
+                                                                if (!(g === "text")) return [3, 3];
                                                                 return [4, v.text()];
                                                             case 2:
                                                                 _b = _d.sent();
                                                                 return [3, 7];
                                                             case 3:
-                                                                if (!(p === "html")) return [3, 5];
+                                                                if (!(g === "html")) return [3, 5];
                                                                 return [4, v.html()];
                                                             case 4:
                                                                 _c = _d.sent();
                                                                 return [3, 6];
                                                             case 5:
-                                                                _c = p === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : p === "own" ? v.ownText() : v.attr(p);
+                                                                _c = g === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : g === "own" ? v.ownText() : v.attr(g);
                                                                 _d.label = 6;
                                                             case 6:
                                                                 _b = _c;
@@ -4754,9 +4754,9 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                             case 9: return [2, ""];
                                                         }
                                                     }); });
-                                                }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (p, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
+                                                }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (g, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, w, y, _b, _c, _d;
+                                                        var i, o, l, f, g, w, y, _b, _c, _d;
                                                         var _f;
                                                         return __generator(this, function (_g) {
                                                             switch (_g.label) {
@@ -4767,12 +4767,12 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     if (!(f < i.size())) return [3, 9];
                                                                     return [4, i.get(f)];
                                                                 case 2:
-                                                                    p = _g.sent();
-                                                                    return [4, m.pick(p, c.link || "a@href")];
+                                                                    g = _g.sent();
+                                                                    return [4, m.pick(g, c.link || "a@href")];
                                                                 case 3:
                                                                     w = _g.sent();
                                                                     if (!!(!w || l[w] || /^javascript|#$/.test(w))) return [3, 8];
-                                                                    return [4, m.pick(p, c.title || "h3 || h2 || a@title || img@alt")];
+                                                                    return [4, m.pick(g, c.title || "h3 || h2 || a@title || img@alt")];
                                                                 case 4:
                                                                     y = _g.sent();
                                                                     _b = y;
@@ -4780,10 +4780,10 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     l[w] = 1;
                                                                     _d = (_c = o).push;
                                                                     _f = { name: y, link: d.fix(w) };
-                                                                    return [4, m.pick(p, c.cover || "img@img")];
+                                                                    return [4, m.pick(g, c.cover || "img@img")];
                                                                 case 5:
                                                                     _f.cover = _g.sent();
-                                                                    return [4, m.pick(p, c.desc || "")];
+                                                                    return [4, m.pick(g, c.desc || "")];
                                                                 case 6:
                                                                     _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = E, _f)]));
                                                                     _g.label = 7;
@@ -4798,15 +4798,15 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         });
                                                     });
                                                 }, listPage: function (r, i, o) {
-                                                    return __awaiter(this, void 0, void 0, function () { var l, f, p; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var l, f, g; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0: return [4, d.html(m.url(r, i, o), c.req)];
                                                             case 1:
                                                                 l = _b.sent();
                                                                 return [4, m.items(l)];
                                                             case 2:
-                                                                f = _b.sent(), p = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
-                                                                return [2, s.success(f, d.next(p && f.length > 0, i))];
+                                                                f = _b.sent(), g = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
+                                                                return [2, s.success(f, d.next(g && f.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, browse: function (r, i) {
@@ -4910,7 +4910,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                     });
                                                 }, toc: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, _b, w, y, v, k, T, _c, _d, _f, _g, P, B, _h;
+                                                        var i, o, l, f, g, _b, w, y, v, k, T, _c, _d, _f, _g, P, B, _h;
                                                         var _j;
                                                         return __generator(this, function (_k) {
                                                             switch (_k.label) {
@@ -4924,10 +4924,10 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     if (!c.ch_url) return [3, 5];
                                                                     return [4, m.pick(f, c.ch_url)];
                                                                 case 2:
-                                                                    p = _k.sent();
-                                                                    _b = p;
+                                                                    g = _k.sent();
+                                                                    _b = g;
                                                                     if (!_b) return [3, 4];
-                                                                    return [4, d.html(d.fix(p), c.req)];
+                                                                    return [4, d.html(d.fix(g), c.req)];
                                                                 case 3:
                                                                     _b = (f = _k.sent());
                                                                     _k.label = 4;
@@ -4997,7 +4997,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         });
                                                     });
                                                 }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, p, w, y, v, _b, _c, k, T; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, g, w, y, v, _b, _c, k, T; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
                                                                 i = [], o = [r], l = r, f = 0;
@@ -5006,7 +5006,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 if (!(f < (c.pages_max || 40))) return [3, 8];
                                                                 return [4, d.html(l, c.req)];
                                                             case 2:
-                                                                p = _d.sent(), w = p.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
+                                                                g = _d.sent(), w = g.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
                                                                 _d.label = 3;
                                                             case 3:
                                                                 if (!(y < w.size())) return [3, 6];
@@ -5022,7 +5022,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                             case 6:
                                                                 if (!c.pages_next)
                                                                     return [3, 8];
-                                                                k = p.select(c.pages_next).first();
+                                                                k = g.select(c.pages_next).first();
                                                                 if (!k)
                                                                     return [3, 8];
                                                                 T = d.fix(k.attr("href"));
@@ -5054,7 +5054,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 _f = (_d = s).error;
                                                                 _g = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                 return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)"])];
+                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                             case 5:
                                                                 _j = (_h = s).success;
                                                                 return [4, d.cleanContent(f)];
@@ -5095,7 +5095,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         }
                                                     }); });
                                                 }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var i = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return i ? i[0] : ""; }, track: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, g, w, y, v; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
                                                                 if (i = i || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
@@ -5114,9 +5114,9 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     return [2, s.success({ type: "native", data: d.fix(f), headers: { Referer: E + "/" } })];
                                                                 _b.label = 4;
                                                             case 4:
-                                                                p = m.sniff(l);
-                                                                if (p)
-                                                                    return [2, s.success({ type: "native", data: p, headers: { Referer: i ? r : E + "/" } })];
+                                                                g = m.sniff(l);
+                                                                if (g)
+                                                                    return [2, s.success({ type: "native", data: g, headers: { Referer: i ? r : E + "/" } })];
                                                                 w = n.parse(l, r), y = w.select(c.iframe || "iframe[src], iframe[data-src]").first();
                                                                 if (!(y && i < 2)) return [3, 6];
                                                                 v = d.fix(y.attr("src") || y.attr("data-src"));
@@ -5137,7 +5137,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
         }); });
     }, browse: function (t, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, a, n, s, h, b, g, x, A, L, q, N, I, U, X, Z, ne) {
+            return [2, (function (u, a, n, s, h, b, p, x, A, L, q, N, I, U, X, Z, ne) {
                     return __awaiter(this, void 0, void 0, function () { var R; return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0:
@@ -5182,7 +5182,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         }
                                                     }); });
                                                 }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, _b; return __generator(this, function (_c) {
+                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, g, _b; return __generator(this, function (_c) {
                                                         switch (_c.label) {
                                                             case 0:
                                                                 i = i || {};
@@ -5192,10 +5192,10 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                         o[l] = i.headers[l];
                                                                 return [4, u(r, { method: i.method, headers: o, body: i.body })];
                                                             case 1:
-                                                                f = _c.sent(), p = 0;
+                                                                f = _c.sent(), g = 0;
                                                                 _c.label = 2;
                                                             case 2:
-                                                                _b = f && f.status === 429 && p < 3;
+                                                                _b = f && f.status === 429 && g < 3;
                                                                 if (!_b) return [3, 4];
                                                                 return [4, d.cf(f)];
                                                             case 3:
@@ -5203,7 +5203,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 _c.label = 4;
                                                             case 4:
                                                                 if (!_b) return [3, 8];
-                                                                return [4, A(1500 * (p + 1))];
+                                                                return [4, A(1500 * (g + 1))];
                                                             case 5:
                                                                 _c.sent();
                                                                 return [4, u(r, { method: i.method, headers: o, body: i.body })];
@@ -5211,7 +5211,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 f = _c.sent();
                                                                 _c.label = 7;
                                                             case 7:
-                                                                p++;
+                                                                g++;
                                                                 return [3, 2];
                                                             case 8: return [2, f];
                                                         }
@@ -5274,7 +5274,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         }
                                                     }); });
                                                 }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, m = { pick: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v, k, _b, _c; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, g, w, y, v, k, _b, _c; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
                                                                 if (!i || !r)
@@ -5283,23 +5283,23 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 _d.label = 1;
                                                             case 1:
                                                                 if (!(l < o.length)) return [3, 9];
-                                                                f = o[l], p = "text", w = f.lastIndexOf("@");
-                                                                w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (p = f.slice(w + 1), f = f.slice(0, w));
+                                                                f = o[l], g = "text", w = f.lastIndexOf("@");
+                                                                w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (g = f.slice(w + 1), f = f.slice(0, w));
                                                                 y = f === ":self" ? null : r.select(f), v = f === ":self" ? r : y.size() ? y.first() : null;
                                                                 if (!v) return [3, 8];
-                                                                if (!(p === "text")) return [3, 3];
+                                                                if (!(g === "text")) return [3, 3];
                                                                 return [4, v.text()];
                                                             case 2:
                                                                 _b = _d.sent();
                                                                 return [3, 7];
                                                             case 3:
-                                                                if (!(p === "html")) return [3, 5];
+                                                                if (!(g === "html")) return [3, 5];
                                                                 return [4, v.html()];
                                                             case 4:
                                                                 _c = _d.sent();
                                                                 return [3, 6];
                                                             case 5:
-                                                                _c = p === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : p === "own" ? v.ownText() : v.attr(p);
+                                                                _c = g === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : g === "own" ? v.ownText() : v.attr(g);
                                                                 _d.label = 6;
                                                             case 6:
                                                                 _b = _c;
@@ -5315,9 +5315,9 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                             case 9: return [2, ""];
                                                         }
                                                     }); });
-                                                }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (p, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
+                                                }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (g, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, w, y, _b, _c, _d;
+                                                        var i, o, l, f, g, w, y, _b, _c, _d;
                                                         var _f;
                                                         return __generator(this, function (_g) {
                                                             switch (_g.label) {
@@ -5328,12 +5328,12 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     if (!(f < i.size())) return [3, 9];
                                                                     return [4, i.get(f)];
                                                                 case 2:
-                                                                    p = _g.sent();
-                                                                    return [4, m.pick(p, c.link || "a@href")];
+                                                                    g = _g.sent();
+                                                                    return [4, m.pick(g, c.link || "a@href")];
                                                                 case 3:
                                                                     w = _g.sent();
                                                                     if (!!(!w || l[w] || /^javascript|#$/.test(w))) return [3, 8];
-                                                                    return [4, m.pick(p, c.title || "h3 || h2 || a@title || img@alt")];
+                                                                    return [4, m.pick(g, c.title || "h3 || h2 || a@title || img@alt")];
                                                                 case 4:
                                                                     y = _g.sent();
                                                                     _b = y;
@@ -5341,10 +5341,10 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     l[w] = 1;
                                                                     _d = (_c = o).push;
                                                                     _f = { name: y, link: d.fix(w) };
-                                                                    return [4, m.pick(p, c.cover || "img@img")];
+                                                                    return [4, m.pick(g, c.cover || "img@img")];
                                                                 case 5:
                                                                     _f.cover = _g.sent();
-                                                                    return [4, m.pick(p, c.desc || "")];
+                                                                    return [4, m.pick(g, c.desc || "")];
                                                                 case 6:
                                                                     _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = E, _f)]));
                                                                     _g.label = 7;
@@ -5359,15 +5359,15 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         });
                                                     });
                                                 }, listPage: function (r, i, o) {
-                                                    return __awaiter(this, void 0, void 0, function () { var l, f, p; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var l, f, g; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0: return [4, d.html(m.url(r, i, o), c.req)];
                                                             case 1:
                                                                 l = _b.sent();
                                                                 return [4, m.items(l)];
                                                             case 2:
-                                                                f = _b.sent(), p = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
-                                                                return [2, s.success(f, d.next(p && f.length > 0, i))];
+                                                                f = _b.sent(), g = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
+                                                                return [2, s.success(f, d.next(g && f.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, browse: function (r, i) {
@@ -5471,7 +5471,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                     });
                                                 }, toc: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, _b, w, y, v, k, T, _c, _d, _f, _g, P, B, _h;
+                                                        var i, o, l, f, g, _b, w, y, v, k, T, _c, _d, _f, _g, P, B, _h;
                                                         var _j;
                                                         return __generator(this, function (_k) {
                                                             switch (_k.label) {
@@ -5485,10 +5485,10 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     if (!c.ch_url) return [3, 5];
                                                                     return [4, m.pick(f, c.ch_url)];
                                                                 case 2:
-                                                                    p = _k.sent();
-                                                                    _b = p;
+                                                                    g = _k.sent();
+                                                                    _b = g;
                                                                     if (!_b) return [3, 4];
-                                                                    return [4, d.html(d.fix(p), c.req)];
+                                                                    return [4, d.html(d.fix(g), c.req)];
                                                                 case 3:
                                                                     _b = (f = _k.sent());
                                                                     _k.label = 4;
@@ -5558,7 +5558,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         });
                                                     });
                                                 }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, p, w, y, v, _b, _c, k, T; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, g, w, y, v, _b, _c, k, T; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
                                                                 i = [], o = [r], l = r, f = 0;
@@ -5567,7 +5567,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 if (!(f < (c.pages_max || 40))) return [3, 8];
                                                                 return [4, d.html(l, c.req)];
                                                             case 2:
-                                                                p = _d.sent(), w = p.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
+                                                                g = _d.sent(), w = g.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
                                                                 _d.label = 3;
                                                             case 3:
                                                                 if (!(y < w.size())) return [3, 6];
@@ -5583,7 +5583,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                             case 6:
                                                                 if (!c.pages_next)
                                                                     return [3, 8];
-                                                                k = p.select(c.pages_next).first();
+                                                                k = g.select(c.pages_next).first();
                                                                 if (!k)
                                                                     return [3, 8];
                                                                 T = d.fix(k.attr("href"));
@@ -5615,7 +5615,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                 _f = (_d = s).error;
                                                                 _g = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                 return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)"])];
+                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                             case 5:
                                                                 _j = (_h = s).success;
                                                                 return [4, d.cleanContent(f)];
@@ -5656,7 +5656,7 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                         }
                                                     }); });
                                                 }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var i = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return i ? i[0] : ""; }, track: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, g, w, y, v; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
                                                                 if (i = i || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
@@ -5675,9 +5675,9 @@ var fe = { id: "deqixs", name: "Deqixs", source: "https://www.deqixs.org", type:
                                                                     return [2, s.success({ type: "native", data: d.fix(f), headers: { Referer: E + "/" } })];
                                                                 _b.label = 4;
                                                             case 4:
-                                                                p = m.sniff(l);
-                                                                if (p)
-                                                                    return [2, s.success({ type: "native", data: p, headers: { Referer: i ? r : E + "/" } })];
+                                                                g = m.sniff(l);
+                                                                if (g)
+                                                                    return [2, s.success({ type: "native", data: g, headers: { Referer: i ? r : E + "/" } })];
                                                                 w = n.parse(l, r), y = w.select(c.iframe || "iframe[src], iframe[data-src]").first();
                                                                 if (!(y && i < 2)) return [3, 6];
                                                                 v = d.fix(y.attr("src") || y.attr("data-src"));

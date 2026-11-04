@@ -2810,7 +2810,7 @@ var fe = { id: "sonako", name: "Sonako", source: "https://sonako.fandom.com", ty
                                                                 _f = (_d = s).error;
                                                                 _g = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                 return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)"])];
+                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                             case 5:
                                                                 _j = (_h = s).success;
                                                                 return [4, d.cleanContent(f)];
@@ -3371,7 +3371,7 @@ var fe = { id: "sonako", name: "Sonako", source: "https://sonako.fandom.com", ty
                                                                 _f = (_d = s).error;
                                                                 _g = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                 return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)"])];
+                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                             case 5:
                                                                 _j = (_h = s).success;
                                                                 return [4, d.cleanContent(f)];
@@ -3932,7 +3932,7 @@ var fe = { id: "sonako", name: "Sonako", source: "https://sonako.fandom.com", ty
                                                                 _f = (_d = s).error;
                                                                 _g = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                 return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)"])];
+                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                             case 5:
                                                                 _j = (_h = s).success;
                                                                 return [4, d.cleanContent(f)];
@@ -4493,7 +4493,7 @@ var fe = { id: "sonako", name: "Sonako", source: "https://sonako.fandom.com", ty
                                                                 _f = (_d = s).error;
                                                                 _g = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                 return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)"])];
+                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                             case 5:
                                                                 _j = (_h = s).success;
                                                                 return [4, d.cleanContent(f)];
@@ -5054,7 +5054,7 @@ var fe = { id: "sonako", name: "Sonako", source: "https://sonako.fandom.com", ty
                                                                 _f = (_d = s).error;
                                                                 _g = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                 return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)"])];
+                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                             case 5:
                                                                 _j = (_h = s).success;
                                                                 return [4, d.cleanContent(f)];
@@ -5615,7 +5615,7 @@ var fe = { id: "sonako", name: "Sonako", source: "https://sonako.fandom.com", ty
                                                                 _f = (_d = s).error;
                                                                 _g = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                 return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)"])];
+                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                             case 5:
                                                                 _j = (_h = s).success;
                                                                 return [4, d.cleanContent(f)];

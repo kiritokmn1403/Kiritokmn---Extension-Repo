@@ -205,7 +205,7 @@ var X = {
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
     if (!el) {
       if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(body.slice(0, 20000))) throw new Error('CLOUDFLARE: trang ' + BASE_URL + ' yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
-      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)');
+      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
     }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
   },
@@ -452,7 +452,7 @@ var X = {
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
     if (!el) {
       if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(body.slice(0, 20000))) throw new Error('CLOUDFLARE: trang ' + BASE_URL + ' yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
-      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)');
+      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
     }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
   },
@@ -699,7 +699,7 @@ var X = {
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
     if (!el) {
       if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(body.slice(0, 20000))) throw new Error('CLOUDFLARE: trang ' + BASE_URL + ' yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
-      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)');
+      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
     }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
   },
@@ -946,7 +946,7 @@ var X = {
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
     if (!el) {
       if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(body.slice(0, 20000))) throw new Error('CLOUDFLARE: trang ' + BASE_URL + ' yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
-      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)');
+      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
     }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
   },
@@ -1193,7 +1193,7 @@ var X = {
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
     if (!el) {
       if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(body.slice(0, 20000))) throw new Error('CLOUDFLARE: trang ' + BASE_URL + ' yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
-      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)');
+      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
     }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
   },
@@ -1440,7 +1440,7 @@ var X = {
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
     if (!el) {
       if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(body.slice(0, 20000))) throw new Error('CLOUDFLARE: trang ' + BASE_URL + ' yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
-      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)');
+      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
     }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
   },
@@ -1687,7 +1687,7 @@ var X = {
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
     if (!el) {
       if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(body.slice(0, 20000))) throw new Error('CLOUDFLARE: trang ' + BASE_URL + ' yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
-      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)');
+      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
     }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
   },

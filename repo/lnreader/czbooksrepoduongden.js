@@ -2330,7 +2330,7 @@ function j(t, e) {
         }
     }); });
 }
-var fe = { id: "czbooksrepoduongden", name: "czbooks - repo Đường đen", source: "https://czbooks.net", type: "novel", locale: "zh-CN", nsfw: !1, version: 4, config: { DOMAIN: { title: "Tên miền", subtitle: "Đổi khi trang đổi tên miền", default: "https://czbooks.net", values: ["https://czbooks.net"], mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://czbooks.net" }, itemType: 2, lnId: "kiritokmn.czbooksrepoduongden", lnIcon: "", lnVersion: "1.1.4" }, Fr = { home: function (t, e) {
+var fe = { id: "czbooksrepoduongden", name: "czbooks - repo Đường đen", source: "https://czbooks.net", type: "novel", locale: "zh-CN", nsfw: !1, version: 5, config: { DOMAIN: { title: "Tên miền", subtitle: "Đổi khi trang đổi tên miền", default: "https://czbooks.net", values: ["https://czbooks.net"], mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://czbooks.net" }, itemType: 2, lnId: "kiritokmn.czbooksrepoduongden", lnIcon: "", lnVersion: "1.1.5" }, Fr = { home: function (t, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
             return [2, (function (u, a, n, s, h, b, g, x, A, D, q, N, I, U, X, Z, ne) {
                     return __awaiter(this, void 0, void 0, function () { var R; return __generator(this, function (_b) {
@@ -2810,7 +2810,7 @@ var fe = { id: "czbooksrepoduongden", name: "czbooks - repo Đường đen", sou
                                                                 _f = (_d = s).error;
                                                                 _g = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                 return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)"])];
+                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                             case 5:
                                                                 _j = (_h = s).success;
                                                                 return [4, d.cleanContent(f)];
@@ -3371,7 +3371,7 @@ var fe = { id: "czbooksrepoduongden", name: "czbooks - repo Đường đen", sou
                                                                 _f = (_d = s).error;
                                                                 _g = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                 return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)"])];
+                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                             case 5:
                                                                 _j = (_h = s).success;
                                                                 return [4, d.cleanContent(f)];
@@ -3932,7 +3932,7 @@ var fe = { id: "czbooksrepoduongden", name: "czbooks - repo Đường đen", sou
                                                                 _f = (_d = s).error;
                                                                 _g = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                 return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)"])];
+                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                             case 5:
                                                                 _j = (_h = s).success;
                                                                 return [4, d.cleanContent(f)];
@@ -4493,7 +4493,7 @@ var fe = { id: "czbooksrepoduongden", name: "czbooks - repo Đường đen", sou
                                                                 _f = (_d = s).error;
                                                                 _g = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                 return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)"])];
+                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                             case 5:
                                                                 _j = (_h = s).success;
                                                                 return [4, d.cleanContent(f)];
@@ -5054,7 +5054,7 @@ var fe = { id: "czbooksrepoduongden", name: "czbooks - repo Đường đen", sou
                                                                 _f = (_d = s).error;
                                                                 _g = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                 return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)"])];
+                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                             case 5:
                                                                 _j = (_h = s).success;
                                                                 return [4, d.cleanContent(f)];
@@ -5615,7 +5615,7 @@ var fe = { id: "czbooksrepoduongden", name: "czbooks - repo Đường đen", sou
                                                                 _f = (_d = s).error;
                                                                 _g = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                 return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)"])];
+                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                             case 5:
                                                                 _j = (_h = s).success;
                                                                 return [4, d.cleanContent(f)];
