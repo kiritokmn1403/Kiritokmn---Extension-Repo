@@ -25,7 +25,7 @@ $H = @{ Authorization = "token $tok"; 'User-Agent' = 'kiritokmn-publish'; Accept
 $api = "https://api.github.com/repos/$Owner/$Repo"
 $rel = $null
 try { $rel = Invoke-RestMethod -Headers $H -Uri "$api/releases/tags/$Tag" } catch { }
-$notes = if (Test-Path CHANGELOG.md) { Get-Content CHANGELOG.md -Raw -Encoding UTF8 } else { "Extension Repo $Tag" }
+$notes = if (Test-Path CHANGELOG.md) { [IO.File]::ReadAllText((Join-Path $Root 'CHANGELOG.md'), [Text.Encoding]::UTF8) } else { "Extension Repo $Tag" }
 if (-not $rel) {
   $body = @{ tag_name = $Tag; target_commitish = 'main'; name = "Kiritokmn Extension Repo $Tag"; body = $notes; draft = $false; prerelease = $false } | ConvertTo-Json
   $rel = Invoke-RestMethod -Headers $H -Method Post -Uri "$api/releases" -Body ([Text.Encoding]::UTF8.GetBytes($body)) -ContentType 'application/json; charset=utf-8'
