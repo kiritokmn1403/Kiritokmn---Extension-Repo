@@ -2331,2438 +2331,2504 @@ function qt(e, t) {
     }); });
 }
 var ut = { id: "gaumeoteam", name: "Gấu Mèo Team", source: "https://gaumeoteam.com", type: "novel", locale: "vi", nsfw: !1, version: 1, config: { DOMAIN: { title: "Tên miền", subtitle: "Đổi khi trang đổi tên miền", default: "https://gaumeoteam.com", values: ["https://gaumeoteam.com"], mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://gaumeoteam.com" }, itemType: 2, lnId: "kiritokmn.gaumeoteam", lnIcon: "", lnVersion: "1.1.1" }, Ia = { home: function (e, t) {
-        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, a, n, s, o, h, p, m, x, T, v, S, N, C, F, z, K) {
-                    return __awaiter(this, void 0, void 0, function () { var M; return __generator(this, function (_b) {
-                        switch (_b.label) {
-                            case 0:
-                                M = t("DOMAIN");
-                                return [4, (function () {
-                                        return __awaiter(this, void 0, void 0, function () { function B() {
-                                            return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                return [2, s.success([{ title: "Mới cập nhật", input: "latest", script: "browse.js" }, { title: "Xem nhiều", input: "views", script: "browse.js" }, { title: "Đánh giá cao", input: "rating", script: "browse.js" }, { title: "Truyện mới", input: "new-manga", script: "browse.js" }])];
-                                            }); });
-                                        } var w, d, y; return __generator(this, function (_b) {
-                                            w = "https://gaumeoteam.com";
-                                            try {
-                                                M && (w = String(M).replace(/\/+$/, ""));
-                                            }
-                                            catch (r) { }
-                                            d = { img: function (r) { if (!r)
-                                                    return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < i.length; c++) {
-                                                    var f = r.attr(i[c]);
-                                                    if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
-                                                        return d.fix(f.trim());
-                                                } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? d.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                c = 0;
-                                                                _b.label = 1;
-                                                            case 1:
-                                                                if (!(c < i.length)) return [3, 4];
-                                                                return [4, r.select(i[c]).text()];
-                                                            case 2:
-                                                                f = _b.sent();
-                                                                if (f)
-                                                                    return [2, f.trim()];
-                                                                _b.label = 3;
-                                                            case 3:
-                                                                c++;
-                                                                return [3, 1];
-                                                            case 4: return [2, ""];
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_b) {
+                return [2, (function (u, a, n, s, o, h, p, m, x, T, v, S, N, C, F, z, K) {
+                        return __awaiter(this, void 0, void 0, function () {
+                            var M;
+                            return __generator(this, function (_b) {
+                                switch (_b.label) {
+                                    case 0:
+                                        M = t("DOMAIN");
+                                        return [4, (function () {
+                                                return __awaiter(this, void 0, void 0, function () {
+                                                    function B() {
+                                                        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                            return [2, s.success([{ title: "Mới cập nhật", input: "latest", script: "browse.js" }, { title: "Xem nhiều", input: "views", script: "browse.js" }, { title: "Đánh giá cao", input: "rating", script: "browse.js" }, { title: "Truyện mới", input: "new-manga", script: "browse.js" }])];
+                                                        }); });
+                                                    }
+                                                    var w, d, y;
+                                                    return __generator(this, function (_b) {
+                                                        w = "https://gaumeoteam.com";
+                                                        try {
+                                                            M && (w = String(M).replace(/\/+$/, ""));
                                                         }
-                                                    }); });
-                                                }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b, _b; return __generator(this, function (_c) {
-                                                        switch (_c.label) {
-                                                            case 0:
-                                                                i = i || {};
-                                                                c = { Referer: w + "/" };
-                                                                if (i.headers)
-                                                                    for (f in i.headers)
-                                                                        c[f] = i.headers[f];
-                                                                return [4, u(r, { method: i.method, headers: c, body: i.body })];
-                                                            case 1:
-                                                                l = _c.sent(), b = 0;
-                                                                _c.label = 2;
-                                                            case 2:
-                                                                _b = l && l.status === 429 && b < 3;
-                                                                if (!_b) return [3, 4];
-                                                                return [4, d.cf(l)];
-                                                            case 3:
-                                                                _b = !(_c.sent());
-                                                                _c.label = 4;
-                                                            case 4:
-                                                                if (!_b) return [3, 8];
-                                                                return [4, x(1500 * (b + 1))];
-                                                            case 5:
-                                                                _c.sent();
-                                                                return [4, u(r, { method: i.method, headers: c, body: i.body })];
-                                                            case 6:
-                                                                l = _c.sent();
-                                                                _c.label = 7;
-                                                            case 7:
-                                                                b++;
-                                                                return [3, 2];
-                                                            case 8: return [2, l];
-                                                        }
-                                                    }); });
-                                                }, cf: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.status !== 403 && r.status !== 503 && r.status !== 429)
-                                                                    return [2, !1];
-                                                                return [4, r.text()];
-                                                            case 1:
-                                                                i = (_b.sent()) || "";
-                                                                return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
-                                                        }
-                                                    }); });
-                                                }, check: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.ok)
-                                                                    return [2, r];
-                                                                return [4, d.cf(r)];
-                                                            case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
-                                                        }
-                                                    }); });
-                                                }, html: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                c = _d.sent();
-                                                                return [4, c.html(i && i.charset)];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, json: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                c = _d.sent();
-                                                                return [4, c.json()];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
-                                                                return [4, r.html()];
-                                                            case 1: return [2, (_b.sent()).replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
-                                                        }
-                                                    }); });
-                                                }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, y = { path: function () { return typeof MADARA != "undefined" && MADARA.path || "manga"; }, card: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, f, _b;
-                                                        var _c;
-                                                        return __generator(this, function (_d) {
-                                                            switch (_d.label) {
-                                                                case 0:
-                                                                    i = r.select(".post-title a, h3 a, h4 a, .item-summary a").first() || r.select("a").first();
-                                                                    if (!i)
-                                                                        return [2, null];
-                                                                    return [4, i.text()];
-                                                                case 1:
-                                                                    c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), f = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
-                                                                    _c = { name: c, link: i.attr("href"), cover: d.img(r.select("img").first()) };
-                                                                    if (!f) return [3, 3];
-                                                                    return [4, f.text()];
-                                                                case 2:
-                                                                    _b = _d.sent();
-                                                                    return [3, 4];
-                                                                case 3:
-                                                                    _b = "";
-                                                                    _d.label = 4;
-                                                                case 4: return [2, (_c.description = _b, _c.host = w, _c)];
-                                                            }
-                                                        });
+                                                        catch (r) { }
+                                                        d = { img: function (r) { if (!r)
+                                                                return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < i.length; c++) {
+                                                                var f = r.attr(i[c]);
+                                                                if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
+                                                                    return d.fix(f.trim());
+                                                            } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? d.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            c = 0;
+                                                                            _b.label = 1;
+                                                                        case 1:
+                                                                            if (!(c < i.length)) return [3, 4];
+                                                                            return [4, r.select(i[c]).text()];
+                                                                        case 2:
+                                                                            f = _b.sent();
+                                                                            if (f)
+                                                                                return [2, f.trim()];
+                                                                            _b.label = 3;
+                                                                        case 3:
+                                                                            c++;
+                                                                            return [3, 1];
+                                                                        case 4: return [2, ""];
+                                                                    }
+                                                                }); });
+                                                            }, get: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b, _b; return __generator(this, function (_c) {
+                                                                    switch (_c.label) {
+                                                                        case 0:
+                                                                            i = i || {};
+                                                                            c = { Referer: w + "/" };
+                                                                            if (i.headers)
+                                                                                for (f in i.headers)
+                                                                                    c[f] = i.headers[f];
+                                                                            return [4, u(r, { method: i.method, headers: c, body: i.body })];
+                                                                        case 1:
+                                                                            l = _c.sent(), b = 0;
+                                                                            _c.label = 2;
+                                                                        case 2:
+                                                                            _b = l && l.status === 429 && b < 3;
+                                                                            if (!_b) return [3, 4];
+                                                                            return [4, d.cf(l)];
+                                                                        case 3:
+                                                                            _b = !(_c.sent());
+                                                                            _c.label = 4;
+                                                                        case 4:
+                                                                            if (!_b) return [3, 8];
+                                                                            return [4, x(1500 * (b + 1))];
+                                                                        case 5:
+                                                                            _c.sent();
+                                                                            return [4, u(r, { method: i.method, headers: c, body: i.body })];
+                                                                        case 6:
+                                                                            l = _c.sent();
+                                                                            _c.label = 7;
+                                                                        case 7:
+                                                                            b++;
+                                                                            return [3, 2];
+                                                                        case 8: return [2, l];
+                                                                    }
+                                                                }); });
+                                                            }, cf: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.status !== 403 && r.status !== 503 && r.status !== 429)
+                                                                                return [2, !1];
+                                                                            return [4, r.text()];
+                                                                        case 1:
+                                                                            i = (_b.sent()) || "";
+                                                                            return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
+                                                                    }
+                                                                }); });
+                                                            }, check: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.ok)
+                                                                                return [2, r];
+                                                                            return [4, d.cf(r)];
+                                                                        case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
+                                                                    }
+                                                                }); });
+                                                            }, html: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            c = _d.sent();
+                                                                            return [4, c.html(i && i.charset)];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, json: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            c = _d.sent();
+                                                                            return [4, c.json()];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    return __generator(this, function (_b) {
+                                                                        switch (_b.label) {
+                                                                            case 0:
+                                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
+                                                                                return [4, r.html()];
+                                                                            case 1: return [2, (_b.sent()).replace(/\r\n?/g, "\n").replace(/&#13;|&#x0?[dD];/g, "").replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, y = { path: function () { return typeof MADARA != "undefined" && MADARA.path || "manga"; }, card: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, c, f, _b;
+                                                                    var _c;
+                                                                    return __generator(this, function (_d) {
+                                                                        switch (_d.label) {
+                                                                            case 0:
+                                                                                i = r.select(".post-title a, h3 a, h4 a, .item-summary a").first() || r.select("a").first();
+                                                                                if (!i)
+                                                                                    return [2, null];
+                                                                                return [4, i.text()];
+                                                                            case 1:
+                                                                                c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), f = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
+                                                                                _c = { name: c, link: i.attr("href"), cover: d.img(r.select("img").first()) };
+                                                                                if (!f) return [3, 3];
+                                                                                return [4, f.text()];
+                                                                            case 2:
+                                                                                _b = _d.sent();
+                                                                                return [3, 4];
+                                                                            case 3:
+                                                                                _b = "";
+                                                                                _d.label = 4;
+                                                                            case 4: return [2, (_c.description = _b, _c.host = w, _c)];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, list: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], f = {}, l = 0;
+                                                                            _d.label = 1;
+                                                                        case 1:
+                                                                            if (!(l < i.size())) return [3, 5];
+                                                                            _c = (_b = y).card;
+                                                                            return [4, i.get(l)];
+                                                                        case 2: return [4, _c.apply(_b, [_d.sent()])];
+                                                                        case 3:
+                                                                            b = _d.sent();
+                                                                            b && b.link && !f[b.link] && (f[b.link] = 1, c.push(b));
+                                                                            _d.label = 4;
+                                                                        case 4:
+                                                                            l++;
+                                                                            return [3, 1];
+                                                                        case 5: return [2, c];
+                                                                    }
+                                                                }); });
+                                                            }, hasNext: function (r, i) { return r.select(".nav-previous a, a.nextpostslink, .wp-pagenavi a.next, a.next.page-numbers, .pagination a.next, a[rel=next]").size() > 0 || r.select('a[href*="/page/' + (i + 1) + '"]').size() > 0; }, browse: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            c = d.page(i), f = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
+                                                                            return [4, d.html(f)];
+                                                                        case 1:
+                                                                            l = _b.sent();
+                                                                            return [4, y.list(l)];
+                                                                        case 2:
+                                                                            b = _b.sent();
+                                                                            return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, search: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!d.isUrl(r)) return [3, 2];
+                                                                            return [4, y.byUrl(r, i)];
+                                                                        case 1: return [2, _b.sent()];
+                                                                        case 2:
+                                                                            c = d.page(i), f = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + d.enc(r) + "&post_type=wp-manga";
+                                                                            return [4, d.html(f)];
+                                                                        case 3:
+                                                                            l = _b.sent();
+                                                                            return [4, y.list(l)];
+                                                                        case 4:
+                                                                            b = _b.sent();
+                                                                            return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, byUrl: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            c = d.page(i), f = d.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
+                                                                            return [4, d.html(f)];
+                                                                        case 1:
+                                                                            l = _b.sent();
+                                                                            return [4, y.list(l)];
+                                                                        case 2:
+                                                                            b = _b.sent();
+                                                                            return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, detail: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, c, f, l, _b, _c, _d;
+                                                                    var _f;
+                                                                    return __generator(this, function (_g) {
+                                                                        switch (_g.label) {
+                                                                            case 0: return [4, d.html(r)];
+                                                                            case 1:
+                                                                                i = _g.sent();
+                                                                                return [4, qt(i.select(".genres-content a, .wp-manga-genres a, .manga-genres a"), function (b) {
+                                                                                        return __awaiter(this, void 0, void 0, function () {
+                                                                                            var _b;
+                                                                                            return __generator(this, function (_c) {
+                                                                                                switch (_c.label) {
+                                                                                                    case 0:
+                                                                                                        _b = {};
+                                                                                                        return [4, b.text()];
+                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = b.attr("href"), _b.script = "search.js", _b)];
+                                                                                                }
+                                                                                            });
+                                                                                        });
+                                                                                    })];
+                                                                            case 2:
+                                                                                c = _g.sent();
+                                                                                return [4, d.text(i, [".post-status .summary-content", ".manga-status", ".post-content_item:contains(Tình trạng) .summary-content", ".post-content_item:contains(Status) .summary-content"])];
+                                                                            case 3:
+                                                                                f = _g.sent(), l = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
+                                                                                _c = (_b = s).success;
+                                                                                _f = {};
+                                                                                return [4, d.text(i, [".post-title h1", ".post-title h3", "h1"])];
+                                                                            case 4:
+                                                                                _f.name = _g.sent(), _f.cover = d.img(i.select(".summary_image img, .tab-summary img").first());
+                                                                                return [4, d.text(i, [".author-content a", ".author-content", ".artist-content a"])];
+                                                                            case 5:
+                                                                                _f.author = _g.sent();
+                                                                                if (!l) return [3, 7];
+                                                                                return [4, l.html()];
+                                                                            case 6:
+                                                                                _d = _g.sent();
+                                                                                return [3, 8];
+                                                                            case 7:
+                                                                                _d = "";
+                                                                                _g.label = 8;
+                                                                            case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = f ? "Tình trạng: " + f : "", _f.ongoing = d.ongoing(f), _f.genres = c, _f.host = w, _f)])];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, chapterEls: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, _b, b, _c, _d; return __generator(this, function (_f) {
+                                                                    switch (_f.label) {
+                                                                        case 0:
+                                                                            c = r.select("li.wp-manga-chapter a, .listing-chapters_wrap li a, .version-chap li a");
+                                                                            if (c.size() > 0)
+                                                                                return [2, c];
+                                                                            f = i.replace(/\/$/, "") + "/";
+                                                                            return [4, u(f + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: f } })];
+                                                                        case 1:
+                                                                            l = _f.sent();
+                                                                            _b = l.ok;
+                                                                            if (!_b) return [3, 3];
+                                                                            return [4, l.html()];
+                                                                        case 2:
+                                                                            _b = (c = (_f.sent()).select("li.wp-manga-chapter a"), c.size() > 0);
+                                                                            _f.label = 3;
+                                                                        case 3:
+                                                                            if (_b)
+                                                                                return [2, c];
+                                                                            b = r.select("#manga-chapters-holder").attr("data-id") || r.select(".rating-post-id").attr("value") || r.select("input.rating-post-id").attr("value");
+                                                                            _d = b;
+                                                                            if (!_d) return [3, 5];
+                                                                            return [4, u(w + "/wp-admin/admin-ajax.php", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", "Content-Type": "application/x-www-form-urlencoded" }, body: "action=manga_get_chapters&manga=" + b })];
+                                                                        case 4:
+                                                                            _d = (l = _f.sent(), l.ok);
+                                                                            _f.label = 5;
+                                                                        case 5:
+                                                                            if (!_d) return [3, 7];
+                                                                            return [4, l.html()];
+                                                                        case 6:
+                                                                            _c = (_f.sent()).select("li.wp-manga-chapter a");
+                                                                            return [3, 8];
+                                                                        case 7:
+                                                                            _c = c;
+                                                                            _f.label = 8;
+                                                                        case 8: return [2, _c];
+                                                                    }
+                                                                }); });
+                                                            }, toc: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, c, f, l, b, k, _b, _c, _d;
+                                                                    var _f;
+                                                                    return __generator(this, function (_g) {
+                                                                        switch (_g.label) {
+                                                                            case 0: return [4, d.html(r)];
+                                                                            case 1:
+                                                                                i = _g.sent();
+                                                                                return [4, y.chapterEls(i, r)];
+                                                                            case 2:
+                                                                                c = _g.sent(), f = [], l = c.size() - 1;
+                                                                                _g.label = 3;
+                                                                            case 3:
+                                                                                if (!(l >= 0)) return [3, 8];
+                                                                                return [4, c.get(l)];
+                                                                            case 4:
+                                                                                b = _g.sent(), k = b.attr("href");
+                                                                                _b = !k || k === "#";
+                                                                                if (_b) return [3, 6];
+                                                                                _d = (_c = f).push;
+                                                                                _f = {};
+                                                                                return [4, b.text()];
+                                                                            case 5:
+                                                                                _b = _d.apply(_c, [(_f.name = (_g.sent()).trim(), _f.url = k, _f.host = w, _f)]);
+                                                                                _g.label = 6;
+                                                                            case 6:
+                                                                                _b;
+                                                                                _g.label = 7;
+                                                                            case 7:
+                                                                                l--;
+                                                                                return [3, 3];
+                                                                            case 8: return [2, s.success(f)];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, pages: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, k, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            i = r.indexOf("?") > 0 ? r : r.replace(/\/$/, "") + "/?style=list";
+                                                                            return [4, d.html(i)];
+                                                                        case 1:
+                                                                            c = _d.sent(), f = c.select(".reading-content img, .page-break img, .read-container img"), l = [], b = 0;
+                                                                            _d.label = 2;
+                                                                        case 2:
+                                                                            if (!(b < f.size())) return [3, 5];
+                                                                            _c = (_b = d).img;
+                                                                            return [4, f.get(b)];
+                                                                        case 3:
+                                                                            k = _c.apply(_b, [_d.sent()]);
+                                                                            k && l.push(k);
+                                                                            _d.label = 4;
+                                                                        case 4:
+                                                                            b++;
+                                                                            return [3, 2];
+                                                                        case 5: return [2, s.success(l)];
+                                                                    }
+                                                                }); });
+                                                            }, text: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, c, _b, _c, _d, _f; return __generator(this, function (_g) {
+                                                                    switch (_g.label) {
+                                                                        case 0: return [4, d.html(r)];
+                                                                        case 1:
+                                                                            i = _g.sent(), c = i.select(".reading-content .text-left, .reading-content .text-right, .reading-content, .entry-content").first();
+                                                                            if (!c) return [3, 4];
+                                                                            _d = (_c = s).success;
+                                                                            return [4, d.cleanContent(c)];
+                                                                        case 2:
+                                                                            _f = [_g.sent()];
+                                                                            return [4, d.text(i, ["#chapter-heading", ".breadcrumb li.active", "h1"])];
+                                                                        case 3:
+                                                                            _b = _d.apply(_c, _f.concat([_g.sent()]));
+                                                                            return [3, 5];
+                                                                        case 4:
+                                                                            _b = s.error("Không tìm thấy nội dung chương");
+                                                                            _g.label = 5;
+                                                                        case 5: return [2, _b];
+                                                                    }
+                                                                }); });
+                                                            } };
+                                                        return [2, typeof B == "function" ? B : void 0];
                                                     });
-                                                }, list: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], f = {}, l = 0;
-                                                                _d.label = 1;
-                                                            case 1:
-                                                                if (!(l < i.size())) return [3, 5];
-                                                                _c = (_b = y).card;
-                                                                return [4, i.get(l)];
-                                                            case 2: return [4, _c.apply(_b, [_d.sent()])];
-                                                            case 3:
-                                                                b = _d.sent();
-                                                                b && b.link && !f[b.link] && (f[b.link] = 1, c.push(b));
-                                                                _d.label = 4;
-                                                            case 4:
-                                                                l++;
-                                                                return [3, 1];
-                                                            case 5: return [2, c];
-                                                        }
-                                                    }); });
-                                                }, hasNext: function (r, i) { return r.select(".nav-previous a, a.nextpostslink, .wp-pagenavi a.next, a.next.page-numbers, .pagination a.next, a[rel=next]").size() > 0 || r.select('a[href*="/page/' + (i + 1) + '"]').size() > 0; }, browse: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                c = d.page(i), f = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
-                                                                return [4, d.html(f)];
-                                                            case 1:
-                                                                l = _b.sent();
-                                                                return [4, y.list(l)];
-                                                            case 2:
-                                                                b = _b.sent();
-                                                                return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, search: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!d.isUrl(r)) return [3, 2];
-                                                                return [4, y.byUrl(r, i)];
-                                                            case 1: return [2, _b.sent()];
-                                                            case 2:
-                                                                c = d.page(i), f = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + d.enc(r) + "&post_type=wp-manga";
-                                                                return [4, d.html(f)];
-                                                            case 3:
-                                                                l = _b.sent();
-                                                                return [4, y.list(l)];
-                                                            case 4:
-                                                                b = _b.sent();
-                                                                return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, byUrl: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                c = d.page(i), f = d.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
-                                                                return [4, d.html(f)];
-                                                            case 1:
-                                                                l = _b.sent();
-                                                                return [4, y.list(l)];
-                                                            case 2:
-                                                                b = _b.sent();
-                                                                return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, detail: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, f, l, _b, _c, _d;
-                                                        var _f;
-                                                        return __generator(this, function (_g) {
-                                                            switch (_g.label) {
-                                                                case 0: return [4, d.html(r)];
-                                                                case 1:
-                                                                    i = _g.sent();
-                                                                    return [4, qt(i.select(".genres-content a, .wp-manga-genres a, .manga-genres a"), function (b) {
-                                                                            return __awaiter(this, void 0, void 0, function () {
-                                                                                var _b;
-                                                                                return __generator(this, function (_c) {
-                                                                                    switch (_c.label) {
-                                                                                        case 0:
-                                                                                            _b = {};
-                                                                                            return [4, b.text()];
-                                                                                        case 1: return [2, (_b.title = _c.sent(), _b.input = b.attr("href"), _b.script = "search.js", _b)];
-                                                                                    }
-                                                                                });
-                                                                            });
-                                                                        })];
-                                                                case 2:
-                                                                    c = _g.sent();
-                                                                    return [4, d.text(i, [".post-status .summary-content", ".manga-status", ".post-content_item:contains(Tình trạng) .summary-content", ".post-content_item:contains(Status) .summary-content"])];
-                                                                case 3:
-                                                                    f = _g.sent(), l = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
-                                                                    _c = (_b = s).success;
-                                                                    _f = {};
-                                                                    return [4, d.text(i, [".post-title h1", ".post-title h3", "h1"])];
-                                                                case 4:
-                                                                    _f.name = _g.sent(), _f.cover = d.img(i.select(".summary_image img, .tab-summary img").first());
-                                                                    return [4, d.text(i, [".author-content a", ".author-content", ".artist-content a"])];
-                                                                case 5:
-                                                                    _f.author = _g.sent();
-                                                                    if (!l) return [3, 7];
-                                                                    return [4, l.html()];
-                                                                case 6:
-                                                                    _d = _g.sent();
-                                                                    return [3, 8];
-                                                                case 7:
-                                                                    _d = "";
-                                                                    _g.label = 8;
-                                                                case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = f ? "Tình trạng: " + f : "", _f.ongoing = d.ongoing(f), _f.genres = c, _f.host = w, _f)])];
-                                                            }
-                                                        });
-                                                    });
-                                                }, chapterEls: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, _b, b, _c, _d; return __generator(this, function (_f) {
-                                                        switch (_f.label) {
-                                                            case 0:
-                                                                c = r.select("li.wp-manga-chapter a, .listing-chapters_wrap li a, .version-chap li a");
-                                                                if (c.size() > 0)
-                                                                    return [2, c];
-                                                                f = i.replace(/\/$/, "") + "/";
-                                                                return [4, u(f + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: f } })];
-                                                            case 1:
-                                                                l = _f.sent();
-                                                                _b = l.ok;
-                                                                if (!_b) return [3, 3];
-                                                                return [4, l.html()];
-                                                            case 2:
-                                                                _b = (c = (_f.sent()).select("li.wp-manga-chapter a"), c.size() > 0);
-                                                                _f.label = 3;
-                                                            case 3:
-                                                                if (_b)
-                                                                    return [2, c];
-                                                                b = r.select("#manga-chapters-holder").attr("data-id") || r.select(".rating-post-id").attr("value") || r.select("input.rating-post-id").attr("value");
-                                                                _d = b;
-                                                                if (!_d) return [3, 5];
-                                                                return [4, u(w + "/wp-admin/admin-ajax.php", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", "Content-Type": "application/x-www-form-urlencoded" }, body: "action=manga_get_chapters&manga=" + b })];
-                                                            case 4:
-                                                                _d = (l = _f.sent(), l.ok);
-                                                                _f.label = 5;
-                                                            case 5:
-                                                                if (!_d) return [3, 7];
-                                                                return [4, l.html()];
-                                                            case 6:
-                                                                _c = (_f.sent()).select("li.wp-manga-chapter a");
-                                                                return [3, 8];
-                                                            case 7:
-                                                                _c = c;
-                                                                _f.label = 8;
-                                                            case 8: return [2, _c];
-                                                        }
-                                                    }); });
-                                                }, toc: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, f, l, b, k, _b, _c, _d;
-                                                        var _f;
-                                                        return __generator(this, function (_g) {
-                                                            switch (_g.label) {
-                                                                case 0: return [4, d.html(r)];
-                                                                case 1:
-                                                                    i = _g.sent();
-                                                                    return [4, y.chapterEls(i, r)];
-                                                                case 2:
-                                                                    c = _g.sent(), f = [], l = c.size() - 1;
-                                                                    _g.label = 3;
-                                                                case 3:
-                                                                    if (!(l >= 0)) return [3, 8];
-                                                                    return [4, c.get(l)];
-                                                                case 4:
-                                                                    b = _g.sent(), k = b.attr("href");
-                                                                    _b = !k || k === "#";
-                                                                    if (_b) return [3, 6];
-                                                                    _d = (_c = f).push;
-                                                                    _f = {};
-                                                                    return [4, b.text()];
-                                                                case 5:
-                                                                    _b = _d.apply(_c, [(_f.name = (_g.sent()).trim(), _f.url = k, _f.host = w, _f)]);
-                                                                    _g.label = 6;
-                                                                case 6:
-                                                                    _b;
-                                                                    _g.label = 7;
-                                                                case 7:
-                                                                    l--;
-                                                                    return [3, 3];
-                                                                case 8: return [2, s.success(f)];
-                                                            }
-                                                        });
-                                                    });
-                                                }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, k, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                i = r.indexOf("?") > 0 ? r : r.replace(/\/$/, "") + "/?style=list";
-                                                                return [4, d.html(i)];
-                                                            case 1:
-                                                                c = _d.sent(), f = c.select(".reading-content img, .page-break img, .read-container img"), l = [], b = 0;
-                                                                _d.label = 2;
-                                                            case 2:
-                                                                if (!(b < f.size())) return [3, 5];
-                                                                _c = (_b = d).img;
-                                                                return [4, f.get(b)];
-                                                            case 3:
-                                                                k = _c.apply(_b, [_d.sent()]);
-                                                                k && l.push(k);
-                                                                _d.label = 4;
-                                                            case 4:
-                                                                b++;
-                                                                return [3, 2];
-                                                            case 5: return [2, s.success(l)];
-                                                        }
-                                                    }); });
-                                                }, text: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, _b, _c, _d, _f; return __generator(this, function (_g) {
-                                                        switch (_g.label) {
-                                                            case 0: return [4, d.html(r)];
-                                                            case 1:
-                                                                i = _g.sent(), c = i.select(".reading-content .text-left, .reading-content .text-right, .reading-content, .entry-content").first();
-                                                                if (!c) return [3, 4];
-                                                                _d = (_c = s).success;
-                                                                return [4, d.cleanContent(c)];
-                                                            case 2:
-                                                                _f = [_g.sent()];
-                                                                return [4, d.text(i, ["#chapter-heading", ".breadcrumb li.active", "h1"])];
-                                                            case 3:
-                                                                _b = _d.apply(_c, _f.concat([_g.sent()]));
-                                                                return [3, 5];
-                                                            case 4:
-                                                                _b = s.error("Không tìm thấy nội dung chương");
-                                                                _g.label = 5;
-                                                            case 5: return [2, _b];
-                                                        }
-                                                    }); });
-                                                } };
-                                            return [2, typeof B == "function" ? B : void 0];
-                                        }); });
-                                    })()];
-                            case 1: return [2, _b.sent()];
-                        }
-                    }); });
-                })(e.fetch, e.Http, e.Html, e.Response, e.localStorage, e.cacheStorage, e.localConfig, e.localCookie, e.sleep, e.Log, e.console, e.Console, e.log, e.UserAgent, e.Engine, e.Graphics, e.Script)];
-        }); });
+                                                });
+                                            })()];
+                                    case 1: return [2, _b.sent()];
+                                }
+                            });
+                        });
+                    })(e.fetch, e.Http, e.Html, e.Response, e.localStorage, e.cacheStorage, e.localConfig, e.localCookie, e.sleep, e.Log, e.console, e.Console, e.log, e.UserAgent, e.Engine, e.Graphics, e.Script)];
+            });
+        });
     }, search: function (e, t) {
-        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, a, n, s, o, h, p, m, x, T, v, S, N, C, F, z, K) {
-                    return __awaiter(this, void 0, void 0, function () { var M; return __generator(this, function (_b) {
-                        switch (_b.label) {
-                            case 0:
-                                M = t("DOMAIN");
-                                return [4, (function () {
-                                        return __awaiter(this, void 0, void 0, function () { function B(r, i) {
-                                            return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                switch (_b.label) {
-                                                    case 0: return [4, y.search(r, i)];
-                                                    case 1: return [2, _b.sent()];
-                                                }
-                                            }); });
-                                        } var w, d, y; return __generator(this, function (_b) {
-                                            w = "https://gaumeoteam.com";
-                                            try {
-                                                M && (w = String(M).replace(/\/+$/, ""));
-                                            }
-                                            catch (r) { }
-                                            d = { img: function (r) { if (!r)
-                                                    return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < i.length; c++) {
-                                                    var f = r.attr(i[c]);
-                                                    if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
-                                                        return d.fix(f.trim());
-                                                } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? d.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                c = 0;
-                                                                _b.label = 1;
-                                                            case 1:
-                                                                if (!(c < i.length)) return [3, 4];
-                                                                return [4, r.select(i[c]).text()];
-                                                            case 2:
-                                                                f = _b.sent();
-                                                                if (f)
-                                                                    return [2, f.trim()];
-                                                                _b.label = 3;
-                                                            case 3:
-                                                                c++;
-                                                                return [3, 1];
-                                                            case 4: return [2, ""];
-                                                        }
-                                                    }); });
-                                                }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b, _b; return __generator(this, function (_c) {
-                                                        switch (_c.label) {
-                                                            case 0:
-                                                                i = i || {};
-                                                                c = { Referer: w + "/" };
-                                                                if (i.headers)
-                                                                    for (f in i.headers)
-                                                                        c[f] = i.headers[f];
-                                                                return [4, u(r, { method: i.method, headers: c, body: i.body })];
-                                                            case 1:
-                                                                l = _c.sent(), b = 0;
-                                                                _c.label = 2;
-                                                            case 2:
-                                                                _b = l && l.status === 429 && b < 3;
-                                                                if (!_b) return [3, 4];
-                                                                return [4, d.cf(l)];
-                                                            case 3:
-                                                                _b = !(_c.sent());
-                                                                _c.label = 4;
-                                                            case 4:
-                                                                if (!_b) return [3, 8];
-                                                                return [4, x(1500 * (b + 1))];
-                                                            case 5:
-                                                                _c.sent();
-                                                                return [4, u(r, { method: i.method, headers: c, body: i.body })];
-                                                            case 6:
-                                                                l = _c.sent();
-                                                                _c.label = 7;
-                                                            case 7:
-                                                                b++;
-                                                                return [3, 2];
-                                                            case 8: return [2, l];
-                                                        }
-                                                    }); });
-                                                }, cf: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.status !== 403 && r.status !== 503 && r.status !== 429)
-                                                                    return [2, !1];
-                                                                return [4, r.text()];
-                                                            case 1:
-                                                                i = (_b.sent()) || "";
-                                                                return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
-                                                        }
-                                                    }); });
-                                                }, check: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.ok)
-                                                                    return [2, r];
-                                                                return [4, d.cf(r)];
-                                                            case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
-                                                        }
-                                                    }); });
-                                                }, html: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                c = _d.sent();
-                                                                return [4, c.html(i && i.charset)];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, json: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                c = _d.sent();
-                                                                return [4, c.json()];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
-                                                                return [4, r.html()];
-                                                            case 1: return [2, (_b.sent()).replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
-                                                        }
-                                                    }); });
-                                                }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, y = { path: function () { return typeof MADARA != "undefined" && MADARA.path || "manga"; }, card: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, f, _b;
-                                                        var _c;
-                                                        return __generator(this, function (_d) {
-                                                            switch (_d.label) {
-                                                                case 0:
-                                                                    i = r.select(".post-title a, h3 a, h4 a, .item-summary a").first() || r.select("a").first();
-                                                                    if (!i)
-                                                                        return [2, null];
-                                                                    return [4, i.text()];
-                                                                case 1:
-                                                                    c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), f = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
-                                                                    _c = { name: c, link: i.attr("href"), cover: d.img(r.select("img").first()) };
-                                                                    if (!f) return [3, 3];
-                                                                    return [4, f.text()];
-                                                                case 2:
-                                                                    _b = _d.sent();
-                                                                    return [3, 4];
-                                                                case 3:
-                                                                    _b = "";
-                                                                    _d.label = 4;
-                                                                case 4: return [2, (_c.description = _b, _c.host = w, _c)];
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_b) {
+                return [2, (function (u, a, n, s, o, h, p, m, x, T, v, S, N, C, F, z, K) {
+                        return __awaiter(this, void 0, void 0, function () {
+                            var M;
+                            return __generator(this, function (_b) {
+                                switch (_b.label) {
+                                    case 0:
+                                        M = t("DOMAIN");
+                                        return [4, (function () {
+                                                return __awaiter(this, void 0, void 0, function () {
+                                                    function B(r, i) {
+                                                        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                            switch (_b.label) {
+                                                                case 0: return [4, y.search(r, i)];
+                                                                case 1: return [2, _b.sent()];
                                                             }
-                                                        });
+                                                        }); });
+                                                    }
+                                                    var w, d, y;
+                                                    return __generator(this, function (_b) {
+                                                        w = "https://gaumeoteam.com";
+                                                        try {
+                                                            M && (w = String(M).replace(/\/+$/, ""));
+                                                        }
+                                                        catch (r) { }
+                                                        d = { img: function (r) { if (!r)
+                                                                return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < i.length; c++) {
+                                                                var f = r.attr(i[c]);
+                                                                if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
+                                                                    return d.fix(f.trim());
+                                                            } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? d.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            c = 0;
+                                                                            _b.label = 1;
+                                                                        case 1:
+                                                                            if (!(c < i.length)) return [3, 4];
+                                                                            return [4, r.select(i[c]).text()];
+                                                                        case 2:
+                                                                            f = _b.sent();
+                                                                            if (f)
+                                                                                return [2, f.trim()];
+                                                                            _b.label = 3;
+                                                                        case 3:
+                                                                            c++;
+                                                                            return [3, 1];
+                                                                        case 4: return [2, ""];
+                                                                    }
+                                                                }); });
+                                                            }, get: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b, _b; return __generator(this, function (_c) {
+                                                                    switch (_c.label) {
+                                                                        case 0:
+                                                                            i = i || {};
+                                                                            c = { Referer: w + "/" };
+                                                                            if (i.headers)
+                                                                                for (f in i.headers)
+                                                                                    c[f] = i.headers[f];
+                                                                            return [4, u(r, { method: i.method, headers: c, body: i.body })];
+                                                                        case 1:
+                                                                            l = _c.sent(), b = 0;
+                                                                            _c.label = 2;
+                                                                        case 2:
+                                                                            _b = l && l.status === 429 && b < 3;
+                                                                            if (!_b) return [3, 4];
+                                                                            return [4, d.cf(l)];
+                                                                        case 3:
+                                                                            _b = !(_c.sent());
+                                                                            _c.label = 4;
+                                                                        case 4:
+                                                                            if (!_b) return [3, 8];
+                                                                            return [4, x(1500 * (b + 1))];
+                                                                        case 5:
+                                                                            _c.sent();
+                                                                            return [4, u(r, { method: i.method, headers: c, body: i.body })];
+                                                                        case 6:
+                                                                            l = _c.sent();
+                                                                            _c.label = 7;
+                                                                        case 7:
+                                                                            b++;
+                                                                            return [3, 2];
+                                                                        case 8: return [2, l];
+                                                                    }
+                                                                }); });
+                                                            }, cf: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.status !== 403 && r.status !== 503 && r.status !== 429)
+                                                                                return [2, !1];
+                                                                            return [4, r.text()];
+                                                                        case 1:
+                                                                            i = (_b.sent()) || "";
+                                                                            return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
+                                                                    }
+                                                                }); });
+                                                            }, check: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.ok)
+                                                                                return [2, r];
+                                                                            return [4, d.cf(r)];
+                                                                        case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
+                                                                    }
+                                                                }); });
+                                                            }, html: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            c = _d.sent();
+                                                                            return [4, c.html(i && i.charset)];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, json: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            c = _d.sent();
+                                                                            return [4, c.json()];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    return __generator(this, function (_b) {
+                                                                        switch (_b.label) {
+                                                                            case 0:
+                                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
+                                                                                return [4, r.html()];
+                                                                            case 1: return [2, (_b.sent()).replace(/\r\n?/g, "\n").replace(/&#13;|&#x0?[dD];/g, "").replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, y = { path: function () { return typeof MADARA != "undefined" && MADARA.path || "manga"; }, card: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, c, f, _b;
+                                                                    var _c;
+                                                                    return __generator(this, function (_d) {
+                                                                        switch (_d.label) {
+                                                                            case 0:
+                                                                                i = r.select(".post-title a, h3 a, h4 a, .item-summary a").first() || r.select("a").first();
+                                                                                if (!i)
+                                                                                    return [2, null];
+                                                                                return [4, i.text()];
+                                                                            case 1:
+                                                                                c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), f = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
+                                                                                _c = { name: c, link: i.attr("href"), cover: d.img(r.select("img").first()) };
+                                                                                if (!f) return [3, 3];
+                                                                                return [4, f.text()];
+                                                                            case 2:
+                                                                                _b = _d.sent();
+                                                                                return [3, 4];
+                                                                            case 3:
+                                                                                _b = "";
+                                                                                _d.label = 4;
+                                                                            case 4: return [2, (_c.description = _b, _c.host = w, _c)];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, list: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], f = {}, l = 0;
+                                                                            _d.label = 1;
+                                                                        case 1:
+                                                                            if (!(l < i.size())) return [3, 5];
+                                                                            _c = (_b = y).card;
+                                                                            return [4, i.get(l)];
+                                                                        case 2: return [4, _c.apply(_b, [_d.sent()])];
+                                                                        case 3:
+                                                                            b = _d.sent();
+                                                                            b && b.link && !f[b.link] && (f[b.link] = 1, c.push(b));
+                                                                            _d.label = 4;
+                                                                        case 4:
+                                                                            l++;
+                                                                            return [3, 1];
+                                                                        case 5: return [2, c];
+                                                                    }
+                                                                }); });
+                                                            }, hasNext: function (r, i) { return r.select(".nav-previous a, a.nextpostslink, .wp-pagenavi a.next, a.next.page-numbers, .pagination a.next, a[rel=next]").size() > 0 || r.select('a[href*="/page/' + (i + 1) + '"]').size() > 0; }, browse: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            c = d.page(i), f = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
+                                                                            return [4, d.html(f)];
+                                                                        case 1:
+                                                                            l = _b.sent();
+                                                                            return [4, y.list(l)];
+                                                                        case 2:
+                                                                            b = _b.sent();
+                                                                            return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, search: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!d.isUrl(r)) return [3, 2];
+                                                                            return [4, y.byUrl(r, i)];
+                                                                        case 1: return [2, _b.sent()];
+                                                                        case 2:
+                                                                            c = d.page(i), f = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + d.enc(r) + "&post_type=wp-manga";
+                                                                            return [4, d.html(f)];
+                                                                        case 3:
+                                                                            l = _b.sent();
+                                                                            return [4, y.list(l)];
+                                                                        case 4:
+                                                                            b = _b.sent();
+                                                                            return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, byUrl: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            c = d.page(i), f = d.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
+                                                                            return [4, d.html(f)];
+                                                                        case 1:
+                                                                            l = _b.sent();
+                                                                            return [4, y.list(l)];
+                                                                        case 2:
+                                                                            b = _b.sent();
+                                                                            return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, detail: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, c, f, l, _b, _c, _d;
+                                                                    var _f;
+                                                                    return __generator(this, function (_g) {
+                                                                        switch (_g.label) {
+                                                                            case 0: return [4, d.html(r)];
+                                                                            case 1:
+                                                                                i = _g.sent();
+                                                                                return [4, qt(i.select(".genres-content a, .wp-manga-genres a, .manga-genres a"), function (b) {
+                                                                                        return __awaiter(this, void 0, void 0, function () {
+                                                                                            var _b;
+                                                                                            return __generator(this, function (_c) {
+                                                                                                switch (_c.label) {
+                                                                                                    case 0:
+                                                                                                        _b = {};
+                                                                                                        return [4, b.text()];
+                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = b.attr("href"), _b.script = "search.js", _b)];
+                                                                                                }
+                                                                                            });
+                                                                                        });
+                                                                                    })];
+                                                                            case 2:
+                                                                                c = _g.sent();
+                                                                                return [4, d.text(i, [".post-status .summary-content", ".manga-status", ".post-content_item:contains(Tình trạng) .summary-content", ".post-content_item:contains(Status) .summary-content"])];
+                                                                            case 3:
+                                                                                f = _g.sent(), l = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
+                                                                                _c = (_b = s).success;
+                                                                                _f = {};
+                                                                                return [4, d.text(i, [".post-title h1", ".post-title h3", "h1"])];
+                                                                            case 4:
+                                                                                _f.name = _g.sent(), _f.cover = d.img(i.select(".summary_image img, .tab-summary img").first());
+                                                                                return [4, d.text(i, [".author-content a", ".author-content", ".artist-content a"])];
+                                                                            case 5:
+                                                                                _f.author = _g.sent();
+                                                                                if (!l) return [3, 7];
+                                                                                return [4, l.html()];
+                                                                            case 6:
+                                                                                _d = _g.sent();
+                                                                                return [3, 8];
+                                                                            case 7:
+                                                                                _d = "";
+                                                                                _g.label = 8;
+                                                                            case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = f ? "Tình trạng: " + f : "", _f.ongoing = d.ongoing(f), _f.genres = c, _f.host = w, _f)])];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, chapterEls: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, _b, b, _c, _d; return __generator(this, function (_f) {
+                                                                    switch (_f.label) {
+                                                                        case 0:
+                                                                            c = r.select("li.wp-manga-chapter a, .listing-chapters_wrap li a, .version-chap li a");
+                                                                            if (c.size() > 0)
+                                                                                return [2, c];
+                                                                            f = i.replace(/\/$/, "") + "/";
+                                                                            return [4, u(f + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: f } })];
+                                                                        case 1:
+                                                                            l = _f.sent();
+                                                                            _b = l.ok;
+                                                                            if (!_b) return [3, 3];
+                                                                            return [4, l.html()];
+                                                                        case 2:
+                                                                            _b = (c = (_f.sent()).select("li.wp-manga-chapter a"), c.size() > 0);
+                                                                            _f.label = 3;
+                                                                        case 3:
+                                                                            if (_b)
+                                                                                return [2, c];
+                                                                            b = r.select("#manga-chapters-holder").attr("data-id") || r.select(".rating-post-id").attr("value") || r.select("input.rating-post-id").attr("value");
+                                                                            _d = b;
+                                                                            if (!_d) return [3, 5];
+                                                                            return [4, u(w + "/wp-admin/admin-ajax.php", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", "Content-Type": "application/x-www-form-urlencoded" }, body: "action=manga_get_chapters&manga=" + b })];
+                                                                        case 4:
+                                                                            _d = (l = _f.sent(), l.ok);
+                                                                            _f.label = 5;
+                                                                        case 5:
+                                                                            if (!_d) return [3, 7];
+                                                                            return [4, l.html()];
+                                                                        case 6:
+                                                                            _c = (_f.sent()).select("li.wp-manga-chapter a");
+                                                                            return [3, 8];
+                                                                        case 7:
+                                                                            _c = c;
+                                                                            _f.label = 8;
+                                                                        case 8: return [2, _c];
+                                                                    }
+                                                                }); });
+                                                            }, toc: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, c, f, l, b, k, _b, _c, _d;
+                                                                    var _f;
+                                                                    return __generator(this, function (_g) {
+                                                                        switch (_g.label) {
+                                                                            case 0: return [4, d.html(r)];
+                                                                            case 1:
+                                                                                i = _g.sent();
+                                                                                return [4, y.chapterEls(i, r)];
+                                                                            case 2:
+                                                                                c = _g.sent(), f = [], l = c.size() - 1;
+                                                                                _g.label = 3;
+                                                                            case 3:
+                                                                                if (!(l >= 0)) return [3, 8];
+                                                                                return [4, c.get(l)];
+                                                                            case 4:
+                                                                                b = _g.sent(), k = b.attr("href");
+                                                                                _b = !k || k === "#";
+                                                                                if (_b) return [3, 6];
+                                                                                _d = (_c = f).push;
+                                                                                _f = {};
+                                                                                return [4, b.text()];
+                                                                            case 5:
+                                                                                _b = _d.apply(_c, [(_f.name = (_g.sent()).trim(), _f.url = k, _f.host = w, _f)]);
+                                                                                _g.label = 6;
+                                                                            case 6:
+                                                                                _b;
+                                                                                _g.label = 7;
+                                                                            case 7:
+                                                                                l--;
+                                                                                return [3, 3];
+                                                                            case 8: return [2, s.success(f)];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, pages: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, k, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            i = r.indexOf("?") > 0 ? r : r.replace(/\/$/, "") + "/?style=list";
+                                                                            return [4, d.html(i)];
+                                                                        case 1:
+                                                                            c = _d.sent(), f = c.select(".reading-content img, .page-break img, .read-container img"), l = [], b = 0;
+                                                                            _d.label = 2;
+                                                                        case 2:
+                                                                            if (!(b < f.size())) return [3, 5];
+                                                                            _c = (_b = d).img;
+                                                                            return [4, f.get(b)];
+                                                                        case 3:
+                                                                            k = _c.apply(_b, [_d.sent()]);
+                                                                            k && l.push(k);
+                                                                            _d.label = 4;
+                                                                        case 4:
+                                                                            b++;
+                                                                            return [3, 2];
+                                                                        case 5: return [2, s.success(l)];
+                                                                    }
+                                                                }); });
+                                                            }, text: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, c, _b, _c, _d, _f; return __generator(this, function (_g) {
+                                                                    switch (_g.label) {
+                                                                        case 0: return [4, d.html(r)];
+                                                                        case 1:
+                                                                            i = _g.sent(), c = i.select(".reading-content .text-left, .reading-content .text-right, .reading-content, .entry-content").first();
+                                                                            if (!c) return [3, 4];
+                                                                            _d = (_c = s).success;
+                                                                            return [4, d.cleanContent(c)];
+                                                                        case 2:
+                                                                            _f = [_g.sent()];
+                                                                            return [4, d.text(i, ["#chapter-heading", ".breadcrumb li.active", "h1"])];
+                                                                        case 3:
+                                                                            _b = _d.apply(_c, _f.concat([_g.sent()]));
+                                                                            return [3, 5];
+                                                                        case 4:
+                                                                            _b = s.error("Không tìm thấy nội dung chương");
+                                                                            _g.label = 5;
+                                                                        case 5: return [2, _b];
+                                                                    }
+                                                                }); });
+                                                            } };
+                                                        return [2, typeof B == "function" ? B : void 0];
                                                     });
-                                                }, list: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], f = {}, l = 0;
-                                                                _d.label = 1;
-                                                            case 1:
-                                                                if (!(l < i.size())) return [3, 5];
-                                                                _c = (_b = y).card;
-                                                                return [4, i.get(l)];
-                                                            case 2: return [4, _c.apply(_b, [_d.sent()])];
-                                                            case 3:
-                                                                b = _d.sent();
-                                                                b && b.link && !f[b.link] && (f[b.link] = 1, c.push(b));
-                                                                _d.label = 4;
-                                                            case 4:
-                                                                l++;
-                                                                return [3, 1];
-                                                            case 5: return [2, c];
-                                                        }
-                                                    }); });
-                                                }, hasNext: function (r, i) { return r.select(".nav-previous a, a.nextpostslink, .wp-pagenavi a.next, a.next.page-numbers, .pagination a.next, a[rel=next]").size() > 0 || r.select('a[href*="/page/' + (i + 1) + '"]').size() > 0; }, browse: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                c = d.page(i), f = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
-                                                                return [4, d.html(f)];
-                                                            case 1:
-                                                                l = _b.sent();
-                                                                return [4, y.list(l)];
-                                                            case 2:
-                                                                b = _b.sent();
-                                                                return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, search: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!d.isUrl(r)) return [3, 2];
-                                                                return [4, y.byUrl(r, i)];
-                                                            case 1: return [2, _b.sent()];
-                                                            case 2:
-                                                                c = d.page(i), f = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + d.enc(r) + "&post_type=wp-manga";
-                                                                return [4, d.html(f)];
-                                                            case 3:
-                                                                l = _b.sent();
-                                                                return [4, y.list(l)];
-                                                            case 4:
-                                                                b = _b.sent();
-                                                                return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, byUrl: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                c = d.page(i), f = d.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
-                                                                return [4, d.html(f)];
-                                                            case 1:
-                                                                l = _b.sent();
-                                                                return [4, y.list(l)];
-                                                            case 2:
-                                                                b = _b.sent();
-                                                                return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, detail: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, f, l, _b, _c, _d;
-                                                        var _f;
-                                                        return __generator(this, function (_g) {
-                                                            switch (_g.label) {
-                                                                case 0: return [4, d.html(r)];
-                                                                case 1:
-                                                                    i = _g.sent();
-                                                                    return [4, qt(i.select(".genres-content a, .wp-manga-genres a, .manga-genres a"), function (b) {
-                                                                            return __awaiter(this, void 0, void 0, function () {
-                                                                                var _b;
-                                                                                return __generator(this, function (_c) {
-                                                                                    switch (_c.label) {
-                                                                                        case 0:
-                                                                                            _b = {};
-                                                                                            return [4, b.text()];
-                                                                                        case 1: return [2, (_b.title = _c.sent(), _b.input = b.attr("href"), _b.script = "search.js", _b)];
-                                                                                    }
-                                                                                });
-                                                                            });
-                                                                        })];
-                                                                case 2:
-                                                                    c = _g.sent();
-                                                                    return [4, d.text(i, [".post-status .summary-content", ".manga-status", ".post-content_item:contains(Tình trạng) .summary-content", ".post-content_item:contains(Status) .summary-content"])];
-                                                                case 3:
-                                                                    f = _g.sent(), l = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
-                                                                    _c = (_b = s).success;
-                                                                    _f = {};
-                                                                    return [4, d.text(i, [".post-title h1", ".post-title h3", "h1"])];
-                                                                case 4:
-                                                                    _f.name = _g.sent(), _f.cover = d.img(i.select(".summary_image img, .tab-summary img").first());
-                                                                    return [4, d.text(i, [".author-content a", ".author-content", ".artist-content a"])];
-                                                                case 5:
-                                                                    _f.author = _g.sent();
-                                                                    if (!l) return [3, 7];
-                                                                    return [4, l.html()];
-                                                                case 6:
-                                                                    _d = _g.sent();
-                                                                    return [3, 8];
-                                                                case 7:
-                                                                    _d = "";
-                                                                    _g.label = 8;
-                                                                case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = f ? "Tình trạng: " + f : "", _f.ongoing = d.ongoing(f), _f.genres = c, _f.host = w, _f)])];
-                                                            }
-                                                        });
-                                                    });
-                                                }, chapterEls: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, _b, b, _c, _d; return __generator(this, function (_f) {
-                                                        switch (_f.label) {
-                                                            case 0:
-                                                                c = r.select("li.wp-manga-chapter a, .listing-chapters_wrap li a, .version-chap li a");
-                                                                if (c.size() > 0)
-                                                                    return [2, c];
-                                                                f = i.replace(/\/$/, "") + "/";
-                                                                return [4, u(f + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: f } })];
-                                                            case 1:
-                                                                l = _f.sent();
-                                                                _b = l.ok;
-                                                                if (!_b) return [3, 3];
-                                                                return [4, l.html()];
-                                                            case 2:
-                                                                _b = (c = (_f.sent()).select("li.wp-manga-chapter a"), c.size() > 0);
-                                                                _f.label = 3;
-                                                            case 3:
-                                                                if (_b)
-                                                                    return [2, c];
-                                                                b = r.select("#manga-chapters-holder").attr("data-id") || r.select(".rating-post-id").attr("value") || r.select("input.rating-post-id").attr("value");
-                                                                _d = b;
-                                                                if (!_d) return [3, 5];
-                                                                return [4, u(w + "/wp-admin/admin-ajax.php", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", "Content-Type": "application/x-www-form-urlencoded" }, body: "action=manga_get_chapters&manga=" + b })];
-                                                            case 4:
-                                                                _d = (l = _f.sent(), l.ok);
-                                                                _f.label = 5;
-                                                            case 5:
-                                                                if (!_d) return [3, 7];
-                                                                return [4, l.html()];
-                                                            case 6:
-                                                                _c = (_f.sent()).select("li.wp-manga-chapter a");
-                                                                return [3, 8];
-                                                            case 7:
-                                                                _c = c;
-                                                                _f.label = 8;
-                                                            case 8: return [2, _c];
-                                                        }
-                                                    }); });
-                                                }, toc: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, f, l, b, k, _b, _c, _d;
-                                                        var _f;
-                                                        return __generator(this, function (_g) {
-                                                            switch (_g.label) {
-                                                                case 0: return [4, d.html(r)];
-                                                                case 1:
-                                                                    i = _g.sent();
-                                                                    return [4, y.chapterEls(i, r)];
-                                                                case 2:
-                                                                    c = _g.sent(), f = [], l = c.size() - 1;
-                                                                    _g.label = 3;
-                                                                case 3:
-                                                                    if (!(l >= 0)) return [3, 8];
-                                                                    return [4, c.get(l)];
-                                                                case 4:
-                                                                    b = _g.sent(), k = b.attr("href");
-                                                                    _b = !k || k === "#";
-                                                                    if (_b) return [3, 6];
-                                                                    _d = (_c = f).push;
-                                                                    _f = {};
-                                                                    return [4, b.text()];
-                                                                case 5:
-                                                                    _b = _d.apply(_c, [(_f.name = (_g.sent()).trim(), _f.url = k, _f.host = w, _f)]);
-                                                                    _g.label = 6;
-                                                                case 6:
-                                                                    _b;
-                                                                    _g.label = 7;
-                                                                case 7:
-                                                                    l--;
-                                                                    return [3, 3];
-                                                                case 8: return [2, s.success(f)];
-                                                            }
-                                                        });
-                                                    });
-                                                }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, k, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                i = r.indexOf("?") > 0 ? r : r.replace(/\/$/, "") + "/?style=list";
-                                                                return [4, d.html(i)];
-                                                            case 1:
-                                                                c = _d.sent(), f = c.select(".reading-content img, .page-break img, .read-container img"), l = [], b = 0;
-                                                                _d.label = 2;
-                                                            case 2:
-                                                                if (!(b < f.size())) return [3, 5];
-                                                                _c = (_b = d).img;
-                                                                return [4, f.get(b)];
-                                                            case 3:
-                                                                k = _c.apply(_b, [_d.sent()]);
-                                                                k && l.push(k);
-                                                                _d.label = 4;
-                                                            case 4:
-                                                                b++;
-                                                                return [3, 2];
-                                                            case 5: return [2, s.success(l)];
-                                                        }
-                                                    }); });
-                                                }, text: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, _b, _c, _d, _f; return __generator(this, function (_g) {
-                                                        switch (_g.label) {
-                                                            case 0: return [4, d.html(r)];
-                                                            case 1:
-                                                                i = _g.sent(), c = i.select(".reading-content .text-left, .reading-content .text-right, .reading-content, .entry-content").first();
-                                                                if (!c) return [3, 4];
-                                                                _d = (_c = s).success;
-                                                                return [4, d.cleanContent(c)];
-                                                            case 2:
-                                                                _f = [_g.sent()];
-                                                                return [4, d.text(i, ["#chapter-heading", ".breadcrumb li.active", "h1"])];
-                                                            case 3:
-                                                                _b = _d.apply(_c, _f.concat([_g.sent()]));
-                                                                return [3, 5];
-                                                            case 4:
-                                                                _b = s.error("Không tìm thấy nội dung chương");
-                                                                _g.label = 5;
-                                                            case 5: return [2, _b];
-                                                        }
-                                                    }); });
-                                                } };
-                                            return [2, typeof B == "function" ? B : void 0];
-                                        }); });
-                                    })()];
-                            case 1: return [2, _b.sent()];
-                        }
-                    }); });
-                })(e.fetch, e.Http, e.Html, e.Response, e.localStorage, e.cacheStorage, e.localConfig, e.localCookie, e.sleep, e.Log, e.console, e.Console, e.log, e.UserAgent, e.Engine, e.Graphics, e.Script)];
-        }); });
+                                                });
+                                            })()];
+                                    case 1: return [2, _b.sent()];
+                                }
+                            });
+                        });
+                    })(e.fetch, e.Http, e.Html, e.Response, e.localStorage, e.cacheStorage, e.localConfig, e.localCookie, e.sleep, e.Log, e.console, e.Console, e.log, e.UserAgent, e.Engine, e.Graphics, e.Script)];
+            });
+        });
     }, detail: function (e, t) {
-        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, a, n, s, o, h, p, m, x, T, v, S, N, C, F, z, K) {
-                    return __awaiter(this, void 0, void 0, function () { var M; return __generator(this, function (_b) {
-                        switch (_b.label) {
-                            case 0:
-                                M = t("DOMAIN");
-                                return [4, (function () {
-                                        return __awaiter(this, void 0, void 0, function () { function B(r) {
-                                            return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                switch (_b.label) {
-                                                    case 0: return [4, y.detail(r)];
-                                                    case 1: return [2, _b.sent()];
-                                                }
-                                            }); });
-                                        } var w, d, y; return __generator(this, function (_b) {
-                                            w = "https://gaumeoteam.com";
-                                            try {
-                                                M && (w = String(M).replace(/\/+$/, ""));
-                                            }
-                                            catch (r) { }
-                                            d = { img: function (r) { if (!r)
-                                                    return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < i.length; c++) {
-                                                    var f = r.attr(i[c]);
-                                                    if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
-                                                        return d.fix(f.trim());
-                                                } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? d.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                c = 0;
-                                                                _b.label = 1;
-                                                            case 1:
-                                                                if (!(c < i.length)) return [3, 4];
-                                                                return [4, r.select(i[c]).text()];
-                                                            case 2:
-                                                                f = _b.sent();
-                                                                if (f)
-                                                                    return [2, f.trim()];
-                                                                _b.label = 3;
-                                                            case 3:
-                                                                c++;
-                                                                return [3, 1];
-                                                            case 4: return [2, ""];
-                                                        }
-                                                    }); });
-                                                }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b, _b; return __generator(this, function (_c) {
-                                                        switch (_c.label) {
-                                                            case 0:
-                                                                i = i || {};
-                                                                c = { Referer: w + "/" };
-                                                                if (i.headers)
-                                                                    for (f in i.headers)
-                                                                        c[f] = i.headers[f];
-                                                                return [4, u(r, { method: i.method, headers: c, body: i.body })];
-                                                            case 1:
-                                                                l = _c.sent(), b = 0;
-                                                                _c.label = 2;
-                                                            case 2:
-                                                                _b = l && l.status === 429 && b < 3;
-                                                                if (!_b) return [3, 4];
-                                                                return [4, d.cf(l)];
-                                                            case 3:
-                                                                _b = !(_c.sent());
-                                                                _c.label = 4;
-                                                            case 4:
-                                                                if (!_b) return [3, 8];
-                                                                return [4, x(1500 * (b + 1))];
-                                                            case 5:
-                                                                _c.sent();
-                                                                return [4, u(r, { method: i.method, headers: c, body: i.body })];
-                                                            case 6:
-                                                                l = _c.sent();
-                                                                _c.label = 7;
-                                                            case 7:
-                                                                b++;
-                                                                return [3, 2];
-                                                            case 8: return [2, l];
-                                                        }
-                                                    }); });
-                                                }, cf: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.status !== 403 && r.status !== 503 && r.status !== 429)
-                                                                    return [2, !1];
-                                                                return [4, r.text()];
-                                                            case 1:
-                                                                i = (_b.sent()) || "";
-                                                                return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
-                                                        }
-                                                    }); });
-                                                }, check: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.ok)
-                                                                    return [2, r];
-                                                                return [4, d.cf(r)];
-                                                            case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
-                                                        }
-                                                    }); });
-                                                }, html: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                c = _d.sent();
-                                                                return [4, c.html(i && i.charset)];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, json: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                c = _d.sent();
-                                                                return [4, c.json()];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
-                                                                return [4, r.html()];
-                                                            case 1: return [2, (_b.sent()).replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
-                                                        }
-                                                    }); });
-                                                }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, y = { path: function () { return typeof MADARA != "undefined" && MADARA.path || "manga"; }, card: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, f, _b;
-                                                        var _c;
-                                                        return __generator(this, function (_d) {
-                                                            switch (_d.label) {
-                                                                case 0:
-                                                                    i = r.select(".post-title a, h3 a, h4 a, .item-summary a").first() || r.select("a").first();
-                                                                    if (!i)
-                                                                        return [2, null];
-                                                                    return [4, i.text()];
-                                                                case 1:
-                                                                    c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), f = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
-                                                                    _c = { name: c, link: i.attr("href"), cover: d.img(r.select("img").first()) };
-                                                                    if (!f) return [3, 3];
-                                                                    return [4, f.text()];
-                                                                case 2:
-                                                                    _b = _d.sent();
-                                                                    return [3, 4];
-                                                                case 3:
-                                                                    _b = "";
-                                                                    _d.label = 4;
-                                                                case 4: return [2, (_c.description = _b, _c.host = w, _c)];
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_b) {
+                return [2, (function (u, a, n, s, o, h, p, m, x, T, v, S, N, C, F, z, K) {
+                        return __awaiter(this, void 0, void 0, function () {
+                            var M;
+                            return __generator(this, function (_b) {
+                                switch (_b.label) {
+                                    case 0:
+                                        M = t("DOMAIN");
+                                        return [4, (function () {
+                                                return __awaiter(this, void 0, void 0, function () {
+                                                    function B(r) {
+                                                        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                            switch (_b.label) {
+                                                                case 0: return [4, y.detail(r)];
+                                                                case 1: return [2, _b.sent()];
                                                             }
-                                                        });
+                                                        }); });
+                                                    }
+                                                    var w, d, y;
+                                                    return __generator(this, function (_b) {
+                                                        w = "https://gaumeoteam.com";
+                                                        try {
+                                                            M && (w = String(M).replace(/\/+$/, ""));
+                                                        }
+                                                        catch (r) { }
+                                                        d = { img: function (r) { if (!r)
+                                                                return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < i.length; c++) {
+                                                                var f = r.attr(i[c]);
+                                                                if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
+                                                                    return d.fix(f.trim());
+                                                            } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? d.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            c = 0;
+                                                                            _b.label = 1;
+                                                                        case 1:
+                                                                            if (!(c < i.length)) return [3, 4];
+                                                                            return [4, r.select(i[c]).text()];
+                                                                        case 2:
+                                                                            f = _b.sent();
+                                                                            if (f)
+                                                                                return [2, f.trim()];
+                                                                            _b.label = 3;
+                                                                        case 3:
+                                                                            c++;
+                                                                            return [3, 1];
+                                                                        case 4: return [2, ""];
+                                                                    }
+                                                                }); });
+                                                            }, get: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b, _b; return __generator(this, function (_c) {
+                                                                    switch (_c.label) {
+                                                                        case 0:
+                                                                            i = i || {};
+                                                                            c = { Referer: w + "/" };
+                                                                            if (i.headers)
+                                                                                for (f in i.headers)
+                                                                                    c[f] = i.headers[f];
+                                                                            return [4, u(r, { method: i.method, headers: c, body: i.body })];
+                                                                        case 1:
+                                                                            l = _c.sent(), b = 0;
+                                                                            _c.label = 2;
+                                                                        case 2:
+                                                                            _b = l && l.status === 429 && b < 3;
+                                                                            if (!_b) return [3, 4];
+                                                                            return [4, d.cf(l)];
+                                                                        case 3:
+                                                                            _b = !(_c.sent());
+                                                                            _c.label = 4;
+                                                                        case 4:
+                                                                            if (!_b) return [3, 8];
+                                                                            return [4, x(1500 * (b + 1))];
+                                                                        case 5:
+                                                                            _c.sent();
+                                                                            return [4, u(r, { method: i.method, headers: c, body: i.body })];
+                                                                        case 6:
+                                                                            l = _c.sent();
+                                                                            _c.label = 7;
+                                                                        case 7:
+                                                                            b++;
+                                                                            return [3, 2];
+                                                                        case 8: return [2, l];
+                                                                    }
+                                                                }); });
+                                                            }, cf: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.status !== 403 && r.status !== 503 && r.status !== 429)
+                                                                                return [2, !1];
+                                                                            return [4, r.text()];
+                                                                        case 1:
+                                                                            i = (_b.sent()) || "";
+                                                                            return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
+                                                                    }
+                                                                }); });
+                                                            }, check: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.ok)
+                                                                                return [2, r];
+                                                                            return [4, d.cf(r)];
+                                                                        case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
+                                                                    }
+                                                                }); });
+                                                            }, html: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            c = _d.sent();
+                                                                            return [4, c.html(i && i.charset)];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, json: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            c = _d.sent();
+                                                                            return [4, c.json()];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    return __generator(this, function (_b) {
+                                                                        switch (_b.label) {
+                                                                            case 0:
+                                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
+                                                                                return [4, r.html()];
+                                                                            case 1: return [2, (_b.sent()).replace(/\r\n?/g, "\n").replace(/&#13;|&#x0?[dD];/g, "").replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, y = { path: function () { return typeof MADARA != "undefined" && MADARA.path || "manga"; }, card: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, c, f, _b;
+                                                                    var _c;
+                                                                    return __generator(this, function (_d) {
+                                                                        switch (_d.label) {
+                                                                            case 0:
+                                                                                i = r.select(".post-title a, h3 a, h4 a, .item-summary a").first() || r.select("a").first();
+                                                                                if (!i)
+                                                                                    return [2, null];
+                                                                                return [4, i.text()];
+                                                                            case 1:
+                                                                                c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), f = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
+                                                                                _c = { name: c, link: i.attr("href"), cover: d.img(r.select("img").first()) };
+                                                                                if (!f) return [3, 3];
+                                                                                return [4, f.text()];
+                                                                            case 2:
+                                                                                _b = _d.sent();
+                                                                                return [3, 4];
+                                                                            case 3:
+                                                                                _b = "";
+                                                                                _d.label = 4;
+                                                                            case 4: return [2, (_c.description = _b, _c.host = w, _c)];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, list: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], f = {}, l = 0;
+                                                                            _d.label = 1;
+                                                                        case 1:
+                                                                            if (!(l < i.size())) return [3, 5];
+                                                                            _c = (_b = y).card;
+                                                                            return [4, i.get(l)];
+                                                                        case 2: return [4, _c.apply(_b, [_d.sent()])];
+                                                                        case 3:
+                                                                            b = _d.sent();
+                                                                            b && b.link && !f[b.link] && (f[b.link] = 1, c.push(b));
+                                                                            _d.label = 4;
+                                                                        case 4:
+                                                                            l++;
+                                                                            return [3, 1];
+                                                                        case 5: return [2, c];
+                                                                    }
+                                                                }); });
+                                                            }, hasNext: function (r, i) { return r.select(".nav-previous a, a.nextpostslink, .wp-pagenavi a.next, a.next.page-numbers, .pagination a.next, a[rel=next]").size() > 0 || r.select('a[href*="/page/' + (i + 1) + '"]').size() > 0; }, browse: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            c = d.page(i), f = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
+                                                                            return [4, d.html(f)];
+                                                                        case 1:
+                                                                            l = _b.sent();
+                                                                            return [4, y.list(l)];
+                                                                        case 2:
+                                                                            b = _b.sent();
+                                                                            return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, search: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!d.isUrl(r)) return [3, 2];
+                                                                            return [4, y.byUrl(r, i)];
+                                                                        case 1: return [2, _b.sent()];
+                                                                        case 2:
+                                                                            c = d.page(i), f = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + d.enc(r) + "&post_type=wp-manga";
+                                                                            return [4, d.html(f)];
+                                                                        case 3:
+                                                                            l = _b.sent();
+                                                                            return [4, y.list(l)];
+                                                                        case 4:
+                                                                            b = _b.sent();
+                                                                            return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, byUrl: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            c = d.page(i), f = d.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
+                                                                            return [4, d.html(f)];
+                                                                        case 1:
+                                                                            l = _b.sent();
+                                                                            return [4, y.list(l)];
+                                                                        case 2:
+                                                                            b = _b.sent();
+                                                                            return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, detail: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, c, f, l, _b, _c, _d;
+                                                                    var _f;
+                                                                    return __generator(this, function (_g) {
+                                                                        switch (_g.label) {
+                                                                            case 0: return [4, d.html(r)];
+                                                                            case 1:
+                                                                                i = _g.sent();
+                                                                                return [4, qt(i.select(".genres-content a, .wp-manga-genres a, .manga-genres a"), function (b) {
+                                                                                        return __awaiter(this, void 0, void 0, function () {
+                                                                                            var _b;
+                                                                                            return __generator(this, function (_c) {
+                                                                                                switch (_c.label) {
+                                                                                                    case 0:
+                                                                                                        _b = {};
+                                                                                                        return [4, b.text()];
+                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = b.attr("href"), _b.script = "search.js", _b)];
+                                                                                                }
+                                                                                            });
+                                                                                        });
+                                                                                    })];
+                                                                            case 2:
+                                                                                c = _g.sent();
+                                                                                return [4, d.text(i, [".post-status .summary-content", ".manga-status", ".post-content_item:contains(Tình trạng) .summary-content", ".post-content_item:contains(Status) .summary-content"])];
+                                                                            case 3:
+                                                                                f = _g.sent(), l = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
+                                                                                _c = (_b = s).success;
+                                                                                _f = {};
+                                                                                return [4, d.text(i, [".post-title h1", ".post-title h3", "h1"])];
+                                                                            case 4:
+                                                                                _f.name = _g.sent(), _f.cover = d.img(i.select(".summary_image img, .tab-summary img").first());
+                                                                                return [4, d.text(i, [".author-content a", ".author-content", ".artist-content a"])];
+                                                                            case 5:
+                                                                                _f.author = _g.sent();
+                                                                                if (!l) return [3, 7];
+                                                                                return [4, l.html()];
+                                                                            case 6:
+                                                                                _d = _g.sent();
+                                                                                return [3, 8];
+                                                                            case 7:
+                                                                                _d = "";
+                                                                                _g.label = 8;
+                                                                            case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = f ? "Tình trạng: " + f : "", _f.ongoing = d.ongoing(f), _f.genres = c, _f.host = w, _f)])];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, chapterEls: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, _b, b, _c, _d; return __generator(this, function (_f) {
+                                                                    switch (_f.label) {
+                                                                        case 0:
+                                                                            c = r.select("li.wp-manga-chapter a, .listing-chapters_wrap li a, .version-chap li a");
+                                                                            if (c.size() > 0)
+                                                                                return [2, c];
+                                                                            f = i.replace(/\/$/, "") + "/";
+                                                                            return [4, u(f + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: f } })];
+                                                                        case 1:
+                                                                            l = _f.sent();
+                                                                            _b = l.ok;
+                                                                            if (!_b) return [3, 3];
+                                                                            return [4, l.html()];
+                                                                        case 2:
+                                                                            _b = (c = (_f.sent()).select("li.wp-manga-chapter a"), c.size() > 0);
+                                                                            _f.label = 3;
+                                                                        case 3:
+                                                                            if (_b)
+                                                                                return [2, c];
+                                                                            b = r.select("#manga-chapters-holder").attr("data-id") || r.select(".rating-post-id").attr("value") || r.select("input.rating-post-id").attr("value");
+                                                                            _d = b;
+                                                                            if (!_d) return [3, 5];
+                                                                            return [4, u(w + "/wp-admin/admin-ajax.php", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", "Content-Type": "application/x-www-form-urlencoded" }, body: "action=manga_get_chapters&manga=" + b })];
+                                                                        case 4:
+                                                                            _d = (l = _f.sent(), l.ok);
+                                                                            _f.label = 5;
+                                                                        case 5:
+                                                                            if (!_d) return [3, 7];
+                                                                            return [4, l.html()];
+                                                                        case 6:
+                                                                            _c = (_f.sent()).select("li.wp-manga-chapter a");
+                                                                            return [3, 8];
+                                                                        case 7:
+                                                                            _c = c;
+                                                                            _f.label = 8;
+                                                                        case 8: return [2, _c];
+                                                                    }
+                                                                }); });
+                                                            }, toc: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, c, f, l, b, k, _b, _c, _d;
+                                                                    var _f;
+                                                                    return __generator(this, function (_g) {
+                                                                        switch (_g.label) {
+                                                                            case 0: return [4, d.html(r)];
+                                                                            case 1:
+                                                                                i = _g.sent();
+                                                                                return [4, y.chapterEls(i, r)];
+                                                                            case 2:
+                                                                                c = _g.sent(), f = [], l = c.size() - 1;
+                                                                                _g.label = 3;
+                                                                            case 3:
+                                                                                if (!(l >= 0)) return [3, 8];
+                                                                                return [4, c.get(l)];
+                                                                            case 4:
+                                                                                b = _g.sent(), k = b.attr("href");
+                                                                                _b = !k || k === "#";
+                                                                                if (_b) return [3, 6];
+                                                                                _d = (_c = f).push;
+                                                                                _f = {};
+                                                                                return [4, b.text()];
+                                                                            case 5:
+                                                                                _b = _d.apply(_c, [(_f.name = (_g.sent()).trim(), _f.url = k, _f.host = w, _f)]);
+                                                                                _g.label = 6;
+                                                                            case 6:
+                                                                                _b;
+                                                                                _g.label = 7;
+                                                                            case 7:
+                                                                                l--;
+                                                                                return [3, 3];
+                                                                            case 8: return [2, s.success(f)];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, pages: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, k, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            i = r.indexOf("?") > 0 ? r : r.replace(/\/$/, "") + "/?style=list";
+                                                                            return [4, d.html(i)];
+                                                                        case 1:
+                                                                            c = _d.sent(), f = c.select(".reading-content img, .page-break img, .read-container img"), l = [], b = 0;
+                                                                            _d.label = 2;
+                                                                        case 2:
+                                                                            if (!(b < f.size())) return [3, 5];
+                                                                            _c = (_b = d).img;
+                                                                            return [4, f.get(b)];
+                                                                        case 3:
+                                                                            k = _c.apply(_b, [_d.sent()]);
+                                                                            k && l.push(k);
+                                                                            _d.label = 4;
+                                                                        case 4:
+                                                                            b++;
+                                                                            return [3, 2];
+                                                                        case 5: return [2, s.success(l)];
+                                                                    }
+                                                                }); });
+                                                            }, text: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, c, _b, _c, _d, _f; return __generator(this, function (_g) {
+                                                                    switch (_g.label) {
+                                                                        case 0: return [4, d.html(r)];
+                                                                        case 1:
+                                                                            i = _g.sent(), c = i.select(".reading-content .text-left, .reading-content .text-right, .reading-content, .entry-content").first();
+                                                                            if (!c) return [3, 4];
+                                                                            _d = (_c = s).success;
+                                                                            return [4, d.cleanContent(c)];
+                                                                        case 2:
+                                                                            _f = [_g.sent()];
+                                                                            return [4, d.text(i, ["#chapter-heading", ".breadcrumb li.active", "h1"])];
+                                                                        case 3:
+                                                                            _b = _d.apply(_c, _f.concat([_g.sent()]));
+                                                                            return [3, 5];
+                                                                        case 4:
+                                                                            _b = s.error("Không tìm thấy nội dung chương");
+                                                                            _g.label = 5;
+                                                                        case 5: return [2, _b];
+                                                                    }
+                                                                }); });
+                                                            } };
+                                                        return [2, typeof B == "function" ? B : void 0];
                                                     });
-                                                }, list: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], f = {}, l = 0;
-                                                                _d.label = 1;
-                                                            case 1:
-                                                                if (!(l < i.size())) return [3, 5];
-                                                                _c = (_b = y).card;
-                                                                return [4, i.get(l)];
-                                                            case 2: return [4, _c.apply(_b, [_d.sent()])];
-                                                            case 3:
-                                                                b = _d.sent();
-                                                                b && b.link && !f[b.link] && (f[b.link] = 1, c.push(b));
-                                                                _d.label = 4;
-                                                            case 4:
-                                                                l++;
-                                                                return [3, 1];
-                                                            case 5: return [2, c];
-                                                        }
-                                                    }); });
-                                                }, hasNext: function (r, i) { return r.select(".nav-previous a, a.nextpostslink, .wp-pagenavi a.next, a.next.page-numbers, .pagination a.next, a[rel=next]").size() > 0 || r.select('a[href*="/page/' + (i + 1) + '"]').size() > 0; }, browse: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                c = d.page(i), f = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
-                                                                return [4, d.html(f)];
-                                                            case 1:
-                                                                l = _b.sent();
-                                                                return [4, y.list(l)];
-                                                            case 2:
-                                                                b = _b.sent();
-                                                                return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, search: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!d.isUrl(r)) return [3, 2];
-                                                                return [4, y.byUrl(r, i)];
-                                                            case 1: return [2, _b.sent()];
-                                                            case 2:
-                                                                c = d.page(i), f = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + d.enc(r) + "&post_type=wp-manga";
-                                                                return [4, d.html(f)];
-                                                            case 3:
-                                                                l = _b.sent();
-                                                                return [4, y.list(l)];
-                                                            case 4:
-                                                                b = _b.sent();
-                                                                return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, byUrl: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                c = d.page(i), f = d.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
-                                                                return [4, d.html(f)];
-                                                            case 1:
-                                                                l = _b.sent();
-                                                                return [4, y.list(l)];
-                                                            case 2:
-                                                                b = _b.sent();
-                                                                return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, detail: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, f, l, _b, _c, _d;
-                                                        var _f;
-                                                        return __generator(this, function (_g) {
-                                                            switch (_g.label) {
-                                                                case 0: return [4, d.html(r)];
-                                                                case 1:
-                                                                    i = _g.sent();
-                                                                    return [4, qt(i.select(".genres-content a, .wp-manga-genres a, .manga-genres a"), function (b) {
-                                                                            return __awaiter(this, void 0, void 0, function () {
-                                                                                var _b;
-                                                                                return __generator(this, function (_c) {
-                                                                                    switch (_c.label) {
-                                                                                        case 0:
-                                                                                            _b = {};
-                                                                                            return [4, b.text()];
-                                                                                        case 1: return [2, (_b.title = _c.sent(), _b.input = b.attr("href"), _b.script = "search.js", _b)];
-                                                                                    }
-                                                                                });
-                                                                            });
-                                                                        })];
-                                                                case 2:
-                                                                    c = _g.sent();
-                                                                    return [4, d.text(i, [".post-status .summary-content", ".manga-status", ".post-content_item:contains(Tình trạng) .summary-content", ".post-content_item:contains(Status) .summary-content"])];
-                                                                case 3:
-                                                                    f = _g.sent(), l = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
-                                                                    _c = (_b = s).success;
-                                                                    _f = {};
-                                                                    return [4, d.text(i, [".post-title h1", ".post-title h3", "h1"])];
-                                                                case 4:
-                                                                    _f.name = _g.sent(), _f.cover = d.img(i.select(".summary_image img, .tab-summary img").first());
-                                                                    return [4, d.text(i, [".author-content a", ".author-content", ".artist-content a"])];
-                                                                case 5:
-                                                                    _f.author = _g.sent();
-                                                                    if (!l) return [3, 7];
-                                                                    return [4, l.html()];
-                                                                case 6:
-                                                                    _d = _g.sent();
-                                                                    return [3, 8];
-                                                                case 7:
-                                                                    _d = "";
-                                                                    _g.label = 8;
-                                                                case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = f ? "Tình trạng: " + f : "", _f.ongoing = d.ongoing(f), _f.genres = c, _f.host = w, _f)])];
-                                                            }
-                                                        });
-                                                    });
-                                                }, chapterEls: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, _b, b, _c, _d; return __generator(this, function (_f) {
-                                                        switch (_f.label) {
-                                                            case 0:
-                                                                c = r.select("li.wp-manga-chapter a, .listing-chapters_wrap li a, .version-chap li a");
-                                                                if (c.size() > 0)
-                                                                    return [2, c];
-                                                                f = i.replace(/\/$/, "") + "/";
-                                                                return [4, u(f + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: f } })];
-                                                            case 1:
-                                                                l = _f.sent();
-                                                                _b = l.ok;
-                                                                if (!_b) return [3, 3];
-                                                                return [4, l.html()];
-                                                            case 2:
-                                                                _b = (c = (_f.sent()).select("li.wp-manga-chapter a"), c.size() > 0);
-                                                                _f.label = 3;
-                                                            case 3:
-                                                                if (_b)
-                                                                    return [2, c];
-                                                                b = r.select("#manga-chapters-holder").attr("data-id") || r.select(".rating-post-id").attr("value") || r.select("input.rating-post-id").attr("value");
-                                                                _d = b;
-                                                                if (!_d) return [3, 5];
-                                                                return [4, u(w + "/wp-admin/admin-ajax.php", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", "Content-Type": "application/x-www-form-urlencoded" }, body: "action=manga_get_chapters&manga=" + b })];
-                                                            case 4:
-                                                                _d = (l = _f.sent(), l.ok);
-                                                                _f.label = 5;
-                                                            case 5:
-                                                                if (!_d) return [3, 7];
-                                                                return [4, l.html()];
-                                                            case 6:
-                                                                _c = (_f.sent()).select("li.wp-manga-chapter a");
-                                                                return [3, 8];
-                                                            case 7:
-                                                                _c = c;
-                                                                _f.label = 8;
-                                                            case 8: return [2, _c];
-                                                        }
-                                                    }); });
-                                                }, toc: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, f, l, b, k, _b, _c, _d;
-                                                        var _f;
-                                                        return __generator(this, function (_g) {
-                                                            switch (_g.label) {
-                                                                case 0: return [4, d.html(r)];
-                                                                case 1:
-                                                                    i = _g.sent();
-                                                                    return [4, y.chapterEls(i, r)];
-                                                                case 2:
-                                                                    c = _g.sent(), f = [], l = c.size() - 1;
-                                                                    _g.label = 3;
-                                                                case 3:
-                                                                    if (!(l >= 0)) return [3, 8];
-                                                                    return [4, c.get(l)];
-                                                                case 4:
-                                                                    b = _g.sent(), k = b.attr("href");
-                                                                    _b = !k || k === "#";
-                                                                    if (_b) return [3, 6];
-                                                                    _d = (_c = f).push;
-                                                                    _f = {};
-                                                                    return [4, b.text()];
-                                                                case 5:
-                                                                    _b = _d.apply(_c, [(_f.name = (_g.sent()).trim(), _f.url = k, _f.host = w, _f)]);
-                                                                    _g.label = 6;
-                                                                case 6:
-                                                                    _b;
-                                                                    _g.label = 7;
-                                                                case 7:
-                                                                    l--;
-                                                                    return [3, 3];
-                                                                case 8: return [2, s.success(f)];
-                                                            }
-                                                        });
-                                                    });
-                                                }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, k, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                i = r.indexOf("?") > 0 ? r : r.replace(/\/$/, "") + "/?style=list";
-                                                                return [4, d.html(i)];
-                                                            case 1:
-                                                                c = _d.sent(), f = c.select(".reading-content img, .page-break img, .read-container img"), l = [], b = 0;
-                                                                _d.label = 2;
-                                                            case 2:
-                                                                if (!(b < f.size())) return [3, 5];
-                                                                _c = (_b = d).img;
-                                                                return [4, f.get(b)];
-                                                            case 3:
-                                                                k = _c.apply(_b, [_d.sent()]);
-                                                                k && l.push(k);
-                                                                _d.label = 4;
-                                                            case 4:
-                                                                b++;
-                                                                return [3, 2];
-                                                            case 5: return [2, s.success(l)];
-                                                        }
-                                                    }); });
-                                                }, text: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, _b, _c, _d, _f; return __generator(this, function (_g) {
-                                                        switch (_g.label) {
-                                                            case 0: return [4, d.html(r)];
-                                                            case 1:
-                                                                i = _g.sent(), c = i.select(".reading-content .text-left, .reading-content .text-right, .reading-content, .entry-content").first();
-                                                                if (!c) return [3, 4];
-                                                                _d = (_c = s).success;
-                                                                return [4, d.cleanContent(c)];
-                                                            case 2:
-                                                                _f = [_g.sent()];
-                                                                return [4, d.text(i, ["#chapter-heading", ".breadcrumb li.active", "h1"])];
-                                                            case 3:
-                                                                _b = _d.apply(_c, _f.concat([_g.sent()]));
-                                                                return [3, 5];
-                                                            case 4:
-                                                                _b = s.error("Không tìm thấy nội dung chương");
-                                                                _g.label = 5;
-                                                            case 5: return [2, _b];
-                                                        }
-                                                    }); });
-                                                } };
-                                            return [2, typeof B == "function" ? B : void 0];
-                                        }); });
-                                    })()];
-                            case 1: return [2, _b.sent()];
-                        }
-                    }); });
-                })(e.fetch, e.Http, e.Html, e.Response, e.localStorage, e.cacheStorage, e.localConfig, e.localCookie, e.sleep, e.Log, e.console, e.Console, e.log, e.UserAgent, e.Engine, e.Graphics, e.Script)];
-        }); });
+                                                });
+                                            })()];
+                                    case 1: return [2, _b.sent()];
+                                }
+                            });
+                        });
+                    })(e.fetch, e.Http, e.Html, e.Response, e.localStorage, e.cacheStorage, e.localConfig, e.localCookie, e.sleep, e.Log, e.console, e.Console, e.log, e.UserAgent, e.Engine, e.Graphics, e.Script)];
+            });
+        });
     }, toc: function (e, t) {
-        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, a, n, s, o, h, p, m, x, T, v, S, N, C, F, z, K) {
-                    return __awaiter(this, void 0, void 0, function () { var M; return __generator(this, function (_b) {
-                        switch (_b.label) {
-                            case 0:
-                                M = t("DOMAIN");
-                                return [4, (function () {
-                                        return __awaiter(this, void 0, void 0, function () { function B(r) {
-                                            return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                switch (_b.label) {
-                                                    case 0: return [4, y.toc(r)];
-                                                    case 1: return [2, _b.sent()];
-                                                }
-                                            }); });
-                                        } var w, d, y; return __generator(this, function (_b) {
-                                            w = "https://gaumeoteam.com";
-                                            try {
-                                                M && (w = String(M).replace(/\/+$/, ""));
-                                            }
-                                            catch (r) { }
-                                            d = { img: function (r) { if (!r)
-                                                    return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < i.length; c++) {
-                                                    var f = r.attr(i[c]);
-                                                    if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
-                                                        return d.fix(f.trim());
-                                                } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? d.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                c = 0;
-                                                                _b.label = 1;
-                                                            case 1:
-                                                                if (!(c < i.length)) return [3, 4];
-                                                                return [4, r.select(i[c]).text()];
-                                                            case 2:
-                                                                f = _b.sent();
-                                                                if (f)
-                                                                    return [2, f.trim()];
-                                                                _b.label = 3;
-                                                            case 3:
-                                                                c++;
-                                                                return [3, 1];
-                                                            case 4: return [2, ""];
-                                                        }
-                                                    }); });
-                                                }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b, _b; return __generator(this, function (_c) {
-                                                        switch (_c.label) {
-                                                            case 0:
-                                                                i = i || {};
-                                                                c = { Referer: w + "/" };
-                                                                if (i.headers)
-                                                                    for (f in i.headers)
-                                                                        c[f] = i.headers[f];
-                                                                return [4, u(r, { method: i.method, headers: c, body: i.body })];
-                                                            case 1:
-                                                                l = _c.sent(), b = 0;
-                                                                _c.label = 2;
-                                                            case 2:
-                                                                _b = l && l.status === 429 && b < 3;
-                                                                if (!_b) return [3, 4];
-                                                                return [4, d.cf(l)];
-                                                            case 3:
-                                                                _b = !(_c.sent());
-                                                                _c.label = 4;
-                                                            case 4:
-                                                                if (!_b) return [3, 8];
-                                                                return [4, x(1500 * (b + 1))];
-                                                            case 5:
-                                                                _c.sent();
-                                                                return [4, u(r, { method: i.method, headers: c, body: i.body })];
-                                                            case 6:
-                                                                l = _c.sent();
-                                                                _c.label = 7;
-                                                            case 7:
-                                                                b++;
-                                                                return [3, 2];
-                                                            case 8: return [2, l];
-                                                        }
-                                                    }); });
-                                                }, cf: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.status !== 403 && r.status !== 503 && r.status !== 429)
-                                                                    return [2, !1];
-                                                                return [4, r.text()];
-                                                            case 1:
-                                                                i = (_b.sent()) || "";
-                                                                return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
-                                                        }
-                                                    }); });
-                                                }, check: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.ok)
-                                                                    return [2, r];
-                                                                return [4, d.cf(r)];
-                                                            case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
-                                                        }
-                                                    }); });
-                                                }, html: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                c = _d.sent();
-                                                                return [4, c.html(i && i.charset)];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, json: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                c = _d.sent();
-                                                                return [4, c.json()];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
-                                                                return [4, r.html()];
-                                                            case 1: return [2, (_b.sent()).replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
-                                                        }
-                                                    }); });
-                                                }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, y = { path: function () { return typeof MADARA != "undefined" && MADARA.path || "manga"; }, card: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, f, _b;
-                                                        var _c;
-                                                        return __generator(this, function (_d) {
-                                                            switch (_d.label) {
-                                                                case 0:
-                                                                    i = r.select(".post-title a, h3 a, h4 a, .item-summary a").first() || r.select("a").first();
-                                                                    if (!i)
-                                                                        return [2, null];
-                                                                    return [4, i.text()];
-                                                                case 1:
-                                                                    c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), f = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
-                                                                    _c = { name: c, link: i.attr("href"), cover: d.img(r.select("img").first()) };
-                                                                    if (!f) return [3, 3];
-                                                                    return [4, f.text()];
-                                                                case 2:
-                                                                    _b = _d.sent();
-                                                                    return [3, 4];
-                                                                case 3:
-                                                                    _b = "";
-                                                                    _d.label = 4;
-                                                                case 4: return [2, (_c.description = _b, _c.host = w, _c)];
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_b) {
+                return [2, (function (u, a, n, s, o, h, p, m, x, T, v, S, N, C, F, z, K) {
+                        return __awaiter(this, void 0, void 0, function () {
+                            var M;
+                            return __generator(this, function (_b) {
+                                switch (_b.label) {
+                                    case 0:
+                                        M = t("DOMAIN");
+                                        return [4, (function () {
+                                                return __awaiter(this, void 0, void 0, function () {
+                                                    function B(r) {
+                                                        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                            switch (_b.label) {
+                                                                case 0: return [4, y.toc(r)];
+                                                                case 1: return [2, _b.sent()];
                                                             }
-                                                        });
+                                                        }); });
+                                                    }
+                                                    var w, d, y;
+                                                    return __generator(this, function (_b) {
+                                                        w = "https://gaumeoteam.com";
+                                                        try {
+                                                            M && (w = String(M).replace(/\/+$/, ""));
+                                                        }
+                                                        catch (r) { }
+                                                        d = { img: function (r) { if (!r)
+                                                                return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < i.length; c++) {
+                                                                var f = r.attr(i[c]);
+                                                                if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
+                                                                    return d.fix(f.trim());
+                                                            } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? d.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            c = 0;
+                                                                            _b.label = 1;
+                                                                        case 1:
+                                                                            if (!(c < i.length)) return [3, 4];
+                                                                            return [4, r.select(i[c]).text()];
+                                                                        case 2:
+                                                                            f = _b.sent();
+                                                                            if (f)
+                                                                                return [2, f.trim()];
+                                                                            _b.label = 3;
+                                                                        case 3:
+                                                                            c++;
+                                                                            return [3, 1];
+                                                                        case 4: return [2, ""];
+                                                                    }
+                                                                }); });
+                                                            }, get: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b, _b; return __generator(this, function (_c) {
+                                                                    switch (_c.label) {
+                                                                        case 0:
+                                                                            i = i || {};
+                                                                            c = { Referer: w + "/" };
+                                                                            if (i.headers)
+                                                                                for (f in i.headers)
+                                                                                    c[f] = i.headers[f];
+                                                                            return [4, u(r, { method: i.method, headers: c, body: i.body })];
+                                                                        case 1:
+                                                                            l = _c.sent(), b = 0;
+                                                                            _c.label = 2;
+                                                                        case 2:
+                                                                            _b = l && l.status === 429 && b < 3;
+                                                                            if (!_b) return [3, 4];
+                                                                            return [4, d.cf(l)];
+                                                                        case 3:
+                                                                            _b = !(_c.sent());
+                                                                            _c.label = 4;
+                                                                        case 4:
+                                                                            if (!_b) return [3, 8];
+                                                                            return [4, x(1500 * (b + 1))];
+                                                                        case 5:
+                                                                            _c.sent();
+                                                                            return [4, u(r, { method: i.method, headers: c, body: i.body })];
+                                                                        case 6:
+                                                                            l = _c.sent();
+                                                                            _c.label = 7;
+                                                                        case 7:
+                                                                            b++;
+                                                                            return [3, 2];
+                                                                        case 8: return [2, l];
+                                                                    }
+                                                                }); });
+                                                            }, cf: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.status !== 403 && r.status !== 503 && r.status !== 429)
+                                                                                return [2, !1];
+                                                                            return [4, r.text()];
+                                                                        case 1:
+                                                                            i = (_b.sent()) || "";
+                                                                            return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
+                                                                    }
+                                                                }); });
+                                                            }, check: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.ok)
+                                                                                return [2, r];
+                                                                            return [4, d.cf(r)];
+                                                                        case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
+                                                                    }
+                                                                }); });
+                                                            }, html: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            c = _d.sent();
+                                                                            return [4, c.html(i && i.charset)];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, json: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            c = _d.sent();
+                                                                            return [4, c.json()];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    return __generator(this, function (_b) {
+                                                                        switch (_b.label) {
+                                                                            case 0:
+                                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
+                                                                                return [4, r.html()];
+                                                                            case 1: return [2, (_b.sent()).replace(/\r\n?/g, "\n").replace(/&#13;|&#x0?[dD];/g, "").replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, y = { path: function () { return typeof MADARA != "undefined" && MADARA.path || "manga"; }, card: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, c, f, _b;
+                                                                    var _c;
+                                                                    return __generator(this, function (_d) {
+                                                                        switch (_d.label) {
+                                                                            case 0:
+                                                                                i = r.select(".post-title a, h3 a, h4 a, .item-summary a").first() || r.select("a").first();
+                                                                                if (!i)
+                                                                                    return [2, null];
+                                                                                return [4, i.text()];
+                                                                            case 1:
+                                                                                c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), f = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
+                                                                                _c = { name: c, link: i.attr("href"), cover: d.img(r.select("img").first()) };
+                                                                                if (!f) return [3, 3];
+                                                                                return [4, f.text()];
+                                                                            case 2:
+                                                                                _b = _d.sent();
+                                                                                return [3, 4];
+                                                                            case 3:
+                                                                                _b = "";
+                                                                                _d.label = 4;
+                                                                            case 4: return [2, (_c.description = _b, _c.host = w, _c)];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, list: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], f = {}, l = 0;
+                                                                            _d.label = 1;
+                                                                        case 1:
+                                                                            if (!(l < i.size())) return [3, 5];
+                                                                            _c = (_b = y).card;
+                                                                            return [4, i.get(l)];
+                                                                        case 2: return [4, _c.apply(_b, [_d.sent()])];
+                                                                        case 3:
+                                                                            b = _d.sent();
+                                                                            b && b.link && !f[b.link] && (f[b.link] = 1, c.push(b));
+                                                                            _d.label = 4;
+                                                                        case 4:
+                                                                            l++;
+                                                                            return [3, 1];
+                                                                        case 5: return [2, c];
+                                                                    }
+                                                                }); });
+                                                            }, hasNext: function (r, i) { return r.select(".nav-previous a, a.nextpostslink, .wp-pagenavi a.next, a.next.page-numbers, .pagination a.next, a[rel=next]").size() > 0 || r.select('a[href*="/page/' + (i + 1) + '"]').size() > 0; }, browse: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            c = d.page(i), f = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
+                                                                            return [4, d.html(f)];
+                                                                        case 1:
+                                                                            l = _b.sent();
+                                                                            return [4, y.list(l)];
+                                                                        case 2:
+                                                                            b = _b.sent();
+                                                                            return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, search: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!d.isUrl(r)) return [3, 2];
+                                                                            return [4, y.byUrl(r, i)];
+                                                                        case 1: return [2, _b.sent()];
+                                                                        case 2:
+                                                                            c = d.page(i), f = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + d.enc(r) + "&post_type=wp-manga";
+                                                                            return [4, d.html(f)];
+                                                                        case 3:
+                                                                            l = _b.sent();
+                                                                            return [4, y.list(l)];
+                                                                        case 4:
+                                                                            b = _b.sent();
+                                                                            return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, byUrl: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            c = d.page(i), f = d.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
+                                                                            return [4, d.html(f)];
+                                                                        case 1:
+                                                                            l = _b.sent();
+                                                                            return [4, y.list(l)];
+                                                                        case 2:
+                                                                            b = _b.sent();
+                                                                            return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, detail: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, c, f, l, _b, _c, _d;
+                                                                    var _f;
+                                                                    return __generator(this, function (_g) {
+                                                                        switch (_g.label) {
+                                                                            case 0: return [4, d.html(r)];
+                                                                            case 1:
+                                                                                i = _g.sent();
+                                                                                return [4, qt(i.select(".genres-content a, .wp-manga-genres a, .manga-genres a"), function (b) {
+                                                                                        return __awaiter(this, void 0, void 0, function () {
+                                                                                            var _b;
+                                                                                            return __generator(this, function (_c) {
+                                                                                                switch (_c.label) {
+                                                                                                    case 0:
+                                                                                                        _b = {};
+                                                                                                        return [4, b.text()];
+                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = b.attr("href"), _b.script = "search.js", _b)];
+                                                                                                }
+                                                                                            });
+                                                                                        });
+                                                                                    })];
+                                                                            case 2:
+                                                                                c = _g.sent();
+                                                                                return [4, d.text(i, [".post-status .summary-content", ".manga-status", ".post-content_item:contains(Tình trạng) .summary-content", ".post-content_item:contains(Status) .summary-content"])];
+                                                                            case 3:
+                                                                                f = _g.sent(), l = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
+                                                                                _c = (_b = s).success;
+                                                                                _f = {};
+                                                                                return [4, d.text(i, [".post-title h1", ".post-title h3", "h1"])];
+                                                                            case 4:
+                                                                                _f.name = _g.sent(), _f.cover = d.img(i.select(".summary_image img, .tab-summary img").first());
+                                                                                return [4, d.text(i, [".author-content a", ".author-content", ".artist-content a"])];
+                                                                            case 5:
+                                                                                _f.author = _g.sent();
+                                                                                if (!l) return [3, 7];
+                                                                                return [4, l.html()];
+                                                                            case 6:
+                                                                                _d = _g.sent();
+                                                                                return [3, 8];
+                                                                            case 7:
+                                                                                _d = "";
+                                                                                _g.label = 8;
+                                                                            case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = f ? "Tình trạng: " + f : "", _f.ongoing = d.ongoing(f), _f.genres = c, _f.host = w, _f)])];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, chapterEls: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, _b, b, _c, _d; return __generator(this, function (_f) {
+                                                                    switch (_f.label) {
+                                                                        case 0:
+                                                                            c = r.select("li.wp-manga-chapter a, .listing-chapters_wrap li a, .version-chap li a");
+                                                                            if (c.size() > 0)
+                                                                                return [2, c];
+                                                                            f = i.replace(/\/$/, "") + "/";
+                                                                            return [4, u(f + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: f } })];
+                                                                        case 1:
+                                                                            l = _f.sent();
+                                                                            _b = l.ok;
+                                                                            if (!_b) return [3, 3];
+                                                                            return [4, l.html()];
+                                                                        case 2:
+                                                                            _b = (c = (_f.sent()).select("li.wp-manga-chapter a"), c.size() > 0);
+                                                                            _f.label = 3;
+                                                                        case 3:
+                                                                            if (_b)
+                                                                                return [2, c];
+                                                                            b = r.select("#manga-chapters-holder").attr("data-id") || r.select(".rating-post-id").attr("value") || r.select("input.rating-post-id").attr("value");
+                                                                            _d = b;
+                                                                            if (!_d) return [3, 5];
+                                                                            return [4, u(w + "/wp-admin/admin-ajax.php", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", "Content-Type": "application/x-www-form-urlencoded" }, body: "action=manga_get_chapters&manga=" + b })];
+                                                                        case 4:
+                                                                            _d = (l = _f.sent(), l.ok);
+                                                                            _f.label = 5;
+                                                                        case 5:
+                                                                            if (!_d) return [3, 7];
+                                                                            return [4, l.html()];
+                                                                        case 6:
+                                                                            _c = (_f.sent()).select("li.wp-manga-chapter a");
+                                                                            return [3, 8];
+                                                                        case 7:
+                                                                            _c = c;
+                                                                            _f.label = 8;
+                                                                        case 8: return [2, _c];
+                                                                    }
+                                                                }); });
+                                                            }, toc: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, c, f, l, b, k, _b, _c, _d;
+                                                                    var _f;
+                                                                    return __generator(this, function (_g) {
+                                                                        switch (_g.label) {
+                                                                            case 0: return [4, d.html(r)];
+                                                                            case 1:
+                                                                                i = _g.sent();
+                                                                                return [4, y.chapterEls(i, r)];
+                                                                            case 2:
+                                                                                c = _g.sent(), f = [], l = c.size() - 1;
+                                                                                _g.label = 3;
+                                                                            case 3:
+                                                                                if (!(l >= 0)) return [3, 8];
+                                                                                return [4, c.get(l)];
+                                                                            case 4:
+                                                                                b = _g.sent(), k = b.attr("href");
+                                                                                _b = !k || k === "#";
+                                                                                if (_b) return [3, 6];
+                                                                                _d = (_c = f).push;
+                                                                                _f = {};
+                                                                                return [4, b.text()];
+                                                                            case 5:
+                                                                                _b = _d.apply(_c, [(_f.name = (_g.sent()).trim(), _f.url = k, _f.host = w, _f)]);
+                                                                                _g.label = 6;
+                                                                            case 6:
+                                                                                _b;
+                                                                                _g.label = 7;
+                                                                            case 7:
+                                                                                l--;
+                                                                                return [3, 3];
+                                                                            case 8: return [2, s.success(f)];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, pages: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, k, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            i = r.indexOf("?") > 0 ? r : r.replace(/\/$/, "") + "/?style=list";
+                                                                            return [4, d.html(i)];
+                                                                        case 1:
+                                                                            c = _d.sent(), f = c.select(".reading-content img, .page-break img, .read-container img"), l = [], b = 0;
+                                                                            _d.label = 2;
+                                                                        case 2:
+                                                                            if (!(b < f.size())) return [3, 5];
+                                                                            _c = (_b = d).img;
+                                                                            return [4, f.get(b)];
+                                                                        case 3:
+                                                                            k = _c.apply(_b, [_d.sent()]);
+                                                                            k && l.push(k);
+                                                                            _d.label = 4;
+                                                                        case 4:
+                                                                            b++;
+                                                                            return [3, 2];
+                                                                        case 5: return [2, s.success(l)];
+                                                                    }
+                                                                }); });
+                                                            }, text: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, c, _b, _c, _d, _f; return __generator(this, function (_g) {
+                                                                    switch (_g.label) {
+                                                                        case 0: return [4, d.html(r)];
+                                                                        case 1:
+                                                                            i = _g.sent(), c = i.select(".reading-content .text-left, .reading-content .text-right, .reading-content, .entry-content").first();
+                                                                            if (!c) return [3, 4];
+                                                                            _d = (_c = s).success;
+                                                                            return [4, d.cleanContent(c)];
+                                                                        case 2:
+                                                                            _f = [_g.sent()];
+                                                                            return [4, d.text(i, ["#chapter-heading", ".breadcrumb li.active", "h1"])];
+                                                                        case 3:
+                                                                            _b = _d.apply(_c, _f.concat([_g.sent()]));
+                                                                            return [3, 5];
+                                                                        case 4:
+                                                                            _b = s.error("Không tìm thấy nội dung chương");
+                                                                            _g.label = 5;
+                                                                        case 5: return [2, _b];
+                                                                    }
+                                                                }); });
+                                                            } };
+                                                        return [2, typeof B == "function" ? B : void 0];
                                                     });
-                                                }, list: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], f = {}, l = 0;
-                                                                _d.label = 1;
-                                                            case 1:
-                                                                if (!(l < i.size())) return [3, 5];
-                                                                _c = (_b = y).card;
-                                                                return [4, i.get(l)];
-                                                            case 2: return [4, _c.apply(_b, [_d.sent()])];
-                                                            case 3:
-                                                                b = _d.sent();
-                                                                b && b.link && !f[b.link] && (f[b.link] = 1, c.push(b));
-                                                                _d.label = 4;
-                                                            case 4:
-                                                                l++;
-                                                                return [3, 1];
-                                                            case 5: return [2, c];
-                                                        }
-                                                    }); });
-                                                }, hasNext: function (r, i) { return r.select(".nav-previous a, a.nextpostslink, .wp-pagenavi a.next, a.next.page-numbers, .pagination a.next, a[rel=next]").size() > 0 || r.select('a[href*="/page/' + (i + 1) + '"]').size() > 0; }, browse: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                c = d.page(i), f = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
-                                                                return [4, d.html(f)];
-                                                            case 1:
-                                                                l = _b.sent();
-                                                                return [4, y.list(l)];
-                                                            case 2:
-                                                                b = _b.sent();
-                                                                return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, search: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!d.isUrl(r)) return [3, 2];
-                                                                return [4, y.byUrl(r, i)];
-                                                            case 1: return [2, _b.sent()];
-                                                            case 2:
-                                                                c = d.page(i), f = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + d.enc(r) + "&post_type=wp-manga";
-                                                                return [4, d.html(f)];
-                                                            case 3:
-                                                                l = _b.sent();
-                                                                return [4, y.list(l)];
-                                                            case 4:
-                                                                b = _b.sent();
-                                                                return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, byUrl: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                c = d.page(i), f = d.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
-                                                                return [4, d.html(f)];
-                                                            case 1:
-                                                                l = _b.sent();
-                                                                return [4, y.list(l)];
-                                                            case 2:
-                                                                b = _b.sent();
-                                                                return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, detail: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, f, l, _b, _c, _d;
-                                                        var _f;
-                                                        return __generator(this, function (_g) {
-                                                            switch (_g.label) {
-                                                                case 0: return [4, d.html(r)];
-                                                                case 1:
-                                                                    i = _g.sent();
-                                                                    return [4, qt(i.select(".genres-content a, .wp-manga-genres a, .manga-genres a"), function (b) {
-                                                                            return __awaiter(this, void 0, void 0, function () {
-                                                                                var _b;
-                                                                                return __generator(this, function (_c) {
-                                                                                    switch (_c.label) {
-                                                                                        case 0:
-                                                                                            _b = {};
-                                                                                            return [4, b.text()];
-                                                                                        case 1: return [2, (_b.title = _c.sent(), _b.input = b.attr("href"), _b.script = "search.js", _b)];
-                                                                                    }
-                                                                                });
-                                                                            });
-                                                                        })];
-                                                                case 2:
-                                                                    c = _g.sent();
-                                                                    return [4, d.text(i, [".post-status .summary-content", ".manga-status", ".post-content_item:contains(Tình trạng) .summary-content", ".post-content_item:contains(Status) .summary-content"])];
-                                                                case 3:
-                                                                    f = _g.sent(), l = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
-                                                                    _c = (_b = s).success;
-                                                                    _f = {};
-                                                                    return [4, d.text(i, [".post-title h1", ".post-title h3", "h1"])];
-                                                                case 4:
-                                                                    _f.name = _g.sent(), _f.cover = d.img(i.select(".summary_image img, .tab-summary img").first());
-                                                                    return [4, d.text(i, [".author-content a", ".author-content", ".artist-content a"])];
-                                                                case 5:
-                                                                    _f.author = _g.sent();
-                                                                    if (!l) return [3, 7];
-                                                                    return [4, l.html()];
-                                                                case 6:
-                                                                    _d = _g.sent();
-                                                                    return [3, 8];
-                                                                case 7:
-                                                                    _d = "";
-                                                                    _g.label = 8;
-                                                                case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = f ? "Tình trạng: " + f : "", _f.ongoing = d.ongoing(f), _f.genres = c, _f.host = w, _f)])];
-                                                            }
-                                                        });
-                                                    });
-                                                }, chapterEls: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, _b, b, _c, _d; return __generator(this, function (_f) {
-                                                        switch (_f.label) {
-                                                            case 0:
-                                                                c = r.select("li.wp-manga-chapter a, .listing-chapters_wrap li a, .version-chap li a");
-                                                                if (c.size() > 0)
-                                                                    return [2, c];
-                                                                f = i.replace(/\/$/, "") + "/";
-                                                                return [4, u(f + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: f } })];
-                                                            case 1:
-                                                                l = _f.sent();
-                                                                _b = l.ok;
-                                                                if (!_b) return [3, 3];
-                                                                return [4, l.html()];
-                                                            case 2:
-                                                                _b = (c = (_f.sent()).select("li.wp-manga-chapter a"), c.size() > 0);
-                                                                _f.label = 3;
-                                                            case 3:
-                                                                if (_b)
-                                                                    return [2, c];
-                                                                b = r.select("#manga-chapters-holder").attr("data-id") || r.select(".rating-post-id").attr("value") || r.select("input.rating-post-id").attr("value");
-                                                                _d = b;
-                                                                if (!_d) return [3, 5];
-                                                                return [4, u(w + "/wp-admin/admin-ajax.php", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", "Content-Type": "application/x-www-form-urlencoded" }, body: "action=manga_get_chapters&manga=" + b })];
-                                                            case 4:
-                                                                _d = (l = _f.sent(), l.ok);
-                                                                _f.label = 5;
-                                                            case 5:
-                                                                if (!_d) return [3, 7];
-                                                                return [4, l.html()];
-                                                            case 6:
-                                                                _c = (_f.sent()).select("li.wp-manga-chapter a");
-                                                                return [3, 8];
-                                                            case 7:
-                                                                _c = c;
-                                                                _f.label = 8;
-                                                            case 8: return [2, _c];
-                                                        }
-                                                    }); });
-                                                }, toc: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, f, l, b, k, _b, _c, _d;
-                                                        var _f;
-                                                        return __generator(this, function (_g) {
-                                                            switch (_g.label) {
-                                                                case 0: return [4, d.html(r)];
-                                                                case 1:
-                                                                    i = _g.sent();
-                                                                    return [4, y.chapterEls(i, r)];
-                                                                case 2:
-                                                                    c = _g.sent(), f = [], l = c.size() - 1;
-                                                                    _g.label = 3;
-                                                                case 3:
-                                                                    if (!(l >= 0)) return [3, 8];
-                                                                    return [4, c.get(l)];
-                                                                case 4:
-                                                                    b = _g.sent(), k = b.attr("href");
-                                                                    _b = !k || k === "#";
-                                                                    if (_b) return [3, 6];
-                                                                    _d = (_c = f).push;
-                                                                    _f = {};
-                                                                    return [4, b.text()];
-                                                                case 5:
-                                                                    _b = _d.apply(_c, [(_f.name = (_g.sent()).trim(), _f.url = k, _f.host = w, _f)]);
-                                                                    _g.label = 6;
-                                                                case 6:
-                                                                    _b;
-                                                                    _g.label = 7;
-                                                                case 7:
-                                                                    l--;
-                                                                    return [3, 3];
-                                                                case 8: return [2, s.success(f)];
-                                                            }
-                                                        });
-                                                    });
-                                                }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, k, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                i = r.indexOf("?") > 0 ? r : r.replace(/\/$/, "") + "/?style=list";
-                                                                return [4, d.html(i)];
-                                                            case 1:
-                                                                c = _d.sent(), f = c.select(".reading-content img, .page-break img, .read-container img"), l = [], b = 0;
-                                                                _d.label = 2;
-                                                            case 2:
-                                                                if (!(b < f.size())) return [3, 5];
-                                                                _c = (_b = d).img;
-                                                                return [4, f.get(b)];
-                                                            case 3:
-                                                                k = _c.apply(_b, [_d.sent()]);
-                                                                k && l.push(k);
-                                                                _d.label = 4;
-                                                            case 4:
-                                                                b++;
-                                                                return [3, 2];
-                                                            case 5: return [2, s.success(l)];
-                                                        }
-                                                    }); });
-                                                }, text: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, _b, _c, _d, _f; return __generator(this, function (_g) {
-                                                        switch (_g.label) {
-                                                            case 0: return [4, d.html(r)];
-                                                            case 1:
-                                                                i = _g.sent(), c = i.select(".reading-content .text-left, .reading-content .text-right, .reading-content, .entry-content").first();
-                                                                if (!c) return [3, 4];
-                                                                _d = (_c = s).success;
-                                                                return [4, d.cleanContent(c)];
-                                                            case 2:
-                                                                _f = [_g.sent()];
-                                                                return [4, d.text(i, ["#chapter-heading", ".breadcrumb li.active", "h1"])];
-                                                            case 3:
-                                                                _b = _d.apply(_c, _f.concat([_g.sent()]));
-                                                                return [3, 5];
-                                                            case 4:
-                                                                _b = s.error("Không tìm thấy nội dung chương");
-                                                                _g.label = 5;
-                                                            case 5: return [2, _b];
-                                                        }
-                                                    }); });
-                                                } };
-                                            return [2, typeof B == "function" ? B : void 0];
-                                        }); });
-                                    })()];
-                            case 1: return [2, _b.sent()];
-                        }
-                    }); });
-                })(e.fetch, e.Http, e.Html, e.Response, e.localStorage, e.cacheStorage, e.localConfig, e.localCookie, e.sleep, e.Log, e.console, e.Console, e.log, e.UserAgent, e.Engine, e.Graphics, e.Script)];
-        }); });
+                                                });
+                                            })()];
+                                    case 1: return [2, _b.sent()];
+                                }
+                            });
+                        });
+                    })(e.fetch, e.Http, e.Html, e.Response, e.localStorage, e.cacheStorage, e.localConfig, e.localCookie, e.sleep, e.Log, e.console, e.Console, e.log, e.UserAgent, e.Engine, e.Graphics, e.Script)];
+            });
+        });
     }, chap: function (e, t) {
-        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, a, n, s, o, h, p, m, x, T, v, S, N, C, F, z, K) {
-                    return __awaiter(this, void 0, void 0, function () { var M; return __generator(this, function (_b) {
-                        switch (_b.label) {
-                            case 0:
-                                M = t("DOMAIN");
-                                return [4, (function () {
-                                        return __awaiter(this, void 0, void 0, function () { function B(r) {
-                                            return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                switch (_b.label) {
-                                                    case 0: return [4, y.text(r)];
-                                                    case 1: return [2, _b.sent()];
-                                                }
-                                            }); });
-                                        } var w, d, y; return __generator(this, function (_b) {
-                                            w = "https://gaumeoteam.com";
-                                            try {
-                                                M && (w = String(M).replace(/\/+$/, ""));
-                                            }
-                                            catch (r) { }
-                                            d = { img: function (r) { if (!r)
-                                                    return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < i.length; c++) {
-                                                    var f = r.attr(i[c]);
-                                                    if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
-                                                        return d.fix(f.trim());
-                                                } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? d.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                c = 0;
-                                                                _b.label = 1;
-                                                            case 1:
-                                                                if (!(c < i.length)) return [3, 4];
-                                                                return [4, r.select(i[c]).text()];
-                                                            case 2:
-                                                                f = _b.sent();
-                                                                if (f)
-                                                                    return [2, f.trim()];
-                                                                _b.label = 3;
-                                                            case 3:
-                                                                c++;
-                                                                return [3, 1];
-                                                            case 4: return [2, ""];
-                                                        }
-                                                    }); });
-                                                }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b, _b; return __generator(this, function (_c) {
-                                                        switch (_c.label) {
-                                                            case 0:
-                                                                i = i || {};
-                                                                c = { Referer: w + "/" };
-                                                                if (i.headers)
-                                                                    for (f in i.headers)
-                                                                        c[f] = i.headers[f];
-                                                                return [4, u(r, { method: i.method, headers: c, body: i.body })];
-                                                            case 1:
-                                                                l = _c.sent(), b = 0;
-                                                                _c.label = 2;
-                                                            case 2:
-                                                                _b = l && l.status === 429 && b < 3;
-                                                                if (!_b) return [3, 4];
-                                                                return [4, d.cf(l)];
-                                                            case 3:
-                                                                _b = !(_c.sent());
-                                                                _c.label = 4;
-                                                            case 4:
-                                                                if (!_b) return [3, 8];
-                                                                return [4, x(1500 * (b + 1))];
-                                                            case 5:
-                                                                _c.sent();
-                                                                return [4, u(r, { method: i.method, headers: c, body: i.body })];
-                                                            case 6:
-                                                                l = _c.sent();
-                                                                _c.label = 7;
-                                                            case 7:
-                                                                b++;
-                                                                return [3, 2];
-                                                            case 8: return [2, l];
-                                                        }
-                                                    }); });
-                                                }, cf: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.status !== 403 && r.status !== 503 && r.status !== 429)
-                                                                    return [2, !1];
-                                                                return [4, r.text()];
-                                                            case 1:
-                                                                i = (_b.sent()) || "";
-                                                                return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
-                                                        }
-                                                    }); });
-                                                }, check: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.ok)
-                                                                    return [2, r];
-                                                                return [4, d.cf(r)];
-                                                            case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
-                                                        }
-                                                    }); });
-                                                }, html: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                c = _d.sent();
-                                                                return [4, c.html(i && i.charset)];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, json: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                c = _d.sent();
-                                                                return [4, c.json()];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
-                                                                return [4, r.html()];
-                                                            case 1: return [2, (_b.sent()).replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
-                                                        }
-                                                    }); });
-                                                }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, y = { path: function () { return typeof MADARA != "undefined" && MADARA.path || "manga"; }, card: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, f, _b;
-                                                        var _c;
-                                                        return __generator(this, function (_d) {
-                                                            switch (_d.label) {
-                                                                case 0:
-                                                                    i = r.select(".post-title a, h3 a, h4 a, .item-summary a").first() || r.select("a").first();
-                                                                    if (!i)
-                                                                        return [2, null];
-                                                                    return [4, i.text()];
-                                                                case 1:
-                                                                    c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), f = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
-                                                                    _c = { name: c, link: i.attr("href"), cover: d.img(r.select("img").first()) };
-                                                                    if (!f) return [3, 3];
-                                                                    return [4, f.text()];
-                                                                case 2:
-                                                                    _b = _d.sent();
-                                                                    return [3, 4];
-                                                                case 3:
-                                                                    _b = "";
-                                                                    _d.label = 4;
-                                                                case 4: return [2, (_c.description = _b, _c.host = w, _c)];
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_b) {
+                return [2, (function (u, a, n, s, o, h, p, m, x, T, v, S, N, C, F, z, K) {
+                        return __awaiter(this, void 0, void 0, function () {
+                            var M;
+                            return __generator(this, function (_b) {
+                                switch (_b.label) {
+                                    case 0:
+                                        M = t("DOMAIN");
+                                        return [4, (function () {
+                                                return __awaiter(this, void 0, void 0, function () {
+                                                    function B(r) {
+                                                        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                            switch (_b.label) {
+                                                                case 0: return [4, y.text(r)];
+                                                                case 1: return [2, _b.sent()];
                                                             }
-                                                        });
+                                                        }); });
+                                                    }
+                                                    var w, d, y;
+                                                    return __generator(this, function (_b) {
+                                                        w = "https://gaumeoteam.com";
+                                                        try {
+                                                            M && (w = String(M).replace(/\/+$/, ""));
+                                                        }
+                                                        catch (r) { }
+                                                        d = { img: function (r) { if (!r)
+                                                                return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < i.length; c++) {
+                                                                var f = r.attr(i[c]);
+                                                                if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
+                                                                    return d.fix(f.trim());
+                                                            } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? d.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            c = 0;
+                                                                            _b.label = 1;
+                                                                        case 1:
+                                                                            if (!(c < i.length)) return [3, 4];
+                                                                            return [4, r.select(i[c]).text()];
+                                                                        case 2:
+                                                                            f = _b.sent();
+                                                                            if (f)
+                                                                                return [2, f.trim()];
+                                                                            _b.label = 3;
+                                                                        case 3:
+                                                                            c++;
+                                                                            return [3, 1];
+                                                                        case 4: return [2, ""];
+                                                                    }
+                                                                }); });
+                                                            }, get: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b, _b; return __generator(this, function (_c) {
+                                                                    switch (_c.label) {
+                                                                        case 0:
+                                                                            i = i || {};
+                                                                            c = { Referer: w + "/" };
+                                                                            if (i.headers)
+                                                                                for (f in i.headers)
+                                                                                    c[f] = i.headers[f];
+                                                                            return [4, u(r, { method: i.method, headers: c, body: i.body })];
+                                                                        case 1:
+                                                                            l = _c.sent(), b = 0;
+                                                                            _c.label = 2;
+                                                                        case 2:
+                                                                            _b = l && l.status === 429 && b < 3;
+                                                                            if (!_b) return [3, 4];
+                                                                            return [4, d.cf(l)];
+                                                                        case 3:
+                                                                            _b = !(_c.sent());
+                                                                            _c.label = 4;
+                                                                        case 4:
+                                                                            if (!_b) return [3, 8];
+                                                                            return [4, x(1500 * (b + 1))];
+                                                                        case 5:
+                                                                            _c.sent();
+                                                                            return [4, u(r, { method: i.method, headers: c, body: i.body })];
+                                                                        case 6:
+                                                                            l = _c.sent();
+                                                                            _c.label = 7;
+                                                                        case 7:
+                                                                            b++;
+                                                                            return [3, 2];
+                                                                        case 8: return [2, l];
+                                                                    }
+                                                                }); });
+                                                            }, cf: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.status !== 403 && r.status !== 503 && r.status !== 429)
+                                                                                return [2, !1];
+                                                                            return [4, r.text()];
+                                                                        case 1:
+                                                                            i = (_b.sent()) || "";
+                                                                            return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
+                                                                    }
+                                                                }); });
+                                                            }, check: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.ok)
+                                                                                return [2, r];
+                                                                            return [4, d.cf(r)];
+                                                                        case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
+                                                                    }
+                                                                }); });
+                                                            }, html: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            c = _d.sent();
+                                                                            return [4, c.html(i && i.charset)];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, json: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            c = _d.sent();
+                                                                            return [4, c.json()];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    return __generator(this, function (_b) {
+                                                                        switch (_b.label) {
+                                                                            case 0:
+                                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
+                                                                                return [4, r.html()];
+                                                                            case 1: return [2, (_b.sent()).replace(/\r\n?/g, "\n").replace(/&#13;|&#x0?[dD];/g, "").replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, y = { path: function () { return typeof MADARA != "undefined" && MADARA.path || "manga"; }, card: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, c, f, _b;
+                                                                    var _c;
+                                                                    return __generator(this, function (_d) {
+                                                                        switch (_d.label) {
+                                                                            case 0:
+                                                                                i = r.select(".post-title a, h3 a, h4 a, .item-summary a").first() || r.select("a").first();
+                                                                                if (!i)
+                                                                                    return [2, null];
+                                                                                return [4, i.text()];
+                                                                            case 1:
+                                                                                c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), f = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
+                                                                                _c = { name: c, link: i.attr("href"), cover: d.img(r.select("img").first()) };
+                                                                                if (!f) return [3, 3];
+                                                                                return [4, f.text()];
+                                                                            case 2:
+                                                                                _b = _d.sent();
+                                                                                return [3, 4];
+                                                                            case 3:
+                                                                                _b = "";
+                                                                                _d.label = 4;
+                                                                            case 4: return [2, (_c.description = _b, _c.host = w, _c)];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, list: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], f = {}, l = 0;
+                                                                            _d.label = 1;
+                                                                        case 1:
+                                                                            if (!(l < i.size())) return [3, 5];
+                                                                            _c = (_b = y).card;
+                                                                            return [4, i.get(l)];
+                                                                        case 2: return [4, _c.apply(_b, [_d.sent()])];
+                                                                        case 3:
+                                                                            b = _d.sent();
+                                                                            b && b.link && !f[b.link] && (f[b.link] = 1, c.push(b));
+                                                                            _d.label = 4;
+                                                                        case 4:
+                                                                            l++;
+                                                                            return [3, 1];
+                                                                        case 5: return [2, c];
+                                                                    }
+                                                                }); });
+                                                            }, hasNext: function (r, i) { return r.select(".nav-previous a, a.nextpostslink, .wp-pagenavi a.next, a.next.page-numbers, .pagination a.next, a[rel=next]").size() > 0 || r.select('a[href*="/page/' + (i + 1) + '"]').size() > 0; }, browse: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            c = d.page(i), f = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
+                                                                            return [4, d.html(f)];
+                                                                        case 1:
+                                                                            l = _b.sent();
+                                                                            return [4, y.list(l)];
+                                                                        case 2:
+                                                                            b = _b.sent();
+                                                                            return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, search: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!d.isUrl(r)) return [3, 2];
+                                                                            return [4, y.byUrl(r, i)];
+                                                                        case 1: return [2, _b.sent()];
+                                                                        case 2:
+                                                                            c = d.page(i), f = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + d.enc(r) + "&post_type=wp-manga";
+                                                                            return [4, d.html(f)];
+                                                                        case 3:
+                                                                            l = _b.sent();
+                                                                            return [4, y.list(l)];
+                                                                        case 4:
+                                                                            b = _b.sent();
+                                                                            return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, byUrl: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            c = d.page(i), f = d.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
+                                                                            return [4, d.html(f)];
+                                                                        case 1:
+                                                                            l = _b.sent();
+                                                                            return [4, y.list(l)];
+                                                                        case 2:
+                                                                            b = _b.sent();
+                                                                            return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, detail: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, c, f, l, _b, _c, _d;
+                                                                    var _f;
+                                                                    return __generator(this, function (_g) {
+                                                                        switch (_g.label) {
+                                                                            case 0: return [4, d.html(r)];
+                                                                            case 1:
+                                                                                i = _g.sent();
+                                                                                return [4, qt(i.select(".genres-content a, .wp-manga-genres a, .manga-genres a"), function (b) {
+                                                                                        return __awaiter(this, void 0, void 0, function () {
+                                                                                            var _b;
+                                                                                            return __generator(this, function (_c) {
+                                                                                                switch (_c.label) {
+                                                                                                    case 0:
+                                                                                                        _b = {};
+                                                                                                        return [4, b.text()];
+                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = b.attr("href"), _b.script = "search.js", _b)];
+                                                                                                }
+                                                                                            });
+                                                                                        });
+                                                                                    })];
+                                                                            case 2:
+                                                                                c = _g.sent();
+                                                                                return [4, d.text(i, [".post-status .summary-content", ".manga-status", ".post-content_item:contains(Tình trạng) .summary-content", ".post-content_item:contains(Status) .summary-content"])];
+                                                                            case 3:
+                                                                                f = _g.sent(), l = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
+                                                                                _c = (_b = s).success;
+                                                                                _f = {};
+                                                                                return [4, d.text(i, [".post-title h1", ".post-title h3", "h1"])];
+                                                                            case 4:
+                                                                                _f.name = _g.sent(), _f.cover = d.img(i.select(".summary_image img, .tab-summary img").first());
+                                                                                return [4, d.text(i, [".author-content a", ".author-content", ".artist-content a"])];
+                                                                            case 5:
+                                                                                _f.author = _g.sent();
+                                                                                if (!l) return [3, 7];
+                                                                                return [4, l.html()];
+                                                                            case 6:
+                                                                                _d = _g.sent();
+                                                                                return [3, 8];
+                                                                            case 7:
+                                                                                _d = "";
+                                                                                _g.label = 8;
+                                                                            case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = f ? "Tình trạng: " + f : "", _f.ongoing = d.ongoing(f), _f.genres = c, _f.host = w, _f)])];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, chapterEls: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, _b, b, _c, _d; return __generator(this, function (_f) {
+                                                                    switch (_f.label) {
+                                                                        case 0:
+                                                                            c = r.select("li.wp-manga-chapter a, .listing-chapters_wrap li a, .version-chap li a");
+                                                                            if (c.size() > 0)
+                                                                                return [2, c];
+                                                                            f = i.replace(/\/$/, "") + "/";
+                                                                            return [4, u(f + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: f } })];
+                                                                        case 1:
+                                                                            l = _f.sent();
+                                                                            _b = l.ok;
+                                                                            if (!_b) return [3, 3];
+                                                                            return [4, l.html()];
+                                                                        case 2:
+                                                                            _b = (c = (_f.sent()).select("li.wp-manga-chapter a"), c.size() > 0);
+                                                                            _f.label = 3;
+                                                                        case 3:
+                                                                            if (_b)
+                                                                                return [2, c];
+                                                                            b = r.select("#manga-chapters-holder").attr("data-id") || r.select(".rating-post-id").attr("value") || r.select("input.rating-post-id").attr("value");
+                                                                            _d = b;
+                                                                            if (!_d) return [3, 5];
+                                                                            return [4, u(w + "/wp-admin/admin-ajax.php", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", "Content-Type": "application/x-www-form-urlencoded" }, body: "action=manga_get_chapters&manga=" + b })];
+                                                                        case 4:
+                                                                            _d = (l = _f.sent(), l.ok);
+                                                                            _f.label = 5;
+                                                                        case 5:
+                                                                            if (!_d) return [3, 7];
+                                                                            return [4, l.html()];
+                                                                        case 6:
+                                                                            _c = (_f.sent()).select("li.wp-manga-chapter a");
+                                                                            return [3, 8];
+                                                                        case 7:
+                                                                            _c = c;
+                                                                            _f.label = 8;
+                                                                        case 8: return [2, _c];
+                                                                    }
+                                                                }); });
+                                                            }, toc: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, c, f, l, b, k, _b, _c, _d;
+                                                                    var _f;
+                                                                    return __generator(this, function (_g) {
+                                                                        switch (_g.label) {
+                                                                            case 0: return [4, d.html(r)];
+                                                                            case 1:
+                                                                                i = _g.sent();
+                                                                                return [4, y.chapterEls(i, r)];
+                                                                            case 2:
+                                                                                c = _g.sent(), f = [], l = c.size() - 1;
+                                                                                _g.label = 3;
+                                                                            case 3:
+                                                                                if (!(l >= 0)) return [3, 8];
+                                                                                return [4, c.get(l)];
+                                                                            case 4:
+                                                                                b = _g.sent(), k = b.attr("href");
+                                                                                _b = !k || k === "#";
+                                                                                if (_b) return [3, 6];
+                                                                                _d = (_c = f).push;
+                                                                                _f = {};
+                                                                                return [4, b.text()];
+                                                                            case 5:
+                                                                                _b = _d.apply(_c, [(_f.name = (_g.sent()).trim(), _f.url = k, _f.host = w, _f)]);
+                                                                                _g.label = 6;
+                                                                            case 6:
+                                                                                _b;
+                                                                                _g.label = 7;
+                                                                            case 7:
+                                                                                l--;
+                                                                                return [3, 3];
+                                                                            case 8: return [2, s.success(f)];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, pages: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, k, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            i = r.indexOf("?") > 0 ? r : r.replace(/\/$/, "") + "/?style=list";
+                                                                            return [4, d.html(i)];
+                                                                        case 1:
+                                                                            c = _d.sent(), f = c.select(".reading-content img, .page-break img, .read-container img"), l = [], b = 0;
+                                                                            _d.label = 2;
+                                                                        case 2:
+                                                                            if (!(b < f.size())) return [3, 5];
+                                                                            _c = (_b = d).img;
+                                                                            return [4, f.get(b)];
+                                                                        case 3:
+                                                                            k = _c.apply(_b, [_d.sent()]);
+                                                                            k && l.push(k);
+                                                                            _d.label = 4;
+                                                                        case 4:
+                                                                            b++;
+                                                                            return [3, 2];
+                                                                        case 5: return [2, s.success(l)];
+                                                                    }
+                                                                }); });
+                                                            }, text: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, c, _b, _c, _d, _f; return __generator(this, function (_g) {
+                                                                    switch (_g.label) {
+                                                                        case 0: return [4, d.html(r)];
+                                                                        case 1:
+                                                                            i = _g.sent(), c = i.select(".reading-content .text-left, .reading-content .text-right, .reading-content, .entry-content").first();
+                                                                            if (!c) return [3, 4];
+                                                                            _d = (_c = s).success;
+                                                                            return [4, d.cleanContent(c)];
+                                                                        case 2:
+                                                                            _f = [_g.sent()];
+                                                                            return [4, d.text(i, ["#chapter-heading", ".breadcrumb li.active", "h1"])];
+                                                                        case 3:
+                                                                            _b = _d.apply(_c, _f.concat([_g.sent()]));
+                                                                            return [3, 5];
+                                                                        case 4:
+                                                                            _b = s.error("Không tìm thấy nội dung chương");
+                                                                            _g.label = 5;
+                                                                        case 5: return [2, _b];
+                                                                    }
+                                                                }); });
+                                                            } };
+                                                        return [2, typeof B == "function" ? B : void 0];
                                                     });
-                                                }, list: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], f = {}, l = 0;
-                                                                _d.label = 1;
-                                                            case 1:
-                                                                if (!(l < i.size())) return [3, 5];
-                                                                _c = (_b = y).card;
-                                                                return [4, i.get(l)];
-                                                            case 2: return [4, _c.apply(_b, [_d.sent()])];
-                                                            case 3:
-                                                                b = _d.sent();
-                                                                b && b.link && !f[b.link] && (f[b.link] = 1, c.push(b));
-                                                                _d.label = 4;
-                                                            case 4:
-                                                                l++;
-                                                                return [3, 1];
-                                                            case 5: return [2, c];
-                                                        }
-                                                    }); });
-                                                }, hasNext: function (r, i) { return r.select(".nav-previous a, a.nextpostslink, .wp-pagenavi a.next, a.next.page-numbers, .pagination a.next, a[rel=next]").size() > 0 || r.select('a[href*="/page/' + (i + 1) + '"]').size() > 0; }, browse: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                c = d.page(i), f = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
-                                                                return [4, d.html(f)];
-                                                            case 1:
-                                                                l = _b.sent();
-                                                                return [4, y.list(l)];
-                                                            case 2:
-                                                                b = _b.sent();
-                                                                return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, search: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!d.isUrl(r)) return [3, 2];
-                                                                return [4, y.byUrl(r, i)];
-                                                            case 1: return [2, _b.sent()];
-                                                            case 2:
-                                                                c = d.page(i), f = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + d.enc(r) + "&post_type=wp-manga";
-                                                                return [4, d.html(f)];
-                                                            case 3:
-                                                                l = _b.sent();
-                                                                return [4, y.list(l)];
-                                                            case 4:
-                                                                b = _b.sent();
-                                                                return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, byUrl: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                c = d.page(i), f = d.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
-                                                                return [4, d.html(f)];
-                                                            case 1:
-                                                                l = _b.sent();
-                                                                return [4, y.list(l)];
-                                                            case 2:
-                                                                b = _b.sent();
-                                                                return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, detail: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, f, l, _b, _c, _d;
-                                                        var _f;
-                                                        return __generator(this, function (_g) {
-                                                            switch (_g.label) {
-                                                                case 0: return [4, d.html(r)];
-                                                                case 1:
-                                                                    i = _g.sent();
-                                                                    return [4, qt(i.select(".genres-content a, .wp-manga-genres a, .manga-genres a"), function (b) {
-                                                                            return __awaiter(this, void 0, void 0, function () {
-                                                                                var _b;
-                                                                                return __generator(this, function (_c) {
-                                                                                    switch (_c.label) {
-                                                                                        case 0:
-                                                                                            _b = {};
-                                                                                            return [4, b.text()];
-                                                                                        case 1: return [2, (_b.title = _c.sent(), _b.input = b.attr("href"), _b.script = "search.js", _b)];
-                                                                                    }
-                                                                                });
-                                                                            });
-                                                                        })];
-                                                                case 2:
-                                                                    c = _g.sent();
-                                                                    return [4, d.text(i, [".post-status .summary-content", ".manga-status", ".post-content_item:contains(Tình trạng) .summary-content", ".post-content_item:contains(Status) .summary-content"])];
-                                                                case 3:
-                                                                    f = _g.sent(), l = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
-                                                                    _c = (_b = s).success;
-                                                                    _f = {};
-                                                                    return [4, d.text(i, [".post-title h1", ".post-title h3", "h1"])];
-                                                                case 4:
-                                                                    _f.name = _g.sent(), _f.cover = d.img(i.select(".summary_image img, .tab-summary img").first());
-                                                                    return [4, d.text(i, [".author-content a", ".author-content", ".artist-content a"])];
-                                                                case 5:
-                                                                    _f.author = _g.sent();
-                                                                    if (!l) return [3, 7];
-                                                                    return [4, l.html()];
-                                                                case 6:
-                                                                    _d = _g.sent();
-                                                                    return [3, 8];
-                                                                case 7:
-                                                                    _d = "";
-                                                                    _g.label = 8;
-                                                                case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = f ? "Tình trạng: " + f : "", _f.ongoing = d.ongoing(f), _f.genres = c, _f.host = w, _f)])];
-                                                            }
-                                                        });
-                                                    });
-                                                }, chapterEls: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, _b, b, _c, _d; return __generator(this, function (_f) {
-                                                        switch (_f.label) {
-                                                            case 0:
-                                                                c = r.select("li.wp-manga-chapter a, .listing-chapters_wrap li a, .version-chap li a");
-                                                                if (c.size() > 0)
-                                                                    return [2, c];
-                                                                f = i.replace(/\/$/, "") + "/";
-                                                                return [4, u(f + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: f } })];
-                                                            case 1:
-                                                                l = _f.sent();
-                                                                _b = l.ok;
-                                                                if (!_b) return [3, 3];
-                                                                return [4, l.html()];
-                                                            case 2:
-                                                                _b = (c = (_f.sent()).select("li.wp-manga-chapter a"), c.size() > 0);
-                                                                _f.label = 3;
-                                                            case 3:
-                                                                if (_b)
-                                                                    return [2, c];
-                                                                b = r.select("#manga-chapters-holder").attr("data-id") || r.select(".rating-post-id").attr("value") || r.select("input.rating-post-id").attr("value");
-                                                                _d = b;
-                                                                if (!_d) return [3, 5];
-                                                                return [4, u(w + "/wp-admin/admin-ajax.php", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", "Content-Type": "application/x-www-form-urlencoded" }, body: "action=manga_get_chapters&manga=" + b })];
-                                                            case 4:
-                                                                _d = (l = _f.sent(), l.ok);
-                                                                _f.label = 5;
-                                                            case 5:
-                                                                if (!_d) return [3, 7];
-                                                                return [4, l.html()];
-                                                            case 6:
-                                                                _c = (_f.sent()).select("li.wp-manga-chapter a");
-                                                                return [3, 8];
-                                                            case 7:
-                                                                _c = c;
-                                                                _f.label = 8;
-                                                            case 8: return [2, _c];
-                                                        }
-                                                    }); });
-                                                }, toc: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, f, l, b, k, _b, _c, _d;
-                                                        var _f;
-                                                        return __generator(this, function (_g) {
-                                                            switch (_g.label) {
-                                                                case 0: return [4, d.html(r)];
-                                                                case 1:
-                                                                    i = _g.sent();
-                                                                    return [4, y.chapterEls(i, r)];
-                                                                case 2:
-                                                                    c = _g.sent(), f = [], l = c.size() - 1;
-                                                                    _g.label = 3;
-                                                                case 3:
-                                                                    if (!(l >= 0)) return [3, 8];
-                                                                    return [4, c.get(l)];
-                                                                case 4:
-                                                                    b = _g.sent(), k = b.attr("href");
-                                                                    _b = !k || k === "#";
-                                                                    if (_b) return [3, 6];
-                                                                    _d = (_c = f).push;
-                                                                    _f = {};
-                                                                    return [4, b.text()];
-                                                                case 5:
-                                                                    _b = _d.apply(_c, [(_f.name = (_g.sent()).trim(), _f.url = k, _f.host = w, _f)]);
-                                                                    _g.label = 6;
-                                                                case 6:
-                                                                    _b;
-                                                                    _g.label = 7;
-                                                                case 7:
-                                                                    l--;
-                                                                    return [3, 3];
-                                                                case 8: return [2, s.success(f)];
-                                                            }
-                                                        });
-                                                    });
-                                                }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, k, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                i = r.indexOf("?") > 0 ? r : r.replace(/\/$/, "") + "/?style=list";
-                                                                return [4, d.html(i)];
-                                                            case 1:
-                                                                c = _d.sent(), f = c.select(".reading-content img, .page-break img, .read-container img"), l = [], b = 0;
-                                                                _d.label = 2;
-                                                            case 2:
-                                                                if (!(b < f.size())) return [3, 5];
-                                                                _c = (_b = d).img;
-                                                                return [4, f.get(b)];
-                                                            case 3:
-                                                                k = _c.apply(_b, [_d.sent()]);
-                                                                k && l.push(k);
-                                                                _d.label = 4;
-                                                            case 4:
-                                                                b++;
-                                                                return [3, 2];
-                                                            case 5: return [2, s.success(l)];
-                                                        }
-                                                    }); });
-                                                }, text: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, _b, _c, _d, _f; return __generator(this, function (_g) {
-                                                        switch (_g.label) {
-                                                            case 0: return [4, d.html(r)];
-                                                            case 1:
-                                                                i = _g.sent(), c = i.select(".reading-content .text-left, .reading-content .text-right, .reading-content, .entry-content").first();
-                                                                if (!c) return [3, 4];
-                                                                _d = (_c = s).success;
-                                                                return [4, d.cleanContent(c)];
-                                                            case 2:
-                                                                _f = [_g.sent()];
-                                                                return [4, d.text(i, ["#chapter-heading", ".breadcrumb li.active", "h1"])];
-                                                            case 3:
-                                                                _b = _d.apply(_c, _f.concat([_g.sent()]));
-                                                                return [3, 5];
-                                                            case 4:
-                                                                _b = s.error("Không tìm thấy nội dung chương");
-                                                                _g.label = 5;
-                                                            case 5: return [2, _b];
-                                                        }
-                                                    }); });
-                                                } };
-                                            return [2, typeof B == "function" ? B : void 0];
-                                        }); });
-                                    })()];
-                            case 1: return [2, _b.sent()];
-                        }
-                    }); });
-                })(e.fetch, e.Http, e.Html, e.Response, e.localStorage, e.cacheStorage, e.localConfig, e.localCookie, e.sleep, e.Log, e.console, e.Console, e.log, e.UserAgent, e.Engine, e.Graphics, e.Script)];
-        }); });
+                                                });
+                                            })()];
+                                    case 1: return [2, _b.sent()];
+                                }
+                            });
+                        });
+                    })(e.fetch, e.Http, e.Html, e.Response, e.localStorage, e.cacheStorage, e.localConfig, e.localCookie, e.sleep, e.Log, e.console, e.Console, e.log, e.UserAgent, e.Engine, e.Graphics, e.Script)];
+            });
+        });
     }, browse: function (e, t) {
-        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, a, n, s, o, h, p, m, x, T, v, S, N, C, F, z, K) {
-                    return __awaiter(this, void 0, void 0, function () { var M; return __generator(this, function (_b) {
-                        switch (_b.label) {
-                            case 0:
-                                M = t("DOMAIN");
-                                return [4, (function () {
-                                        return __awaiter(this, void 0, void 0, function () { function B(r, i) {
-                                            return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                switch (_b.label) {
-                                                    case 0: return [4, y.browse(r, i)];
-                                                    case 1: return [2, _b.sent()];
-                                                }
-                                            }); });
-                                        } var w, d, y; return __generator(this, function (_b) {
-                                            w = "https://gaumeoteam.com";
-                                            try {
-                                                M && (w = String(M).replace(/\/+$/, ""));
-                                            }
-                                            catch (r) { }
-                                            d = { img: function (r) { if (!r)
-                                                    return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < i.length; c++) {
-                                                    var f = r.attr(i[c]);
-                                                    if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
-                                                        return d.fix(f.trim());
-                                                } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? d.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                c = 0;
-                                                                _b.label = 1;
-                                                            case 1:
-                                                                if (!(c < i.length)) return [3, 4];
-                                                                return [4, r.select(i[c]).text()];
-                                                            case 2:
-                                                                f = _b.sent();
-                                                                if (f)
-                                                                    return [2, f.trim()];
-                                                                _b.label = 3;
-                                                            case 3:
-                                                                c++;
-                                                                return [3, 1];
-                                                            case 4: return [2, ""];
-                                                        }
-                                                    }); });
-                                                }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b, _b; return __generator(this, function (_c) {
-                                                        switch (_c.label) {
-                                                            case 0:
-                                                                i = i || {};
-                                                                c = { Referer: w + "/" };
-                                                                if (i.headers)
-                                                                    for (f in i.headers)
-                                                                        c[f] = i.headers[f];
-                                                                return [4, u(r, { method: i.method, headers: c, body: i.body })];
-                                                            case 1:
-                                                                l = _c.sent(), b = 0;
-                                                                _c.label = 2;
-                                                            case 2:
-                                                                _b = l && l.status === 429 && b < 3;
-                                                                if (!_b) return [3, 4];
-                                                                return [4, d.cf(l)];
-                                                            case 3:
-                                                                _b = !(_c.sent());
-                                                                _c.label = 4;
-                                                            case 4:
-                                                                if (!_b) return [3, 8];
-                                                                return [4, x(1500 * (b + 1))];
-                                                            case 5:
-                                                                _c.sent();
-                                                                return [4, u(r, { method: i.method, headers: c, body: i.body })];
-                                                            case 6:
-                                                                l = _c.sent();
-                                                                _c.label = 7;
-                                                            case 7:
-                                                                b++;
-                                                                return [3, 2];
-                                                            case 8: return [2, l];
-                                                        }
-                                                    }); });
-                                                }, cf: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.status !== 403 && r.status !== 503 && r.status !== 429)
-                                                                    return [2, !1];
-                                                                return [4, r.text()];
-                                                            case 1:
-                                                                i = (_b.sent()) || "";
-                                                                return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
-                                                        }
-                                                    }); });
-                                                }, check: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.ok)
-                                                                    return [2, r];
-                                                                return [4, d.cf(r)];
-                                                            case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
-                                                        }
-                                                    }); });
-                                                }, html: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                c = _d.sent();
-                                                                return [4, c.html(i && i.charset)];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, json: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                c = _d.sent();
-                                                                return [4, c.json()];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
-                                                                return [4, r.html()];
-                                                            case 1: return [2, (_b.sent()).replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
-                                                        }
-                                                    }); });
-                                                }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, y = { path: function () { return typeof MADARA != "undefined" && MADARA.path || "manga"; }, card: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, f, _b;
-                                                        var _c;
-                                                        return __generator(this, function (_d) {
-                                                            switch (_d.label) {
-                                                                case 0:
-                                                                    i = r.select(".post-title a, h3 a, h4 a, .item-summary a").first() || r.select("a").first();
-                                                                    if (!i)
-                                                                        return [2, null];
-                                                                    return [4, i.text()];
-                                                                case 1:
-                                                                    c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), f = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
-                                                                    _c = { name: c, link: i.attr("href"), cover: d.img(r.select("img").first()) };
-                                                                    if (!f) return [3, 3];
-                                                                    return [4, f.text()];
-                                                                case 2:
-                                                                    _b = _d.sent();
-                                                                    return [3, 4];
-                                                                case 3:
-                                                                    _b = "";
-                                                                    _d.label = 4;
-                                                                case 4: return [2, (_c.description = _b, _c.host = w, _c)];
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_b) {
+                return [2, (function (u, a, n, s, o, h, p, m, x, T, v, S, N, C, F, z, K) {
+                        return __awaiter(this, void 0, void 0, function () {
+                            var M;
+                            return __generator(this, function (_b) {
+                                switch (_b.label) {
+                                    case 0:
+                                        M = t("DOMAIN");
+                                        return [4, (function () {
+                                                return __awaiter(this, void 0, void 0, function () {
+                                                    function B(r, i) {
+                                                        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                            switch (_b.label) {
+                                                                case 0: return [4, y.browse(r, i)];
+                                                                case 1: return [2, _b.sent()];
                                                             }
-                                                        });
+                                                        }); });
+                                                    }
+                                                    var w, d, y;
+                                                    return __generator(this, function (_b) {
+                                                        w = "https://gaumeoteam.com";
+                                                        try {
+                                                            M && (w = String(M).replace(/\/+$/, ""));
+                                                        }
+                                                        catch (r) { }
+                                                        d = { img: function (r) { if (!r)
+                                                                return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < i.length; c++) {
+                                                                var f = r.attr(i[c]);
+                                                                if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
+                                                                    return d.fix(f.trim());
+                                                            } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? d.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            c = 0;
+                                                                            _b.label = 1;
+                                                                        case 1:
+                                                                            if (!(c < i.length)) return [3, 4];
+                                                                            return [4, r.select(i[c]).text()];
+                                                                        case 2:
+                                                                            f = _b.sent();
+                                                                            if (f)
+                                                                                return [2, f.trim()];
+                                                                            _b.label = 3;
+                                                                        case 3:
+                                                                            c++;
+                                                                            return [3, 1];
+                                                                        case 4: return [2, ""];
+                                                                    }
+                                                                }); });
+                                                            }, get: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b, _b; return __generator(this, function (_c) {
+                                                                    switch (_c.label) {
+                                                                        case 0:
+                                                                            i = i || {};
+                                                                            c = { Referer: w + "/" };
+                                                                            if (i.headers)
+                                                                                for (f in i.headers)
+                                                                                    c[f] = i.headers[f];
+                                                                            return [4, u(r, { method: i.method, headers: c, body: i.body })];
+                                                                        case 1:
+                                                                            l = _c.sent(), b = 0;
+                                                                            _c.label = 2;
+                                                                        case 2:
+                                                                            _b = l && l.status === 429 && b < 3;
+                                                                            if (!_b) return [3, 4];
+                                                                            return [4, d.cf(l)];
+                                                                        case 3:
+                                                                            _b = !(_c.sent());
+                                                                            _c.label = 4;
+                                                                        case 4:
+                                                                            if (!_b) return [3, 8];
+                                                                            return [4, x(1500 * (b + 1))];
+                                                                        case 5:
+                                                                            _c.sent();
+                                                                            return [4, u(r, { method: i.method, headers: c, body: i.body })];
+                                                                        case 6:
+                                                                            l = _c.sent();
+                                                                            _c.label = 7;
+                                                                        case 7:
+                                                                            b++;
+                                                                            return [3, 2];
+                                                                        case 8: return [2, l];
+                                                                    }
+                                                                }); });
+                                                            }, cf: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.status !== 403 && r.status !== 503 && r.status !== 429)
+                                                                                return [2, !1];
+                                                                            return [4, r.text()];
+                                                                        case 1:
+                                                                            i = (_b.sent()) || "";
+                                                                            return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
+                                                                    }
+                                                                }); });
+                                                            }, check: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.ok)
+                                                                                return [2, r];
+                                                                            return [4, d.cf(r)];
+                                                                        case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
+                                                                    }
+                                                                }); });
+                                                            }, html: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            c = _d.sent();
+                                                                            return [4, c.html(i && i.charset)];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, json: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            c = _d.sent();
+                                                                            return [4, c.json()];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    return __generator(this, function (_b) {
+                                                                        switch (_b.label) {
+                                                                            case 0:
+                                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
+                                                                                return [4, r.html()];
+                                                                            case 1: return [2, (_b.sent()).replace(/\r\n?/g, "\n").replace(/&#13;|&#x0?[dD];/g, "").replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, y = { path: function () { return typeof MADARA != "undefined" && MADARA.path || "manga"; }, card: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, c, f, _b;
+                                                                    var _c;
+                                                                    return __generator(this, function (_d) {
+                                                                        switch (_d.label) {
+                                                                            case 0:
+                                                                                i = r.select(".post-title a, h3 a, h4 a, .item-summary a").first() || r.select("a").first();
+                                                                                if (!i)
+                                                                                    return [2, null];
+                                                                                return [4, i.text()];
+                                                                            case 1:
+                                                                                c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), f = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
+                                                                                _c = { name: c, link: i.attr("href"), cover: d.img(r.select("img").first()) };
+                                                                                if (!f) return [3, 3];
+                                                                                return [4, f.text()];
+                                                                            case 2:
+                                                                                _b = _d.sent();
+                                                                                return [3, 4];
+                                                                            case 3:
+                                                                                _b = "";
+                                                                                _d.label = 4;
+                                                                            case 4: return [2, (_c.description = _b, _c.host = w, _c)];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, list: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], f = {}, l = 0;
+                                                                            _d.label = 1;
+                                                                        case 1:
+                                                                            if (!(l < i.size())) return [3, 5];
+                                                                            _c = (_b = y).card;
+                                                                            return [4, i.get(l)];
+                                                                        case 2: return [4, _c.apply(_b, [_d.sent()])];
+                                                                        case 3:
+                                                                            b = _d.sent();
+                                                                            b && b.link && !f[b.link] && (f[b.link] = 1, c.push(b));
+                                                                            _d.label = 4;
+                                                                        case 4:
+                                                                            l++;
+                                                                            return [3, 1];
+                                                                        case 5: return [2, c];
+                                                                    }
+                                                                }); });
+                                                            }, hasNext: function (r, i) { return r.select(".nav-previous a, a.nextpostslink, .wp-pagenavi a.next, a.next.page-numbers, .pagination a.next, a[rel=next]").size() > 0 || r.select('a[href*="/page/' + (i + 1) + '"]').size() > 0; }, browse: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            c = d.page(i), f = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
+                                                                            return [4, d.html(f)];
+                                                                        case 1:
+                                                                            l = _b.sent();
+                                                                            return [4, y.list(l)];
+                                                                        case 2:
+                                                                            b = _b.sent();
+                                                                            return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, search: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!d.isUrl(r)) return [3, 2];
+                                                                            return [4, y.byUrl(r, i)];
+                                                                        case 1: return [2, _b.sent()];
+                                                                        case 2:
+                                                                            c = d.page(i), f = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + d.enc(r) + "&post_type=wp-manga";
+                                                                            return [4, d.html(f)];
+                                                                        case 3:
+                                                                            l = _b.sent();
+                                                                            return [4, y.list(l)];
+                                                                        case 4:
+                                                                            b = _b.sent();
+                                                                            return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, byUrl: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            c = d.page(i), f = d.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
+                                                                            return [4, d.html(f)];
+                                                                        case 1:
+                                                                            l = _b.sent();
+                                                                            return [4, y.list(l)];
+                                                                        case 2:
+                                                                            b = _b.sent();
+                                                                            return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, detail: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, c, f, l, _b, _c, _d;
+                                                                    var _f;
+                                                                    return __generator(this, function (_g) {
+                                                                        switch (_g.label) {
+                                                                            case 0: return [4, d.html(r)];
+                                                                            case 1:
+                                                                                i = _g.sent();
+                                                                                return [4, qt(i.select(".genres-content a, .wp-manga-genres a, .manga-genres a"), function (b) {
+                                                                                        return __awaiter(this, void 0, void 0, function () {
+                                                                                            var _b;
+                                                                                            return __generator(this, function (_c) {
+                                                                                                switch (_c.label) {
+                                                                                                    case 0:
+                                                                                                        _b = {};
+                                                                                                        return [4, b.text()];
+                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = b.attr("href"), _b.script = "search.js", _b)];
+                                                                                                }
+                                                                                            });
+                                                                                        });
+                                                                                    })];
+                                                                            case 2:
+                                                                                c = _g.sent();
+                                                                                return [4, d.text(i, [".post-status .summary-content", ".manga-status", ".post-content_item:contains(Tình trạng) .summary-content", ".post-content_item:contains(Status) .summary-content"])];
+                                                                            case 3:
+                                                                                f = _g.sent(), l = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
+                                                                                _c = (_b = s).success;
+                                                                                _f = {};
+                                                                                return [4, d.text(i, [".post-title h1", ".post-title h3", "h1"])];
+                                                                            case 4:
+                                                                                _f.name = _g.sent(), _f.cover = d.img(i.select(".summary_image img, .tab-summary img").first());
+                                                                                return [4, d.text(i, [".author-content a", ".author-content", ".artist-content a"])];
+                                                                            case 5:
+                                                                                _f.author = _g.sent();
+                                                                                if (!l) return [3, 7];
+                                                                                return [4, l.html()];
+                                                                            case 6:
+                                                                                _d = _g.sent();
+                                                                                return [3, 8];
+                                                                            case 7:
+                                                                                _d = "";
+                                                                                _g.label = 8;
+                                                                            case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = f ? "Tình trạng: " + f : "", _f.ongoing = d.ongoing(f), _f.genres = c, _f.host = w, _f)])];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, chapterEls: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, _b, b, _c, _d; return __generator(this, function (_f) {
+                                                                    switch (_f.label) {
+                                                                        case 0:
+                                                                            c = r.select("li.wp-manga-chapter a, .listing-chapters_wrap li a, .version-chap li a");
+                                                                            if (c.size() > 0)
+                                                                                return [2, c];
+                                                                            f = i.replace(/\/$/, "") + "/";
+                                                                            return [4, u(f + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: f } })];
+                                                                        case 1:
+                                                                            l = _f.sent();
+                                                                            _b = l.ok;
+                                                                            if (!_b) return [3, 3];
+                                                                            return [4, l.html()];
+                                                                        case 2:
+                                                                            _b = (c = (_f.sent()).select("li.wp-manga-chapter a"), c.size() > 0);
+                                                                            _f.label = 3;
+                                                                        case 3:
+                                                                            if (_b)
+                                                                                return [2, c];
+                                                                            b = r.select("#manga-chapters-holder").attr("data-id") || r.select(".rating-post-id").attr("value") || r.select("input.rating-post-id").attr("value");
+                                                                            _d = b;
+                                                                            if (!_d) return [3, 5];
+                                                                            return [4, u(w + "/wp-admin/admin-ajax.php", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", "Content-Type": "application/x-www-form-urlencoded" }, body: "action=manga_get_chapters&manga=" + b })];
+                                                                        case 4:
+                                                                            _d = (l = _f.sent(), l.ok);
+                                                                            _f.label = 5;
+                                                                        case 5:
+                                                                            if (!_d) return [3, 7];
+                                                                            return [4, l.html()];
+                                                                        case 6:
+                                                                            _c = (_f.sent()).select("li.wp-manga-chapter a");
+                                                                            return [3, 8];
+                                                                        case 7:
+                                                                            _c = c;
+                                                                            _f.label = 8;
+                                                                        case 8: return [2, _c];
+                                                                    }
+                                                                }); });
+                                                            }, toc: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, c, f, l, b, k, _b, _c, _d;
+                                                                    var _f;
+                                                                    return __generator(this, function (_g) {
+                                                                        switch (_g.label) {
+                                                                            case 0: return [4, d.html(r)];
+                                                                            case 1:
+                                                                                i = _g.sent();
+                                                                                return [4, y.chapterEls(i, r)];
+                                                                            case 2:
+                                                                                c = _g.sent(), f = [], l = c.size() - 1;
+                                                                                _g.label = 3;
+                                                                            case 3:
+                                                                                if (!(l >= 0)) return [3, 8];
+                                                                                return [4, c.get(l)];
+                                                                            case 4:
+                                                                                b = _g.sent(), k = b.attr("href");
+                                                                                _b = !k || k === "#";
+                                                                                if (_b) return [3, 6];
+                                                                                _d = (_c = f).push;
+                                                                                _f = {};
+                                                                                return [4, b.text()];
+                                                                            case 5:
+                                                                                _b = _d.apply(_c, [(_f.name = (_g.sent()).trim(), _f.url = k, _f.host = w, _f)]);
+                                                                                _g.label = 6;
+                                                                            case 6:
+                                                                                _b;
+                                                                                _g.label = 7;
+                                                                            case 7:
+                                                                                l--;
+                                                                                return [3, 3];
+                                                                            case 8: return [2, s.success(f)];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, pages: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, k, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            i = r.indexOf("?") > 0 ? r : r.replace(/\/$/, "") + "/?style=list";
+                                                                            return [4, d.html(i)];
+                                                                        case 1:
+                                                                            c = _d.sent(), f = c.select(".reading-content img, .page-break img, .read-container img"), l = [], b = 0;
+                                                                            _d.label = 2;
+                                                                        case 2:
+                                                                            if (!(b < f.size())) return [3, 5];
+                                                                            _c = (_b = d).img;
+                                                                            return [4, f.get(b)];
+                                                                        case 3:
+                                                                            k = _c.apply(_b, [_d.sent()]);
+                                                                            k && l.push(k);
+                                                                            _d.label = 4;
+                                                                        case 4:
+                                                                            b++;
+                                                                            return [3, 2];
+                                                                        case 5: return [2, s.success(l)];
+                                                                    }
+                                                                }); });
+                                                            }, text: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, c, _b, _c, _d, _f; return __generator(this, function (_g) {
+                                                                    switch (_g.label) {
+                                                                        case 0: return [4, d.html(r)];
+                                                                        case 1:
+                                                                            i = _g.sent(), c = i.select(".reading-content .text-left, .reading-content .text-right, .reading-content, .entry-content").first();
+                                                                            if (!c) return [3, 4];
+                                                                            _d = (_c = s).success;
+                                                                            return [4, d.cleanContent(c)];
+                                                                        case 2:
+                                                                            _f = [_g.sent()];
+                                                                            return [4, d.text(i, ["#chapter-heading", ".breadcrumb li.active", "h1"])];
+                                                                        case 3:
+                                                                            _b = _d.apply(_c, _f.concat([_g.sent()]));
+                                                                            return [3, 5];
+                                                                        case 4:
+                                                                            _b = s.error("Không tìm thấy nội dung chương");
+                                                                            _g.label = 5;
+                                                                        case 5: return [2, _b];
+                                                                    }
+                                                                }); });
+                                                            } };
+                                                        return [2, typeof B == "function" ? B : void 0];
                                                     });
-                                                }, list: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], f = {}, l = 0;
-                                                                _d.label = 1;
-                                                            case 1:
-                                                                if (!(l < i.size())) return [3, 5];
-                                                                _c = (_b = y).card;
-                                                                return [4, i.get(l)];
-                                                            case 2: return [4, _c.apply(_b, [_d.sent()])];
-                                                            case 3:
-                                                                b = _d.sent();
-                                                                b && b.link && !f[b.link] && (f[b.link] = 1, c.push(b));
-                                                                _d.label = 4;
-                                                            case 4:
-                                                                l++;
-                                                                return [3, 1];
-                                                            case 5: return [2, c];
-                                                        }
-                                                    }); });
-                                                }, hasNext: function (r, i) { return r.select(".nav-previous a, a.nextpostslink, .wp-pagenavi a.next, a.next.page-numbers, .pagination a.next, a[rel=next]").size() > 0 || r.select('a[href*="/page/' + (i + 1) + '"]').size() > 0; }, browse: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                c = d.page(i), f = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
-                                                                return [4, d.html(f)];
-                                                            case 1:
-                                                                l = _b.sent();
-                                                                return [4, y.list(l)];
-                                                            case 2:
-                                                                b = _b.sent();
-                                                                return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, search: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!d.isUrl(r)) return [3, 2];
-                                                                return [4, y.byUrl(r, i)];
-                                                            case 1: return [2, _b.sent()];
-                                                            case 2:
-                                                                c = d.page(i), f = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + d.enc(r) + "&post_type=wp-manga";
-                                                                return [4, d.html(f)];
-                                                            case 3:
-                                                                l = _b.sent();
-                                                                return [4, y.list(l)];
-                                                            case 4:
-                                                                b = _b.sent();
-                                                                return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, byUrl: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, b; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                c = d.page(i), f = d.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
-                                                                return [4, d.html(f)];
-                                                            case 1:
-                                                                l = _b.sent();
-                                                                return [4, y.list(l)];
-                                                            case 2:
-                                                                b = _b.sent();
-                                                                return [2, s.success(b, d.next(y.hasNext(l, c) && b.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, detail: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, f, l, _b, _c, _d;
-                                                        var _f;
-                                                        return __generator(this, function (_g) {
-                                                            switch (_g.label) {
-                                                                case 0: return [4, d.html(r)];
-                                                                case 1:
-                                                                    i = _g.sent();
-                                                                    return [4, qt(i.select(".genres-content a, .wp-manga-genres a, .manga-genres a"), function (b) {
-                                                                            return __awaiter(this, void 0, void 0, function () {
-                                                                                var _b;
-                                                                                return __generator(this, function (_c) {
-                                                                                    switch (_c.label) {
-                                                                                        case 0:
-                                                                                            _b = {};
-                                                                                            return [4, b.text()];
-                                                                                        case 1: return [2, (_b.title = _c.sent(), _b.input = b.attr("href"), _b.script = "search.js", _b)];
-                                                                                    }
-                                                                                });
-                                                                            });
-                                                                        })];
-                                                                case 2:
-                                                                    c = _g.sent();
-                                                                    return [4, d.text(i, [".post-status .summary-content", ".manga-status", ".post-content_item:contains(Tình trạng) .summary-content", ".post-content_item:contains(Status) .summary-content"])];
-                                                                case 3:
-                                                                    f = _g.sent(), l = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
-                                                                    _c = (_b = s).success;
-                                                                    _f = {};
-                                                                    return [4, d.text(i, [".post-title h1", ".post-title h3", "h1"])];
-                                                                case 4:
-                                                                    _f.name = _g.sent(), _f.cover = d.img(i.select(".summary_image img, .tab-summary img").first());
-                                                                    return [4, d.text(i, [".author-content a", ".author-content", ".artist-content a"])];
-                                                                case 5:
-                                                                    _f.author = _g.sent();
-                                                                    if (!l) return [3, 7];
-                                                                    return [4, l.html()];
-                                                                case 6:
-                                                                    _d = _g.sent();
-                                                                    return [3, 8];
-                                                                case 7:
-                                                                    _d = "";
-                                                                    _g.label = 8;
-                                                                case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = f ? "Tình trạng: " + f : "", _f.ongoing = d.ongoing(f), _f.genres = c, _f.host = w, _f)])];
-                                                            }
-                                                        });
-                                                    });
-                                                }, chapterEls: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, f, l, _b, b, _c, _d; return __generator(this, function (_f) {
-                                                        switch (_f.label) {
-                                                            case 0:
-                                                                c = r.select("li.wp-manga-chapter a, .listing-chapters_wrap li a, .version-chap li a");
-                                                                if (c.size() > 0)
-                                                                    return [2, c];
-                                                                f = i.replace(/\/$/, "") + "/";
-                                                                return [4, u(f + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: f } })];
-                                                            case 1:
-                                                                l = _f.sent();
-                                                                _b = l.ok;
-                                                                if (!_b) return [3, 3];
-                                                                return [4, l.html()];
-                                                            case 2:
-                                                                _b = (c = (_f.sent()).select("li.wp-manga-chapter a"), c.size() > 0);
-                                                                _f.label = 3;
-                                                            case 3:
-                                                                if (_b)
-                                                                    return [2, c];
-                                                                b = r.select("#manga-chapters-holder").attr("data-id") || r.select(".rating-post-id").attr("value") || r.select("input.rating-post-id").attr("value");
-                                                                _d = b;
-                                                                if (!_d) return [3, 5];
-                                                                return [4, u(w + "/wp-admin/admin-ajax.php", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", "Content-Type": "application/x-www-form-urlencoded" }, body: "action=manga_get_chapters&manga=" + b })];
-                                                            case 4:
-                                                                _d = (l = _f.sent(), l.ok);
-                                                                _f.label = 5;
-                                                            case 5:
-                                                                if (!_d) return [3, 7];
-                                                                return [4, l.html()];
-                                                            case 6:
-                                                                _c = (_f.sent()).select("li.wp-manga-chapter a");
-                                                                return [3, 8];
-                                                            case 7:
-                                                                _c = c;
-                                                                _f.label = 8;
-                                                            case 8: return [2, _c];
-                                                        }
-                                                    }); });
-                                                }, toc: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, f, l, b, k, _b, _c, _d;
-                                                        var _f;
-                                                        return __generator(this, function (_g) {
-                                                            switch (_g.label) {
-                                                                case 0: return [4, d.html(r)];
-                                                                case 1:
-                                                                    i = _g.sent();
-                                                                    return [4, y.chapterEls(i, r)];
-                                                                case 2:
-                                                                    c = _g.sent(), f = [], l = c.size() - 1;
-                                                                    _g.label = 3;
-                                                                case 3:
-                                                                    if (!(l >= 0)) return [3, 8];
-                                                                    return [4, c.get(l)];
-                                                                case 4:
-                                                                    b = _g.sent(), k = b.attr("href");
-                                                                    _b = !k || k === "#";
-                                                                    if (_b) return [3, 6];
-                                                                    _d = (_c = f).push;
-                                                                    _f = {};
-                                                                    return [4, b.text()];
-                                                                case 5:
-                                                                    _b = _d.apply(_c, [(_f.name = (_g.sent()).trim(), _f.url = k, _f.host = w, _f)]);
-                                                                    _g.label = 6;
-                                                                case 6:
-                                                                    _b;
-                                                                    _g.label = 7;
-                                                                case 7:
-                                                                    l--;
-                                                                    return [3, 3];
-                                                                case 8: return [2, s.success(f)];
-                                                            }
-                                                        });
-                                                    });
-                                                }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, f, l, b, k, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                i = r.indexOf("?") > 0 ? r : r.replace(/\/$/, "") + "/?style=list";
-                                                                return [4, d.html(i)];
-                                                            case 1:
-                                                                c = _d.sent(), f = c.select(".reading-content img, .page-break img, .read-container img"), l = [], b = 0;
-                                                                _d.label = 2;
-                                                            case 2:
-                                                                if (!(b < f.size())) return [3, 5];
-                                                                _c = (_b = d).img;
-                                                                return [4, f.get(b)];
-                                                            case 3:
-                                                                k = _c.apply(_b, [_d.sent()]);
-                                                                k && l.push(k);
-                                                                _d.label = 4;
-                                                            case 4:
-                                                                b++;
-                                                                return [3, 2];
-                                                            case 5: return [2, s.success(l)];
-                                                        }
-                                                    }); });
-                                                }, text: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, _b, _c, _d, _f; return __generator(this, function (_g) {
-                                                        switch (_g.label) {
-                                                            case 0: return [4, d.html(r)];
-                                                            case 1:
-                                                                i = _g.sent(), c = i.select(".reading-content .text-left, .reading-content .text-right, .reading-content, .entry-content").first();
-                                                                if (!c) return [3, 4];
-                                                                _d = (_c = s).success;
-                                                                return [4, d.cleanContent(c)];
-                                                            case 2:
-                                                                _f = [_g.sent()];
-                                                                return [4, d.text(i, ["#chapter-heading", ".breadcrumb li.active", "h1"])];
-                                                            case 3:
-                                                                _b = _d.apply(_c, _f.concat([_g.sent()]));
-                                                                return [3, 5];
-                                                            case 4:
-                                                                _b = s.error("Không tìm thấy nội dung chương");
-                                                                _g.label = 5;
-                                                            case 5: return [2, _b];
-                                                        }
-                                                    }); });
-                                                } };
-                                            return [2, typeof B == "function" ? B : void 0];
-                                        }); });
-                                    })()];
-                            case 1: return [2, _b.sent()];
-                        }
-                    }); });
-                })(e.fetch, e.Http, e.Html, e.Response, e.localStorage, e.cacheStorage, e.localConfig, e.localCookie, e.sleep, e.Log, e.console, e.Console, e.log, e.UserAgent, e.Engine, e.Graphics, e.Script)];
-        }); });
+                                                });
+                                            })()];
+                                    case 1: return [2, _b.sent()];
+                                }
+                            });
+                        });
+                    })(e.fetch, e.Http, e.Html, e.Response, e.localStorage, e.cacheStorage, e.localConfig, e.localCookie, e.sleep, e.Log, e.console, e.Console, e.log, e.UserAgent, e.Engine, e.Graphics, e.Script)];
+            });
+        });
     } };
 function Ua(e) { return new ve({ meta: ut, scripts: Ia, host: e }); }
 var f0 = require("@libs/fetch").fetchApi, zt = null;

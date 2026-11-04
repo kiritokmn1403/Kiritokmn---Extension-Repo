@@ -68,7 +68,7 @@ var C = {
   // Remove ads/scripts and empty paragraphs from novel content
   cleanContent: function (el) {
     el.select('script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form').remove();
-    return el.html().replace(/&nbsp;/g, ' ').replace(/(<br\s*\/?>\s*){3,}/gi, '<br><br>');
+    return el.html().replace(/\r\n?/g, '\n').replace(/&#13;|&#x0?[dD];/g, '').replace(/&nbsp;/g, ' ').replace(/(<br\s*\/?>\s*){3,}/gi, '<br><br>');
   },
   ongoing: function (s) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(s || ''); }
 };
@@ -251,7 +251,7 @@ var C = {
   // Remove ads/scripts and empty paragraphs from novel content
   cleanContent: function (el) {
     el.select('script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form').remove();
-    return el.html().replace(/&nbsp;/g, ' ').replace(/(<br\s*\/?>\s*){3,}/gi, '<br><br>');
+    return el.html().replace(/\r\n?/g, '\n').replace(/&#13;|&#x0?[dD];/g, '').replace(/&nbsp;/g, ' ').replace(/(<br\s*\/?>\s*){3,}/gi, '<br><br>');
   },
   ongoing: function (s) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(s || ''); }
 };
@@ -434,7 +434,7 @@ var C = {
   // Remove ads/scripts and empty paragraphs from novel content
   cleanContent: function (el) {
     el.select('script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form').remove();
-    return el.html().replace(/&nbsp;/g, ' ').replace(/(<br\s*\/?>\s*){3,}/gi, '<br><br>');
+    return el.html().replace(/\r\n?/g, '\n').replace(/&#13;|&#x0?[dD];/g, '').replace(/&nbsp;/g, ' ').replace(/(<br\s*\/?>\s*){3,}/gi, '<br><br>');
   },
   ongoing: function (s) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(s || ''); }
 };
@@ -617,7 +617,7 @@ var C = {
   // Remove ads/scripts and empty paragraphs from novel content
   cleanContent: function (el) {
     el.select('script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form').remove();
-    return el.html().replace(/&nbsp;/g, ' ').replace(/(<br\s*\/?>\s*){3,}/gi, '<br><br>');
+    return el.html().replace(/\r\n?/g, '\n').replace(/&#13;|&#x0?[dD];/g, '').replace(/&nbsp;/g, ' ').replace(/(<br\s*\/?>\s*){3,}/gi, '<br><br>');
   },
   ongoing: function (s) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(s || ''); }
 };
@@ -800,7 +800,7 @@ var C = {
   // Remove ads/scripts and empty paragraphs from novel content
   cleanContent: function (el) {
     el.select('script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form').remove();
-    return el.html().replace(/&nbsp;/g, ' ').replace(/(<br\s*\/?>\s*){3,}/gi, '<br><br>');
+    return el.html().replace(/\r\n?/g, '\n').replace(/&#13;|&#x0?[dD];/g, '').replace(/&nbsp;/g, ' ').replace(/(<br\s*\/?>\s*){3,}/gi, '<br><br>');
   },
   ongoing: function (s) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(s || ''); }
 };
@@ -983,7 +983,7 @@ var C = {
   // Remove ads/scripts and empty paragraphs from novel content
   cleanContent: function (el) {
     el.select('script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form').remove();
-    return el.html().replace(/&nbsp;/g, ' ').replace(/(<br\s*\/?>\s*){3,}/gi, '<br><br>');
+    return el.html().replace(/\r\n?/g, '\n').replace(/&#13;|&#x0?[dD];/g, '').replace(/&nbsp;/g, ' ').replace(/(<br\s*\/?>\s*){3,}/gi, '<br><br>');
   },
   ongoing: function (s) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(s || ''); }
 };

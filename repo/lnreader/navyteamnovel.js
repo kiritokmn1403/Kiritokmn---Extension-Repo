@@ -2331,3371 +2331,3437 @@ function z(t, e) {
     }); });
 }
 var fe = { id: "navyteamnovel", name: "Navy Team Novel", source: "https://navyteams.com", type: "novel", locale: "vi", nsfw: !1, version: 1, config: { DOMAIN: { title: "Tên miền", subtitle: "Đổi khi trang đổi tên miền", default: "https://navyteams.com", values: ["https://navyteams.com"], mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://navyteams.com" }, itemType: 2, lnId: "kiritokmn.navyteamnovel", lnIcon: "", lnVersion: "1.1.1" }, Fr = { home: function (t, e) {
-        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, a, n, s, h, b, g, x, A, D, q, N, I, U, X, Z, ne) {
-                    return __awaiter(this, void 0, void 0, function () { var R; return __generator(this, function (_b) {
-                        switch (_b.label) {
-                            case 0:
-                                R = e("DOMAIN");
-                                return [4, (function () {
-                                        return __awaiter(this, void 0, void 0, function () { function G() {
-                                            return __awaiter(this, void 0, void 0, function () { var r, i; return __generator(this, function (_b) {
-                                                r = [];
-                                                for (i in c.tabs)
-                                                    r.push({ title: i, input: i, script: "browse.js" });
-                                                return [2, s.success(r)];
-                                            }); });
-                                        } var E, c, d, m; return __generator(this, function (_b) {
-                                            E = "https://navyteams.com";
-                                            try {
-                                                R && (E = String(R).replace(/\/+$/, ""));
-                                            }
-                                            catch (r) { }
-                                            c = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".comic-item", title: "h3 || a@title || img@alt", link: "a@href", ch_list: "div.bodyL a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: ".content-type-novel, .chapter-content, #chapter-content" }, d = { img: function (r) { if (!r)
-                                                    return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], o = 0; o < i.length; o++) {
-                                                    var l = r.attr(i[o]);
-                                                    if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
-                                                        return d.fix(l.trim());
-                                                } var f = r.attr("data-srcset") || r.attr("srcset"); return f ? d.fix(f.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? E + r : E + "/" + r) : ""; }, text: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                o = 0;
-                                                                _b.label = 1;
-                                                            case 1:
-                                                                if (!(o < i.length)) return [3, 4];
-                                                                return [4, r.select(i[o]).text()];
-                                                            case 2:
-                                                                l = _b.sent();
-                                                                if (l)
-                                                                    return [2, l.trim()];
-                                                                _b.label = 3;
-                                                            case 3:
-                                                                o++;
-                                                                return [3, 1];
-                                                            case 4: return [2, ""];
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_b) {
+                return [2, (function (u, a, n, s, h, b, g, x, A, D, q, N, I, U, X, Z, ne) {
+                        return __awaiter(this, void 0, void 0, function () {
+                            var R;
+                            return __generator(this, function (_b) {
+                                switch (_b.label) {
+                                    case 0:
+                                        R = e("DOMAIN");
+                                        return [4, (function () {
+                                                return __awaiter(this, void 0, void 0, function () {
+                                                    function G() {
+                                                        return __awaiter(this, void 0, void 0, function () { var r, i; return __generator(this, function (_b) {
+                                                            r = [];
+                                                            for (i in c.tabs)
+                                                                r.push({ title: i, input: i, script: "browse.js" });
+                                                            return [2, s.success(r)];
+                                                        }); });
+                                                    }
+                                                    var E, c, d, m;
+                                                    return __generator(this, function (_b) {
+                                                        E = "https://navyteams.com";
+                                                        try {
+                                                            R && (E = String(R).replace(/\/+$/, ""));
                                                         }
-                                                    }); });
-                                                }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, _b; return __generator(this, function (_c) {
-                                                        switch (_c.label) {
-                                                            case 0:
-                                                                i = i || {};
-                                                                o = { Referer: E + "/" };
-                                                                if (i.headers)
-                                                                    for (l in i.headers)
-                                                                        o[l] = i.headers[l];
-                                                                return [4, u(r, { method: i.method, headers: o, body: i.body })];
-                                                            case 1:
-                                                                f = _c.sent(), p = 0;
-                                                                _c.label = 2;
-                                                            case 2:
-                                                                _b = f && f.status === 429 && p < 3;
-                                                                if (!_b) return [3, 4];
-                                                                return [4, d.cf(f)];
-                                                            case 3:
-                                                                _b = !(_c.sent());
-                                                                _c.label = 4;
-                                                            case 4:
-                                                                if (!_b) return [3, 8];
-                                                                return [4, A(1500 * (p + 1))];
-                                                            case 5:
-                                                                _c.sent();
-                                                                return [4, u(r, { method: i.method, headers: o, body: i.body })];
-                                                            case 6:
-                                                                f = _c.sent();
-                                                                _c.label = 7;
-                                                            case 7:
-                                                                p++;
-                                                                return [3, 2];
-                                                            case 8: return [2, f];
-                                                        }
-                                                    }); });
-                                                }, cf: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.status !== 403 && r.status !== 503 && r.status !== 429)
-                                                                    return [2, !1];
-                                                                return [4, r.text()];
-                                                            case 1:
-                                                                i = (_b.sent()) || "";
-                                                                return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
-                                                        }
-                                                    }); });
-                                                }, check: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.ok)
-                                                                    return [2, r];
-                                                                return [4, d.cf(r)];
-                                                            case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
-                                                        }
-                                                    }); });
-                                                }, html: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                o = _d.sent();
-                                                                return [4, o.html(i && i.charset)];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, json: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                o = _d.sent();
-                                                                return [4, o.json()];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
-                                                                return [4, r.html()];
-                                                            case 1: return [2, (_b.sent()).replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
-                                                        }
-                                                    }); });
-                                                }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, m = { pick: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v, T, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                if (!i || !r)
-                                                                    return [2, ""];
-                                                                o = String(i).split(" || "), l = 0;
-                                                                _d.label = 1;
-                                                            case 1:
-                                                                if (!(l < o.length)) return [3, 9];
-                                                                f = o[l], p = "text", w = f.lastIndexOf("@");
-                                                                w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (p = f.slice(w + 1), f = f.slice(0, w));
-                                                                y = f === ":self" ? null : r.select(f), v = f === ":self" ? r : y.size() ? y.first() : null;
-                                                                if (!v) return [3, 8];
-                                                                if (!(p === "text")) return [3, 3];
-                                                                return [4, v.text()];
-                                                            case 2:
-                                                                _b = _d.sent();
-                                                                return [3, 7];
-                                                            case 3:
-                                                                if (!(p === "html")) return [3, 5];
-                                                                return [4, v.html()];
-                                                            case 4:
-                                                                _c = _d.sent();
-                                                                return [3, 6];
-                                                            case 5:
-                                                                _c = p === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : p === "own" ? v.ownText() : v.attr(p);
-                                                                _d.label = 6;
-                                                            case 6:
-                                                                _b = _c;
-                                                                _d.label = 7;
-                                                            case 7:
-                                                                T = _b;
-                                                                if (T)
-                                                                    return [2, String(T).trim()];
-                                                                _d.label = 8;
-                                                            case 8:
-                                                                l++;
-                                                                return [3, 1];
-                                                            case 9: return [2, ""];
-                                                        }
-                                                    }); });
-                                                }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (p, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, w, y, _b, _c, _d;
-                                                        var _f;
-                                                        return __generator(this, function (_g) {
-                                                            switch (_g.label) {
-                                                                case 0:
-                                                                    i = r.select(c.item), o = [], l = {}, f = 0;
-                                                                    _g.label = 1;
-                                                                case 1:
-                                                                    if (!(f < i.size())) return [3, 9];
-                                                                    return [4, i.get(f)];
-                                                                case 2:
-                                                                    p = _g.sent();
-                                                                    return [4, m.pick(p, c.link || "a@href")];
-                                                                case 3:
-                                                                    w = _g.sent();
-                                                                    if (!!(!w || l[w] || /^javascript|#$/.test(w))) return [3, 8];
-                                                                    return [4, m.pick(p, c.title || "h3 || h2 || a@title || img@alt")];
-                                                                case 4:
-                                                                    y = _g.sent();
-                                                                    _b = y;
-                                                                    if (!_b) return [3, 7];
-                                                                    l[w] = 1;
-                                                                    _d = (_c = o).push;
-                                                                    _f = { name: y, link: d.fix(w) };
-                                                                    return [4, m.pick(p, c.cover || "img@img")];
-                                                                case 5:
-                                                                    _f.cover = _g.sent();
-                                                                    return [4, m.pick(p, c.desc || "")];
-                                                                case 6:
-                                                                    _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = E, _f)]));
-                                                                    _g.label = 7;
-                                                                case 7:
-                                                                    _b;
-                                                                    _g.label = 8;
-                                                                case 8:
-                                                                    f++;
-                                                                    return [3, 1];
-                                                                case 9: return [2, o];
-                                                            }
-                                                        });
+                                                        catch (r) { }
+                                                        c = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".comic-item", title: "h3 || a@title || img@alt", link: "a@href", ch_list: "div.bodyL a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: ".content-type-novel, .chapter-content, #chapter-content" }, d = { img: function (r) { if (!r)
+                                                                return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], o = 0; o < i.length; o++) {
+                                                                var l = r.attr(i[o]);
+                                                                if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
+                                                                    return d.fix(l.trim());
+                                                            } var f = r.attr("data-srcset") || r.attr("srcset"); return f ? d.fix(f.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? E + r : E + "/" + r) : ""; }, text: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            o = 0;
+                                                                            _b.label = 1;
+                                                                        case 1:
+                                                                            if (!(o < i.length)) return [3, 4];
+                                                                            return [4, r.select(i[o]).text()];
+                                                                        case 2:
+                                                                            l = _b.sent();
+                                                                            if (l)
+                                                                                return [2, l.trim()];
+                                                                            _b.label = 3;
+                                                                        case 3:
+                                                                            o++;
+                                                                            return [3, 1];
+                                                                        case 4: return [2, ""];
+                                                                    }
+                                                                }); });
+                                                            }, get: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l, f, p, _b; return __generator(this, function (_c) {
+                                                                    switch (_c.label) {
+                                                                        case 0:
+                                                                            i = i || {};
+                                                                            o = { Referer: E + "/" };
+                                                                            if (i.headers)
+                                                                                for (l in i.headers)
+                                                                                    o[l] = i.headers[l];
+                                                                            return [4, u(r, { method: i.method, headers: o, body: i.body })];
+                                                                        case 1:
+                                                                            f = _c.sent(), p = 0;
+                                                                            _c.label = 2;
+                                                                        case 2:
+                                                                            _b = f && f.status === 429 && p < 3;
+                                                                            if (!_b) return [3, 4];
+                                                                            return [4, d.cf(f)];
+                                                                        case 3:
+                                                                            _b = !(_c.sent());
+                                                                            _c.label = 4;
+                                                                        case 4:
+                                                                            if (!_b) return [3, 8];
+                                                                            return [4, A(1500 * (p + 1))];
+                                                                        case 5:
+                                                                            _c.sent();
+                                                                            return [4, u(r, { method: i.method, headers: o, body: i.body })];
+                                                                        case 6:
+                                                                            f = _c.sent();
+                                                                            _c.label = 7;
+                                                                        case 7:
+                                                                            p++;
+                                                                            return [3, 2];
+                                                                        case 8: return [2, f];
+                                                                    }
+                                                                }); });
+                                                            }, cf: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.status !== 403 && r.status !== 503 && r.status !== 429)
+                                                                                return [2, !1];
+                                                                            return [4, r.text()];
+                                                                        case 1:
+                                                                            i = (_b.sent()) || "";
+                                                                            return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
+                                                                    }
+                                                                }); });
+                                                            }, check: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.ok)
+                                                                                return [2, r];
+                                                                            return [4, d.cf(r)];
+                                                                        case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
+                                                                    }
+                                                                }); });
+                                                            }, html: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            o = _d.sent();
+                                                                            return [4, o.html(i && i.charset)];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, json: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            o = _d.sent();
+                                                                            return [4, o.json()];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    return __generator(this, function (_b) {
+                                                                        switch (_b.label) {
+                                                                            case 0:
+                                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
+                                                                                return [4, r.html()];
+                                                                            case 1: return [2, (_b.sent()).replace(/\r\n?/g, "\n").replace(/&#13;|&#x0?[dD];/g, "").replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, m = { pick: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v, T, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            if (!i || !r)
+                                                                                return [2, ""];
+                                                                            o = String(i).split(" || "), l = 0;
+                                                                            _d.label = 1;
+                                                                        case 1:
+                                                                            if (!(l < o.length)) return [3, 9];
+                                                                            f = o[l], p = "text", w = f.lastIndexOf("@");
+                                                                            w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (p = f.slice(w + 1), f = f.slice(0, w));
+                                                                            y = f === ":self" ? null : r.select(f), v = f === ":self" ? r : y.size() ? y.first() : null;
+                                                                            if (!v) return [3, 8];
+                                                                            if (!(p === "text")) return [3, 3];
+                                                                            return [4, v.text()];
+                                                                        case 2:
+                                                                            _b = _d.sent();
+                                                                            return [3, 7];
+                                                                        case 3:
+                                                                            if (!(p === "html")) return [3, 5];
+                                                                            return [4, v.html()];
+                                                                        case 4:
+                                                                            _c = _d.sent();
+                                                                            return [3, 6];
+                                                                        case 5:
+                                                                            _c = p === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : p === "own" ? v.ownText() : v.attr(p);
+                                                                            _d.label = 6;
+                                                                        case 6:
+                                                                            _b = _c;
+                                                                            _d.label = 7;
+                                                                        case 7:
+                                                                            T = _b;
+                                                                            if (T)
+                                                                                return [2, String(T).trim()];
+                                                                            _d.label = 8;
+                                                                        case 8:
+                                                                            l++;
+                                                                            return [3, 1];
+                                                                        case 9: return [2, ""];
+                                                                    }
+                                                                }); });
+                                                            }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (p, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, o, l, f, p, w, y, _b, _c, _d;
+                                                                    var _f;
+                                                                    return __generator(this, function (_g) {
+                                                                        switch (_g.label) {
+                                                                            case 0:
+                                                                                i = r.select(c.item), o = [], l = {}, f = 0;
+                                                                                _g.label = 1;
+                                                                            case 1:
+                                                                                if (!(f < i.size())) return [3, 9];
+                                                                                return [4, i.get(f)];
+                                                                            case 2:
+                                                                                p = _g.sent();
+                                                                                return [4, m.pick(p, c.link || "a@href")];
+                                                                            case 3:
+                                                                                w = _g.sent();
+                                                                                if (!!(!w || l[w] || /^javascript|#$/.test(w))) return [3, 8];
+                                                                                return [4, m.pick(p, c.title || "h3 || h2 || a@title || img@alt")];
+                                                                            case 4:
+                                                                                y = _g.sent();
+                                                                                _b = y;
+                                                                                if (!_b) return [3, 7];
+                                                                                l[w] = 1;
+                                                                                _d = (_c = o).push;
+                                                                                _f = { name: y, link: d.fix(w) };
+                                                                                return [4, m.pick(p, c.cover || "img@img")];
+                                                                            case 5:
+                                                                                _f.cover = _g.sent();
+                                                                                return [4, m.pick(p, c.desc || "")];
+                                                                            case 6:
+                                                                                _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = E, _f)]));
+                                                                                _g.label = 7;
+                                                                            case 7:
+                                                                                _b;
+                                                                                _g.label = 8;
+                                                                            case 8:
+                                                                                f++;
+                                                                                return [3, 1];
+                                                                            case 9: return [2, o];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, listPage: function (r, i, o) {
+                                                                return __awaiter(this, void 0, void 0, function () { var l, f, p; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0: return [4, d.html(m.url(r, i, o), c.req)];
+                                                                        case 1:
+                                                                            l = _b.sent();
+                                                                            return [4, m.items(l)];
+                                                                        case 2:
+                                                                            f = _b.sent(), p = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
+                                                                            return [2, s.success(f, d.next(p && f.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, browse: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            o = c.tabs && c.tabs[r] || r;
+                                                                            return [4, m.listPage(o, i, "")];
+                                                                        case 1: return [2, _b.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, search: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!d.isUrl(r)) return [3, 2];
+                                                                            o = d.fix(r);
+                                                                            return [4, m.listPage(o + (o.indexOf("?") > 0 ? "&" : "?") + (c.pageParam || "page") + "={p}", i, "")];
+                                                                        case 1: return [2, _b.sent()];
+                                                                        case 2: return [4, m.listPage(c.search, i, r)];
+                                                                        case 3: return [2, _b.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, genre: function () {
+                                                                return __awaiter(this, void 0, void 0, function () { var r, i; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!c.genre)
+                                                                                return [2, s.success([])];
+                                                                            return [4, d.html(d.fix(c.genrePage || "/"))];
+                                                                        case 1:
+                                                                            r = _b.sent();
+                                                                            return [4, z(r.select(c.genre), function (o) {
+                                                                                    return __awaiter(this, void 0, void 0, function () {
+                                                                                        var _b;
+                                                                                        return __generator(this, function (_c) {
+                                                                                            switch (_c.label) {
+                                                                                                case 0:
+                                                                                                    _b = {};
+                                                                                                    return [4, o.text()];
+                                                                                                case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(o.attr("href")), _b.script = "search.js", _b)];
+                                                                                            }
+                                                                                        });
+                                                                                    });
+                                                                                })];
+                                                                        case 2:
+                                                                            i = _b.sent();
+                                                                            return [2, s.success(i.filter(function (o) { return o.title; }))];
+                                                                    }
+                                                                }); });
+                                                            }, detail: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, o, l, _b, _c, _d, _f, _g;
+                                                                    var _h;
+                                                                    return __generator(this, function (_j) {
+                                                                        switch (_j.label) {
+                                                                            case 0: return [4, d.html(r, c.req)];
+                                                                            case 1:
+                                                                                i = _j.sent();
+                                                                                if (!c.d_genres) return [3, 3];
+                                                                                return [4, z(i.select(c.d_genres), function (f) {
+                                                                                        return __awaiter(this, void 0, void 0, function () {
+                                                                                            var _b;
+                                                                                            return __generator(this, function (_c) {
+                                                                                                switch (_c.label) {
+                                                                                                    case 0:
+                                                                                                        _b = {};
+                                                                                                        return [4, f.text()];
+                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(f.attr("href")), _b.script = "search.js", _b)];
+                                                                                                }
+                                                                                            });
+                                                                                        });
+                                                                                    })];
+                                                                            case 2:
+                                                                                _b = _j.sent();
+                                                                                return [3, 4];
+                                                                            case 3:
+                                                                                _b = [];
+                                                                                _j.label = 4;
+                                                                            case 4:
+                                                                                o = _b;
+                                                                                return [4, m.pick(i, c.d_status)];
+                                                                            case 5:
+                                                                                l = _j.sent();
+                                                                                _d = (_c = s).success;
+                                                                                _h = {};
+                                                                                return [4, m.pick(i, c.d_title || "h1")];
+                                                                            case 6:
+                                                                                _h.name = _j.sent();
+                                                                                _g = (_f = d).fix;
+                                                                                return [4, m.pick(i, c.d_cover || "meta[property=og:image]@content")];
+                                                                            case 7:
+                                                                                _h.cover = _g.apply(_f, [_j.sent()]);
+                                                                                return [4, m.pick(i, c.d_author)];
+                                                                            case 8:
+                                                                                _h.author = _j.sent();
+                                                                                return [4, m.pick(i, (c.d_desc || "meta[name=description]@content").replace(/$/, ""))];
+                                                                            case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = l ? "Tình trạng: " + l : "", _h.ongoing = d.ongoing(l), _h.genres = o, _h.host = E, _h)])];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, toc: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, o, l, f, p, _b, w, y, v, T, k, _c, _d, _f, _g, P, B, _h;
+                                                                    var _j;
+                                                                    return __generator(this, function (_k) {
+                                                                        switch (_k.label) {
+                                                                            case 0:
+                                                                                if (c.single)
+                                                                                    return [2, s.success([{ name: c.single === !0 ? "Xem / Đọc" : c.single, url: r, host: E }])];
+                                                                                i = [r], o = [], l = {};
+                                                                                return [4, d.html(c.ch_rewrite ? r.replace(new RegExp(c.ch_rewrite[0]), c.ch_rewrite[1]) : r, c.req)];
+                                                                            case 1:
+                                                                                f = _k.sent();
+                                                                                if (!c.ch_url) return [3, 5];
+                                                                                return [4, m.pick(f, c.ch_url)];
+                                                                            case 2:
+                                                                                p = _k.sent();
+                                                                                _b = p;
+                                                                                if (!_b) return [3, 4];
+                                                                                return [4, d.html(d.fix(p), c.req)];
+                                                                            case 3:
+                                                                                _b = (f = _k.sent());
+                                                                                _k.label = 4;
+                                                                            case 4:
+                                                                                _b;
+                                                                                _k.label = 5;
+                                                                            case 5:
+                                                                                w = 0;
+                                                                                _k.label = 6;
+                                                                            case 6:
+                                                                                if (!(w < (c.ch_maxPages || 60))) return [3, 20];
+                                                                                y = f.select(c.ch_list), v = 0;
+                                                                                _k.label = 7;
+                                                                            case 7:
+                                                                                if (!(v < y.size())) return [3, 15];
+                                                                                return [4, y.get(v)];
+                                                                            case 8:
+                                                                                T = _k.sent(), k = T.attr("href") || T.attr("data-href");
+                                                                                _c = !k || k === "#" || l[k];
+                                                                                if (_c) return [3, 13];
+                                                                                l[k] = 1;
+                                                                                _f = (_d = o).push;
+                                                                                _j = {};
+                                                                                if (!c.ch_name) return [3, 10];
+                                                                                return [4, m.pick(T, c.ch_name)];
+                                                                            case 9:
+                                                                                _g = _k.sent();
+                                                                                return [3, 12];
+                                                                            case 10: return [4, T.text()];
+                                                                            case 11:
+                                                                                _g = _k.sent();
+                                                                                _k.label = 12;
+                                                                            case 12:
+                                                                                _c = (_f.apply(_d, [(_j.name = (_g) || T.attr("title"), _j.url = d.fix(k), _j.host = E, _j)]));
+                                                                                _k.label = 13;
+                                                                            case 13:
+                                                                                _c;
+                                                                                _k.label = 14;
+                                                                            case 14:
+                                                                                v++;
+                                                                                return [3, 7];
+                                                                            case 15:
+                                                                                P = c.ch_next ? f.select(c.ch_next).first() : null;
+                                                                                if (!P || !P.attr("href"))
+                                                                                    return [3, 20];
+                                                                                B = d.fix(P.attr("href"));
+                                                                                if (i.indexOf(B) >= 0)
+                                                                                    return [3, 20];
+                                                                                i.push(B);
+                                                                                _h = c.ch_delay;
+                                                                                if (!_h) return [3, 17];
+                                                                                return [4, A(c.ch_delay)];
+                                                                            case 16:
+                                                                                _h = (_k.sent());
+                                                                                _k.label = 17;
+                                                                            case 17:
+                                                                                _h;
+                                                                                return [4, d.html(B, c.req)];
+                                                                            case 18:
+                                                                                f = _k.sent();
+                                                                                _k.label = 19;
+                                                                            case 19:
+                                                                                w++;
+                                                                                return [3, 6];
+                                                                            case 20: return [2, (c.ch_reverse && o.reverse(), s.success(o))];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, pages: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, o, l, f, p, w, y, v, _b, _c, T, k; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            i = [], o = [r], l = r, f = 0;
+                                                                            _d.label = 1;
+                                                                        case 1:
+                                                                            if (!(f < (c.pages_max || 40))) return [3, 8];
+                                                                            return [4, d.html(l, c.req)];
+                                                                        case 2:
+                                                                            p = _d.sent(), w = p.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
+                                                                            _d.label = 3;
+                                                                        case 3:
+                                                                            if (!(y < w.size())) return [3, 6];
+                                                                            _c = (_b = d).img;
+                                                                            return [4, w.get(y)];
+                                                                        case 4:
+                                                                            v = _c.apply(_b, [_d.sent()]);
+                                                                            v && i.indexOf(v) < 0 && i.push(v);
+                                                                            _d.label = 5;
+                                                                        case 5:
+                                                                            y++;
+                                                                            return [3, 3];
+                                                                        case 6:
+                                                                            if (!c.pages_next)
+                                                                                return [3, 8];
+                                                                            T = p.select(c.pages_next).first();
+                                                                            if (!T)
+                                                                                return [3, 8];
+                                                                            k = d.fix(T.attr("href"));
+                                                                            if (!k || o.indexOf(k) >= 0)
+                                                                                return [3, 8];
+                                                                            o.push(k), l = k;
+                                                                            _d.label = 7;
+                                                                        case 7:
+                                                                            f++;
+                                                                            return [3, 1];
+                                                                        case 8: return [2, s.success(i)];
+                                                                    }
+                                                                }); });
+                                                            }, text: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, o, l, f, _b, _c, _d, _f, _g, _h, _j, _k; return __generator(this, function (_l) {
+                                                                    switch (_l.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, c.req)];
+                                                                        case 1: return [4, _c.apply(_b, [_l.sent(), r])];
+                                                                        case 2:
+                                                                            i = _l.sent();
+                                                                            return [4, i.text()];
+                                                                        case 3:
+                                                                            o = (_l.sent()) || "", l = n.parse(o, r), f = l.select(c.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            if (!!f) return [3, 5];
+                                                                            if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(o.slice(0, 2e4)))
+                                                                                throw new Error("CLOUDFLARE: trang " + E + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
+                                                                            _f = (_d = s).error;
+                                                                            _g = 'Không tìm thấy nội dung — trang nhận được: "';
+                                                                            return [4, m.pick(l, "title")];
+                                                                        case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
+                                                                        case 5:
+                                                                            _j = (_h = s).success;
+                                                                            return [4, d.cleanContent(f)];
+                                                                        case 6:
+                                                                            _k = [_l.sent()];
+                                                                            return [4, m.pick(l, c.c_title || "h1 || h2")];
+                                                                        case 7: return [2, _j.apply(_h, _k.concat([_l.sent()]))];
+                                                                    }
+                                                                }); });
+                                                            }, servers: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, o; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!c.servers)
+                                                                                return [2, s.success([{ title: "Server", data: r }])];
+                                                                            return [4, d.html(r, c.req)];
+                                                                        case 1:
+                                                                            i = _b.sent();
+                                                                            return [4, z(i.select(c.servers), function (l) {
+                                                                                    return __awaiter(this, void 0, void 0, function () {
+                                                                                        var f;
+                                                                                        var _b;
+                                                                                        return __generator(this, function (_c) {
+                                                                                            switch (_c.label) {
+                                                                                                case 0: return [4, m.pick(l, c.server_data || ":self@data-link || :self@data-src || :self@href")];
+                                                                                                case 1:
+                                                                                                    f = _c.sent();
+                                                                                                    _b = {};
+                                                                                                    return [4, l.text()];
+                                                                                                case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(f), _b)];
+                                                                                            }
+                                                                                        });
+                                                                                    });
+                                                                                })];
+                                                                        case 2:
+                                                                            o = (_b.sent()).filter(function (l) { return l.data; });
+                                                                            return [2, s.success(o.length ? o : [{ title: "Server", data: r }])];
+                                                                    }
+                                                                }); });
+                                                            }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var i = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return i ? i[0] : ""; }, track: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (i = i || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
+                                                                                return [2, s.success({ type: "native", data: r, headers: { Referer: E + "/" } })];
+                                                                            return [4, d.get(r)];
+                                                                        case 1:
+                                                                            o = _b.sent();
+                                                                            return [4, o.text()];
+                                                                        case 2:
+                                                                            l = _b.sent();
+                                                                            if (!(c.video && !i)) return [3, 4];
+                                                                            return [4, m.pick(n.parse(l, r), c.video)];
+                                                                        case 3:
+                                                                            f = _b.sent();
+                                                                            if (f)
+                                                                                return [2, s.success({ type: "native", data: d.fix(f), headers: { Referer: E + "/" } })];
+                                                                            _b.label = 4;
+                                                                        case 4:
+                                                                            p = m.sniff(l);
+                                                                            if (p)
+                                                                                return [2, s.success({ type: "native", data: p, headers: { Referer: i ? r : E + "/" } })];
+                                                                            w = n.parse(l, r), y = w.select(c.iframe || "iframe[src], iframe[data-src]").first();
+                                                                            if (!(y && i < 2)) return [3, 6];
+                                                                            v = d.fix(y.attr("src") || y.attr("data-src"));
+                                                                            if (!v) return [3, 6];
+                                                                            return [4, m.track(v, i + 1)];
+                                                                        case 5: return [2, _b.sent()];
+                                                                        case 6: return [2, s.success({ type: "webview", data: r })];
+                                                                    }
+                                                                }); });
+                                                            } };
+                                                        return [2, typeof G == "function" ? G : void 0];
                                                     });
-                                                }, listPage: function (r, i, o) {
-                                                    return __awaiter(this, void 0, void 0, function () { var l, f, p; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0: return [4, d.html(m.url(r, i, o), c.req)];
-                                                            case 1:
-                                                                l = _b.sent();
-                                                                return [4, m.items(l)];
-                                                            case 2:
-                                                                f = _b.sent(), p = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
-                                                                return [2, s.success(f, d.next(p && f.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, browse: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                o = c.tabs && c.tabs[r] || r;
-                                                                return [4, m.listPage(o, i, "")];
-                                                            case 1: return [2, _b.sent()];
-                                                        }
-                                                    }); });
-                                                }, search: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!d.isUrl(r)) return [3, 2];
-                                                                o = d.fix(r);
-                                                                return [4, m.listPage(o + (o.indexOf("?") > 0 ? "&" : "?") + (c.pageParam || "page") + "={p}", i, "")];
-                                                            case 1: return [2, _b.sent()];
-                                                            case 2: return [4, m.listPage(c.search, i, r)];
-                                                            case 3: return [2, _b.sent()];
-                                                        }
-                                                    }); });
-                                                }, genre: function () {
-                                                    return __awaiter(this, void 0, void 0, function () { var r, i; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!c.genre)
-                                                                    return [2, s.success([])];
-                                                                return [4, d.html(d.fix(c.genrePage || "/"))];
-                                                            case 1:
-                                                                r = _b.sent();
-                                                                return [4, z(r.select(c.genre), function (o) {
-                                                                        return __awaiter(this, void 0, void 0, function () {
-                                                                            var _b;
-                                                                            return __generator(this, function (_c) {
-                                                                                switch (_c.label) {
-                                                                                    case 0:
-                                                                                        _b = {};
-                                                                                        return [4, o.text()];
-                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(o.attr("href")), _b.script = "search.js", _b)];
-                                                                                }
-                                                                            });
-                                                                        });
-                                                                    })];
-                                                            case 2:
-                                                                i = _b.sent();
-                                                                return [2, s.success(i.filter(function (o) { return o.title; }))];
-                                                        }
-                                                    }); });
-                                                }, detail: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, _b, _c, _d, _f, _g;
-                                                        var _h;
-                                                        return __generator(this, function (_j) {
-                                                            switch (_j.label) {
-                                                                case 0: return [4, d.html(r, c.req)];
-                                                                case 1:
-                                                                    i = _j.sent();
-                                                                    if (!c.d_genres) return [3, 3];
-                                                                    return [4, z(i.select(c.d_genres), function (f) {
-                                                                            return __awaiter(this, void 0, void 0, function () {
-                                                                                var _b;
-                                                                                return __generator(this, function (_c) {
-                                                                                    switch (_c.label) {
-                                                                                        case 0:
-                                                                                            _b = {};
-                                                                                            return [4, f.text()];
-                                                                                        case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(f.attr("href")), _b.script = "search.js", _b)];
-                                                                                    }
-                                                                                });
-                                                                            });
-                                                                        })];
-                                                                case 2:
-                                                                    _b = _j.sent();
-                                                                    return [3, 4];
-                                                                case 3:
-                                                                    _b = [];
-                                                                    _j.label = 4;
-                                                                case 4:
-                                                                    o = _b;
-                                                                    return [4, m.pick(i, c.d_status)];
-                                                                case 5:
-                                                                    l = _j.sent();
-                                                                    _d = (_c = s).success;
-                                                                    _h = {};
-                                                                    return [4, m.pick(i, c.d_title || "h1")];
-                                                                case 6:
-                                                                    _h.name = _j.sent();
-                                                                    _g = (_f = d).fix;
-                                                                    return [4, m.pick(i, c.d_cover || "meta[property=og:image]@content")];
-                                                                case 7:
-                                                                    _h.cover = _g.apply(_f, [_j.sent()]);
-                                                                    return [4, m.pick(i, c.d_author)];
-                                                                case 8:
-                                                                    _h.author = _j.sent();
-                                                                    return [4, m.pick(i, (c.d_desc || "meta[name=description]@content").replace(/$/, ""))];
-                                                                case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = l ? "Tình trạng: " + l : "", _h.ongoing = d.ongoing(l), _h.genres = o, _h.host = E, _h)])];
-                                                            }
-                                                        });
-                                                    });
-                                                }, toc: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, _b, w, y, v, T, k, _c, _d, _f, _g, P, B, _h;
-                                                        var _j;
-                                                        return __generator(this, function (_k) {
-                                                            switch (_k.label) {
-                                                                case 0:
-                                                                    if (c.single)
-                                                                        return [2, s.success([{ name: c.single === !0 ? "Xem / Đọc" : c.single, url: r, host: E }])];
-                                                                    i = [r], o = [], l = {};
-                                                                    return [4, d.html(c.ch_rewrite ? r.replace(new RegExp(c.ch_rewrite[0]), c.ch_rewrite[1]) : r, c.req)];
-                                                                case 1:
-                                                                    f = _k.sent();
-                                                                    if (!c.ch_url) return [3, 5];
-                                                                    return [4, m.pick(f, c.ch_url)];
-                                                                case 2:
-                                                                    p = _k.sent();
-                                                                    _b = p;
-                                                                    if (!_b) return [3, 4];
-                                                                    return [4, d.html(d.fix(p), c.req)];
-                                                                case 3:
-                                                                    _b = (f = _k.sent());
-                                                                    _k.label = 4;
-                                                                case 4:
-                                                                    _b;
-                                                                    _k.label = 5;
-                                                                case 5:
-                                                                    w = 0;
-                                                                    _k.label = 6;
-                                                                case 6:
-                                                                    if (!(w < (c.ch_maxPages || 60))) return [3, 20];
-                                                                    y = f.select(c.ch_list), v = 0;
-                                                                    _k.label = 7;
-                                                                case 7:
-                                                                    if (!(v < y.size())) return [3, 15];
-                                                                    return [4, y.get(v)];
-                                                                case 8:
-                                                                    T = _k.sent(), k = T.attr("href") || T.attr("data-href");
-                                                                    _c = !k || k === "#" || l[k];
-                                                                    if (_c) return [3, 13];
-                                                                    l[k] = 1;
-                                                                    _f = (_d = o).push;
-                                                                    _j = {};
-                                                                    if (!c.ch_name) return [3, 10];
-                                                                    return [4, m.pick(T, c.ch_name)];
-                                                                case 9:
-                                                                    _g = _k.sent();
-                                                                    return [3, 12];
-                                                                case 10: return [4, T.text()];
-                                                                case 11:
-                                                                    _g = _k.sent();
-                                                                    _k.label = 12;
-                                                                case 12:
-                                                                    _c = (_f.apply(_d, [(_j.name = (_g) || T.attr("title"), _j.url = d.fix(k), _j.host = E, _j)]));
-                                                                    _k.label = 13;
-                                                                case 13:
-                                                                    _c;
-                                                                    _k.label = 14;
-                                                                case 14:
-                                                                    v++;
-                                                                    return [3, 7];
-                                                                case 15:
-                                                                    P = c.ch_next ? f.select(c.ch_next).first() : null;
-                                                                    if (!P || !P.attr("href"))
-                                                                        return [3, 20];
-                                                                    B = d.fix(P.attr("href"));
-                                                                    if (i.indexOf(B) >= 0)
-                                                                        return [3, 20];
-                                                                    i.push(B);
-                                                                    _h = c.ch_delay;
-                                                                    if (!_h) return [3, 17];
-                                                                    return [4, A(c.ch_delay)];
-                                                                case 16:
-                                                                    _h = (_k.sent());
-                                                                    _k.label = 17;
-                                                                case 17:
-                                                                    _h;
-                                                                    return [4, d.html(B, c.req)];
-                                                                case 18:
-                                                                    f = _k.sent();
-                                                                    _k.label = 19;
-                                                                case 19:
-                                                                    w++;
-                                                                    return [3, 6];
-                                                                case 20: return [2, (c.ch_reverse && o.reverse(), s.success(o))];
-                                                            }
-                                                        });
-                                                    });
-                                                }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, p, w, y, v, _b, _c, T, k; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                i = [], o = [r], l = r, f = 0;
-                                                                _d.label = 1;
-                                                            case 1:
-                                                                if (!(f < (c.pages_max || 40))) return [3, 8];
-                                                                return [4, d.html(l, c.req)];
-                                                            case 2:
-                                                                p = _d.sent(), w = p.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
-                                                                _d.label = 3;
-                                                            case 3:
-                                                                if (!(y < w.size())) return [3, 6];
-                                                                _c = (_b = d).img;
-                                                                return [4, w.get(y)];
-                                                            case 4:
-                                                                v = _c.apply(_b, [_d.sent()]);
-                                                                v && i.indexOf(v) < 0 && i.push(v);
-                                                                _d.label = 5;
-                                                            case 5:
-                                                                y++;
-                                                                return [3, 3];
-                                                            case 6:
-                                                                if (!c.pages_next)
-                                                                    return [3, 8];
-                                                                T = p.select(c.pages_next).first();
-                                                                if (!T)
-                                                                    return [3, 8];
-                                                                k = d.fix(T.attr("href"));
-                                                                if (!k || o.indexOf(k) >= 0)
-                                                                    return [3, 8];
-                                                                o.push(k), l = k;
-                                                                _d.label = 7;
-                                                            case 7:
-                                                                f++;
-                                                                return [3, 1];
-                                                            case 8: return [2, s.success(i)];
-                                                        }
-                                                    }); });
-                                                }, text: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, _b, _c, _d, _f, _g, _h, _j, _k; return __generator(this, function (_l) {
-                                                        switch (_l.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, c.req)];
-                                                            case 1: return [4, _c.apply(_b, [_l.sent(), r])];
-                                                            case 2:
-                                                                i = _l.sent();
-                                                                return [4, i.text()];
-                                                            case 3:
-                                                                o = (_l.sent()) || "", l = n.parse(o, r), f = l.select(c.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
-                                                                if (!!f) return [3, 5];
-                                                                if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(o.slice(0, 2e4)))
-                                                                    throw new Error("CLOUDFLARE: trang " + E + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
-                                                                _f = (_d = s).error;
-                                                                _g = 'Không tìm thấy nội dung — trang nhận được: "';
-                                                                return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
-                                                            case 5:
-                                                                _j = (_h = s).success;
-                                                                return [4, d.cleanContent(f)];
-                                                            case 6:
-                                                                _k = [_l.sent()];
-                                                                return [4, m.pick(l, c.c_title || "h1 || h2")];
-                                                            case 7: return [2, _j.apply(_h, _k.concat([_l.sent()]))];
-                                                        }
-                                                    }); });
-                                                }, servers: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!c.servers)
-                                                                    return [2, s.success([{ title: "Server", data: r }])];
-                                                                return [4, d.html(r, c.req)];
-                                                            case 1:
-                                                                i = _b.sent();
-                                                                return [4, z(i.select(c.servers), function (l) {
-                                                                        return __awaiter(this, void 0, void 0, function () {
-                                                                            var f;
-                                                                            var _b;
-                                                                            return __generator(this, function (_c) {
-                                                                                switch (_c.label) {
-                                                                                    case 0: return [4, m.pick(l, c.server_data || ":self@data-link || :self@data-src || :self@href")];
-                                                                                    case 1:
-                                                                                        f = _c.sent();
-                                                                                        _b = {};
-                                                                                        return [4, l.text()];
-                                                                                    case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(f), _b)];
-                                                                                }
-                                                                            });
-                                                                        });
-                                                                    })];
-                                                            case 2:
-                                                                o = (_b.sent()).filter(function (l) { return l.data; });
-                                                                return [2, s.success(o.length ? o : [{ title: "Server", data: r }])];
-                                                        }
-                                                    }); });
-                                                }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var i = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return i ? i[0] : ""; }, track: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (i = i || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
-                                                                    return [2, s.success({ type: "native", data: r, headers: { Referer: E + "/" } })];
-                                                                return [4, d.get(r)];
-                                                            case 1:
-                                                                o = _b.sent();
-                                                                return [4, o.text()];
-                                                            case 2:
-                                                                l = _b.sent();
-                                                                if (!(c.video && !i)) return [3, 4];
-                                                                return [4, m.pick(n.parse(l, r), c.video)];
-                                                            case 3:
-                                                                f = _b.sent();
-                                                                if (f)
-                                                                    return [2, s.success({ type: "native", data: d.fix(f), headers: { Referer: E + "/" } })];
-                                                                _b.label = 4;
-                                                            case 4:
-                                                                p = m.sniff(l);
-                                                                if (p)
-                                                                    return [2, s.success({ type: "native", data: p, headers: { Referer: i ? r : E + "/" } })];
-                                                                w = n.parse(l, r), y = w.select(c.iframe || "iframe[src], iframe[data-src]").first();
-                                                                if (!(y && i < 2)) return [3, 6];
-                                                                v = d.fix(y.attr("src") || y.attr("data-src"));
-                                                                if (!v) return [3, 6];
-                                                                return [4, m.track(v, i + 1)];
-                                                            case 5: return [2, _b.sent()];
-                                                            case 6: return [2, s.success({ type: "webview", data: r })];
-                                                        }
-                                                    }); });
-                                                } };
-                                            return [2, typeof G == "function" ? G : void 0];
-                                        }); });
-                                    })()];
-                            case 1: return [2, _b.sent()];
-                        }
-                    }); });
-                })(t.fetch, t.Http, t.Html, t.Response, t.localStorage, t.cacheStorage, t.localConfig, t.localCookie, t.sleep, t.Log, t.console, t.Console, t.log, t.UserAgent, t.Engine, t.Graphics, t.Script)];
-        }); });
+                                                });
+                                            })()];
+                                    case 1: return [2, _b.sent()];
+                                }
+                            });
+                        });
+                    })(t.fetch, t.Http, t.Html, t.Response, t.localStorage, t.cacheStorage, t.localConfig, t.localCookie, t.sleep, t.Log, t.console, t.Console, t.log, t.UserAgent, t.Engine, t.Graphics, t.Script)];
+            });
+        });
     }, search: function (t, e) {
-        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, a, n, s, h, b, g, x, A, D, q, N, I, U, X, Z, ne) {
-                    return __awaiter(this, void 0, void 0, function () { var R; return __generator(this, function (_b) {
-                        switch (_b.label) {
-                            case 0:
-                                R = e("DOMAIN");
-                                return [4, (function () {
-                                        return __awaiter(this, void 0, void 0, function () { function G(r, i) {
-                                            return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                switch (_b.label) {
-                                                    case 0: return [4, m.search(r, i)];
-                                                    case 1: return [2, _b.sent()];
-                                                }
-                                            }); });
-                                        } var E, c, d, m; return __generator(this, function (_b) {
-                                            E = "https://navyteams.com";
-                                            try {
-                                                R && (E = String(R).replace(/\/+$/, ""));
-                                            }
-                                            catch (r) { }
-                                            c = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".comic-item", title: "h3 || a@title || img@alt", link: "a@href", ch_list: "div.bodyL a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: ".content-type-novel, .chapter-content, #chapter-content" }, d = { img: function (r) { if (!r)
-                                                    return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], o = 0; o < i.length; o++) {
-                                                    var l = r.attr(i[o]);
-                                                    if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
-                                                        return d.fix(l.trim());
-                                                } var f = r.attr("data-srcset") || r.attr("srcset"); return f ? d.fix(f.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? E + r : E + "/" + r) : ""; }, text: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                o = 0;
-                                                                _b.label = 1;
-                                                            case 1:
-                                                                if (!(o < i.length)) return [3, 4];
-                                                                return [4, r.select(i[o]).text()];
-                                                            case 2:
-                                                                l = _b.sent();
-                                                                if (l)
-                                                                    return [2, l.trim()];
-                                                                _b.label = 3;
-                                                            case 3:
-                                                                o++;
-                                                                return [3, 1];
-                                                            case 4: return [2, ""];
-                                                        }
-                                                    }); });
-                                                }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, _b; return __generator(this, function (_c) {
-                                                        switch (_c.label) {
-                                                            case 0:
-                                                                i = i || {};
-                                                                o = { Referer: E + "/" };
-                                                                if (i.headers)
-                                                                    for (l in i.headers)
-                                                                        o[l] = i.headers[l];
-                                                                return [4, u(r, { method: i.method, headers: o, body: i.body })];
-                                                            case 1:
-                                                                f = _c.sent(), p = 0;
-                                                                _c.label = 2;
-                                                            case 2:
-                                                                _b = f && f.status === 429 && p < 3;
-                                                                if (!_b) return [3, 4];
-                                                                return [4, d.cf(f)];
-                                                            case 3:
-                                                                _b = !(_c.sent());
-                                                                _c.label = 4;
-                                                            case 4:
-                                                                if (!_b) return [3, 8];
-                                                                return [4, A(1500 * (p + 1))];
-                                                            case 5:
-                                                                _c.sent();
-                                                                return [4, u(r, { method: i.method, headers: o, body: i.body })];
-                                                            case 6:
-                                                                f = _c.sent();
-                                                                _c.label = 7;
-                                                            case 7:
-                                                                p++;
-                                                                return [3, 2];
-                                                            case 8: return [2, f];
-                                                        }
-                                                    }); });
-                                                }, cf: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.status !== 403 && r.status !== 503 && r.status !== 429)
-                                                                    return [2, !1];
-                                                                return [4, r.text()];
-                                                            case 1:
-                                                                i = (_b.sent()) || "";
-                                                                return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
-                                                        }
-                                                    }); });
-                                                }, check: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.ok)
-                                                                    return [2, r];
-                                                                return [4, d.cf(r)];
-                                                            case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
-                                                        }
-                                                    }); });
-                                                }, html: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                o = _d.sent();
-                                                                return [4, o.html(i && i.charset)];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, json: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                o = _d.sent();
-                                                                return [4, o.json()];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
-                                                                return [4, r.html()];
-                                                            case 1: return [2, (_b.sent()).replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
-                                                        }
-                                                    }); });
-                                                }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, m = { pick: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v, T, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                if (!i || !r)
-                                                                    return [2, ""];
-                                                                o = String(i).split(" || "), l = 0;
-                                                                _d.label = 1;
-                                                            case 1:
-                                                                if (!(l < o.length)) return [3, 9];
-                                                                f = o[l], p = "text", w = f.lastIndexOf("@");
-                                                                w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (p = f.slice(w + 1), f = f.slice(0, w));
-                                                                y = f === ":self" ? null : r.select(f), v = f === ":self" ? r : y.size() ? y.first() : null;
-                                                                if (!v) return [3, 8];
-                                                                if (!(p === "text")) return [3, 3];
-                                                                return [4, v.text()];
-                                                            case 2:
-                                                                _b = _d.sent();
-                                                                return [3, 7];
-                                                            case 3:
-                                                                if (!(p === "html")) return [3, 5];
-                                                                return [4, v.html()];
-                                                            case 4:
-                                                                _c = _d.sent();
-                                                                return [3, 6];
-                                                            case 5:
-                                                                _c = p === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : p === "own" ? v.ownText() : v.attr(p);
-                                                                _d.label = 6;
-                                                            case 6:
-                                                                _b = _c;
-                                                                _d.label = 7;
-                                                            case 7:
-                                                                T = _b;
-                                                                if (T)
-                                                                    return [2, String(T).trim()];
-                                                                _d.label = 8;
-                                                            case 8:
-                                                                l++;
-                                                                return [3, 1];
-                                                            case 9: return [2, ""];
-                                                        }
-                                                    }); });
-                                                }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (p, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, w, y, _b, _c, _d;
-                                                        var _f;
-                                                        return __generator(this, function (_g) {
-                                                            switch (_g.label) {
-                                                                case 0:
-                                                                    i = r.select(c.item), o = [], l = {}, f = 0;
-                                                                    _g.label = 1;
-                                                                case 1:
-                                                                    if (!(f < i.size())) return [3, 9];
-                                                                    return [4, i.get(f)];
-                                                                case 2:
-                                                                    p = _g.sent();
-                                                                    return [4, m.pick(p, c.link || "a@href")];
-                                                                case 3:
-                                                                    w = _g.sent();
-                                                                    if (!!(!w || l[w] || /^javascript|#$/.test(w))) return [3, 8];
-                                                                    return [4, m.pick(p, c.title || "h3 || h2 || a@title || img@alt")];
-                                                                case 4:
-                                                                    y = _g.sent();
-                                                                    _b = y;
-                                                                    if (!_b) return [3, 7];
-                                                                    l[w] = 1;
-                                                                    _d = (_c = o).push;
-                                                                    _f = { name: y, link: d.fix(w) };
-                                                                    return [4, m.pick(p, c.cover || "img@img")];
-                                                                case 5:
-                                                                    _f.cover = _g.sent();
-                                                                    return [4, m.pick(p, c.desc || "")];
-                                                                case 6:
-                                                                    _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = E, _f)]));
-                                                                    _g.label = 7;
-                                                                case 7:
-                                                                    _b;
-                                                                    _g.label = 8;
-                                                                case 8:
-                                                                    f++;
-                                                                    return [3, 1];
-                                                                case 9: return [2, o];
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_b) {
+                return [2, (function (u, a, n, s, h, b, g, x, A, D, q, N, I, U, X, Z, ne) {
+                        return __awaiter(this, void 0, void 0, function () {
+                            var R;
+                            return __generator(this, function (_b) {
+                                switch (_b.label) {
+                                    case 0:
+                                        R = e("DOMAIN");
+                                        return [4, (function () {
+                                                return __awaiter(this, void 0, void 0, function () {
+                                                    function G(r, i) {
+                                                        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                            switch (_b.label) {
+                                                                case 0: return [4, m.search(r, i)];
+                                                                case 1: return [2, _b.sent()];
                                                             }
-                                                        });
+                                                        }); });
+                                                    }
+                                                    var E, c, d, m;
+                                                    return __generator(this, function (_b) {
+                                                        E = "https://navyteams.com";
+                                                        try {
+                                                            R && (E = String(R).replace(/\/+$/, ""));
+                                                        }
+                                                        catch (r) { }
+                                                        c = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".comic-item", title: "h3 || a@title || img@alt", link: "a@href", ch_list: "div.bodyL a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: ".content-type-novel, .chapter-content, #chapter-content" }, d = { img: function (r) { if (!r)
+                                                                return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], o = 0; o < i.length; o++) {
+                                                                var l = r.attr(i[o]);
+                                                                if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
+                                                                    return d.fix(l.trim());
+                                                            } var f = r.attr("data-srcset") || r.attr("srcset"); return f ? d.fix(f.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? E + r : E + "/" + r) : ""; }, text: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            o = 0;
+                                                                            _b.label = 1;
+                                                                        case 1:
+                                                                            if (!(o < i.length)) return [3, 4];
+                                                                            return [4, r.select(i[o]).text()];
+                                                                        case 2:
+                                                                            l = _b.sent();
+                                                                            if (l)
+                                                                                return [2, l.trim()];
+                                                                            _b.label = 3;
+                                                                        case 3:
+                                                                            o++;
+                                                                            return [3, 1];
+                                                                        case 4: return [2, ""];
+                                                                    }
+                                                                }); });
+                                                            }, get: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l, f, p, _b; return __generator(this, function (_c) {
+                                                                    switch (_c.label) {
+                                                                        case 0:
+                                                                            i = i || {};
+                                                                            o = { Referer: E + "/" };
+                                                                            if (i.headers)
+                                                                                for (l in i.headers)
+                                                                                    o[l] = i.headers[l];
+                                                                            return [4, u(r, { method: i.method, headers: o, body: i.body })];
+                                                                        case 1:
+                                                                            f = _c.sent(), p = 0;
+                                                                            _c.label = 2;
+                                                                        case 2:
+                                                                            _b = f && f.status === 429 && p < 3;
+                                                                            if (!_b) return [3, 4];
+                                                                            return [4, d.cf(f)];
+                                                                        case 3:
+                                                                            _b = !(_c.sent());
+                                                                            _c.label = 4;
+                                                                        case 4:
+                                                                            if (!_b) return [3, 8];
+                                                                            return [4, A(1500 * (p + 1))];
+                                                                        case 5:
+                                                                            _c.sent();
+                                                                            return [4, u(r, { method: i.method, headers: o, body: i.body })];
+                                                                        case 6:
+                                                                            f = _c.sent();
+                                                                            _c.label = 7;
+                                                                        case 7:
+                                                                            p++;
+                                                                            return [3, 2];
+                                                                        case 8: return [2, f];
+                                                                    }
+                                                                }); });
+                                                            }, cf: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.status !== 403 && r.status !== 503 && r.status !== 429)
+                                                                                return [2, !1];
+                                                                            return [4, r.text()];
+                                                                        case 1:
+                                                                            i = (_b.sent()) || "";
+                                                                            return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
+                                                                    }
+                                                                }); });
+                                                            }, check: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.ok)
+                                                                                return [2, r];
+                                                                            return [4, d.cf(r)];
+                                                                        case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
+                                                                    }
+                                                                }); });
+                                                            }, html: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            o = _d.sent();
+                                                                            return [4, o.html(i && i.charset)];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, json: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            o = _d.sent();
+                                                                            return [4, o.json()];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    return __generator(this, function (_b) {
+                                                                        switch (_b.label) {
+                                                                            case 0:
+                                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
+                                                                                return [4, r.html()];
+                                                                            case 1: return [2, (_b.sent()).replace(/\r\n?/g, "\n").replace(/&#13;|&#x0?[dD];/g, "").replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, m = { pick: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v, T, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            if (!i || !r)
+                                                                                return [2, ""];
+                                                                            o = String(i).split(" || "), l = 0;
+                                                                            _d.label = 1;
+                                                                        case 1:
+                                                                            if (!(l < o.length)) return [3, 9];
+                                                                            f = o[l], p = "text", w = f.lastIndexOf("@");
+                                                                            w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (p = f.slice(w + 1), f = f.slice(0, w));
+                                                                            y = f === ":self" ? null : r.select(f), v = f === ":self" ? r : y.size() ? y.first() : null;
+                                                                            if (!v) return [3, 8];
+                                                                            if (!(p === "text")) return [3, 3];
+                                                                            return [4, v.text()];
+                                                                        case 2:
+                                                                            _b = _d.sent();
+                                                                            return [3, 7];
+                                                                        case 3:
+                                                                            if (!(p === "html")) return [3, 5];
+                                                                            return [4, v.html()];
+                                                                        case 4:
+                                                                            _c = _d.sent();
+                                                                            return [3, 6];
+                                                                        case 5:
+                                                                            _c = p === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : p === "own" ? v.ownText() : v.attr(p);
+                                                                            _d.label = 6;
+                                                                        case 6:
+                                                                            _b = _c;
+                                                                            _d.label = 7;
+                                                                        case 7:
+                                                                            T = _b;
+                                                                            if (T)
+                                                                                return [2, String(T).trim()];
+                                                                            _d.label = 8;
+                                                                        case 8:
+                                                                            l++;
+                                                                            return [3, 1];
+                                                                        case 9: return [2, ""];
+                                                                    }
+                                                                }); });
+                                                            }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (p, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, o, l, f, p, w, y, _b, _c, _d;
+                                                                    var _f;
+                                                                    return __generator(this, function (_g) {
+                                                                        switch (_g.label) {
+                                                                            case 0:
+                                                                                i = r.select(c.item), o = [], l = {}, f = 0;
+                                                                                _g.label = 1;
+                                                                            case 1:
+                                                                                if (!(f < i.size())) return [3, 9];
+                                                                                return [4, i.get(f)];
+                                                                            case 2:
+                                                                                p = _g.sent();
+                                                                                return [4, m.pick(p, c.link || "a@href")];
+                                                                            case 3:
+                                                                                w = _g.sent();
+                                                                                if (!!(!w || l[w] || /^javascript|#$/.test(w))) return [3, 8];
+                                                                                return [4, m.pick(p, c.title || "h3 || h2 || a@title || img@alt")];
+                                                                            case 4:
+                                                                                y = _g.sent();
+                                                                                _b = y;
+                                                                                if (!_b) return [3, 7];
+                                                                                l[w] = 1;
+                                                                                _d = (_c = o).push;
+                                                                                _f = { name: y, link: d.fix(w) };
+                                                                                return [4, m.pick(p, c.cover || "img@img")];
+                                                                            case 5:
+                                                                                _f.cover = _g.sent();
+                                                                                return [4, m.pick(p, c.desc || "")];
+                                                                            case 6:
+                                                                                _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = E, _f)]));
+                                                                                _g.label = 7;
+                                                                            case 7:
+                                                                                _b;
+                                                                                _g.label = 8;
+                                                                            case 8:
+                                                                                f++;
+                                                                                return [3, 1];
+                                                                            case 9: return [2, o];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, listPage: function (r, i, o) {
+                                                                return __awaiter(this, void 0, void 0, function () { var l, f, p; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0: return [4, d.html(m.url(r, i, o), c.req)];
+                                                                        case 1:
+                                                                            l = _b.sent();
+                                                                            return [4, m.items(l)];
+                                                                        case 2:
+                                                                            f = _b.sent(), p = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
+                                                                            return [2, s.success(f, d.next(p && f.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, browse: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            o = c.tabs && c.tabs[r] || r;
+                                                                            return [4, m.listPage(o, i, "")];
+                                                                        case 1: return [2, _b.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, search: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!d.isUrl(r)) return [3, 2];
+                                                                            o = d.fix(r);
+                                                                            return [4, m.listPage(o + (o.indexOf("?") > 0 ? "&" : "?") + (c.pageParam || "page") + "={p}", i, "")];
+                                                                        case 1: return [2, _b.sent()];
+                                                                        case 2: return [4, m.listPage(c.search, i, r)];
+                                                                        case 3: return [2, _b.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, genre: function () {
+                                                                return __awaiter(this, void 0, void 0, function () { var r, i; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!c.genre)
+                                                                                return [2, s.success([])];
+                                                                            return [4, d.html(d.fix(c.genrePage || "/"))];
+                                                                        case 1:
+                                                                            r = _b.sent();
+                                                                            return [4, z(r.select(c.genre), function (o) {
+                                                                                    return __awaiter(this, void 0, void 0, function () {
+                                                                                        var _b;
+                                                                                        return __generator(this, function (_c) {
+                                                                                            switch (_c.label) {
+                                                                                                case 0:
+                                                                                                    _b = {};
+                                                                                                    return [4, o.text()];
+                                                                                                case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(o.attr("href")), _b.script = "search.js", _b)];
+                                                                                            }
+                                                                                        });
+                                                                                    });
+                                                                                })];
+                                                                        case 2:
+                                                                            i = _b.sent();
+                                                                            return [2, s.success(i.filter(function (o) { return o.title; }))];
+                                                                    }
+                                                                }); });
+                                                            }, detail: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, o, l, _b, _c, _d, _f, _g;
+                                                                    var _h;
+                                                                    return __generator(this, function (_j) {
+                                                                        switch (_j.label) {
+                                                                            case 0: return [4, d.html(r, c.req)];
+                                                                            case 1:
+                                                                                i = _j.sent();
+                                                                                if (!c.d_genres) return [3, 3];
+                                                                                return [4, z(i.select(c.d_genres), function (f) {
+                                                                                        return __awaiter(this, void 0, void 0, function () {
+                                                                                            var _b;
+                                                                                            return __generator(this, function (_c) {
+                                                                                                switch (_c.label) {
+                                                                                                    case 0:
+                                                                                                        _b = {};
+                                                                                                        return [4, f.text()];
+                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(f.attr("href")), _b.script = "search.js", _b)];
+                                                                                                }
+                                                                                            });
+                                                                                        });
+                                                                                    })];
+                                                                            case 2:
+                                                                                _b = _j.sent();
+                                                                                return [3, 4];
+                                                                            case 3:
+                                                                                _b = [];
+                                                                                _j.label = 4;
+                                                                            case 4:
+                                                                                o = _b;
+                                                                                return [4, m.pick(i, c.d_status)];
+                                                                            case 5:
+                                                                                l = _j.sent();
+                                                                                _d = (_c = s).success;
+                                                                                _h = {};
+                                                                                return [4, m.pick(i, c.d_title || "h1")];
+                                                                            case 6:
+                                                                                _h.name = _j.sent();
+                                                                                _g = (_f = d).fix;
+                                                                                return [4, m.pick(i, c.d_cover || "meta[property=og:image]@content")];
+                                                                            case 7:
+                                                                                _h.cover = _g.apply(_f, [_j.sent()]);
+                                                                                return [4, m.pick(i, c.d_author)];
+                                                                            case 8:
+                                                                                _h.author = _j.sent();
+                                                                                return [4, m.pick(i, (c.d_desc || "meta[name=description]@content").replace(/$/, ""))];
+                                                                            case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = l ? "Tình trạng: " + l : "", _h.ongoing = d.ongoing(l), _h.genres = o, _h.host = E, _h)])];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, toc: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, o, l, f, p, _b, w, y, v, T, k, _c, _d, _f, _g, P, B, _h;
+                                                                    var _j;
+                                                                    return __generator(this, function (_k) {
+                                                                        switch (_k.label) {
+                                                                            case 0:
+                                                                                if (c.single)
+                                                                                    return [2, s.success([{ name: c.single === !0 ? "Xem / Đọc" : c.single, url: r, host: E }])];
+                                                                                i = [r], o = [], l = {};
+                                                                                return [4, d.html(c.ch_rewrite ? r.replace(new RegExp(c.ch_rewrite[0]), c.ch_rewrite[1]) : r, c.req)];
+                                                                            case 1:
+                                                                                f = _k.sent();
+                                                                                if (!c.ch_url) return [3, 5];
+                                                                                return [4, m.pick(f, c.ch_url)];
+                                                                            case 2:
+                                                                                p = _k.sent();
+                                                                                _b = p;
+                                                                                if (!_b) return [3, 4];
+                                                                                return [4, d.html(d.fix(p), c.req)];
+                                                                            case 3:
+                                                                                _b = (f = _k.sent());
+                                                                                _k.label = 4;
+                                                                            case 4:
+                                                                                _b;
+                                                                                _k.label = 5;
+                                                                            case 5:
+                                                                                w = 0;
+                                                                                _k.label = 6;
+                                                                            case 6:
+                                                                                if (!(w < (c.ch_maxPages || 60))) return [3, 20];
+                                                                                y = f.select(c.ch_list), v = 0;
+                                                                                _k.label = 7;
+                                                                            case 7:
+                                                                                if (!(v < y.size())) return [3, 15];
+                                                                                return [4, y.get(v)];
+                                                                            case 8:
+                                                                                T = _k.sent(), k = T.attr("href") || T.attr("data-href");
+                                                                                _c = !k || k === "#" || l[k];
+                                                                                if (_c) return [3, 13];
+                                                                                l[k] = 1;
+                                                                                _f = (_d = o).push;
+                                                                                _j = {};
+                                                                                if (!c.ch_name) return [3, 10];
+                                                                                return [4, m.pick(T, c.ch_name)];
+                                                                            case 9:
+                                                                                _g = _k.sent();
+                                                                                return [3, 12];
+                                                                            case 10: return [4, T.text()];
+                                                                            case 11:
+                                                                                _g = _k.sent();
+                                                                                _k.label = 12;
+                                                                            case 12:
+                                                                                _c = (_f.apply(_d, [(_j.name = (_g) || T.attr("title"), _j.url = d.fix(k), _j.host = E, _j)]));
+                                                                                _k.label = 13;
+                                                                            case 13:
+                                                                                _c;
+                                                                                _k.label = 14;
+                                                                            case 14:
+                                                                                v++;
+                                                                                return [3, 7];
+                                                                            case 15:
+                                                                                P = c.ch_next ? f.select(c.ch_next).first() : null;
+                                                                                if (!P || !P.attr("href"))
+                                                                                    return [3, 20];
+                                                                                B = d.fix(P.attr("href"));
+                                                                                if (i.indexOf(B) >= 0)
+                                                                                    return [3, 20];
+                                                                                i.push(B);
+                                                                                _h = c.ch_delay;
+                                                                                if (!_h) return [3, 17];
+                                                                                return [4, A(c.ch_delay)];
+                                                                            case 16:
+                                                                                _h = (_k.sent());
+                                                                                _k.label = 17;
+                                                                            case 17:
+                                                                                _h;
+                                                                                return [4, d.html(B, c.req)];
+                                                                            case 18:
+                                                                                f = _k.sent();
+                                                                                _k.label = 19;
+                                                                            case 19:
+                                                                                w++;
+                                                                                return [3, 6];
+                                                                            case 20: return [2, (c.ch_reverse && o.reverse(), s.success(o))];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, pages: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, o, l, f, p, w, y, v, _b, _c, T, k; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            i = [], o = [r], l = r, f = 0;
+                                                                            _d.label = 1;
+                                                                        case 1:
+                                                                            if (!(f < (c.pages_max || 40))) return [3, 8];
+                                                                            return [4, d.html(l, c.req)];
+                                                                        case 2:
+                                                                            p = _d.sent(), w = p.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
+                                                                            _d.label = 3;
+                                                                        case 3:
+                                                                            if (!(y < w.size())) return [3, 6];
+                                                                            _c = (_b = d).img;
+                                                                            return [4, w.get(y)];
+                                                                        case 4:
+                                                                            v = _c.apply(_b, [_d.sent()]);
+                                                                            v && i.indexOf(v) < 0 && i.push(v);
+                                                                            _d.label = 5;
+                                                                        case 5:
+                                                                            y++;
+                                                                            return [3, 3];
+                                                                        case 6:
+                                                                            if (!c.pages_next)
+                                                                                return [3, 8];
+                                                                            T = p.select(c.pages_next).first();
+                                                                            if (!T)
+                                                                                return [3, 8];
+                                                                            k = d.fix(T.attr("href"));
+                                                                            if (!k || o.indexOf(k) >= 0)
+                                                                                return [3, 8];
+                                                                            o.push(k), l = k;
+                                                                            _d.label = 7;
+                                                                        case 7:
+                                                                            f++;
+                                                                            return [3, 1];
+                                                                        case 8: return [2, s.success(i)];
+                                                                    }
+                                                                }); });
+                                                            }, text: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, o, l, f, _b, _c, _d, _f, _g, _h, _j, _k; return __generator(this, function (_l) {
+                                                                    switch (_l.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, c.req)];
+                                                                        case 1: return [4, _c.apply(_b, [_l.sent(), r])];
+                                                                        case 2:
+                                                                            i = _l.sent();
+                                                                            return [4, i.text()];
+                                                                        case 3:
+                                                                            o = (_l.sent()) || "", l = n.parse(o, r), f = l.select(c.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            if (!!f) return [3, 5];
+                                                                            if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(o.slice(0, 2e4)))
+                                                                                throw new Error("CLOUDFLARE: trang " + E + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
+                                                                            _f = (_d = s).error;
+                                                                            _g = 'Không tìm thấy nội dung — trang nhận được: "';
+                                                                            return [4, m.pick(l, "title")];
+                                                                        case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
+                                                                        case 5:
+                                                                            _j = (_h = s).success;
+                                                                            return [4, d.cleanContent(f)];
+                                                                        case 6:
+                                                                            _k = [_l.sent()];
+                                                                            return [4, m.pick(l, c.c_title || "h1 || h2")];
+                                                                        case 7: return [2, _j.apply(_h, _k.concat([_l.sent()]))];
+                                                                    }
+                                                                }); });
+                                                            }, servers: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, o; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!c.servers)
+                                                                                return [2, s.success([{ title: "Server", data: r }])];
+                                                                            return [4, d.html(r, c.req)];
+                                                                        case 1:
+                                                                            i = _b.sent();
+                                                                            return [4, z(i.select(c.servers), function (l) {
+                                                                                    return __awaiter(this, void 0, void 0, function () {
+                                                                                        var f;
+                                                                                        var _b;
+                                                                                        return __generator(this, function (_c) {
+                                                                                            switch (_c.label) {
+                                                                                                case 0: return [4, m.pick(l, c.server_data || ":self@data-link || :self@data-src || :self@href")];
+                                                                                                case 1:
+                                                                                                    f = _c.sent();
+                                                                                                    _b = {};
+                                                                                                    return [4, l.text()];
+                                                                                                case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(f), _b)];
+                                                                                            }
+                                                                                        });
+                                                                                    });
+                                                                                })];
+                                                                        case 2:
+                                                                            o = (_b.sent()).filter(function (l) { return l.data; });
+                                                                            return [2, s.success(o.length ? o : [{ title: "Server", data: r }])];
+                                                                    }
+                                                                }); });
+                                                            }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var i = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return i ? i[0] : ""; }, track: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (i = i || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
+                                                                                return [2, s.success({ type: "native", data: r, headers: { Referer: E + "/" } })];
+                                                                            return [4, d.get(r)];
+                                                                        case 1:
+                                                                            o = _b.sent();
+                                                                            return [4, o.text()];
+                                                                        case 2:
+                                                                            l = _b.sent();
+                                                                            if (!(c.video && !i)) return [3, 4];
+                                                                            return [4, m.pick(n.parse(l, r), c.video)];
+                                                                        case 3:
+                                                                            f = _b.sent();
+                                                                            if (f)
+                                                                                return [2, s.success({ type: "native", data: d.fix(f), headers: { Referer: E + "/" } })];
+                                                                            _b.label = 4;
+                                                                        case 4:
+                                                                            p = m.sniff(l);
+                                                                            if (p)
+                                                                                return [2, s.success({ type: "native", data: p, headers: { Referer: i ? r : E + "/" } })];
+                                                                            w = n.parse(l, r), y = w.select(c.iframe || "iframe[src], iframe[data-src]").first();
+                                                                            if (!(y && i < 2)) return [3, 6];
+                                                                            v = d.fix(y.attr("src") || y.attr("data-src"));
+                                                                            if (!v) return [3, 6];
+                                                                            return [4, m.track(v, i + 1)];
+                                                                        case 5: return [2, _b.sent()];
+                                                                        case 6: return [2, s.success({ type: "webview", data: r })];
+                                                                    }
+                                                                }); });
+                                                            } };
+                                                        return [2, typeof G == "function" ? G : void 0];
                                                     });
-                                                }, listPage: function (r, i, o) {
-                                                    return __awaiter(this, void 0, void 0, function () { var l, f, p; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0: return [4, d.html(m.url(r, i, o), c.req)];
-                                                            case 1:
-                                                                l = _b.sent();
-                                                                return [4, m.items(l)];
-                                                            case 2:
-                                                                f = _b.sent(), p = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
-                                                                return [2, s.success(f, d.next(p && f.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, browse: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                o = c.tabs && c.tabs[r] || r;
-                                                                return [4, m.listPage(o, i, "")];
-                                                            case 1: return [2, _b.sent()];
-                                                        }
-                                                    }); });
-                                                }, search: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!d.isUrl(r)) return [3, 2];
-                                                                o = d.fix(r);
-                                                                return [4, m.listPage(o + (o.indexOf("?") > 0 ? "&" : "?") + (c.pageParam || "page") + "={p}", i, "")];
-                                                            case 1: return [2, _b.sent()];
-                                                            case 2: return [4, m.listPage(c.search, i, r)];
-                                                            case 3: return [2, _b.sent()];
-                                                        }
-                                                    }); });
-                                                }, genre: function () {
-                                                    return __awaiter(this, void 0, void 0, function () { var r, i; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!c.genre)
-                                                                    return [2, s.success([])];
-                                                                return [4, d.html(d.fix(c.genrePage || "/"))];
-                                                            case 1:
-                                                                r = _b.sent();
-                                                                return [4, z(r.select(c.genre), function (o) {
-                                                                        return __awaiter(this, void 0, void 0, function () {
-                                                                            var _b;
-                                                                            return __generator(this, function (_c) {
-                                                                                switch (_c.label) {
-                                                                                    case 0:
-                                                                                        _b = {};
-                                                                                        return [4, o.text()];
-                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(o.attr("href")), _b.script = "search.js", _b)];
-                                                                                }
-                                                                            });
-                                                                        });
-                                                                    })];
-                                                            case 2:
-                                                                i = _b.sent();
-                                                                return [2, s.success(i.filter(function (o) { return o.title; }))];
-                                                        }
-                                                    }); });
-                                                }, detail: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, _b, _c, _d, _f, _g;
-                                                        var _h;
-                                                        return __generator(this, function (_j) {
-                                                            switch (_j.label) {
-                                                                case 0: return [4, d.html(r, c.req)];
-                                                                case 1:
-                                                                    i = _j.sent();
-                                                                    if (!c.d_genres) return [3, 3];
-                                                                    return [4, z(i.select(c.d_genres), function (f) {
-                                                                            return __awaiter(this, void 0, void 0, function () {
-                                                                                var _b;
-                                                                                return __generator(this, function (_c) {
-                                                                                    switch (_c.label) {
-                                                                                        case 0:
-                                                                                            _b = {};
-                                                                                            return [4, f.text()];
-                                                                                        case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(f.attr("href")), _b.script = "search.js", _b)];
-                                                                                    }
-                                                                                });
-                                                                            });
-                                                                        })];
-                                                                case 2:
-                                                                    _b = _j.sent();
-                                                                    return [3, 4];
-                                                                case 3:
-                                                                    _b = [];
-                                                                    _j.label = 4;
-                                                                case 4:
-                                                                    o = _b;
-                                                                    return [4, m.pick(i, c.d_status)];
-                                                                case 5:
-                                                                    l = _j.sent();
-                                                                    _d = (_c = s).success;
-                                                                    _h = {};
-                                                                    return [4, m.pick(i, c.d_title || "h1")];
-                                                                case 6:
-                                                                    _h.name = _j.sent();
-                                                                    _g = (_f = d).fix;
-                                                                    return [4, m.pick(i, c.d_cover || "meta[property=og:image]@content")];
-                                                                case 7:
-                                                                    _h.cover = _g.apply(_f, [_j.sent()]);
-                                                                    return [4, m.pick(i, c.d_author)];
-                                                                case 8:
-                                                                    _h.author = _j.sent();
-                                                                    return [4, m.pick(i, (c.d_desc || "meta[name=description]@content").replace(/$/, ""))];
-                                                                case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = l ? "Tình trạng: " + l : "", _h.ongoing = d.ongoing(l), _h.genres = o, _h.host = E, _h)])];
-                                                            }
-                                                        });
-                                                    });
-                                                }, toc: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, _b, w, y, v, T, k, _c, _d, _f, _g, P, B, _h;
-                                                        var _j;
-                                                        return __generator(this, function (_k) {
-                                                            switch (_k.label) {
-                                                                case 0:
-                                                                    if (c.single)
-                                                                        return [2, s.success([{ name: c.single === !0 ? "Xem / Đọc" : c.single, url: r, host: E }])];
-                                                                    i = [r], o = [], l = {};
-                                                                    return [4, d.html(c.ch_rewrite ? r.replace(new RegExp(c.ch_rewrite[0]), c.ch_rewrite[1]) : r, c.req)];
-                                                                case 1:
-                                                                    f = _k.sent();
-                                                                    if (!c.ch_url) return [3, 5];
-                                                                    return [4, m.pick(f, c.ch_url)];
-                                                                case 2:
-                                                                    p = _k.sent();
-                                                                    _b = p;
-                                                                    if (!_b) return [3, 4];
-                                                                    return [4, d.html(d.fix(p), c.req)];
-                                                                case 3:
-                                                                    _b = (f = _k.sent());
-                                                                    _k.label = 4;
-                                                                case 4:
-                                                                    _b;
-                                                                    _k.label = 5;
-                                                                case 5:
-                                                                    w = 0;
-                                                                    _k.label = 6;
-                                                                case 6:
-                                                                    if (!(w < (c.ch_maxPages || 60))) return [3, 20];
-                                                                    y = f.select(c.ch_list), v = 0;
-                                                                    _k.label = 7;
-                                                                case 7:
-                                                                    if (!(v < y.size())) return [3, 15];
-                                                                    return [4, y.get(v)];
-                                                                case 8:
-                                                                    T = _k.sent(), k = T.attr("href") || T.attr("data-href");
-                                                                    _c = !k || k === "#" || l[k];
-                                                                    if (_c) return [3, 13];
-                                                                    l[k] = 1;
-                                                                    _f = (_d = o).push;
-                                                                    _j = {};
-                                                                    if (!c.ch_name) return [3, 10];
-                                                                    return [4, m.pick(T, c.ch_name)];
-                                                                case 9:
-                                                                    _g = _k.sent();
-                                                                    return [3, 12];
-                                                                case 10: return [4, T.text()];
-                                                                case 11:
-                                                                    _g = _k.sent();
-                                                                    _k.label = 12;
-                                                                case 12:
-                                                                    _c = (_f.apply(_d, [(_j.name = (_g) || T.attr("title"), _j.url = d.fix(k), _j.host = E, _j)]));
-                                                                    _k.label = 13;
-                                                                case 13:
-                                                                    _c;
-                                                                    _k.label = 14;
-                                                                case 14:
-                                                                    v++;
-                                                                    return [3, 7];
-                                                                case 15:
-                                                                    P = c.ch_next ? f.select(c.ch_next).first() : null;
-                                                                    if (!P || !P.attr("href"))
-                                                                        return [3, 20];
-                                                                    B = d.fix(P.attr("href"));
-                                                                    if (i.indexOf(B) >= 0)
-                                                                        return [3, 20];
-                                                                    i.push(B);
-                                                                    _h = c.ch_delay;
-                                                                    if (!_h) return [3, 17];
-                                                                    return [4, A(c.ch_delay)];
-                                                                case 16:
-                                                                    _h = (_k.sent());
-                                                                    _k.label = 17;
-                                                                case 17:
-                                                                    _h;
-                                                                    return [4, d.html(B, c.req)];
-                                                                case 18:
-                                                                    f = _k.sent();
-                                                                    _k.label = 19;
-                                                                case 19:
-                                                                    w++;
-                                                                    return [3, 6];
-                                                                case 20: return [2, (c.ch_reverse && o.reverse(), s.success(o))];
-                                                            }
-                                                        });
-                                                    });
-                                                }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, p, w, y, v, _b, _c, T, k; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                i = [], o = [r], l = r, f = 0;
-                                                                _d.label = 1;
-                                                            case 1:
-                                                                if (!(f < (c.pages_max || 40))) return [3, 8];
-                                                                return [4, d.html(l, c.req)];
-                                                            case 2:
-                                                                p = _d.sent(), w = p.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
-                                                                _d.label = 3;
-                                                            case 3:
-                                                                if (!(y < w.size())) return [3, 6];
-                                                                _c = (_b = d).img;
-                                                                return [4, w.get(y)];
-                                                            case 4:
-                                                                v = _c.apply(_b, [_d.sent()]);
-                                                                v && i.indexOf(v) < 0 && i.push(v);
-                                                                _d.label = 5;
-                                                            case 5:
-                                                                y++;
-                                                                return [3, 3];
-                                                            case 6:
-                                                                if (!c.pages_next)
-                                                                    return [3, 8];
-                                                                T = p.select(c.pages_next).first();
-                                                                if (!T)
-                                                                    return [3, 8];
-                                                                k = d.fix(T.attr("href"));
-                                                                if (!k || o.indexOf(k) >= 0)
-                                                                    return [3, 8];
-                                                                o.push(k), l = k;
-                                                                _d.label = 7;
-                                                            case 7:
-                                                                f++;
-                                                                return [3, 1];
-                                                            case 8: return [2, s.success(i)];
-                                                        }
-                                                    }); });
-                                                }, text: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, _b, _c, _d, _f, _g, _h, _j, _k; return __generator(this, function (_l) {
-                                                        switch (_l.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, c.req)];
-                                                            case 1: return [4, _c.apply(_b, [_l.sent(), r])];
-                                                            case 2:
-                                                                i = _l.sent();
-                                                                return [4, i.text()];
-                                                            case 3:
-                                                                o = (_l.sent()) || "", l = n.parse(o, r), f = l.select(c.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
-                                                                if (!!f) return [3, 5];
-                                                                if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(o.slice(0, 2e4)))
-                                                                    throw new Error("CLOUDFLARE: trang " + E + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
-                                                                _f = (_d = s).error;
-                                                                _g = 'Không tìm thấy nội dung — trang nhận được: "';
-                                                                return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
-                                                            case 5:
-                                                                _j = (_h = s).success;
-                                                                return [4, d.cleanContent(f)];
-                                                            case 6:
-                                                                _k = [_l.sent()];
-                                                                return [4, m.pick(l, c.c_title || "h1 || h2")];
-                                                            case 7: return [2, _j.apply(_h, _k.concat([_l.sent()]))];
-                                                        }
-                                                    }); });
-                                                }, servers: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!c.servers)
-                                                                    return [2, s.success([{ title: "Server", data: r }])];
-                                                                return [4, d.html(r, c.req)];
-                                                            case 1:
-                                                                i = _b.sent();
-                                                                return [4, z(i.select(c.servers), function (l) {
-                                                                        return __awaiter(this, void 0, void 0, function () {
-                                                                            var f;
-                                                                            var _b;
-                                                                            return __generator(this, function (_c) {
-                                                                                switch (_c.label) {
-                                                                                    case 0: return [4, m.pick(l, c.server_data || ":self@data-link || :self@data-src || :self@href")];
-                                                                                    case 1:
-                                                                                        f = _c.sent();
-                                                                                        _b = {};
-                                                                                        return [4, l.text()];
-                                                                                    case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(f), _b)];
-                                                                                }
-                                                                            });
-                                                                        });
-                                                                    })];
-                                                            case 2:
-                                                                o = (_b.sent()).filter(function (l) { return l.data; });
-                                                                return [2, s.success(o.length ? o : [{ title: "Server", data: r }])];
-                                                        }
-                                                    }); });
-                                                }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var i = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return i ? i[0] : ""; }, track: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (i = i || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
-                                                                    return [2, s.success({ type: "native", data: r, headers: { Referer: E + "/" } })];
-                                                                return [4, d.get(r)];
-                                                            case 1:
-                                                                o = _b.sent();
-                                                                return [4, o.text()];
-                                                            case 2:
-                                                                l = _b.sent();
-                                                                if (!(c.video && !i)) return [3, 4];
-                                                                return [4, m.pick(n.parse(l, r), c.video)];
-                                                            case 3:
-                                                                f = _b.sent();
-                                                                if (f)
-                                                                    return [2, s.success({ type: "native", data: d.fix(f), headers: { Referer: E + "/" } })];
-                                                                _b.label = 4;
-                                                            case 4:
-                                                                p = m.sniff(l);
-                                                                if (p)
-                                                                    return [2, s.success({ type: "native", data: p, headers: { Referer: i ? r : E + "/" } })];
-                                                                w = n.parse(l, r), y = w.select(c.iframe || "iframe[src], iframe[data-src]").first();
-                                                                if (!(y && i < 2)) return [3, 6];
-                                                                v = d.fix(y.attr("src") || y.attr("data-src"));
-                                                                if (!v) return [3, 6];
-                                                                return [4, m.track(v, i + 1)];
-                                                            case 5: return [2, _b.sent()];
-                                                            case 6: return [2, s.success({ type: "webview", data: r })];
-                                                        }
-                                                    }); });
-                                                } };
-                                            return [2, typeof G == "function" ? G : void 0];
-                                        }); });
-                                    })()];
-                            case 1: return [2, _b.sent()];
-                        }
-                    }); });
-                })(t.fetch, t.Http, t.Html, t.Response, t.localStorage, t.cacheStorage, t.localConfig, t.localCookie, t.sleep, t.Log, t.console, t.Console, t.log, t.UserAgent, t.Engine, t.Graphics, t.Script)];
-        }); });
+                                                });
+                                            })()];
+                                    case 1: return [2, _b.sent()];
+                                }
+                            });
+                        });
+                    })(t.fetch, t.Http, t.Html, t.Response, t.localStorage, t.cacheStorage, t.localConfig, t.localCookie, t.sleep, t.Log, t.console, t.Console, t.log, t.UserAgent, t.Engine, t.Graphics, t.Script)];
+            });
+        });
     }, detail: function (t, e) {
-        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, a, n, s, h, b, g, x, A, D, q, N, I, U, X, Z, ne) {
-                    return __awaiter(this, void 0, void 0, function () { var R; return __generator(this, function (_b) {
-                        switch (_b.label) {
-                            case 0:
-                                R = e("DOMAIN");
-                                return [4, (function () {
-                                        return __awaiter(this, void 0, void 0, function () { function G(r) {
-                                            return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                switch (_b.label) {
-                                                    case 0: return [4, m.detail(r)];
-                                                    case 1: return [2, _b.sent()];
-                                                }
-                                            }); });
-                                        } var E, c, d, m; return __generator(this, function (_b) {
-                                            E = "https://navyteams.com";
-                                            try {
-                                                R && (E = String(R).replace(/\/+$/, ""));
-                                            }
-                                            catch (r) { }
-                                            c = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".comic-item", title: "h3 || a@title || img@alt", link: "a@href", ch_list: "div.bodyL a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: ".content-type-novel, .chapter-content, #chapter-content" }, d = { img: function (r) { if (!r)
-                                                    return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], o = 0; o < i.length; o++) {
-                                                    var l = r.attr(i[o]);
-                                                    if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
-                                                        return d.fix(l.trim());
-                                                } var f = r.attr("data-srcset") || r.attr("srcset"); return f ? d.fix(f.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? E + r : E + "/" + r) : ""; }, text: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                o = 0;
-                                                                _b.label = 1;
-                                                            case 1:
-                                                                if (!(o < i.length)) return [3, 4];
-                                                                return [4, r.select(i[o]).text()];
-                                                            case 2:
-                                                                l = _b.sent();
-                                                                if (l)
-                                                                    return [2, l.trim()];
-                                                                _b.label = 3;
-                                                            case 3:
-                                                                o++;
-                                                                return [3, 1];
-                                                            case 4: return [2, ""];
-                                                        }
-                                                    }); });
-                                                }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, _b; return __generator(this, function (_c) {
-                                                        switch (_c.label) {
-                                                            case 0:
-                                                                i = i || {};
-                                                                o = { Referer: E + "/" };
-                                                                if (i.headers)
-                                                                    for (l in i.headers)
-                                                                        o[l] = i.headers[l];
-                                                                return [4, u(r, { method: i.method, headers: o, body: i.body })];
-                                                            case 1:
-                                                                f = _c.sent(), p = 0;
-                                                                _c.label = 2;
-                                                            case 2:
-                                                                _b = f && f.status === 429 && p < 3;
-                                                                if (!_b) return [3, 4];
-                                                                return [4, d.cf(f)];
-                                                            case 3:
-                                                                _b = !(_c.sent());
-                                                                _c.label = 4;
-                                                            case 4:
-                                                                if (!_b) return [3, 8];
-                                                                return [4, A(1500 * (p + 1))];
-                                                            case 5:
-                                                                _c.sent();
-                                                                return [4, u(r, { method: i.method, headers: o, body: i.body })];
-                                                            case 6:
-                                                                f = _c.sent();
-                                                                _c.label = 7;
-                                                            case 7:
-                                                                p++;
-                                                                return [3, 2];
-                                                            case 8: return [2, f];
-                                                        }
-                                                    }); });
-                                                }, cf: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.status !== 403 && r.status !== 503 && r.status !== 429)
-                                                                    return [2, !1];
-                                                                return [4, r.text()];
-                                                            case 1:
-                                                                i = (_b.sent()) || "";
-                                                                return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
-                                                        }
-                                                    }); });
-                                                }, check: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.ok)
-                                                                    return [2, r];
-                                                                return [4, d.cf(r)];
-                                                            case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
-                                                        }
-                                                    }); });
-                                                }, html: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                o = _d.sent();
-                                                                return [4, o.html(i && i.charset)];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, json: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                o = _d.sent();
-                                                                return [4, o.json()];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
-                                                                return [4, r.html()];
-                                                            case 1: return [2, (_b.sent()).replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
-                                                        }
-                                                    }); });
-                                                }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, m = { pick: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v, T, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                if (!i || !r)
-                                                                    return [2, ""];
-                                                                o = String(i).split(" || "), l = 0;
-                                                                _d.label = 1;
-                                                            case 1:
-                                                                if (!(l < o.length)) return [3, 9];
-                                                                f = o[l], p = "text", w = f.lastIndexOf("@");
-                                                                w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (p = f.slice(w + 1), f = f.slice(0, w));
-                                                                y = f === ":self" ? null : r.select(f), v = f === ":self" ? r : y.size() ? y.first() : null;
-                                                                if (!v) return [3, 8];
-                                                                if (!(p === "text")) return [3, 3];
-                                                                return [4, v.text()];
-                                                            case 2:
-                                                                _b = _d.sent();
-                                                                return [3, 7];
-                                                            case 3:
-                                                                if (!(p === "html")) return [3, 5];
-                                                                return [4, v.html()];
-                                                            case 4:
-                                                                _c = _d.sent();
-                                                                return [3, 6];
-                                                            case 5:
-                                                                _c = p === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : p === "own" ? v.ownText() : v.attr(p);
-                                                                _d.label = 6;
-                                                            case 6:
-                                                                _b = _c;
-                                                                _d.label = 7;
-                                                            case 7:
-                                                                T = _b;
-                                                                if (T)
-                                                                    return [2, String(T).trim()];
-                                                                _d.label = 8;
-                                                            case 8:
-                                                                l++;
-                                                                return [3, 1];
-                                                            case 9: return [2, ""];
-                                                        }
-                                                    }); });
-                                                }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (p, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, w, y, _b, _c, _d;
-                                                        var _f;
-                                                        return __generator(this, function (_g) {
-                                                            switch (_g.label) {
-                                                                case 0:
-                                                                    i = r.select(c.item), o = [], l = {}, f = 0;
-                                                                    _g.label = 1;
-                                                                case 1:
-                                                                    if (!(f < i.size())) return [3, 9];
-                                                                    return [4, i.get(f)];
-                                                                case 2:
-                                                                    p = _g.sent();
-                                                                    return [4, m.pick(p, c.link || "a@href")];
-                                                                case 3:
-                                                                    w = _g.sent();
-                                                                    if (!!(!w || l[w] || /^javascript|#$/.test(w))) return [3, 8];
-                                                                    return [4, m.pick(p, c.title || "h3 || h2 || a@title || img@alt")];
-                                                                case 4:
-                                                                    y = _g.sent();
-                                                                    _b = y;
-                                                                    if (!_b) return [3, 7];
-                                                                    l[w] = 1;
-                                                                    _d = (_c = o).push;
-                                                                    _f = { name: y, link: d.fix(w) };
-                                                                    return [4, m.pick(p, c.cover || "img@img")];
-                                                                case 5:
-                                                                    _f.cover = _g.sent();
-                                                                    return [4, m.pick(p, c.desc || "")];
-                                                                case 6:
-                                                                    _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = E, _f)]));
-                                                                    _g.label = 7;
-                                                                case 7:
-                                                                    _b;
-                                                                    _g.label = 8;
-                                                                case 8:
-                                                                    f++;
-                                                                    return [3, 1];
-                                                                case 9: return [2, o];
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_b) {
+                return [2, (function (u, a, n, s, h, b, g, x, A, D, q, N, I, U, X, Z, ne) {
+                        return __awaiter(this, void 0, void 0, function () {
+                            var R;
+                            return __generator(this, function (_b) {
+                                switch (_b.label) {
+                                    case 0:
+                                        R = e("DOMAIN");
+                                        return [4, (function () {
+                                                return __awaiter(this, void 0, void 0, function () {
+                                                    function G(r) {
+                                                        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                            switch (_b.label) {
+                                                                case 0: return [4, m.detail(r)];
+                                                                case 1: return [2, _b.sent()];
                                                             }
-                                                        });
+                                                        }); });
+                                                    }
+                                                    var E, c, d, m;
+                                                    return __generator(this, function (_b) {
+                                                        E = "https://navyteams.com";
+                                                        try {
+                                                            R && (E = String(R).replace(/\/+$/, ""));
+                                                        }
+                                                        catch (r) { }
+                                                        c = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".comic-item", title: "h3 || a@title || img@alt", link: "a@href", ch_list: "div.bodyL a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: ".content-type-novel, .chapter-content, #chapter-content" }, d = { img: function (r) { if (!r)
+                                                                return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], o = 0; o < i.length; o++) {
+                                                                var l = r.attr(i[o]);
+                                                                if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
+                                                                    return d.fix(l.trim());
+                                                            } var f = r.attr("data-srcset") || r.attr("srcset"); return f ? d.fix(f.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? E + r : E + "/" + r) : ""; }, text: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            o = 0;
+                                                                            _b.label = 1;
+                                                                        case 1:
+                                                                            if (!(o < i.length)) return [3, 4];
+                                                                            return [4, r.select(i[o]).text()];
+                                                                        case 2:
+                                                                            l = _b.sent();
+                                                                            if (l)
+                                                                                return [2, l.trim()];
+                                                                            _b.label = 3;
+                                                                        case 3:
+                                                                            o++;
+                                                                            return [3, 1];
+                                                                        case 4: return [2, ""];
+                                                                    }
+                                                                }); });
+                                                            }, get: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l, f, p, _b; return __generator(this, function (_c) {
+                                                                    switch (_c.label) {
+                                                                        case 0:
+                                                                            i = i || {};
+                                                                            o = { Referer: E + "/" };
+                                                                            if (i.headers)
+                                                                                for (l in i.headers)
+                                                                                    o[l] = i.headers[l];
+                                                                            return [4, u(r, { method: i.method, headers: o, body: i.body })];
+                                                                        case 1:
+                                                                            f = _c.sent(), p = 0;
+                                                                            _c.label = 2;
+                                                                        case 2:
+                                                                            _b = f && f.status === 429 && p < 3;
+                                                                            if (!_b) return [3, 4];
+                                                                            return [4, d.cf(f)];
+                                                                        case 3:
+                                                                            _b = !(_c.sent());
+                                                                            _c.label = 4;
+                                                                        case 4:
+                                                                            if (!_b) return [3, 8];
+                                                                            return [4, A(1500 * (p + 1))];
+                                                                        case 5:
+                                                                            _c.sent();
+                                                                            return [4, u(r, { method: i.method, headers: o, body: i.body })];
+                                                                        case 6:
+                                                                            f = _c.sent();
+                                                                            _c.label = 7;
+                                                                        case 7:
+                                                                            p++;
+                                                                            return [3, 2];
+                                                                        case 8: return [2, f];
+                                                                    }
+                                                                }); });
+                                                            }, cf: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.status !== 403 && r.status !== 503 && r.status !== 429)
+                                                                                return [2, !1];
+                                                                            return [4, r.text()];
+                                                                        case 1:
+                                                                            i = (_b.sent()) || "";
+                                                                            return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
+                                                                    }
+                                                                }); });
+                                                            }, check: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.ok)
+                                                                                return [2, r];
+                                                                            return [4, d.cf(r)];
+                                                                        case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
+                                                                    }
+                                                                }); });
+                                                            }, html: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            o = _d.sent();
+                                                                            return [4, o.html(i && i.charset)];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, json: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            o = _d.sent();
+                                                                            return [4, o.json()];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    return __generator(this, function (_b) {
+                                                                        switch (_b.label) {
+                                                                            case 0:
+                                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
+                                                                                return [4, r.html()];
+                                                                            case 1: return [2, (_b.sent()).replace(/\r\n?/g, "\n").replace(/&#13;|&#x0?[dD];/g, "").replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, m = { pick: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v, T, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            if (!i || !r)
+                                                                                return [2, ""];
+                                                                            o = String(i).split(" || "), l = 0;
+                                                                            _d.label = 1;
+                                                                        case 1:
+                                                                            if (!(l < o.length)) return [3, 9];
+                                                                            f = o[l], p = "text", w = f.lastIndexOf("@");
+                                                                            w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (p = f.slice(w + 1), f = f.slice(0, w));
+                                                                            y = f === ":self" ? null : r.select(f), v = f === ":self" ? r : y.size() ? y.first() : null;
+                                                                            if (!v) return [3, 8];
+                                                                            if (!(p === "text")) return [3, 3];
+                                                                            return [4, v.text()];
+                                                                        case 2:
+                                                                            _b = _d.sent();
+                                                                            return [3, 7];
+                                                                        case 3:
+                                                                            if (!(p === "html")) return [3, 5];
+                                                                            return [4, v.html()];
+                                                                        case 4:
+                                                                            _c = _d.sent();
+                                                                            return [3, 6];
+                                                                        case 5:
+                                                                            _c = p === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : p === "own" ? v.ownText() : v.attr(p);
+                                                                            _d.label = 6;
+                                                                        case 6:
+                                                                            _b = _c;
+                                                                            _d.label = 7;
+                                                                        case 7:
+                                                                            T = _b;
+                                                                            if (T)
+                                                                                return [2, String(T).trim()];
+                                                                            _d.label = 8;
+                                                                        case 8:
+                                                                            l++;
+                                                                            return [3, 1];
+                                                                        case 9: return [2, ""];
+                                                                    }
+                                                                }); });
+                                                            }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (p, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, o, l, f, p, w, y, _b, _c, _d;
+                                                                    var _f;
+                                                                    return __generator(this, function (_g) {
+                                                                        switch (_g.label) {
+                                                                            case 0:
+                                                                                i = r.select(c.item), o = [], l = {}, f = 0;
+                                                                                _g.label = 1;
+                                                                            case 1:
+                                                                                if (!(f < i.size())) return [3, 9];
+                                                                                return [4, i.get(f)];
+                                                                            case 2:
+                                                                                p = _g.sent();
+                                                                                return [4, m.pick(p, c.link || "a@href")];
+                                                                            case 3:
+                                                                                w = _g.sent();
+                                                                                if (!!(!w || l[w] || /^javascript|#$/.test(w))) return [3, 8];
+                                                                                return [4, m.pick(p, c.title || "h3 || h2 || a@title || img@alt")];
+                                                                            case 4:
+                                                                                y = _g.sent();
+                                                                                _b = y;
+                                                                                if (!_b) return [3, 7];
+                                                                                l[w] = 1;
+                                                                                _d = (_c = o).push;
+                                                                                _f = { name: y, link: d.fix(w) };
+                                                                                return [4, m.pick(p, c.cover || "img@img")];
+                                                                            case 5:
+                                                                                _f.cover = _g.sent();
+                                                                                return [4, m.pick(p, c.desc || "")];
+                                                                            case 6:
+                                                                                _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = E, _f)]));
+                                                                                _g.label = 7;
+                                                                            case 7:
+                                                                                _b;
+                                                                                _g.label = 8;
+                                                                            case 8:
+                                                                                f++;
+                                                                                return [3, 1];
+                                                                            case 9: return [2, o];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, listPage: function (r, i, o) {
+                                                                return __awaiter(this, void 0, void 0, function () { var l, f, p; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0: return [4, d.html(m.url(r, i, o), c.req)];
+                                                                        case 1:
+                                                                            l = _b.sent();
+                                                                            return [4, m.items(l)];
+                                                                        case 2:
+                                                                            f = _b.sent(), p = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
+                                                                            return [2, s.success(f, d.next(p && f.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, browse: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            o = c.tabs && c.tabs[r] || r;
+                                                                            return [4, m.listPage(o, i, "")];
+                                                                        case 1: return [2, _b.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, search: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!d.isUrl(r)) return [3, 2];
+                                                                            o = d.fix(r);
+                                                                            return [4, m.listPage(o + (o.indexOf("?") > 0 ? "&" : "?") + (c.pageParam || "page") + "={p}", i, "")];
+                                                                        case 1: return [2, _b.sent()];
+                                                                        case 2: return [4, m.listPage(c.search, i, r)];
+                                                                        case 3: return [2, _b.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, genre: function () {
+                                                                return __awaiter(this, void 0, void 0, function () { var r, i; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!c.genre)
+                                                                                return [2, s.success([])];
+                                                                            return [4, d.html(d.fix(c.genrePage || "/"))];
+                                                                        case 1:
+                                                                            r = _b.sent();
+                                                                            return [4, z(r.select(c.genre), function (o) {
+                                                                                    return __awaiter(this, void 0, void 0, function () {
+                                                                                        var _b;
+                                                                                        return __generator(this, function (_c) {
+                                                                                            switch (_c.label) {
+                                                                                                case 0:
+                                                                                                    _b = {};
+                                                                                                    return [4, o.text()];
+                                                                                                case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(o.attr("href")), _b.script = "search.js", _b)];
+                                                                                            }
+                                                                                        });
+                                                                                    });
+                                                                                })];
+                                                                        case 2:
+                                                                            i = _b.sent();
+                                                                            return [2, s.success(i.filter(function (o) { return o.title; }))];
+                                                                    }
+                                                                }); });
+                                                            }, detail: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, o, l, _b, _c, _d, _f, _g;
+                                                                    var _h;
+                                                                    return __generator(this, function (_j) {
+                                                                        switch (_j.label) {
+                                                                            case 0: return [4, d.html(r, c.req)];
+                                                                            case 1:
+                                                                                i = _j.sent();
+                                                                                if (!c.d_genres) return [3, 3];
+                                                                                return [4, z(i.select(c.d_genres), function (f) {
+                                                                                        return __awaiter(this, void 0, void 0, function () {
+                                                                                            var _b;
+                                                                                            return __generator(this, function (_c) {
+                                                                                                switch (_c.label) {
+                                                                                                    case 0:
+                                                                                                        _b = {};
+                                                                                                        return [4, f.text()];
+                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(f.attr("href")), _b.script = "search.js", _b)];
+                                                                                                }
+                                                                                            });
+                                                                                        });
+                                                                                    })];
+                                                                            case 2:
+                                                                                _b = _j.sent();
+                                                                                return [3, 4];
+                                                                            case 3:
+                                                                                _b = [];
+                                                                                _j.label = 4;
+                                                                            case 4:
+                                                                                o = _b;
+                                                                                return [4, m.pick(i, c.d_status)];
+                                                                            case 5:
+                                                                                l = _j.sent();
+                                                                                _d = (_c = s).success;
+                                                                                _h = {};
+                                                                                return [4, m.pick(i, c.d_title || "h1")];
+                                                                            case 6:
+                                                                                _h.name = _j.sent();
+                                                                                _g = (_f = d).fix;
+                                                                                return [4, m.pick(i, c.d_cover || "meta[property=og:image]@content")];
+                                                                            case 7:
+                                                                                _h.cover = _g.apply(_f, [_j.sent()]);
+                                                                                return [4, m.pick(i, c.d_author)];
+                                                                            case 8:
+                                                                                _h.author = _j.sent();
+                                                                                return [4, m.pick(i, (c.d_desc || "meta[name=description]@content").replace(/$/, ""))];
+                                                                            case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = l ? "Tình trạng: " + l : "", _h.ongoing = d.ongoing(l), _h.genres = o, _h.host = E, _h)])];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, toc: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, o, l, f, p, _b, w, y, v, T, k, _c, _d, _f, _g, P, B, _h;
+                                                                    var _j;
+                                                                    return __generator(this, function (_k) {
+                                                                        switch (_k.label) {
+                                                                            case 0:
+                                                                                if (c.single)
+                                                                                    return [2, s.success([{ name: c.single === !0 ? "Xem / Đọc" : c.single, url: r, host: E }])];
+                                                                                i = [r], o = [], l = {};
+                                                                                return [4, d.html(c.ch_rewrite ? r.replace(new RegExp(c.ch_rewrite[0]), c.ch_rewrite[1]) : r, c.req)];
+                                                                            case 1:
+                                                                                f = _k.sent();
+                                                                                if (!c.ch_url) return [3, 5];
+                                                                                return [4, m.pick(f, c.ch_url)];
+                                                                            case 2:
+                                                                                p = _k.sent();
+                                                                                _b = p;
+                                                                                if (!_b) return [3, 4];
+                                                                                return [4, d.html(d.fix(p), c.req)];
+                                                                            case 3:
+                                                                                _b = (f = _k.sent());
+                                                                                _k.label = 4;
+                                                                            case 4:
+                                                                                _b;
+                                                                                _k.label = 5;
+                                                                            case 5:
+                                                                                w = 0;
+                                                                                _k.label = 6;
+                                                                            case 6:
+                                                                                if (!(w < (c.ch_maxPages || 60))) return [3, 20];
+                                                                                y = f.select(c.ch_list), v = 0;
+                                                                                _k.label = 7;
+                                                                            case 7:
+                                                                                if (!(v < y.size())) return [3, 15];
+                                                                                return [4, y.get(v)];
+                                                                            case 8:
+                                                                                T = _k.sent(), k = T.attr("href") || T.attr("data-href");
+                                                                                _c = !k || k === "#" || l[k];
+                                                                                if (_c) return [3, 13];
+                                                                                l[k] = 1;
+                                                                                _f = (_d = o).push;
+                                                                                _j = {};
+                                                                                if (!c.ch_name) return [3, 10];
+                                                                                return [4, m.pick(T, c.ch_name)];
+                                                                            case 9:
+                                                                                _g = _k.sent();
+                                                                                return [3, 12];
+                                                                            case 10: return [4, T.text()];
+                                                                            case 11:
+                                                                                _g = _k.sent();
+                                                                                _k.label = 12;
+                                                                            case 12:
+                                                                                _c = (_f.apply(_d, [(_j.name = (_g) || T.attr("title"), _j.url = d.fix(k), _j.host = E, _j)]));
+                                                                                _k.label = 13;
+                                                                            case 13:
+                                                                                _c;
+                                                                                _k.label = 14;
+                                                                            case 14:
+                                                                                v++;
+                                                                                return [3, 7];
+                                                                            case 15:
+                                                                                P = c.ch_next ? f.select(c.ch_next).first() : null;
+                                                                                if (!P || !P.attr("href"))
+                                                                                    return [3, 20];
+                                                                                B = d.fix(P.attr("href"));
+                                                                                if (i.indexOf(B) >= 0)
+                                                                                    return [3, 20];
+                                                                                i.push(B);
+                                                                                _h = c.ch_delay;
+                                                                                if (!_h) return [3, 17];
+                                                                                return [4, A(c.ch_delay)];
+                                                                            case 16:
+                                                                                _h = (_k.sent());
+                                                                                _k.label = 17;
+                                                                            case 17:
+                                                                                _h;
+                                                                                return [4, d.html(B, c.req)];
+                                                                            case 18:
+                                                                                f = _k.sent();
+                                                                                _k.label = 19;
+                                                                            case 19:
+                                                                                w++;
+                                                                                return [3, 6];
+                                                                            case 20: return [2, (c.ch_reverse && o.reverse(), s.success(o))];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, pages: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, o, l, f, p, w, y, v, _b, _c, T, k; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            i = [], o = [r], l = r, f = 0;
+                                                                            _d.label = 1;
+                                                                        case 1:
+                                                                            if (!(f < (c.pages_max || 40))) return [3, 8];
+                                                                            return [4, d.html(l, c.req)];
+                                                                        case 2:
+                                                                            p = _d.sent(), w = p.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
+                                                                            _d.label = 3;
+                                                                        case 3:
+                                                                            if (!(y < w.size())) return [3, 6];
+                                                                            _c = (_b = d).img;
+                                                                            return [4, w.get(y)];
+                                                                        case 4:
+                                                                            v = _c.apply(_b, [_d.sent()]);
+                                                                            v && i.indexOf(v) < 0 && i.push(v);
+                                                                            _d.label = 5;
+                                                                        case 5:
+                                                                            y++;
+                                                                            return [3, 3];
+                                                                        case 6:
+                                                                            if (!c.pages_next)
+                                                                                return [3, 8];
+                                                                            T = p.select(c.pages_next).first();
+                                                                            if (!T)
+                                                                                return [3, 8];
+                                                                            k = d.fix(T.attr("href"));
+                                                                            if (!k || o.indexOf(k) >= 0)
+                                                                                return [3, 8];
+                                                                            o.push(k), l = k;
+                                                                            _d.label = 7;
+                                                                        case 7:
+                                                                            f++;
+                                                                            return [3, 1];
+                                                                        case 8: return [2, s.success(i)];
+                                                                    }
+                                                                }); });
+                                                            }, text: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, o, l, f, _b, _c, _d, _f, _g, _h, _j, _k; return __generator(this, function (_l) {
+                                                                    switch (_l.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, c.req)];
+                                                                        case 1: return [4, _c.apply(_b, [_l.sent(), r])];
+                                                                        case 2:
+                                                                            i = _l.sent();
+                                                                            return [4, i.text()];
+                                                                        case 3:
+                                                                            o = (_l.sent()) || "", l = n.parse(o, r), f = l.select(c.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            if (!!f) return [3, 5];
+                                                                            if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(o.slice(0, 2e4)))
+                                                                                throw new Error("CLOUDFLARE: trang " + E + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
+                                                                            _f = (_d = s).error;
+                                                                            _g = 'Không tìm thấy nội dung — trang nhận được: "';
+                                                                            return [4, m.pick(l, "title")];
+                                                                        case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
+                                                                        case 5:
+                                                                            _j = (_h = s).success;
+                                                                            return [4, d.cleanContent(f)];
+                                                                        case 6:
+                                                                            _k = [_l.sent()];
+                                                                            return [4, m.pick(l, c.c_title || "h1 || h2")];
+                                                                        case 7: return [2, _j.apply(_h, _k.concat([_l.sent()]))];
+                                                                    }
+                                                                }); });
+                                                            }, servers: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, o; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!c.servers)
+                                                                                return [2, s.success([{ title: "Server", data: r }])];
+                                                                            return [4, d.html(r, c.req)];
+                                                                        case 1:
+                                                                            i = _b.sent();
+                                                                            return [4, z(i.select(c.servers), function (l) {
+                                                                                    return __awaiter(this, void 0, void 0, function () {
+                                                                                        var f;
+                                                                                        var _b;
+                                                                                        return __generator(this, function (_c) {
+                                                                                            switch (_c.label) {
+                                                                                                case 0: return [4, m.pick(l, c.server_data || ":self@data-link || :self@data-src || :self@href")];
+                                                                                                case 1:
+                                                                                                    f = _c.sent();
+                                                                                                    _b = {};
+                                                                                                    return [4, l.text()];
+                                                                                                case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(f), _b)];
+                                                                                            }
+                                                                                        });
+                                                                                    });
+                                                                                })];
+                                                                        case 2:
+                                                                            o = (_b.sent()).filter(function (l) { return l.data; });
+                                                                            return [2, s.success(o.length ? o : [{ title: "Server", data: r }])];
+                                                                    }
+                                                                }); });
+                                                            }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var i = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return i ? i[0] : ""; }, track: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (i = i || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
+                                                                                return [2, s.success({ type: "native", data: r, headers: { Referer: E + "/" } })];
+                                                                            return [4, d.get(r)];
+                                                                        case 1:
+                                                                            o = _b.sent();
+                                                                            return [4, o.text()];
+                                                                        case 2:
+                                                                            l = _b.sent();
+                                                                            if (!(c.video && !i)) return [3, 4];
+                                                                            return [4, m.pick(n.parse(l, r), c.video)];
+                                                                        case 3:
+                                                                            f = _b.sent();
+                                                                            if (f)
+                                                                                return [2, s.success({ type: "native", data: d.fix(f), headers: { Referer: E + "/" } })];
+                                                                            _b.label = 4;
+                                                                        case 4:
+                                                                            p = m.sniff(l);
+                                                                            if (p)
+                                                                                return [2, s.success({ type: "native", data: p, headers: { Referer: i ? r : E + "/" } })];
+                                                                            w = n.parse(l, r), y = w.select(c.iframe || "iframe[src], iframe[data-src]").first();
+                                                                            if (!(y && i < 2)) return [3, 6];
+                                                                            v = d.fix(y.attr("src") || y.attr("data-src"));
+                                                                            if (!v) return [3, 6];
+                                                                            return [4, m.track(v, i + 1)];
+                                                                        case 5: return [2, _b.sent()];
+                                                                        case 6: return [2, s.success({ type: "webview", data: r })];
+                                                                    }
+                                                                }); });
+                                                            } };
+                                                        return [2, typeof G == "function" ? G : void 0];
                                                     });
-                                                }, listPage: function (r, i, o) {
-                                                    return __awaiter(this, void 0, void 0, function () { var l, f, p; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0: return [4, d.html(m.url(r, i, o), c.req)];
-                                                            case 1:
-                                                                l = _b.sent();
-                                                                return [4, m.items(l)];
-                                                            case 2:
-                                                                f = _b.sent(), p = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
-                                                                return [2, s.success(f, d.next(p && f.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, browse: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                o = c.tabs && c.tabs[r] || r;
-                                                                return [4, m.listPage(o, i, "")];
-                                                            case 1: return [2, _b.sent()];
-                                                        }
-                                                    }); });
-                                                }, search: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!d.isUrl(r)) return [3, 2];
-                                                                o = d.fix(r);
-                                                                return [4, m.listPage(o + (o.indexOf("?") > 0 ? "&" : "?") + (c.pageParam || "page") + "={p}", i, "")];
-                                                            case 1: return [2, _b.sent()];
-                                                            case 2: return [4, m.listPage(c.search, i, r)];
-                                                            case 3: return [2, _b.sent()];
-                                                        }
-                                                    }); });
-                                                }, genre: function () {
-                                                    return __awaiter(this, void 0, void 0, function () { var r, i; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!c.genre)
-                                                                    return [2, s.success([])];
-                                                                return [4, d.html(d.fix(c.genrePage || "/"))];
-                                                            case 1:
-                                                                r = _b.sent();
-                                                                return [4, z(r.select(c.genre), function (o) {
-                                                                        return __awaiter(this, void 0, void 0, function () {
-                                                                            var _b;
-                                                                            return __generator(this, function (_c) {
-                                                                                switch (_c.label) {
-                                                                                    case 0:
-                                                                                        _b = {};
-                                                                                        return [4, o.text()];
-                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(o.attr("href")), _b.script = "search.js", _b)];
-                                                                                }
-                                                                            });
-                                                                        });
-                                                                    })];
-                                                            case 2:
-                                                                i = _b.sent();
-                                                                return [2, s.success(i.filter(function (o) { return o.title; }))];
-                                                        }
-                                                    }); });
-                                                }, detail: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, _b, _c, _d, _f, _g;
-                                                        var _h;
-                                                        return __generator(this, function (_j) {
-                                                            switch (_j.label) {
-                                                                case 0: return [4, d.html(r, c.req)];
-                                                                case 1:
-                                                                    i = _j.sent();
-                                                                    if (!c.d_genres) return [3, 3];
-                                                                    return [4, z(i.select(c.d_genres), function (f) {
-                                                                            return __awaiter(this, void 0, void 0, function () {
-                                                                                var _b;
-                                                                                return __generator(this, function (_c) {
-                                                                                    switch (_c.label) {
-                                                                                        case 0:
-                                                                                            _b = {};
-                                                                                            return [4, f.text()];
-                                                                                        case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(f.attr("href")), _b.script = "search.js", _b)];
-                                                                                    }
-                                                                                });
-                                                                            });
-                                                                        })];
-                                                                case 2:
-                                                                    _b = _j.sent();
-                                                                    return [3, 4];
-                                                                case 3:
-                                                                    _b = [];
-                                                                    _j.label = 4;
-                                                                case 4:
-                                                                    o = _b;
-                                                                    return [4, m.pick(i, c.d_status)];
-                                                                case 5:
-                                                                    l = _j.sent();
-                                                                    _d = (_c = s).success;
-                                                                    _h = {};
-                                                                    return [4, m.pick(i, c.d_title || "h1")];
-                                                                case 6:
-                                                                    _h.name = _j.sent();
-                                                                    _g = (_f = d).fix;
-                                                                    return [4, m.pick(i, c.d_cover || "meta[property=og:image]@content")];
-                                                                case 7:
-                                                                    _h.cover = _g.apply(_f, [_j.sent()]);
-                                                                    return [4, m.pick(i, c.d_author)];
-                                                                case 8:
-                                                                    _h.author = _j.sent();
-                                                                    return [4, m.pick(i, (c.d_desc || "meta[name=description]@content").replace(/$/, ""))];
-                                                                case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = l ? "Tình trạng: " + l : "", _h.ongoing = d.ongoing(l), _h.genres = o, _h.host = E, _h)])];
-                                                            }
-                                                        });
-                                                    });
-                                                }, toc: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, _b, w, y, v, T, k, _c, _d, _f, _g, P, B, _h;
-                                                        var _j;
-                                                        return __generator(this, function (_k) {
-                                                            switch (_k.label) {
-                                                                case 0:
-                                                                    if (c.single)
-                                                                        return [2, s.success([{ name: c.single === !0 ? "Xem / Đọc" : c.single, url: r, host: E }])];
-                                                                    i = [r], o = [], l = {};
-                                                                    return [4, d.html(c.ch_rewrite ? r.replace(new RegExp(c.ch_rewrite[0]), c.ch_rewrite[1]) : r, c.req)];
-                                                                case 1:
-                                                                    f = _k.sent();
-                                                                    if (!c.ch_url) return [3, 5];
-                                                                    return [4, m.pick(f, c.ch_url)];
-                                                                case 2:
-                                                                    p = _k.sent();
-                                                                    _b = p;
-                                                                    if (!_b) return [3, 4];
-                                                                    return [4, d.html(d.fix(p), c.req)];
-                                                                case 3:
-                                                                    _b = (f = _k.sent());
-                                                                    _k.label = 4;
-                                                                case 4:
-                                                                    _b;
-                                                                    _k.label = 5;
-                                                                case 5:
-                                                                    w = 0;
-                                                                    _k.label = 6;
-                                                                case 6:
-                                                                    if (!(w < (c.ch_maxPages || 60))) return [3, 20];
-                                                                    y = f.select(c.ch_list), v = 0;
-                                                                    _k.label = 7;
-                                                                case 7:
-                                                                    if (!(v < y.size())) return [3, 15];
-                                                                    return [4, y.get(v)];
-                                                                case 8:
-                                                                    T = _k.sent(), k = T.attr("href") || T.attr("data-href");
-                                                                    _c = !k || k === "#" || l[k];
-                                                                    if (_c) return [3, 13];
-                                                                    l[k] = 1;
-                                                                    _f = (_d = o).push;
-                                                                    _j = {};
-                                                                    if (!c.ch_name) return [3, 10];
-                                                                    return [4, m.pick(T, c.ch_name)];
-                                                                case 9:
-                                                                    _g = _k.sent();
-                                                                    return [3, 12];
-                                                                case 10: return [4, T.text()];
-                                                                case 11:
-                                                                    _g = _k.sent();
-                                                                    _k.label = 12;
-                                                                case 12:
-                                                                    _c = (_f.apply(_d, [(_j.name = (_g) || T.attr("title"), _j.url = d.fix(k), _j.host = E, _j)]));
-                                                                    _k.label = 13;
-                                                                case 13:
-                                                                    _c;
-                                                                    _k.label = 14;
-                                                                case 14:
-                                                                    v++;
-                                                                    return [3, 7];
-                                                                case 15:
-                                                                    P = c.ch_next ? f.select(c.ch_next).first() : null;
-                                                                    if (!P || !P.attr("href"))
-                                                                        return [3, 20];
-                                                                    B = d.fix(P.attr("href"));
-                                                                    if (i.indexOf(B) >= 0)
-                                                                        return [3, 20];
-                                                                    i.push(B);
-                                                                    _h = c.ch_delay;
-                                                                    if (!_h) return [3, 17];
-                                                                    return [4, A(c.ch_delay)];
-                                                                case 16:
-                                                                    _h = (_k.sent());
-                                                                    _k.label = 17;
-                                                                case 17:
-                                                                    _h;
-                                                                    return [4, d.html(B, c.req)];
-                                                                case 18:
-                                                                    f = _k.sent();
-                                                                    _k.label = 19;
-                                                                case 19:
-                                                                    w++;
-                                                                    return [3, 6];
-                                                                case 20: return [2, (c.ch_reverse && o.reverse(), s.success(o))];
-                                                            }
-                                                        });
-                                                    });
-                                                }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, p, w, y, v, _b, _c, T, k; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                i = [], o = [r], l = r, f = 0;
-                                                                _d.label = 1;
-                                                            case 1:
-                                                                if (!(f < (c.pages_max || 40))) return [3, 8];
-                                                                return [4, d.html(l, c.req)];
-                                                            case 2:
-                                                                p = _d.sent(), w = p.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
-                                                                _d.label = 3;
-                                                            case 3:
-                                                                if (!(y < w.size())) return [3, 6];
-                                                                _c = (_b = d).img;
-                                                                return [4, w.get(y)];
-                                                            case 4:
-                                                                v = _c.apply(_b, [_d.sent()]);
-                                                                v && i.indexOf(v) < 0 && i.push(v);
-                                                                _d.label = 5;
-                                                            case 5:
-                                                                y++;
-                                                                return [3, 3];
-                                                            case 6:
-                                                                if (!c.pages_next)
-                                                                    return [3, 8];
-                                                                T = p.select(c.pages_next).first();
-                                                                if (!T)
-                                                                    return [3, 8];
-                                                                k = d.fix(T.attr("href"));
-                                                                if (!k || o.indexOf(k) >= 0)
-                                                                    return [3, 8];
-                                                                o.push(k), l = k;
-                                                                _d.label = 7;
-                                                            case 7:
-                                                                f++;
-                                                                return [3, 1];
-                                                            case 8: return [2, s.success(i)];
-                                                        }
-                                                    }); });
-                                                }, text: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, _b, _c, _d, _f, _g, _h, _j, _k; return __generator(this, function (_l) {
-                                                        switch (_l.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, c.req)];
-                                                            case 1: return [4, _c.apply(_b, [_l.sent(), r])];
-                                                            case 2:
-                                                                i = _l.sent();
-                                                                return [4, i.text()];
-                                                            case 3:
-                                                                o = (_l.sent()) || "", l = n.parse(o, r), f = l.select(c.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
-                                                                if (!!f) return [3, 5];
-                                                                if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(o.slice(0, 2e4)))
-                                                                    throw new Error("CLOUDFLARE: trang " + E + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
-                                                                _f = (_d = s).error;
-                                                                _g = 'Không tìm thấy nội dung — trang nhận được: "';
-                                                                return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
-                                                            case 5:
-                                                                _j = (_h = s).success;
-                                                                return [4, d.cleanContent(f)];
-                                                            case 6:
-                                                                _k = [_l.sent()];
-                                                                return [4, m.pick(l, c.c_title || "h1 || h2")];
-                                                            case 7: return [2, _j.apply(_h, _k.concat([_l.sent()]))];
-                                                        }
-                                                    }); });
-                                                }, servers: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!c.servers)
-                                                                    return [2, s.success([{ title: "Server", data: r }])];
-                                                                return [4, d.html(r, c.req)];
-                                                            case 1:
-                                                                i = _b.sent();
-                                                                return [4, z(i.select(c.servers), function (l) {
-                                                                        return __awaiter(this, void 0, void 0, function () {
-                                                                            var f;
-                                                                            var _b;
-                                                                            return __generator(this, function (_c) {
-                                                                                switch (_c.label) {
-                                                                                    case 0: return [4, m.pick(l, c.server_data || ":self@data-link || :self@data-src || :self@href")];
-                                                                                    case 1:
-                                                                                        f = _c.sent();
-                                                                                        _b = {};
-                                                                                        return [4, l.text()];
-                                                                                    case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(f), _b)];
-                                                                                }
-                                                                            });
-                                                                        });
-                                                                    })];
-                                                            case 2:
-                                                                o = (_b.sent()).filter(function (l) { return l.data; });
-                                                                return [2, s.success(o.length ? o : [{ title: "Server", data: r }])];
-                                                        }
-                                                    }); });
-                                                }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var i = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return i ? i[0] : ""; }, track: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (i = i || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
-                                                                    return [2, s.success({ type: "native", data: r, headers: { Referer: E + "/" } })];
-                                                                return [4, d.get(r)];
-                                                            case 1:
-                                                                o = _b.sent();
-                                                                return [4, o.text()];
-                                                            case 2:
-                                                                l = _b.sent();
-                                                                if (!(c.video && !i)) return [3, 4];
-                                                                return [4, m.pick(n.parse(l, r), c.video)];
-                                                            case 3:
-                                                                f = _b.sent();
-                                                                if (f)
-                                                                    return [2, s.success({ type: "native", data: d.fix(f), headers: { Referer: E + "/" } })];
-                                                                _b.label = 4;
-                                                            case 4:
-                                                                p = m.sniff(l);
-                                                                if (p)
-                                                                    return [2, s.success({ type: "native", data: p, headers: { Referer: i ? r : E + "/" } })];
-                                                                w = n.parse(l, r), y = w.select(c.iframe || "iframe[src], iframe[data-src]").first();
-                                                                if (!(y && i < 2)) return [3, 6];
-                                                                v = d.fix(y.attr("src") || y.attr("data-src"));
-                                                                if (!v) return [3, 6];
-                                                                return [4, m.track(v, i + 1)];
-                                                            case 5: return [2, _b.sent()];
-                                                            case 6: return [2, s.success({ type: "webview", data: r })];
-                                                        }
-                                                    }); });
-                                                } };
-                                            return [2, typeof G == "function" ? G : void 0];
-                                        }); });
-                                    })()];
-                            case 1: return [2, _b.sent()];
-                        }
-                    }); });
-                })(t.fetch, t.Http, t.Html, t.Response, t.localStorage, t.cacheStorage, t.localConfig, t.localCookie, t.sleep, t.Log, t.console, t.Console, t.log, t.UserAgent, t.Engine, t.Graphics, t.Script)];
-        }); });
+                                                });
+                                            })()];
+                                    case 1: return [2, _b.sent()];
+                                }
+                            });
+                        });
+                    })(t.fetch, t.Http, t.Html, t.Response, t.localStorage, t.cacheStorage, t.localConfig, t.localCookie, t.sleep, t.Log, t.console, t.Console, t.log, t.UserAgent, t.Engine, t.Graphics, t.Script)];
+            });
+        });
     }, toc: function (t, e) {
-        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, a, n, s, h, b, g, x, A, D, q, N, I, U, X, Z, ne) {
-                    return __awaiter(this, void 0, void 0, function () { var R; return __generator(this, function (_b) {
-                        switch (_b.label) {
-                            case 0:
-                                R = e("DOMAIN");
-                                return [4, (function () {
-                                        return __awaiter(this, void 0, void 0, function () { function G(r) {
-                                            return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                switch (_b.label) {
-                                                    case 0: return [4, m.toc(r)];
-                                                    case 1: return [2, _b.sent()];
-                                                }
-                                            }); });
-                                        } var E, c, d, m; return __generator(this, function (_b) {
-                                            E = "https://navyteams.com";
-                                            try {
-                                                R && (E = String(R).replace(/\/+$/, ""));
-                                            }
-                                            catch (r) { }
-                                            c = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".comic-item", title: "h3 || a@title || img@alt", link: "a@href", ch_list: "div.bodyL a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: ".content-type-novel, .chapter-content, #chapter-content" }, d = { img: function (r) { if (!r)
-                                                    return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], o = 0; o < i.length; o++) {
-                                                    var l = r.attr(i[o]);
-                                                    if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
-                                                        return d.fix(l.trim());
-                                                } var f = r.attr("data-srcset") || r.attr("srcset"); return f ? d.fix(f.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? E + r : E + "/" + r) : ""; }, text: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                o = 0;
-                                                                _b.label = 1;
-                                                            case 1:
-                                                                if (!(o < i.length)) return [3, 4];
-                                                                return [4, r.select(i[o]).text()];
-                                                            case 2:
-                                                                l = _b.sent();
-                                                                if (l)
-                                                                    return [2, l.trim()];
-                                                                _b.label = 3;
-                                                            case 3:
-                                                                o++;
-                                                                return [3, 1];
-                                                            case 4: return [2, ""];
-                                                        }
-                                                    }); });
-                                                }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, _b; return __generator(this, function (_c) {
-                                                        switch (_c.label) {
-                                                            case 0:
-                                                                i = i || {};
-                                                                o = { Referer: E + "/" };
-                                                                if (i.headers)
-                                                                    for (l in i.headers)
-                                                                        o[l] = i.headers[l];
-                                                                return [4, u(r, { method: i.method, headers: o, body: i.body })];
-                                                            case 1:
-                                                                f = _c.sent(), p = 0;
-                                                                _c.label = 2;
-                                                            case 2:
-                                                                _b = f && f.status === 429 && p < 3;
-                                                                if (!_b) return [3, 4];
-                                                                return [4, d.cf(f)];
-                                                            case 3:
-                                                                _b = !(_c.sent());
-                                                                _c.label = 4;
-                                                            case 4:
-                                                                if (!_b) return [3, 8];
-                                                                return [4, A(1500 * (p + 1))];
-                                                            case 5:
-                                                                _c.sent();
-                                                                return [4, u(r, { method: i.method, headers: o, body: i.body })];
-                                                            case 6:
-                                                                f = _c.sent();
-                                                                _c.label = 7;
-                                                            case 7:
-                                                                p++;
-                                                                return [3, 2];
-                                                            case 8: return [2, f];
-                                                        }
-                                                    }); });
-                                                }, cf: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.status !== 403 && r.status !== 503 && r.status !== 429)
-                                                                    return [2, !1];
-                                                                return [4, r.text()];
-                                                            case 1:
-                                                                i = (_b.sent()) || "";
-                                                                return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
-                                                        }
-                                                    }); });
-                                                }, check: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.ok)
-                                                                    return [2, r];
-                                                                return [4, d.cf(r)];
-                                                            case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
-                                                        }
-                                                    }); });
-                                                }, html: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                o = _d.sent();
-                                                                return [4, o.html(i && i.charset)];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, json: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                o = _d.sent();
-                                                                return [4, o.json()];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
-                                                                return [4, r.html()];
-                                                            case 1: return [2, (_b.sent()).replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
-                                                        }
-                                                    }); });
-                                                }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, m = { pick: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v, T, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                if (!i || !r)
-                                                                    return [2, ""];
-                                                                o = String(i).split(" || "), l = 0;
-                                                                _d.label = 1;
-                                                            case 1:
-                                                                if (!(l < o.length)) return [3, 9];
-                                                                f = o[l], p = "text", w = f.lastIndexOf("@");
-                                                                w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (p = f.slice(w + 1), f = f.slice(0, w));
-                                                                y = f === ":self" ? null : r.select(f), v = f === ":self" ? r : y.size() ? y.first() : null;
-                                                                if (!v) return [3, 8];
-                                                                if (!(p === "text")) return [3, 3];
-                                                                return [4, v.text()];
-                                                            case 2:
-                                                                _b = _d.sent();
-                                                                return [3, 7];
-                                                            case 3:
-                                                                if (!(p === "html")) return [3, 5];
-                                                                return [4, v.html()];
-                                                            case 4:
-                                                                _c = _d.sent();
-                                                                return [3, 6];
-                                                            case 5:
-                                                                _c = p === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : p === "own" ? v.ownText() : v.attr(p);
-                                                                _d.label = 6;
-                                                            case 6:
-                                                                _b = _c;
-                                                                _d.label = 7;
-                                                            case 7:
-                                                                T = _b;
-                                                                if (T)
-                                                                    return [2, String(T).trim()];
-                                                                _d.label = 8;
-                                                            case 8:
-                                                                l++;
-                                                                return [3, 1];
-                                                            case 9: return [2, ""];
-                                                        }
-                                                    }); });
-                                                }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (p, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, w, y, _b, _c, _d;
-                                                        var _f;
-                                                        return __generator(this, function (_g) {
-                                                            switch (_g.label) {
-                                                                case 0:
-                                                                    i = r.select(c.item), o = [], l = {}, f = 0;
-                                                                    _g.label = 1;
-                                                                case 1:
-                                                                    if (!(f < i.size())) return [3, 9];
-                                                                    return [4, i.get(f)];
-                                                                case 2:
-                                                                    p = _g.sent();
-                                                                    return [4, m.pick(p, c.link || "a@href")];
-                                                                case 3:
-                                                                    w = _g.sent();
-                                                                    if (!!(!w || l[w] || /^javascript|#$/.test(w))) return [3, 8];
-                                                                    return [4, m.pick(p, c.title || "h3 || h2 || a@title || img@alt")];
-                                                                case 4:
-                                                                    y = _g.sent();
-                                                                    _b = y;
-                                                                    if (!_b) return [3, 7];
-                                                                    l[w] = 1;
-                                                                    _d = (_c = o).push;
-                                                                    _f = { name: y, link: d.fix(w) };
-                                                                    return [4, m.pick(p, c.cover || "img@img")];
-                                                                case 5:
-                                                                    _f.cover = _g.sent();
-                                                                    return [4, m.pick(p, c.desc || "")];
-                                                                case 6:
-                                                                    _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = E, _f)]));
-                                                                    _g.label = 7;
-                                                                case 7:
-                                                                    _b;
-                                                                    _g.label = 8;
-                                                                case 8:
-                                                                    f++;
-                                                                    return [3, 1];
-                                                                case 9: return [2, o];
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_b) {
+                return [2, (function (u, a, n, s, h, b, g, x, A, D, q, N, I, U, X, Z, ne) {
+                        return __awaiter(this, void 0, void 0, function () {
+                            var R;
+                            return __generator(this, function (_b) {
+                                switch (_b.label) {
+                                    case 0:
+                                        R = e("DOMAIN");
+                                        return [4, (function () {
+                                                return __awaiter(this, void 0, void 0, function () {
+                                                    function G(r) {
+                                                        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                            switch (_b.label) {
+                                                                case 0: return [4, m.toc(r)];
+                                                                case 1: return [2, _b.sent()];
                                                             }
-                                                        });
+                                                        }); });
+                                                    }
+                                                    var E, c, d, m;
+                                                    return __generator(this, function (_b) {
+                                                        E = "https://navyteams.com";
+                                                        try {
+                                                            R && (E = String(R).replace(/\/+$/, ""));
+                                                        }
+                                                        catch (r) { }
+                                                        c = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".comic-item", title: "h3 || a@title || img@alt", link: "a@href", ch_list: "div.bodyL a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: ".content-type-novel, .chapter-content, #chapter-content" }, d = { img: function (r) { if (!r)
+                                                                return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], o = 0; o < i.length; o++) {
+                                                                var l = r.attr(i[o]);
+                                                                if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
+                                                                    return d.fix(l.trim());
+                                                            } var f = r.attr("data-srcset") || r.attr("srcset"); return f ? d.fix(f.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? E + r : E + "/" + r) : ""; }, text: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            o = 0;
+                                                                            _b.label = 1;
+                                                                        case 1:
+                                                                            if (!(o < i.length)) return [3, 4];
+                                                                            return [4, r.select(i[o]).text()];
+                                                                        case 2:
+                                                                            l = _b.sent();
+                                                                            if (l)
+                                                                                return [2, l.trim()];
+                                                                            _b.label = 3;
+                                                                        case 3:
+                                                                            o++;
+                                                                            return [3, 1];
+                                                                        case 4: return [2, ""];
+                                                                    }
+                                                                }); });
+                                                            }, get: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l, f, p, _b; return __generator(this, function (_c) {
+                                                                    switch (_c.label) {
+                                                                        case 0:
+                                                                            i = i || {};
+                                                                            o = { Referer: E + "/" };
+                                                                            if (i.headers)
+                                                                                for (l in i.headers)
+                                                                                    o[l] = i.headers[l];
+                                                                            return [4, u(r, { method: i.method, headers: o, body: i.body })];
+                                                                        case 1:
+                                                                            f = _c.sent(), p = 0;
+                                                                            _c.label = 2;
+                                                                        case 2:
+                                                                            _b = f && f.status === 429 && p < 3;
+                                                                            if (!_b) return [3, 4];
+                                                                            return [4, d.cf(f)];
+                                                                        case 3:
+                                                                            _b = !(_c.sent());
+                                                                            _c.label = 4;
+                                                                        case 4:
+                                                                            if (!_b) return [3, 8];
+                                                                            return [4, A(1500 * (p + 1))];
+                                                                        case 5:
+                                                                            _c.sent();
+                                                                            return [4, u(r, { method: i.method, headers: o, body: i.body })];
+                                                                        case 6:
+                                                                            f = _c.sent();
+                                                                            _c.label = 7;
+                                                                        case 7:
+                                                                            p++;
+                                                                            return [3, 2];
+                                                                        case 8: return [2, f];
+                                                                    }
+                                                                }); });
+                                                            }, cf: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.status !== 403 && r.status !== 503 && r.status !== 429)
+                                                                                return [2, !1];
+                                                                            return [4, r.text()];
+                                                                        case 1:
+                                                                            i = (_b.sent()) || "";
+                                                                            return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
+                                                                    }
+                                                                }); });
+                                                            }, check: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.ok)
+                                                                                return [2, r];
+                                                                            return [4, d.cf(r)];
+                                                                        case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
+                                                                    }
+                                                                }); });
+                                                            }, html: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            o = _d.sent();
+                                                                            return [4, o.html(i && i.charset)];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, json: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            o = _d.sent();
+                                                                            return [4, o.json()];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    return __generator(this, function (_b) {
+                                                                        switch (_b.label) {
+                                                                            case 0:
+                                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
+                                                                                return [4, r.html()];
+                                                                            case 1: return [2, (_b.sent()).replace(/\r\n?/g, "\n").replace(/&#13;|&#x0?[dD];/g, "").replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, m = { pick: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v, T, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            if (!i || !r)
+                                                                                return [2, ""];
+                                                                            o = String(i).split(" || "), l = 0;
+                                                                            _d.label = 1;
+                                                                        case 1:
+                                                                            if (!(l < o.length)) return [3, 9];
+                                                                            f = o[l], p = "text", w = f.lastIndexOf("@");
+                                                                            w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (p = f.slice(w + 1), f = f.slice(0, w));
+                                                                            y = f === ":self" ? null : r.select(f), v = f === ":self" ? r : y.size() ? y.first() : null;
+                                                                            if (!v) return [3, 8];
+                                                                            if (!(p === "text")) return [3, 3];
+                                                                            return [4, v.text()];
+                                                                        case 2:
+                                                                            _b = _d.sent();
+                                                                            return [3, 7];
+                                                                        case 3:
+                                                                            if (!(p === "html")) return [3, 5];
+                                                                            return [4, v.html()];
+                                                                        case 4:
+                                                                            _c = _d.sent();
+                                                                            return [3, 6];
+                                                                        case 5:
+                                                                            _c = p === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : p === "own" ? v.ownText() : v.attr(p);
+                                                                            _d.label = 6;
+                                                                        case 6:
+                                                                            _b = _c;
+                                                                            _d.label = 7;
+                                                                        case 7:
+                                                                            T = _b;
+                                                                            if (T)
+                                                                                return [2, String(T).trim()];
+                                                                            _d.label = 8;
+                                                                        case 8:
+                                                                            l++;
+                                                                            return [3, 1];
+                                                                        case 9: return [2, ""];
+                                                                    }
+                                                                }); });
+                                                            }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (p, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, o, l, f, p, w, y, _b, _c, _d;
+                                                                    var _f;
+                                                                    return __generator(this, function (_g) {
+                                                                        switch (_g.label) {
+                                                                            case 0:
+                                                                                i = r.select(c.item), o = [], l = {}, f = 0;
+                                                                                _g.label = 1;
+                                                                            case 1:
+                                                                                if (!(f < i.size())) return [3, 9];
+                                                                                return [4, i.get(f)];
+                                                                            case 2:
+                                                                                p = _g.sent();
+                                                                                return [4, m.pick(p, c.link || "a@href")];
+                                                                            case 3:
+                                                                                w = _g.sent();
+                                                                                if (!!(!w || l[w] || /^javascript|#$/.test(w))) return [3, 8];
+                                                                                return [4, m.pick(p, c.title || "h3 || h2 || a@title || img@alt")];
+                                                                            case 4:
+                                                                                y = _g.sent();
+                                                                                _b = y;
+                                                                                if (!_b) return [3, 7];
+                                                                                l[w] = 1;
+                                                                                _d = (_c = o).push;
+                                                                                _f = { name: y, link: d.fix(w) };
+                                                                                return [4, m.pick(p, c.cover || "img@img")];
+                                                                            case 5:
+                                                                                _f.cover = _g.sent();
+                                                                                return [4, m.pick(p, c.desc || "")];
+                                                                            case 6:
+                                                                                _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = E, _f)]));
+                                                                                _g.label = 7;
+                                                                            case 7:
+                                                                                _b;
+                                                                                _g.label = 8;
+                                                                            case 8:
+                                                                                f++;
+                                                                                return [3, 1];
+                                                                            case 9: return [2, o];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, listPage: function (r, i, o) {
+                                                                return __awaiter(this, void 0, void 0, function () { var l, f, p; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0: return [4, d.html(m.url(r, i, o), c.req)];
+                                                                        case 1:
+                                                                            l = _b.sent();
+                                                                            return [4, m.items(l)];
+                                                                        case 2:
+                                                                            f = _b.sent(), p = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
+                                                                            return [2, s.success(f, d.next(p && f.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, browse: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            o = c.tabs && c.tabs[r] || r;
+                                                                            return [4, m.listPage(o, i, "")];
+                                                                        case 1: return [2, _b.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, search: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!d.isUrl(r)) return [3, 2];
+                                                                            o = d.fix(r);
+                                                                            return [4, m.listPage(o + (o.indexOf("?") > 0 ? "&" : "?") + (c.pageParam || "page") + "={p}", i, "")];
+                                                                        case 1: return [2, _b.sent()];
+                                                                        case 2: return [4, m.listPage(c.search, i, r)];
+                                                                        case 3: return [2, _b.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, genre: function () {
+                                                                return __awaiter(this, void 0, void 0, function () { var r, i; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!c.genre)
+                                                                                return [2, s.success([])];
+                                                                            return [4, d.html(d.fix(c.genrePage || "/"))];
+                                                                        case 1:
+                                                                            r = _b.sent();
+                                                                            return [4, z(r.select(c.genre), function (o) {
+                                                                                    return __awaiter(this, void 0, void 0, function () {
+                                                                                        var _b;
+                                                                                        return __generator(this, function (_c) {
+                                                                                            switch (_c.label) {
+                                                                                                case 0:
+                                                                                                    _b = {};
+                                                                                                    return [4, o.text()];
+                                                                                                case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(o.attr("href")), _b.script = "search.js", _b)];
+                                                                                            }
+                                                                                        });
+                                                                                    });
+                                                                                })];
+                                                                        case 2:
+                                                                            i = _b.sent();
+                                                                            return [2, s.success(i.filter(function (o) { return o.title; }))];
+                                                                    }
+                                                                }); });
+                                                            }, detail: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, o, l, _b, _c, _d, _f, _g;
+                                                                    var _h;
+                                                                    return __generator(this, function (_j) {
+                                                                        switch (_j.label) {
+                                                                            case 0: return [4, d.html(r, c.req)];
+                                                                            case 1:
+                                                                                i = _j.sent();
+                                                                                if (!c.d_genres) return [3, 3];
+                                                                                return [4, z(i.select(c.d_genres), function (f) {
+                                                                                        return __awaiter(this, void 0, void 0, function () {
+                                                                                            var _b;
+                                                                                            return __generator(this, function (_c) {
+                                                                                                switch (_c.label) {
+                                                                                                    case 0:
+                                                                                                        _b = {};
+                                                                                                        return [4, f.text()];
+                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(f.attr("href")), _b.script = "search.js", _b)];
+                                                                                                }
+                                                                                            });
+                                                                                        });
+                                                                                    })];
+                                                                            case 2:
+                                                                                _b = _j.sent();
+                                                                                return [3, 4];
+                                                                            case 3:
+                                                                                _b = [];
+                                                                                _j.label = 4;
+                                                                            case 4:
+                                                                                o = _b;
+                                                                                return [4, m.pick(i, c.d_status)];
+                                                                            case 5:
+                                                                                l = _j.sent();
+                                                                                _d = (_c = s).success;
+                                                                                _h = {};
+                                                                                return [4, m.pick(i, c.d_title || "h1")];
+                                                                            case 6:
+                                                                                _h.name = _j.sent();
+                                                                                _g = (_f = d).fix;
+                                                                                return [4, m.pick(i, c.d_cover || "meta[property=og:image]@content")];
+                                                                            case 7:
+                                                                                _h.cover = _g.apply(_f, [_j.sent()]);
+                                                                                return [4, m.pick(i, c.d_author)];
+                                                                            case 8:
+                                                                                _h.author = _j.sent();
+                                                                                return [4, m.pick(i, (c.d_desc || "meta[name=description]@content").replace(/$/, ""))];
+                                                                            case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = l ? "Tình trạng: " + l : "", _h.ongoing = d.ongoing(l), _h.genres = o, _h.host = E, _h)])];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, toc: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, o, l, f, p, _b, w, y, v, T, k, _c, _d, _f, _g, P, B, _h;
+                                                                    var _j;
+                                                                    return __generator(this, function (_k) {
+                                                                        switch (_k.label) {
+                                                                            case 0:
+                                                                                if (c.single)
+                                                                                    return [2, s.success([{ name: c.single === !0 ? "Xem / Đọc" : c.single, url: r, host: E }])];
+                                                                                i = [r], o = [], l = {};
+                                                                                return [4, d.html(c.ch_rewrite ? r.replace(new RegExp(c.ch_rewrite[0]), c.ch_rewrite[1]) : r, c.req)];
+                                                                            case 1:
+                                                                                f = _k.sent();
+                                                                                if (!c.ch_url) return [3, 5];
+                                                                                return [4, m.pick(f, c.ch_url)];
+                                                                            case 2:
+                                                                                p = _k.sent();
+                                                                                _b = p;
+                                                                                if (!_b) return [3, 4];
+                                                                                return [4, d.html(d.fix(p), c.req)];
+                                                                            case 3:
+                                                                                _b = (f = _k.sent());
+                                                                                _k.label = 4;
+                                                                            case 4:
+                                                                                _b;
+                                                                                _k.label = 5;
+                                                                            case 5:
+                                                                                w = 0;
+                                                                                _k.label = 6;
+                                                                            case 6:
+                                                                                if (!(w < (c.ch_maxPages || 60))) return [3, 20];
+                                                                                y = f.select(c.ch_list), v = 0;
+                                                                                _k.label = 7;
+                                                                            case 7:
+                                                                                if (!(v < y.size())) return [3, 15];
+                                                                                return [4, y.get(v)];
+                                                                            case 8:
+                                                                                T = _k.sent(), k = T.attr("href") || T.attr("data-href");
+                                                                                _c = !k || k === "#" || l[k];
+                                                                                if (_c) return [3, 13];
+                                                                                l[k] = 1;
+                                                                                _f = (_d = o).push;
+                                                                                _j = {};
+                                                                                if (!c.ch_name) return [3, 10];
+                                                                                return [4, m.pick(T, c.ch_name)];
+                                                                            case 9:
+                                                                                _g = _k.sent();
+                                                                                return [3, 12];
+                                                                            case 10: return [4, T.text()];
+                                                                            case 11:
+                                                                                _g = _k.sent();
+                                                                                _k.label = 12;
+                                                                            case 12:
+                                                                                _c = (_f.apply(_d, [(_j.name = (_g) || T.attr("title"), _j.url = d.fix(k), _j.host = E, _j)]));
+                                                                                _k.label = 13;
+                                                                            case 13:
+                                                                                _c;
+                                                                                _k.label = 14;
+                                                                            case 14:
+                                                                                v++;
+                                                                                return [3, 7];
+                                                                            case 15:
+                                                                                P = c.ch_next ? f.select(c.ch_next).first() : null;
+                                                                                if (!P || !P.attr("href"))
+                                                                                    return [3, 20];
+                                                                                B = d.fix(P.attr("href"));
+                                                                                if (i.indexOf(B) >= 0)
+                                                                                    return [3, 20];
+                                                                                i.push(B);
+                                                                                _h = c.ch_delay;
+                                                                                if (!_h) return [3, 17];
+                                                                                return [4, A(c.ch_delay)];
+                                                                            case 16:
+                                                                                _h = (_k.sent());
+                                                                                _k.label = 17;
+                                                                            case 17:
+                                                                                _h;
+                                                                                return [4, d.html(B, c.req)];
+                                                                            case 18:
+                                                                                f = _k.sent();
+                                                                                _k.label = 19;
+                                                                            case 19:
+                                                                                w++;
+                                                                                return [3, 6];
+                                                                            case 20: return [2, (c.ch_reverse && o.reverse(), s.success(o))];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, pages: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, o, l, f, p, w, y, v, _b, _c, T, k; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            i = [], o = [r], l = r, f = 0;
+                                                                            _d.label = 1;
+                                                                        case 1:
+                                                                            if (!(f < (c.pages_max || 40))) return [3, 8];
+                                                                            return [4, d.html(l, c.req)];
+                                                                        case 2:
+                                                                            p = _d.sent(), w = p.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
+                                                                            _d.label = 3;
+                                                                        case 3:
+                                                                            if (!(y < w.size())) return [3, 6];
+                                                                            _c = (_b = d).img;
+                                                                            return [4, w.get(y)];
+                                                                        case 4:
+                                                                            v = _c.apply(_b, [_d.sent()]);
+                                                                            v && i.indexOf(v) < 0 && i.push(v);
+                                                                            _d.label = 5;
+                                                                        case 5:
+                                                                            y++;
+                                                                            return [3, 3];
+                                                                        case 6:
+                                                                            if (!c.pages_next)
+                                                                                return [3, 8];
+                                                                            T = p.select(c.pages_next).first();
+                                                                            if (!T)
+                                                                                return [3, 8];
+                                                                            k = d.fix(T.attr("href"));
+                                                                            if (!k || o.indexOf(k) >= 0)
+                                                                                return [3, 8];
+                                                                            o.push(k), l = k;
+                                                                            _d.label = 7;
+                                                                        case 7:
+                                                                            f++;
+                                                                            return [3, 1];
+                                                                        case 8: return [2, s.success(i)];
+                                                                    }
+                                                                }); });
+                                                            }, text: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, o, l, f, _b, _c, _d, _f, _g, _h, _j, _k; return __generator(this, function (_l) {
+                                                                    switch (_l.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, c.req)];
+                                                                        case 1: return [4, _c.apply(_b, [_l.sent(), r])];
+                                                                        case 2:
+                                                                            i = _l.sent();
+                                                                            return [4, i.text()];
+                                                                        case 3:
+                                                                            o = (_l.sent()) || "", l = n.parse(o, r), f = l.select(c.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            if (!!f) return [3, 5];
+                                                                            if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(o.slice(0, 2e4)))
+                                                                                throw new Error("CLOUDFLARE: trang " + E + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
+                                                                            _f = (_d = s).error;
+                                                                            _g = 'Không tìm thấy nội dung — trang nhận được: "';
+                                                                            return [4, m.pick(l, "title")];
+                                                                        case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
+                                                                        case 5:
+                                                                            _j = (_h = s).success;
+                                                                            return [4, d.cleanContent(f)];
+                                                                        case 6:
+                                                                            _k = [_l.sent()];
+                                                                            return [4, m.pick(l, c.c_title || "h1 || h2")];
+                                                                        case 7: return [2, _j.apply(_h, _k.concat([_l.sent()]))];
+                                                                    }
+                                                                }); });
+                                                            }, servers: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, o; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!c.servers)
+                                                                                return [2, s.success([{ title: "Server", data: r }])];
+                                                                            return [4, d.html(r, c.req)];
+                                                                        case 1:
+                                                                            i = _b.sent();
+                                                                            return [4, z(i.select(c.servers), function (l) {
+                                                                                    return __awaiter(this, void 0, void 0, function () {
+                                                                                        var f;
+                                                                                        var _b;
+                                                                                        return __generator(this, function (_c) {
+                                                                                            switch (_c.label) {
+                                                                                                case 0: return [4, m.pick(l, c.server_data || ":self@data-link || :self@data-src || :self@href")];
+                                                                                                case 1:
+                                                                                                    f = _c.sent();
+                                                                                                    _b = {};
+                                                                                                    return [4, l.text()];
+                                                                                                case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(f), _b)];
+                                                                                            }
+                                                                                        });
+                                                                                    });
+                                                                                })];
+                                                                        case 2:
+                                                                            o = (_b.sent()).filter(function (l) { return l.data; });
+                                                                            return [2, s.success(o.length ? o : [{ title: "Server", data: r }])];
+                                                                    }
+                                                                }); });
+                                                            }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var i = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return i ? i[0] : ""; }, track: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (i = i || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
+                                                                                return [2, s.success({ type: "native", data: r, headers: { Referer: E + "/" } })];
+                                                                            return [4, d.get(r)];
+                                                                        case 1:
+                                                                            o = _b.sent();
+                                                                            return [4, o.text()];
+                                                                        case 2:
+                                                                            l = _b.sent();
+                                                                            if (!(c.video && !i)) return [3, 4];
+                                                                            return [4, m.pick(n.parse(l, r), c.video)];
+                                                                        case 3:
+                                                                            f = _b.sent();
+                                                                            if (f)
+                                                                                return [2, s.success({ type: "native", data: d.fix(f), headers: { Referer: E + "/" } })];
+                                                                            _b.label = 4;
+                                                                        case 4:
+                                                                            p = m.sniff(l);
+                                                                            if (p)
+                                                                                return [2, s.success({ type: "native", data: p, headers: { Referer: i ? r : E + "/" } })];
+                                                                            w = n.parse(l, r), y = w.select(c.iframe || "iframe[src], iframe[data-src]").first();
+                                                                            if (!(y && i < 2)) return [3, 6];
+                                                                            v = d.fix(y.attr("src") || y.attr("data-src"));
+                                                                            if (!v) return [3, 6];
+                                                                            return [4, m.track(v, i + 1)];
+                                                                        case 5: return [2, _b.sent()];
+                                                                        case 6: return [2, s.success({ type: "webview", data: r })];
+                                                                    }
+                                                                }); });
+                                                            } };
+                                                        return [2, typeof G == "function" ? G : void 0];
                                                     });
-                                                }, listPage: function (r, i, o) {
-                                                    return __awaiter(this, void 0, void 0, function () { var l, f, p; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0: return [4, d.html(m.url(r, i, o), c.req)];
-                                                            case 1:
-                                                                l = _b.sent();
-                                                                return [4, m.items(l)];
-                                                            case 2:
-                                                                f = _b.sent(), p = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
-                                                                return [2, s.success(f, d.next(p && f.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, browse: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                o = c.tabs && c.tabs[r] || r;
-                                                                return [4, m.listPage(o, i, "")];
-                                                            case 1: return [2, _b.sent()];
-                                                        }
-                                                    }); });
-                                                }, search: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!d.isUrl(r)) return [3, 2];
-                                                                o = d.fix(r);
-                                                                return [4, m.listPage(o + (o.indexOf("?") > 0 ? "&" : "?") + (c.pageParam || "page") + "={p}", i, "")];
-                                                            case 1: return [2, _b.sent()];
-                                                            case 2: return [4, m.listPage(c.search, i, r)];
-                                                            case 3: return [2, _b.sent()];
-                                                        }
-                                                    }); });
-                                                }, genre: function () {
-                                                    return __awaiter(this, void 0, void 0, function () { var r, i; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!c.genre)
-                                                                    return [2, s.success([])];
-                                                                return [4, d.html(d.fix(c.genrePage || "/"))];
-                                                            case 1:
-                                                                r = _b.sent();
-                                                                return [4, z(r.select(c.genre), function (o) {
-                                                                        return __awaiter(this, void 0, void 0, function () {
-                                                                            var _b;
-                                                                            return __generator(this, function (_c) {
-                                                                                switch (_c.label) {
-                                                                                    case 0:
-                                                                                        _b = {};
-                                                                                        return [4, o.text()];
-                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(o.attr("href")), _b.script = "search.js", _b)];
-                                                                                }
-                                                                            });
-                                                                        });
-                                                                    })];
-                                                            case 2:
-                                                                i = _b.sent();
-                                                                return [2, s.success(i.filter(function (o) { return o.title; }))];
-                                                        }
-                                                    }); });
-                                                }, detail: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, _b, _c, _d, _f, _g;
-                                                        var _h;
-                                                        return __generator(this, function (_j) {
-                                                            switch (_j.label) {
-                                                                case 0: return [4, d.html(r, c.req)];
-                                                                case 1:
-                                                                    i = _j.sent();
-                                                                    if (!c.d_genres) return [3, 3];
-                                                                    return [4, z(i.select(c.d_genres), function (f) {
-                                                                            return __awaiter(this, void 0, void 0, function () {
-                                                                                var _b;
-                                                                                return __generator(this, function (_c) {
-                                                                                    switch (_c.label) {
-                                                                                        case 0:
-                                                                                            _b = {};
-                                                                                            return [4, f.text()];
-                                                                                        case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(f.attr("href")), _b.script = "search.js", _b)];
-                                                                                    }
-                                                                                });
-                                                                            });
-                                                                        })];
-                                                                case 2:
-                                                                    _b = _j.sent();
-                                                                    return [3, 4];
-                                                                case 3:
-                                                                    _b = [];
-                                                                    _j.label = 4;
-                                                                case 4:
-                                                                    o = _b;
-                                                                    return [4, m.pick(i, c.d_status)];
-                                                                case 5:
-                                                                    l = _j.sent();
-                                                                    _d = (_c = s).success;
-                                                                    _h = {};
-                                                                    return [4, m.pick(i, c.d_title || "h1")];
-                                                                case 6:
-                                                                    _h.name = _j.sent();
-                                                                    _g = (_f = d).fix;
-                                                                    return [4, m.pick(i, c.d_cover || "meta[property=og:image]@content")];
-                                                                case 7:
-                                                                    _h.cover = _g.apply(_f, [_j.sent()]);
-                                                                    return [4, m.pick(i, c.d_author)];
-                                                                case 8:
-                                                                    _h.author = _j.sent();
-                                                                    return [4, m.pick(i, (c.d_desc || "meta[name=description]@content").replace(/$/, ""))];
-                                                                case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = l ? "Tình trạng: " + l : "", _h.ongoing = d.ongoing(l), _h.genres = o, _h.host = E, _h)])];
-                                                            }
-                                                        });
-                                                    });
-                                                }, toc: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, _b, w, y, v, T, k, _c, _d, _f, _g, P, B, _h;
-                                                        var _j;
-                                                        return __generator(this, function (_k) {
-                                                            switch (_k.label) {
-                                                                case 0:
-                                                                    if (c.single)
-                                                                        return [2, s.success([{ name: c.single === !0 ? "Xem / Đọc" : c.single, url: r, host: E }])];
-                                                                    i = [r], o = [], l = {};
-                                                                    return [4, d.html(c.ch_rewrite ? r.replace(new RegExp(c.ch_rewrite[0]), c.ch_rewrite[1]) : r, c.req)];
-                                                                case 1:
-                                                                    f = _k.sent();
-                                                                    if (!c.ch_url) return [3, 5];
-                                                                    return [4, m.pick(f, c.ch_url)];
-                                                                case 2:
-                                                                    p = _k.sent();
-                                                                    _b = p;
-                                                                    if (!_b) return [3, 4];
-                                                                    return [4, d.html(d.fix(p), c.req)];
-                                                                case 3:
-                                                                    _b = (f = _k.sent());
-                                                                    _k.label = 4;
-                                                                case 4:
-                                                                    _b;
-                                                                    _k.label = 5;
-                                                                case 5:
-                                                                    w = 0;
-                                                                    _k.label = 6;
-                                                                case 6:
-                                                                    if (!(w < (c.ch_maxPages || 60))) return [3, 20];
-                                                                    y = f.select(c.ch_list), v = 0;
-                                                                    _k.label = 7;
-                                                                case 7:
-                                                                    if (!(v < y.size())) return [3, 15];
-                                                                    return [4, y.get(v)];
-                                                                case 8:
-                                                                    T = _k.sent(), k = T.attr("href") || T.attr("data-href");
-                                                                    _c = !k || k === "#" || l[k];
-                                                                    if (_c) return [3, 13];
-                                                                    l[k] = 1;
-                                                                    _f = (_d = o).push;
-                                                                    _j = {};
-                                                                    if (!c.ch_name) return [3, 10];
-                                                                    return [4, m.pick(T, c.ch_name)];
-                                                                case 9:
-                                                                    _g = _k.sent();
-                                                                    return [3, 12];
-                                                                case 10: return [4, T.text()];
-                                                                case 11:
-                                                                    _g = _k.sent();
-                                                                    _k.label = 12;
-                                                                case 12:
-                                                                    _c = (_f.apply(_d, [(_j.name = (_g) || T.attr("title"), _j.url = d.fix(k), _j.host = E, _j)]));
-                                                                    _k.label = 13;
-                                                                case 13:
-                                                                    _c;
-                                                                    _k.label = 14;
-                                                                case 14:
-                                                                    v++;
-                                                                    return [3, 7];
-                                                                case 15:
-                                                                    P = c.ch_next ? f.select(c.ch_next).first() : null;
-                                                                    if (!P || !P.attr("href"))
-                                                                        return [3, 20];
-                                                                    B = d.fix(P.attr("href"));
-                                                                    if (i.indexOf(B) >= 0)
-                                                                        return [3, 20];
-                                                                    i.push(B);
-                                                                    _h = c.ch_delay;
-                                                                    if (!_h) return [3, 17];
-                                                                    return [4, A(c.ch_delay)];
-                                                                case 16:
-                                                                    _h = (_k.sent());
-                                                                    _k.label = 17;
-                                                                case 17:
-                                                                    _h;
-                                                                    return [4, d.html(B, c.req)];
-                                                                case 18:
-                                                                    f = _k.sent();
-                                                                    _k.label = 19;
-                                                                case 19:
-                                                                    w++;
-                                                                    return [3, 6];
-                                                                case 20: return [2, (c.ch_reverse && o.reverse(), s.success(o))];
-                                                            }
-                                                        });
-                                                    });
-                                                }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, p, w, y, v, _b, _c, T, k; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                i = [], o = [r], l = r, f = 0;
-                                                                _d.label = 1;
-                                                            case 1:
-                                                                if (!(f < (c.pages_max || 40))) return [3, 8];
-                                                                return [4, d.html(l, c.req)];
-                                                            case 2:
-                                                                p = _d.sent(), w = p.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
-                                                                _d.label = 3;
-                                                            case 3:
-                                                                if (!(y < w.size())) return [3, 6];
-                                                                _c = (_b = d).img;
-                                                                return [4, w.get(y)];
-                                                            case 4:
-                                                                v = _c.apply(_b, [_d.sent()]);
-                                                                v && i.indexOf(v) < 0 && i.push(v);
-                                                                _d.label = 5;
-                                                            case 5:
-                                                                y++;
-                                                                return [3, 3];
-                                                            case 6:
-                                                                if (!c.pages_next)
-                                                                    return [3, 8];
-                                                                T = p.select(c.pages_next).first();
-                                                                if (!T)
-                                                                    return [3, 8];
-                                                                k = d.fix(T.attr("href"));
-                                                                if (!k || o.indexOf(k) >= 0)
-                                                                    return [3, 8];
-                                                                o.push(k), l = k;
-                                                                _d.label = 7;
-                                                            case 7:
-                                                                f++;
-                                                                return [3, 1];
-                                                            case 8: return [2, s.success(i)];
-                                                        }
-                                                    }); });
-                                                }, text: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, _b, _c, _d, _f, _g, _h, _j, _k; return __generator(this, function (_l) {
-                                                        switch (_l.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, c.req)];
-                                                            case 1: return [4, _c.apply(_b, [_l.sent(), r])];
-                                                            case 2:
-                                                                i = _l.sent();
-                                                                return [4, i.text()];
-                                                            case 3:
-                                                                o = (_l.sent()) || "", l = n.parse(o, r), f = l.select(c.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
-                                                                if (!!f) return [3, 5];
-                                                                if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(o.slice(0, 2e4)))
-                                                                    throw new Error("CLOUDFLARE: trang " + E + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
-                                                                _f = (_d = s).error;
-                                                                _g = 'Không tìm thấy nội dung — trang nhận được: "';
-                                                                return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
-                                                            case 5:
-                                                                _j = (_h = s).success;
-                                                                return [4, d.cleanContent(f)];
-                                                            case 6:
-                                                                _k = [_l.sent()];
-                                                                return [4, m.pick(l, c.c_title || "h1 || h2")];
-                                                            case 7: return [2, _j.apply(_h, _k.concat([_l.sent()]))];
-                                                        }
-                                                    }); });
-                                                }, servers: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!c.servers)
-                                                                    return [2, s.success([{ title: "Server", data: r }])];
-                                                                return [4, d.html(r, c.req)];
-                                                            case 1:
-                                                                i = _b.sent();
-                                                                return [4, z(i.select(c.servers), function (l) {
-                                                                        return __awaiter(this, void 0, void 0, function () {
-                                                                            var f;
-                                                                            var _b;
-                                                                            return __generator(this, function (_c) {
-                                                                                switch (_c.label) {
-                                                                                    case 0: return [4, m.pick(l, c.server_data || ":self@data-link || :self@data-src || :self@href")];
-                                                                                    case 1:
-                                                                                        f = _c.sent();
-                                                                                        _b = {};
-                                                                                        return [4, l.text()];
-                                                                                    case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(f), _b)];
-                                                                                }
-                                                                            });
-                                                                        });
-                                                                    })];
-                                                            case 2:
-                                                                o = (_b.sent()).filter(function (l) { return l.data; });
-                                                                return [2, s.success(o.length ? o : [{ title: "Server", data: r }])];
-                                                        }
-                                                    }); });
-                                                }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var i = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return i ? i[0] : ""; }, track: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (i = i || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
-                                                                    return [2, s.success({ type: "native", data: r, headers: { Referer: E + "/" } })];
-                                                                return [4, d.get(r)];
-                                                            case 1:
-                                                                o = _b.sent();
-                                                                return [4, o.text()];
-                                                            case 2:
-                                                                l = _b.sent();
-                                                                if (!(c.video && !i)) return [3, 4];
-                                                                return [4, m.pick(n.parse(l, r), c.video)];
-                                                            case 3:
-                                                                f = _b.sent();
-                                                                if (f)
-                                                                    return [2, s.success({ type: "native", data: d.fix(f), headers: { Referer: E + "/" } })];
-                                                                _b.label = 4;
-                                                            case 4:
-                                                                p = m.sniff(l);
-                                                                if (p)
-                                                                    return [2, s.success({ type: "native", data: p, headers: { Referer: i ? r : E + "/" } })];
-                                                                w = n.parse(l, r), y = w.select(c.iframe || "iframe[src], iframe[data-src]").first();
-                                                                if (!(y && i < 2)) return [3, 6];
-                                                                v = d.fix(y.attr("src") || y.attr("data-src"));
-                                                                if (!v) return [3, 6];
-                                                                return [4, m.track(v, i + 1)];
-                                                            case 5: return [2, _b.sent()];
-                                                            case 6: return [2, s.success({ type: "webview", data: r })];
-                                                        }
-                                                    }); });
-                                                } };
-                                            return [2, typeof G == "function" ? G : void 0];
-                                        }); });
-                                    })()];
-                            case 1: return [2, _b.sent()];
-                        }
-                    }); });
-                })(t.fetch, t.Http, t.Html, t.Response, t.localStorage, t.cacheStorage, t.localConfig, t.localCookie, t.sleep, t.Log, t.console, t.Console, t.log, t.UserAgent, t.Engine, t.Graphics, t.Script)];
-        }); });
+                                                });
+                                            })()];
+                                    case 1: return [2, _b.sent()];
+                                }
+                            });
+                        });
+                    })(t.fetch, t.Http, t.Html, t.Response, t.localStorage, t.cacheStorage, t.localConfig, t.localCookie, t.sleep, t.Log, t.console, t.Console, t.log, t.UserAgent, t.Engine, t.Graphics, t.Script)];
+            });
+        });
     }, chap: function (t, e) {
-        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, a, n, s, h, b, g, x, A, D, q, N, I, U, X, Z, ne) {
-                    return __awaiter(this, void 0, void 0, function () { var R; return __generator(this, function (_b) {
-                        switch (_b.label) {
-                            case 0:
-                                R = e("DOMAIN");
-                                return [4, (function () {
-                                        return __awaiter(this, void 0, void 0, function () { function G(r) {
-                                            return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                switch (_b.label) {
-                                                    case 0: return [4, m.text(r)];
-                                                    case 1: return [2, _b.sent()];
-                                                }
-                                            }); });
-                                        } var E, c, d, m; return __generator(this, function (_b) {
-                                            E = "https://navyteams.com";
-                                            try {
-                                                R && (E = String(R).replace(/\/+$/, ""));
-                                            }
-                                            catch (r) { }
-                                            c = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".comic-item", title: "h3 || a@title || img@alt", link: "a@href", ch_list: "div.bodyL a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: ".content-type-novel, .chapter-content, #chapter-content" }, d = { img: function (r) { if (!r)
-                                                    return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], o = 0; o < i.length; o++) {
-                                                    var l = r.attr(i[o]);
-                                                    if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
-                                                        return d.fix(l.trim());
-                                                } var f = r.attr("data-srcset") || r.attr("srcset"); return f ? d.fix(f.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? E + r : E + "/" + r) : ""; }, text: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                o = 0;
-                                                                _b.label = 1;
-                                                            case 1:
-                                                                if (!(o < i.length)) return [3, 4];
-                                                                return [4, r.select(i[o]).text()];
-                                                            case 2:
-                                                                l = _b.sent();
-                                                                if (l)
-                                                                    return [2, l.trim()];
-                                                                _b.label = 3;
-                                                            case 3:
-                                                                o++;
-                                                                return [3, 1];
-                                                            case 4: return [2, ""];
-                                                        }
-                                                    }); });
-                                                }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, _b; return __generator(this, function (_c) {
-                                                        switch (_c.label) {
-                                                            case 0:
-                                                                i = i || {};
-                                                                o = { Referer: E + "/" };
-                                                                if (i.headers)
-                                                                    for (l in i.headers)
-                                                                        o[l] = i.headers[l];
-                                                                return [4, u(r, { method: i.method, headers: o, body: i.body })];
-                                                            case 1:
-                                                                f = _c.sent(), p = 0;
-                                                                _c.label = 2;
-                                                            case 2:
-                                                                _b = f && f.status === 429 && p < 3;
-                                                                if (!_b) return [3, 4];
-                                                                return [4, d.cf(f)];
-                                                            case 3:
-                                                                _b = !(_c.sent());
-                                                                _c.label = 4;
-                                                            case 4:
-                                                                if (!_b) return [3, 8];
-                                                                return [4, A(1500 * (p + 1))];
-                                                            case 5:
-                                                                _c.sent();
-                                                                return [4, u(r, { method: i.method, headers: o, body: i.body })];
-                                                            case 6:
-                                                                f = _c.sent();
-                                                                _c.label = 7;
-                                                            case 7:
-                                                                p++;
-                                                                return [3, 2];
-                                                            case 8: return [2, f];
-                                                        }
-                                                    }); });
-                                                }, cf: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.status !== 403 && r.status !== 503 && r.status !== 429)
-                                                                    return [2, !1];
-                                                                return [4, r.text()];
-                                                            case 1:
-                                                                i = (_b.sent()) || "";
-                                                                return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
-                                                        }
-                                                    }); });
-                                                }, check: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.ok)
-                                                                    return [2, r];
-                                                                return [4, d.cf(r)];
-                                                            case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
-                                                        }
-                                                    }); });
-                                                }, html: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                o = _d.sent();
-                                                                return [4, o.html(i && i.charset)];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, json: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                o = _d.sent();
-                                                                return [4, o.json()];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
-                                                                return [4, r.html()];
-                                                            case 1: return [2, (_b.sent()).replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
-                                                        }
-                                                    }); });
-                                                }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, m = { pick: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v, T, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                if (!i || !r)
-                                                                    return [2, ""];
-                                                                o = String(i).split(" || "), l = 0;
-                                                                _d.label = 1;
-                                                            case 1:
-                                                                if (!(l < o.length)) return [3, 9];
-                                                                f = o[l], p = "text", w = f.lastIndexOf("@");
-                                                                w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (p = f.slice(w + 1), f = f.slice(0, w));
-                                                                y = f === ":self" ? null : r.select(f), v = f === ":self" ? r : y.size() ? y.first() : null;
-                                                                if (!v) return [3, 8];
-                                                                if (!(p === "text")) return [3, 3];
-                                                                return [4, v.text()];
-                                                            case 2:
-                                                                _b = _d.sent();
-                                                                return [3, 7];
-                                                            case 3:
-                                                                if (!(p === "html")) return [3, 5];
-                                                                return [4, v.html()];
-                                                            case 4:
-                                                                _c = _d.sent();
-                                                                return [3, 6];
-                                                            case 5:
-                                                                _c = p === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : p === "own" ? v.ownText() : v.attr(p);
-                                                                _d.label = 6;
-                                                            case 6:
-                                                                _b = _c;
-                                                                _d.label = 7;
-                                                            case 7:
-                                                                T = _b;
-                                                                if (T)
-                                                                    return [2, String(T).trim()];
-                                                                _d.label = 8;
-                                                            case 8:
-                                                                l++;
-                                                                return [3, 1];
-                                                            case 9: return [2, ""];
-                                                        }
-                                                    }); });
-                                                }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (p, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, w, y, _b, _c, _d;
-                                                        var _f;
-                                                        return __generator(this, function (_g) {
-                                                            switch (_g.label) {
-                                                                case 0:
-                                                                    i = r.select(c.item), o = [], l = {}, f = 0;
-                                                                    _g.label = 1;
-                                                                case 1:
-                                                                    if (!(f < i.size())) return [3, 9];
-                                                                    return [4, i.get(f)];
-                                                                case 2:
-                                                                    p = _g.sent();
-                                                                    return [4, m.pick(p, c.link || "a@href")];
-                                                                case 3:
-                                                                    w = _g.sent();
-                                                                    if (!!(!w || l[w] || /^javascript|#$/.test(w))) return [3, 8];
-                                                                    return [4, m.pick(p, c.title || "h3 || h2 || a@title || img@alt")];
-                                                                case 4:
-                                                                    y = _g.sent();
-                                                                    _b = y;
-                                                                    if (!_b) return [3, 7];
-                                                                    l[w] = 1;
-                                                                    _d = (_c = o).push;
-                                                                    _f = { name: y, link: d.fix(w) };
-                                                                    return [4, m.pick(p, c.cover || "img@img")];
-                                                                case 5:
-                                                                    _f.cover = _g.sent();
-                                                                    return [4, m.pick(p, c.desc || "")];
-                                                                case 6:
-                                                                    _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = E, _f)]));
-                                                                    _g.label = 7;
-                                                                case 7:
-                                                                    _b;
-                                                                    _g.label = 8;
-                                                                case 8:
-                                                                    f++;
-                                                                    return [3, 1];
-                                                                case 9: return [2, o];
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_b) {
+                return [2, (function (u, a, n, s, h, b, g, x, A, D, q, N, I, U, X, Z, ne) {
+                        return __awaiter(this, void 0, void 0, function () {
+                            var R;
+                            return __generator(this, function (_b) {
+                                switch (_b.label) {
+                                    case 0:
+                                        R = e("DOMAIN");
+                                        return [4, (function () {
+                                                return __awaiter(this, void 0, void 0, function () {
+                                                    function G(r) {
+                                                        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                            switch (_b.label) {
+                                                                case 0: return [4, m.text(r)];
+                                                                case 1: return [2, _b.sent()];
                                                             }
-                                                        });
+                                                        }); });
+                                                    }
+                                                    var E, c, d, m;
+                                                    return __generator(this, function (_b) {
+                                                        E = "https://navyteams.com";
+                                                        try {
+                                                            R && (E = String(R).replace(/\/+$/, ""));
+                                                        }
+                                                        catch (r) { }
+                                                        c = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".comic-item", title: "h3 || a@title || img@alt", link: "a@href", ch_list: "div.bodyL a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: ".content-type-novel, .chapter-content, #chapter-content" }, d = { img: function (r) { if (!r)
+                                                                return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], o = 0; o < i.length; o++) {
+                                                                var l = r.attr(i[o]);
+                                                                if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
+                                                                    return d.fix(l.trim());
+                                                            } var f = r.attr("data-srcset") || r.attr("srcset"); return f ? d.fix(f.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? E + r : E + "/" + r) : ""; }, text: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            o = 0;
+                                                                            _b.label = 1;
+                                                                        case 1:
+                                                                            if (!(o < i.length)) return [3, 4];
+                                                                            return [4, r.select(i[o]).text()];
+                                                                        case 2:
+                                                                            l = _b.sent();
+                                                                            if (l)
+                                                                                return [2, l.trim()];
+                                                                            _b.label = 3;
+                                                                        case 3:
+                                                                            o++;
+                                                                            return [3, 1];
+                                                                        case 4: return [2, ""];
+                                                                    }
+                                                                }); });
+                                                            }, get: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l, f, p, _b; return __generator(this, function (_c) {
+                                                                    switch (_c.label) {
+                                                                        case 0:
+                                                                            i = i || {};
+                                                                            o = { Referer: E + "/" };
+                                                                            if (i.headers)
+                                                                                for (l in i.headers)
+                                                                                    o[l] = i.headers[l];
+                                                                            return [4, u(r, { method: i.method, headers: o, body: i.body })];
+                                                                        case 1:
+                                                                            f = _c.sent(), p = 0;
+                                                                            _c.label = 2;
+                                                                        case 2:
+                                                                            _b = f && f.status === 429 && p < 3;
+                                                                            if (!_b) return [3, 4];
+                                                                            return [4, d.cf(f)];
+                                                                        case 3:
+                                                                            _b = !(_c.sent());
+                                                                            _c.label = 4;
+                                                                        case 4:
+                                                                            if (!_b) return [3, 8];
+                                                                            return [4, A(1500 * (p + 1))];
+                                                                        case 5:
+                                                                            _c.sent();
+                                                                            return [4, u(r, { method: i.method, headers: o, body: i.body })];
+                                                                        case 6:
+                                                                            f = _c.sent();
+                                                                            _c.label = 7;
+                                                                        case 7:
+                                                                            p++;
+                                                                            return [3, 2];
+                                                                        case 8: return [2, f];
+                                                                    }
+                                                                }); });
+                                                            }, cf: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.status !== 403 && r.status !== 503 && r.status !== 429)
+                                                                                return [2, !1];
+                                                                            return [4, r.text()];
+                                                                        case 1:
+                                                                            i = (_b.sent()) || "";
+                                                                            return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
+                                                                    }
+                                                                }); });
+                                                            }, check: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.ok)
+                                                                                return [2, r];
+                                                                            return [4, d.cf(r)];
+                                                                        case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
+                                                                    }
+                                                                }); });
+                                                            }, html: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            o = _d.sent();
+                                                                            return [4, o.html(i && i.charset)];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, json: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            o = _d.sent();
+                                                                            return [4, o.json()];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    return __generator(this, function (_b) {
+                                                                        switch (_b.label) {
+                                                                            case 0:
+                                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
+                                                                                return [4, r.html()];
+                                                                            case 1: return [2, (_b.sent()).replace(/\r\n?/g, "\n").replace(/&#13;|&#x0?[dD];/g, "").replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, m = { pick: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v, T, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            if (!i || !r)
+                                                                                return [2, ""];
+                                                                            o = String(i).split(" || "), l = 0;
+                                                                            _d.label = 1;
+                                                                        case 1:
+                                                                            if (!(l < o.length)) return [3, 9];
+                                                                            f = o[l], p = "text", w = f.lastIndexOf("@");
+                                                                            w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (p = f.slice(w + 1), f = f.slice(0, w));
+                                                                            y = f === ":self" ? null : r.select(f), v = f === ":self" ? r : y.size() ? y.first() : null;
+                                                                            if (!v) return [3, 8];
+                                                                            if (!(p === "text")) return [3, 3];
+                                                                            return [4, v.text()];
+                                                                        case 2:
+                                                                            _b = _d.sent();
+                                                                            return [3, 7];
+                                                                        case 3:
+                                                                            if (!(p === "html")) return [3, 5];
+                                                                            return [4, v.html()];
+                                                                        case 4:
+                                                                            _c = _d.sent();
+                                                                            return [3, 6];
+                                                                        case 5:
+                                                                            _c = p === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : p === "own" ? v.ownText() : v.attr(p);
+                                                                            _d.label = 6;
+                                                                        case 6:
+                                                                            _b = _c;
+                                                                            _d.label = 7;
+                                                                        case 7:
+                                                                            T = _b;
+                                                                            if (T)
+                                                                                return [2, String(T).trim()];
+                                                                            _d.label = 8;
+                                                                        case 8:
+                                                                            l++;
+                                                                            return [3, 1];
+                                                                        case 9: return [2, ""];
+                                                                    }
+                                                                }); });
+                                                            }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (p, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, o, l, f, p, w, y, _b, _c, _d;
+                                                                    var _f;
+                                                                    return __generator(this, function (_g) {
+                                                                        switch (_g.label) {
+                                                                            case 0:
+                                                                                i = r.select(c.item), o = [], l = {}, f = 0;
+                                                                                _g.label = 1;
+                                                                            case 1:
+                                                                                if (!(f < i.size())) return [3, 9];
+                                                                                return [4, i.get(f)];
+                                                                            case 2:
+                                                                                p = _g.sent();
+                                                                                return [4, m.pick(p, c.link || "a@href")];
+                                                                            case 3:
+                                                                                w = _g.sent();
+                                                                                if (!!(!w || l[w] || /^javascript|#$/.test(w))) return [3, 8];
+                                                                                return [4, m.pick(p, c.title || "h3 || h2 || a@title || img@alt")];
+                                                                            case 4:
+                                                                                y = _g.sent();
+                                                                                _b = y;
+                                                                                if (!_b) return [3, 7];
+                                                                                l[w] = 1;
+                                                                                _d = (_c = o).push;
+                                                                                _f = { name: y, link: d.fix(w) };
+                                                                                return [4, m.pick(p, c.cover || "img@img")];
+                                                                            case 5:
+                                                                                _f.cover = _g.sent();
+                                                                                return [4, m.pick(p, c.desc || "")];
+                                                                            case 6:
+                                                                                _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = E, _f)]));
+                                                                                _g.label = 7;
+                                                                            case 7:
+                                                                                _b;
+                                                                                _g.label = 8;
+                                                                            case 8:
+                                                                                f++;
+                                                                                return [3, 1];
+                                                                            case 9: return [2, o];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, listPage: function (r, i, o) {
+                                                                return __awaiter(this, void 0, void 0, function () { var l, f, p; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0: return [4, d.html(m.url(r, i, o), c.req)];
+                                                                        case 1:
+                                                                            l = _b.sent();
+                                                                            return [4, m.items(l)];
+                                                                        case 2:
+                                                                            f = _b.sent(), p = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
+                                                                            return [2, s.success(f, d.next(p && f.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, browse: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            o = c.tabs && c.tabs[r] || r;
+                                                                            return [4, m.listPage(o, i, "")];
+                                                                        case 1: return [2, _b.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, search: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!d.isUrl(r)) return [3, 2];
+                                                                            o = d.fix(r);
+                                                                            return [4, m.listPage(o + (o.indexOf("?") > 0 ? "&" : "?") + (c.pageParam || "page") + "={p}", i, "")];
+                                                                        case 1: return [2, _b.sent()];
+                                                                        case 2: return [4, m.listPage(c.search, i, r)];
+                                                                        case 3: return [2, _b.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, genre: function () {
+                                                                return __awaiter(this, void 0, void 0, function () { var r, i; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!c.genre)
+                                                                                return [2, s.success([])];
+                                                                            return [4, d.html(d.fix(c.genrePage || "/"))];
+                                                                        case 1:
+                                                                            r = _b.sent();
+                                                                            return [4, z(r.select(c.genre), function (o) {
+                                                                                    return __awaiter(this, void 0, void 0, function () {
+                                                                                        var _b;
+                                                                                        return __generator(this, function (_c) {
+                                                                                            switch (_c.label) {
+                                                                                                case 0:
+                                                                                                    _b = {};
+                                                                                                    return [4, o.text()];
+                                                                                                case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(o.attr("href")), _b.script = "search.js", _b)];
+                                                                                            }
+                                                                                        });
+                                                                                    });
+                                                                                })];
+                                                                        case 2:
+                                                                            i = _b.sent();
+                                                                            return [2, s.success(i.filter(function (o) { return o.title; }))];
+                                                                    }
+                                                                }); });
+                                                            }, detail: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, o, l, _b, _c, _d, _f, _g;
+                                                                    var _h;
+                                                                    return __generator(this, function (_j) {
+                                                                        switch (_j.label) {
+                                                                            case 0: return [4, d.html(r, c.req)];
+                                                                            case 1:
+                                                                                i = _j.sent();
+                                                                                if (!c.d_genres) return [3, 3];
+                                                                                return [4, z(i.select(c.d_genres), function (f) {
+                                                                                        return __awaiter(this, void 0, void 0, function () {
+                                                                                            var _b;
+                                                                                            return __generator(this, function (_c) {
+                                                                                                switch (_c.label) {
+                                                                                                    case 0:
+                                                                                                        _b = {};
+                                                                                                        return [4, f.text()];
+                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(f.attr("href")), _b.script = "search.js", _b)];
+                                                                                                }
+                                                                                            });
+                                                                                        });
+                                                                                    })];
+                                                                            case 2:
+                                                                                _b = _j.sent();
+                                                                                return [3, 4];
+                                                                            case 3:
+                                                                                _b = [];
+                                                                                _j.label = 4;
+                                                                            case 4:
+                                                                                o = _b;
+                                                                                return [4, m.pick(i, c.d_status)];
+                                                                            case 5:
+                                                                                l = _j.sent();
+                                                                                _d = (_c = s).success;
+                                                                                _h = {};
+                                                                                return [4, m.pick(i, c.d_title || "h1")];
+                                                                            case 6:
+                                                                                _h.name = _j.sent();
+                                                                                _g = (_f = d).fix;
+                                                                                return [4, m.pick(i, c.d_cover || "meta[property=og:image]@content")];
+                                                                            case 7:
+                                                                                _h.cover = _g.apply(_f, [_j.sent()]);
+                                                                                return [4, m.pick(i, c.d_author)];
+                                                                            case 8:
+                                                                                _h.author = _j.sent();
+                                                                                return [4, m.pick(i, (c.d_desc || "meta[name=description]@content").replace(/$/, ""))];
+                                                                            case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = l ? "Tình trạng: " + l : "", _h.ongoing = d.ongoing(l), _h.genres = o, _h.host = E, _h)])];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, toc: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, o, l, f, p, _b, w, y, v, T, k, _c, _d, _f, _g, P, B, _h;
+                                                                    var _j;
+                                                                    return __generator(this, function (_k) {
+                                                                        switch (_k.label) {
+                                                                            case 0:
+                                                                                if (c.single)
+                                                                                    return [2, s.success([{ name: c.single === !0 ? "Xem / Đọc" : c.single, url: r, host: E }])];
+                                                                                i = [r], o = [], l = {};
+                                                                                return [4, d.html(c.ch_rewrite ? r.replace(new RegExp(c.ch_rewrite[0]), c.ch_rewrite[1]) : r, c.req)];
+                                                                            case 1:
+                                                                                f = _k.sent();
+                                                                                if (!c.ch_url) return [3, 5];
+                                                                                return [4, m.pick(f, c.ch_url)];
+                                                                            case 2:
+                                                                                p = _k.sent();
+                                                                                _b = p;
+                                                                                if (!_b) return [3, 4];
+                                                                                return [4, d.html(d.fix(p), c.req)];
+                                                                            case 3:
+                                                                                _b = (f = _k.sent());
+                                                                                _k.label = 4;
+                                                                            case 4:
+                                                                                _b;
+                                                                                _k.label = 5;
+                                                                            case 5:
+                                                                                w = 0;
+                                                                                _k.label = 6;
+                                                                            case 6:
+                                                                                if (!(w < (c.ch_maxPages || 60))) return [3, 20];
+                                                                                y = f.select(c.ch_list), v = 0;
+                                                                                _k.label = 7;
+                                                                            case 7:
+                                                                                if (!(v < y.size())) return [3, 15];
+                                                                                return [4, y.get(v)];
+                                                                            case 8:
+                                                                                T = _k.sent(), k = T.attr("href") || T.attr("data-href");
+                                                                                _c = !k || k === "#" || l[k];
+                                                                                if (_c) return [3, 13];
+                                                                                l[k] = 1;
+                                                                                _f = (_d = o).push;
+                                                                                _j = {};
+                                                                                if (!c.ch_name) return [3, 10];
+                                                                                return [4, m.pick(T, c.ch_name)];
+                                                                            case 9:
+                                                                                _g = _k.sent();
+                                                                                return [3, 12];
+                                                                            case 10: return [4, T.text()];
+                                                                            case 11:
+                                                                                _g = _k.sent();
+                                                                                _k.label = 12;
+                                                                            case 12:
+                                                                                _c = (_f.apply(_d, [(_j.name = (_g) || T.attr("title"), _j.url = d.fix(k), _j.host = E, _j)]));
+                                                                                _k.label = 13;
+                                                                            case 13:
+                                                                                _c;
+                                                                                _k.label = 14;
+                                                                            case 14:
+                                                                                v++;
+                                                                                return [3, 7];
+                                                                            case 15:
+                                                                                P = c.ch_next ? f.select(c.ch_next).first() : null;
+                                                                                if (!P || !P.attr("href"))
+                                                                                    return [3, 20];
+                                                                                B = d.fix(P.attr("href"));
+                                                                                if (i.indexOf(B) >= 0)
+                                                                                    return [3, 20];
+                                                                                i.push(B);
+                                                                                _h = c.ch_delay;
+                                                                                if (!_h) return [3, 17];
+                                                                                return [4, A(c.ch_delay)];
+                                                                            case 16:
+                                                                                _h = (_k.sent());
+                                                                                _k.label = 17;
+                                                                            case 17:
+                                                                                _h;
+                                                                                return [4, d.html(B, c.req)];
+                                                                            case 18:
+                                                                                f = _k.sent();
+                                                                                _k.label = 19;
+                                                                            case 19:
+                                                                                w++;
+                                                                                return [3, 6];
+                                                                            case 20: return [2, (c.ch_reverse && o.reverse(), s.success(o))];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, pages: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, o, l, f, p, w, y, v, _b, _c, T, k; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            i = [], o = [r], l = r, f = 0;
+                                                                            _d.label = 1;
+                                                                        case 1:
+                                                                            if (!(f < (c.pages_max || 40))) return [3, 8];
+                                                                            return [4, d.html(l, c.req)];
+                                                                        case 2:
+                                                                            p = _d.sent(), w = p.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
+                                                                            _d.label = 3;
+                                                                        case 3:
+                                                                            if (!(y < w.size())) return [3, 6];
+                                                                            _c = (_b = d).img;
+                                                                            return [4, w.get(y)];
+                                                                        case 4:
+                                                                            v = _c.apply(_b, [_d.sent()]);
+                                                                            v && i.indexOf(v) < 0 && i.push(v);
+                                                                            _d.label = 5;
+                                                                        case 5:
+                                                                            y++;
+                                                                            return [3, 3];
+                                                                        case 6:
+                                                                            if (!c.pages_next)
+                                                                                return [3, 8];
+                                                                            T = p.select(c.pages_next).first();
+                                                                            if (!T)
+                                                                                return [3, 8];
+                                                                            k = d.fix(T.attr("href"));
+                                                                            if (!k || o.indexOf(k) >= 0)
+                                                                                return [3, 8];
+                                                                            o.push(k), l = k;
+                                                                            _d.label = 7;
+                                                                        case 7:
+                                                                            f++;
+                                                                            return [3, 1];
+                                                                        case 8: return [2, s.success(i)];
+                                                                    }
+                                                                }); });
+                                                            }, text: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, o, l, f, _b, _c, _d, _f, _g, _h, _j, _k; return __generator(this, function (_l) {
+                                                                    switch (_l.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, c.req)];
+                                                                        case 1: return [4, _c.apply(_b, [_l.sent(), r])];
+                                                                        case 2:
+                                                                            i = _l.sent();
+                                                                            return [4, i.text()];
+                                                                        case 3:
+                                                                            o = (_l.sent()) || "", l = n.parse(o, r), f = l.select(c.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            if (!!f) return [3, 5];
+                                                                            if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(o.slice(0, 2e4)))
+                                                                                throw new Error("CLOUDFLARE: trang " + E + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
+                                                                            _f = (_d = s).error;
+                                                                            _g = 'Không tìm thấy nội dung — trang nhận được: "';
+                                                                            return [4, m.pick(l, "title")];
+                                                                        case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
+                                                                        case 5:
+                                                                            _j = (_h = s).success;
+                                                                            return [4, d.cleanContent(f)];
+                                                                        case 6:
+                                                                            _k = [_l.sent()];
+                                                                            return [4, m.pick(l, c.c_title || "h1 || h2")];
+                                                                        case 7: return [2, _j.apply(_h, _k.concat([_l.sent()]))];
+                                                                    }
+                                                                }); });
+                                                            }, servers: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, o; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!c.servers)
+                                                                                return [2, s.success([{ title: "Server", data: r }])];
+                                                                            return [4, d.html(r, c.req)];
+                                                                        case 1:
+                                                                            i = _b.sent();
+                                                                            return [4, z(i.select(c.servers), function (l) {
+                                                                                    return __awaiter(this, void 0, void 0, function () {
+                                                                                        var f;
+                                                                                        var _b;
+                                                                                        return __generator(this, function (_c) {
+                                                                                            switch (_c.label) {
+                                                                                                case 0: return [4, m.pick(l, c.server_data || ":self@data-link || :self@data-src || :self@href")];
+                                                                                                case 1:
+                                                                                                    f = _c.sent();
+                                                                                                    _b = {};
+                                                                                                    return [4, l.text()];
+                                                                                                case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(f), _b)];
+                                                                                            }
+                                                                                        });
+                                                                                    });
+                                                                                })];
+                                                                        case 2:
+                                                                            o = (_b.sent()).filter(function (l) { return l.data; });
+                                                                            return [2, s.success(o.length ? o : [{ title: "Server", data: r }])];
+                                                                    }
+                                                                }); });
+                                                            }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var i = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return i ? i[0] : ""; }, track: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (i = i || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
+                                                                                return [2, s.success({ type: "native", data: r, headers: { Referer: E + "/" } })];
+                                                                            return [4, d.get(r)];
+                                                                        case 1:
+                                                                            o = _b.sent();
+                                                                            return [4, o.text()];
+                                                                        case 2:
+                                                                            l = _b.sent();
+                                                                            if (!(c.video && !i)) return [3, 4];
+                                                                            return [4, m.pick(n.parse(l, r), c.video)];
+                                                                        case 3:
+                                                                            f = _b.sent();
+                                                                            if (f)
+                                                                                return [2, s.success({ type: "native", data: d.fix(f), headers: { Referer: E + "/" } })];
+                                                                            _b.label = 4;
+                                                                        case 4:
+                                                                            p = m.sniff(l);
+                                                                            if (p)
+                                                                                return [2, s.success({ type: "native", data: p, headers: { Referer: i ? r : E + "/" } })];
+                                                                            w = n.parse(l, r), y = w.select(c.iframe || "iframe[src], iframe[data-src]").first();
+                                                                            if (!(y && i < 2)) return [3, 6];
+                                                                            v = d.fix(y.attr("src") || y.attr("data-src"));
+                                                                            if (!v) return [3, 6];
+                                                                            return [4, m.track(v, i + 1)];
+                                                                        case 5: return [2, _b.sent()];
+                                                                        case 6: return [2, s.success({ type: "webview", data: r })];
+                                                                    }
+                                                                }); });
+                                                            } };
+                                                        return [2, typeof G == "function" ? G : void 0];
                                                     });
-                                                }, listPage: function (r, i, o) {
-                                                    return __awaiter(this, void 0, void 0, function () { var l, f, p; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0: return [4, d.html(m.url(r, i, o), c.req)];
-                                                            case 1:
-                                                                l = _b.sent();
-                                                                return [4, m.items(l)];
-                                                            case 2:
-                                                                f = _b.sent(), p = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
-                                                                return [2, s.success(f, d.next(p && f.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, browse: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                o = c.tabs && c.tabs[r] || r;
-                                                                return [4, m.listPage(o, i, "")];
-                                                            case 1: return [2, _b.sent()];
-                                                        }
-                                                    }); });
-                                                }, search: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!d.isUrl(r)) return [3, 2];
-                                                                o = d.fix(r);
-                                                                return [4, m.listPage(o + (o.indexOf("?") > 0 ? "&" : "?") + (c.pageParam || "page") + "={p}", i, "")];
-                                                            case 1: return [2, _b.sent()];
-                                                            case 2: return [4, m.listPage(c.search, i, r)];
-                                                            case 3: return [2, _b.sent()];
-                                                        }
-                                                    }); });
-                                                }, genre: function () {
-                                                    return __awaiter(this, void 0, void 0, function () { var r, i; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!c.genre)
-                                                                    return [2, s.success([])];
-                                                                return [4, d.html(d.fix(c.genrePage || "/"))];
-                                                            case 1:
-                                                                r = _b.sent();
-                                                                return [4, z(r.select(c.genre), function (o) {
-                                                                        return __awaiter(this, void 0, void 0, function () {
-                                                                            var _b;
-                                                                            return __generator(this, function (_c) {
-                                                                                switch (_c.label) {
-                                                                                    case 0:
-                                                                                        _b = {};
-                                                                                        return [4, o.text()];
-                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(o.attr("href")), _b.script = "search.js", _b)];
-                                                                                }
-                                                                            });
-                                                                        });
-                                                                    })];
-                                                            case 2:
-                                                                i = _b.sent();
-                                                                return [2, s.success(i.filter(function (o) { return o.title; }))];
-                                                        }
-                                                    }); });
-                                                }, detail: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, _b, _c, _d, _f, _g;
-                                                        var _h;
-                                                        return __generator(this, function (_j) {
-                                                            switch (_j.label) {
-                                                                case 0: return [4, d.html(r, c.req)];
-                                                                case 1:
-                                                                    i = _j.sent();
-                                                                    if (!c.d_genres) return [3, 3];
-                                                                    return [4, z(i.select(c.d_genres), function (f) {
-                                                                            return __awaiter(this, void 0, void 0, function () {
-                                                                                var _b;
-                                                                                return __generator(this, function (_c) {
-                                                                                    switch (_c.label) {
-                                                                                        case 0:
-                                                                                            _b = {};
-                                                                                            return [4, f.text()];
-                                                                                        case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(f.attr("href")), _b.script = "search.js", _b)];
-                                                                                    }
-                                                                                });
-                                                                            });
-                                                                        })];
-                                                                case 2:
-                                                                    _b = _j.sent();
-                                                                    return [3, 4];
-                                                                case 3:
-                                                                    _b = [];
-                                                                    _j.label = 4;
-                                                                case 4:
-                                                                    o = _b;
-                                                                    return [4, m.pick(i, c.d_status)];
-                                                                case 5:
-                                                                    l = _j.sent();
-                                                                    _d = (_c = s).success;
-                                                                    _h = {};
-                                                                    return [4, m.pick(i, c.d_title || "h1")];
-                                                                case 6:
-                                                                    _h.name = _j.sent();
-                                                                    _g = (_f = d).fix;
-                                                                    return [4, m.pick(i, c.d_cover || "meta[property=og:image]@content")];
-                                                                case 7:
-                                                                    _h.cover = _g.apply(_f, [_j.sent()]);
-                                                                    return [4, m.pick(i, c.d_author)];
-                                                                case 8:
-                                                                    _h.author = _j.sent();
-                                                                    return [4, m.pick(i, (c.d_desc || "meta[name=description]@content").replace(/$/, ""))];
-                                                                case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = l ? "Tình trạng: " + l : "", _h.ongoing = d.ongoing(l), _h.genres = o, _h.host = E, _h)])];
-                                                            }
-                                                        });
-                                                    });
-                                                }, toc: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, _b, w, y, v, T, k, _c, _d, _f, _g, P, B, _h;
-                                                        var _j;
-                                                        return __generator(this, function (_k) {
-                                                            switch (_k.label) {
-                                                                case 0:
-                                                                    if (c.single)
-                                                                        return [2, s.success([{ name: c.single === !0 ? "Xem / Đọc" : c.single, url: r, host: E }])];
-                                                                    i = [r], o = [], l = {};
-                                                                    return [4, d.html(c.ch_rewrite ? r.replace(new RegExp(c.ch_rewrite[0]), c.ch_rewrite[1]) : r, c.req)];
-                                                                case 1:
-                                                                    f = _k.sent();
-                                                                    if (!c.ch_url) return [3, 5];
-                                                                    return [4, m.pick(f, c.ch_url)];
-                                                                case 2:
-                                                                    p = _k.sent();
-                                                                    _b = p;
-                                                                    if (!_b) return [3, 4];
-                                                                    return [4, d.html(d.fix(p), c.req)];
-                                                                case 3:
-                                                                    _b = (f = _k.sent());
-                                                                    _k.label = 4;
-                                                                case 4:
-                                                                    _b;
-                                                                    _k.label = 5;
-                                                                case 5:
-                                                                    w = 0;
-                                                                    _k.label = 6;
-                                                                case 6:
-                                                                    if (!(w < (c.ch_maxPages || 60))) return [3, 20];
-                                                                    y = f.select(c.ch_list), v = 0;
-                                                                    _k.label = 7;
-                                                                case 7:
-                                                                    if (!(v < y.size())) return [3, 15];
-                                                                    return [4, y.get(v)];
-                                                                case 8:
-                                                                    T = _k.sent(), k = T.attr("href") || T.attr("data-href");
-                                                                    _c = !k || k === "#" || l[k];
-                                                                    if (_c) return [3, 13];
-                                                                    l[k] = 1;
-                                                                    _f = (_d = o).push;
-                                                                    _j = {};
-                                                                    if (!c.ch_name) return [3, 10];
-                                                                    return [4, m.pick(T, c.ch_name)];
-                                                                case 9:
-                                                                    _g = _k.sent();
-                                                                    return [3, 12];
-                                                                case 10: return [4, T.text()];
-                                                                case 11:
-                                                                    _g = _k.sent();
-                                                                    _k.label = 12;
-                                                                case 12:
-                                                                    _c = (_f.apply(_d, [(_j.name = (_g) || T.attr("title"), _j.url = d.fix(k), _j.host = E, _j)]));
-                                                                    _k.label = 13;
-                                                                case 13:
-                                                                    _c;
-                                                                    _k.label = 14;
-                                                                case 14:
-                                                                    v++;
-                                                                    return [3, 7];
-                                                                case 15:
-                                                                    P = c.ch_next ? f.select(c.ch_next).first() : null;
-                                                                    if (!P || !P.attr("href"))
-                                                                        return [3, 20];
-                                                                    B = d.fix(P.attr("href"));
-                                                                    if (i.indexOf(B) >= 0)
-                                                                        return [3, 20];
-                                                                    i.push(B);
-                                                                    _h = c.ch_delay;
-                                                                    if (!_h) return [3, 17];
-                                                                    return [4, A(c.ch_delay)];
-                                                                case 16:
-                                                                    _h = (_k.sent());
-                                                                    _k.label = 17;
-                                                                case 17:
-                                                                    _h;
-                                                                    return [4, d.html(B, c.req)];
-                                                                case 18:
-                                                                    f = _k.sent();
-                                                                    _k.label = 19;
-                                                                case 19:
-                                                                    w++;
-                                                                    return [3, 6];
-                                                                case 20: return [2, (c.ch_reverse && o.reverse(), s.success(o))];
-                                                            }
-                                                        });
-                                                    });
-                                                }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, p, w, y, v, _b, _c, T, k; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                i = [], o = [r], l = r, f = 0;
-                                                                _d.label = 1;
-                                                            case 1:
-                                                                if (!(f < (c.pages_max || 40))) return [3, 8];
-                                                                return [4, d.html(l, c.req)];
-                                                            case 2:
-                                                                p = _d.sent(), w = p.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
-                                                                _d.label = 3;
-                                                            case 3:
-                                                                if (!(y < w.size())) return [3, 6];
-                                                                _c = (_b = d).img;
-                                                                return [4, w.get(y)];
-                                                            case 4:
-                                                                v = _c.apply(_b, [_d.sent()]);
-                                                                v && i.indexOf(v) < 0 && i.push(v);
-                                                                _d.label = 5;
-                                                            case 5:
-                                                                y++;
-                                                                return [3, 3];
-                                                            case 6:
-                                                                if (!c.pages_next)
-                                                                    return [3, 8];
-                                                                T = p.select(c.pages_next).first();
-                                                                if (!T)
-                                                                    return [3, 8];
-                                                                k = d.fix(T.attr("href"));
-                                                                if (!k || o.indexOf(k) >= 0)
-                                                                    return [3, 8];
-                                                                o.push(k), l = k;
-                                                                _d.label = 7;
-                                                            case 7:
-                                                                f++;
-                                                                return [3, 1];
-                                                            case 8: return [2, s.success(i)];
-                                                        }
-                                                    }); });
-                                                }, text: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, _b, _c, _d, _f, _g, _h, _j, _k; return __generator(this, function (_l) {
-                                                        switch (_l.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, c.req)];
-                                                            case 1: return [4, _c.apply(_b, [_l.sent(), r])];
-                                                            case 2:
-                                                                i = _l.sent();
-                                                                return [4, i.text()];
-                                                            case 3:
-                                                                o = (_l.sent()) || "", l = n.parse(o, r), f = l.select(c.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
-                                                                if (!!f) return [3, 5];
-                                                                if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(o.slice(0, 2e4)))
-                                                                    throw new Error("CLOUDFLARE: trang " + E + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
-                                                                _f = (_d = s).error;
-                                                                _g = 'Không tìm thấy nội dung — trang nhận được: "';
-                                                                return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
-                                                            case 5:
-                                                                _j = (_h = s).success;
-                                                                return [4, d.cleanContent(f)];
-                                                            case 6:
-                                                                _k = [_l.sent()];
-                                                                return [4, m.pick(l, c.c_title || "h1 || h2")];
-                                                            case 7: return [2, _j.apply(_h, _k.concat([_l.sent()]))];
-                                                        }
-                                                    }); });
-                                                }, servers: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!c.servers)
-                                                                    return [2, s.success([{ title: "Server", data: r }])];
-                                                                return [4, d.html(r, c.req)];
-                                                            case 1:
-                                                                i = _b.sent();
-                                                                return [4, z(i.select(c.servers), function (l) {
-                                                                        return __awaiter(this, void 0, void 0, function () {
-                                                                            var f;
-                                                                            var _b;
-                                                                            return __generator(this, function (_c) {
-                                                                                switch (_c.label) {
-                                                                                    case 0: return [4, m.pick(l, c.server_data || ":self@data-link || :self@data-src || :self@href")];
-                                                                                    case 1:
-                                                                                        f = _c.sent();
-                                                                                        _b = {};
-                                                                                        return [4, l.text()];
-                                                                                    case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(f), _b)];
-                                                                                }
-                                                                            });
-                                                                        });
-                                                                    })];
-                                                            case 2:
-                                                                o = (_b.sent()).filter(function (l) { return l.data; });
-                                                                return [2, s.success(o.length ? o : [{ title: "Server", data: r }])];
-                                                        }
-                                                    }); });
-                                                }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var i = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return i ? i[0] : ""; }, track: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (i = i || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
-                                                                    return [2, s.success({ type: "native", data: r, headers: { Referer: E + "/" } })];
-                                                                return [4, d.get(r)];
-                                                            case 1:
-                                                                o = _b.sent();
-                                                                return [4, o.text()];
-                                                            case 2:
-                                                                l = _b.sent();
-                                                                if (!(c.video && !i)) return [3, 4];
-                                                                return [4, m.pick(n.parse(l, r), c.video)];
-                                                            case 3:
-                                                                f = _b.sent();
-                                                                if (f)
-                                                                    return [2, s.success({ type: "native", data: d.fix(f), headers: { Referer: E + "/" } })];
-                                                                _b.label = 4;
-                                                            case 4:
-                                                                p = m.sniff(l);
-                                                                if (p)
-                                                                    return [2, s.success({ type: "native", data: p, headers: { Referer: i ? r : E + "/" } })];
-                                                                w = n.parse(l, r), y = w.select(c.iframe || "iframe[src], iframe[data-src]").first();
-                                                                if (!(y && i < 2)) return [3, 6];
-                                                                v = d.fix(y.attr("src") || y.attr("data-src"));
-                                                                if (!v) return [3, 6];
-                                                                return [4, m.track(v, i + 1)];
-                                                            case 5: return [2, _b.sent()];
-                                                            case 6: return [2, s.success({ type: "webview", data: r })];
-                                                        }
-                                                    }); });
-                                                } };
-                                            return [2, typeof G == "function" ? G : void 0];
-                                        }); });
-                                    })()];
-                            case 1: return [2, _b.sent()];
-                        }
-                    }); });
-                })(t.fetch, t.Http, t.Html, t.Response, t.localStorage, t.cacheStorage, t.localConfig, t.localCookie, t.sleep, t.Log, t.console, t.Console, t.log, t.UserAgent, t.Engine, t.Graphics, t.Script)];
-        }); });
+                                                });
+                                            })()];
+                                    case 1: return [2, _b.sent()];
+                                }
+                            });
+                        });
+                    })(t.fetch, t.Http, t.Html, t.Response, t.localStorage, t.cacheStorage, t.localConfig, t.localCookie, t.sleep, t.Log, t.console, t.Console, t.log, t.UserAgent, t.Engine, t.Graphics, t.Script)];
+            });
+        });
     }, browse: function (t, e) {
-        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, a, n, s, h, b, g, x, A, D, q, N, I, U, X, Z, ne) {
-                    return __awaiter(this, void 0, void 0, function () { var R; return __generator(this, function (_b) {
-                        switch (_b.label) {
-                            case 0:
-                                R = e("DOMAIN");
-                                return [4, (function () {
-                                        return __awaiter(this, void 0, void 0, function () { function G(r, i) {
-                                            return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                switch (_b.label) {
-                                                    case 0: return [4, m.browse(r, i)];
-                                                    case 1: return [2, _b.sent()];
-                                                }
-                                            }); });
-                                        } var E, c, d, m; return __generator(this, function (_b) {
-                                            E = "https://navyteams.com";
-                                            try {
-                                                R && (E = String(R).replace(/\/+$/, ""));
-                                            }
-                                            catch (r) { }
-                                            c = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".comic-item", title: "h3 || a@title || img@alt", link: "a@href", ch_list: "div.bodyL a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: ".content-type-novel, .chapter-content, #chapter-content" }, d = { img: function (r) { if (!r)
-                                                    return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], o = 0; o < i.length; o++) {
-                                                    var l = r.attr(i[o]);
-                                                    if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
-                                                        return d.fix(l.trim());
-                                                } var f = r.attr("data-srcset") || r.attr("srcset"); return f ? d.fix(f.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? E + r : E + "/" + r) : ""; }, text: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                o = 0;
-                                                                _b.label = 1;
-                                                            case 1:
-                                                                if (!(o < i.length)) return [3, 4];
-                                                                return [4, r.select(i[o]).text()];
-                                                            case 2:
-                                                                l = _b.sent();
-                                                                if (l)
-                                                                    return [2, l.trim()];
-                                                                _b.label = 3;
-                                                            case 3:
-                                                                o++;
-                                                                return [3, 1];
-                                                            case 4: return [2, ""];
-                                                        }
-                                                    }); });
-                                                }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, _b; return __generator(this, function (_c) {
-                                                        switch (_c.label) {
-                                                            case 0:
-                                                                i = i || {};
-                                                                o = { Referer: E + "/" };
-                                                                if (i.headers)
-                                                                    for (l in i.headers)
-                                                                        o[l] = i.headers[l];
-                                                                return [4, u(r, { method: i.method, headers: o, body: i.body })];
-                                                            case 1:
-                                                                f = _c.sent(), p = 0;
-                                                                _c.label = 2;
-                                                            case 2:
-                                                                _b = f && f.status === 429 && p < 3;
-                                                                if (!_b) return [3, 4];
-                                                                return [4, d.cf(f)];
-                                                            case 3:
-                                                                _b = !(_c.sent());
-                                                                _c.label = 4;
-                                                            case 4:
-                                                                if (!_b) return [3, 8];
-                                                                return [4, A(1500 * (p + 1))];
-                                                            case 5:
-                                                                _c.sent();
-                                                                return [4, u(r, { method: i.method, headers: o, body: i.body })];
-                                                            case 6:
-                                                                f = _c.sent();
-                                                                _c.label = 7;
-                                                            case 7:
-                                                                p++;
-                                                                return [3, 2];
-                                                            case 8: return [2, f];
-                                                        }
-                                                    }); });
-                                                }, cf: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.status !== 403 && r.status !== 503 && r.status !== 429)
-                                                                    return [2, !1];
-                                                                return [4, r.text()];
-                                                            case 1:
-                                                                i = (_b.sent()) || "";
-                                                                return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
-                                                        }
-                                                    }); });
-                                                }, check: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (r.ok)
-                                                                    return [2, r];
-                                                                return [4, d.cf(r)];
-                                                            case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
-                                                        }
-                                                    }); });
-                                                }, html: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                o = _d.sent();
-                                                                return [4, o.html(i && i.charset)];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, json: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, i)];
-                                                            case 1: return [4, _c.apply(_b, [_d.sent(), r])];
-                                                            case 2:
-                                                                o = _d.sent();
-                                                                return [4, o.json()];
-                                                            case 3: return [2, _d.sent()];
-                                                        }
-                                                    }); });
-                                                }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
-                                                                return [4, r.html()];
-                                                            case 1: return [2, (_b.sent()).replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
-                                                        }
-                                                    }); });
-                                                }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, m = { pick: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v, T, _b, _c; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                if (!i || !r)
-                                                                    return [2, ""];
-                                                                o = String(i).split(" || "), l = 0;
-                                                                _d.label = 1;
-                                                            case 1:
-                                                                if (!(l < o.length)) return [3, 9];
-                                                                f = o[l], p = "text", w = f.lastIndexOf("@");
-                                                                w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (p = f.slice(w + 1), f = f.slice(0, w));
-                                                                y = f === ":self" ? null : r.select(f), v = f === ":self" ? r : y.size() ? y.first() : null;
-                                                                if (!v) return [3, 8];
-                                                                if (!(p === "text")) return [3, 3];
-                                                                return [4, v.text()];
-                                                            case 2:
-                                                                _b = _d.sent();
-                                                                return [3, 7];
-                                                            case 3:
-                                                                if (!(p === "html")) return [3, 5];
-                                                                return [4, v.html()];
-                                                            case 4:
-                                                                _c = _d.sent();
-                                                                return [3, 6];
-                                                            case 5:
-                                                                _c = p === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : p === "own" ? v.ownText() : v.attr(p);
-                                                                _d.label = 6;
-                                                            case 6:
-                                                                _b = _c;
-                                                                _d.label = 7;
-                                                            case 7:
-                                                                T = _b;
-                                                                if (T)
-                                                                    return [2, String(T).trim()];
-                                                                _d.label = 8;
-                                                            case 8:
-                                                                l++;
-                                                                return [3, 1];
-                                                            case 9: return [2, ""];
-                                                        }
-                                                    }); });
-                                                }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (p, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, w, y, _b, _c, _d;
-                                                        var _f;
-                                                        return __generator(this, function (_g) {
-                                                            switch (_g.label) {
-                                                                case 0:
-                                                                    i = r.select(c.item), o = [], l = {}, f = 0;
-                                                                    _g.label = 1;
-                                                                case 1:
-                                                                    if (!(f < i.size())) return [3, 9];
-                                                                    return [4, i.get(f)];
-                                                                case 2:
-                                                                    p = _g.sent();
-                                                                    return [4, m.pick(p, c.link || "a@href")];
-                                                                case 3:
-                                                                    w = _g.sent();
-                                                                    if (!!(!w || l[w] || /^javascript|#$/.test(w))) return [3, 8];
-                                                                    return [4, m.pick(p, c.title || "h3 || h2 || a@title || img@alt")];
-                                                                case 4:
-                                                                    y = _g.sent();
-                                                                    _b = y;
-                                                                    if (!_b) return [3, 7];
-                                                                    l[w] = 1;
-                                                                    _d = (_c = o).push;
-                                                                    _f = { name: y, link: d.fix(w) };
-                                                                    return [4, m.pick(p, c.cover || "img@img")];
-                                                                case 5:
-                                                                    _f.cover = _g.sent();
-                                                                    return [4, m.pick(p, c.desc || "")];
-                                                                case 6:
-                                                                    _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = E, _f)]));
-                                                                    _g.label = 7;
-                                                                case 7:
-                                                                    _b;
-                                                                    _g.label = 8;
-                                                                case 8:
-                                                                    f++;
-                                                                    return [3, 1];
-                                                                case 9: return [2, o];
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_b) {
+                return [2, (function (u, a, n, s, h, b, g, x, A, D, q, N, I, U, X, Z, ne) {
+                        return __awaiter(this, void 0, void 0, function () {
+                            var R;
+                            return __generator(this, function (_b) {
+                                switch (_b.label) {
+                                    case 0:
+                                        R = e("DOMAIN");
+                                        return [4, (function () {
+                                                return __awaiter(this, void 0, void 0, function () {
+                                                    function G(r, i) {
+                                                        return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                            switch (_b.label) {
+                                                                case 0: return [4, m.browse(r, i)];
+                                                                case 1: return [2, _b.sent()];
                                                             }
-                                                        });
+                                                        }); });
+                                                    }
+                                                    var E, c, d, m;
+                                                    return __generator(this, function (_b) {
+                                                        E = "https://navyteams.com";
+                                                        try {
+                                                            R && (E = String(R).replace(/\/+$/, ""));
+                                                        }
+                                                        catch (r) { }
+                                                        c = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".comic-item", title: "h3 || a@title || img@alt", link: "a@href", ch_list: "div.bodyL a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: ".content-type-novel, .chapter-content, #chapter-content" }, d = { img: function (r) { if (!r)
+                                                                return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], o = 0; o < i.length; o++) {
+                                                                var l = r.attr(i[o]);
+                                                                if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
+                                                                    return d.fix(l.trim());
+                                                            } var f = r.attr("data-srcset") || r.attr("srcset"); return f ? d.fix(f.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? E + r : E + "/" + r) : ""; }, text: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            o = 0;
+                                                                            _b.label = 1;
+                                                                        case 1:
+                                                                            if (!(o < i.length)) return [3, 4];
+                                                                            return [4, r.select(i[o]).text()];
+                                                                        case 2:
+                                                                            l = _b.sent();
+                                                                            if (l)
+                                                                                return [2, l.trim()];
+                                                                            _b.label = 3;
+                                                                        case 3:
+                                                                            o++;
+                                                                            return [3, 1];
+                                                                        case 4: return [2, ""];
+                                                                    }
+                                                                }); });
+                                                            }, get: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l, f, p, _b; return __generator(this, function (_c) {
+                                                                    switch (_c.label) {
+                                                                        case 0:
+                                                                            i = i || {};
+                                                                            o = { Referer: E + "/" };
+                                                                            if (i.headers)
+                                                                                for (l in i.headers)
+                                                                                    o[l] = i.headers[l];
+                                                                            return [4, u(r, { method: i.method, headers: o, body: i.body })];
+                                                                        case 1:
+                                                                            f = _c.sent(), p = 0;
+                                                                            _c.label = 2;
+                                                                        case 2:
+                                                                            _b = f && f.status === 429 && p < 3;
+                                                                            if (!_b) return [3, 4];
+                                                                            return [4, d.cf(f)];
+                                                                        case 3:
+                                                                            _b = !(_c.sent());
+                                                                            _c.label = 4;
+                                                                        case 4:
+                                                                            if (!_b) return [3, 8];
+                                                                            return [4, A(1500 * (p + 1))];
+                                                                        case 5:
+                                                                            _c.sent();
+                                                                            return [4, u(r, { method: i.method, headers: o, body: i.body })];
+                                                                        case 6:
+                                                                            f = _c.sent();
+                                                                            _c.label = 7;
+                                                                        case 7:
+                                                                            p++;
+                                                                            return [3, 2];
+                                                                        case 8: return [2, f];
+                                                                    }
+                                                                }); });
+                                                            }, cf: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.status !== 403 && r.status !== 503 && r.status !== 429)
+                                                                                return [2, !1];
+                                                                            return [4, r.text()];
+                                                                        case 1:
+                                                                            i = (_b.sent()) || "";
+                                                                            return [2, /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(i.slice(0, 2e4))];
+                                                                    }
+                                                                }); });
+                                                            }, check: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (r.ok)
+                                                                                return [2, r];
+                                                                            return [4, d.cf(r)];
+                                                                        case 1: throw (_b.sent()) ? new Error("CLOUDFLARE: trang " + i.split("/").slice(0, 3).join("/") + " yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.") : new Error("HTTP " + r.status + " " + i);
+                                                                    }
+                                                                }); });
+                                                            }, html: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            o = _d.sent();
+                                                                            return [4, o.html(i && i.charset)];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, json: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, i)];
+                                                                        case 1: return [4, _c.apply(_b, [_d.sent(), r])];
+                                                                        case 2:
+                                                                            o = _d.sent();
+                                                                            return [4, o.json()];
+                                                                        case 3: return [2, _d.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, page: function (r) { var i = parseInt(r || "1", 10); return isNaN(i) || i < 1 ? 1 : i; }, next: function (r, i) { return r ? String(d.page(i) + 1) : ""; }, isUrl: function (r) { return /^(https?:)?\/\//.test(r || "") || (r || "").charAt(0) === "/"; }, enc: function (r) { return encodeURIComponent(r || ""); }, cleanContent: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    return __generator(this, function (_b) {
+                                                                        switch (_b.label) {
+                                                                            case 0:
+                                                                                r.select("script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form").remove();
+                                                                                return [4, r.html()];
+                                                                            case 1: return [2, (_b.sent()).replace(/\r\n?/g, "\n").replace(/&#13;|&#x0?[dD];/g, "").replace(/&nbsp;/g, " ").replace(/(<br\s*\/?>\s*){3,}/gi, "<br><br>")];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, m = { pick: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v, T, _b, _c; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            if (!i || !r)
+                                                                                return [2, ""];
+                                                                            o = String(i).split(" || "), l = 0;
+                                                                            _d.label = 1;
+                                                                        case 1:
+                                                                            if (!(l < o.length)) return [3, 9];
+                                                                            f = o[l], p = "text", w = f.lastIndexOf("@");
+                                                                            w > 0 && !/\[[^\]]*@/.test(f.slice(w)) && (p = f.slice(w + 1), f = f.slice(0, w));
+                                                                            y = f === ":self" ? null : r.select(f), v = f === ":self" ? r : y.size() ? y.first() : null;
+                                                                            if (!v) return [3, 8];
+                                                                            if (!(p === "text")) return [3, 3];
+                                                                            return [4, v.text()];
+                                                                        case 2:
+                                                                            _b = _d.sent();
+                                                                            return [3, 7];
+                                                                        case 3:
+                                                                            if (!(p === "html")) return [3, 5];
+                                                                            return [4, v.html()];
+                                                                        case 4:
+                                                                            _c = _d.sent();
+                                                                            return [3, 6];
+                                                                        case 5:
+                                                                            _c = p === "img" ? d.img(v.is("img") ? v : v.select("img").first()) : p === "own" ? v.ownText() : v.attr(p);
+                                                                            _d.label = 6;
+                                                                        case 6:
+                                                                            _b = _c;
+                                                                            _d.label = 7;
+                                                                        case 7:
+                                                                            T = _b;
+                                                                            if (T)
+                                                                                return [2, String(T).trim()];
+                                                                            _d.label = 8;
+                                                                        case 8:
+                                                                            l++;
+                                                                            return [3, 1];
+                                                                        case 9: return [2, ""];
+                                                                    }
+                                                                }); });
+                                                            }, url: function (r, i, o) { var l = d.page(i), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (p, w) { return l > 1 ? w : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(o || "")).replace(/\{base\}/g, E), d.fix(f); }, items: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, o, l, f, p, w, y, _b, _c, _d;
+                                                                    var _f;
+                                                                    return __generator(this, function (_g) {
+                                                                        switch (_g.label) {
+                                                                            case 0:
+                                                                                i = r.select(c.item), o = [], l = {}, f = 0;
+                                                                                _g.label = 1;
+                                                                            case 1:
+                                                                                if (!(f < i.size())) return [3, 9];
+                                                                                return [4, i.get(f)];
+                                                                            case 2:
+                                                                                p = _g.sent();
+                                                                                return [4, m.pick(p, c.link || "a@href")];
+                                                                            case 3:
+                                                                                w = _g.sent();
+                                                                                if (!!(!w || l[w] || /^javascript|#$/.test(w))) return [3, 8];
+                                                                                return [4, m.pick(p, c.title || "h3 || h2 || a@title || img@alt")];
+                                                                            case 4:
+                                                                                y = _g.sent();
+                                                                                _b = y;
+                                                                                if (!_b) return [3, 7];
+                                                                                l[w] = 1;
+                                                                                _d = (_c = o).push;
+                                                                                _f = { name: y, link: d.fix(w) };
+                                                                                return [4, m.pick(p, c.cover || "img@img")];
+                                                                            case 5:
+                                                                                _f.cover = _g.sent();
+                                                                                return [4, m.pick(p, c.desc || "")];
+                                                                            case 6:
+                                                                                _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = E, _f)]));
+                                                                                _g.label = 7;
+                                                                            case 7:
+                                                                                _b;
+                                                                                _g.label = 8;
+                                                                            case 8:
+                                                                                f++;
+                                                                                return [3, 1];
+                                                                            case 9: return [2, o];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, listPage: function (r, i, o) {
+                                                                return __awaiter(this, void 0, void 0, function () { var l, f, p; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0: return [4, d.html(m.url(r, i, o), c.req)];
+                                                                        case 1:
+                                                                            l = _b.sent();
+                                                                            return [4, m.items(l)];
+                                                                        case 2:
+                                                                            f = _b.sent(), p = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
+                                                                            return [2, s.success(f, d.next(p && f.length > 0, i))];
+                                                                    }
+                                                                }); });
+                                                            }, browse: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            o = c.tabs && c.tabs[r] || r;
+                                                                            return [4, m.listPage(o, i, "")];
+                                                                        case 1: return [2, _b.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, search: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!d.isUrl(r)) return [3, 2];
+                                                                            o = d.fix(r);
+                                                                            return [4, m.listPage(o + (o.indexOf("?") > 0 ? "&" : "?") + (c.pageParam || "page") + "={p}", i, "")];
+                                                                        case 1: return [2, _b.sent()];
+                                                                        case 2: return [4, m.listPage(c.search, i, r)];
+                                                                        case 3: return [2, _b.sent()];
+                                                                    }
+                                                                }); });
+                                                            }, genre: function () {
+                                                                return __awaiter(this, void 0, void 0, function () { var r, i; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!c.genre)
+                                                                                return [2, s.success([])];
+                                                                            return [4, d.html(d.fix(c.genrePage || "/"))];
+                                                                        case 1:
+                                                                            r = _b.sent();
+                                                                            return [4, z(r.select(c.genre), function (o) {
+                                                                                    return __awaiter(this, void 0, void 0, function () {
+                                                                                        var _b;
+                                                                                        return __generator(this, function (_c) {
+                                                                                            switch (_c.label) {
+                                                                                                case 0:
+                                                                                                    _b = {};
+                                                                                                    return [4, o.text()];
+                                                                                                case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(o.attr("href")), _b.script = "search.js", _b)];
+                                                                                            }
+                                                                                        });
+                                                                                    });
+                                                                                })];
+                                                                        case 2:
+                                                                            i = _b.sent();
+                                                                            return [2, s.success(i.filter(function (o) { return o.title; }))];
+                                                                    }
+                                                                }); });
+                                                            }, detail: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, o, l, _b, _c, _d, _f, _g;
+                                                                    var _h;
+                                                                    return __generator(this, function (_j) {
+                                                                        switch (_j.label) {
+                                                                            case 0: return [4, d.html(r, c.req)];
+                                                                            case 1:
+                                                                                i = _j.sent();
+                                                                                if (!c.d_genres) return [3, 3];
+                                                                                return [4, z(i.select(c.d_genres), function (f) {
+                                                                                        return __awaiter(this, void 0, void 0, function () {
+                                                                                            var _b;
+                                                                                            return __generator(this, function (_c) {
+                                                                                                switch (_c.label) {
+                                                                                                    case 0:
+                                                                                                        _b = {};
+                                                                                                        return [4, f.text()];
+                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(f.attr("href")), _b.script = "search.js", _b)];
+                                                                                                }
+                                                                                            });
+                                                                                        });
+                                                                                    })];
+                                                                            case 2:
+                                                                                _b = _j.sent();
+                                                                                return [3, 4];
+                                                                            case 3:
+                                                                                _b = [];
+                                                                                _j.label = 4;
+                                                                            case 4:
+                                                                                o = _b;
+                                                                                return [4, m.pick(i, c.d_status)];
+                                                                            case 5:
+                                                                                l = _j.sent();
+                                                                                _d = (_c = s).success;
+                                                                                _h = {};
+                                                                                return [4, m.pick(i, c.d_title || "h1")];
+                                                                            case 6:
+                                                                                _h.name = _j.sent();
+                                                                                _g = (_f = d).fix;
+                                                                                return [4, m.pick(i, c.d_cover || "meta[property=og:image]@content")];
+                                                                            case 7:
+                                                                                _h.cover = _g.apply(_f, [_j.sent()]);
+                                                                                return [4, m.pick(i, c.d_author)];
+                                                                            case 8:
+                                                                                _h.author = _j.sent();
+                                                                                return [4, m.pick(i, (c.d_desc || "meta[name=description]@content").replace(/$/, ""))];
+                                                                            case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = l ? "Tình trạng: " + l : "", _h.ongoing = d.ongoing(l), _h.genres = o, _h.host = E, _h)])];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, toc: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () {
+                                                                    var i, o, l, f, p, _b, w, y, v, T, k, _c, _d, _f, _g, P, B, _h;
+                                                                    var _j;
+                                                                    return __generator(this, function (_k) {
+                                                                        switch (_k.label) {
+                                                                            case 0:
+                                                                                if (c.single)
+                                                                                    return [2, s.success([{ name: c.single === !0 ? "Xem / Đọc" : c.single, url: r, host: E }])];
+                                                                                i = [r], o = [], l = {};
+                                                                                return [4, d.html(c.ch_rewrite ? r.replace(new RegExp(c.ch_rewrite[0]), c.ch_rewrite[1]) : r, c.req)];
+                                                                            case 1:
+                                                                                f = _k.sent();
+                                                                                if (!c.ch_url) return [3, 5];
+                                                                                return [4, m.pick(f, c.ch_url)];
+                                                                            case 2:
+                                                                                p = _k.sent();
+                                                                                _b = p;
+                                                                                if (!_b) return [3, 4];
+                                                                                return [4, d.html(d.fix(p), c.req)];
+                                                                            case 3:
+                                                                                _b = (f = _k.sent());
+                                                                                _k.label = 4;
+                                                                            case 4:
+                                                                                _b;
+                                                                                _k.label = 5;
+                                                                            case 5:
+                                                                                w = 0;
+                                                                                _k.label = 6;
+                                                                            case 6:
+                                                                                if (!(w < (c.ch_maxPages || 60))) return [3, 20];
+                                                                                y = f.select(c.ch_list), v = 0;
+                                                                                _k.label = 7;
+                                                                            case 7:
+                                                                                if (!(v < y.size())) return [3, 15];
+                                                                                return [4, y.get(v)];
+                                                                            case 8:
+                                                                                T = _k.sent(), k = T.attr("href") || T.attr("data-href");
+                                                                                _c = !k || k === "#" || l[k];
+                                                                                if (_c) return [3, 13];
+                                                                                l[k] = 1;
+                                                                                _f = (_d = o).push;
+                                                                                _j = {};
+                                                                                if (!c.ch_name) return [3, 10];
+                                                                                return [4, m.pick(T, c.ch_name)];
+                                                                            case 9:
+                                                                                _g = _k.sent();
+                                                                                return [3, 12];
+                                                                            case 10: return [4, T.text()];
+                                                                            case 11:
+                                                                                _g = _k.sent();
+                                                                                _k.label = 12;
+                                                                            case 12:
+                                                                                _c = (_f.apply(_d, [(_j.name = (_g) || T.attr("title"), _j.url = d.fix(k), _j.host = E, _j)]));
+                                                                                _k.label = 13;
+                                                                            case 13:
+                                                                                _c;
+                                                                                _k.label = 14;
+                                                                            case 14:
+                                                                                v++;
+                                                                                return [3, 7];
+                                                                            case 15:
+                                                                                P = c.ch_next ? f.select(c.ch_next).first() : null;
+                                                                                if (!P || !P.attr("href"))
+                                                                                    return [3, 20];
+                                                                                B = d.fix(P.attr("href"));
+                                                                                if (i.indexOf(B) >= 0)
+                                                                                    return [3, 20];
+                                                                                i.push(B);
+                                                                                _h = c.ch_delay;
+                                                                                if (!_h) return [3, 17];
+                                                                                return [4, A(c.ch_delay)];
+                                                                            case 16:
+                                                                                _h = (_k.sent());
+                                                                                _k.label = 17;
+                                                                            case 17:
+                                                                                _h;
+                                                                                return [4, d.html(B, c.req)];
+                                                                            case 18:
+                                                                                f = _k.sent();
+                                                                                _k.label = 19;
+                                                                            case 19:
+                                                                                w++;
+                                                                                return [3, 6];
+                                                                            case 20: return [2, (c.ch_reverse && o.reverse(), s.success(o))];
+                                                                        }
+                                                                    });
+                                                                });
+                                                            }, pages: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, o, l, f, p, w, y, v, _b, _c, T, k; return __generator(this, function (_d) {
+                                                                    switch (_d.label) {
+                                                                        case 0:
+                                                                            i = [], o = [r], l = r, f = 0;
+                                                                            _d.label = 1;
+                                                                        case 1:
+                                                                            if (!(f < (c.pages_max || 40))) return [3, 8];
+                                                                            return [4, d.html(l, c.req)];
+                                                                        case 2:
+                                                                            p = _d.sent(), w = p.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
+                                                                            _d.label = 3;
+                                                                        case 3:
+                                                                            if (!(y < w.size())) return [3, 6];
+                                                                            _c = (_b = d).img;
+                                                                            return [4, w.get(y)];
+                                                                        case 4:
+                                                                            v = _c.apply(_b, [_d.sent()]);
+                                                                            v && i.indexOf(v) < 0 && i.push(v);
+                                                                            _d.label = 5;
+                                                                        case 5:
+                                                                            y++;
+                                                                            return [3, 3];
+                                                                        case 6:
+                                                                            if (!c.pages_next)
+                                                                                return [3, 8];
+                                                                            T = p.select(c.pages_next).first();
+                                                                            if (!T)
+                                                                                return [3, 8];
+                                                                            k = d.fix(T.attr("href"));
+                                                                            if (!k || o.indexOf(k) >= 0)
+                                                                                return [3, 8];
+                                                                            o.push(k), l = k;
+                                                                            _d.label = 7;
+                                                                        case 7:
+                                                                            f++;
+                                                                            return [3, 1];
+                                                                        case 8: return [2, s.success(i)];
+                                                                    }
+                                                                }); });
+                                                            }, text: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, o, l, f, _b, _c, _d, _f, _g, _h, _j, _k; return __generator(this, function (_l) {
+                                                                    switch (_l.label) {
+                                                                        case 0:
+                                                                            _c = (_b = d).check;
+                                                                            return [4, d.get(r, c.req)];
+                                                                        case 1: return [4, _c.apply(_b, [_l.sent(), r])];
+                                                                        case 2:
+                                                                            i = _l.sent();
+                                                                            return [4, i.text()];
+                                                                        case 3:
+                                                                            o = (_l.sent()) || "", l = n.parse(o, r), f = l.select(c.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            if (!!f) return [3, 5];
+                                                                            if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(o.slice(0, 2e4)))
+                                                                                throw new Error("CLOUDFLARE: trang " + E + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
+                                                                            _f = (_d = s).error;
+                                                                            _g = 'Không tìm thấy nội dung — trang nhận được: "';
+                                                                            return [4, m.pick(l, "title")];
+                                                                        case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
+                                                                        case 5:
+                                                                            _j = (_h = s).success;
+                                                                            return [4, d.cleanContent(f)];
+                                                                        case 6:
+                                                                            _k = [_l.sent()];
+                                                                            return [4, m.pick(l, c.c_title || "h1 || h2")];
+                                                                        case 7: return [2, _j.apply(_h, _k.concat([_l.sent()]))];
+                                                                    }
+                                                                }); });
+                                                            }, servers: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var i, o; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (!c.servers)
+                                                                                return [2, s.success([{ title: "Server", data: r }])];
+                                                                            return [4, d.html(r, c.req)];
+                                                                        case 1:
+                                                                            i = _b.sent();
+                                                                            return [4, z(i.select(c.servers), function (l) {
+                                                                                    return __awaiter(this, void 0, void 0, function () {
+                                                                                        var f;
+                                                                                        var _b;
+                                                                                        return __generator(this, function (_c) {
+                                                                                            switch (_c.label) {
+                                                                                                case 0: return [4, m.pick(l, c.server_data || ":self@data-link || :self@data-src || :self@href")];
+                                                                                                case 1:
+                                                                                                    f = _c.sent();
+                                                                                                    _b = {};
+                                                                                                    return [4, l.text()];
+                                                                                                case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(f), _b)];
+                                                                                            }
+                                                                                        });
+                                                                                    });
+                                                                                })];
+                                                                        case 2:
+                                                                            o = (_b.sent()).filter(function (l) { return l.data; });
+                                                                            return [2, s.success(o.length ? o : [{ title: "Server", data: r }])];
+                                                                    }
+                                                                }); });
+                                                            }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var i = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return i ? i[0] : ""; }, track: function (r, i) {
+                                                                return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v; return __generator(this, function (_b) {
+                                                                    switch (_b.label) {
+                                                                        case 0:
+                                                                            if (i = i || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
+                                                                                return [2, s.success({ type: "native", data: r, headers: { Referer: E + "/" } })];
+                                                                            return [4, d.get(r)];
+                                                                        case 1:
+                                                                            o = _b.sent();
+                                                                            return [4, o.text()];
+                                                                        case 2:
+                                                                            l = _b.sent();
+                                                                            if (!(c.video && !i)) return [3, 4];
+                                                                            return [4, m.pick(n.parse(l, r), c.video)];
+                                                                        case 3:
+                                                                            f = _b.sent();
+                                                                            if (f)
+                                                                                return [2, s.success({ type: "native", data: d.fix(f), headers: { Referer: E + "/" } })];
+                                                                            _b.label = 4;
+                                                                        case 4:
+                                                                            p = m.sniff(l);
+                                                                            if (p)
+                                                                                return [2, s.success({ type: "native", data: p, headers: { Referer: i ? r : E + "/" } })];
+                                                                            w = n.parse(l, r), y = w.select(c.iframe || "iframe[src], iframe[data-src]").first();
+                                                                            if (!(y && i < 2)) return [3, 6];
+                                                                            v = d.fix(y.attr("src") || y.attr("data-src"));
+                                                                            if (!v) return [3, 6];
+                                                                            return [4, m.track(v, i + 1)];
+                                                                        case 5: return [2, _b.sent()];
+                                                                        case 6: return [2, s.success({ type: "webview", data: r })];
+                                                                    }
+                                                                }); });
+                                                            } };
+                                                        return [2, typeof G == "function" ? G : void 0];
                                                     });
-                                                }, listPage: function (r, i, o) {
-                                                    return __awaiter(this, void 0, void 0, function () { var l, f, p; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0: return [4, d.html(m.url(r, i, o), c.req)];
-                                                            case 1:
-                                                                l = _b.sent();
-                                                                return [4, m.items(l)];
-                                                            case 2:
-                                                                f = _b.sent(), p = c.next ? l.select(c.next).size() > 0 : f.length >= (c.pageSize || 10);
-                                                                return [2, s.success(f, d.next(p && f.length > 0, i))];
-                                                        }
-                                                    }); });
-                                                }, browse: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                o = c.tabs && c.tabs[r] || r;
-                                                                return [4, m.listPage(o, i, "")];
-                                                            case 1: return [2, _b.sent()];
-                                                        }
-                                                    }); });
-                                                }, search: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!d.isUrl(r)) return [3, 2];
-                                                                o = d.fix(r);
-                                                                return [4, m.listPage(o + (o.indexOf("?") > 0 ? "&" : "?") + (c.pageParam || "page") + "={p}", i, "")];
-                                                            case 1: return [2, _b.sent()];
-                                                            case 2: return [4, m.listPage(c.search, i, r)];
-                                                            case 3: return [2, _b.sent()];
-                                                        }
-                                                    }); });
-                                                }, genre: function () {
-                                                    return __awaiter(this, void 0, void 0, function () { var r, i; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!c.genre)
-                                                                    return [2, s.success([])];
-                                                                return [4, d.html(d.fix(c.genrePage || "/"))];
-                                                            case 1:
-                                                                r = _b.sent();
-                                                                return [4, z(r.select(c.genre), function (o) {
-                                                                        return __awaiter(this, void 0, void 0, function () {
-                                                                            var _b;
-                                                                            return __generator(this, function (_c) {
-                                                                                switch (_c.label) {
-                                                                                    case 0:
-                                                                                        _b = {};
-                                                                                        return [4, o.text()];
-                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(o.attr("href")), _b.script = "search.js", _b)];
-                                                                                }
-                                                                            });
-                                                                        });
-                                                                    })];
-                                                            case 2:
-                                                                i = _b.sent();
-                                                                return [2, s.success(i.filter(function (o) { return o.title; }))];
-                                                        }
-                                                    }); });
-                                                }, detail: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, _b, _c, _d, _f, _g;
-                                                        var _h;
-                                                        return __generator(this, function (_j) {
-                                                            switch (_j.label) {
-                                                                case 0: return [4, d.html(r, c.req)];
-                                                                case 1:
-                                                                    i = _j.sent();
-                                                                    if (!c.d_genres) return [3, 3];
-                                                                    return [4, z(i.select(c.d_genres), function (f) {
-                                                                            return __awaiter(this, void 0, void 0, function () {
-                                                                                var _b;
-                                                                                return __generator(this, function (_c) {
-                                                                                    switch (_c.label) {
-                                                                                        case 0:
-                                                                                            _b = {};
-                                                                                            return [4, f.text()];
-                                                                                        case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(f.attr("href")), _b.script = "search.js", _b)];
-                                                                                    }
-                                                                                });
-                                                                            });
-                                                                        })];
-                                                                case 2:
-                                                                    _b = _j.sent();
-                                                                    return [3, 4];
-                                                                case 3:
-                                                                    _b = [];
-                                                                    _j.label = 4;
-                                                                case 4:
-                                                                    o = _b;
-                                                                    return [4, m.pick(i, c.d_status)];
-                                                                case 5:
-                                                                    l = _j.sent();
-                                                                    _d = (_c = s).success;
-                                                                    _h = {};
-                                                                    return [4, m.pick(i, c.d_title || "h1")];
-                                                                case 6:
-                                                                    _h.name = _j.sent();
-                                                                    _g = (_f = d).fix;
-                                                                    return [4, m.pick(i, c.d_cover || "meta[property=og:image]@content")];
-                                                                case 7:
-                                                                    _h.cover = _g.apply(_f, [_j.sent()]);
-                                                                    return [4, m.pick(i, c.d_author)];
-                                                                case 8:
-                                                                    _h.author = _j.sent();
-                                                                    return [4, m.pick(i, (c.d_desc || "meta[name=description]@content").replace(/$/, ""))];
-                                                                case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = l ? "Tình trạng: " + l : "", _h.ongoing = d.ongoing(l), _h.genres = o, _h.host = E, _h)])];
-                                                            }
-                                                        });
-                                                    });
-                                                }, toc: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () {
-                                                        var i, o, l, f, p, _b, w, y, v, T, k, _c, _d, _f, _g, P, B, _h;
-                                                        var _j;
-                                                        return __generator(this, function (_k) {
-                                                            switch (_k.label) {
-                                                                case 0:
-                                                                    if (c.single)
-                                                                        return [2, s.success([{ name: c.single === !0 ? "Xem / Đọc" : c.single, url: r, host: E }])];
-                                                                    i = [r], o = [], l = {};
-                                                                    return [4, d.html(c.ch_rewrite ? r.replace(new RegExp(c.ch_rewrite[0]), c.ch_rewrite[1]) : r, c.req)];
-                                                                case 1:
-                                                                    f = _k.sent();
-                                                                    if (!c.ch_url) return [3, 5];
-                                                                    return [4, m.pick(f, c.ch_url)];
-                                                                case 2:
-                                                                    p = _k.sent();
-                                                                    _b = p;
-                                                                    if (!_b) return [3, 4];
-                                                                    return [4, d.html(d.fix(p), c.req)];
-                                                                case 3:
-                                                                    _b = (f = _k.sent());
-                                                                    _k.label = 4;
-                                                                case 4:
-                                                                    _b;
-                                                                    _k.label = 5;
-                                                                case 5:
-                                                                    w = 0;
-                                                                    _k.label = 6;
-                                                                case 6:
-                                                                    if (!(w < (c.ch_maxPages || 60))) return [3, 20];
-                                                                    y = f.select(c.ch_list), v = 0;
-                                                                    _k.label = 7;
-                                                                case 7:
-                                                                    if (!(v < y.size())) return [3, 15];
-                                                                    return [4, y.get(v)];
-                                                                case 8:
-                                                                    T = _k.sent(), k = T.attr("href") || T.attr("data-href");
-                                                                    _c = !k || k === "#" || l[k];
-                                                                    if (_c) return [3, 13];
-                                                                    l[k] = 1;
-                                                                    _f = (_d = o).push;
-                                                                    _j = {};
-                                                                    if (!c.ch_name) return [3, 10];
-                                                                    return [4, m.pick(T, c.ch_name)];
-                                                                case 9:
-                                                                    _g = _k.sent();
-                                                                    return [3, 12];
-                                                                case 10: return [4, T.text()];
-                                                                case 11:
-                                                                    _g = _k.sent();
-                                                                    _k.label = 12;
-                                                                case 12:
-                                                                    _c = (_f.apply(_d, [(_j.name = (_g) || T.attr("title"), _j.url = d.fix(k), _j.host = E, _j)]));
-                                                                    _k.label = 13;
-                                                                case 13:
-                                                                    _c;
-                                                                    _k.label = 14;
-                                                                case 14:
-                                                                    v++;
-                                                                    return [3, 7];
-                                                                case 15:
-                                                                    P = c.ch_next ? f.select(c.ch_next).first() : null;
-                                                                    if (!P || !P.attr("href"))
-                                                                        return [3, 20];
-                                                                    B = d.fix(P.attr("href"));
-                                                                    if (i.indexOf(B) >= 0)
-                                                                        return [3, 20];
-                                                                    i.push(B);
-                                                                    _h = c.ch_delay;
-                                                                    if (!_h) return [3, 17];
-                                                                    return [4, A(c.ch_delay)];
-                                                                case 16:
-                                                                    _h = (_k.sent());
-                                                                    _k.label = 17;
-                                                                case 17:
-                                                                    _h;
-                                                                    return [4, d.html(B, c.req)];
-                                                                case 18:
-                                                                    f = _k.sent();
-                                                                    _k.label = 19;
-                                                                case 19:
-                                                                    w++;
-                                                                    return [3, 6];
-                                                                case 20: return [2, (c.ch_reverse && o.reverse(), s.success(o))];
-                                                            }
-                                                        });
-                                                    });
-                                                }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, p, w, y, v, _b, _c, T, k; return __generator(this, function (_d) {
-                                                        switch (_d.label) {
-                                                            case 0:
-                                                                i = [], o = [r], l = r, f = 0;
-                                                                _d.label = 1;
-                                                            case 1:
-                                                                if (!(f < (c.pages_max || 40))) return [3, 8];
-                                                                return [4, d.html(l, c.req)];
-                                                            case 2:
-                                                                p = _d.sent(), w = p.select(c.pages || ".page-chapter img, .reading-content img, .chapter-content img"), y = 0;
-                                                                _d.label = 3;
-                                                            case 3:
-                                                                if (!(y < w.size())) return [3, 6];
-                                                                _c = (_b = d).img;
-                                                                return [4, w.get(y)];
-                                                            case 4:
-                                                                v = _c.apply(_b, [_d.sent()]);
-                                                                v && i.indexOf(v) < 0 && i.push(v);
-                                                                _d.label = 5;
-                                                            case 5:
-                                                                y++;
-                                                                return [3, 3];
-                                                            case 6:
-                                                                if (!c.pages_next)
-                                                                    return [3, 8];
-                                                                T = p.select(c.pages_next).first();
-                                                                if (!T)
-                                                                    return [3, 8];
-                                                                k = d.fix(T.attr("href"));
-                                                                if (!k || o.indexOf(k) >= 0)
-                                                                    return [3, 8];
-                                                                o.push(k), l = k;
-                                                                _d.label = 7;
-                                                            case 7:
-                                                                f++;
-                                                                return [3, 1];
-                                                            case 8: return [2, s.success(i)];
-                                                        }
-                                                    }); });
-                                                }, text: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o, l, f, _b, _c, _d, _f, _g, _h, _j, _k; return __generator(this, function (_l) {
-                                                        switch (_l.label) {
-                                                            case 0:
-                                                                _c = (_b = d).check;
-                                                                return [4, d.get(r, c.req)];
-                                                            case 1: return [4, _c.apply(_b, [_l.sent(), r])];
-                                                            case 2:
-                                                                i = _l.sent();
-                                                                return [4, i.text()];
-                                                            case 3:
-                                                                o = (_l.sent()) || "", l = n.parse(o, r), f = l.select(c.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
-                                                                if (!!f) return [3, 5];
-                                                                if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(o.slice(0, 2e4)))
-                                                                    throw new Error("CLOUDFLARE: trang " + E + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
-                                                                _f = (_d = s).error;
-                                                                _g = 'Không tìm thấy nội dung — trang nhận được: "';
-                                                                return [4, m.pick(l, "title")];
-                                                            case 4: return [2, _f.apply(_d, [_g + ((_l.sent()) || "?").slice(0, 60) + '" (' + i.status + ", " + o.length + " ký tự)" + (o.length < 400 ? ": " + o.replace(/\s+/g, " ").slice(0, 200) : "")])];
-                                                            case 5:
-                                                                _j = (_h = s).success;
-                                                                return [4, d.cleanContent(f)];
-                                                            case 6:
-                                                                _k = [_l.sent()];
-                                                                return [4, m.pick(l, c.c_title || "h1 || h2")];
-                                                            case 7: return [2, _j.apply(_h, _k.concat([_l.sent()]))];
-                                                        }
-                                                    }); });
-                                                }, servers: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, o; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (!c.servers)
-                                                                    return [2, s.success([{ title: "Server", data: r }])];
-                                                                return [4, d.html(r, c.req)];
-                                                            case 1:
-                                                                i = _b.sent();
-                                                                return [4, z(i.select(c.servers), function (l) {
-                                                                        return __awaiter(this, void 0, void 0, function () {
-                                                                            var f;
-                                                                            var _b;
-                                                                            return __generator(this, function (_c) {
-                                                                                switch (_c.label) {
-                                                                                    case 0: return [4, m.pick(l, c.server_data || ":self@data-link || :self@data-src || :self@href")];
-                                                                                    case 1:
-                                                                                        f = _c.sent();
-                                                                                        _b = {};
-                                                                                        return [4, l.text()];
-                                                                                    case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(f), _b)];
-                                                                                }
-                                                                            });
-                                                                        });
-                                                                    })];
-                                                            case 2:
-                                                                o = (_b.sent()).filter(function (l) { return l.data; });
-                                                                return [2, s.success(o.length ? o : [{ title: "Server", data: r }])];
-                                                        }
-                                                    }); });
-                                                }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var i = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return i ? i[0] : ""; }, track: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var o, l, f, p, w, y, v; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
-                                                            case 0:
-                                                                if (i = i || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
-                                                                    return [2, s.success({ type: "native", data: r, headers: { Referer: E + "/" } })];
-                                                                return [4, d.get(r)];
-                                                            case 1:
-                                                                o = _b.sent();
-                                                                return [4, o.text()];
-                                                            case 2:
-                                                                l = _b.sent();
-                                                                if (!(c.video && !i)) return [3, 4];
-                                                                return [4, m.pick(n.parse(l, r), c.video)];
-                                                            case 3:
-                                                                f = _b.sent();
-                                                                if (f)
-                                                                    return [2, s.success({ type: "native", data: d.fix(f), headers: { Referer: E + "/" } })];
-                                                                _b.label = 4;
-                                                            case 4:
-                                                                p = m.sniff(l);
-                                                                if (p)
-                                                                    return [2, s.success({ type: "native", data: p, headers: { Referer: i ? r : E + "/" } })];
-                                                                w = n.parse(l, r), y = w.select(c.iframe || "iframe[src], iframe[data-src]").first();
-                                                                if (!(y && i < 2)) return [3, 6];
-                                                                v = d.fix(y.attr("src") || y.attr("data-src"));
-                                                                if (!v) return [3, 6];
-                                                                return [4, m.track(v, i + 1)];
-                                                            case 5: return [2, _b.sent()];
-                                                            case 6: return [2, s.success({ type: "webview", data: r })];
-                                                        }
-                                                    }); });
-                                                } };
-                                            return [2, typeof G == "function" ? G : void 0];
-                                        }); });
-                                    })()];
-                            case 1: return [2, _b.sent()];
-                        }
-                    }); });
-                })(t.fetch, t.Http, t.Html, t.Response, t.localStorage, t.cacheStorage, t.localConfig, t.localCookie, t.sleep, t.Log, t.console, t.Console, t.log, t.UserAgent, t.Engine, t.Graphics, t.Script)];
-        }); });
+                                                });
+                                            })()];
+                                    case 1: return [2, _b.sent()];
+                                }
+                            });
+                        });
+                    })(t.fetch, t.Http, t.Html, t.Response, t.localStorage, t.cacheStorage, t.localConfig, t.localCookie, t.sleep, t.Log, t.console, t.Console, t.log, t.UserAgent, t.Engine, t.Graphics, t.Script)];
+            });
+        });
     } };
 function Vr(t) { return new Nt({ meta: fe, scripts: Fr, host: t }); }
 var x0 = require("@libs/fetch").fetchApi, Qe = null;
