@@ -65,3 +65,42 @@ Chủ dự án yêu cầu tạo và duy trì tài liệu này ngày 25/10/2026. 
 - Viết riêng cho các trang SPA/AJAX (danh sách trong `README.md` trạng thái 🟡), cập nhật tên miền mới cho các nguồn 🔴.
 - Nguồn Aidoku (`docs/AIDOKU.md`).
 - Giảm dung lượng gói Mangayomi/LNReader (bỏ bảng mã thực thể HTML trùng lặp, dùng chung runtime).
+
+### 04/11/2026 (tối) — Kiểm tra Cloudflare, dựng APK, kiểm thử trên thiết bị
+
+**Công cụ đã dùng:** trình duyệt tích hợp của Claude desktop (chạy trên máy chủ dự án, dùng cookie thật để vượt Cloudflare kiểu tự động), bộ kiểm tra DOM viết bằng JavaScript chạy ngay trong trang (`/tmp/insp2.js`), bộ chạy plugin Mangayomi trong trình duyệt (shim `MProvider/Client/SharedPreferences` + `fetch(..., {credentials:'include'})`), Node 22 (dựng lại), Python 3 (sinh bảng GBK), adb + Emulator + Note9.
+
+**Kết quả dựng & phát hành**
+- Gradle: `BUILD SUCCESSFUL`, 4 APK 0,6–0,8 MB (`Kiritokmn-Extension-0.0.1-<anime|manga>-<sfw|nsfw>.apk`), ký khoá riêng.
+- Đẩy GitHub: commit `8d00af9`, `ec2e5df`; Release `v0.0.1` 11/11 tệp đã xác minh (tên + dung lượng).
+- Kiểm thử trực tiếp vòng 2: **34/196** nguồn đạt trọn chuỗi (vòng 1: 22/196).
+
+**Kiểm thử thiết bị (`_work/17_device_test.bat`)**
+- Emulator `sdk_gphone64_x86_64`: cài **thành công** Aniyomi 0.18.2.1, Nekoyomi 0.20.6, Mangayomi 0.9.95, LNReader 2.1.4, vBooks (APK chủ dự án cung cấp), LeechText 2.0.0 và cả 4 APK tiện ích; deep link `aniyomi://add-repo`, `tachiyomi://add-repo` mở hộp thoại *Add repo*, `mangayomi://add-repo` mở bộ chọn Mangayomi/YomiHub. Ảnh: `_work/shots/emulator_5554_*.png`, video `emulator_5554_install-and-addrepo.mp4`.
+- Note9 (`281038ac31217ece`): cài thành công 4 APK tiện ích; ảnh chụp màn hình trắng (máy khoá màn hình/tắt màn hình khi chạy script) → cần mở khoá máy rồi chạy lại để có ảnh.
+- IReader: không có bản APK x86_64 → chưa cài lên emulator.
+- Emulator báo *System UI isn't responding* khi mở nhiều app liên tiếp (máy ảo chậm, không phải lỗi tiện ích).
+
+**Cloudflare — phân loại (`data/cloudflare.json`)**
+| Nhóm | Nguồn | Ý nghĩa |
+|---|---|---|
+| Tự qua (JS challenge) | 101kks, 69shuba, 69shurepoduongden, czbooks, luvevaland, mattreadingtranslations, novelfull.net, uukanshu, ciyuanji, tik.porn, xfree | Mở bằng WebView trong app một lần là dùng được; Mangayomi có cờ `hasCloudflare` |
+| Cần người xác minh (Turnstile) | 101minc, hhtqhay.vip, sonako, cbhentai, myreadingmanga | Người dùng phải tự bấm xác minh trong WebView của app; tiện ích báo lỗi `CLOUDFLARE: …` hướng dẫn |
+| Chặn IP | hameln (syosetu.org) | Không truy cập được từ Việt Nam |
+| Không phải Cloudflare | quanben (trang mặc định CentOS), wodeshucheng5 (nginx 403), doctruyentranhbl (bắt đăng nhập Google) | Trang hỏng/chặn, không sửa được ở phía tiện ích |
+
+**Lỗi phát hiện & cách sửa (vòng Cloudflare)**
+| # | Lỗi | Sửa |
+|---|---|---|
+| 14 | 9 nguồn dính Cloudflare chưa từng phân tích được (bộ chụp trang Node bị 403) nên selector tự sinh sai → 0 kết quả | Phân tích DOM thật trong trình duyệt, viết selector tay trong `data/specs.manual.json`: 101kks, czbooks, uukanshu, luvevaland, mattreadingtranslations, ciyuanji, tik.porn, xfree; novelfull.net đổi từ tiện ích cộng đồng (viết cho novelfull.com, giao diện khác) sang mẫu `generic` |
+| 15 | 101kks chỉ hiện 36 chương, phần còn lại tải bằng AJAX `/ajax_novels/chapterlist/<id>.html` | Thêm khoá `ch_rewrite` (regex đổi URL mục lục) vào `lib/lib_generic.js` |
+| 16 | Trang GBK (69shuba) bị lỗi font trên Mangayomi: Dart giải mã charset lạ thành Latin-1 | `runtime/vbook.js`: phát hiện văn bản Latin-1 + charset GBK → giải mã lại bằng bảng GBK (`runtime/gbk-table.txt`, 23.940 ô); bảng chỉ được nhúng vào plugin Mangayomi của nguồn dùng GBK (`build-all.mjs`, +72 KB) |
+| 17 | Tiện ích cộng đồng gọi `Console.log` → `Console is not defined` | Thêm bí danh `Console` vào runtime Node/Mangayomi/LNReader (`runtime/vbook.js`) và Rhino (`runtime/rhino-prelude.js`), `ENV_NAMES` trong `build-all.mjs` |
+| 18 | Lỗi 403/503 do Cloudflare hiện chung chung "HTTP 403" | `lib/lib_common.js`: `C.cf()` nhận diện trang thách thức, báo `CLOUDFLARE: … mở nguồn bằng WebView …` |
+| 19 | Tìm kiếm 69shuba cần chạy JavaScript (máy chủ trả trang trống cho POST thường) | Ghi nhận: tìm kiếm chỉ chạy trên vBook (có `Engine.newBrowser`), duyệt/đọc chạy ở mọi app |
+| 20 | Nguồn đã sửa không được app cập nhật | Tăng `version` = 2 cho 11 nguồn trên (`gen_sources.py` hỗ trợ `version` trong spec, kể cả nguồn `ref`) |
+
+**Kết quả kiểm thử Cloudflare trong trình duyệt thật (máy chủ dự án)**
+- Duyệt → chi tiết → chương → nội dung kiểm tra tay trên trang thật: 101kks (1.555 chương qua AJAX, nội dung `#txtcontent`), czbooks (150 chương, `.content`), uukanshu (190 chương, `.readcotent`), luvevaland (76 chương, `#chapter-content`), mattreadingtranslations (mục lục 16 trang, `.entry-content`), ciyuanji (949 chương, nội dung SSR `chapter_article`), novelfull.net (40 chương/trang + `rel=next`, `#chapter-content`), tik.porn & xfree (link `.mp4` trực tiếp trong trang video).
+- Plugin Mangayomi 69shuba bản cũ: popular 50 / detail 569 chương / nội dung 3.680 ký tự — chạy đúng; lỗi font chỉ do trình duyệt luôn giải mã UTF-8, đã kiểm thử bản sửa GBK bằng Node (`斗罗A大陆` giải mã đúng).
+- 101minc: vẫn dừng ở *Performing security verification* sau 8 giây → xác nhận cần người bấm xác minh.

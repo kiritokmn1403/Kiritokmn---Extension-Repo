@@ -96,6 +96,7 @@ def gen_ref(sid, spec):
     md['name'] = spec.get('name') or md.get('name') or reg['name']
     try: md['version'] = int(md.get('version', 1))
     except Exception: md['version'] = 1
+    if spec.get('version'): md['version'] = max(md['version'], int(spec['version']))
     json.dump(pj, open(pjp, 'w', encoding='utf-8'), ensure_ascii=False, indent=2)
 
 def gen(sid, spec):

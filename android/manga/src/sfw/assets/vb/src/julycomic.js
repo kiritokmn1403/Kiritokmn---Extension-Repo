@@ -1,6 +1,6 @@
 __register({ META: {"id":"julycomic","name":"JulyComic","source":"https://julycomics.site","type":"comic","locale":"vi","nsfw":false,"version":1,"config":{"DOMAIN":{"title":"Tên miền","subtitle":"Đổi khi trang đổi tên miền","default":"https://julycomics.site","values":["https://julycomics.site"],"mode":"input","format":"text"}},"configDefaults":{"DOMAIN":"https://julycomics.site"}}, SCRIPTS: {
 "home": function (__env, __cfg) {
-return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, log, UserAgent, Engine, Graphics, Script) {
+return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
 var DOMAIN = __cfg("DOMAIN");
 return (function () {
 
@@ -48,14 +48,22 @@ var C = {
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
     return r;
   },
+  cf: function (r) {
+    if (r.status !== 403 && r.status !== 503 && r.status !== 429) return false;
+    var t = r.text() || '';
+    return /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(t.slice(0, 20000));
+  },
+  check: function (r, url) {
+    if (r.ok) return r;
+    if (C.cf(r)) throw new Error('CLOUDFLARE: trang ' + url.split('/').slice(0, 3).join('/') + ' yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
+    throw new Error('HTTP ' + r.status + ' ' + url);
+  },
   html: function (url, opt) {
-    var r = C.get(url, opt);
-    if (!r.ok) throw new Error('HTTP ' + r.status + ' ' + url);
+    var r = C.check(C.get(url, opt), url);
     return r.html(opt && opt.charset);
   },
   json: function (url, opt) {
-    var r = C.get(url, opt);
-    if (!r.ok) throw new Error('HTTP ' + r.status + ' ' + url);
+    var r = C.check(C.get(url, opt), url);
     return r.json();
   },
   page: function (p) { var n = parseInt(p || '1', 10); return isNaN(n) || n < 1 ? 1 : n; },
@@ -144,7 +152,7 @@ var X = {
   toc: function (url) {
     if (G.single) return Response.success([{ name: G.single === true ? 'Xem / Đọc' : G.single, url: url, host: BASE_URL }]);
     var pages = [url], list = [], seen = {};
-    var doc = C.html(url, G.req);
+    var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
@@ -217,10 +225,10 @@ function execute() { var t = []; for (var k in G.tabs) t.push({ title: k, input:
 
 return typeof execute === 'function' ? execute : undefined;
 })();
-})(__env.fetch, __env.Http, __env.Html, __env.Response, __env.localStorage, __env.cacheStorage, __env.localConfig, __env.localCookie, __env.sleep, __env.Log, __env.console, __env.log, __env.UserAgent, __env.Engine, __env.Graphics, __env.Script);
+})(__env.fetch, __env.Http, __env.Html, __env.Response, __env.localStorage, __env.cacheStorage, __env.localConfig, __env.localCookie, __env.sleep, __env.Log, __env.console, __env.Console, __env.log, __env.UserAgent, __env.Engine, __env.Graphics, __env.Script);
 },
 "search": function (__env, __cfg) {
-return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, log, UserAgent, Engine, Graphics, Script) {
+return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
 var DOMAIN = __cfg("DOMAIN");
 return (function () {
 
@@ -268,14 +276,22 @@ var C = {
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
     return r;
   },
+  cf: function (r) {
+    if (r.status !== 403 && r.status !== 503 && r.status !== 429) return false;
+    var t = r.text() || '';
+    return /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(t.slice(0, 20000));
+  },
+  check: function (r, url) {
+    if (r.ok) return r;
+    if (C.cf(r)) throw new Error('CLOUDFLARE: trang ' + url.split('/').slice(0, 3).join('/') + ' yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
+    throw new Error('HTTP ' + r.status + ' ' + url);
+  },
   html: function (url, opt) {
-    var r = C.get(url, opt);
-    if (!r.ok) throw new Error('HTTP ' + r.status + ' ' + url);
+    var r = C.check(C.get(url, opt), url);
     return r.html(opt && opt.charset);
   },
   json: function (url, opt) {
-    var r = C.get(url, opt);
-    if (!r.ok) throw new Error('HTTP ' + r.status + ' ' + url);
+    var r = C.check(C.get(url, opt), url);
     return r.json();
   },
   page: function (p) { var n = parseInt(p || '1', 10); return isNaN(n) || n < 1 ? 1 : n; },
@@ -364,7 +380,7 @@ var X = {
   toc: function (url) {
     if (G.single) return Response.success([{ name: G.single === true ? 'Xem / Đọc' : G.single, url: url, host: BASE_URL }]);
     var pages = [url], list = [], seen = {};
-    var doc = C.html(url, G.req);
+    var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
@@ -437,10 +453,10 @@ function execute(key, page) { return X.search(key, page); }
 
 return typeof execute === 'function' ? execute : undefined;
 })();
-})(__env.fetch, __env.Http, __env.Html, __env.Response, __env.localStorage, __env.cacheStorage, __env.localConfig, __env.localCookie, __env.sleep, __env.Log, __env.console, __env.log, __env.UserAgent, __env.Engine, __env.Graphics, __env.Script);
+})(__env.fetch, __env.Http, __env.Html, __env.Response, __env.localStorage, __env.cacheStorage, __env.localConfig, __env.localCookie, __env.sleep, __env.Log, __env.console, __env.Console, __env.log, __env.UserAgent, __env.Engine, __env.Graphics, __env.Script);
 },
 "detail": function (__env, __cfg) {
-return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, log, UserAgent, Engine, Graphics, Script) {
+return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
 var DOMAIN = __cfg("DOMAIN");
 return (function () {
 
@@ -488,14 +504,22 @@ var C = {
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
     return r;
   },
+  cf: function (r) {
+    if (r.status !== 403 && r.status !== 503 && r.status !== 429) return false;
+    var t = r.text() || '';
+    return /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(t.slice(0, 20000));
+  },
+  check: function (r, url) {
+    if (r.ok) return r;
+    if (C.cf(r)) throw new Error('CLOUDFLARE: trang ' + url.split('/').slice(0, 3).join('/') + ' yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
+    throw new Error('HTTP ' + r.status + ' ' + url);
+  },
   html: function (url, opt) {
-    var r = C.get(url, opt);
-    if (!r.ok) throw new Error('HTTP ' + r.status + ' ' + url);
+    var r = C.check(C.get(url, opt), url);
     return r.html(opt && opt.charset);
   },
   json: function (url, opt) {
-    var r = C.get(url, opt);
-    if (!r.ok) throw new Error('HTTP ' + r.status + ' ' + url);
+    var r = C.check(C.get(url, opt), url);
     return r.json();
   },
   page: function (p) { var n = parseInt(p || '1', 10); return isNaN(n) || n < 1 ? 1 : n; },
@@ -584,7 +608,7 @@ var X = {
   toc: function (url) {
     if (G.single) return Response.success([{ name: G.single === true ? 'Xem / Đọc' : G.single, url: url, host: BASE_URL }]);
     var pages = [url], list = [], seen = {};
-    var doc = C.html(url, G.req);
+    var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
@@ -657,10 +681,10 @@ function execute(url) { return X.detail(url); }
 
 return typeof execute === 'function' ? execute : undefined;
 })();
-})(__env.fetch, __env.Http, __env.Html, __env.Response, __env.localStorage, __env.cacheStorage, __env.localConfig, __env.localCookie, __env.sleep, __env.Log, __env.console, __env.log, __env.UserAgent, __env.Engine, __env.Graphics, __env.Script);
+})(__env.fetch, __env.Http, __env.Html, __env.Response, __env.localStorage, __env.cacheStorage, __env.localConfig, __env.localCookie, __env.sleep, __env.Log, __env.console, __env.Console, __env.log, __env.UserAgent, __env.Engine, __env.Graphics, __env.Script);
 },
 "toc": function (__env, __cfg) {
-return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, log, UserAgent, Engine, Graphics, Script) {
+return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
 var DOMAIN = __cfg("DOMAIN");
 return (function () {
 
@@ -708,14 +732,22 @@ var C = {
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
     return r;
   },
+  cf: function (r) {
+    if (r.status !== 403 && r.status !== 503 && r.status !== 429) return false;
+    var t = r.text() || '';
+    return /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(t.slice(0, 20000));
+  },
+  check: function (r, url) {
+    if (r.ok) return r;
+    if (C.cf(r)) throw new Error('CLOUDFLARE: trang ' + url.split('/').slice(0, 3).join('/') + ' yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
+    throw new Error('HTTP ' + r.status + ' ' + url);
+  },
   html: function (url, opt) {
-    var r = C.get(url, opt);
-    if (!r.ok) throw new Error('HTTP ' + r.status + ' ' + url);
+    var r = C.check(C.get(url, opt), url);
     return r.html(opt && opt.charset);
   },
   json: function (url, opt) {
-    var r = C.get(url, opt);
-    if (!r.ok) throw new Error('HTTP ' + r.status + ' ' + url);
+    var r = C.check(C.get(url, opt), url);
     return r.json();
   },
   page: function (p) { var n = parseInt(p || '1', 10); return isNaN(n) || n < 1 ? 1 : n; },
@@ -804,7 +836,7 @@ var X = {
   toc: function (url) {
     if (G.single) return Response.success([{ name: G.single === true ? 'Xem / Đọc' : G.single, url: url, host: BASE_URL }]);
     var pages = [url], list = [], seen = {};
-    var doc = C.html(url, G.req);
+    var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
@@ -877,10 +909,10 @@ function execute(url) { return X.toc(url); }
 
 return typeof execute === 'function' ? execute : undefined;
 })();
-})(__env.fetch, __env.Http, __env.Html, __env.Response, __env.localStorage, __env.cacheStorage, __env.localConfig, __env.localCookie, __env.sleep, __env.Log, __env.console, __env.log, __env.UserAgent, __env.Engine, __env.Graphics, __env.Script);
+})(__env.fetch, __env.Http, __env.Html, __env.Response, __env.localStorage, __env.cacheStorage, __env.localConfig, __env.localCookie, __env.sleep, __env.Log, __env.console, __env.Console, __env.log, __env.UserAgent, __env.Engine, __env.Graphics, __env.Script);
 },
 "chap": function (__env, __cfg) {
-return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, log, UserAgent, Engine, Graphics, Script) {
+return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
 var DOMAIN = __cfg("DOMAIN");
 return (function () {
 
@@ -928,14 +960,22 @@ var C = {
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
     return r;
   },
+  cf: function (r) {
+    if (r.status !== 403 && r.status !== 503 && r.status !== 429) return false;
+    var t = r.text() || '';
+    return /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(t.slice(0, 20000));
+  },
+  check: function (r, url) {
+    if (r.ok) return r;
+    if (C.cf(r)) throw new Error('CLOUDFLARE: trang ' + url.split('/').slice(0, 3).join('/') + ' yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
+    throw new Error('HTTP ' + r.status + ' ' + url);
+  },
   html: function (url, opt) {
-    var r = C.get(url, opt);
-    if (!r.ok) throw new Error('HTTP ' + r.status + ' ' + url);
+    var r = C.check(C.get(url, opt), url);
     return r.html(opt && opt.charset);
   },
   json: function (url, opt) {
-    var r = C.get(url, opt);
-    if (!r.ok) throw new Error('HTTP ' + r.status + ' ' + url);
+    var r = C.check(C.get(url, opt), url);
     return r.json();
   },
   page: function (p) { var n = parseInt(p || '1', 10); return isNaN(n) || n < 1 ? 1 : n; },
@@ -1024,7 +1064,7 @@ var X = {
   toc: function (url) {
     if (G.single) return Response.success([{ name: G.single === true ? 'Xem / Đọc' : G.single, url: url, host: BASE_URL }]);
     var pages = [url], list = [], seen = {};
-    var doc = C.html(url, G.req);
+    var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
@@ -1097,10 +1137,10 @@ function execute(url) { return X.pages(url); }
 
 return typeof execute === 'function' ? execute : undefined;
 })();
-})(__env.fetch, __env.Http, __env.Html, __env.Response, __env.localStorage, __env.cacheStorage, __env.localConfig, __env.localCookie, __env.sleep, __env.Log, __env.console, __env.log, __env.UserAgent, __env.Engine, __env.Graphics, __env.Script);
+})(__env.fetch, __env.Http, __env.Html, __env.Response, __env.localStorage, __env.cacheStorage, __env.localConfig, __env.localCookie, __env.sleep, __env.Log, __env.console, __env.Console, __env.log, __env.UserAgent, __env.Engine, __env.Graphics, __env.Script);
 },
 "browse": function (__env, __cfg) {
-return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, log, UserAgent, Engine, Graphics, Script) {
+return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
 var DOMAIN = __cfg("DOMAIN");
 return (function () {
 
@@ -1148,14 +1188,22 @@ var C = {
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
     return r;
   },
+  cf: function (r) {
+    if (r.status !== 403 && r.status !== 503 && r.status !== 429) return false;
+    var t = r.text() || '';
+    return /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(t.slice(0, 20000));
+  },
+  check: function (r, url) {
+    if (r.ok) return r;
+    if (C.cf(r)) throw new Error('CLOUDFLARE: trang ' + url.split('/').slice(0, 3).join('/') + ' yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
+    throw new Error('HTTP ' + r.status + ' ' + url);
+  },
   html: function (url, opt) {
-    var r = C.get(url, opt);
-    if (!r.ok) throw new Error('HTTP ' + r.status + ' ' + url);
+    var r = C.check(C.get(url, opt), url);
     return r.html(opt && opt.charset);
   },
   json: function (url, opt) {
-    var r = C.get(url, opt);
-    if (!r.ok) throw new Error('HTTP ' + r.status + ' ' + url);
+    var r = C.check(C.get(url, opt), url);
     return r.json();
   },
   page: function (p) { var n = parseInt(p || '1', 10); return isNaN(n) || n < 1 ? 1 : n; },
@@ -1244,7 +1292,7 @@ var X = {
   toc: function (url) {
     if (G.single) return Response.success([{ name: G.single === true ? 'Xem / Đọc' : G.single, url: url, host: BASE_URL }]);
     var pages = [url], list = [], seen = {};
-    var doc = C.html(url, G.req);
+    var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
@@ -1317,6 +1365,6 @@ function execute(input, page) { return X.browse(input, page); }
 
 return typeof execute === 'function' ? execute : undefined;
 })();
-})(__env.fetch, __env.Http, __env.Html, __env.Response, __env.localStorage, __env.cacheStorage, __env.localConfig, __env.localCookie, __env.sleep, __env.Log, __env.console, __env.log, __env.UserAgent, __env.Engine, __env.Graphics, __env.Script);
+})(__env.fetch, __env.Http, __env.Html, __env.Response, __env.localStorage, __env.cacheStorage, __env.localConfig, __env.localCookie, __env.sleep, __env.Log, __env.console, __env.Console, __env.log, __env.UserAgent, __env.Engine, __env.Graphics, __env.Script);
 }
 } });

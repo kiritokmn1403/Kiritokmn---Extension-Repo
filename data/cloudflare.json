@@ -1,0 +1,48 @@
+{
+ "_note": "Kiểm tra bằng trình duyệt thật (Chromium) trên máy chủ dự án, mạng VN, 04/11/2026 21:40",
+ "auto": [
+  "101kks",
+  "69shurepoduongden",
+  "69shuba",
+  "czbooksrepoduongden",
+  "luvevaland",
+  "mattreadingtranslations",
+  "novelfullnet",
+  "uukanshu",
+  "ciyuanji",
+  "tikporn",
+  "xfree"
+ ],
+ "interactive": [
+  "101minc",
+  "hhtqhayvip",
+  "sonako",
+  "cbhentai",
+  "myreadingmanga"
+ ],
+ "ipblock": [
+  "hamelnsyosetuorg"
+ ],
+ "notcf": {
+  "quanben": "máy chủ trả trang mặc định CentOS (403) – trang hỏng",
+  "wodeshucheng5": "nginx 403 – chặn IP/khu vực",
+  "doctruyentranhbl": "bắt đăng nhập Google để xem ảnh chương"
+ },
+ "notes": {
+  "69shuba": "Tìm kiếm của trang cần chạy JavaScript (chỉ app vBook hỗ trợ). Duyệt/đọc hoạt động ở mọi app.",
+  "69shurepoduongden": "Như 69shuba."
+ },
+ "verified_2026_11_04": [
+  "101kks",
+  "czbooksrepoduongden",
+  "uukanshu",
+  "luvevaland",
+  "mattreadingtranslations",
+  "ciyuanji",
+  "tikporn",
+  "xfree",
+  "novelfullnet",
+  "69shuba",
+  "69shurepoduongden"
+ ]
+}

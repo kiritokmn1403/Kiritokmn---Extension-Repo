@@ -12,6 +12,19 @@ function b64encodeBytes(bytes) {
 }
 function utf8Bytes(str) { return typeof TextEncoder !== 'undefined' ? new TextEncoder().encode(str) : Uint8Array.from(unescape(encodeURIComponent(str)), c => c.charCodeAt(0)); }
 
+function gbkDecode(t) {
+  let o = '';
+  for (let i = 0; i < t.length; i++) {
+    const c = t.charCodeAt(i);
+    if (c < 0x80) { o += t[i]; continue; }
+    if (c === 0x80) { o += '\u20ac'; continue; }
+    const c2 = t.charCodeAt(i + 1);
+    if (c >= 0x81 && c <= 0xfe && c2 >= 0x40 && c2 <= 0xfe && c2 !== 0x7f) { o += __GBK_TABLE[(c - 0x81) * 190 + (c2 - 0x40) - (c2 > 0x7f ? 1 : 0)]; i++; }
+    else o += '\ufffd';
+  }
+  return o;
+}
+
 class VResponse {
   constructor(raw, req) {
     this.status = raw.status | 0;
@@ -27,7 +40,11 @@ class VResponse {
     if (charset && this._raw.bytes && typeof TextDecoder !== 'undefined') {
       try { return new TextDecoder(String(charset).toLowerCase()).decode(this._raw.bytes); } catch (e) { /* fall through */ }
     }
-    return this._raw.text == null ? '' : String(this._raw.text);
+    const t = this._raw.text == null ? '' : String(this._raw.text);
+    if (!charset) charset = (String(this.header('content-type') || '').match(/charset=([\w-]+)/i) || [])[1];
+    // Hosts without byte access (Mangayomi/Dart) decode unknown charsets as Latin-1: recover GBK from it.
+    if (charset && /^(gbk|gb2312|gb18030)$/i.test(String(charset)) && typeof __GBK_TABLE === 'string' && /[\x80-\xff]/.test(t) && !/[^\x00-\xff]/.test(t)) return gbkDecode(t);
+    return t;
   }
   string(charset) { return this.text(charset); }
   html(charset) { return parseHtml(this.text(charset), this.url); }
@@ -94,6 +111,7 @@ export function createEnv(host, meta) {
   const log = (...a) => { try { host.log && host.log(a.map(x => typeof x === 'string' ? x : JSON.stringify(x)).join(' ')); } catch (e) { } };
   env.Log = { log };
   env.console = { log, error: log, warn: log, info: log };
+  env.Console = env.console;
   env.log = log;
   env.UserAgent = { system: () => DEFAULT_UA, chrome: () => DEFAULT_UA, android: () => DEFAULT_UA, ios: () => 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1' };
   env.Engine = { newBrowser: () => { throw new Error('Headless browser is not available in this app (' + (host.name || 'host') + ')'); } };

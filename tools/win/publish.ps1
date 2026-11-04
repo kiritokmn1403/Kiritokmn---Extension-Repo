@@ -10,10 +10,11 @@ $Owner = 'kiritokmn1403'; $Repo = 'Kiritokmn---Extension-Repo'
 $Ver = (Get-Content package.json -Raw | ConvertFrom-Json).version; $Tag = "v$Ver"
 $git = (Get-Command git -ErrorAction SilentlyContinue).Source
 if (-not $git) { $git = Get-ChildItem "$env:LOCALAPPDATA\GitHubDesktop" -Recurse -Filter git.exe -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty FullName }
+$Msg = if ($env:PUB_MSG) { $env:PUB_MSG } else { "Extension Repo ${Tag} - universal repo for Aniyomi, Nekoyomi, Mangayomi, YomiHub, LNReader, IReader, vBook, LeechText" }
 L "git=$git version=$Ver"
 & $git config core.autocrlf false
 & $git add -A *>> $Log
-& $git -c user.name="kiritokmn1403" -c user.email="kietnguyenworking1403@gmail.com" commit -m "Extension Repo ${Tag} - universal repo for Aniyomi, Nekoyomi, Mangayomi, YomiHub, LNReader, IReader, vBook, LeechText" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" -m "Claude-Session: https://claude.ai/code/session_01C7DNQDznQRw36waa7x7fzh" *>> $Log
+& $git -c user.name="kiritokmn1403" -c user.email="kietnguyenworking1403@gmail.com" commit -m $Msg -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" -m "Claude-Session: https://claude.ai/code/session_01C7DNQDznQRw36waa7x7fzh" *>> $Log
 L 'pushing (this can take a while: repo/ contains every built plugin)'
 & $git push origin HEAD:main *>> $Log
 L "push exit $LASTEXITCODE"
@@ -25,7 +26,7 @@ $H = @{ Authorization = "token $tok"; 'User-Agent' = 'kiritokmn-publish'; Accept
 $api = "https://api.github.com/repos/$Owner/$Repo"
 $rel = $null
 try { $rel = Invoke-RestMethod -Headers $H -Uri "$api/releases/tags/$Tag" } catch { }
-$notes = if (Test-Path CHANGELOG.md) { [IO.File]::ReadAllText((Join-Path $Root 'CHANGELOG.md'), [Text.Encoding]::UTF8) } else { "Extension Repo $Tag" }
+$notes = if (Test-Path CHANGELOG.md) { Get-Content CHANGELOG.md -Raw -Encoding UTF8 } else { "Extension Repo $Tag" }
 if (-not $rel) {
   $body = @{ tag_name = $Tag; target_commitish = 'main'; name = "Kiritokmn Extension Repo $Tag"; body = $notes; draft = $false; prerelease = $false } | ConvertTo-Json
   $rel = Invoke-RestMethod -Headers $H -Method Post -Uri "$api/releases" -Body ([Text.Encoding]::UTF8.GetBytes($body)) -ContentType 'application/json; charset=utf-8'

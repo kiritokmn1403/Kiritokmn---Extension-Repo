@@ -34,6 +34,8 @@ const esbuild = loadEsbuild();
 const ts = loadTs();
 
 const OUT = path.join(ROOT, 'repo');
+const GBK_TABLE = fs.readFileSync(path.join(ROOT, 'runtime/gbk-table.txt'), 'utf8');
+const scriptsSrc = id => { const d = path.join(ROOT, 'sources', id, 'src'); return fs.existsSync(d) ? fs.readdirSync(d).map(f => fs.readFileSync(path.join(d, f), 'utf8')).join('\n') : ''; };
 if (!ONLY) for (const d of ['vbook', 'mangayomi', 'lnreader']) fs.rmSync(path.join(OUT, d), { recursive: true, force: true });
 const GEN = path.join(ROOT, '.build');
 for (const d of ['vbook', 'mangayomi', 'lnreader', 'aniyomi']) fs.mkdirSync(path.join(OUT, d), { recursive: true });
@@ -43,6 +45,8 @@ const SRC_DIR = path.join(ROOT, 'sources');
 const LIB_DIR = path.join(ROOT, 'lib');
 const registry = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sources.json'), 'utf8')); // metadata from the Excel sheet
 const regById = Object.fromEntries(registry.map(r => [r.id, r]));
+const CF = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/cloudflare.json'), 'utf8'));
+const CF_IDS = new Set([...(CF.auto || []), ...(CF.interactive || []), ...(CF.ipblock || [])]);
 
 function hash31(s) { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return (h >>> 1) % 2000000000 + 100000000; }
 const ITEM_TYPE = { comic: 0, video: 1, novel: 2 };
@@ -67,7 +71,7 @@ function usedLibs(code, srcDir, acc = new Set()) {
   return acc;
 }
 
-const ENV_NAMES = ['fetch', 'Http', 'Html', 'Response', 'localStorage', 'cacheStorage', 'localConfig', 'localCookie', 'sleep', 'Log', 'console', 'log', 'UserAgent', 'Engine', 'Graphics', 'Script'];
+const ENV_NAMES = ['fetch', 'Http', 'Html', 'Response', 'localStorage', 'cacheStorage', 'localConfig', 'localCookie', 'sleep', 'Log', 'console', 'Console', 'log', 'UserAgent', 'Engine', 'Graphics', 'Script'];
 
 // All runnable scripts: plugin.json `script` entries + every other src/*.js (tab scripts like browse.js
 // are referenced by file name from home.js/genre.js). Files only used through load() are skipped.
@@ -172,9 +176,10 @@ for (const id of ids) {
     const ver = `0.0.${md.version}`;
     const mgMeta = { name: md.name, lang: md.locale === 'all' ? 'all' : md.locale, id: hash31('kiritokmn:' + id), baseUrl: md.source, apiUrl: '', iconUrl: icon, typeSource: 'single', itemType: ITEM_TYPE[md.type], isNsfw: !!md.nsfw, version: ver, dateFormat: '', dateFormatLocale: '', pkgPath: `repo/mangayomi/${id}.js` };
     let mg = await bundle('entry.js', genFile, 'iife', { globalName: '__VB', target: 'es2020' });
-    mg = `const mangayomiSources = [${JSON.stringify(mgMeta)}];\n` + mg + '\n' + fs.readFileSync(path.join(ROOT, 'hosts/mangayomi.tail.js'), 'utf8');
+    const needGbk = /gbk|gb2312|gb18030/i.test(scriptsSrc(id));
+    mg = `const mangayomiSources = [${JSON.stringify(mgMeta)}];\n` + (needGbk ? `var __GBK_TABLE = ${JSON.stringify(GBK_TABLE)};\n` : '') + mg + '\n' + fs.readFileSync(path.join(ROOT, 'hosts/mangayomi.tail.js'), 'utf8');
     fs.writeFileSync(path.join(OUT, 'mangayomi', id + '.js'), mg);
-    mgIndex.push({ ...mgMeta, hasCloudflare: false, sourceCodeUrl: `${BASE}/repo/mangayomi/${id}.js`, isManga: md.type === 'comic', isFullData: false, appMinVerReq: '0.5.0', additionalParams: '', sourceCodeLanguage: 1, notes: 'Kiritokmn Extension Repo ' + VERSION });
+    mgIndex.push({ ...mgMeta, hasCloudflare: CF_IDS.has(id), sourceCodeUrl: `${BASE}/repo/mangayomi/${id}.js`, isManga: md.type === 'comic', isFullData: false, appMinVerReq: '0.5.0', additionalParams: '', sourceCodeLanguage: 1, notes: 'Kiritokmn Extension Repo ' + VERSION });
     // ---- LNReader / IReader (novels only)
     let lnSize = 0;
     if (md.type === 'novel') {

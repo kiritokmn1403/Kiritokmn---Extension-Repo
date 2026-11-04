@@ -123,6 +123,7 @@ var __env = {
   sleep: function (ms) { __host.sleep(Number(ms) || 0); },
   Log: { log: function (m) { __host.log(typeof m === 'string' ? m : JSON.stringify(m)); } },
   console: { log: function (m) { __host.log(typeof m === 'string' ? m : JSON.stringify(m)); }, error: function (m) { __host.log(String(m)); }, warn: function (m) { __host.log(String(m)); }, info: function (m) { __host.log(String(m)); } },
+  Console: { log: function (m) { __host.log(typeof m === 'string' ? m : JSON.stringify(m)); }, error: function (m) { __host.log(String(m)); }, warn: function (m) { __host.log(String(m)); }, info: function (m) { __host.log(String(m)); } },
   log: function (m) { __host.log(String(m)); },
   UserAgent: { system: function () { return __DEFAULT_UA; }, chrome: function () { return __DEFAULT_UA; }, android: function () { return __DEFAULT_UA; }, ios: function () { return __DEFAULT_UA; } },
   Engine: { newBrowser: function () { throw new Error('Headless browser is not available in Aniyomi/Nekoyomi'); } },

@@ -9,6 +9,12 @@ Bản đầu tiên: dựng lại toàn bộ repo (trước đó chỉ có README
 - **Đổi tên miền** ngay trong cài đặt nguồn (Aniyomi, Nekoyomi, Mangayomi, YomiHub, vBook).
 - Bộ chuyển đổi tự động vBook → Mangayomi / LNReader / IReader / Rhino-APK; bộ kiểm thử trực tiếp và offline.
 
+## Cập nhật trong ngày 04/11/2026 (tối) — sửa nguồn dính Cloudflare
+- Viết lại selector cho 9 nguồn dính Cloudflare (101kks, czbooks, uukanshu, luvevaland, mattreadingtranslations, ciyuanji, novelfull.net, tik.porn 18+, xfree 18+) — phiên bản nguồn 2.
+- Mangayomi/YomiHub: đọc đúng trang mã GBK (69shuba).
+- Báo lỗi rõ ràng khi gặp Cloudflare: "CLOUDFLARE: … mở nguồn bằng WebView".
+- 5 nguồn cần người dùng tự xác minh Cloudflare trong WebView: 101minc, hhtqhay.vip, sonako, cbhentai, myreadingmanga.
+
 ## Cài đặt
 | Ứng dụng | Đường dẫn repo |
 |---|---|

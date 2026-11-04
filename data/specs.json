@@ -284,11 +284,25 @@
   "tpl": "generic",
   "G": {
    "tabs": {
-    "Mới cập nhật": "/[?page={p}]"
+    "Trang chủ": "/",
+    "Amateur": "/?s=amateur[&page={p}]",
+    "Asian": "/?s=asian[&page={p}]",
+    "MILF": "/?s=milf[&page={p}]",
+    "Teen 18+": "/?s=teen[&page={p}]"
    },
-   "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "search": "/?s={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]",
+   "item": "a[href*='/video/'][title]",
+   "title": ":self@title || img@alt",
+   "link": ":self@href",
+   "cover": "img@img",
+   "pageSize": 20,
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content",
+   "d_desc": "meta[property=og:description]@content",
+   "single": "Xem video"
+  },
+  "version": 2
  },
  "kwiky": {
   "base": "https://kwiky.com",
@@ -316,11 +330,24 @@
   "tpl": "generic",
   "G": {
    "tabs": {
-    "Mới cập nhật": "/[?page={p}]"
+    "Trang chủ": "/[?page={p}]",
+    "MILF": "/tag/milf[?page={p}]",
+    "Amateur": "/tag/amateurs[?page={p}]",
+    "Gay": "/gay[?page={p}]"
    },
-   "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "search": "/search?q={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]",
+   "item": ".wall__item",
+   "title": "img@alt",
+   "link": "a@href",
+   "cover": "img@img",
+   "pageSize": 10,
+   "d_title": "meta[property=og:title]@content || h1",
+   "d_cover": "meta[property=og:image]@content",
+   "d_desc": "meta[property=og:description]@content",
+   "single": "Xem video"
+  },
+  "version": 2
  },
  "fapreel": {
   "base": "https://fapreel.com",
@@ -1401,11 +1428,31 @@
   "tpl": "generic",
   "G": {
    "tabs": {
-    "Mới cập nhật": "/[?page={p}]"
+    "完本": "/novels/full/0_{p}.html",
+    "分類": "/novels/class/0_{p}.html",
+    "熱門": "/novels/hot"
    },
-   "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "search": "/search/{q}/{p}.html",
+   "ch_list": "li a[href*='/txt/']",
+   "item": "li:has(a[href*='/book/'])",
+   "title": "h3",
+   "link": "a[href*='/book/']@href",
+   "cover": "img@img",
+   "desc": "h4",
+   "pageSize": 8,
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content",
+   "d_author": "meta[property=og:novel:author]@content",
+   "d_desc": "meta[property=og:description]@content",
+   "d_status": "meta[property=og:novel:status]@content",
+   "ch_rewrite": [
+    "/book/(\\d+)\\.html.*$",
+    "/ajax_novels/chapterlist/$1.html"
+   ],
+   "content": "#txtcontent",
+   "c_title": "h1"
+  },
+  "version": 2
  },
  "101minc": {
   "base": "https://www.101minc.com",
@@ -1437,12 +1484,14 @@
  "69shurepoduongden": {
   "tpl": "ref",
   "ref": "/home/claude/vbx/8ec234d2c1",
-  "origin": "Ivan1hai/ext"
+  "origin": "Ivan1hai/ext",
+  "version": 2
  },
  "69shuba": {
   "tpl": "ref",
   "ref": "/home/claude/vbx/8ec234d2c1",
-  "origin": "Ivan1hai/ext"
+  "origin": "Ivan1hai/ext",
+  "version": 2
  },
  "75zwcom": {
   "base": "https://m.75biquge.com",
@@ -1574,7 +1623,7 @@
   "origin": "vbook-extensions"
  },
  "ciyuanji": {
-  "base": "https://m.ciyuanji.com",
+  "base": "https://www.ciyuanji.com",
   "domains": [
    "https://www.ciyuanji.com"
   ],
@@ -1583,11 +1632,27 @@
   "tpl": "generic",
   "G": {
    "tabs": {
-    "Mới cập nhật": "/[?page={p}]"
+    "书库": "/l_c_0_0_0_0_{p}.html",
+    "轻小说": "/l_c_101_0_0_0_{p}.html",
+    "同人": "/l_c_115_0_0_0_{p}.html",
+    "玄幻": "/l_c_102_0_0_0_{p}.html",
+    "都市": "/l_c_106_0_0_0_{p}.html",
+    "仙侠": "/l_c_105_0_0_0_{p}.html"
    },
-   "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "search": "/search/{q}_0_{p}.html",
+   "ch_list": "a[class*=book_detail_item]",
+   "item": "section[class*=book_card]",
+   "title": "img@alt",
+   "link": "a@href",
+   "cover": "img@img",
+   "pageSize": 10,
+   "d_title": "[class*=book_detail_title] || [class*=book_detail] img@alt",
+   "d_cover": "[class*=book_detail] img@img",
+   "d_desc": "meta[name=description]@content",
+   "content": "[class*=chapter_article]",
+   "c_title": "h1"
+  },
+  "version": 2
  },
  "czbooksrepoduongden": {
   "base": "https://czbooks.net",
@@ -1599,11 +1664,30 @@
   "tpl": "generic",
   "G": {
    "tabs": {
-    "Mới cập nhật": "/[?page={p}]"
+    "玄幻": "/c/xuanhuan[/{p}]",
+    "言情": "/c/yanqing[/{p}]",
+    "仙俠": "/c/xianxia[/{p}]",
+    "歷史": "/c/lishi[/{p}]",
+    "科幻": "/c/wangyou[/{p}]",
+    "靈異": "/c/lingyi[/{p}]"
    },
-   "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "search": "/s/{q}[/{p}]",
+   "ch_list": "ul.chapter-list li a",
+   "item": ".novel-item",
+   "title": ".novel-item-title a",
+   "link": ".novel-item-title a@href",
+   "cover": "img@img",
+   "desc": ".novel-item-author",
+   "pageSize": 20,
+   "d_title": "h1.title",
+   "d_cover": ".novel-detail .thumbnail img@img",
+   "d_author": ".novel-detail .author a",
+   "d_desc": ".description",
+   "d_status": ".thumbnail-state",
+   "content": ".content",
+   "c_title": "h1.name || h1"
+  },
+  "version": 2
  },
  "deqixs": {
   "base": "https://www.deqixs.org",
@@ -2009,11 +2093,25 @@
   "tpl": "generic",
   "G": {
    "tabs": {
-    "Mới cập nhật": "/[?page={p}]"
+    "Truyện mới": "/danh-sach/moi-dang[?page={p}]",
+    "Hot tuần": "/danh-sach/truyen-hot-tuan[?page={p}]",
+    "Xem nhiều": "/danh-sach/truyen-nhieu-nguoi-xem[?page={p}]"
    },
    "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "ch_list": "td.list-chapter__name a",
+   "item": ".book-vertical__item, tr.book__list-item",
+   "title": ".book__lg-title a || td.book__list-name a || img@alt",
+   "link": "a@href",
+   "cover": "img@img",
+   "pageSize": 10,
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .book__detail-image img@img",
+   "d_desc": "#home",
+   "d_genres": ".book__detail-text a[href*='/the-loai/']",
+   "content": "#chapter-content",
+   "c_title": "h1 || h2"
+  },
+  "version": 2
  },
  "mangadm": {
   "base": "https://mangadm.me",
@@ -2047,11 +2145,24 @@
   "tpl": "generic",
   "G": {
    "tabs": {
-    "Mới cập nhật": "/[?page={p}]"
+    "Novels": "/novels/"
    },
-   "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "search": "/novels/",
+   "ch_list": "#toc-container td a, .chapter-table td a",
+   "item": ".entry-content a[href]",
+   "title": ":self",
+   "link": ":self@href",
+   "cover": "img@img",
+   "pageSize": 999,
+   "d_title": "h1",
+   "d_cover": ".entry-content img@img || meta[property=og:image]@content",
+   "d_desc": ".entry-content p || meta[name=description]@content",
+   "ch_next": ".pagination a.current + a",
+   "ch_maxPages": 80,
+   "content": ".entry-content",
+   "c_title": "h1"
+  },
+  "version": 2
  },
  "minotruyen": {
   "base": "https://minotruyenv6.xyz",
@@ -2246,9 +2357,37 @@
   }
  },
  "novelfullnet": {
-  "tpl": "ref",
-  "ref": "/home/claude/refs/vb_Moleys_vbook-ext/novelfull",
-  "origin": "Moleys/vbook-ext"
+  "tpl": "generic",
+  "base": "https://novelfull.net",
+  "domains": [
+   "https://novelfull.net"
+  ],
+  "G": {
+   "tabs": {
+    "Latest": "/latest-release-novel[?page={p}]",
+    "Hot": "/hot-novel[?page={p}]",
+    "Popular": "/most-popular[?page={p}]",
+    "Completed": "/completed-novel[?page={p}]"
+   },
+   "search": "/search?keyword={q}[&page={p}]",
+   "item": ".con",
+   "title": "h3.tit a",
+   "link": "h3.tit a@href",
+   "cover": ".pic img@img",
+   "next": "a[rel=next]",
+   "genre": "a[href*='/genre/']",
+   "d_title": "h1.tit || h1",
+   "d_cover": "meta[property=og:image]@content",
+   "d_author": "a[href*='/author/']",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "d_genres": ".info a[href*='/genre/']",
+   "ch_list": "#idData li a",
+   "ch_next": "a#nextBtn[rel=next]",
+   "ch_maxPages": 150,
+   "content": "#chapter-content",
+   "c_title": ".chapter-title || h1"
+  },
+  "version": 2
  },
  "novelphoenix": {
   "base": "https://novelphoenix.net",
@@ -2793,11 +2932,24 @@
   "tpl": "generic",
   "G": {
    "tabs": {
-    "Mới cập nhật": "/[?page={p}]"
+    "首頁": "/"
    },
-   "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "search": "/search?searchtype=all&searchkey={q}",
+   "ch_list": "#list-chapterAll dd a, .chapterlist a",
+   "item": "div.item",
+   "title": "dt a",
+   "link": "dt a@href",
+   "cover": "img@img",
+   "desc": "dd",
+   "pageSize": 999,
+   "d_title": "h1",
+   "d_cover": "meta[property=og:image]@content",
+   "d_author": "meta[property=og:novel:author]@content",
+   "d_desc": "meta[property=og:description]@content",
+   "content": ".readcotent",
+   "c_title": "h1"
+  },
+  "version": 2
  },
  "valvrareteam": {
   "tpl": "ref",

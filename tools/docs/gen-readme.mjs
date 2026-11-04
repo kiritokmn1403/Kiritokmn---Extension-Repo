@@ -11,7 +11,12 @@ if (fs.existsSync(trp)) tr = JSON.parse(fs.readFileSync(trp, 'utf8'));
 const byId = Object.fromEntries((tr ? tr.results : []).map(r => [r.id, r]));
 const assets = fs.existsSync(path.join(ROOT, 'Output')) ? fs.readdirSync(path.join(ROOT, 'Output')).filter(f => !fs.statSync(path.join(ROOT, 'Output', f)).isDirectory() && !/\.log$/.test(f)) : [];
 const TYPE = { movie: 'Phim & Video', comic: 'Truyện tranh', novel: 'Tiểu thuyết' };
-function status(r) {
+const CF = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/cloudflare.json'), 'utf8'));
+function status(r, id) {
+  if (CF.interactive.includes(id)) return '🛡️ Cloudflare Turnstile – cần **xác minh thủ công** trong WebView';
+  if (CF.ipblock.includes(id)) return '🛡️ Cloudflare chặn IP Việt Nam – cần VPN';
+  if (CF.notcf[id]) return '🟠 ' + CF.notcf[id];
+  if (CF.auto.includes(id) && !(r && r.pass)) return '🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần';
   if (!r) return '⚪ chưa kiểm thử';
   if (r.pass) return '✅ hoạt động';
   const s = r.steps || {}; const f = Object.entries(s).find(([, v]) => !v.ok);
@@ -26,7 +31,7 @@ let rows = '';
 for (const t of ['movie', 'comic', 'novel']) {
   const list = src.filter(s => s.type === t);
   rows += `\n### ${TYPE[t]} (${list.length})\n\n| # | Nguồn | Trang | Ngôn ngữ | 18+ | Trạng thái |\n|---|---|---|---|---|---|\n`;
-  list.forEach((s, i) => { rows += `| ${i + 1} | ${s.name} | ${s.urls[0].replace(/^https?:\/\//, '').replace(/\/$/, '')} | ${s.lang_code} | ${s.nsfw ? 'Có' : ''} | ${status(byId[s.id])} |\n`; });
+  list.forEach((s, i) => { rows += `| ${i + 1} | ${s.name} | ${s.urls[0].replace(/^https?:\/\//, '').replace(/\/$/, '')} | ${s.lang_code} | ${s.nsfw ? 'Có' : ''} | ${status(byId[s.id], s.id)} |\n`; });
 }
 const pass = tr ? tr.results.filter(r => r.pass).length : 0;
 const dl = assets.length ? assets.map(a => `| [${a}](${REL}/${encodeURIComponent(a)}) |`).join('\n') : '| (đang cập nhật) |';

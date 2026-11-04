@@ -58,7 +58,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 3 | Bilibili | www.bilibili.tv | vi |  | 🟡 một phần (popular lỗi) |
 | 4 | VTV Go | vtvgo.vn | vi |  | 🟡 một phần (popular lỗi) |
 | 5 | Rổ Phim | www.rophimhd.com/phimhay | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 6 | HotPhim | hotphim.org | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
+| 6 | HotPhim | hotphim.org | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 7 | AVSub – AnimeVietsub | animevietsub.nl | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 8 | HayChill | phimhaychill.org | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 9 | XemPhimGi | xemphimgi.com | vi |  | 🟡 một phần (popular, search, detail ✓; chapters lỗi) |
@@ -67,9 +67,9 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 12 | Phimmoi | phimmoii.mom | vi |  | 🟡 một phần (popular, search ✓; detail lỗi) |
 | 13 | PornHub | www.pornhub.com | all | Có | 🟡 một phần (popular lỗi) |
 | 14 | FikFap | fikfap.com | all | Có | 🟡 một phần (popular lỗi) |
-| 15 | Tik.Porn | tik.porn | all | Có | 🟠 bị Cloudflare/máy chủ chặn |
+| 15 | Tik.Porn | tik.porn | all | Có | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 16 | Kwiky | kwiky.com/cams?AFNO=2-162764.38182 | all | Có | 🟡 một phần (popular lỗi) |
-| 17 | xFree | www.xfree.com | all | Có | 🟠 bị Cloudflare/máy chủ chặn |
+| 17 | xFree | www.xfree.com | all | Có | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 18 | FapReel | fapreel.com | all | Có | 🟡 một phần (popular lỗi) |
 | 19 | SexVietTop | top1sexvn.com | vi | Có | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 20 | Xôi Lạc | xoilacxxi.cc | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
@@ -83,7 +83,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 28 | GuPhim | guphimz.com | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 29 | HentaiVietsub.com | hentaivietsub.com | vi | Có | 🟡 một phần (popular, search, detail, chapters ✓; videos lỗi) |
 | 30 | HHPanda | hhpanda.st | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; videos lỗi) |
-| 31 | HHTQHAY.VIP | hhtqhay.vip | vi |  | 🟠 bị Cloudflare/máy chủ chặn |
+| 31 | HHTQHAY.VIP | hhtqhay.vip | vi |  | 🛡️ Cloudflare Turnstile – cần **xác minh thủ công** trong WebView |
 | 32 | Hồng Quả | hongguoduanju.com | zh |  | 🟡 một phần (popular lỗi) |
 | 33 | iQIYI | www.iq.com | zh |  | 🟡 một phần (popular lỗi) |
 | 34 | LuPhim | luphim.com | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
@@ -102,7 +102,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 
 | # | Nguồn | Trang | Ngôn ngữ | 18+ | Trạng thái |
 |---|---|---|---|---|---|
-| 1 | CBHentai | hentaicube.xyz | vi | Có | 🟡 một phần (popular lỗi) |
+| 1 | CBHentai | hentaicube.xyz | vi | Có | 🛡️ Cloudflare Turnstile – cần **xác minh thủ công** trong WebView |
 | 2 | Dâm Cô Nương | damconuong.pet | vi | Có | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 3 | SayHentai | sayhentai.cx | vi | Có | 🟡 một phần (popular lỗi) |
 | 4 | CBunu Comic | cucbongunu.com | vi | Có | ✅ hoạt động |
@@ -121,8 +121,8 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 17 | Mimimoe | mimimoe.moe | vi |  | 🟡 một phần (popular, detail ✓; search lỗi) |
 | 18 | Misskon | misskon.com | vi |  | ✅ hoạt động |
 | 19 | MoeTruyen | truyen.moe | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
-| 20 | My Reading Manga | myreadingmanga.info | all |  | 🟠 bị Cloudflare/máy chủ chặn |
-| 21 | Navy Team Comic | navyteams.com | vi |  | ✅ hoạt động |
+| 20 | My Reading Manga | myreadingmanga.info | all |  | 🛡️ Cloudflare Turnstile – cần **xác minh thủ công** trong WebView |
+| 21 | Navy Team Comic | navyteams.com | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
 | 22 | NetTruyen18 | nettruyen18.com | vi |  | ✅ hoạt động |
 | 23 | NetTruyenViet | nettruyenviet10.com | vi |  | 🟡 một phần (search ✓; popular lỗi) |
 | 24 | NetTruyenZ | nettruyenz.com | vi |  | 🟡 một phần (popular lỗi) |
@@ -136,7 +136,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 32 | VinaHentai | vinahentai.bond | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 33 | WebtoonScan | webtoonscan.com | en |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 34 | Weeb Central | weebcentral.com | en |  | 🟡 một phần (popular, search, detail ✓; chapters lỗi) |
-| 35 | Đọc Truyện Tranh BL | truyentranhbl.com | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; pages lỗi) |
+| 35 | Đọc Truyện Tranh BL | truyentranhbl.com | vi |  | 🟠 bắt đăng nhập Google để xem ảnh chương |
 | 36 | Ưng Tỷ Comics | ungtycomics.net | vi |  | 🟡 một phần (popular lỗi) |
 
 ### Tiểu thuyết (116)
@@ -144,13 +144,13 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | # | Nguồn | Trang | Ngôn ngữ | 18+ | Trạng thái |
 |---|---|---|---|---|---|
 | 1 | Ln.Hako.Vn (Hako) | ln.hako.vn | vi |  | 🟠 cần WebView (chỉ chạy trên vBook) |
-| 2 | Sonako | sonako.fandom.com/vi/wiki/Sonako_Light_Novel | vi |  | 🟠 bị Cloudflare/máy chủ chặn |
+| 2 | Sonako | sonako.fandom.com/vi/wiki/Sonako_Light_Novel | vi |  | 🛡️ Cloudflare Turnstile – cần **xác minh thủ công** trong WebView |
 | 3 | 07br | www.bqg128.xyz/# | zh |  | 🟡 một phần (popular lỗi) |
-| 4 | 101kks | 101kks.com | zh |  | 🟠 bị Cloudflare/máy chủ chặn |
-| 5 | 101Minc | www.101Minc.com | zh |  | 🟠 bị Cloudflare/máy chủ chặn |
+| 4 | 101kks | 101kks.com | zh |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
+| 5 | 101Minc | www.101Minc.com | zh |  | 🛡️ Cloudflare Turnstile – cần **xác minh thủ công** trong WebView |
 | 6 | 52shuku by QuocBao | www.52shuku.net | zh |  | 🟡 một phần (popular lỗi) |
-| 7 | 69shu - repo Đường đen | 69shuba.com | zh |  | 🟡 một phần (popular lỗi) |
-| 8 | 69书吧 | www.69shuba.com | zh |  | 🟡 một phần (popular lỗi) |
+| 7 | 69shu - repo Đường đen | 69shuba.com | zh |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
+| 8 | 69书吧 | www.69shuba.com | zh |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 9 | 75zwcom | m.qiwubiquge.com | zh |  | 🟡 một phần (popular lỗi) |
 | 10 | 8book | www.8book.com | zh |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
 | 11 | alicesw | www.alicesw.com | zh | Có | ✅ hoạt động |
@@ -159,8 +159,8 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 14 | BL Bất Tử | blbattu.com | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; content lỗi) |
 | 15 | Boylove Bất Tử | boylovebattu.com | vi |  | ✅ hoạt động |
 | 16 | Bàn Long | blhvip.vn | vi |  | ✅ hoạt động |
-| 17 | ciyuanji | www.ciyuanji.com | zh |  | 🟠 bị Cloudflare/máy chủ chặn |
-| 18 | czbooks - repo Đường đen | czbooks.net | zh |  | 🟠 bị Cloudflare/máy chủ chặn |
+| 17 | ciyuanji | www.ciyuanji.com | zh |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
+| 18 | czbooks - repo Đường đen | czbooks.net | zh |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 19 | Deqixs | www.deqixss.com | zh |  | ✅ hoạt động |
 | 20 | douban | read.douban.com | zh |  | 🟡 một phần (popular lỗi) |
 | 21 | Dưa Hấu | xgmf.zuanqianyi.com | zh |  | 🟡 một phần (popular lỗi) |
@@ -169,7 +169,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 24 | Giới Truyện | gioitruyen.com | vi |  | 🟡 một phần (popular lỗi) |
 | 25 | gongzicp | www.gongzicp.com | zh |  | 🟡 một phần (popular lỗi) |
 | 26 | Gấu Mèo Team | gaumeoteam.com | vi |  | ✅ hoạt động |
-| 27 | Hameln (Syosetu.org) | syosetu.org | ja |  | 🟠 bị Cloudflare/máy chủ chặn |
+| 27 | Hameln (Syosetu.org) | syosetu.org | ja |  | 🛡️ Cloudflare chặn IP Việt Nam – cần VPN |
 | 28 | Hang Truyện Chữ | hangtruyenchu.com | vi |  | 🟡 một phần (popular, chapters ✓; search lỗi) |
 | 29 | html5.qq.com | bookshelf.html5.qq.com | zh |  | 🟡 một phần (popular lỗi) |
 | 30 | idejian | www.idejian.com | zh |  | 🟡 một phần (popular lỗi) |
@@ -185,9 +185,9 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 40 | LOFTER | www.sudugu.org | zh |  | 🟡 một phần (popular lỗi) |
 | 41 | LoHi | lohi2.com | vi |  | 🟡 một phần (popular lỗi) |
 | 42 | LoppyToon | loppytoon.com | vi | Có | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 43 | Luvevaland | luvevalandn2.co | vi |  | 🟠 bị Cloudflare/máy chủ chặn |
+| 43 | Luvevaland | luvevalandn2.co | vi |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 44 | MangaDM | mangadm.me | vi |  | 🟡 một phần (popular lỗi) |
-| 45 | Matt Reading Translations | mattreadingtranslations.com | en |  | 🟠 bị Cloudflare/máy chủ chặn |
+| 45 | Matt Reading Translations | mattreadingtranslations.com | en |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 46 | Mino Truyện | minotruyenv6.xyz | vi |  | 🟡 một phần (popular lỗi) |
 | 47 | Minttea Novel | mintteanovel.com | vi |  | 🟡 một phần (popular lỗi) |
 | 48 | MonkeyD | monkeydd.com | vi |  | ✅ hoạt động |
@@ -197,10 +197,10 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 52 | Mê Truyện CV | metruyencv.com.vn | vi |  | 🟡 một phần (popular lỗi) |
 | 53 | Mê Đọc Truyện | medoctruyen.vn | vi |  | ✅ hoạt động |
 | 54 | Mọt Truyện | mottruyen.app | vi |  | 🟡 một phần (popular, detail ✓; search lỗi) |
-| 55 | Navy Team Novel | navyteams.com | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
+| 55 | Navy Team Novel | navyteams.com | vi |  | ✅ hoạt động |
 | 56 | NetTruyen | nettruyen.com.vn | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 57 | Novel Next | www.novelnext.me | en |  | 🟡 một phần (popular, search, detail, chapters ✓; content lỗi) |
-| 58 | NovelFull.Net | novelfull.net | en |  | 🟡 một phần (popular lỗi) |
+| 58 | NovelFull.Net | novelfull.net | en |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 59 | NovelPhoenix | novelphoenix.net | en |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
 | 60 | Novelpia Global | global.novelpia.com | en |  | 🟡 một phần (popular, search, detail ✓; chapters lỗi) |
 | 61 | piaotian-app | www.piaotianapp.com | zh |  | 🟡 một phần (popular lỗi) |
@@ -208,7 +208,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 63 | po18sm | www.po18sm.com | zh | Có | 🟡 một phần (popular, detail ✓; search lỗi) |
 | 64 | qimao | www.qimao.com | zh |  | 🟡 một phần (popular lỗi) |
 | 65 | qmbook | m.bqg998.cc/# | zh |  | 🟡 một phần (popular lỗi) |
-| 66 | quanben | quanben.io | zh |  | 🟠 bị Cloudflare/máy chủ chặn |
+| 66 | quanben | quanben.io | zh |  | 🟠 máy chủ trả trang mặc định CentOS (403) – trang hỏng |
 | 67 | quanwenyuedu | www.quanwenyuedu.io | zh |  | 🟡 một phần (popular, search, detail ✓; chapters lỗi) |
 | 68 | QuyKiep | quykiep.com | vi |  | 🟡 một phần (popular lỗi) |
 | 69 | Shinigami LN Team | shinigamilnteam.com | vi |  | 🟡 một phần (popular lỗi) |
@@ -238,7 +238,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 93 | Truyện Zhihu Tổng Hợp | www.truyendexuat.com | vi |  | 🟡 một phần (popular lỗi) |
 | 94 | TruyệnCV | metruyencv.com | vi |  | 🟡 một phần (popular lỗi) |
 | 95 | Tu Tiên (.pro) | tutien.pro | vi |  | 🟡 một phần (popular lỗi) |
-| 96 | uukanshu | uukanshu.cc | zh |  | 🟠 bị Cloudflare/máy chủ chặn |
+| 96 | uukanshu | uukanshu.cc | zh |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 97 | Valvrareteam | valvrareteam.net | vi |  | ✅ hoạt động |
 | 98 | Viblo | viblo.asia | vi |  | 🟡 một phần (popular lỗi) |
 | 99 | vivutruyencom | vivutruyen.com | vi |  | ✅ hoạt động |
@@ -248,7 +248,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 103 | Web Truyện Dịch | webtruyendich.com | vi |  | 🟡 một phần (popular lỗi) |
 | 104 | Weibo | m.weibo.cn | zh |  | 🟡 một phần (popular lỗi) |
 | 105 | Wiki Dịch | wikicv.org | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 106 | wodeshucheng5 | www.wodeshucheng5.com | zh |  | 🟠 bị Cloudflare/máy chủ chặn |
+| 106 | wodeshucheng5 | www.wodeshucheng5.com | zh |  | 🟠 nginx 403 – chặn IP/khu vực |
 | 107 | Xbanxia - repo Đường đen | www.xbanxia.cc | zh |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
 | 108 | Xianqihaotiami APP | www.xianqihaotianmi.org | zh |  | 🟡 một phần (popular lỗi) |
 | 109 | xsw | m.xsw.tw | zh |  | 🔴 không truy cập được (tên miền chết / bị chặn) |

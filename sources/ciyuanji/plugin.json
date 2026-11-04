@@ -2,11 +2,11 @@
   "metadata": {
     "name": "ciyuanji",
     "author": "Kiritokmn",
-    "version": 1,
-    "source": "https://m.ciyuanji.com",
+    "version": 2,
+    "source": "https://www.ciyuanji.com",
     "description": "ciyuanji — Kiritokmn Extension Repo",
     "locale": "zh-CN",
-    "regexp": "m\\.ciyuanji\\.com",
+    "regexp": "ciyuanji\\.com",
     "type": "novel",
     "nsfw": false
   },
@@ -21,13 +21,12 @@
     "DOMAIN": {
       "title": "Tên miền",
       "subtitle": "Đổi khi trang đổi tên miền",
-      "default": "https://m.ciyuanji.com",
+      "default": "https://www.ciyuanji.com",
       "values": [
-        "https://m.ciyuanji.com",
         "https://www.ciyuanji.com"
       ],
-      "mode": "select",
-      "format": "single"
+      "mode": "input",
+      "format": "text"
     }
   }
 }

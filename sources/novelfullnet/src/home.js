@@ -1,8 +1,4 @@
-function execute() {
-    return Response.success([
-        { title: "Latest", input: "https://novelfull.com/latest-release-novel?page=", script: "gen.js" },
-        { title: "Hot Novel", input: "https://novelfull.com/hot-novel?page=", script: "gen.js" }, 
-        { title: "Compelete", input: "https://novelfull.com/completed-novel?page=", script: "gen.js" }, 
-        { title: "Most popular", input: "https://novelfull.com/most-popular?page=", script: "gen.js" }, 
-    ]);
-}
+load('config.js');
+load('lib_common.js');
+load('lib_generic.js');
+function execute() { var t = []; for (var k in G.tabs) t.push({ title: k, input: k, script: "browse.js" }); return Response.success(t); }
