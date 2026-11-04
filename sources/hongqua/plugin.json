@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "Hồng Quả",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://hongguoduanju.com",
+    "description": "Hồng Quả — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "hongguoduanju\\.com",
+    "type": "video",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://hongguoduanju.com",
+      "values": [
+        "https://hongguoduanju.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

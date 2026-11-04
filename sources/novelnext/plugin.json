@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "Novel Next",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://novelnext.me",
+    "description": "Novel Next — Kiritokmn Extension Repo",
+    "locale": "en",
+    "regexp": "novelnext\\.me",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://novelnext.me",
+      "values": [
+        "https://novelnext.me",
+        "https://www.novelnext.me"
+      ],
+      "mode": "select",
+      "format": "single"
+    }
+  }
+}

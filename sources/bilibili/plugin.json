@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "Bilibili",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://www.bilibili.tv",
+    "description": "Bilibili — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "bilibili\\.tv",
+    "type": "video",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://www.bilibili.tv",
+      "values": [
+        "https://www.bilibili.tv"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

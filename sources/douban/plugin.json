@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "douban",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://read.douban.com",
+    "description": "douban — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "read\\.douban\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://read.douban.com",
+      "values": [
+        "https://read.douban.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

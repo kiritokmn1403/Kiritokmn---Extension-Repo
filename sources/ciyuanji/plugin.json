@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "ciyuanji",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://m.ciyuanji.com",
+    "description": "ciyuanji — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "m\\.ciyuanji\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://m.ciyuanji.com",
+      "values": [
+        "https://m.ciyuanji.com",
+        "https://www.ciyuanji.com"
+      ],
+      "mode": "select",
+      "format": "single"
+    }
+  }
+}

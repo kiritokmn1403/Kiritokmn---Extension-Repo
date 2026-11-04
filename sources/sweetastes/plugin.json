@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "sweetastes",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://baby0world.com",
+    "description": "sweetastes — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "baby0world\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://baby0world.com",
+      "values": [
+        "https://baby0world.com",
+        "https://www.bjtriz.com"
+      ],
+      "mode": "select",
+      "format": "single"
+    }
+  }
+}

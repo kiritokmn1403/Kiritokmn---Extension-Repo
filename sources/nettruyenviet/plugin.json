@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "NetTruyenViet",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://nettruyenviet10.com",
+    "description": "NetTruyenViet — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "nettruyenviet10\\.com",
+    "type": "comic",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "genre": "genre.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://nettruyenviet10.com",
+      "values": [
+        "https://nettruyenviet10.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

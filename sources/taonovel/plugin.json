@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "TaoNovel",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://tybook.taoyuewenhua.net",
+    "description": "TaoNovel — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "tybook\\.taoyuewenhua\\.net",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://tybook.taoyuewenhua.net",
+      "values": [
+        "https://tybook.taoyuewenhua.net"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

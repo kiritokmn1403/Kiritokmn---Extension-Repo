@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "SexVietTop",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://top1sexvn.com",
+    "description": "SexVietTop — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "top1sexvn\\.com",
+    "type": "video",
+    "nsfw": true
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://top1sexvn.com",
+      "values": [
+        "https://top1sexvn.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

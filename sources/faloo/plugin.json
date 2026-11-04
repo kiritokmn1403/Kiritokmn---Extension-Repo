@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "name": "bFaloo (飞卢小说)",
+    "author": "Nhocconsr (Kiritokmn repack)",
+    "version": 5,
+    "source": "https://b.faloo.com",
+    "regexp": "(www.)?((b.faloo.com/\\d+.html)|(wap.faloo.com/\\d+.html))",
+    "description": "Nếu có lỗi bạn có thể liên hệ tới Email: phamgiavang@gmail.com — gốc: Nhocconsr (lethituyen/vbooks-extension)",
+    "locale": "zh-CN",
+    "language": "javascript",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}

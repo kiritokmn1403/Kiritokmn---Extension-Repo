@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "GuPhim",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://guphimz.com",
+    "description": "GuPhim — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "guphimz\\.com",
+    "type": "video",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://guphimz.com",
+      "values": [
+        "https://guphimz.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

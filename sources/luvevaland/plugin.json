@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Luvevaland",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://luvevalandn2.co",
+    "description": "Luvevaland — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "luvevalandn2\\.co",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://luvevalandn2.co",
+      "values": [
+        "https://luvevalandn2.co"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

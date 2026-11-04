@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Xbanxia - repo Đường đen",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://www.xbanxia.cc",
+    "description": "Xbanxia - repo Đường đen — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "xbanxia\\.cc",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://www.xbanxia.cc",
+      "values": [
+        "https://www.xbanxia.cc"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

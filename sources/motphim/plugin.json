@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "name": "MotPhim",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://motphimc.my",
+    "description": "MotPhim — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "motphimc\\.my",
+    "type": "video",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://motphimc.my",
+      "values": [
+        "https://motphimc.my",
+        "https://motphim.website",
+        "https://motchill10.io",
+        "https://motchille.cx",
+        "https://motphimc.mx",
+        "https://motchill10.io"
+      ],
+      "mode": "select",
+      "format": "single"
+    }
+  }
+}

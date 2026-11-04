@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "FikFap",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://fikfap.com",
+    "description": "FikFap — Kiritokmn Extension Repo",
+    "locale": "global",
+    "regexp": "fikfap\\.com",
+    "type": "video",
+    "nsfw": true
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://fikfap.com",
+      "values": [
+        "https://fikfap.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

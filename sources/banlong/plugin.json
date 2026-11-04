@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "name": "Bàn Long",
+    "author": "vBook (Kiritokmn repack)",
+    "version": 8,
+    "source": "https://blhvip.vn",
+    "description": "Đọc truyện trên Bàn Long (blhvip.vn) — gốc: vBook (vbook-extensions)",
+    "locale": "vi",
+    "regexp": "(https?://)?(www\\.)?(banlong\\.vip|blhvip\\.vn)/truyen/[0-9a-z-]+/?",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "page": "page.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Domain",
+      "default": "https://blhvip.vn",
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

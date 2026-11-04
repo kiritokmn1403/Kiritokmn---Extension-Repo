@@ -1,0 +1,92 @@
+load('bypass.js');
+load('config.js');
+
+function normalizeCover(url) {
+    if (url && url.startsWith("//")) {
+        return "https:" + url;
+    }
+    return url;
+}
+
+function buildDetail(doc, name, author) {
+    var lines = ["Tên truyện: " + name, "Tác giả: " + (author || "Không rõ")];
+    doc.select(".book_info .list-info li").forEach(function (item) {
+        var label = item.select(".name").text().replace(/\s+/g, " ").trim();
+        var valueNode = item.select("p").last();
+        var value = valueNode.html().replace(/\s+/g, " ").trim();
+
+        // Tác giả đã có ở dòng đầu
+        if (!label || !value || label === "Tác giả" || label === valueNode.text().replace(/\s+/g, " ").trim()) {
+            return;
+        }
+
+        lines.push("<b>" + label + ":</b> " + value);
+    });
+
+    return lines.join("<br>");
+}
+
+function getGenres(doc) {
+    var genres = [];
+    doc.select(".book_info .list01 a").forEach(function (e) {
+        genres.push({
+            title: e.text(),
+            input: e.attr("href"),
+            script: "gen.js"
+        });
+    });
+    return genres;
+}
+
+function execute(url) {
+    url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, BASE_URL);
+
+    var doc = bypass(url, Http.get(url).html());
+    if (doc) {
+        var cover = normalizeCover(doc.select(".book_avatar img").first().attr("src"));
+        var status = doc.select(".book_info .status").text().replace(/\s+/g, " ").trim();
+        var name = doc.select("h1[itemprop=name]").text();
+        var author = doc.select(".book_info .author a.org").first().text();
+        return Response.success({
+            name: name,
+            cover: cover,
+            host: BASE_URL,
+            author: author,
+            description: doc.select("div.story-detail-info").html(),
+            detail: buildDetail(doc, name, author),
+            ongoing: status.indexOf("Hoàn Thành") === -1,
+            genres: getGenres(doc),
+            comments: getComments(doc, url)
+        });
+    }
+
+    return null;
+}
+
+function getComments(doc, url) {
+    var bookId = firstInputValue(doc, "book_id");
+    if (!bookId) bookId = getBookIdFromUrl(url);
+    if (!bookId) return [];
+
+    var episodeId = firstInputValue(doc, "episode_id") || "0";
+    var teamId = firstInputValue(doc, "team_id") || "1";
+    var input = BASE_URL + "/frontend/comment/list?book_id=" + encodeURIComponent(bookId)
+        + "&parent_id=0&page={{page}}&episode_id=" + encodeURIComponent(episodeId)
+        + "&team_id=" + encodeURIComponent(teamId) + "&referer=" + encodeURIComponent(url);
+
+    return [{
+        title: "Bình luận",
+        input: input,
+        script: "comment.js"
+    }];
+}
+
+function firstInputValue(doc, id) {
+    var el = doc.select("input#" + id).first();
+    return el ? ((el.attr("value") || "") + "") : "";
+}
+
+function getBookIdFromUrl(url) {
+    var match = ((url || "") + "").match(/-(\d+)\/?(?:[?#].*)?$/);
+    return match && match[1] ? match[1] : "";
+}

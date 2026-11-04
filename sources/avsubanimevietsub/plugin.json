@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "name": "AVSub – AnimeVietsub",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://animevietsub.sale",
+    "description": "AVSub – AnimeVietsub — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "animevietsub\\.sale",
+    "type": "video",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://animevietsub.sale",
+      "values": [
+        "https://animevietsub.sale",
+        "https://animevietsub.nl",
+        "https://animevietsub.news"
+      ],
+      "mode": "select",
+      "format": "single"
+    }
+  }
+}

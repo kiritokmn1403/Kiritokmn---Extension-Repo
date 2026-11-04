@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "101Minc",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://www.101minc.com",
+    "description": "101Minc — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "101minc\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://www.101minc.com",
+      "values": [
+        "https://www.101minc.com",
+        "https://www.101Minc.com"
+      ],
+      "mode": "select",
+      "format": "single"
+    }
+  }
+}

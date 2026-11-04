@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "NetTruyen",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://nettruyen.com.vn",
+    "description": "NetTruyen — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "nettruyen\\.com\\.vn",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://nettruyen.com.vn",
+      "values": [
+        "https://nettruyen.com.vn"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

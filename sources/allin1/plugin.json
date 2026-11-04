@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "allin1",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "http://14.225.254.182",
+    "description": "allin1 — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "14\\.225\\.254\\.182",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "http://14.225.254.182",
+      "values": [
+        "http://14.225.254.182"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

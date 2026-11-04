@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "TruyenC",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://truyenc.net",
+    "description": "TruyenC — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "truyenc\\.net",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://truyenc.net",
+      "values": [
+        "https://truyenc.net"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

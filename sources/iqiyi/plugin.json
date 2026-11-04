@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "iQIYI",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://www.iq.com",
+    "description": "iQIYI — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "iq\\.com",
+    "type": "video",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://www.iq.com",
+      "values": [
+        "https://www.iq.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "name": "69shuba",
+    "author": "ivanzzz (Kiritokmn repack)",
+    "version": 2,
+    "source": "https://www.69shuba.com",
+    "regexp": "(https?://)?(www\\.)?69shuba\\.com/(book/\\d+(\\.htm|/)?|txt/\\d+|novels/)",
+    "description": "69书吧 - 69shuba.com — gốc: ivanzzz (Ivan1hai/ext)",
+    "locale": "zh_CN",
+    "language": "javascript",
+    "type": "novel",
+    "encrypt": false,
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}

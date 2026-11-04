@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "name": "LightNovel VN",
+    "author": "Nhocconsr (Kiritokmn repack)",
+    "version": 5,
+    "source": "https://quykiep.com",
+    "regexp": "(www.)?quykiep.com/truyen/?[0-9a-z-]+/?",
+    "description": "LightNovel En — gốc: Nhocconsr (lethituyen/vbooks-extension)",
+    "locale": "vi_VN",
+    "language": "javascript",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "home": "home.js",
+    "genre": "genre.js",
+    "search": "search.js"
+  }
+}

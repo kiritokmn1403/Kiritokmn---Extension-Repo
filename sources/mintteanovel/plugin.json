@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Minttea Novel",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://mintteanovel.com",
+    "description": "Minttea Novel — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "mintteanovel\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://mintteanovel.com",
+      "values": [
+        "https://mintteanovel.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "name": "AliceSW",
+    "author": "ivanzzz (Kiritokmn repack)",
+    "version": 6,
+    "source": "https://www.alicesw.com/",
+    "regexp": "^https?://(www\\.)?alicesw\\.com/",
+    "description": "trang truyên :v. — gốc: ivanzzz (Ivan1hai/ext)",
+    "locale": "zh_CN",
+    "type": "novel",
+    "encrypt": false,
+    "nsfw": true
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "search": "search.js"
+  }
+}

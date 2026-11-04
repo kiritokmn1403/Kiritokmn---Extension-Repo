@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "Snapd",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://m.bqgsn.cc",
+    "description": "Snapd — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "m\\.bqgsn\\.cc",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://m.bqgsn.cc",
+      "values": [
+        "https://m.bqgsn.cc",
+        "https://m.snapd.net"
+      ],
+      "mode": "select",
+      "format": "single"
+    }
+  }
+}

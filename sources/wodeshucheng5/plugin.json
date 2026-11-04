@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "wodeshucheng5",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://www.wodeshucheng5.com",
+    "description": "wodeshucheng5 — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "wodeshucheng5\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://www.wodeshucheng5.com",
+      "values": [
+        "https://www.wodeshucheng5.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

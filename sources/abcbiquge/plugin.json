@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "笔趣阁-abcbiquge",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "http://m.abcbiquge.com",
+    "description": "笔趣阁-abcbiquge — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "m\\.abcbiquge\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "http://m.abcbiquge.com",
+      "values": [
+        "http://m.abcbiquge.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

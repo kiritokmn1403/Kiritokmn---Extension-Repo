@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "Syosetu",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://syosetu.com",
+    "description": "Syosetu — Kiritokmn Extension Repo",
+    "locale": "ja",
+    "regexp": "syosetu\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://syosetu.com",
+      "values": [
+        "https://syosetu.com",
+        "https://ncode.syosetu.com"
+      ],
+      "mode": "select",
+      "format": "single"
+    }
+  }
+}

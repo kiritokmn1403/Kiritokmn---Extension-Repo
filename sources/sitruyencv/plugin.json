@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Si Truyện CV",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://sitruyencv.com",
+    "description": "Si Truyện CV — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "sitruyencv\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://sitruyencv.com",
+      "values": [
+        "https://sitruyencv.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

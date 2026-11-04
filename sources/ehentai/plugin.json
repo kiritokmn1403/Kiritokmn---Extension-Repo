@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "E Hentai",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://e-hentai.org",
+    "description": "E Hentai — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "e-hentai\\.org",
+    "type": "comic",
+    "nsfw": true
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://e-hentai.org",
+      "values": [
+        "https://e-hentai.org"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

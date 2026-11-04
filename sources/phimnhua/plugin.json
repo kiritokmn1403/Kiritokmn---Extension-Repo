@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "Phim Nhựa",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://phimnhua.online",
+    "description": "Phim Nhựa — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "phimnhua\\.online",
+    "type": "video",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://phimnhua.online",
+      "values": [
+        "https://phimnhua.online"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

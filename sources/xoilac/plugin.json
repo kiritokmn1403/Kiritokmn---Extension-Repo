@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "name": "Xôi Lạc",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://xoilac32.org",
+    "description": "Xôi Lạc — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "xoilac32\\.org",
+    "type": "video",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://xoilac32.org",
+      "values": [
+        "https://xoilac32.org",
+        "https://xoilacxxi.cc",
+        "https://xoilacvb.cc"
+      ],
+      "mode": "select",
+      "format": "single"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "La Cà Truyện",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://lacatruyen.homes",
+    "description": "La Cà Truyện — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "lacatruyen\\.homes",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://lacatruyen.homes",
+      "values": [
+        "https://lacatruyen.homes",
+        "https://lacatruyen.live"
+      ],
+      "mode": "select",
+      "format": "single"
+    }
+  }
+}

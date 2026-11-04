@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "name": "Valvrareteam",
+    "author": "Meo (Kiritokmn repack)",
+    "version": 10,
+    "source": "https://valvrareteam.net",
+    "regexp": "valvrareteam\\.net/truyen/__ID__[0-9a-fA-F]{24}$",
+    "description": "Light Novel Vietsub - Valvrareteam — gốc: Meo (hienpro00123/vbook_MeoU)",
+    "locale": "vi_VN",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "homecontent": "homecontent.js",
+    "genre": "genre.js",
+    "genrecontent": "genrecontent.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "suggest": "suggest.js",
+    "comment": "comment.js"
+  }
+}

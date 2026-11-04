@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Matt Reading Translations",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://mattreadingtranslations.com",
+    "description": "Matt Reading Translations — Kiritokmn Extension Repo",
+    "locale": "en",
+    "regexp": "mattreadingtranslations\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://mattreadingtranslations.com",
+      "values": [
+        "https://mattreadingtranslations.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

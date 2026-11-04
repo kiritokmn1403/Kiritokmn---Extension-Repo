@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "name": "NguonC",
+    "author": "hieu05 (Kiritokmn repack)",
+    "version": 6,
+    "source": "https://phim.nguonc.com",
+    "regexp": "(www\\.)?phim\\.nguonc\\.com/phim/.*",
+    "description": "Xem phim từ NguonC — gốc: hieu05 (yae-miko-313/ext-vbook)",
+    "locale": "vi_VN",
+    "type": "video",
+    "language": "javascript",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  }
+}

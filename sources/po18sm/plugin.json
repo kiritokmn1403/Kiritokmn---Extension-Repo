@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "po18sm",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://www.po18sm.com",
+    "description": "po18sm — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "po18sm\\.com",
+    "type": "novel",
+    "nsfw": true
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://www.po18sm.com",
+      "values": [
+        "https://www.po18sm.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "sohu",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://m.sohu.com",
+    "description": "sohu — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "m\\.sohu\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://m.sohu.com",
+      "values": [
+        "https://m.sohu.com",
+        "https://www.sohu.com"
+      ],
+      "mode": "select",
+      "format": "single"
+    }
+  }
+}

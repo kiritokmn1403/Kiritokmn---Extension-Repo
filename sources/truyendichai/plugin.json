@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "name": "TruyenDich.AI",
+    "author": "hieu05 (Kiritokmn repack)",
+    "version": 5,
+    "source": "https://truyendich.store",
+    "regexp": "https?://truyendich\\.(?:ai|store)/doc-truyen(?:/(?:ai|cv))?/.*",
+    "description": "Đọc truyện trên TruyenDich.AI — gốc: hieu05 (yae-miko-313/ext-vbook)",
+    "locale": "vi_VN",
+    "type": "novel",
+    "language": "javascript",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "page": "page.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Domain",
+      "default": "https://truyendich.store",
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

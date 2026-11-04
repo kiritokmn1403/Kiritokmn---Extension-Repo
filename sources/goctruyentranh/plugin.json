@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Góc Truyện Tranh",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://goctruyentranhvui41.com",
+    "description": "Góc Truyện Tranh — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "goctruyentranhvui41\\.com",
+    "type": "comic",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://goctruyentranhvui41.com",
+      "values": [
+        "https://goctruyentranhvui41.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

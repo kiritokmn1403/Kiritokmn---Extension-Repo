@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "name": "Rổ Phim",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://www.rophim.soy",
+    "description": "Rổ Phim — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "rophim\\.soy",
+    "type": "video",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://www.rophim.soy",
+      "values": [
+        "https://www.rophim.soy",
+        "https://www.rophimhd.com",
+        "https://rophim9.online"
+      ],
+      "mode": "select",
+      "format": "single"
+    }
+  }
+}

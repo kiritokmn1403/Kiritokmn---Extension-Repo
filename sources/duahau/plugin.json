@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Dưa Hấu",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://xgmf.zuanqianyi.com",
+    "description": "Dưa Hấu — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "xgmf\\.zuanqianyi\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://xgmf.zuanqianyi.com",
+      "values": [
+        "https://xgmf.zuanqianyi.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "name": "po18",
+    "author": "Moleys (Kiritokmn repack)",
+    "version": 1,
+    "source": "https://www.po18.tw",
+    "regexp": "www.po18.tw/books/(\\d+)/?$",
+    "description": "Đọc truyện trên trang www.po18.tw — gốc: Moleys (Moleys/vbook-ext)",
+    "locale": "zh_CN",
+    "language": "javascript",
+    "type": "novel",
+    "nsfw": true
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "page": "page.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}

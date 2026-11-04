@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "Phim4K",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://phim4k.xyz",
+    "description": "Phim4K — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "phim4k\\.xyz",
+    "type": "video",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://phim4k.xyz",
+      "values": [
+        "https://phim4k.xyz"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

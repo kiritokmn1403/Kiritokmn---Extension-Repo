@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "name": "Mê Truyện CV",
+    "author": "ivanzzz (Kiritokmn repack)",
+    "version": 2,
+    "source": "https://metruyencv.xyz",
+    "regexp": "(www.)?(metruyenchu|mtccv|metruyencv).[a-z]+/truyen/[a-zA-Z0-9-]+/?([?].*)?$",
+    "description": "Đọc truyện trên trang Mê Truyện CV — gốc: ivanzzz (Ivan1hai/ext)",
+    "locale": "vi_VN",
+    "language": "javascript",
+    "type": "novel",
+    "encrypt": false,
+    "nsfw": false
+  },
+  "script": {
+    "book": "book.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "home": "home.js",
+    "genre": "genre.js",
+    "search": "search.js"
+  }
+}

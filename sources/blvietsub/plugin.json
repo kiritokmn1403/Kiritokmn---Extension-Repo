@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "BLVietsub",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://www.blvietsub.vip",
+    "description": "BLVietsub — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "blvietsub\\.vip",
+    "type": "video",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://www.blvietsub.vip",
+      "values": [
+        "https://www.blvietsub.vip"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "HotPhim",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://hotphim.org",
+    "description": "HotPhim — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "hotphim\\.org",
+    "type": "video",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://hotphim.org",
+      "values": [
+        "https://hotphim.org"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

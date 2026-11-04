@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Langgee",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://v5.langge.uk",
+    "description": "Langgee — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "v5\\.langge\\.uk",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://v5.langge.uk",
+      "values": [
+        "https://v5.langge.uk"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

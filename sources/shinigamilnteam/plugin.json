@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Shinigami LN Team",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://shinigamilnteam.com",
+    "description": "Shinigami LN Team — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "shinigamilnteam\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://shinigamilnteam.com",
+      "values": [
+        "https://shinigamilnteam.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

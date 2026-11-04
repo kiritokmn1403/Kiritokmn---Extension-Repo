@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "WebtoonScan",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://webtoonscan.com",
+    "description": "WebtoonScan — Kiritokmn Extension Repo",
+    "locale": "en",
+    "regexp": "webtoonscan\\.com",
+    "type": "comic",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://webtoonscan.com",
+      "values": [
+        "https://webtoonscan.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

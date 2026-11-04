@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Mọt Truyện",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://mottruyen.app",
+    "description": "Mọt Truyện — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "mottruyen\\.app",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://mottruyen.app",
+      "values": [
+        "https://mottruyen.app"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

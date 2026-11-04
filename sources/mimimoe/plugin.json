@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "Mimimoe",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://mimihentai.moe",
+    "description": "Mimimoe — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "mimihentai\\.moe",
+    "type": "comic",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://mimihentai.moe",
+      "values": [
+        "https://mimihentai.moe",
+        "https://mimimoe.moe"
+      ],
+      "mode": "select",
+      "format": "single"
+    }
+  }
+}

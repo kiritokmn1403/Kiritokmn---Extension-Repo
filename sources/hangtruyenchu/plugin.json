@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Hang Truyện Chữ",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://hangtruyenchu.com",
+    "description": "Hang Truyện Chữ — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "hangtruyenchu\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://hangtruyenchu.com",
+      "values": [
+        "https://hangtruyenchu.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

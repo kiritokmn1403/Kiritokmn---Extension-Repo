@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "html5.qq.com",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://bookshelf.html5.qq.com",
+    "description": "html5.qq.com — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "bookshelf\\.html5\\.qq\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://bookshelf.html5.qq.com",
+      "values": [
+        "https://bookshelf.html5.qq.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

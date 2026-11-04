@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "Deqixs",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://www.deqixs.org",
+    "description": "Deqixs — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "deqixs\\.org",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://www.deqixs.org",
+      "values": [
+        "https://www.deqixs.org",
+        "https://www.deqixss.com"
+      ],
+      "mode": "select",
+      "format": "single"
+    }
+  }
+}

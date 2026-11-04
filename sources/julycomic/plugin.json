@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "JulyComic",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://julycomics.site",
+    "description": "JulyComic — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "julycomics\\.site",
+    "type": "comic",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://julycomics.site",
+      "values": [
+        "https://julycomics.site"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

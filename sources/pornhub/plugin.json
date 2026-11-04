@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "PornHub",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://www.pornhub.com",
+    "description": "PornHub — Kiritokmn Extension Repo",
+    "locale": "global",
+    "regexp": "pornhub\\.com",
+    "type": "video",
+    "nsfw": true
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://www.pornhub.com",
+      "values": [
+        "https://www.pornhub.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

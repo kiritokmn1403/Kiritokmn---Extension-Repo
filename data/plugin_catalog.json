@@ -1,0 +1,6178 @@
+[
+{
+"dir": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/comic/Buondua",
+"name": "Buondua",
+"host": "buondua.com",
+"type": "comic",
+"ver": 4,
+"regexp": "https://buondua.com/.+"
+},
+{
+"dir": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/comic/hentaicube(ios)",
+"name": "HentaiCube -18+ (iOS)",
+"host": "hentaicube.xyz",
+"type": "comic",
+"ver": 15,
+"regexp": "hentaicube\\.xyz\\/read\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/comic/wnacg",
+"name": "WNACG",
+"host": "wnacg.com",
+"type": "comic",
+"ver": 13,
+"regexp": "https?:\\/\\/(?:www\\.)?wnacg\\.(?:com|ru)\\/photos-index-aid-\\d+\\.html\\/?$"
+},
+{
+"dir": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/comic/foamgirl",
+"name": "Foamgirl",
+"host": "foamgirl.net",
+"type": "comic",
+"ver": 2,
+"regexp": "https://foamgirl.net/.+"
+},
+{
+"dir": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/comic/hentaicube",
+"name": "HentaiCube -18+",
+"host": "hentaicube.xyz",
+"type": "comic",
+"ver": 14,
+"regexp": "hentaicube\\.xyz\\/read\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/comic/cosplaytele",
+"name": "Cosplaytele",
+"host": "cosplaytele.com",
+"type": "comic",
+"ver": 5,
+"regexp": "cosplaytele\\.com"
+},
+{
+"dir": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/comic/photos18",
+"name": "Photos18",
+"host": "photos18.com",
+"type": "comic",
+"ver": 4,
+"regexp": "https://www.photos18.com/.+"
+},
+{
+"dir": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/comic/truyenqq",
+"name": "Truyện QQ",
+"host": "truyenqqko.com",
+"type": "comic",
+"ver": 25,
+"regexp": "(www.)?truyenqq.*?/truyen-tranh/[0-9a-z-]+/?$"
+},
+{
+"dir": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/novel/sachiepvien",
+"name": "Sắc Hiệp Viện",
+"host": "sachiepvien.net",
+"type": "novel",
+"ver": 4,
+"regexp": "sachiepvien\\.net/[^/]+/?$"
+},
+{
+"dir": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/novel/zuminovel",
+"name": "ZumiNovel",
+"host": "zuminovel.com",
+"type": "novel",
+"ver": 4,
+"regexp": "https?:\\/\\/(?:www\\.)?zuminovel\\.com\\/novel\\/[a-zA-Z0-9-]+\\/?(?:\\?.*)?$"
+},
+{
+"dir": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/novel/truyendich.ai",
+"name": "TruyenDich.AI",
+"host": "truyendich.store",
+"type": "novel",
+"ver": 5,
+"regexp": "https?://truyendich\\.(?:ai|store)/doc-truyen(?:/(?:ai|cv))?/.*"
+},
+{
+"dir": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/chinese_novel/kychi-cachua-c2",
+"name": "[Fanqie] Cà Chua C2",
+"host": "fanqienovel.com",
+"type": "chinese_novel",
+"ver": 5,
+"regexp": "fanqienovel\\.com/page/[0-9]+"
+},
+{
+"dir": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/chinese_novel/Uaa",
+"name": "Uaa",
+"host": "uaa.com",
+"type": "chinese_novel",
+"ver": 8,
+"regexp": "(www.|m.)?uaa.com/novel/(chapter|intro)[?]id=\\d+"
+},
+{
+"dir": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/chinese_novel/twkan",
+"name": "twkan",
+"host": "twkan.com",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "twkan\\.com/(txt|book)/.*?\\.html"
+},
+{
+"dir": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/chinese_novel/sfacg",
+"name": "Sfacg 💰",
+"host": "book.sfacg.com",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "(?:https?:\\/\\/)?(?:book\\.|m\\.)?sfacg\\.com\\/(?:Novel|b)\\/\\d+\\/?"
+},
+{
+"dir": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/chinese_novel/cool18-novel",
+"name": "Cool18 Novel",
+"host": "cool18.com",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "cool18\\.com/bbs4/index\\.php\\?.*tid=\\d+"
+},
+{
+"dir": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/chinese_novel/crxs.me",
+"name": "CRXS",
+"host": "crxs.me",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "https?:\\/\\/(?:www\\.)?crxs\\.me\\/fiction\\/id-[a-zA-Z0-9=_-]+\\.html\\/?$"
+},
+{
+"dir": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/chinese_novel/shubenshu",
+"name": "书本书 Shubenshu",
+"host": "shubenshu.com",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "shubenshu\\.com/l[A-Za-z0-9]+/?$"
+},
+{
+"dir": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/chinese_novel/alicesw",
+"name": "alicesw",
+"host": "alicesw.com",
+"type": "chinese_novel",
+"ver": 5,
+"regexp": "(https://|http://)(www|.m)?.alicesw.com/.*?/\\d+.html"
+},
+{
+"dir": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/video/viet69",
+"name": "Viet69 -18+",
+"host": "viet69.be",
+"type": "video",
+"ver": 6,
+"regexp": "viet69\\.[a-z]+/(?:bai-viet/)?[^/]+/?$"
+},
+{
+"dir": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/video/nguonc",
+"name": "NguonC",
+"host": "phim.nguonc.com",
+"type": "video",
+"ver": 6,
+"regexp": "(www\\.)?phim\\.nguonc\\.com/phim/.*"
+},
+{
+"dir": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/video/nguonc-proxy",
+"name": "NguonC (Proxy)",
+"host": "phim.nguonc.com",
+"type": "video",
+"ver": 1,
+"regexp": "(www\\.)?phim\\.nguonc\\.com/phim/.*"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/tts/fpt_ai_tts",
+"name": "FPT AI TTS",
+"host": "console.fpt.ai",
+"type": "tts",
+"ver": 1,
+"regexp": ""
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/tts/viettelai_tts",
+"name": "Viettel AI TTS",
+"host": "viettelai.vn",
+"type": "tts",
+"ver": 1,
+"regexp": ""
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi_truyentv",
+"name": "TruyenTv",
+"host": "tvtruyen.cc",
+"type": "novel",
+"ver": 7,
+"regexp": "(https?:\\/\\/)?(www\\.)?tvtruyen\\.[a-z]{2,}\\/[^/]+$"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi_ntruyen",
+"name": "nTruyen",
+"host": "sstruyen.buzz",
+"type": "novel",
+"ver": 12,
+"regexp": "https?:\\/\\/(www\\.)?sstruyen\\.[a-z0-9.-]+\\/truyen\\/[^\\/]+\\/?"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi_quykhu",
+"name": "QuyKhu",
+"host": "quykhu.com",
+"type": "novel",
+"ver": 4,
+"regexp": "(www\\.)?quykhu\\.com/.*"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi-webtruyendich",
+"name": "Web Truyện Dịch",
+"host": "webtruyendich.com",
+"type": "novel",
+"ver": 1,
+"regexp": "^https://webtruyendich\\.com/truyen/.*"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/tienvuc",
+"name": "Tiên Vực",
+"host": "tienvuc.blog",
+"type": "novel",
+"ver": 16,
+"regexp": "^https?://(www\\.)?tienvuc\\.[^/]+/[a-z0-9-]+"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi_kyhuyen",
+"name": "Kỳ Huyễn",
+"host": "kyhuyen.com",
+"type": "novel",
+"ver": 1,
+"regexp": "kyhuyen\\.com/[^/]+/?$"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi_truyenmo",
+"name": "Truyện Mơ",
+"host": "truyenmo.xyz",
+"type": "novel",
+"ver": 4,
+"regexp": "(?:www\\.)?truyenmo\\.xyz/.*"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi_vivutruyen",
+"name": "Vivu Truyện",
+"host": "vivutruyen.net",
+"type": "novel",
+"ver": 1,
+"regexp": "(?:www\\.)?vivutruyen\\.net/[^/]+/?$"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi_vbook_docs",
+"name": "Hướng dẫn sử dụng VBook",
+"host": "vbookapp.gitbook.io",
+"type": "novel",
+"ver": 6,
+"regexp": "vbookapp\\.gitbook\\.io/huong-dan-su-dung"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi-audiotruyenfull",
+"name": "Audio Truyện Full",
+"host": "vip.audiotruyenfull.org",
+"type": "novel",
+"ver": 1,
+"regexp": "(?:vip\\.|web\\.)?audiotruyenfull\\.org/(?:truyen/|story/)?[a-z0-9\\-]+/?$"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi-truyendichaitop",
+"name": "Truyện Dịch AI",
+"host": "truyendichai.top",
+"type": "novel",
+"ver": 1,
+"regexp": "(?:www\\.)?truyendichai\\.top/.*"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi_truyencv",
+"name": "[APP] Truyện CV",
+"host": "truyencv.io",
+"type": "novel",
+"ver": 2,
+"regexp": "(www\\.)?truyencv\\.io/.*"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/truyenhoan",
+"name": "Truyện Hoàn",
+"host": "truyenhoan.com",
+"type": "novel",
+"ver": 9,
+"regexp": "truyenhoan\\.com/[a-z0-9\\-]+\\.\\d+/?$"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi-tiemtruyenchu",
+"name": "Tiệm Truyện Chữ (Demo)",
+"host": "tiemtruyenchu.cloud",
+"type": "novel",
+"ver": 1,
+"regexp": "(www\\.)?tiemtruyenchu\\.(com|cloud)/.*"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi_truyenmoi",
+"name": "Truyện Mới",
+"host": "truyenmoiqq.com",
+"type": "novel",
+"ver": 7,
+"regexp": "(www.)?truyenmoiqq.com/[^/]+/?$"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/chinese_novel/kychi-cachua-c2",
+"name": "[Fanqie] Cà Chua C2",
+"host": "fanqienovel.com",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "fanqienovel\\.com/page/[0-9]+"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/chinese_novel/kychi_timotxt",
+"name": "Timotxt",
+"host": "timotxt.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www\\.)?timotxt\\.com/\\d+"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/chinese_novel/kychi_html5qq",
+"name": "[QQ] html5",
+"host": "novel.html5.qq.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "novel\\.html5\\.qq\\.com/.*|bookshelf\\.html5\\.qq\\.com/.*"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/chinese_novel/kychi_cachua",
+"name": "Cà Chua Sói Xám",
+"host": "fanqienovel.com",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "fanqienovel\\.com/page/[a-zA-Z0-9_-]+"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/chinese_novel/kychi_novelcooks",
+"name": "NovelCooks",
+"host": "novel.cooks.tw",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "novel\\.cooks\\.tw/novel\\.html\\?.*articleid=\\d+.*"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/video/kychi_ophim",
+"name": "OPhim",
+"host": "ophim17.cc",
+"type": "video",
+"ver": 1,
+"regexp": "ophim17.cc/phim/.*|ophim1.com/phim/.*"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/video/kychi_motchill",
+"name": "Motchill",
+"host": "envasion.net",
+"type": "video",
+"ver": 1,
+"regexp": "envasion\\.net/(phim-|xem-phim/|the-loai/|quoc-gia/).*"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/video/kychi_phimfun",
+"name": "PhimFun",
+"host": "phimfun.net",
+"type": "video",
+"ver": 1,
+"regexp": "phimfun\\.net/(phim|xem-phim)/.*"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/video/kychi_test_video",
+"name": "Video Test",
+"host": "example.com",
+"type": "video",
+"ver": 0,
+"regexp": ""
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/video/kychi_yeuanime",
+"name": "Yêu Anime",
+"host": "yeuanime.net",
+"type": "video",
+"ver": 2,
+"regexp": "yeuanime.net/(phim|xem-phim|the-loai|quoc-gia|chu-de)/.*"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/video/kychi_hhkungfu",
+"name": "HHKUNGFU",
+"host": "hhkungfu.ee",
+"type": "video",
+"ver": 2,
+"regexp": "(www\\.)?hhkungfu\\.ee/.*"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/video/kychi_kenhtruyenma",
+"name": "Kenh Truyen Ma",
+"host": "kenhtruyenma.com",
+"type": "video",
+"ver": 1,
+"regexp": "(www\\.)?kenhtruyenma\\.com/(audio|truyen-).*"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/video/kychi_animevsub",
+"name": "AnimeVsub",
+"host": "animevsub.app",
+"type": "video",
+"ver": 1,
+"regexp": "(www\\.)?animevsub\\.app/.*"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/video/kychi_nguonc",
+"name": "NguonC",
+"host": "phim.nguonc.com",
+"type": "video",
+"ver": 2,
+"regexp": "(www\\.)?phim\\.nguonc\\.com/phim/.*"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/video/kychi_animehay",
+"name": "Anime Hay",
+"host": "animehay.fm",
+"type": "video",
+"ver": 1,
+"regexp": "(www\\.)?animehay\\.fm/.*"
+},
+{
+"dir": "/home/claude/refs/kychitoge-vbook-ext/extensions/video/kychi_hhhtq",
+"name": "HHHTQ",
+"host": "hhhtq.team",
+"type": "video",
+"ver": 2,
+"regexp": "(www\\.)?hhhtq\\.team/(phim|xem)/.*"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/ztruyen",
+"name": "zTruyen",
+"host": "ztruyen.vn",
+"type": "novel",
+"ver": 5,
+"regexp": "https://ztruyen.vn/truyen/[0-9a-z-]+/?$"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/knoxt",
+"name": "Knoxt",
+"host": "knoxt.space",
+"type": "novel",
+"ver": 1,
+"regexp": "(www.)?knoxt.space/[0-9a-z-]+/?"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/manhwahentai",
+"name": "ManhwaHentai",
+"host": "manhwahentai.me",
+"type": "comic",
+"ver": 3,
+"regexp": "(www.)?manhwahentai.me/webtoon/[^/]+/?"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/tienvuc",
+"name": "Tiên Vực",
+"host": "tienvuc.me",
+"type": "novel",
+"ver": 13,
+"regexp": "(www.)?tienvuc.(pro|vn|one|me|com)/[0-9a-z-]+/?$"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/hetushu",
+"name": "Hetushu 【和图书】",
+"host": "hetushu.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www.)?(m.)?hetushu.com/book/\\d+/index.html"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/20xs",
+"name": "20xs",
+"host": "20xs.org",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "(www.)?(m.)?20xs.org/(shu/)?\\d+/?(.html)?"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/manhuagui",
+"name": "Manhua Gui",
+"host": "manhuagui.com",
+"type": "comic",
+"ver": 4,
+"regexp": "(www.)?(m.)?(manhuagui||mhgui).com/comic/\\d+/?"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/tsumino",
+"name": "TsuMiNo",
+"host": "tsumino.com",
+"type": "comic",
+"ver": 1,
+"regexp": "(www.)?tsumino.com/entry/\\d+"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/royalroad",
+"name": "Royal Road",
+"host": "royalroad.com",
+"type": "novel",
+"ver": 1,
+"regexp": "(www.)?royalroad.com/fiction/(\\d+)/[A-Za-z-].+"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/tranh18",
+"name": "Tranh 18",
+"host": "tranh18.com",
+"type": "comic",
+"ver": 1,
+"regexp": "(www.)?tranh18.com/comic/[0-9a-z-_]+"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/bookqq",
+"name": "Book QQ [阅读]",
+"host": "book.qq.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?(ubook.reader|book).qq.com/book-detail/\\d+/?$"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/monkeyd",
+"name": "MonkeyD VN",
+"host": "monkeyd.net.vn",
+"type": "novel",
+"ver": 7,
+"regexp": "(www\\.)?monkeyd(.*?)\\/[0-9a-z-]+\\.html"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/docsach24",
+"name": "Docsach24",
+"host": "docsach24.co",
+"type": "novel",
+"ver": 1,
+"regexp": "https://docsach24.co/e-book/(.*?).html"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/sachhayonline",
+"name": "sachhayonline",
+"host": "sachhayonline.com",
+"type": "novel",
+"ver": 2,
+"regexp": "(www.)?sachhayonline.com/tua-sach/[A-Za-z].+/?$"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/sayhentai",
+"name": "Say Hentai",
+"host": "sayhentai.one",
+"type": "comic",
+"ver": 9,
+"regexp": "(www.)?sayhentai.(.*?)/[^/]+.html$"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/myrics",
+"name": "Myrics",
+"host": "myrics.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?myrics.com/novels/\\d+"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/truyensieuhay",
+"name": "Truyện Siêu Hay",
+"host": "truyensieuhay.com",
+"type": "comic",
+"ver": 1,
+"regexp": "(www.)?(m.)?truyensieuhay.com/[0-9a-z-]+.html"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/bfaloo",
+"name": "bFaloo (飞卢小说)",
+"host": "b.faloo.com",
+"type": "chinese_novel",
+"ver": 5,
+"regexp": "(www.)?((b.faloo.com/\\d+.html)|(wap.faloo.com/\\d+.html))"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/doujins",
+"name": "DouJins",
+"host": "doujins.com",
+"type": "comic",
+"ver": 5,
+"regexp": "(www.)?doujins.com/.*/[0-9a-z-]+"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/kissaway",
+"name": "KissLove (Raw)",
+"host": "klz9.com",
+"type": "comic",
+"ver": 4,
+"regexp": "(www.)?klz9.com/[a-z-]+.html"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/webnovel",
+"name": "WebNovel (Novel)",
+"host": "webnovel.com",
+"type": "novel",
+"ver": 1,
+"regexp": "(www.)?(m.)?webnovel.com/book/.*"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/vipbns",
+"name": "【VIP】Bạch Ngọc Sách",
+"host": "bnsvip.net",
+"type": "novel",
+"ver": 1,
+"regexp": "(www.)?(bachngocsach.(info|pro|net.vn|io.vn)|bnsvip.(vn|com|com.vn|net))/truyen/[0-9a-z-]+/?"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/tadu",
+"name": "Tadu (塔读)",
+"host": "tadu.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www.)?(m.)?tadu.com/book/\\d+/?"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/8ternal",
+"name": "8ternal",
+"host": "comic.8ternal.com",
+"type": "comic",
+"ver": 2,
+"regexp": "https://comic.8ternal.com/series/(.*?)[.]html"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/giangthe",
+"name": "Giáng Thế",
+"host": "giangthe.com",
+"type": "novel",
+"ver": 3,
+"regexp": "(www.)?giangthe.com/truyen/\\d+"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/123truyen",
+"name": "123 Truyện",
+"host": "123truyen.vn",
+"type": "novel",
+"ver": 14,
+"regexp": "(www.)?123truyen.vn/[0-9a-z-]+"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/qimao",
+"name": "Qimao (七猫文化)",
+"host": "qimao.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www.)?(qimao.com/shuku/\\d+/?)|(api-bc.wtzw.com/.*)"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/baotangtruyen",
+"name": "Bảo Tàng Truyện",
+"host": "baotangtruyen32.top",
+"type": "comic",
+"ver": 8,
+"regexp": "https://baotangtruyen32.top/truyen-tranh/[0-9a-z-]+/?$"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/ciweimao",
+"name": "CiWeiMao 【刺猬猫】",
+"host": "ciweimao.com",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "(www.)?(wap.)?ciweimao.com/book/\\d+"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/vozer",
+"name": "Vozer",
+"host": "vozer.vn",
+"type": "novel",
+"ver": 5,
+"regexp": "https://vozer.vn/(.*?)$"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/sttruyen",
+"name": "ST Truyện",
+"host": "sttruyen.com",
+"type": "novel",
+"ver": 7,
+"regexp": "(www.)?sttruyen.com/story/[0-9a-z-]+/?$"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/wuxiaworld",
+"name": "Wuxia World",
+"host": "wuxiaworld.com",
+"type": "novel",
+"ver": 1,
+"regexp": "(www.)?wuxiaworld.com.*"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/dingdian",
+"name": "Dingdian 【顶点】",
+"host": "dingdian666.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?((dingdian666.com/xiaoshuo/\\d+/?$)|(m.dingdian666.com/ebooks/\\d+/?$))"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/mangaread",
+"name": "Manga Read",
+"host": "mangaread.org",
+"type": "comic",
+"ver": 2,
+"regexp": "(www.)?mangaread.org/manga/[0-9a-z-]+/?$"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/zingtruyen",
+"name": "Zing Truyện",
+"host": "zingtruyen.store",
+"type": "novel",
+"ver": 7,
+"regexp": "(www.)?zingtruyen.(store|fan|top)/story/[0-9a-z-]+/\\d+.html"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/hotruyen",
+"name": "Hố Truyện",
+"host": "hotruyen1.com",
+"type": "novel",
+"ver": 5,
+"regexp": "(www.)?hotruyen1.com/truyen/[^/+]+"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/novelbuddy",
+"name": "Novel Buddy",
+"host": "novelbuddy.com",
+"type": "novel",
+"ver": 2,
+"regexp": "(www.)?novelbuddy.com/[0-9a-z-]+/?$"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/lightnovel",
+"name": "LightNovel VN",
+"host": "quykiep.com",
+"type": "novel",
+"ver": 5,
+"regexp": "(www.)?quykiep.com/truyen/?[0-9a-z-]+/?"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/mtlnovel",
+"name": "MTL Novel",
+"host": "mtlnovel.com",
+"type": "novel",
+"ver": 2,
+"regexp": "(www.)mtlnovel.com/[0-9a-z-]+/?$"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/truyengg",
+"name": "Truyện GG",
+"host": "truyengg.com",
+"type": "comic",
+"ver": 1,
+"regexp": "(www.)?truyengg.com/truyen-tranh/[0-9a-z-]+.html"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/acqq",
+"name": "AC QQ 腾讯动漫",
+"host": "ac.qq.com",
+"type": "comic",
+"ver": 1,
+"regexp": "(www.)?(m.)?ac.qq.com/comic/index/id/\\d+"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/truyenconvert",
+"name": "Truyện Convert",
+"host": "truyenconvert.net",
+"type": "novel",
+"ver": 3,
+"regexp": "(www.)?truyenconvert.net/truyen/[0-9a-z-]+"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/docsachhay",
+"name": "Đọc Sách Hay",
+"host": "docsachhay.net",
+"type": "novel",
+"ver": 1,
+"regexp": "(www.)?docsachhay.net/sach/[0-9a-z-]+/?"
+},
+{
+"dir": "/home/claude/refs/vb_lethituyen_vbooks-extension/manhuavn",
+"name": "ManhuaVN [Free]",
+"host": "manhuavn.top",
+"type": "comic",
+"ver": 2,
+"regexp": "(www.)?(manhuavn.top|mhvn.truyensieuhay.com)/[0-9a-z-]+(.html)?"
+},
+{
+"dir": "/home/claude/refs/vb_BaoBao666888_ext-vbook-w/256wx",
+"name": "256wx",
+"host": "256wx.net",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "www.256wx.net/read/\\d+/"
+},
+{
+"dir": "/home/claude/refs/vb_BaoBao666888_ext-vbook-w/ungtycomics",
+"name": "Ưng Tỷ Comics",
+"host": "ungtycomicseo.com",
+"type": "comic",
+"ver": 1,
+"regexp": "https://ungtycomics[^/]+.com/[^/]+.html$"
+},
+{
+"dir": "/home/claude/refs/vb_BaoBao666888_ext-vbook-w/sanyteam",
+"name": "Sany Team",
+"host": "sanyteam.com",
+"type": "comic",
+"ver": 1,
+"regexp": "https://sanyteam.com/manga/[^/]+/$"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/masiro",
+"name": "masiro 📖🔑",
+"host": "masiro.me",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "masiro.me/admin/novelView(.*?)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/html5qq",
+"name": "html5.qq.com",
+"host": "bookshelf.html5.qq.com",
+"type": "chinese_novel",
+"ver": 13,
+"regexp": "(bookshelf|novel)\\.html5\\.qq\\.com/(qbread|autojump|portal/novel-intro)(\\?.*)?"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/legado",
+"name": "Legado",
+"host": "github.com",
+"type": "chinese_novel",
+"ver": 16,
+"regexp": "((\\d+)[.](\\d+)[.](\\d+)[.](\\d+)|localhost):1122/(.*?)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/nhimmeo",
+"name": "Backup Nhimmeo",
+"host": "backup.nhimmeo.cf",
+"type": "chinese_novel",
+"ver": 13,
+"regexp": "backup.nhimmeo.(cf|ovh)/(book|detail)/(\\d+)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/haitang16",
+"name": "haitang16",
+"host": "haitang16.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www.|m.)?haitang16.com/(b|book)/\\d+(/?|\\.html)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/shuhaige",
+"name": "shuhaige",
+"host": "shuhaige.net",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "(www\\.|m\\.)?shuhaige\\.net/(shu_)?\\d+(/|\\.html)?"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/powanjuan",
+"name": "powanjuan",
+"host": "powanjuan.cc",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?powanjuan.(cc|me)/(.*?)/\\d+/?$"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/sfacg",
+"name": "Sfacg 💰",
+"host": "book.sfacg.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(book.|m.)?sfacg.com/(Novel|b)/\\d+/?$"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/jpxs123",
+"name": "jpxs123",
+"host": "jpxs123.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www\\.)?jpxs123\\.com/(.*?)/\\d+\\.html"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/aixdzs",
+"name": "aixdzs",
+"host": "aixdzs.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?aixdzs.com/novel/(.*?)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/legado2",
+"name": "Legado thêm Google dịch",
+"host": "github.com",
+"type": "novel",
+"ver": 14,
+"regexp": "((\\d+)[.](\\d+)[.](\\d+)[.](\\d+)|localhost):1122/(.*?)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/uuksorg",
+"name": "uuksorg",
+"host": "uuks.org",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?uuks.org/(b|book)/\\d+(/?|\\.html)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/trxsme",
+"name": "trxsme",
+"host": "trxs.me",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www\\.)?trxs\\.(me|org)/tongren/\\d+\\.html"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/bixiange",
+"name": "bixiange",
+"host": "bixiange.top",
+"type": "chinese_novel",
+"ver": 5,
+"regexp": "(www.|m.)?bixiange.(top|me)/(.*?)/\\d+(/?|\\.html)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/asmr-one",
+"name": "ASMR One",
+"host": "asmr.one",
+"type": "video",
+"ver": 1,
+"regexp": "asmr\\.one/work/[0-9]+"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/mipciweimao",
+"name": "Mip Ciweimao 💰",
+"host": "mip.ciweimao.com",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "(mip.|wap.|www.)ciweimao.com/(book|chapter)/(\\d+)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/nhasachmienphi",
+"name": "nhasachmienphi 📚",
+"host": "nhasachmienphi.com",
+"type": "novel",
+"ver": 4,
+"regexp": "(www.|m.)?nhasachmienphi.com/(.*?)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/shencou",
+"name": "shencou 📖",
+"host": "shencou.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?shencou.com/(books/read_\\d+.html|info.php(.)aid=\\d+)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/qmxs123",
+"name": "qmxs123",
+"host": "qmxs123.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www.|m.)?qmxs123.com/(b|book)/\\d+(/?|\\.html)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/biqugeabc",
+"name": "biqugeabc",
+"host": "biqugeabc.com",
+"type": "chinese_novel",
+"ver": 5,
+"regexp": "(www.|m.)?biqugeabc.com/(b|book)/\\d+(/?|\\.html)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/raudonhimmeo",
+"name": "Râu Đỏ Nhimmeo",
+"host": "raudo.nhimmeo.cf",
+"type": "chinese_novel",
+"ver": 8,
+"regexp": "raudo.nhimmeo.cf/site/.*?/.*?"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/piaoyuxuan",
+"name": "piaoyuxuan",
+"host": "piaoyuxuan.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www.|m.)?piaoyuxuan.com/(b|book)/(.*?)(/?|\\.html)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/yodu",
+"name": "yodu 📚📖",
+"host": "yodu.org",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "(www.|m.)?yodu.org/(b|book)/\\d+(/?|\\.html)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/txt520",
+"name": "txt520",
+"host": "txt520.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www.|m.)?txt520.com/(.*?)/\\d+.html"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/ffxs8",
+"name": "ffxs8",
+"host": "ffxs8.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www.|m.)?ffxs8.com/(.*?)/\\d+(/?|\\.html)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/yazhouse8",
+"name": "yazhouse8",
+"host": "yazhouse8.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?yazhouse8.com/article/(.*?)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/esjzone",
+"name": "esjzone",
+"host": "esjzone.cc",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "www.esjzone.cc/detail/\\d+(/?|\\.html)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/pixiv",
+"name": "Pixiv Novel",
+"host": "pixiv.net",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "(www.|m.)?pixiv.net/novel/show.php(.*?)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/note",
+"name": "note (note.com)",
+"host": "note.com",
+"type": "novel",
+"ver": 1,
+"regexp": "(https?://)?(www\\.)?note\\.(com|jp)/.+"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/nhimmeo_sv2",
+"name": "[Ciweimao] sv2 Nhimmeo 💰",
+"host": "sv2.nhimmeo.ovh",
+"type": "chinese_novel",
+"ver": 12,
+"regexp": "sv2.nhimmeo.(cf|ovh)/(book|detail)/(\\d+)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/anh_moleys-gc",
+"name": "[Ảnh] Bộ sưu tập ảnh gái xinh của Mol 🛠📷",
+"host": "github.com",
+"type": "comic",
+"ver": 2,
+"regexp": "github.com/Moleys/vbook-ext/anh_moleys-gc/(.*?)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/readwn",
+"name": "readwn",
+"host": "readwn.com",
+"type": "novel",
+"ver": 1,
+"regexp": "www.readwn.com/novel/(.*?)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/po18",
+"name": "po18",
+"host": "po18.tw",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "www.po18.tw/books/(\\d+)/?$"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/sjks88",
+"name": "sjks88",
+"host": "sjks88.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?sjks88.com/(.*?)/\\d+.html"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/qbtr",
+"name": "qbtr",
+"host": "qbtr.cc",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?qbtr.cc/tongren/\\d+\\.html"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/shumilou",
+"name": "shumilou",
+"host": "shumilouxs.com",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "(www.|m.)?shumilouxs.com/.*?"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/readcomiconline",
+"name": "readcomiconline",
+"host": "readcomiconline.li",
+"type": "comic",
+"ver": 2,
+"regexp": "readcomiconline.li/Comic/[A-Za-z0-9_.-]+$"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/longmabook",
+"name": "longmabook [Long Mã/Hải Đường] 💰✅",
+"host": "ebook.longmabook.com",
+"type": "chinese_novel",
+"ver": 5,
+"regexp": "(www.|ebook.)?longmabook.com/(.*?)bookid=\\d+(.*?)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/jingwubook",
+"name": "jingwubook",
+"host": "jingwubook.com",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "(www.|m.)?jingwubook.com/(book|xs)/\\d+(/?|\\.html)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/openai-compatible",
+"name": "OpenAI-compatible API",
+"host": "api.deepseek.com",
+"type": "translate",
+"ver": 5,
+"regexp": ""
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/wenku8",
+"name": "wenku8 📖🔑",
+"host": "wenku8.net",
+"type": "chinese_novel",
+"ver": 7,
+"regexp": "(www.|m.)?wenku8.net/(novel|book)/\\d+(/?|\\.htm)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/ijjxs",
+"name": "ijjxs",
+"host": "ijjxs.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?ijjxs.com/txt/\\d+(.html|.htm)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/mengyuanshucheng",
+"name": "mengyuanshucheng",
+"host": "mengyuanshuchengcn.com",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "(www.|wap.)?mengyuanshuchengcn.com/(my|index)/(.*?).html"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/fuxsb",
+"name": "fuxsb 👨‍❤️‍👨👩‍❤️‍👩",
+"host": "fuxsb.com",
+"type": "chinese_novel",
+"ver": 7,
+"regexp": "(www.|m.)?fuxsb(.cc|.com)/(.*?)/\\d+.html"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/tongrenquan",
+"name": "tongrenquan",
+"host": "tongrenquan.org",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www\\.)?tongrenquan\\.org/tongren/\\d+\\.html"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/po18gv",
+"name": "po18gv",
+"host": "po18gv.vip",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?po18gv.vip/(books|book)/\\d+(/?|\\.html)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/kkphim",
+"name": "kkphim",
+"host": "kkphim.com",
+"type": "video",
+"ver": 1,
+"regexp": "kkphim.com/phim/.*"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/novelfull",
+"name": "[GG Dịch] Novel Full 🛠",
+"host": "novelfull.com",
+"type": "novel",
+"ver": 1,
+"regexp": "(www.)?novelfull.com/[0-9a-z].+html$"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/legado-minhducmon",
+"name": "Legado - AI Dịch - Minh Đức Môn",
+"host": "minhducmon.ru",
+"type": "novel",
+"ver": 14,
+"regexp": "((\\d+)[.](\\d+)[.](\\d+)[.](\\d+)|localhost):1122/(.*?)"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/52shuku",
+"name": "52shuku",
+"host": "52shuku.net",
+"type": "chinese_novel",
+"ver": 12,
+"regexp": "(www.|m.)?52shuku.(vip|net)/(.*?)/(.*?).html"
+},
+{
+"dir": "/home/claude/refs/vb_Moleys_vbook-ext/elysia",
+"name": "Elysia",
+"host": "mnz.nhimmeo.cf",
+"type": "chinese_novel",
+"ver": 8,
+"regexp": "(cwm.elysia.rip|mnz.nhimmeo.cf|cwm-c-2.elysia.rip|cwm-n-1.elysia.rip|cwm-n-1.elysia.rip)/(book|detail)/(\\d+)"
+},
+{
+"dir": "/home/claude/refs/vb_mizhm_vbook-extensions/syosetu",
+"name": "Syosetu",
+"host": "ncode.syosetu.com",
+"type": "novel",
+"ver": 1,
+"regexp": "(https?://)?ncode\\.syosetu\\.com/n\\d+[a-z]+/?"
+},
+{
+"dir": "/home/claude/refs/vb_mizhm_vbook-extensions/syosetu18",
+"name": "Syosetu R18",
+"host": "novel18.syosetu.com",
+"type": "novel",
+"ver": 1,
+"regexp": "(https?://)?novel18\\.syosetu\\.com/n\\d+[a-z]+/?"
+},
+{
+"dir": "/home/claude/refs/vb_mizhm_vbook-extensions/kakuyomu",
+"name": "Kakuyomu",
+"host": "kakuyomu.jp",
+"type": "novel",
+"ver": 1,
+"regexp": "(https?://)?kakuyomu\\.jp/works/\\d+/?"
+},
+{
+"dir": "/home/claude/refs/vb_mizhm_vbook-extensions/japaneseasmr",
+"name": "Japanese ASMR",
+"host": "japaneseasmr.com",
+"type": "audio",
+"ver": 2,
+"regexp": "(https?://)?(www\\.)?japaneseasmr\\.com/\\d+/?"
+},
+{
+"dir": "/home/claude/refs/vb_mizhm_vbook-extensions/asmrone",
+"name": "ASMR One",
+"host": "asmr.one",
+"type": "audio",
+"ver": 3,
+"regexp": "(https?://)?(www\\.)?asmr(-\\d+)?\\.(one|com)/work/[A-Z]{2}\\d+"
+},
+{
+"dir": "/home/claude/refs/vb_mizhm_vbook-extensions/truyendichmienphi",
+"name": "Truyện dịch miễn phí",
+"host": "comnguoinovel.com",
+"type": "novel",
+"ver": 17,
+"regexp": "https://(truyendichmienphi|comnguoinovel).com/(.*?)$"
+},
+{
+"dir": "/home/claude/refs/vb_mizhm_vbook-extensions/truyennow",
+"name": "Truyen Now",
+"host": "truyen.now",
+"type": "novel",
+"ver": 1,
+"regexp": "https://truyen.now/(.*?)$"
+},
+{
+"dir": "/home/claude/refs/vb_mizhm_vbook-extensions/asmr18",
+"name": "ASMR+18",
+"host": "asmr18.fans",
+"type": "audio",
+"ver": 1,
+"regexp": "(https?://)?(www\\.)?asmr18\\.fans/(boys|girls|allages)/rj\\d+/?"
+},
+{
+"dir": "/home/claude/refs/vb_mizhm_vbook-extensions/hentaiasmr",
+"name": "Hentai ASMR",
+"host": "hentaiasmr.moe",
+"type": "audio",
+"ver": 1,
+"regexp": "(https?://)?(www\\.)?hentaiasmr\\.moe/[^/?#]+\\.html"
+},
+{
+"dir": "/home/claude/refs/vb_mizhm_vbook-extensions/example",
+"name": "<Tên của extension>",
+"host": "<địa chỉ trang nguồn>",
+"type": "<Thể loại của extension, comic/novel/chinese_novel>",
+"ver": 1,
+"regexp": "<RegExp khớp với URL của trang truyện>"
+},
+{
+"dir": "/home/claude/refs/vb_mizhm_vbook-extensions/frostedsakura",
+"name": "Frostedsakura Stash",
+"host": "stash.frostedsakura.my.id",
+"type": "video",
+"ver": 3,
+"regexp": "(https?://)?stash\\.frostedsakura\\.my\\.id/[^@/][^/]*/.+"
+},
+{
+"dir": "/home/claude/refs/vb_mizhm_vbook-extensions/baotangtruyen",
+"name": "Bảo tàng truyện",
+"host": "baotangtruyen36.top",
+"type": "comic",
+"ver": 2,
+"regexp": "(www.)?baotangtruyenhot.com/truyen-tranh/[^/]+/?$"
+},
+{
+"dir": "/home/claude/refs/vb_mizhm_vbook-extensions/vozer",
+"name": "Vozer",
+"host": "quykhu.com",
+"type": "novel",
+"ver": 6,
+"regexp": "https://(vozer.io|quykhu.com)/(.*?)$"
+},
+{
+"dir": "/home/claude/refs/vb_mizhm_vbook-extensions/truyenfree",
+"name": "truyenfree",
+"host": "truyenfree.org",
+"type": "novel",
+"ver": 2,
+"regexp": "https://truyenfree.org/(.*?)$"
+},
+{
+"dir": "/home/claude/refs/vb_mizhm_vbook-extensions/asmrgay",
+"name": "ASMR基佬中心",
+"host": "asmrgay.com",
+"type": "video",
+"ver": 3,
+"regexp": "(https?://)?(www\\.)?asmrgay\\.com/[^@/][^/]*/.+"
+},
+{
+"dir": "/home/claude/refs/vb_mizhm_vbook-extensions/cachua",
+"name": "Cà Chua",
+"host": "fanqienovel.com",
+"type": "chinese_novel",
+"ver": 9,
+"regexp": "https://fanqienovel.com/(.*?)$"
+},
+{
+"dir": "/home/claude/refs/vb_mizhm_vbook-extensions/ihuaben",
+"name": "ihuaben",
+"host": "ihuaben.com",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "https://www.ihuaben.com/(.*?)$"
+},
+{
+"dir": "/home/claude/refs/vb_mizhm_vbook-extensions/asmrchive",
+"name": "ASMRchive",
+"host": "asmrchive.moe",
+"type": "audio",
+"ver": 3,
+"regexp": "(https?://)?(www\\.)?asmrchive\\.moe/share/[A-Za-z0-9_-]+/?"
+},
+{
+"dir": "/home/claude/refs/vb_mizhm_vbook-extensions/quykiep",
+"name": "QuyKiep",
+"host": "quykiep.com",
+"type": "novel",
+"ver": 1,
+"regexp": "https://quykiep.com/(.*?)$"
+},
+{
+"dir": "/home/claude/refs/vb_mizhm_vbook-extensions/manhuarock",
+"name": "Manhuarock",
+"host": "manhuarock.net",
+"type": "comic",
+"ver": 3,
+"regexp": "manhuarock.net/[a-zA-Z0-9-/]+/?$"
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/comic/sayhentaibaby",
+"name": "SayHentaiBaby -18+",
+"host": "sayhentai.baby",
+"type": "comic",
+"ver": 13,
+"regexp": "sayhentai\\.baby\\/truyen\\/[^\\/]+(?:\\.html)?\\/?(?:\\?.*)?$"
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/comic/truyendex",
+"name": "TruyenDex",
+"host": "truyendex.cc",
+"type": "comic",
+"ver": 29,
+"regexp": "truyendex\\.(cc|com)/nettrom/truyen-tranh/[a-f0-9\\-]+/?$"
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/comic/sayhentai",
+"name": "SayHentai -18+",
+"host": "sayhentai.cx",
+"type": "comic",
+"ver": 3,
+"regexp": "sayhentai\\.(?:sh|cx)\\/truyen-[^\\/]+(?:\\.html)?\\/?$"
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/comic/nettruyen",
+"name": "municipiodaboavista.com",
+"host": "municipiodaboavista.com",
+"type": "comic",
+"ver": 5,
+"regexp": "municipiodaboavista\\.com\\/truyen-tranh\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/comic/otruyen",
+"name": "OTruyen",
+"host": "otruyen.cc",
+"type": "comic",
+"ver": 24,
+"regexp": "(www.)?otruyen\\.(cc|net)/truyen-tranh/[^/]+/?$"
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/comic/hentaicube",
+"name": "HentaiCube -18+",
+"host": "hentaicube.xyz",
+"type": "comic",
+"ver": 1,
+"regexp": "hentaicube\\.xyz\\/read\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/comic/loppytoon",
+"name": "LoppyToon -18+",
+"host": "loppytoonn.com",
+"type": "comic",
+"ver": 19,
+"regexp": "loppytoonn?\\.com/truyen/[^/]+/?$"
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/tts/Meo_multi_tts",
+"name": "Multi TTS VN",
+"host": "ai.zalo.solutions",
+"type": "tts",
+"ver": 23,
+"regexp": ""
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/translate/dich_deepseek",
+"name": "DeepSeek Translate",
+"host": "platform.deepseek.com",
+"type": "translate",
+"ver": 8,
+"regexp": ""
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/wanwansekai",
+"name": "WanwanSekai -18+",
+"host": "wanwansekai.com",
+"type": "novel",
+"ver": 10,
+"regexp": "wanwansekai\\.com/novel/[^/]+/?$"
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/metruyensangtac",
+"name": "MeTruyenSangTac",
+"host": "metruyensangtac.vn",
+"type": "novel",
+"ver": 6,
+"regexp": "metruyensangtac\\.(vn|com)/truyen/[^/]+/?$"
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/wattpad",
+"name": "Wattpad - Tiếng Việt",
+"host": "wattpad.com",
+"type": "novel",
+"ver": 21,
+"regexp": "(www\\.|m\\.)?wattpad\\.com/(story/)?\\d+"
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/storya",
+"name": "Storya",
+"host": "storya.click",
+"type": "novel",
+"ver": 5,
+"regexp": "storya\\.click\\/truyen\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/metruyenchu",
+"name": "MeTruyenChu",
+"host": "metruyenchu.com.vn",
+"type": "novel",
+"ver": 17,
+"regexp": "metruyenchu\\.com\\.vn\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/valvrareteam",
+"name": "Valvrareteam",
+"host": "valvrareteam.net",
+"type": "novel",
+"ver": 10,
+"regexp": "valvrareteam\\.net/truyen/__ID__[0-9a-fA-F]{24}$"
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/dualeo",
+"name": "dualeotruyenfull",
+"host": "dualeotruyenfull.net",
+"type": "novel",
+"ver": 5,
+"regexp": "dualeotruyenfull\\.net/doc-truyen/"
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/truyenchu",
+"name": "TruyenChu",
+"host": "truyenchu.net",
+"type": "novel",
+"ver": 9,
+"regexp": "truyenchu\\.net\\/truyen\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/trichtinhlau",
+"name": "TrichTinhLau",
+"host": "trichtinhlau.com",
+"type": "novel",
+"ver": 8,
+"regexp": "trichtinhlau\\.com\\/doc-truyen\\/[^\\/]+\\/[^\\/]+"
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/lnkuro",
+"name": "LN Kuro",
+"host": "lnkuro.top",
+"type": "novel",
+"ver": 16,
+"regexp": "lnkuro\\.top\\/.+"
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/chinese_novel/biquge",
+"name": "Biquge",
+"host": "biquge.tw",
+"type": "novel",
+"ver": 12,
+"regexp": "(www\\.)?biquge\\.tw/book/\\d+(\\.html)?/?$"
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/chinese_novel/shibashuwu",
+"name": "ShiBaShuWu -18+",
+"host": "shibashuwu.net",
+"type": "novel",
+"ver": 21,
+"regexp": "https?:\\/\\/(?:www\\.)?shibashuwu\\.net\\/book\\/\\d+(?:\\/|\\/\\d+(?:_\\d+)?\\.html)?$"
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/chinese_novel/bixiange",
+"name": "Bixiange",
+"host": "bixiange.top",
+"type": "novel",
+"ver": 16,
+"regexp": "m\\.bixiange\\.(top|me)\\/(dsyq|wxxz|xhqh|cyjk|khjj|ghxy|jsls|guanchang|xtfq|dmtr|trxs|jqxs)\\/\\d+(\\.html)?/?$"
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/chinese_novel/novelcookstw",
+"name": "NovelCooksTW",
+"host": "novel.cooks.tw",
+"type": "novel",
+"ver": 38,
+"regexp": "novel\\.cooks\\.tw\\/(novel|reader)\\.html"
+},
+{
+"dir": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/video/bilibili",
+"name": "Bilibili TV",
+"host": "bilibili.tv",
+"type": "video",
+"ver": 3,
+"regexp": "bilibili\\.tv"
+},
+{
+"dir": "/home/claude/vbx/3911b1b681",
+"name": "piaotian-app",
+"host": "piaotianapp.com",
+"type": "chinese_novel",
+"ver": 5,
+"regexp": "^(www\\.)?piaotianapp\\.com/ptinfo/\\d+\\.html$"
+},
+{
+"dir": "/home/claude/vbx/a3da2bc275",
+"name": "Uaa",
+"host": "uaa.com",
+"type": "chinese_novel",
+"ver": 6,
+"regexp": "(www.|m.)?uaa.com/novel/(chapter|intro)[?]id=\\d+"
+},
+{
+"dir": "/home/claude/vbx/431cefccd3",
+"name": "Truyen Now",
+"host": "truyen.now",
+"type": "novel",
+"ver": 1,
+"regexp": "https://truyen.now/(.*?)$"
+},
+{
+"dir": "/home/claude/vbx/f2808303ea",
+"name": "3qzone",
+"host": "3qzone.io",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?3qzone.io/\\d+_\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/020baa1e45",
+"name": "Truyện YY",
+"host": "truyenyy.xyz",
+"type": "novel",
+"ver": 15,
+"regexp": "(www.)?truyenyy.([a-z]+)/truyen/[0-9a-z-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/24798e0a07",
+"name": "xsw",
+"host": "xsw.tw",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "https?://(?:www\\.)?m\\.xsw\\.tw/[0-9]+/?$"
+},
+{
+"dir": "/home/claude/vbx/09c12cf717",
+"name": "YPShuo - Bình luận sách",
+"host": "ypshuo.com",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "https?://(?:www\\.)?ypshuo\\.com/novel/\\d+\\.html(?:[?#].*)?"
+},
+{
+"dir": "/home/claude/vbx/2d9ef0bca2",
+"name": "Truyện Mới",
+"host": "truyenmoi.app",
+"type": "novel",
+"ver": 2,
+"regexp": "https?://(www\\.)?truyenmoi\\.app/truyen/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/3d461b44b5",
+"name": "Shinigami LN Team",
+"host": "shinigamilnteam.com",
+"type": "novel",
+"ver": 1,
+"regexp": "shinigamilnteam\\.com\\/truyen\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/7d32435723",
+"name": "DocLN (Hako)",
+"host": "docln.sbs",
+"type": "novel",
+"ver": 1,
+"regexp": "https://docln\\.sbs/truyen/\\d+"
+},
+{
+"dir": "/home/claude/vbx/60413e723b",
+"name": "Mê Truyện Chữ .co",
+"host": "metruyenchu.co",
+"type": "novel",
+"ver": 4,
+"regexp": "(www.)?metruyenchu.co/[0-9a-z-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/3b3fa5cf80",
+"name": "TruyệnHD",
+"host": "truyenhdt.com",
+"type": "novel",
+"ver": 14,
+"regexp": "(www.)?(truyenvkl.com|s2.truyenhd.com|s3.truyenhd.com|truyenhd1.com|truyenhdz.com|truyenhdd.com|truyenhdx.com|truyenhdt.com)/truyen/.*?"
+},
+{
+"dir": "/home/claude/vbx/16ba5f4f64",
+"name": "Truyện Mơ",
+"host": "truyenmo.xyz",
+"type": "novel",
+"ver": 4,
+"regexp": "(?:www\\.)?truyenmo\\.xyz/.*"
+},
+{
+"dir": "/home/claude/vbx/ba8a3c1975",
+"name": "Sắc Hiệp Viện",
+"host": "sachiepvien.net",
+"type": "novel",
+"ver": 4,
+"regexp": "sachiepvien\\.net/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/0256c06935",
+"name": "Dịch Tiếng Hoa",
+"host": "dichtienghoa.net",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "dichtienghoa\\.net/truyen/[^/]+"
+},
+{
+"dir": "/home/claude/vbx/2b78355e7d",
+"name": "Web Truyện Dịch",
+"host": "webtruyendich.com",
+"type": "novel",
+"ver": 1,
+"regexp": "webtruyendich\\.com/truyen/[^/]+"
+},
+{
+"dir": "/home/claude/vbx/3323bde13f",
+"name": "Multi TTS VN",
+"host": "ai.zalo.solutions",
+"type": "tts",
+"ver": 23,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/df4d337909",
+"name": "allin1",
+"host": "14.225.254.182",
+"type": "novel",
+"ver": 4,
+"regexp": "https?://(sangtacviet.*?|14.225.254.182|103.82.20.93)/truyen/[^/]+/[^/]+/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/dea305e28e",
+"name": "bFaloo (飞卢小说)",
+"host": "b.faloo.com",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "(https?://)?(www\\.)?((b\\.faloo\\.com/\\d+\\.html)|(wap\\.faloo\\.com/\\d+\\.html))"
+},
+{
+"dir": "/home/claude/vbx/ce3488b7c7",
+"name": "Claude AI",
+"host": "platform.claude.com",
+"type": "ai",
+"ver": 1,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/3bb92a4bba",
+"name": "uuksorg",
+"host": "uuks.org",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?uuks.org/(b|book)/\\d+(/?|\\.html)"
+},
+{
+"dir": "/home/claude/vbx/796513bb1f",
+"name": "NovelNext",
+"host": "novelnext.me",
+"type": "novel",
+"ver": 2,
+"regexp": "(www\\.)?novelnext\\.me\\/novelnext\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/26c2861676",
+"name": "qmbook",
+"host": "bqg631.xyz",
+"type": "chinese_novel",
+"ver": 6,
+"regexp": "https?://(?:www\\.|m\\.)?(?:bqg(?:998|616)\\.cc|bqg631\\.xyz)/(?:#/)?book/\\d+(?:/\\d+\\.html)?/?$"
+},
+{
+"dir": "/home/claude/vbx/eeecb2bfee",
+"name": "Say Hentai",
+"host": "sayhentai.one",
+"type": "comic",
+"ver": 9,
+"regexp": "(www.)?sayhentai.(.*?)/[^/]+.html$"
+},
+{
+"dir": "/home/claude/vbx/46c43dbe6a",
+"name": "D Truyện",
+"host": "wetruyen.com",
+"type": "novel",
+"ver": 8,
+"regexp": "(www.)?(wetruyen|truyencom|webtruyen|dtruyen).[a-z]+/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/e11eccbe7d",
+"name": "wodeshucheng5",
+"host": "wodeshucheng5.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www\\.)?wodeshucheng5\\.com\\/book_\\d+\\/?(?:\\d+\\/?|\\d+(?:_\\d+)?\\.html)?"
+},
+{
+"dir": "/home/claude/vbx/2653dfa50d",
+"name": "LN Kuro",
+"host": "lnkuro.top",
+"type": "novel",
+"ver": 10,
+"regexp": "(www\\.)?lnkuro\\.top\\/(?:convert-category\\/[^\\/]+|[^\\/\\?]+)\\/?$"
+},
+{
+"dir": "/home/claude/vbx/270ef619c1",
+"name": "Foamgirl",
+"host": "foamgirl.net",
+"type": "comic",
+"ver": 2,
+"regexp": "https://foamgirl.net/.+"
+},
+{
+"dir": "/home/claude/vbx/66ecf4dde3",
+"name": "ST Truyện",
+"host": "sttruyen.com",
+"type": "novel",
+"ver": 7,
+"regexp": "(www.)?sttruyen.com/story/[0-9a-z-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/0711dfa555",
+"name": "Qimao (七猫文化)",
+"host": "qimao.com",
+"type": "chinese_novel",
+"ver": 37,
+"regexp": "(www\\.|m\\.)?qimao\\.com/shuku/\\d+.*|(api-bc\\.wtzw\\.com/.*)"
+},
+{
+"dir": "/home/claude/vbx/097e0ac6b7",
+"name": "TruyệnTR",
+"host": "truyenazz.vn",
+"type": "novel",
+"ver": 6,
+"regexp": "(www.)?(truyentr|truyenazz).(vn|info|org)/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/58589ae7e5",
+"name": "tushumi.cc",
+"host": "tushumi.cc",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "https?://(www\\.|m\\.)?tushumi\\.cc/(shu/\\d+/|info-\\d+\\.html)"
+},
+{
+"dir": "/home/claude/vbx/8d8e690226",
+"name": "Sáng Tác Việt",
+"host": "sangtacviet.vip",
+"type": "novel",
+"ver": 7,
+"regexp": "(www.)?sangtacviet.(pro|vip|com)/truyen/([a-zA-Z0-9])+/\\d+/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/32fbb3b1de",
+"name": "ASMR基佬中心",
+"host": "asmrgay.com",
+"type": "video",
+"ver": 3,
+"regexp": "(https?://)?(www\\.)?asmrgay\\.com/[^@/][^/]*/.+"
+},
+{
+"dir": "/home/claude/vbx/8aa105ba9e",
+"name": "AkayTruyen",
+"host": "akaytruyen.com",
+"type": "novel",
+"ver": 3,
+"regexp": "(www\\.)?akaytruyen\\.com/truyen/[0-9a-zA-Z-]+(/.*)?$"
+},
+{
+"dir": "/home/claude/vbx/962e838507",
+"name": "shumilou",
+"host": "shumilouxs.com",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "(www.|m.)?shumilouxs.com/.*?"
+},
+{
+"dir": "/home/claude/vbx/90206ac83d",
+"name": "ManhwaHentai",
+"host": "manhwahentai.me",
+"type": "comic",
+"ver": 3,
+"regexp": "(www.)?manhwahentai.me/webtoon/[^/]+/?"
+},
+{
+"dir": "/home/claude/vbx/96134acf10",
+"name": "Zing Audio",
+"host": "zingaudio.org",
+"type": "audio",
+"ver": 1,
+"regexp": "zingaudio\\.org/(?!tac-gia/|page/)[^/?#]+\\.html(?:[?#].*)?$"
+},
+{
+"dir": "/home/claude/vbx/797ee6726e",
+"name": "Moyue · Mặc Duyệt",
+"host": "moyue.app",
+"type": "chinese_novel",
+"ver": 11,
+"regexp": "https?://moyue\\.app/(?:legado/(?:detail|toc)\\?url=.+|book/.+)"
+},
+{
+"dir": "/home/claude/vbx/707cca269c",
+"name": "Giáng Thế",
+"host": "giangthe.com",
+"type": "novel",
+"ver": 3,
+"regexp": "(www.)?giangthe.com/truyen/\\d+"
+},
+{
+"dir": "/home/claude/vbx/44f8ae0198",
+"name": "pi12345",
+"host": "pi12345.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?pi12345.com/shen/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/0e6f19cc72",
+"name": "meiguicom",
+"host": "meiguicom.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?meiguicom.com/read/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/b3fbdf2eb1",
+"name": "zTruyen",
+"host": "ztruyen.vn",
+"type": "novel",
+"ver": 5,
+"regexp": "https://ztruyen.vn/truyen/[0-9a-z-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/13d0af5682",
+"name": "LuotTruyen",
+"host": "luottruyen7.com",
+"type": "comic",
+"ver": 8,
+"regexp": "luottruyen\\d*\\.com\\/truyen-tranh\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/b99731b901",
+"name": "AC QQ 腾讯动漫",
+"host": "ac.qq.com",
+"type": "comic",
+"ver": 1,
+"regexp": "(www.)?(m.)?ac.qq.com/comic/index/id/\\d+"
+},
+{
+"dir": "/home/claude/vbx/ba774e28d2",
+"name": "Novel543",
+"host": "novel543.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www\\.)?novel543\\.com\\/\\d{4,}\\d+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/b792f665d8",
+"name": "Truyen H",
+"host": "truyenh.top",
+"type": "novel",
+"ver": 2,
+"regexp": "(www\\.)?truyenh\\.top\\/(?:[^/]+\\/|(?:tag|category)\\/[^/]+\\/(?:page\\/\\d+\\/)?|(?:page\\/\\d+\\/)?)(?:\\?[^#]*)?\\/?$"
+},
+{
+"dir": "/home/claude/vbx/2125059aa5",
+"name": "dualeotruyenfull",
+"host": "dualeotruyenfull.net",
+"type": "novel",
+"ver": 5,
+"regexp": "dualeotruyenfull\\.net/doc-truyen/"
+},
+{
+"dir": "/home/claude/vbx/6f586785d1",
+"name": "[APP] MTC",
+"host": "android.lonoapp.net",
+"type": "novel",
+"ver": 5,
+"regexp": "(https?://)?android\\.lonoapp\\.net/api/books/\\d+/?"
+},
+{
+"dir": "/home/claude/vbx/711e1f7fd0",
+"name": "nHentai",
+"host": "nhentai.net",
+"type": "comic",
+"ver": 6,
+"regexp": "(www.)?nhentai.net/g/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/7f5b49ed87",
+"name": "Valvrareteam",
+"host": "valvrareteam.net",
+"type": "novel",
+"ver": 1,
+"regexp": "(www\\.)?valvrareteam\\.net\\/truyen\\/[^\\/\\?]+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/df2e85672f",
+"name": "ChatGPT AI",
+"host": "platform.openai.com",
+"type": "ai",
+"ver": 1,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/870bed32e3",
+"name": "Hồng quả",
+"host": "hongguoduanju.com",
+"type": "video",
+"ver": 11,
+"regexp": "https?://(?:www\\.)?hongguoduanju\\.com/(?:player/\\d+(?:/\\d+)?/?(?:[?#].*)?|detail\\?(?:[^#&]+&)*series_id=\\d+(?:&[^#]*)?(?:#.*)?)"
+},
+{
+"dir": "/home/claude/vbx/4dd004da90",
+"name": "qbtr",
+"host": "qbtr.cc",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?qbtr.cc/tongren/\\d+\\.html"
+},
+{
+"dir": "/home/claude/vbx/80bb9294c4",
+"name": "AAHHSS",
+"host": "aahhss.com",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "https://(www.)aahhss.com/book/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/293cc5c36b",
+"name": "fansg",
+"host": "fansg.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)fansg.com/.*?book_.*?.html?$"
+},
+{
+"dir": "/home/claude/vbx/35040894bb",
+"name": "Net Truyện",
+"host": "nettruyenvv.com",
+"type": "comic",
+"ver": 32,
+"regexp": "(www.)?nettruyen[a-z]*.(com|vn|net)/truyen-tranh/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/ec5414d4d9",
+"name": "Tinh Linh",
+"host": "tinhlinh.com",
+"type": "novel",
+"ver": 6,
+"regexp": "^https?://(?:www\\.)?tinhlinh\\.com/truyen/[a-z0-9-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/8376b3e4f6",
+"name": "shubao45",
+"host": "shubao45.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "m.shubao45.com/\\d+_\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/85440e5616",
+"name": "Wattpad",
+"host": "wattpad.com",
+"type": "novel",
+"ver": 1,
+"regexp": "(www.)?wattpad.com/story/\\d+.*?/?$"
+},
+{
+"dir": "/home/claude/vbx/07ae14fb68",
+"name": "Hố Truyện",
+"host": "hotruyen1.com",
+"type": "novel",
+"ver": 5,
+"regexp": "(www.)?hotruyen1.com/truyen/[^/+]+"
+},
+{
+"dir": "/home/claude/vbx/18bbefb891",
+"name": "Wattpad",
+"host": "wattpad.com",
+"type": "novel",
+"ver": 6,
+"regexp": "(www\\.)?wattpad\\.com/story/\\d+.*"
+},
+{
+"dir": "/home/claude/vbx/a09d786196",
+"name": "Zalo AI TTS",
+"host": "ai.zalo.cloud",
+"type": "tts",
+"ver": 1,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/7be5579753",
+"name": "Chuandaipc (蓝色小说)",
+"host": "chuandaipc.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?chuandaipc.com/a/\\d+_\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/2b73b63c7e",
+"name": "TikTok",
+"host": "tiktok.com",
+"type": "video",
+"ver": 3,
+"regexp": "(https?:\\/\\/(?:(?:www\\.|m\\.)?tiktok\\.com\\/(?:@[^\\s/?#]+\\/(?:video\\/\\d+|live)|t\\/[^\\s/?#]+|.*)|(?:vt|vm)\\.tiktok\\.com\\/[^\\s]+)|tiktok:.*)"
+},
+{
+"dir": "/home/claude/vbx/45c9d292d7",
+"name": "CBunu Comic",
+"host": "cucbongunu.com",
+"type": "comic",
+"ver": 4,
+"regexp": "https?://(?:www\\.)?(?:cbunu|cucbongunu)\\.com/truyen-tranh/[^/?#]+/?(?:[?#].*)?$"
+},
+{
+"dir": "/home/claude/vbx/9310aa381e",
+"name": "Mê Truyện Chữ .com",
+"host": "metruyenchuvn.org",
+"type": "novel",
+"ver": 6,
+"regexp": "(www\\.)?metruyenchuvn\\.org/[^/]+(?:/chuong-[^/?#]+)?/?$"
+},
+{
+"dir": "/home/claude/vbx/5a7849bc0d",
+"name": "Hameln (Syosetu.org)",
+"host": "syosetu.org",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(https?://)?(www\\.)?syosetu\\.org/novel/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/bdb0bbbd2d",
+"name": "drxsw",
+"host": "drxsw.com",
+"type": "chinese_novel",
+"ver": 5,
+"regexp": "(www\\.)?drxsw.com/book.*"
+},
+{
+"dir": "/home/claude/vbx/6ce5769bb9",
+"name": "99txs",
+"host": "99txs.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?99txs.com/shu/\\d+.html"
+},
+{
+"dir": "/home/claude/vbx/36315424ce",
+"name": "TruyenNet",
+"host": "truyennet.org",
+"type": "novel",
+"ver": 2,
+"regexp": "(https?://)?(www\\.)?truyennet\\.org/[a-zA-Z0-9-]+/?"
+},
+{
+"dir": "/home/claude/vbx/93c1f64a9e",
+"name": "HHTQHAY.VIP",
+"host": "hhtqhay.vip",
+"type": "video",
+"ver": 2,
+"regexp": "(www\\.)?hhtqhay.vip/.*"
+},
+{
+"dir": "/home/claude/vbx/c8b22803d2",
+"name": "TaoNovel",
+"host": "tybook.taoyuewenhua.net",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "https?://tybook\\.taoyuewenhua\\.net/tf/book\\?[^#]*\\bbid=.+"
+},
+{
+"dir": "/home/claude/vbx/fc6e287239",
+"name": "ixunshu",
+"host": "ixunshu.net",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?ixunshu.net/xs/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/5943c9554a",
+"name": "XTruyen",
+"host": "xtruyen.net",
+"type": "novel",
+"ver": 2,
+"regexp": "xtruyen\\.net/truyen/([^/]+)/?(chuong-\\d+)?/?$"
+},
+{
+"dir": "/home/claude/vbx/780c45be42",
+"name": "Tiên Vực",
+"host": "tienvuc.blog",
+"type": "novel",
+"ver": 16,
+"regexp": "^https?://(www\\.)?tienvuc\\.[^/]+/[a-z0-9-]+"
+},
+{
+"dir": "/home/claude/vbx/9c654fda6d",
+"name": "Snapd",
+"host": "snapd.net",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "(?:m\\.snapd\\.net/read|.*bqg.*/(?:#/)?book)/\\d+"
+},
+{
+"dir": "/home/claude/vbx/f982403a78",
+"name": "Bilibili",
+"host": "bilibili.tv",
+"type": "video",
+"ver": 6,
+"regexp": "https?:\\/\\/(?:www\\.)?bilibili\\.tv\\/(?:[a-zA-Z]{2}\\/)?(?:play|media|video)\\/.*"
+},
+{
+"dir": "/home/claude/vbx/c9650df556",
+"name": "yodu 📚📖",
+"host": "yodu.org",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "(www.|m.)?yodu.org/(b|book)/\\d+(/?|\\.html)"
+},
+{
+"dir": "/home/claude/vbx/c0dbe505a0",
+"name": "52shuku",
+"host": "52shuku.net",
+"type": "chinese_novel",
+"ver": 12,
+"regexp": "(www.|m.)?52shuku.(vip|net)/(.*?)/(.*?).html"
+},
+{
+"dir": "/home/claude/vbx/42dc2ea165",
+"name": "bqg9527",
+"host": "bqg9527.net",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?bqg9527.net/book/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/30e250b411",
+"name": "mengyuanshucheng",
+"host": "mengyuanshuchengcn.com",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "(www.|wap.)?mengyuanshuchengcn.com/(my|index)/(.*?).html"
+},
+{
+"dir": "/home/claude/vbx/a35674e9f8",
+"name": "damixs",
+"host": "damixs.info",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?damixs.info/book/(.*?).html"
+},
+{
+"dir": "/home/claude/vbx/d62ece1cec",
+"name": "La cà truyện",
+"host": "lacatruyen.live",
+"type": "novel",
+"ver": 24,
+"regexp": "(https?://)?(?:(?:m|www)\\.)?lacatruyen\\.(live|biz|art|buzz|world|life|casa|bar|shop|pro|net|me|club|store|online|com)/story/[^/?#]+/?(?:[?#].*)?"
+},
+{
+"dir": "/home/claude/vbx/2c1c65d645",
+"name": "久久小说网",
+"host": "ijjjxsxzw.com",
+"type": "chinese_novel",
+"ver": 6,
+"regexp": "https?:\\/\\/(www\\.|m\\.)?ijjjxsxzw\\.com\\/txt\\/[^/]+\\.html$"
+},
+{
+"dir": "/home/claude/vbx/faa1af5dcc",
+"name": "Truyện Net",
+"host": "truyennet.vn",
+"type": "novel",
+"ver": 2,
+"regexp": "(www.)?truyennet\\.vn/[^/]+$"
+},
+{
+"dir": "/home/claude/vbx/ff259ef7c2",
+"name": "[APP] Ciweimao",
+"host": "ciweimao.com",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "^(https?://)?(www\\.)?ciweimao\\.com/(book|chapter)/[0-9]+/?(?:[?#].*)?$"
+},
+{
+"dir": "/home/claude/vbx/3a7d7f80eb",
+"name": "Jelly Comics",
+"host": "jellycomics.online",
+"type": "comic",
+"ver": 4,
+"regexp": "^https?://(?:www\\.)?jellycomics\\.(?:online|site|xyz|store|com)/truyen/[^/?#]+/?(?:[?#].*)?$"
+},
+{
+"dir": "/home/claude/vbx/0c6e9d68fb",
+"name": "czbooks - repo Đường đen",
+"host": "czbooks.net",
+"type": "chinese_novel",
+"ver": 5,
+"regexp": "czbooks\\.net/n/[^/]+$"
+},
+{
+"dir": "/home/claude/vbx/8d466562ae",
+"name": "shuhaige",
+"host": "shuhaige.net",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "(www\\.|m\\.)?shuhaige\\.net/(shu_)?\\d+(/|\\.html)?"
+},
+{
+"dir": "/home/claude/vbx/55b4e6cb78",
+"name": "aixdzs",
+"host": "aixdzs.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?aixdzs.com/novel/(.*?)"
+},
+{
+"dir": "/home/claude/vbx/43561eb2a9",
+"name": "Phim Nhựa",
+"host": "phimnhua.online",
+"type": "video",
+"ver": 4,
+"regexp": "phimnhua\\.online/xem-phim/.*"
+},
+{
+"dir": "/home/claude/vbx/0f0fa40b66",
+"name": "69书吧.TW",
+"host": "69shuba.tw",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "https?:\\/\\/(?:www\\.)?69shuba\\.tw\\/(?:book|indexlist|read)\\/\\d+(?:\\/\\d+)?\\/?"
+},
+{
+"dir": "/home/claude/vbx/6516315e81",
+"name": "cosplaytele",
+"host": "cosplaytele.com",
+"type": "comic",
+"ver": 1,
+"regexp": "(www.)?cosplaytele.com/.*"
+},
+{
+"dir": "/home/claude/vbx/59345716bf",
+"name": "Google Translate",
+"host": "translate.google.com",
+"type": "translate",
+"ver": 2,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/eb5072523d",
+"name": "Cà Chua Sói Xám",
+"host": "fanqienovel.com",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "fanqienovel\\.com/page/[a-zA-Z0-9_-]+"
+},
+{
+"dir": "/home/claude/vbx/662b123501",
+"name": "Bilibili TV",
+"host": "bilibili.tv",
+"type": "video",
+"ver": 3,
+"regexp": "bilibili\\.tv"
+},
+{
+"dir": "/home/claude/vbx/9e8be0750e",
+"name": "Xbanxia - repo Đường đen",
+"host": "xbanxia.cc",
+"type": "chinese_novel",
+"ver": 6,
+"regexp": "^https?://(?:www\\.)?(?:xbanxia|banxia)\\.cc/books/\\d+\\.html/?$"
+},
+{
+"dir": "/home/claude/vbx/03af2edf95",
+"name": "[APP] Shuqi",
+"host": "shuqi.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(https?://)?www\\.shuqi\\.com/book/[0-9]+\\.html[^\\s]*|shuqi://[^\\s]+|shuqi-book://[^\\s]+|^[0-9]{4,}$"
+},
+{
+"dir": "/home/claude/vbx/e47d188dab",
+"name": "Wuxia World",
+"host": "wuxiaworld.com",
+"type": "novel",
+"ver": 1,
+"regexp": "(www.)?wuxiaworld.com.*"
+},
+{
+"dir": "/home/claude/vbx/ac7289885a",
+"name": "STV App Vi",
+"host": "sangtacviet.com",
+"type": "novel",
+"ver": 9,
+"regexp": "https?://(sangtacviet.*?|14.225.254.182|103.82.20.93)/truyen/[^/]+/[^/]+/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/bff262c741",
+"name": "MotChill",
+"host": "motchille.cx",
+"type": "video",
+"ver": 6,
+"regexp": "https?:\\/\\/(?:www\\.)?motchillw\\.fm\\/(?:phim|xem-phim)\\/[a-zA-Z0-9-]+"
+},
+{
+"dir": "/home/claude/vbx/4df9c93f88",
+"name": "Japanese ASMR",
+"host": "japaneseasmr.com",
+"type": "audio",
+"ver": 2,
+"regexp": "(https?://)?(www\\.)?japaneseasmr\\.com/\\d+/?"
+},
+{
+"dir": "/home/claude/vbx/e321e9a2ed",
+"name": "Myrics",
+"host": "myrics.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?myrics.com/novels/\\d+"
+},
+{
+"dir": "/home/claude/vbx/31c5ce1d9e",
+"name": "esjzone",
+"host": "esjzone.cc",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "www.esjzone.cc/detail/\\d+(/?|\\.html)"
+},
+{
+"dir": "/home/claude/vbx/130d76f8ae",
+"name": "Bàn Long",
+"host": "blhvip.vn",
+"type": "novel",
+"ver": 3,
+"regexp": "(www.)?blhvip.vn/truyen/[0-9a-z-]+/?"
+},
+{
+"dir": "/home/claude/vbx/922ed70026",
+"name": "HentaiVietsub.com",
+"host": "hentaivietsub.com",
+"type": "video",
+"ver": 2,
+"regexp": "(www\\.)?hentaivietsub\\.com/hentai/.*"
+},
+{
+"dir": "/home/claude/vbx/4669de0174",
+"name": "Danbooru",
+"host": "danbooru.donmai.us",
+"type": "comic",
+"ver": 3,
+"regexp": "(www.)?danbooru.donmai.us/posts/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/30b170c362",
+"name": "DeepL Translate",
+"host": "deepl.com",
+"type": "translate",
+"ver": 1,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/7ff8c7c0bc",
+"name": "readwn",
+"host": "readwn.com",
+"type": "novel",
+"ver": 1,
+"regexp": "www.readwn.com/novel/(.*?)"
+},
+{
+"dir": "/home/claude/vbx/692565d789",
+"name": "html5.qq.com",
+"host": "bookshelf.html5.qq.com",
+"type": "chinese_novel",
+"ver": 23,
+"regexp": "(bookshelf|novel)\\.html5\\.qq\\.com/(qbread|autojump|portal/novel-intro)(\\?.*)?"
+},
+{
+"dir": "/home/claude/vbx/b98b7b4354",
+"name": "piaoyuxuan",
+"host": "piaoyuxuan.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www.|m.)?piaoyuxuan.com/(b|book)/(.*?)(/?|\\.html)"
+},
+{
+"dir": "/home/claude/vbx/91258e6fd3",
+"name": "Sany Team",
+"host": "teamsany.com",
+"type": "comic",
+"ver": 2,
+"regexp": "https://teamsany.com/manga/[^/]+/$"
+},
+{
+"dir": "/home/claude/vbx/de73730b43",
+"name": "VinaHentai",
+"host": "vinahentai.bond",
+"type": "comic",
+"ver": 7,
+"regexp": "https?://(?:www\\.)?vinahentai\\.[a-z]+/truyen-hentai/[^?&/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/3450156dce",
+"name": "Wiki Dịch",
+"host": "wikicv.org",
+"type": "novel",
+"ver": 29,
+"regexp": "(www.)?(.*?)wikicv(.*?)/truyen/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/08e7d23c3a",
+"name": "KeepShu",
+"host": "keepshu.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)keepshu.com/[a-z]+_\\d+.html$"
+},
+{
+"dir": "/home/claude/vbx/6f6c1da690",
+"name": "LoppyToon",
+"host": "loppytoon.com",
+"type": "novel",
+"ver": 2,
+"regexp": "loppytoon\\.com\\/truyen\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/c88865d911",
+"name": "Wattpad",
+"host": "wattpad.com.vn",
+"type": "novel",
+"ver": 3,
+"regexp": "(www\\.)?wattpad\\.com\\.vn/[^/]+(?:/chuong-[^/?#]+)?/?$"
+},
+{
+"dir": "/home/claude/vbx/676bb7db98",
+"name": "【VIP】Bạch Ngọc Sách",
+"host": "bnsvip.net",
+"type": "novel",
+"ver": 1,
+"regexp": "(www.)?(bachngocsach.(info|pro|net.vn|io.vn)|bnsvip.(vn|com|com.vn|net))/truyen/[0-9a-z-]+/?"
+},
+{
+"dir": "/home/claude/vbx/363fc52742",
+"name": "Tàng Thư Viện",
+"host": "truyen.tangthuvien.vn",
+"type": "novel",
+"ver": 2,
+"regexp": "(www\\.)?truyen\\.tangthuvien\\.vn/doc-truyen/[^\\s]+$"
+},
+{
+"dir": "/home/claude/vbx/27be443cb3",
+"name": "Matt Reading Translations",
+"host": "mattreadingtranslations.com",
+"type": "novel",
+"ver": 4,
+"regexp": "(www\\.)?mattreadingtranslations\\.com/([^/]+/)?[a-z0-9-]+(/(page/[0-9]+)?)?/?$"
+},
+{
+"dir": "/home/claude/vbx/c6abcd0371",
+"name": "Tâm Linh 247",
+"host": "tamlinh247.com.vn",
+"type": "novel",
+"ver": 3,
+"regexp": "(www.)?tamlinh247.com.vn/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/b5017974f6",
+"name": "75zwcom",
+"host": "75biquge.com",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "(m\\.)?(?:qiwubiquge|75biquge)\\.com\\/(xiaoshuo\\d+\\.html|\\d+(?:_\\d+)?\\/?|\\d+\\/\\d+(?:_\\d+)?\\.html)"
+},
+{
+"dir": "/home/claude/vbx/9087054d78",
+"name": "Legado thêm Google dịch",
+"host": "github.com",
+"type": "novel",
+"ver": 14,
+"regexp": "((\\d+)[.](\\d+)[.](\\d+)[.](\\d+)|localhost):1122/(.*?)"
+},
+{
+"dir": "/home/claude/vbx/0c1606c6a2",
+"name": "Faloo",
+"host": "faloo.com",
+"type": "chinese_novel",
+"ver": 5,
+"regexp": "(https?://)?(www\\.|b\\.|wap\\.)?faloo\\.com/.*?|faloo://.*"
+},
+{
+"dir": "/home/claude/vbx/b212ad64a5",
+"name": "AllNovel",
+"host": "allnovel.org",
+"type": "novel",
+"ver": 1,
+"regexp": "(www\\.)?allnovel\\.org/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/b3195bb198",
+"name": "笔趣阁-07br",
+"host": "bqg539.xyz",
+"type": "chinese_novel",
+"ver": 9,
+"regexp": "https?://(?:www\\.|m\\.)?(?:bqg128\\.xyz|bqg371\\.cc|bqg539\\.xyz)/#/book/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/615ab42fa4",
+"name": "Hentai Image",
+"host": "hentai-img.com",
+"type": "comic",
+"ver": 1,
+"regexp": "([a-z]+.)*hentai-img.com/(image|story)/[a-z0-9-]+(/?|.*?)"
+},
+{
+"dir": "/home/claude/vbx/0843b97b8c",
+"name": "4ksw",
+"host": "4ksw.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?4ksw.com/\\d+/\\d+"
+},
+{
+"dir": "/home/claude/vbx/9fad1c1fc1",
+"name": "nTruyen",
+"host": "sstruyen.buzz",
+"type": "novel",
+"ver": 12,
+"regexp": "https?:\\/\\/(www\\.)?sstruyen\\.[a-z0-9.-]+\\/truyen\\/[^\\/]+\\/?"
+},
+{
+"dir": "/home/claude/vbx/4a0b4f2012",
+"name": "WatchHentai.net",
+"host": "watchhentai.net",
+"type": "video",
+"ver": 4,
+"regexp": "(www\\.)?watchhentai\\.[a-z]+/(series|videos)/.*"
+},
+{
+"dir": "/home/claude/vbx/0a4851d186",
+"name": "TruyenHayVN",
+"host": "truyenhay.com",
+"type": "novel",
+"ver": 4,
+"regexp": "(https?://)?(www\\.)?truyenhay(vn)?\\.com/[^/]+\\.html/?"
+},
+{
+"dir": "/home/claude/vbx/cbbb118dd9",
+"name": "HHPanda",
+"host": "hhpanda.st",
+"type": "video",
+"ver": 1,
+"regexp": "https?://(?:www\\.)?hhpanda\\.st/(?!the-loai|country|page|watch-|moi-cap-nhat|hoan-thanh|most-viewed|showtimes|wp-)[^/?#]+/?$"
+},
+{
+"dir": "/home/claude/vbx/d06b15953d",
+"name": "Sfacg 💰",
+"host": "book.sfacg.com",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "(?:https?:\\/\\/)?(?:book\\.|m\\.)?sfacg\\.com\\/(?:Novel|b)\\/\\d+\\/?"
+},
+{
+"dir": "/home/claude/vbx/609de24f16",
+"name": "longmabook [Long Mã/Hải Đường] 💰✅",
+"host": "ebook.longmabook.com",
+"type": "chinese_novel",
+"ver": 5,
+"regexp": "(www.|ebook.)?longmabook.com/(.*?)bookid=\\d+(.*?)"
+},
+{
+"dir": "/home/claude/vbx/73696df6b7",
+"name": "Tiệm Truyện Chữ (Demo)",
+"host": "tiemtruyenchu.cloud",
+"type": "novel",
+"ver": 1,
+"regexp": "(www\\.)?tiemtruyenchu\\.(com|cloud)/.*"
+},
+{
+"dir": "/home/claude/vbx/1c6751bb85",
+"name": "Web Truyện Chữ",
+"host": "webtruyenchu.com",
+"type": "novel",
+"ver": 1,
+"regexp": "webtruyenchu\\.com"
+},
+{
+"dir": "/home/claude/vbx/3bea3774a1",
+"name": "sjks88",
+"host": "sjks88.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?sjks88.com/(.*?)/\\d+.html"
+},
+{
+"dir": "/home/claude/vbx/c805c0859e",
+"name": "[APP] QQ阅读",
+"host": "book.qq.com",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "(https?://)?(book\\.qq\\.com|ubook\\.reader\\.qq\\.com)/(book-detail|book-read)/.*?"
+},
+{
+"dir": "/home/claude/vbx/d57bd2cbaa",
+"name": "po18sm",
+"host": "po18sm.com",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "https?://(?:www\\.)?po18sm\\.com/[0-9]+/[0-9]+.html/?$"
+},
+{
+"dir": "/home/claude/vbx/6bb1755698",
+"name": "Buondua",
+"host": "buondua.com",
+"type": "comic",
+"ver": 4,
+"regexp": "https://buondua.com/.+"
+},
+{
+"dir": "/home/claude/vbx/a57f538467",
+"name": "飞库文学网",
+"host": "feiku6.com",
+"type": "chinese_novel",
+"ver": 5,
+"regexp": "https?://feiku6\\.com/book/[\\w-]+\\.html"
+},
+{
+"dir": "/home/claude/vbx/795a43f1df",
+"name": "Truyện CV (.io)",
+"host": "truyencv.io",
+"type": "novel",
+"ver": 2,
+"regexp": "(www\\.)?truyencv\\.io/truyen/[^/]+(?:/chuong-\\d+)?/?$"
+},
+{
+"dir": "/home/claude/vbx/2656219a9b",
+"name": "KissLove (Raw)",
+"host": "klz9.com",
+"type": "comic",
+"ver": 4,
+"regexp": "(www.)?klz9.com/[a-z-]+.html"
+},
+{
+"dir": "/home/claude/vbx/ebe0f1e0cf",
+"name": "WebtoonScan",
+"host": "webtoonscan.com",
+"type": "comic",
+"ver": 4,
+"regexp": "https?://(?:www\\.)?webtoonscan\\.com/manhwa/[a-zA-Z0-9-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/ecbc4d496c",
+"name": "CiWeiMao 【刺猬猫】",
+"host": "ciweimao.com",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "(www.)?(wap.)?ciweimao.com/book/\\d+"
+},
+{
+"dir": "/home/claude/vbx/14244db50b",
+"name": "Dailymotion",
+"host": "dailymotion.com",
+"type": "video",
+"ver": 3,
+"regexp": "(https?:\\/\\/(?:www\\.)?dailymotion\\.com\\/(?:video|embed\\/video)\\/[^\\s/?#]+.*|https?:\\/\\/geo\\.dailymotion\\.com\\/player[^\\s]*[?&]video=[^\\s&#]+.*|https?:\\/\\/dai\\.ly\\/[^\\s/?#]+.*)"
+},
+{
+"dir": "/home/claude/vbx/3d02645a03",
+"name": "Qimao (七猫文化)",
+"host": "qimao.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www.)?(qimao.com/shuku/\\d+/?)|(api-bc.wtzw.com/.*)"
+},
+{
+"dir": "/home/claude/vbx/6b72c7d423",
+"name": "LOFTER",
+"host": "lofter.com",
+"type": "chinese_novel",
+"ver": 6,
+"regexp": "https?://(?:api\\.lofter\\.com/(?:oldapi/post/detail|v1\\.1/postCollection|v2\\.0/blogHomePage)\\.api\\?.+|[\\w-]+\\.lofter\\.com/post/[0-9a-f]+_[0-9a-f]+/?(?:[?#].*)?)"
+},
+{
+"dir": "/home/claude/vbx/6640c93652",
+"name": "Book QQ [阅读]",
+"host": "book.qq.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?(ubook.reader|book).qq.com/book-detail/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/279f98e169",
+"name": "sohu",
+"host": "sohu.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "https?:\\/\\/(?:www\\.|m\\.)?sohu\\.com\\/a\\/\\d+_\\d+.*"
+},
+{
+"dir": "/home/claude/vbx/bc29b6d51d",
+"name": "Roads Team",
+"host": "roadsteami.net",
+"type": "comic",
+"ver": 2,
+"regexp": "https://(?:www\\.)?roadsteam(?:i)?\\.net/manga/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/b3543cd9b1",
+"name": "TruyenChu",
+"host": "truyenchu.net",
+"type": "novel",
+"ver": 9,
+"regexp": "truyenchu\\.net\\/truyen\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/7ff210176a",
+"name": "YanHH3D",
+"host": "yanhh3d.ee",
+"type": "video",
+"ver": 1,
+"regexp": "(www.)?yanhh3d\\.[a-z]+/[^/]+/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/077bdf60e8",
+"name": "Truyện Convert",
+"host": "truyenconvert.net",
+"type": "novel",
+"ver": 3,
+"regexp": "(www.)?truyenconvert.net/truyen/[0-9a-z-]+"
+},
+{
+"dir": "/home/claude/vbx/97fce21aef",
+"name": "Novelpia Global",
+"host": "global.novelpia.com",
+"type": "novel",
+"ver": 1,
+"regexp": ".*global\\.novelpia\\.com/novel/\\d+"
+},
+{
+"dir": "/home/claude/vbx/82a9d03199",
+"name": "Syosetu R18",
+"host": "novel18.syosetu.com",
+"type": "novel",
+"ver": 1,
+"regexp": "(https?://)?novel18\\.syosetu\\.com/n\\d+[a-z]+/?"
+},
+{
+"dir": "/home/claude/vbx/d3b5364fa4",
+"name": "Say Truyện",
+"host": "saytruyenhay.com",
+"type": "comic",
+"ver": 7,
+"regexp": "(www.)?saytruyenhay(vip)?.(net|tv|com|us)/[^/]+.html$"
+},
+{
+"dir": "/home/claude/vbx/1c6b514341",
+"name": "Langgee",
+"host": "v5.langge.uk",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "https?://(?:v\\d+\\.langge\\.uk|219\\.154\\.201\\.122:5006)/.*"
+},
+{
+"dir": "/home/claude/vbx/9932cdb721",
+"name": "笔趣阁-abcbiquge",
+"host": "abcbiquge.com",
+"type": "chinese_novel",
+"ver": 10,
+"regexp": "(m\\.)?abcbiquge\\.com\\/(info-\\d+|wapbook-\\d+(?:[_-]\\d+)?)\\/?$"
+},
+{
+"dir": "/home/claude/vbx/64768ae700",
+"name": "TruyenVN",
+"host": "truyenvn.my",
+"type": "comic",
+"ver": 52,
+"regexp": "(https?://)?(www\\.)?(khotruyen\\.ac|truyenvn[a-z]*\\.[a-z]+)/truyen-tranh/[^/]+/?"
+},
+{
+"dir": "/home/claude/vbx/6809fb2564",
+"name": "nhasachmienphi 📚",
+"host": "nhasachmienphi.com",
+"type": "novel",
+"ver": 4,
+"regexp": "(www.|m.)?nhasachmienphi.com/(.*?)"
+},
+{
+"dir": "/home/claude/vbx/1235ed0b3c",
+"name": "BL Bất Tử",
+"host": "blbattu.com",
+"type": "novel",
+"ver": 3,
+"regexp": "https?://(?:www\\.)?blbattu\\.com/truyen/[^/?#]+(?:/(?:chap|chuong|chapter)-[^/?#]+)?/?(?:[?#].*)?$"
+},
+{
+"dir": "/home/claude/vbx/3ef522dd30",
+"name": "[APP] Sáng Tác Việt",
+"host": "sangtacviet.app",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www\\.)?sangtacviet\\.(pro|com|app|vip)/truyen/[^/]+/[^/]+/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/027c091cd0",
+"name": "HentaiVN",
+"host": "hentaivnreal.com",
+"type": "comic",
+"ver": 3,
+"regexp": "https?://(?:www\\.)?hentaivnreal\\.com/truyen/[a-zA-Z0-9-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/48a2419389",
+"name": "vTruyện",
+"host": "vtruyen.com",
+"type": "novel",
+"ver": 10,
+"regexp": "(www.)?vtruyen.com/truyen/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/73189cb663",
+"name": "Mimimoe",
+"host": "mimimoe.moe",
+"type": "comic",
+"ver": 4,
+"regexp": "mimimoe\\.moe\\/g\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/d770c7c8f0",
+"name": "Novel Next",
+"host": "novelnext.me",
+"type": "novel",
+"ver": 6,
+"regexp": "^(?:https?:\\/\\/)?(?:www\\.)?(?:novelnext\\.me|novel-next\\.com)\\/(?:novelnext|novel)\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/2970c66296",
+"name": "cartoon18",
+"host": "cartoon18.com",
+"type": "comic",
+"ver": 1,
+"regexp": "(www.)?cartoon18.com/v/(.*?)"
+},
+{
+"dir": "/home/claude/vbx/ca639ebcba",
+"name": "Gác Sách",
+"host": "gacsach.org",
+"type": "novel",
+"ver": 9,
+"regexp": "(www.)?gacsach.(com|club|online|org)(/(doc-)?sach-truc-tuyen/\\d+/.*?.html$|/[^/]+/?$)"
+},
+{
+"dir": "/home/claude/vbx/8ad3d7bbd5",
+"name": "Wiki Dịch",
+"host": "wikicv.net",
+"type": "novel",
+"ver": 5,
+"regexp": "(www.)?(.*?)wikicv(.*?)/truyen/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/ccb3a0f284",
+"name": "Đọc Truyện Full",
+"host": "doctruyenchufull.org",
+"type": "novel",
+"ver": 1,
+"regexp": "(www.)?doctruyenchufull.org/(.*?)"
+},
+{
+"dir": "/home/claude/vbx/5af4204de4",
+"name": "Mê Truyện CV",
+"host": "metruyencv.xyz",
+"type": "novel",
+"ver": 2,
+"regexp": "(www.)?(metruyenchu|mtccv|metruyencv).[a-z]+/truyen/[a-zA-Z0-9-]+/?([?].*)?$"
+},
+{
+"dir": "/home/claude/vbx/4b4b497340",
+"name": "DeepSeek AI",
+"host": "platform.deepseek.com",
+"type": "ai",
+"ver": 1,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/58b21d48c6",
+"name": "9y02",
+"host": "9y02.xyz",
+"type": "comic",
+"ver": 3,
+"regexp": "(www.)?(9y02.|ciyuanrukou.)xyz/comic/(.*?)"
+},
+{
+"dir": "/home/claude/vbx/53f3008053",
+"name": "Octave",
+"host": "music.octavestreaming.com",
+"type": "audio",
+"ver": 3,
+"regexp": "octavestreaming\\.com/(album|playlist|artist|track|radio|podcast)/"
+},
+{
+"dir": "/home/claude/vbx/664652f294",
+"name": "Phimmoir",
+"host": "phimmoic.ws",
+"type": "video",
+"ver": 5,
+"regexp": "https?:\\/\\/(?:www\\.)?phimmoic\\.(?:ws|app|io)\\/(?:phim|xem-phim)\\/[a-zA-Z0-9-]+"
+},
+{
+"dir": "/home/claude/vbx/b6e4f056ec",
+"name": "Truyện CV",
+"host": "metruyencv.com",
+"type": null,
+"ver": 1,
+"regexp": "(www.)?api.mottruyen.com/story/.*?$"
+},
+{
+"dir": "/home/claude/vbx/0fdd77d11d",
+"name": "Biquge",
+"host": "biquge.tw",
+"type": "novel",
+"ver": 12,
+"regexp": "(www\\.)?biquge\\.tw/book/\\d+(\\.html)?/?$"
+},
+{
+"dir": "/home/claude/vbx/24b6bfea45",
+"name": "Ngôn Phong",
+"host": "ngonphong.com",
+"type": "comic",
+"ver": 3,
+"regexp": "(www.)?ngonphong.com/[^/]+/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/af86b5bfe2",
+"name": "Truyện QQ",
+"host": "truyenqqko.com",
+"type": "comic",
+"ver": 25,
+"regexp": "(https?://)?(www\\.)?truyenqq[a-z0-9]*\\.[a-z.]+/truyen-tranh/(?![0-9a-z-]*-chap-[0-9.-]+/?$)[0-9a-z-]+/?"
+},
+{
+"dir": "/home/claude/vbx/ae19161166",
+"name": "Kho Truyện Chữ",
+"host": "khotruyenchu.me",
+"type": "novel",
+"ver": 1,
+"regexp": "(www\\.)?khotruyenchu\\.me\\/.*"
+},
+{
+"dir": "/home/claude/vbx/0463ab28e9",
+"name": "shubl",
+"host": "shubl.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(m.|www.)?shubl.com/book/book_detail/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/5e4605ddeb",
+"name": "Vozer",
+"host": "quykhu.com",
+"type": "novel",
+"ver": 6,
+"regexp": "https://(vozer.io|quykhu.com)/(.*?)$"
+},
+{
+"dir": "/home/claude/vbx/5ae4f2d321",
+"name": "[APP] Truyện CV",
+"host": "truyencv.io",
+"type": "novel",
+"ver": 2,
+"regexp": "(www\\.)?truyencv\\.io/.*"
+},
+{
+"dir": "/home/claude/vbx/2c54cae54c",
+"name": "iSach",
+"host": "isach.info",
+"type": "novel",
+"ver": 2,
+"regexp": "(www.)?isach.info/(mobile/)?story.php.story=[^/&]+/?$"
+},
+{
+"dir": "/home/claude/vbx/0f84077f4d",
+"name": "210CB",
+"host": "2tencb.pro",
+"type": "comic",
+"ver": 2,
+"regexp": "2tencb\\.pro\\/read\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/c0443e8064",
+"name": "Si Truyện CV",
+"host": "sitruyencv.com",
+"type": "novel",
+"ver": 2,
+"regexp": "(www\\.)?sitruyencv\\.com/(?:story/\\d+-[^/?#]+|read/\\d+/\\d+)(?:\\?[^#]*)?/?$"
+},
+{
+"dir": "/home/claude/vbx/ba6f64ea7f",
+"name": "ijjxs",
+"host": "ijjxs.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?ijjxs.com/txt/\\d+(.html|.htm)"
+},
+{
+"dir": "/home/claude/vbx/a1f6301d65",
+"name": "Hentai ASMR",
+"host": "hentaiasmr.moe",
+"type": "audio",
+"ver": 1,
+"regexp": "(https?://)?(www\\.)?hentaiasmr\\.moe/[^/?#]+\\.html"
+},
+{
+"dir": "/home/claude/vbx/1cb5eb0113",
+"name": "weibo",
+"host": "weibo.cn",
+"type": "chinese_novel",
+"ver": 6,
+"regexp": "m\\.weibo\\.cn\\/(detail|u|search|p|api\\/container).*"
+},
+{
+"dir": "/home/claude/vbx/1f230e8319",
+"name": "RoPhim",
+"host": "rophim.soy",
+"type": "video",
+"ver": 1,
+"regexp": "^https?://(?:www\\.)?rophim\\.[a-z]+/(?:phim|xem-phim)/[^/?#]+"
+},
+{
+"dir": "/home/claude/vbx/ca61dde2b2",
+"name": "iqushuwang",
+"host": "iqushuwang.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?iqushuwang.com/book/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/bae129c260",
+"name": "书本书 Shubenshu",
+"host": "shubenshu.com",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "shubenshu\\.com/l[A-Za-z0-9]+/?$"
+},
+{
+"dir": "/home/claude/vbx/77a202100b",
+"name": "Mino Truyện",
+"host": "minotruyenv6.xyz",
+"type": "novel",
+"ver": 2,
+"regexp": "https?:\\/\\/(?:www\\.)?minotruyenv6\\.xyz\\/[bn]\\/(?:manga|comics|hentai)\\/books\\/\\d+(?:\\/\\d+)?\\/?(?:[?#][^\\s]*)?"
+},
+{
+"dir": "/home/claude/vbx/e14dddf25b",
+"name": "po18",
+"host": "po18.tw",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "www.po18.tw/books/(\\d+)/?$"
+},
+{
+"dir": "/home/claude/vbx/239b3b31ec",
+"name": "Vivu Truyện",
+"host": "vivutruyen.net",
+"type": "novel",
+"ver": 1,
+"regexp": "(?:www\\.)?vivutruyen\\.net/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/1c81d676fd",
+"name": "Syosetu",
+"host": "syosetu.com",
+"type": "novel",
+"ver": 1,
+"regexp": "(ncode\\.syosetu\\.com|novel18\\.syosetu\\.com|syosetu\\.com)\\/(novelview\\/infotop\\/ncode\\/)?n[0-9a-z]+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/b7e126e5e8",
+"name": "Gà Mờ Mê Phim",
+"host": "gamomephim.com",
+"type": "video",
+"ver": 3,
+"regexp": "(https?://)?(www\\.)?gamomephim\\.com/phim/[^/?#]+/?"
+},
+{
+"dir": "/home/claude/vbx/3297729324",
+"name": "RoPhim",
+"host": "rophim9.online",
+"type": "video",
+"ver": 5,
+"regexp": "https?:\\/\\/(?:www\\.)?[^\\/]*rophim[^\\/]*\\/(?:phim|xem-phim)\\/[^\\s]+"
+},
+{
+"dir": "/home/claude/vbx/ab9dd039b6",
+"name": "ChatGPT Translate",
+"host": "platform.openai.com",
+"type": "translate",
+"ver": 4,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/044098f064",
+"name": "8ternal",
+"host": "comic.8ternal.com",
+"type": "comic",
+"ver": 2,
+"regexp": "https://comic.8ternal.com/series/(.*?)[.]html"
+},
+{
+"dir": "/home/claude/vbx/ce8a6fe3eb",
+"name": "TruyenC",
+"host": "truyenc.net",
+"type": "novel",
+"ver": 1,
+"regexp": "https?:\\/\\/(www\\.)?truyenc\\.net\\/.*"
+},
+{
+"dir": "/home/claude/vbx/de0f9a34e3",
+"name": "Dưa Leo truyện",
+"host": "dualeotruyenbet.com",
+"type": "comic",
+"ver": 28,
+"regexp": "https?://(?:www\\.)?dualeotruyen[^/]*\\.com/truyen-tranh/[^/?#]+/?$"
+},
+{
+"dir": "/home/claude/vbx/8a2fbff27b",
+"name": "wenku8 📖🔑",
+"host": "wenku8.net",
+"type": "chinese_novel",
+"ver": 7,
+"regexp": "(www.|m.)?wenku8.net/(novel|book)/\\d+(/?|\\.htm)"
+},
+{
+"dir": "/home/claude/vbx/e6dac09545",
+"name": "20xs",
+"host": "20xs.org",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "(www.)?(m.)?20xs.org/(shu/)?\\d+/?(.html)?"
+},
+{
+"dir": "/home/claude/vbx/baa4b3631a",
+"name": "qmxs123",
+"host": "qmxs123.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www.|m.)?qmxs123.com/(b|book)/\\d+(/?|\\.html)"
+},
+{
+"dir": "/home/claude/vbx/0c8ef451c5",
+"name": "Weeb Central",
+"host": "weebcentral.com",
+"type": "comic",
+"ver": 3,
+"regexp": "weebcentral\\.com/series/[A-Za-z0-9]+"
+},
+{
+"dir": "/home/claude/vbx/dad656c07b",
+"name": "Kugou Music",
+"host": "songsearch.kugou.com",
+"type": "audio",
+"ver": 2,
+"regexp": "^https?://(?:songsearch\\.kugou\\.com/kg\\?hash=[a-zA-Z0-9]+(?:&.*)?|www\\.kugou\\.com/yy/special/single/\\d+\\.html(?:\\?.*)?)$"
+},
+{
+"dir": "/home/claude/vbx/1ff70d87c0",
+"name": "Anime Hay",
+"host": "animehay.fm",
+"type": "video",
+"ver": 1,
+"regexp": "(www\\.)?animehay\\.fm/.*"
+},
+{
+"dir": "/home/claude/vbx/cb934e71d5",
+"name": "Bảo tàng truyện",
+"host": "baotangtruyenhot.com",
+"type": "comic",
+"ver": 2,
+"regexp": "(www.)?baotangtruyenhot.com/truyen-tranh/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/1227524e09",
+"name": "biqubu",
+"host": "biqubu.com",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "(www.)?biqubu.com/book_[^/]+/?"
+},
+{
+"dir": "/home/claude/vbx/6e3dc7d290",
+"name": "[APP] Zhihu Hỏi đáp",
+"host": "zhihu.com",
+"type": "chinese_novel",
+"ver": 6,
+"regexp": "(https?://)?((www\\.)?zhihu\\.com/(question/\\d+(/answer/\\d+)?|pin/\\d+|p/\\d+)|zhuanlan\\.zhihu\\.com/p/\\d+|api\\.zhihu\\.com/(questions|answers|pins|articles)/\\d+|zhihu://answer/\\d+)"
+},
+{
+"dir": "/home/claude/vbx/78b9596572",
+"name": "HHTQ Vietsub",
+"host": "hhtq.press",
+"type": "video",
+"ver": 11,
+"regexp": "(https?://)?(www\\.)?(hhtq\\.(hair|today|press)|hh3d\\.boats)/.+"
+},
+{
+"dir": "/home/claude/vbx/c49cf413ab",
+"name": "quanben - repo duongden",
+"host": "quanben.io",
+"type": "chinese_novel",
+"ver": 5,
+"regexp": "(https?://)?(?:www\\.|big5\\.)?(?:quanben\\.io|quanben5\\.com)/n/[^/]+/?"
+},
+{
+"dir": "/home/claude/vbx/09dbd5ec47",
+"name": "Syosetu",
+"host": "ncode.syosetu.com",
+"type": "novel",
+"ver": 1,
+"regexp": "(https?://)?ncode\\.syosetu\\.com/n\\d+[a-z]+/?"
+},
+{
+"dir": "/home/claude/vbx/f8262decde",
+"name": "MeTruyenChu",
+"host": "metruyenchu.com.vn",
+"type": "novel",
+"ver": 17,
+"regexp": "metruyenchu\\.com\\.vn\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/2ad02fb339",
+"name": "QManga",
+"host": "qmanga8.com",
+"type": "comic",
+"ver": 9,
+"regexp": "(www.)?qmanga.*?(net|co|com)/[^/]+.html$"
+},
+{
+"dir": "/home/claude/vbx/8faae03b16",
+"name": "fuxsb 👨‍❤️‍👨👩‍❤️‍👩",
+"host": "fuxsb.com",
+"type": "chinese_novel",
+"ver": 7,
+"regexp": "(www.|m.)?fuxsb(.cc|.com)/(.*?)/\\d+.html"
+},
+{
+"dir": "/home/claude/vbx/d30435d8a3",
+"name": "Truyện Dịch AI",
+"host": "truyendichai.top",
+"type": "novel",
+"ver": 1,
+"regexp": "(?:www\\.)?truyendichai\\.top/.*"
+},
+{
+"dir": "/home/claude/vbx/8f448fdfb5",
+"name": "94yd",
+"host": "94yd.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(m.)?94yd.com/book/\\d+.html"
+},
+{
+"dir": "/home/claude/vbx/7fb9a45b61",
+"name": "Tu Tiên (.pro)",
+"host": "tutien.pro",
+"type": "novel",
+"ver": 1,
+"regexp": "(www\\.)?tutien\\.pro/truyen/[^/]+(?:/chuong-\\d+)?/?$"
+},
+{
+"dir": "/home/claude/vbx/97873c451c",
+"name": "Việt Nam Thư Quán",
+"host": "vnthuquan.org",
+"type": "novel",
+"ver": 4,
+"regexp": "(www\\.)?vnthuquan\\.org/([^/]+/)?.*$"
+},
+{
+"dir": "/home/claude/vbx/cb9344e84f",
+"name": "App Truyện Chữ",
+"host": "apptruyenchu.pro",
+"type": "novel",
+"ver": 2,
+"regexp": "apptruyenchu\\.pro"
+},
+{
+"dir": "/home/claude/vbx/ac759c4fd5",
+"name": "[APP] Shubl",
+"host": "shubl.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(https?://)?(www\\.|m\\.)?shubl\\.com/(book/book_detail|chapter/book_chapter_detail)/[0-9]+[^\\s]*|shubl://[^\\s]+|^[0-9]{4,}$"
+},
+{
+"dir": "/home/claude/vbx/f90ccb23f8",
+"name": "Valvrareteam",
+"host": "valvrareteam.net",
+"type": "novel",
+"ver": 5,
+"regexp": "https?://(?:www\\.)?valvrareteam\\.net/truyen/[a-zA-Z0-9-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/ddb3a29add",
+"name": "8383zw",
+"host": "8383zw.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?8383zw.com/book/\\d+/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/ea71a0b15c",
+"name": "Giới Truyện",
+"host": "gioitruyen.com",
+"type": "novel",
+"ver": 1,
+"regexp": "https?://(www\\.)?gioitruyen\\.com/.*"
+},
+{
+"dir": "/home/claude/vbx/da16e8bb7b",
+"name": "TruyenGG",
+"host": "truyenggvn.com",
+"type": "comic",
+"ver": 2,
+"regexp": "https?:\\/\\/(?:www\\.)?truyenggvn\\.com\\/truyen-tranh\\/[a-zA-Z0-9-]+\\/?"
+},
+{
+"dir": "/home/claude/vbx/80ad82b46c",
+"name": "[APP] Wikidich",
+"host": "api.truyenreview.com",
+"type": "novel",
+"ver": 11,
+"regexp": "(www.)?api.truyenreview.com/book/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/6b009b2477",
+"name": "Immersive Translate",
+"host": "immersivetranslate.com",
+"type": "translate",
+"ver": 1,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/37529c1d82",
+"name": "JJWXC · Tấn Giang",
+"host": "jjwxc.net",
+"type": "chinese_novel",
+"ver": 12,
+"regexp": "(www.|my.|m.)?jjwxc.net/(onebook|book2)(.*?)"
+},
+{
+"dir": "/home/claude/vbx/f85832dcd4",
+"name": "Bixiange",
+"host": "bixiange.top",
+"type": "novel",
+"ver": 16,
+"regexp": "m\\.bixiange\\.(top|me)\\/(dsyq|wxxz|xhqh|cyjk|khjj|ghxy|jsls|guanchang|xtfq|dmtr|trxs|jqxs)\\/\\d+(\\.html)?/?$"
+},
+{
+"dir": "/home/claude/vbx/63fd89619c",
+"name": "99csw",
+"host": "99csw.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?99csw.com/book/\\d+/index.html"
+},
+{
+"dir": "/home/claude/vbx/3430448dbc",
+"name": "Google TTS",
+"host": "translate.google.com",
+"type": "tts",
+"ver": 3,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/0564ce82a1",
+"name": "MonkeyD",
+"host": "monkeydd.com",
+"type": "novel",
+"ver": 1,
+"regexp": "(www\\.)?monkeydd\\.com\\/[a-z0-9-]+\\.html"
+},
+{
+"dir": "/home/claude/vbx/8c985be9fb",
+"name": "NetTruyen",
+"host": "nettruyen.com.vn",
+"type": "novel",
+"ver": 2,
+"regexp": "https?://(?:www\\.)?nettruyen\\.com\\.vn/doc-(?:truyen|convert)-[a-zA-Z0-9-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/6208154f22",
+"name": "Anime Vietsub",
+"host": "animevietsub.news",
+"type": "video",
+"ver": 6,
+"regexp": "https?:\\/\\/(?:www\\.)?animevietsub\\.(?:bz|id|fan|sale|news)\\/phim\\/[a-z0-9-]+(?:\\/(?:xem-phim|tap-[^\\/]+)\\.html)?\\/?"
+},
+{
+"dir": "/home/claude/vbx/96da4ebd3e",
+"name": "CRXS",
+"host": "crxs.me",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "https?:\\/\\/(?:www\\.)?crxs\\.me\\/fiction\\/id-[a-zA-Z0-9=_-]+\\.html\\/?$"
+},
+{
+"dir": "/home/claude/vbx/faf5c5f440",
+"name": "Nữ Hiệp",
+"host": "nuhiep.com",
+"type": "novel",
+"ver": 9,
+"regexp": "(www.)?nuhiep.com/truyen/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/193447c16d",
+"name": "Truyện Dịch AI",
+"host": "truyendichai.top",
+"type": "novel",
+"ver": 2,
+"regexp": "^https?://(?:www\\.)?truyendichai\\.top/[^/?#]+/?$"
+},
+{
+"dir": "/home/claude/vbx/8c6ba06d1d",
+"name": "gongzicp",
+"host": "gongzicp.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www.|m.)gongzicp.com/novel-\\d+.html$"
+},
+{
+"dir": "/home/claude/vbx/412a4b96bb",
+"name": "NovelPhoenix",
+"host": "novelphoenix.net",
+"type": "novel",
+"ver": 1,
+"regexp": "^https?://(www\\.)?novelphoenix\\.net/(?:[a-z0-9-]+\\.html|[a-z0-9-]+/[^?]+\\.html|search|genre/[^?]+|hot-novel|most-popular|latest-release-novel|completed-novel|new-novel)(?:\\?.*)?$"
+},
+{
+"dir": "/home/claude/vbx/423cc21380",
+"name": "[Fanqie] Cà Chua C2",
+"host": "fanqienovel.com",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "fanqienovel\\.com/page/[0-9]+"
+},
+{
+"dir": "/home/claude/vbx/6601507b62",
+"name": "powanjuan",
+"host": "powanjuan.cc",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?powanjuan.(cc|me)/(.*?)/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/426aac5e74",
+"name": "LuotTruyen",
+"host": "luottruyen.net",
+"type": "comic",
+"ver": 2,
+"regexp": "https?://(?:www\\.)?luottruyen\\.net/[a-z0-9-]+(?:/chapter-[0-9a-z-]+)?/?"
+},
+{
+"dir": "/home/claude/vbx/c5f951c0ed",
+"name": "Wattpad",
+"host": "wattpad.com",
+"type": "novel",
+"ver": 2,
+"regexp": "https://www.wattpad.com/story/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/615d5837cc",
+"name": "Sàn Truyện",
+"host": "santruyen.com",
+"type": "novel",
+"ver": 2,
+"regexp": "(www.)?santruyen.com/[^/]+.html$"
+},
+{
+"dir": "/home/claude/vbx/171f989f95",
+"name": "Truyện Chữ Hay",
+"host": "truyenchuhay.org",
+"type": "novel",
+"ver": 2,
+"regexp": "(www.)?truyenchuhay.org/[0-9a-z-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/a2422ee1e9",
+"name": "Blog Truyện",
+"host": "blogtruyen.vn",
+"type": "comic",
+"ver": 7,
+"regexp": "(www.)?(m\\.)?blogtruyen.vn/\\d+/[0-9a-z-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/93590117e4",
+"name": "YouTube",
+"host": "youtube.com",
+"type": "video",
+"ver": 10,
+"regexp": "https?:\\/\\/(?:www\\.|m\\.)?(?:youtube\\.com|youtu\\.be)\\/.*"
+},
+{
+"dir": "/home/claude/vbx/3ede56510d",
+"name": "Baidu Translate",
+"host": "fanyi.baidu.com",
+"type": "translate",
+"ver": 3,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/51468eb20d",
+"name": "NetTruyenZ",
+"host": "nettruyenz.com",
+"type": "comic",
+"ver": 1,
+"regexp": "https?:\\/\\/(?:www\\.)?nettruyenz\\.com\\/(?:comic-)?[a-zA-Z0-9-]+\\/?"
+},
+{
+"dir": "/home/claude/vbx/4deb6f6a4b",
+"name": "Uaa",
+"host": "uaa.com",
+"type": "chinese_novel",
+"ver": 8,
+"regexp": "(www.|m.)?uaa.com/novel/(chapter|intro)[?]id=\\d+"
+},
+{
+"dir": "/home/claude/vbx/271dec9b16",
+"name": "HentaiCube -18+ (iOS)",
+"host": "hentaicube.xyz",
+"type": "comic",
+"ver": 15,
+"regexp": "hentaicube\\.xyz\\/read\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/e2136b4379",
+"name": "AI Chat",
+"host": "aistudio.google.com",
+"type": "ai",
+"ver": 18,
+"regexp": "^aichat://.*"
+},
+{
+"dir": "/home/claude/vbx/5a0d2b9070",
+"name": "Jjwxc-repo duongden💰✅",
+"host": "jjwxc.net",
+"type": "novel",
+"ver": 66,
+"regexp": "(?:https?://)?(?:(?:(?:www|my|m)\\.)?jjwxc\\.net/(?:onebook\\.php\\?[^\\s]*novelid=\\d+[^\\s]*|book2/\\d+[^\\s]*)|app-cdn\\.jjwxc\\.net/androidapi/novelbasicinfo\\?[^\\s]*novelId=\\d+[^\\s]*)"
+},
+{
+"dir": "/home/claude/vbx/1a9a046ef9",
+"name": "Truyện Full",
+"host": "truyenfull.today",
+"type": "novel",
+"ver": 4,
+"regexp": "(www.)?truyenfull.(vn|net|io|bio|vision|today)/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/36da0cc1dd",
+"name": "Sói Xám (Fanqie)",
+"host": "219.154.201.122:5006",
+"type": "chinese_novel",
+"ver": 24,
+"regexp": "https?://(?:www\\.)?(?:(?:(?:v2|20|v4|v5|api|v7|v8|v9|v10)\\.(?:czyl|langge)\\.(?:cf|tk)|219\\.154\\.201\\.122:5006)/online_detail\\?book_id=[^&]+|sangtacviet\\.[^/]+/truyen/fanqie/1/\\d+|fanqienovel\\.com/page/\\d+).*"
+},
+{
+"dir": "/home/claude/vbx/2fc734d8f8",
+"name": "DouJins",
+"host": "doujins.com",
+"type": "comic",
+"ver": 5,
+"regexp": "(www.)?doujins.com/.*/[0-9a-z-]+"
+},
+{
+"dir": "/home/claude/vbx/b1183d5aa7",
+"name": "tongrenquan",
+"host": "tongrenquan.org",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www\\.)?tongrenquan\\.org/tongren/\\d+\\.html"
+},
+{
+"dir": "/home/claude/vbx/1c95bdae8a",
+"name": "52shuku by QuocBao",
+"host": "52shuku.net",
+"type": "chinese_novel",
+"ver": 12,
+"regexp": "(?:https?://)?(?:(?:www|m)\\.)?52shuku\\.(?:vip|net)/(?:[^/?#]+/)+[^/?#]+\\.html(?:[?#].*)?"
+},
+{
+"dir": "/home/claude/vbx/b45cb4c491",
+"name": "Thích Đọc Truyện",
+"host": "thichdoctruyen.xyz",
+"type": "novel",
+"ver": 7,
+"regexp": "(www.)?thichdoctruyen.[a-z]+/doc-truyen/[^/]+\\d+$"
+},
+{
+"dir": "/home/claude/vbx/04b69315e0",
+"name": "Tranh 18",
+"host": "tranh18.com",
+"type": "comic",
+"ver": 1,
+"regexp": "(www.)?tranh18.com/comic/[0-9a-z-_]+"
+},
+{
+"dir": "/home/claude/vbx/5cbf661312",
+"name": "Blog Truyện Mới",
+"host": "blogtruyenmoi.com",
+"type": "comic",
+"ver": 1,
+"regexp": "(www.)?(m\\.)?blogtruyenmoi.com/\\d+/[0-9a-z-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/32ffae5287",
+"name": "LightNovel Reader",
+"host": "readlightnovel.app",
+"type": "novel",
+"ver": 4,
+"regexp": "(lightnovelreader|lnreader|readlightnovel).(org|me|app)/[^/]+?"
+},
+{
+"dir": "/home/claude/vbx/59f85da0d8",
+"name": "SS Truyện",
+"host": "sstruyen.vn",
+"type": "novel",
+"ver": 6,
+"regexp": "(www.)?sstruyen.(com|vn)/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/4281dca984",
+"name": "Mê Đọc Truyện",
+"host": "medoctruyen.vn",
+"type": "novel",
+"ver": 1,
+"regexp": "medoctruyen\\.vn/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/9839d86ae8",
+"name": "Kho Truyện Chữ",
+"host": "khotruyenchu.fun",
+"type": "novel",
+"ver": 3,
+"regexp": "(www\\.)?khotruyenchu\\.fun/.*"
+},
+{
+"dir": "/home/claude/vbx/4bfa2231b4",
+"name": "Tadu (塔读)",
+"host": "tadu.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www.)?(m.)?tadu.com/book/\\d+/?"
+},
+{
+"dir": "/home/claude/vbx/fceb4233ca",
+"name": "jingwubook",
+"host": "jingwubook.com",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "(www.|m.)?jingwubook.com/(book|xs)/\\d+(/?|\\.html)"
+},
+{
+"dir": "/home/claude/vbx/67c6e3642e",
+"name": "[QQ] html5",
+"host": "novel.html5.qq.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "novel\\.html5\\.qq\\.com/.*|bookshelf\\.html5\\.qq\\.com/.*"
+},
+{
+"dir": "/home/claude/vbx/d37ef477a9",
+"name": "Alphapolis",
+"host": "alphapolis.co.jp",
+"type": "novel",
+"ver": 1,
+"regexp": "^https?://(www\\.)?alphapolis\\.co\\.jp/novel/\\d+/\\d+(/episode/\\d+)?/?$"
+},
+{
+"dir": "/home/claude/vbx/8f080e0519",
+"name": "Kỳ Huyễn",
+"host": "kyhuyen.com",
+"type": "novel",
+"ver": 1,
+"regexp": "kyhuyen\\.com/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/0cc8a53869",
+"name": "HentaiCube",
+"host": "hentaicube.xyz",
+"type": "comic",
+"ver": 3,
+"regexp": "hentaicube\\.xyz\\/read\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/c0acd2c343",
+"name": "Mimi Hentai",
+"host": "mimihentai.com",
+"type": "comic",
+"ver": 2,
+"regexp": "(www.)?mimihentai.com/g/\\d+"
+},
+{
+"dir": "/home/claude/vbx/880588042f",
+"name": "Trạm B",
+"host": "bilibili.com",
+"type": "video",
+"ver": 2,
+"regexp": "(?:www\\.)?bilibili\\.com/(?:bangumi/play/(?:ss|ep)[0-9]+|video/BV[0-9A-Za-z]{10})"
+},
+{
+"dir": "/home/claude/vbx/0af287d9e0",
+"name": "FanMTL",
+"host": "fanmtl.com",
+"type": "novel",
+"ver": 1,
+"regexp": "(www\\.)?fanmtl\\.com"
+},
+{
+"dir": "/home/claude/vbx/1fd70044ad",
+"name": "256wx",
+"host": "256wx.net",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "www.256wx.net/read/\\d+/"
+},
+{
+"dir": "/home/claude/vbx/ec36c26d51",
+"name": "ihuaben",
+"host": "ihuaben.com",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "https://www.ihuaben.com/(.*?)$"
+},
+{
+"dir": "/home/claude/vbx/157289be2e",
+"name": "HHKungFu",
+"host": "hhkungfu.ee",
+"type": "video",
+"ver": 4,
+"regexp": "(www\\.)?hhkungfu\\.ee/.*"
+},
+{
+"dir": "/home/claude/vbx/954bc9b208",
+"name": "Dingdian 【顶点】",
+"host": "dingdian666.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?((dingdian666.com/xiaoshuo/\\d+/?$)|(m.dingdian666.com/ebooks/\\d+/?$))"
+},
+{
+"dir": "/home/claude/vbx/c698e150ae",
+"name": "8book.com",
+"host": "8book.com",
+"type": "chinese_novel",
+"ver": 7,
+"regexp": "https?:\\/\\/(?:(?:www\\.)?8book\\.com\\/(?:novelbooks|read)\\/\\d+\\/?(?:\\?\\d+)?|sport\\.thepaperbooks\\.com\\/read\\/\\d+\\/?(?:\\?\\d+)?|finance\\.binaccount\\.com\\/read\\/\\d+\\/?(?:\\?\\d+)?)"
+},
+{
+"dir": "/home/claude/vbx/dcf2212954",
+"name": "shencou 📖",
+"host": "shencou.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?shencou.com/(books/read_\\d+.html|info.php(.)aid=\\d+)"
+},
+{
+"dir": "/home/claude/vbx/1b573c0d18",
+"name": "Web Truyện Dịch",
+"host": "webtruyendich.com",
+"type": "novel",
+"ver": 1,
+"regexp": "^https://webtruyendich\\.com/truyen/.*"
+},
+{
+"dir": "/home/claude/vbx/f6ec64d7fd",
+"name": "Hang Truyện Chữ",
+"host": "hangtruyenchu.com",
+"type": "novel",
+"ver": 1,
+"regexp": "(www\\.)?hangtruyenchu\\.com/truyen/[0-9a-z-]+(/.*)?$"
+},
+{
+"dir": "/home/claude/vbx/140c7253d1",
+"name": "Tiktok TTS",
+"host": "tiktok.com",
+"type": "tts",
+"ver": 1,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/79c569ab4e",
+"name": "Bing TTS",
+"host": "bing.com",
+"type": "tts",
+"ver": 1,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/ad86c6c673",
+"name": "Xiaoshubao",
+"host": "xiaoshubao.net",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?xiaoshubao.net/read/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/ef3a176200",
+"name": "AnimeVsub",
+"host": "animevsub.app",
+"type": "video",
+"ver": 1,
+"regexp": "(www\\.)?animevsub\\.app/.*"
+},
+{
+"dir": "/home/claude/vbx/e61ef082f7",
+"name": "Truyện dịch miễn phí",
+"host": "comnguoinovel.com",
+"type": "novel",
+"ver": 17,
+"regexp": "https://(truyendichmienphi|comnguoinovel).com/(.*?)$"
+},
+{
+"dir": "/home/claude/vbx/4a9526278b",
+"name": "MangaDex",
+"host": "mangadex.org",
+"type": "comic",
+"ver": 3,
+"regexp": "mangadex\\.org/title/.*"
+},
+{
+"dir": "/home/claude/vbx/78e1fd5190",
+"name": "diyi69",
+"host": "diyi69.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?diyi69.com/diyi/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/472f0578b7",
+"name": "LN Kuro",
+"host": "lnkuro.top",
+"type": "novel",
+"ver": 16,
+"regexp": "lnkuro\\.top\\/.+"
+},
+{
+"dir": "/home/claude/vbx/903919c08d",
+"name": "xiaojiaren",
+"host": "xiaojiaren.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(m.|www.)?xiaojiaren.com/book/\\d+.html"
+},
+{
+"dir": "/home/claude/vbx/eff1d272e0",
+"name": "Zing Truyện",
+"host": "zingtruyen.store",
+"type": "novel",
+"ver": 7,
+"regexp": "(www.)?zingtruyen.(store|fan|top)/story/[0-9a-z-]+/\\d+.html"
+},
+{
+"dir": "/home/claude/vbx/5b76c3d364",
+"name": "NovelFull.Net",
+"host": "novelfull.net",
+"type": "novel",
+"ver": 2,
+"regexp": "(www\\.)?novelfull\\.net\\/(?:[a-z0-9-]+\\.html(\\?page=\\d+)?|[a-z0-9-]+\\/[^?]+\\.html(\\?page=\\d+)?|search\\?|genre\\/[^?]+(\\?page=\\d+)?|hot-novel|most-popular|latest-release-novel|completed-novel)\\/?$"
+},
+{
+"dir": "/home/claude/vbx/e282b2f342",
+"name": "Hentai2Read",
+"host": "hentai2read.com",
+"type": "comic",
+"ver": 2,
+"regexp": "(www.)?hentai2read.com/[^/]+/?"
+},
+{
+"dir": "/home/claude/vbx/49cba9a6eb",
+"name": "NovelCooks",
+"host": "novel.cooks.tw",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "novel\\.cooks\\.tw/novel\\.html\\?.*articleid=\\d+.*"
+},
+{
+"dir": "/home/claude/vbx/b14f1ceca1",
+"name": "Truyện Full-repo Đường đen",
+"host": "truyenfull.live",
+"type": "novel",
+"ver": 18,
+"regexp": "^https?:\\/\\/(?:www\\.)?truyenfull\\.live\\/[^/]+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/0c597fec4c",
+"name": "Luvevaland",
+"host": "luvevalandn2.co",
+"type": "novel",
+"ver": 7,
+"regexp": "(https?://)?(www\\.)?(lustaveland\\.com|luvevaland\\.co|luvevaland[ns]\\d*\\.co)/(truyen|truyen-tranh|tieu-thuyet)/[^/]+/?"
+},
+{
+"dir": "/home/claude/vbx/37bc416c64",
+"name": "OTruyen",
+"host": "otruyen.cc",
+"type": "comic",
+"ver": 24,
+"regexp": "(www.)?otruyen\\.(cc|net)/truyen-tranh/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/f92deb5718",
+"name": "搜笔趣阁",
+"host": "sobqg.com",
+"type": "chinese_novel",
+"ver": 9,
+"regexp": "https?://(?:www\\.)?sobqg\\.com/book/[\\w-]+\\.html"
+},
+{
+"dir": "/home/claude/vbx/595db26667",
+"name": "Grok AI",
+"host": "console.x.ai",
+"type": "ai",
+"ver": 1,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/916924ab3f",
+"name": "TrichTinhLau",
+"host": "trichtinhlau.com",
+"type": "novel",
+"ver": 8,
+"regexp": "trichtinhlau\\.com\\/doc-truyen\\/[^\\/]+\\/[^\\/]+"
+},
+{
+"dir": "/home/claude/vbx/bafb0fe571",
+"name": "Chất Xám",
+"host": "chatxam.info",
+"type": "novel",
+"ver": 1,
+"regexp": "(www.)?chatxam.info/story/(.*?)/?$"
+},
+{
+"dir": "/home/claude/vbx/1e2633562c",
+"name": "Douyin",
+"host": "douyin.com",
+"type": "video",
+"ver": 5,
+"regexp": "https?://(?:www\\.)?douyin\\.com/(?:video/\\d+/?(?:\\?[^#]*)?|jingxuan/?\\?(?:[^#&]*&)*modal_id=\\d+(?:&[^#]*)?)(?:#.*)?"
+},
+{
+"dir": "/home/claude/vbx/704effa0c9",
+"name": "QuyKiep",
+"host": "quykiep.com",
+"type": "novel",
+"ver": 5,
+"regexp": "https://quykiep.com/(.*?)$"
+},
+{
+"dir": "/home/claude/vbx/f9557f40e0",
+"name": "rourouwu",
+"host": "wap.rourouwu.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www.|wap.)?rourouwu.com/novel/\\d+.html"
+},
+{
+"dir": "/home/claude/vbx/f1d5c28b59",
+"name": "QuyKiep",
+"host": "quykiep.com",
+"type": "novel",
+"ver": 1,
+"regexp": "https://quykiep.com/(.*?)$"
+},
+{
+"dir": "/home/claude/vbx/e842b3e3c4",
+"name": "Navy Team Comic",
+"host": "navyteams.com",
+"type": "comic",
+"ver": 6,
+"regexp": "https?:\\/\\/(?:www\\.)?navyteam(?:n|z|s)\\.com\\/truyen\\/[^/]+(/[^/]+)?/?$"
+},
+{
+"dir": "/home/claude/vbx/f63af5f2de",
+"name": "uukanshu",
+"host": "uukanshu.cc",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(https?://)?(www\\.)?uukanshu\\.cc/book/\\d+"
+},
+{
+"dir": "/home/claude/vbx/f299f89d86",
+"name": "ffxs8",
+"host": "ffxs8.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www.|m.)?ffxs8.com/(.*?)/\\d+(/?|\\.html)"
+},
+{
+"dir": "/home/claude/vbx/1e5eee9378",
+"name": "[Ciweimao] sv2 Nhimmeo 💰",
+"host": "sv2.nhimmeo.ovh",
+"type": "chinese_novel",
+"ver": 12,
+"regexp": "sv2.nhimmeo.(cf|ovh)/(book|detail)/(\\d+)"
+},
+{
+"dir": "/home/claude/vbx/d8359fd4e6",
+"name": "biquxs",
+"host": "biquxs.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?biquxs.com/book/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/e9860188f1",
+"name": "NguonC",
+"host": "phim.nguonc.com",
+"type": "video",
+"ver": 6,
+"regexp": "(www\\.)?phim\\.nguonc\\.com/phim/.*"
+},
+{
+"dir": "/home/claude/vbx/bce53d6f9f",
+"name": "Truyện Full",
+"host": "truyenfull.live",
+"type": "novel",
+"ver": 14,
+"regexp": "(www.)?truyenfull.(live|today|vn|net|io|bio|vision)/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/c26a767750",
+"name": "Manhua Gui",
+"host": "manhuagui.com",
+"type": "comic",
+"ver": 4,
+"regexp": "(www.)?(m.)?(manhuagui||mhgui).com/comic/\\d+/?"
+},
+{
+"dir": "/home/claude/vbx/b64cf4ca9b",
+"name": "Manhuarock",
+"host": "manhuarock.net",
+"type": "comic",
+"ver": 3,
+"regexp": "manhuarock.net/[a-zA-Z0-9-/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/60ca1433e8",
+"name": "123 Truyện",
+"host": "123truyen.vn",
+"type": "novel",
+"ver": 14,
+"regexp": "(www.)?123truyen.vn/[0-9a-z-]+"
+},
+{
+"dir": "/home/claude/vbx/7f6b1c1c79",
+"name": "Mip Ciweimao 💰",
+"host": "mip.ciweimao.com",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "(mip.|wap.|www.)ciweimao.com/(book|chapter)/(\\d+)"
+},
+{
+"dir": "/home/claude/vbx/58fc2a38d5",
+"name": "Dưa Hấu",
+"host": "xgmf.zuanqianyi.com",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "https?://xgmf\\.zuanqianyi\\.com/glory/free/1110\\?[^#]*bookId=.+"
+},
+{
+"dir": "/home/claude/vbx/f0c6fda112",
+"name": "速读谷 - Sudugu",
+"host": "suduguu.com",
+"type": "chinese_novel",
+"ver": 10,
+"regexp": "https?://(?:www\\.)?(?:sudugu\\.(?:org|com)|suduguu\\.com)/\\d+/(?:\\d+(?:-\\d+)?\\.html)?"
+},
+{
+"dir": "/home/claude/vbx/c8ca5d0766",
+"name": "bqgma",
+"host": "bqgma.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(m.)?bqgma.com/index/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/f823c5a9bb",
+"name": "Kakuyomu",
+"host": "kakuyomu.jp",
+"type": "novel",
+"ver": 1,
+"regexp": "https?://(?:www\\.)?kakuyomu\\.jp/works/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/e82bd59193",
+"name": "La Cà Truyện",
+"host": "lacatruyen.homes",
+"type": "novel",
+"ver": 9,
+"regexp": "(www\\.)?lacatruyen\\.(casa|homes|xyz|me|net|pro|com|bar|info|life|vip|world|buzz|online|store|shop|art|fit|ink|live)/(?:story|store/story)/[0-9a-zA-Z-]+(?:[/?#].*)?$"
+},
+{
+"dir": "/home/claude/vbx/0215a60b81",
+"name": "masiro 📖🔑",
+"host": "masiro.me",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "masiro.me/admin/novelView(.*?)"
+},
+{
+"dir": "/home/claude/vbx/1ee7b16c5d",
+"name": "Timotxt",
+"host": "timotxt.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www\\.)?timotxt\\.com/\\d+"
+},
+{
+"dir": "/home/claude/vbx/c2bdfa3c00",
+"name": "DeepSeek Translate",
+"host": "platform.deepseek.com",
+"type": "translate",
+"ver": 4,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/1c27ecba14",
+"name": "Gemini Translate",
+"host": "ai.google.dev",
+"type": "translate",
+"ver": 14,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/17074f2a2e",
+"name": "Motchill",
+"host": "envasion.net",
+"type": "video",
+"ver": 1,
+"regexp": "envasion\\.net/(phim-|xem-phim/|the-loai/|quoc-gia/).*"
+},
+{
+"dir": "/home/claude/vbx/4d6b170a72",
+"name": "TsuMiNo",
+"host": "tsumino.com",
+"type": "comic",
+"ver": 1,
+"regexp": "(www.)?tsumino.com/entry/\\d+"
+},
+{
+"dir": "/home/claude/vbx/1dcef5baa5",
+"name": "AliceSW",
+"host": "alicesw.com",
+"type": "chinese_novel",
+"ver": 6,
+"regexp": "^https?://(www\\.)?alicesw\\.com/"
+},
+{
+"dir": "/home/claude/vbx/5dfe55cd25",
+"name": "Truyentranhdammyy",
+"host": "truyentranhdammyy.site",
+"type": "comic",
+"ver": 1,
+"regexp": "https://truyentranhdammyy.site/manga/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/d7cf85f48e",
+"name": "Thế Giới Truyện",
+"host": "thegioitruyen.vn",
+"type": "comic",
+"ver": 3,
+"regexp": "https?:\\/\\/(?:www\\.)?thegioitruyen\\.vn\\/truyen\\/[a-zA-Z0-9-]+\\/?"
+},
+{
+"dir": "/home/claude/vbx/782d9d0af7",
+"name": "bqxs520",
+"host": "bqxs520.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?bqxs520.com/\\d+/?"
+},
+{
+"dir": "/home/claude/vbx/c9e96c1c9a",
+"name": "Motchill",
+"host": "motchille.tv",
+"type": "video",
+"ver": 1,
+"regexp": "(www.)?motchille?\\.[a-z]+/phim/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/7bd14de923",
+"name": "NovelFull",
+"host": "novelfull.com",
+"type": "novel",
+"ver": 1,
+"regexp": "(www.)?novelfull\\.(com|net|org|io|vip|me)/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/fc280123cb",
+"name": "Legado",
+"host": "github.com",
+"type": "chinese_novel",
+"ver": 16,
+"regexp": "((\\d+)[.](\\d+)[.](\\d+)[.](\\d+)|localhost):1122/(.*?)"
+},
+{
+"dir": "/home/claude/vbx/fdc543d6ec",
+"name": "FanMTL",
+"host": "fanmtl.com",
+"type": "novel",
+"ver": 2,
+"regexp": "^(?:https?:\\/\\/)?(?:www\\.)?fanmtl\\.com\\/novel\\/[^\\/]+(?:_\\d+)?\\.html$"
+},
+{
+"dir": "/home/claude/vbx/55429e3952",
+"name": "JulyComic",
+"host": "julycomics.site",
+"type": "comic",
+"ver": 2,
+"regexp": "https://(?:www\\.)?julycomics\\.(?:site|com)/(comic|novel)/story/[^/]+(/[^/]+)?/?$"
+},
+{
+"dir": "/home/claude/vbx/7ed9122e7c",
+"name": "[dmxs]耽美小说",
+"host": "dmxs.org",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "https?:\\/\\/(?:www\\.)?dmxs\\.org\\/(?:book|gdjk|cycs|xhly|wyjj|tlxy|BLTR|GLBH|wucp|view)\\/[^\\s]+"
+},
+{
+"dir": "/home/claude/vbx/f1061f35cc",
+"name": "mibiquge",
+"host": "mibiquge.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?mibiquge.com/\\d+_\\d+/index.html"
+},
+{
+"dir": "/home/claude/vbx/5c44fa699d",
+"name": "85 Novel",
+"host": "85novel.com",
+"type": "chinese_novel",
+"ver": 7,
+"regexp": "(https?://)?(www\\.)?85novel\\.com/book/\\d+(?:/\\d+)?\\.html$"
+},
+{
+"dir": "/home/claude/vbx/0e1c046681",
+"name": "NguonC (Proxy)",
+"host": "phim.nguonc.com",
+"type": "video",
+"ver": 1,
+"regexp": "(www\\.)?phim\\.nguonc\\.com/phim/.*"
+},
+{
+"dir": "/home/claude/vbx/ad6d62eb0d",
+"name": "言情小说阁 (APP)",
+"host": "xianqihaotianmi.org",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?api.(beiniai|basusan|daislou).com/novel/[A-za-z0-9]+/?"
+},
+{
+"dir": "/home/claude/vbx/9ed2df0d3a",
+"name": "trxsme",
+"host": "trxs.me",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www\\.)?trxs\\.(me|org)/tongren/\\d+\\.html"
+},
+{
+"dir": "/home/claude/vbx/34920368b3",
+"name": "Mê Truyện CV",
+"host": "metruyencv.com.vn",
+"type": "novel",
+"ver": 5,
+"regexp": "(www\\.)?metruyencv\\.com\\.vn/[^/]+(?:/chuong-[^/?#]+)?/?$"
+},
+{
+"dir": "/home/claude/vbx/e40b2a4eed",
+"name": "Cool18 Novel",
+"host": "cool18.com",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "cool18\\.com/bbs4/index\\.php\\?.*tid=\\d+"
+},
+{
+"dir": "/home/claude/vbx/fa4a20d5c9",
+"name": "hljzc",
+"host": "hljzc.cc",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?hljzc.cc/book-\\d+.html"
+},
+{
+"dir": "/home/claude/vbx/ccdb37f583",
+"name": "Storya",
+"host": "storya.click",
+"type": "novel",
+"ver": 1,
+"regexp": "(www\\.)?storya\\.click/truyen/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/7bf7a89766",
+"name": "AllShorts",
+"host": "allshorts.net",
+"type": "video",
+"ver": 5,
+"regexp": "(https?://)?(www\\.)?allshorts\\.net/(?:(?:drama/[^/?#]+)|(?:watch/[^/?#]+/[0-9]+)|(?:[a-z0-9-]+/detail/[^/?#]+))/?$"
+},
+{
+"dir": "/home/claude/vbx/a56198e136",
+"name": "168txt",
+"host": "168txt.cc",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?168txt.cc/mh/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/43711a097b",
+"name": "PhimFun",
+"host": "phimfun.net",
+"type": "video",
+"ver": 1,
+"regexp": "phimfun\\.net/(phim|xem-phim)/.*"
+},
+{
+"dir": "/home/claude/vbx/7e818f2160",
+"name": "Backup Nhimmeo",
+"host": "backup.nhimmeo.cf",
+"type": "chinese_novel",
+"ver": 13,
+"regexp": "backup.nhimmeo.(cf|ovh)/(book|detail)/(\\d+)"
+},
+{
+"dir": "/home/claude/vbx/1f3fe359d7",
+"name": "yazhouse8",
+"host": "yazhouse8.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?yazhouse8.com/article/(.*?)"
+},
+{
+"dir": "/home/claude/vbx/70754664bc",
+"name": "Kenh Truyen Ma",
+"host": "kenhtruyenma.com",
+"type": "video",
+"ver": 1,
+"regexp": "(www\\.)?kenhtruyenma\\.com/(audio|truyen-).*"
+},
+{
+"dir": "/home/claude/vbx/91044560f9",
+"name": "FreeReels",
+"host": "free-reels.com",
+"type": "video",
+"ver": 3,
+"regexp": "(https?:\\/\\/(?:www\\.)?free-reels\\.com\\/[^\\s]+|freereels:[^\\s]+)"
+},
+{
+"dir": "/home/claude/vbx/67d2c2edfe",
+"name": "ZumiNovel",
+"host": "zuminovel.com",
+"type": "novel",
+"ver": 4,
+"regexp": "https?:\\/\\/(?:www\\.)?zuminovel\\.com\\/novel\\/[a-zA-Z0-9-]+\\/?(?:\\?.*)?$"
+},
+{
+"dir": "/home/claude/vbx/22da8b3162",
+"name": "[QQ] Cánh Cụt ",
+"host": "book.qq.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "book\\.qq\\.com"
+},
+{
+"dir": "/home/claude/vbx/7ff9e18110",
+"name": "Góc Truyện Tranh",
+"host": "goctruyentranhvui41.com",
+"type": "comic",
+"ver": 1,
+"regexp": "https?://(?:www\\.)?goctruyentranhvui[0-9]+\\.com/truyen/[a-zA-Z0-9-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/97dd5b3426",
+"name": "Mọt Truyện",
+"host": "mottruyen.app",
+"type": "novel",
+"ver": 2,
+"regexp": "https?://(?:www\\.)?mottruyen\\.app/[^/?#]+/\\d+(?:/chuong(?:/\\d+)?)?/?(?:[?#].*)?$"
+},
+{
+"dir": "/home/claude/vbx/5789735f55",
+"name": "zhaoshuyuan",
+"host": "zhaoshuyuan.com",
+"type": "chinese_novel",
+"ver": 9,
+"regexp": "(www.)?(((uukanshu|zhaoshuyuan).(com|net)/b/[^/]+/?)|(sj.(uukanshu|zhaoshuyuan).(com|net)/book.aspx.id=.*?))"
+},
+{
+"dir": "/home/claude/vbx/606adea85b",
+"name": "E Hentai",
+"host": "e-hentai.org",
+"type": "comic",
+"ver": 3,
+"regexp": "(https?://)?(www\\.)?e-hentai\\.org/g/\\d+/[a-z0-9]+/?"
+},
+{
+"dir": "/home/claude/vbx/a6762f055d",
+"name": "ManhuaVN [Free]",
+"host": "manhuavn.top",
+"type": "comic",
+"ver": 2,
+"regexp": "(www.)?(manhuavn.top|mhvn.truyensieuhay.com)/[0-9a-z-]+(.html)?"
+},
+{
+"dir": "/home/claude/vbx/842b225a81",
+"name": "Koanchay",
+"host": "koanchay.net",
+"type": null,
+"ver": 12,
+"regexp": "(www.)?koanchay.(com|net|info|org)/truyen/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/88ce960509",
+"name": "Zumi Novel",
+"host": "zuminovel.com",
+"type": "novel",
+"ver": 1,
+"regexp": "(www.)?zuminovel.com/novel/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/8ffbf61eea",
+"name": "Omega Scans [EN]",
+"host": "omegascans.org",
+"type": "comic",
+"ver": 1,
+"regexp": "(www.)?omegascans.org/series/[0-9a-z-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/82c18c1ce1",
+"name": "alicesw",
+"host": "alicesw.com",
+"type": "chinese_novel",
+"ver": 46,
+"regexp": "(www\\.)?alicesw\\.com.*"
+},
+{
+"dir": "/home/claude/vbx/1d37df5704",
+"name": "sinodan",
+"host": "sinodan.link",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www.)?sinodan.link/list/\\d+.html"
+},
+{
+"dir": "/home/claude/vbx/9b67c96995",
+"name": "Douban-repo duongden💰",
+"host": "read.douban.com",
+"type": "chinese_novel",
+"ver": 5,
+"regexp": "https?://read\\.douban\\.com/(?:reader/)?(?:column|ebook|essay)/\\d+(?:/[^?#]*)?(?:[?#].*)?"
+},
+{
+"dir": "/home/claude/vbx/9190c7485a",
+"name": "VieFlix",
+"host": "vieflix.top",
+"type": "video",
+"ver": 1,
+"regexp": "(vieflix\\.top|phimapi\\.com)/phim/[^/]+"
+},
+{
+"dir": "/home/claude/vbx/9f7b05f364",
+"name": "ASMR+18",
+"host": "asmr18.fans",
+"type": "audio",
+"ver": 1,
+"regexp": "(https?://)?(www\\.)?asmr18\\.fans/(boys|girls|allages)/rj\\d+/?"
+},
+{
+"dir": "/home/claude/vbx/8e565e9197",
+"name": "Gemini Translate change Model V2",
+"host": "gemini.google.com",
+"type": "translate",
+"ver": 96,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/d83ddb413b",
+"name": "Mê Truyện Chữ",
+"host": "metruyenchu.com.vn",
+"type": "novel",
+"ver": 8,
+"regexp": "(https?://)?(?:(?:www|m)\\.)?(?:metruyenchuvn\\.(?:org|com)|metruyenchu\\.com\\.vn)/[^/?#]+(?:/[^?#]*)?(?:[?#].*)?"
+},
+{
+"dir": "/home/claude/vbx/8533d78614",
+"name": "Twitch",
+"host": "twitch.tv",
+"type": "video",
+"ver": 1,
+"regexp": "(https?:\\/\\/(?:www\\.)?twitch\\.tv\\/(?:videos\\/\\d+|[A-Za-z0-9_]{3,25})(?:[\\/?#][^\\s]*)?|\\d{8,})"
+},
+{
+"dir": "/home/claude/vbx/a69254a54a",
+"name": "Docsach24",
+"host": "docsach24.co",
+"type": "novel",
+"ver": 1,
+"regexp": "https://docsach24.co/e-book/(.*?).html"
+},
+{
+"dir": "/home/claude/vbx/77dadf2133",
+"name": "Phimtv",
+"host": "phimtv.my",
+"type": "video",
+"ver": 2,
+"regexp": "phimtv\\.my/phim/.*"
+},
+{
+"dir": "/home/claude/vbx/d041ab52c6",
+"name": "Boylove Bất Tử",
+"host": "boylovebattu.com",
+"type": "novel",
+"ver": 3,
+"regexp": "https://boylovebattu.com/truyen/[^/]+(/[^/]+)?/?$"
+},
+{
+"dir": "/home/claude/vbx/11dcb346c7",
+"name": "Sinodan",
+"host": "sinodan.link",
+"type": "novel",
+"ver": 17,
+"regexp": "(www.)?sinodan.link/[^/]+"
+},
+{
+"dir": "/home/claude/vbx/5f300c0bbb",
+"name": "Truyện 35",
+"host": "truyen35.vn",
+"type": "novel",
+"ver": 2,
+"regexp": "(www.)?truyen35.vn/(.*?)"
+},
+{
+"dir": "/home/claude/vbx/61f0d2a5b2",
+"name": "Edge Translate",
+"host": "edge.microsoft.com",
+"type": "translate",
+"ver": 2,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/dfb4fedaa2",
+"name": "truyenfree",
+"host": "truyenfree.org",
+"type": "novel",
+"ver": 2,
+"regexp": "https://truyenfree.org/(.*?)$"
+},
+{
+"dir": "/home/claude/vbx/aef19c8324",
+"name": "Hako Novel",
+"host": "docln.sbs",
+"type": "novel",
+"ver": 1,
+"regexp": "(www.)?(ln.hako.vn|ln.hako.re|docln.net|docln.sbs)/[^/]+/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/d98136ffff",
+"name": "MeTruyenChuFake",
+"host": "metruyenchu.com.vn",
+"type": "novel",
+"ver": 1,
+"regexp": "(www.)?metruyenchu.com.vn/[^/]+"
+},
+{
+"dir": "/home/claude/vbx/6ccc172935",
+"name": "Grok Translate",
+"host": "console.x.ai",
+"type": "translate",
+"ver": 4,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/dd18377df2",
+"name": "Gemini TTS",
+"host": "gemini.google.com",
+"type": "tts",
+"ver": 1,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/aab15eeced",
+"name": "MeTruyenChu",
+"host": "metruyenchu.com.vn",
+"type": "novel",
+"ver": 5,
+"regexp": "(www.)?metruyenchu.com.vn/[^/]+"
+},
+{
+"dir": "/home/claude/vbx/860fdf202c",
+"name": "69书吧",
+"host": "69shu.xyz",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "https?:\\/\\/(?:www\\.)?69shu\\.xyz\\/book\\/\\d+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/fd1badcba8",
+"name": "Viet69 -18+",
+"host": "viet69.be",
+"type": "video",
+"ver": 6,
+"regexp": "viet69\\.[a-z]+/(?:bai-viet/)?[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/4bb09c692c",
+"name": "Showbox",
+"host": "pixnet.cc",
+"type": "video",
+"ver": 5,
+"regexp": "https?:\\/\\/(?:www\\.)?(?:pixnet\\.cc|rophims\\.(?:ac|fm)|rophimzz\\.live|showbox\\.run)\\/(?:phim|xem-phim)\\/[^\\s]+"
+},
+{
+"dir": "/home/claude/vbx/ed82e6165b",
+"name": "Bạch Ngọc Sách",
+"host": "bachngocsach.cc",
+"type": "novel",
+"ver": 14,
+"regexp": "(bachngocsach.com|truyenbns.com|bachngocsach.com.vn|bachngoc.net|bnsach.com|bachngocsach.cc)/reader/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/01f36f2f9b",
+"name": "book18",
+"host": "book18.org",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "(www.)?book18.org/(book|article)/(.*?)?$"
+},
+{
+"dir": "/home/claude/vbx/076bc64cc4",
+"name": "kkphim",
+"host": "kkphim.com",
+"type": "video",
+"ver": 1,
+"regexp": "kkphim.com/phim/.*"
+},
+{
+"dir": "/home/claude/vbx/8eeb560684",
+"name": "Truyện Chữ",
+"host": "metruyenchu.vn",
+"type": "novel",
+"ver": 6,
+"regexp": "(www.)?(truyenchu|metruyenchu).vn/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/d4830ccfff",
+"name": "Pixiv Novel",
+"host": "pixiv.net",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "(www.|m.)?pixiv.net/novel/show.php(.*?)"
+},
+{
+"dir": "/home/claude/vbx/182fbbc426",
+"name": "iQIYI",
+"host": "iq.com",
+"type": "video",
+"ver": 3,
+"regexp": "https?:\\/\\/(?:www\\.)?iq\\.com\\/(?:play|album)\\/.*"
+},
+{
+"dir": "/home/claude/vbx/3f6c804050",
+"name": "Truyện GG",
+"host": "truyengg.com",
+"type": "comic",
+"ver": 1,
+"regexp": "(www.)?truyengg.com/truyen-tranh/[0-9a-z-]+.html"
+},
+{
+"dir": "/home/claude/vbx/90955c82aa",
+"name": "YOUKU",
+"host": "youku.tv",
+"type": "video",
+"ver": 1,
+"regexp": "https?:\\/\\/(?:www\\.|so\\.)?youku\\.tv\\/(?:v\\/v_show\\/id_[^\\s?#]+\\.html|v_nextstage\\/id_[^\\s?#]+\\.html|search_video\\/q_[^\\s]+)[^\\s]*"
+},
+{
+"dir": "/home/claude/vbx/436ba61cb3",
+"name": "Frostedsakura Stash",
+"host": "stash.frostedsakura.my.id",
+"type": "video",
+"ver": 3,
+"regexp": "(https?://)?stash\\.frostedsakura\\.my\\.id/[^@/][^/]*/.+"
+},
+{
+"dir": "/home/claude/vbx/355be905c9",
+"name": "ReadManga.Org",
+"host": "readmanga.org",
+"type": "comic",
+"ver": 1,
+"regexp": "readmanga.org/[^/]+?"
+},
+{
+"dir": "/home/claude/vbx/57e010858b",
+"name": "readcomiconline",
+"host": "readcomiconline.li",
+"type": "comic",
+"ver": 2,
+"regexp": "readcomiconline.li/Comic/[A-Za-z0-9_.-]+$"
+},
+{
+"dir": "/home/claude/vbx/22455b1aa3",
+"name": "Râu Đỏ Nhimmeo",
+"host": "raudo.nhimmeo.cf",
+"type": "chinese_novel",
+"ver": 8,
+"regexp": "raudo.nhimmeo.cf/site/.*?/.*?"
+},
+{
+"dir": "/home/claude/vbx/a98fafaab1",
+"name": "69书吧",
+"host": "69shuba.com",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "https?:\\/\\/(?:www\\.)?69shuba\\.com\\/(?:book|txt)\\/[^\\s]+"
+},
+{
+"dir": "/home/claude/vbx/b53c56af2e",
+"name": "Hako Novel",
+"host": "docln.sbs",
+"type": "novel",
+"ver": 13,
+"regexp": "(www.)?(ln.hako.vn|ln.hako.re|docln.net|docln.sbs)/[^/]+/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/d32d1d6c8a",
+"name": "Tàng Thư Viện",
+"host": "tangthuvien.net",
+"type": "novel",
+"ver": 11,
+"regexp": "(www.)?(m.)?(truyen.|ngontinh.)?tangthuvien.[a-z]+/doc-truyen/[^/]+$"
+},
+{
+"dir": "/home/claude/vbx/e4019b6462",
+"name": "Kakuyomu",
+"host": "kakuyomu.jp",
+"type": "novel",
+"ver": 1,
+"regexp": "(https?://)?kakuyomu\\.jp/works/\\d+/?"
+},
+{
+"dir": "/home/claude/vbx/369e171b1e",
+"name": "Ưng Tỷ Comics",
+"host": "ungtycomics.net",
+"type": "comic",
+"ver": 4,
+"regexp": "^https?://(?:www\\.)?ungtycomics(?:(?:en|nay)\\.com|\\.net|\\.com)/(?:truyen/[^/?#]+(?:/chap-[^/?#]+)?/?|[^/?#]+\\.html)(?:[?#].*)?$"
+},
+{
+"dir": "/home/claude/vbx/42bf501425",
+"name": "Fanqienovel - LV",
+"host": "fanqienovel.com",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "https://fanqienovel.com/page/\\d+"
+},
+{
+"dir": "/home/claude/vbx/ffb47fd815",
+"name": "TruyenQQ",
+"host": "truyenqq.com.vn",
+"type": "comic",
+"ver": 2,
+"regexp": "https?://(?:www\\.)?truyenqq\\.com\\.vn/[a-zA-Z0-9-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/0c487b7cc8",
+"name": "vivutruyencom",
+"host": "vivutruyen.com",
+"type": "novel",
+"ver": 1,
+"regexp": "^(?:https?:\\/\\/)?(?:www\\.)?vivutruyen\\.com\\/truyen\\/[0-9a-z-]+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/92232842b0",
+"name": "biqugeabc",
+"host": "biqugeabc.com",
+"type": "chinese_novel",
+"ver": 5,
+"regexp": "(www.|m.)?biqugeabc.com/(b|book)/\\d+(/?|\\.html)"
+},
+{
+"dir": "/home/claude/vbx/f7093ca0d0",
+"name": "TruyenDich.AI",
+"host": "truyendich.space",
+"type": "novel",
+"ver": 3,
+"regexp": "(https://)?(www\\.)?truyendich\\.space/doc-truyen/(?:ai/|cv/)?[0-9A-Za-z-]+(?:/chuong-[0-9]+)?(?:[/?#].*)?$"
+},
+{
+"dir": "/home/claude/vbx/2bf706bf60",
+"name": "Royal Road",
+"host": "royalroad.com",
+"type": "novel",
+"ver": 1,
+"regexp": "(www.)?royalroad.com/fiction/(\\d+)/[A-Za-z-].+"
+},
+{
+"dir": "/home/claude/vbx/0357f4e267",
+"name": "Gấu Mèo Team",
+"host": "gaumeoteam.com",
+"type": "novel",
+"ver": 1,
+"regexp": "https://gaumeoteam.com/manga/[^/]+(/[^/]+)?/?$"
+},
+{
+"dir": "/home/claude/vbx/5aa78d3212",
+"name": "qiushubang",
+"host": "qiushubang.me",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "(www.|m.)qiushubang(.com|.me)/index/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/83d7dae9f5",
+"name": "2shuquge",
+"host": "2shuquge.net",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?2shuquge.net/b/\\d+/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/06d33cbc06",
+"name": "Beeng",
+"host": "beeng.org",
+"type": "comic",
+"ver": 5,
+"regexp": "(www.)?(beeng.net|beeng.org)/[^/]+\\d+.html"
+},
+{
+"dir": "/home/claude/vbx/a3173b0104",
+"name": "101kks",
+"host": "101kks.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "https?:\\/\\/(?:www\\.)?101kks\\.com\\/book\\/\\d+\\.html$"
+},
+{
+"dir": "/home/claude/vbx/e2e500be9d",
+"name": "Truyện Zhihu Tổng Hợp",
+"host": "truyendexuat.com",
+"type": "novel",
+"ver": 10,
+"regexp": "^https?:\\/\\/(?:www\\.)?(?:hoamattroi\\.site|nguyetmongthu\\.com|toctruyen\\.net|yeutruyen\\.me|nguyetlau\\.top|bachngoclau\\.com|comong\\.(?:site|info)|daotruyen\\.me|doctruyenchill\\.(?:net|com)|laophatgia2?\\.fit|metruyen\\.fit|metruyenhd\\.net|monkeydd\\.com|mottruyen\\.top|nangtho\\.site|ocuadua\\.com|saytruyen\\.vn|yeungontinh\\.site|tiemchungot\\.(?:com|net)|tieuhoadan\\.com|truyendexuat\\.com|truyentv\\.site|vanmonglau\\.com|vivutruyen\\.net)\\/.*$"
+},
+{
+"dir": "/home/claude/vbx/19721f03df",
+"name": "Gemini AI",
+"host": "ai.google.dev",
+"type": "ai",
+"ver": 4,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/4858caad57",
+"name": "biqugezz",
+"host": "biqugezz.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?biqugezz.com/go/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/da290cc1dc",
+"name": "sweetastes",
+"host": "baby0world.com",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "(?:www\\.)?baby0world\\.com\\/book\\/(\\d+)"
+},
+{
+"dir": "/home/claude/vbx/ed02fc4ae8",
+"name": "Truyện sexTV",
+"host": "truyensextv99.com",
+"type": "novel",
+"ver": 4,
+"regexp": "https?:\\/\\/truyensextv\\d+\\.com\\/.+$"
+},
+{
+"dir": "/home/claude/vbx/04142c5997",
+"name": "17 Tiểu thuyết",
+"host": "1qxs.com",
+"type": "novel",
+"ver": 5,
+"regexp": "(?:m\\.)?1qxs\\.com/xs_1/\\d+(?:/\\d+(?:/\\d+)?)?/?(?:\\?.*)?$"
+},
+{
+"dir": "/home/claude/vbx/face8c4da2",
+"name": "[APP] TYT",
+"host": "tytnovel.info",
+"type": "novel",
+"ver": 13,
+"regexp": "^(tyt://story/|https?://(www\\.)?(tytnovel\\.(app|org|info)|noveltyt\\.(app|xyz))/).+"
+},
+{
+"dir": "/home/claude/vbx/798f55dff4",
+"name": "haitang16",
+"host": "haitang16.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www.|m.)?haitang16.com/(b|book)/\\d+(/?|\\.html)"
+},
+{
+"dir": "/home/claude/vbx/852c607399",
+"name": "Yêu Anime",
+"host": "yeuanime.net",
+"type": "video",
+"ver": 2,
+"regexp": "yeuanime.net/(phim|xem-phim|the-loai|quoc-gia|chu-de)/.*"
+},
+{
+"dir": "/home/claude/vbx/5db9c88a94",
+"name": "Audio Truyện Full",
+"host": "vip.audiotruyenfull.org",
+"type": "novel",
+"ver": 1,
+"regexp": "(?:vip\\.|web\\.)?audiotruyenfull\\.org/(?:truyen/|story/)?[a-z0-9\\-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/cc486ad045",
+"name": "Vozer",
+"host": "vozer.vn",
+"type": "novel",
+"ver": 5,
+"regexp": "https://vozer.vn/(.*?)$"
+},
+{
+"dir": "/home/claude/vbx/cb7f6551ab",
+"name": "Misskon",
+"host": "misskon.com",
+"type": "comic",
+"ver": 1,
+"regexp": "(www.)?misskon.com/.*"
+},
+{
+"dir": "/home/claude/vbx/c5e65c13e1",
+"name": "po18gv",
+"host": "po18gv.vip",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?po18gv.vip/(books|book)/\\d+(/?|\\.html)"
+},
+{
+"dir": "/home/claude/vbx/7d8071fcf1",
+"name": "Mê Đọc Truyện",
+"host": "medoctruyen.vn",
+"type": "novel",
+"ver": 5,
+"regexp": "(www\\.)?medoctruyen\\.vn/[^/]+(?:/chuong-\\d+)?/?$"
+},
+{
+"dir": "/home/claude/vbx/e4ef08bcd7",
+"name": "得奇小说网 - deqixs",
+"host": "deqixss.com",
+"type": "chinese_novel",
+"ver": 10,
+"regexp": "https?://(?:www\\.)?(?:deqixss\\.com|deqixs\\.(?:cc|co|com))/(?:books|index)/\\d+.*"
+},
+{
+"dir": "/home/claude/vbx/7e1343ea76",
+"name": "Hướng dẫn sử dụng VBook",
+"host": "vbookapp.gitbook.io",
+"type": "novel",
+"ver": 6,
+"regexp": "vbookapp\\.gitbook\\.io/huong-dan-su-dung"
+},
+{
+"dir": "/home/claude/vbx/ac8073e6cc",
+"name": "101Minc",
+"host": "101minc.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www\\.)?101minc\\.com\\/[^/?#]+-\\d+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/ad0f8e54b4",
+"name": "MatoDex",
+"host": "mato.suicaodex.com",
+"type": "comic",
+"ver": 2,
+"regexp": "(https?://)?(www\\.)?mato\\.suicaodex\\.com/?"
+},
+{
+"dir": "/home/claude/vbx/aa3910dd22",
+"name": "HentaiCube -18+",
+"host": "hentaicube.xyz",
+"type": "comic",
+"ver": 14,
+"regexp": "hentaicube\\.xyz\\/read\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/47116e1652",
+"name": "HentaiVN",
+"host": "hentaihvn.tv",
+"type": "comic",
+"ver": 28,
+"regexp": "(www.)?hen(tai)?(vn|ayame|hvn).[a-z]+/\\d+-[^/]+.html$"
+},
+{
+"dir": "/home/claude/vbx/ab771a3ebf",
+"name": "xiongmaoxy",
+"host": "xiongmaoxy.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?xiongmaoxy.com/novel/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/a16026e6de",
+"name": "jpxs123",
+"host": "jpxs123.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www\\.)?jpxs123\\.com/(.*?)/\\d+\\.html"
+},
+{
+"dir": "/home/claude/vbx/d62439239b",
+"name": "Truyện Mới",
+"host": "truyenmoiqq.com",
+"type": "novel",
+"ver": 7,
+"regexp": "(www.)?truyenmoiqq.com/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/ab148a29d3",
+"name": "TruyenDex",
+"host": "truyendex.cc",
+"type": "comic",
+"ver": 29,
+"regexp": "truyendex\\.(cc|com)/nettrom/truyen-tranh/[a-f0-9\\-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/9777a819fc",
+"name": "[wfxs]微風小說",
+"host": "wfxs.tw",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "https?:\\/\\/(?:www\\.|m\\.)?wfxs\\.tw\\/(?:xiaoshuo?\\/\\d+(?:\\/\\d+(?:\\/\\d+\\.html)?\\/?)?|booklist\\/\\d+\\.html)"
+},
+{
+"dir": "/home/claude/vbx/fc36027036",
+"name": "Viettel AI TTS",
+"host": "viettelai.vn",
+"type": "tts",
+"ver": 1,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/2622728fc2",
+"name": "po18",
+"host": "po18.tw",
+"type": "chinese_novel",
+"ver": 10,
+"regexp": "www.po18.tw/books/(\\d+)/?$"
+},
+{
+"dir": "/home/claude/vbx/68ba663e89",
+"name": "NovelCooksTW",
+"host": "novel.cooks.tw",
+"type": "novel",
+"ver": 38,
+"regexp": "novel\\.cooks\\.tw\\/(novel|reader)\\.html"
+},
+{
+"dir": "/home/claude/vbx/dea99e74c4",
+"name": "MTL Novel",
+"host": "mtlnovel.com",
+"type": "novel",
+"ver": 2,
+"regexp": "(www.)mtlnovel.com/[0-9a-z-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/9c659d25d9",
+"name": "WanwanSekai -18+",
+"host": "wanwansekai.com",
+"type": "novel",
+"ver": 10,
+"regexp": "wanwansekai\\.com/novel/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/8ec234d2c1",
+"name": "69shuba",
+"host": "69shuba.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(https?://)?(www\\.)?69shuba\\.com/(book/\\d+(\\.htm|/)?|txt/\\d+|novels/)"
+},
+{
+"dir": "/home/claude/vbx/c52c484d73",
+"name": "DeepSeek Translate",
+"host": "platform.deepseek.com",
+"type": "translate",
+"ver": 8,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/c15a78abcc",
+"name": "[GG Dịch] Novel Full 🛠",
+"host": "novelfull.com",
+"type": "novel",
+"ver": 1,
+"regexp": "(www.)?novelfull.com/[0-9a-z].+html$"
+},
+{
+"dir": "/home/claude/vbx/0889444df3",
+"name": "douyinxs",
+"host": "douyinxs.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.|m.)?douyinxs.com/bqg/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/2e3b2bf2fc",
+"name": "[NEW] Cà Chua",
+"host": "fanqienovel.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "fanqienovel\\.com/.*"
+},
+{
+"dir": "/home/claude/vbx/3c2e75c253",
+"name": "TruyenDich.AI",
+"host": "truyendich.store",
+"type": "novel",
+"ver": 5,
+"regexp": "https?://truyendich\\.(?:ai|store)/doc-truyen(?:/(?:ai|cv))?/.*"
+},
+{
+"dir": "/home/claude/vbx/028d1c0729",
+"name": "Dizishu (弟子小说网)",
+"host": "dizishu.com",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "(www.|m.)?dizishu.com/b/\\d+/?"
+},
+{
+"dir": "/home/claude/vbx/b344f63b1f",
+"name": "Wattpad - Tiếng Việt",
+"host": "wattpad.com",
+"type": "novel",
+"ver": 21,
+"regexp": "(www\\.|m\\.)?wattpad\\.com/(story/)?\\d+"
+},
+{
+"dir": "/home/claude/vbx/61b8fc0436",
+"name": "69shu - repo Đường đen",
+"host": "69shuba.com",
+"type": "chinese_novel",
+"ver": 55,
+"regexp": "(www\\.)?69(shu|shuba|xinshu|yuedu)\\.(.*?)/(book|b)/.*?\\.(htm|html)"
+},
+{
+"dir": "/home/claude/vbx/5f083c517e",
+"name": "Chivi",
+"host": "chivi.app",
+"type": "novel",
+"ver": 24,
+"regexp": "(www.)?chivi.(xyz|app)/[^/+]+/?$"
+},
+{
+"dir": "/home/claude/vbx/c8d7103eaa",
+"name": "WattpadVN",
+"host": "wattpadvn.com",
+"type": "novel",
+"ver": 2,
+"regexp": "(www.)?wattpadvn.com/[^/]+"
+},
+{
+"dir": "/home/claude/vbx/28bc3271ca",
+"name": "txt520",
+"host": "txt520.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www.|m.)?txt520.com/(.*?)/\\d+.html"
+},
+{
+"dir": "/home/claude/vbx/65f15aeb0a",
+"name": "22mt",
+"host": "22mt.net",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?22mt.net/(.*?)/?$"
+},
+{
+"dir": "/home/claude/vbx/4afc1cd55c",
+"name": "SayHentaiBaby -18+",
+"host": "sayhentai.baby",
+"type": "comic",
+"ver": 13,
+"regexp": "sayhentai\\.baby\\/truyen\\/[^\\/]+(?:\\.html)?\\/?(?:\\?.*)?$"
+},
+{
+"dir": "/home/claude/vbx/f34507b5f6",
+"name": "Tiệm Truyện Chữ",
+"host": "tiemtruyenchu.cloud",
+"type": "novel",
+"ver": 12,
+"regexp": "https?://(?:www\\.)?tiemtruyenchu\\.cloud/.*"
+},
+{
+"dir": "/home/claude/vbx/26813a07b7",
+"name": "Ổ Cú Mèo",
+"host": "ocumoe.com",
+"type": "comic",
+"ver": 1,
+"regexp": "(www.)?ocumoe.com/truyen-tranh/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/4433658888",
+"name": "Truyện Net",
+"host": "truyennet.vn",
+"type": "novel",
+"ver": 3,
+"regexp": "https?://(?:www\\.)?truyennet\\.vn/[a-zA-Z0-9-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/1e2481c563",
+"name": "Truyện Chữ",
+"host": "truyenchu.net",
+"type": "novel",
+"ver": 2,
+"regexp": "truyenchu\\.net"
+},
+{
+"dir": "/home/claude/vbx/db8676b748",
+"name": "x33xs4",
+"host": "x33xs6.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www.|m.)x33xs(.*?).com/33xs/\\d+/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/ae698974ef",
+"name": "ShortMax",
+"host": "shorttv.live",
+"type": "video",
+"ver": 2,
+"regexp": "(https?://)?(www\\.)?shorttv\\.live/vi/(?:drama|episodes)/[^/?#]*\\d+/?|(https?://)?(www\\.)?shorttv\\.live/vi/episode/[^/?#]*\\d+-\\d+/?"
+},
+{
+"dir": "/home/claude/vbx/d87c6d0346",
+"name": "municipiodaboavista.com",
+"host": "municipiodaboavista.com",
+"type": "comic",
+"ver": 5,
+"regexp": "municipiodaboavista\\.com\\/truyen-tranh\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/5eab91f7eb",
+"name": "Đọc Truyện Tranh BL",
+"host": "truyentranhbl.com",
+"type": "comic",
+"ver": 4,
+"regexp": "^https?://(?:www\\.)?(?:truyentranhbl|doctruyentranhbl)\\.com/truyen/[^/?#]+/?(?:[?#].*)?$"
+},
+{
+"dir": "/home/claude/vbx/1acc1fbcf9",
+"name": "vvbiquge",
+"host": "vvbiquge.cc",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?vvbiquge.cc/\\d+_\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/9415633b4f",
+"name": "WeTV",
+"host": "wetv.vip",
+"type": "video",
+"ver": 2,
+"regexp": "(https?:\\/\\/(?:www\\.)?wetv\\.vip\\/(?:[a-z]{2}\\/)?(?:play|album|short)\\/[^\\s]+|wetv:.*|tenvideoi18n:\\/\\/wetv\\/videodetail\\?cid=[^\\s]+)"
+},
+{
+"dir": "/home/claude/vbx/f79a58e937",
+"name": "Tâm Linh 247",
+"host": "tamlinh247.vn",
+"type": "novel",
+"ver": 3,
+"regexp": "(www.)?tamlinh247.vn/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/e22e69e5f1",
+"name": "ASMRchive",
+"host": "asmrchive.moe",
+"type": "audio",
+"ver": 3,
+"regexp": "(https?://)?(www\\.)?asmrchive\\.moe/share/[A-Za-z0-9_-]+/?"
+},
+{
+"dir": "/home/claude/vbx/5317eedc68",
+"name": "LightNovel VN",
+"host": "quykiep.com",
+"type": "novel",
+"ver": 5,
+"regexp": "(www.)?quykiep.com/truyen/?[0-9a-z-]+/?"
+},
+{
+"dir": "/home/claude/vbx/19a0c4eaa2",
+"name": "PhimTV2",
+"host": "phimtv2.com",
+"type": "video",
+"ver": 1,
+"regexp": "^https?://(?:www\\.)?phimtv2\\.com/(?:phim|xem-phim)/[^/?#]+"
+},
+{
+"dir": "/home/claude/vbx/fdd4b67961",
+"name": "5sing Kugou",
+"host": "5sing.kugou.com",
+"type": "audio",
+"ver": 1,
+"regexp": "5sing\\.kugou\\.com/(?:yc|fc|bz)/[0-9]+\\.html(?:[?#].*)?$"
+},
+{
+"dir": "/home/claude/vbx/ef33458718",
+"name": "18biquge",
+"host": "wap.18biquge.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(wap.)?18biquge.com/read/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/f077558e60",
+"name": "Bàn Long",
+"host": "blhvip.vn",
+"type": "novel",
+"ver": 8,
+"regexp": "(https?://)?(www\\.)?(banlong\\.vip|blhvip\\.vn)/truyen/[0-9a-z-]+/?"
+},
+{
+"dir": "/home/claude/vbx/841d8bd60f",
+"name": "飘天文学",
+"host": "piaotia.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "https?:\\/\\/(?:www\\.)?piaotia\\.com\\/(?:bookinfo\\/\\d+\\/\\d+\\.html|html\\/\\d+\\/\\d+(?:\\/[^\\s]*)?)"
+},
+{
+"dir": "/home/claude/vbx/63c4c2320a",
+"name": "alicesw",
+"host": "alicesw.com",
+"type": "chinese_novel",
+"ver": 5,
+"regexp": "(https://|http://)(www|.m)?.alicesw.com/.*?/\\d+.html"
+},
+{
+"dir": "/home/claude/vbx/55caf98194",
+"name": "QuyKhu",
+"host": "quykhu.com",
+"type": "novel",
+"ver": 4,
+"regexp": "(www\\.)?quykhu\\.com/.*"
+},
+{
+"dir": "/home/claude/vbx/6e0c7b443a",
+"name": "Cơm Nguội Novel",
+"host": "comnguoinovel.com",
+"type": "novel",
+"ver": 8,
+"regexp": "https://(truyendichmienphi\\.com|comnguoinovel\\.com)/(.*?)$"
+},
+{
+"dir": "/home/claude/vbx/3fbab9b652",
+"name": "Google Translate",
+"host": "translate.google.com",
+"type": "translate",
+"ver": 1,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/ead4ea30c2",
+"name": "Cosplaytele",
+"host": "cosplaytele.com",
+"type": "comic",
+"ver": 5,
+"regexp": "cosplaytele\\.com"
+},
+{
+"dir": "/home/claude/vbx/8441177a38",
+"name": "SachHayOnline",
+"host": "sachhayonline.com",
+"type": "novel",
+"ver": 1,
+"regexp": "(www.)?sachhayonline.com/tua-sach/[A-Za-z].+/?$"
+},
+{
+"dir": "/home/claude/vbx/e8ad76a5ce",
+"name": "Bảo Tàng Truyện",
+"host": "baotangtruyen32.top",
+"type": "comic",
+"ver": 8,
+"regexp": "https://baotangtruyen32.top/truyen-tranh/[0-9a-z-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/485033bfa2",
+"name": "WNACG",
+"host": "wnacg.com",
+"type": "comic",
+"ver": 13,
+"regexp": "https?:\\/\\/(?:www\\.)?wnacg\\.(?:com|ru)\\/photos-index-aid-\\d+\\.html\\/?$"
+},
+{
+"dir": "/home/claude/vbx/db41a842b0",
+"name": "MTC",
+"host": "metruyencv.com",
+"type": "novel",
+"ver": 51,
+"regexp": "(www.)?(metruyenchu|mtccv|metruyencv).[a-z]+/truyen/[a-zA-Z0-9-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/1dd2050a6a",
+"name": "Phim4K",
+"host": "phim4k.xyz",
+"type": "video",
+"ver": 5,
+"regexp": "(https?:\\/\\/(?:www\\.)?phim4k\\.xyz\\/(?:movie|tv|free2)\\/[^\\s]+|phim4k:(?:movie|tv|tvseries|free2|cdn|hls):[^\\s]+)"
+},
+{
+"dir": "/home/claude/vbx/3f43844074",
+"name": "Tiệm Truyện Chữ",
+"host": "tiemtruyenchu.com",
+"type": "novel",
+"ver": 6,
+"regexp": "(www\\.)?tiemtruyenchu\\.com/.*"
+},
+{
+"dir": "/home/claude/vbx/008c67fec8",
+"name": "Claude Translate",
+"host": "platform.claude.com",
+"type": "translate",
+"ver": 4,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/2ccd9a49a5",
+"name": "Ciyuanji - 次元姬",
+"host": "ciyuanji.com",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "https?://(?:www\\.)?ciyuanji\\.com/b_d_[0-9]+(?:\\.html)?"
+},
+{
+"dir": "/home/claude/vbx/f7ed700000",
+"name": "Cứu Truyện",
+"host": "cuutruyen.net",
+"type": "comic",
+"ver": 5,
+"regexp": "(www.)?(cuutruyen|cuutruyent9sv7|hetcuutruyen|nettrom).(net|xyz|com)/mangas/\\d+/?"
+},
+{
+"dir": "/home/claude/vbx/8a586d5607",
+"name": "ixdzs8",
+"host": "ixdzs8.tw",
+"type": "chinese_novel",
+"ver": 5,
+"regexp": "(www.)?ixdzs8.tw/read/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/fab9a55a07",
+"name": "Tiên Vực",
+"host": "tienvuc.me",
+"type": "novel",
+"ver": 13,
+"regexp": "(www.)?tienvuc.(pro|vn|one|me|com)/[0-9a-z-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/91a799486b",
+"name": "MotPhim",
+"host": "motphimc.mx",
+"type": "video",
+"ver": 2,
+"regexp": "^https?://(?:www\\.)?motphimc\\.mx/"
+},
+{
+"dir": "/home/claude/vbx/fc8796deef",
+"name": "baozimh",
+"host": "baozimh.com",
+"type": "comic",
+"ver": 1,
+"regexp": "(www.|cn.)?baozimh.com/comic/(.*?)"
+},
+{
+"dir": "/home/claude/vbx/e6480726af",
+"name": "Truyện Dịch AI",
+"host": "truyendichai.com",
+"type": "novel",
+"ver": 3,
+"regexp": "https?://(?:www\\.)?truyendichai\\.com/truyen/[a-zA-Z0-9-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/c387fc5119",
+"name": "Legado thêm Google dịch",
+"host": "github.com",
+"type": "novel",
+"ver": 14,
+"regexp": "((\\d+)[.](\\d+)[.](\\d+)[.](\\d+)|localhost):1122/(.*?)"
+},
+{
+"dir": "/home/claude/vbx/9288fcfdca",
+"name": "MGTV",
+"host": "mgtv.com",
+"type": "video",
+"ver": 1,
+"regexp": "https?:\\/\\/(?:w\\.)?mgtv\\.com\\/(?:b\\/\\d+(?:\\/\\d+\\.html)?|s\\/\\d+\\.html)[^\\s]*"
+},
+{
+"dir": "/home/claude/vbx/87a01d0594",
+"name": "NetEase Music",
+"host": "music.163.com",
+"type": "audio",
+"ver": 2,
+"regexp": "^https?://music\\.163\\.com/(?:m/song|playlist)\\?id=\\d+(?:&.*)?$"
+},
+{
+"dir": "/home/claude/vbx/1fb8a09e5b",
+"name": "TruyenCV.io",
+"host": "truyencv.io",
+"type": "novel",
+"ver": 2,
+"regexp": "https?://(?:www\\.)?truyencv\\.io/truyen/[a-zA-Z0-9-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/3f0afde83f",
+"name": "HHHTQ",
+"host": "hhhtq.team",
+"type": "video",
+"ver": 2,
+"regexp": "(www\\.)?hhhtq\\.team/(phim|xem)/.*"
+},
+{
+"dir": "/home/claude/vbx/7394414254",
+"name": "Hắc Ám Chi Các",
+"host": "haccbl.xyz",
+"type": "comic",
+"ver": 12,
+"regexp": "https://(?:haccbl\\.xyz|hacamchicac\\.info)/manga/[^/]+/$"
+},
+{
+"dir": "/home/claude/vbx/c38140a7c1",
+"name": "MachuTeam Podcast",
+"host": "machuteam.vn",
+"type": "audio",
+"ver": 1,
+"regexp": "machuteam\\.vn/(?!podcast(?:/|$)|review(?:s)?(?:/|$)|blogs?(?:/|$)|dich-vu-san-xuat(?:/|$)|lienhe(?:/|$))[^/?#]+/?$"
+},
+{
+"dir": "/home/claude/vbx/e1de2b184d",
+"name": "Đọc Sách Hay",
+"host": "docsachhay.net",
+"type": "novel",
+"ver": 1,
+"regexp": "(www.)?docsachhay.net/sach/[0-9a-z-]+/?"
+},
+{
+"dir": "/home/claude/vbx/b1236f9a58",
+"name": "HentaiCube -18+",
+"host": "hentaicube.xyz",
+"type": "comic",
+"ver": 1,
+"regexp": "hentaicube\\.xyz\\/read\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/13771bf49e",
+"name": "Photos18",
+"host": "photos18.com",
+"type": "comic",
+"ver": 4,
+"regexp": "https://www.photos18.com/.+"
+},
+{
+"dir": "/home/claude/vbx/e90044c948",
+"name": "81cnw",
+"host": "81cnw.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(m.)?81cnw.com/html/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/2768ac8cad",
+"name": "HHKUNGFU",
+"host": "hhkungfu.ee",
+"type": "video",
+"ver": 2,
+"regexp": "(www\\.)?hhkungfu\\.ee/.*"
+},
+{
+"dir": "/home/claude/vbx/d0c9117b6e",
+"name": "Elysia",
+"host": "mnz.nhimmeo.cf",
+"type": "chinese_novel",
+"ver": 8,
+"regexp": "(cwm.elysia.rip|mnz.nhimmeo.cf|cwm-c-2.elysia.rip|cwm-n-1.elysia.rip|cwm-n-1.elysia.rip)/(book|detail)/(\\d+)"
+},
+{
+"dir": "/home/claude/vbx/3341ed4d44",
+"name": "Truyện Mới KK",
+"host": "truyenmoikk.com",
+"type": "novel",
+"ver": 4,
+"regexp": "https://(?:www\\.)?(?:truyenmoikk\\.com|truyenmoiss\\.com|truyenmoiii\\.org|truyenmoiyy\\.com)/(.*?)[/]?$"
+},
+{
+"dir": "/home/claude/vbx/ab10cbc097",
+"name": "Biquge9x[API-200669/9x]",
+"host": "novel-api.elklk.cn",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www.)?(novel-api.elklk|novel-api.xiaoppkk|novel-api.xiaoshuottaa|novelapp.pvlmnez|nov-api.chiyantu|novelapi.qwezxc|novel-api.xiaoxiaommkk).(cn|com)/h5/(.*?)"
+},
+{
+"dir": "/home/claude/vbx/51f41b0391",
+"name": "MoeTruyen",
+"host": "truyen.moe",
+"type": "comic",
+"ver": 1,
+"regexp": "truyen\\.moe\\/manga\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/8f86dba67e",
+"name": "LoppyToon -18+",
+"host": "loppytoonn.com",
+"type": "comic",
+"ver": 19,
+"regexp": "loppytoonn?\\.com/truyen/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/3d3e0429e1",
+"name": "Cà Chua",
+"host": "fanqienovel.com",
+"type": "chinese_novel",
+"ver": 9,
+"regexp": "https://fanqienovel.com/(.*?)$"
+},
+{
+"dir": "/home/claude/vbx/ee629bf619",
+"name": "Truyen Hoan",
+"host": "truyenhoan.com",
+"type": "novel",
+"ver": 3,
+"regexp": "(www\\.)?truyenhoan\\.com/[^/]+\\.[0-9]+/?$"
+},
+{
+"dir": "/home/claude/vbx/6fa8221c1a",
+"name": "FPT AI TTS",
+"host": "console.fpt.ai",
+"type": "tts",
+"ver": 1,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/6c1f1c96ef",
+"name": "WebNovel (Novel)",
+"host": "webnovel.com",
+"type": "novel",
+"ver": 1,
+"regexp": "(www.)?(m.)?webnovel.com/book/.*"
+},
+{
+"dir": "/home/claude/vbx/247264ed18",
+"name": "Truyện Hoàn",
+"host": "truyenhoan.com",
+"type": "novel",
+"ver": 9,
+"regexp": "truyenhoan\\.com/[a-z0-9\\-]+\\.\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/0509784fc5",
+"name": "[Ảnh] Bộ sưu tập ảnh gái xinh của Mol 🛠📷",
+"host": "github.com",
+"type": "comic",
+"ver": 2,
+"regexp": "github.com/Moleys/vbook-ext/anh_moleys-gc/(.*?)"
+},
+{
+"dir": "/home/claude/vbx/7a9466b0be",
+"name": "Truyện QQ",
+"host": "truyenqqko.com",
+"type": "comic",
+"ver": 25,
+"regexp": "(www.)?truyenqq.*?/truyen-tranh/[0-9a-z-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/c0d3e43546",
+"name": "QAĐC",
+"host": "qadcuteo.cc",
+"type": "comic",
+"ver": 2,
+"regexp": "https://qadcuteo(.org|.cc)/manga/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/46faf32361",
+"name": "SayHentai -18+",
+"host": "sayhentai.cx",
+"type": "comic",
+"ver": 3,
+"regexp": "sayhentai\\.(?:sh|cx)\\/truyen-[^\\/]+(?:\\.html)?\\/?$"
+},
+{
+"dir": "/home/claude/vbx/99aaf2f568",
+"name": "TVKH",
+"host": "bananacoo.com",
+"type": "comic",
+"ver": 1,
+"regexp": "https?:\\/\\/bananacoo\\.com\\/truyen\\/[^\\s]+"
+},
+{
+"dir": "/home/claude/vbx/74da5f76d4",
+"name": "NetTruyen18",
+"host": "nettruyen18.com",
+"type": "comic",
+"ver": 3,
+"regexp": "https://nettruyen18\\.com/truyen-tranh/[^/]+(/chuong-[0-9]+)?"
+},
+{
+"dir": "/home/claude/vbx/a4a11011d5",
+"name": "ASMR One",
+"host": "asmr.one",
+"type": "audio",
+"ver": 3,
+"regexp": "(https?://)?(www\\.)?asmr(-\\d+)?\\.(one|com)/work/[A-Z]{2}\\d+"
+},
+{
+"dir": "/home/claude/vbx/c9aa81607c",
+"name": "Hetushu 【和图书】",
+"host": "hetushu.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www.)?(m.)?hetushu.com/book/\\d+/index.html"
+},
+{
+"dir": "/home/claude/vbx/1478a2e16a",
+"name": "[Fanqie] Cà Chua C2",
+"host": "fanqienovel.com",
+"type": "chinese_novel",
+"ver": 5,
+"regexp": "fanqienovel\\.com/page/[0-9]+"
+},
+{
+"dir": "/home/claude/vbx/fb785054c4",
+"name": "Xianqihaotiami APP",
+"host": "xianqihaotianmi.org",
+"type": "chinese_novel",
+"ver": 3,
+"regexp": "^https?://api\\.(?:basusan|anwaben|daislou|fabacen|guxinge)\\.com(?::\\d+)?/novel/[A-Za-z0-9]+(?:\\?[^\\s]*)?$"
+},
+{
+"dir": "/home/claude/vbx/ea670371cc",
+"name": "QQ Music",
+"host": "y.qq.com",
+"type": "audio",
+"ver": 2,
+"regexp": "^https?://y\\.qq\\.com/n/ryqq/(?:songDetail/[a-zA-Z0-9]+|playlist/\\d+)(?:\\?.*)?$"
+},
+{
+"dir": "/home/claude/vbx/9468ce20e2",
+"name": "Minttea Novel",
+"host": "mintteanovel.com",
+"type": "novel",
+"ver": 2,
+"regexp": "https://(?:www\\.)?mintteanovel\\.com/truyen/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/0b43b21246",
+"name": "BLVietsub",
+"host": "blvietsub.vip",
+"type": "video",
+"ver": 9,
+"regexp": "https?:\\/\\/(?:www\\.)?blvietsub\\.(?:com|top|vip)\\/(?:(?:phim|xem-phim|\\d{4}\\/\\d{2})\\/|(?!category\\/|tag\\/|actor\\/|author\\/|page\\/|wp-json\\/|feeds?\\/|comments\\/|search(?:[/?#]|$)|p\\/)[^\\s\\/?#]+\\/?)[^\\s]*"
+},
+{
+"dir": "/home/claude/vbx/895d5c4f85",
+"name": "Storya",
+"host": "storya.click",
+"type": "novel",
+"ver": 5,
+"regexp": "storya\\.click\\/truyen\\/[^\\/]+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/3665648b43",
+"name": "Mê Đọc Truyện Chữ",
+"host": "medoctruyenchu.net",
+"type": "novel",
+"ver": 3,
+"regexp": "(www.|m.)?medoctruyenchu.net/tieu-thuyet/[0-9a-z-]+\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/4a8563552b",
+"name": "Mê Đọc Truyện Tranh",
+"host": "medoctruyentranh.net",
+"type": "comic",
+"ver": 3,
+"regexp": "(www.|m.)?medoctruyentranh.net/truyen-tranh/[0-9a-z-]+\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/701804388f",
+"name": "Sfacg 💰",
+"host": "book.sfacg.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(book.|m.)?sfacg.com/(Novel|b)/\\d+/?$"
+},
+{
+"dir": "/home/claude/vbx/03903dd742",
+"name": "AnimeVietsub",
+"host": "animevietsub.sale",
+"type": "video",
+"ver": 3,
+"regexp": "^https?://(?:www\\.)?animevietsub\\.[a-z]+/phim/[^/?#]+"
+},
+{
+"dir": "/home/claude/vbx/5e20701e3c",
+"name": "Lwxs",
+"host": "lwxs.com",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(www.|m.)?(lwxs|ilwxs).com/(info-\\d+|shu/\\d+)(.html|/)"
+},
+{
+"dir": "/home/claude/vbx/cda317128f",
+"name": "Novel Buddy",
+"host": "novelbuddy.com",
+"type": "novel",
+"ver": 2,
+"regexp": "(www.)?novelbuddy.com/[0-9a-z-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/dfa0f1dd66",
+"name": "bixiange",
+"host": "bixiange.top",
+"type": "chinese_novel",
+"ver": 5,
+"regexp": "(www.|m.)?bixiange.(top|me)/(.*?)/\\d+(/?|\\.html)"
+},
+{
+"dir": "/home/claude/vbx/8669664de2",
+"name": "OPhim",
+"host": "ophim17.cc",
+"type": "video",
+"ver": 1,
+"regexp": "ophim17.cc/phim/.*|ophim1.com/phim/.*"
+},
+{
+"dir": "/home/claude/vbx/3899127804",
+"name": "ShiBaShuWu -18+",
+"host": "shibashuwu.net",
+"type": "novel",
+"ver": 21,
+"regexp": "https?:\\/\\/(?:www\\.)?shibashuwu\\.net\\/book\\/\\d+(?:\\/|\\/\\d+(?:_\\d+)?\\.html)?$"
+},
+{
+"dir": "/home/claude/vbx/e9465383b4",
+"name": "h528",
+"host": "h528.com",
+"type": "chinese_novel",
+"ver": 1,
+"regexp": "(www.)?h528.com/post/\\d+.html"
+},
+{
+"dir": "/home/claude/vbx/ca1821c903",
+"name": "Navy Team Novel",
+"host": "navyteams.com",
+"type": "novel",
+"ver": 7,
+"regexp": "https?:\\/\\/(?:www\\.)?navyteam(?:n|z|s)\\.com\\/truyen\\/[^/]+(/[^/]+)?/?$"
+},
+{
+"dir": "/home/claude/vbx/2c89d59c1c",
+"name": "My Reading Manga",
+"host": "myreadingmanga.info",
+"type": "comic",
+"ver": 2,
+"regexp": "https?:\\/\\/(?:[^\\/]+\\.)?myreadingmanga\\.info\\/[^\\s]*"
+},
+{
+"dir": "/home/claude/vbx/1ac5192dea",
+"name": "Zing Truyện",
+"host": "zingtruyen.site",
+"type": "novel",
+"ver": 1,
+"regexp": "(www.)?zingtruyen.site/story/(.*?)/\\d+.html"
+},
+{
+"dir": "/home/claude/vbx/fd072d1aa7",
+"name": "Truyện Tranh Audio",
+"host": "truyentranhaudio.org",
+"type": "comic",
+"ver": 5,
+"regexp": "(www.)?truyentranhaudio.(org|online)/.*?.html$"
+},
+{
+"dir": "/home/claude/vbx/887b5c28d2",
+"name": "LuPhim",
+"host": "luphim.com",
+"type": "video",
+"ver": 1,
+"regexp": "^https?://(?:www\\.)?luphim\\.com/(?:phim|xem-phim)/[^/?#]+"
+},
+{
+"dir": "/home/claude/vbx/ea0c872a52",
+"name": "TruyenQQ",
+"host": "truyenqqko.com",
+"type": "comic",
+"ver": 2,
+"regexp": "https?://truyenqqko\\.com/.*"
+},
+{
+"dir": "/home/claude/vbx/dd8f851afa",
+"name": "ebookbao",
+"host": "ebookbao6.com",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "https://m.ebookbao6.com/book/\\d+/"
+},
+{
+"dir": "/home/claude/vbx/a3fb8289b2",
+"name": "Manga Read",
+"host": "mangaread.org",
+"type": "comic",
+"ver": 2,
+"regexp": "(www.)?mangaread.org/manga/[0-9a-z-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/7da096fbc2",
+"name": "Viblo",
+"host": "viblo.asia",
+"type": "novel",
+"ver": 4,
+"regexp": "^https?:\\/\\/viblo\\.asia\\/p\\/[a-z0-9-]+-[A-Za-z0-9]+$"
+},
+{
+"dir": "/home/claude/vbx/cb1683caf1",
+"name": "NetTruyenViet",
+"host": "nettruyenviet10.com",
+"type": "comic",
+"ver": 2,
+"regexp": "https?://(?:www\\.)?nettruyenviet[0-9]+\\.com/truyen-tranh/[a-zA-Z0-9-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/1dc6a015fe",
+"name": "quanwenyuedu",
+"host": "quanwenyuedu.io",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "(https?://)?(www\\.)?quanwenyuedu\\.io/n/[a-zA-Z0-9-]+(/(xiaoshuo|\\d+)\\.html)?/?"
+},
+{
+"dir": "/home/claude/vbx/9b06e7ea0e",
+"name": "OpenAI-compatible API",
+"host": "api.deepseek.com",
+"type": "translate",
+"ver": 5,
+"regexp": ""
+},
+{
+"dir": "/home/claude/vbx/a34f0506f4",
+"name": "GuPhim",
+"host": "guphimz.com",
+"type": "video",
+"ver": 2,
+"regexp": "guphimz.com/(xem-phim|danh-muc|danh-muc-the-loai|danh-muc-quoc-gia|tu-khoa|reels|partial)-.*"
+},
+{
+"dir": "/home/claude/vbx/5e7abe458c",
+"name": "ManhwaBuddy",
+"host": "manhwabuddy.com",
+"type": "comic",
+"ver": 3,
+"regexp": "https?://(?:www\\.)?manhwabuddy\\.com/manhwa/[a-zA-Z0-9-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/b756a59b5a",
+"name": "twkan",
+"host": "twkan.com",
+"type": "chinese_novel",
+"ver": 4,
+"regexp": "twkan\\.com/(txt|book)/.*?\\.html"
+},
+{
+"dir": "/home/claude/vbx/93d2ec7002",
+"name": "TruyenTv",
+"host": "tvtruyen.cc",
+"type": "novel",
+"ver": 7,
+"regexp": "(https?:\\/\\/)?(www\\.)?tvtruyen\\.[a-z]{2,}\\/[^/]+$"
+},
+{
+"dir": "/home/claude/vbx/db491ad2ac",
+"name": "Valvrareteam",
+"host": "valvrareteam.net",
+"type": "novel",
+"ver": 10,
+"regexp": "valvrareteam\\.net/truyen/__ID__[0-9a-fA-F]{24}$"
+},
+{
+"dir": "/home/claude/vbx/f555aa2cf3",
+"name": "MangaDM",
+"host": "mangadm.me",
+"type": "novel",
+"ver": 1,
+"regexp": "https://mangadm.me/[A-Za-z0-9-]+/?$"
+},
+{
+"dir": "/home/claude/vbx/4e00b2025d",
+"name": "NguonC",
+"host": "phim.nguonc.com",
+"type": "video",
+"ver": 2,
+"regexp": "(www\\.)?phim\\.nguonc\\.com/phim/.*"
+},
+{
+"dir": "/home/claude/vbx/8ff46fb42e",
+"name": "Truyện Siêu Hay",
+"host": "truyensieuhay.com",
+"type": "comic",
+"ver": 1,
+"regexp": "(www.)?(m.)?truyensieuhay.com/[0-9a-z-]+.html"
+},
+{
+"dir": "/home/claude/vbx/67a2f1a7d5",
+"name": "Truyện Full-repo Đường đen",
+"host": "truyenfull.live",
+"type": "novel",
+"ver": 17,
+"regexp": "^https?:\\/\\/(?:www\\.)?truyenfull\\.live\\/[^/]+\\/?$"
+},
+{
+"dir": "/home/claude/vbx/baa26a5aeb",
+"name": "deqixsorg",
+"host": "deqixs.org",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "https?://(?:www\\.)?deqixs\\.org/\\d+(?:/\\d+\\.html)?/?$"
+},
+{
+"dir": "/home/claude/vbx/5b550b2f8e",
+"name": "MeTruyenSangTac",
+"host": "metruyensangtac.vn",
+"type": "novel",
+"ver": 6,
+"regexp": "metruyensangtac\\.(vn|com)/truyen/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/749ace7bee",
+"name": "Xa Lộ Sách",
+"host": "xalosach.com",
+"type": "novel",
+"ver": 3,
+"regexp": "https://xalosach.com/(.*?)$"
+},
+{
+"dir": "/home/claude/vbx/c245a0a4b3",
+"name": "bFaloo (飞卢小说)",
+"host": "b.faloo.com",
+"type": "chinese_novel",
+"ver": 5,
+"regexp": "(www.)?((b.faloo.com/\\d+.html)|(wap.faloo.com/\\d+.html))"
+},
+{
+"dir": "/home/claude/vbx/db5b9fb422",
+"name": "LoHi",
+"host": "lohi2.com",
+"type": "novel",
+"ver": 1,
+"regexp": "https?://(trend\\.)?lohi2\\.(com|uk)/(tieu-thuyet|truyen)/[^/?#]+/?$"
+},
+{
+"dir": "/home/claude/vbx/4726c161c9",
+"name": "ixdzs.tw",
+"host": "ixdzs.tw",
+"type": "chinese_novel",
+"ver": 2,
+"regexp": "https?://(www\\.)?(ixdzs\\.tw|ixdzs8\\.com)/read/\\d+/"
+},
+{
+"dir": "/home/claude/vbx/7a36607a1e",
+"name": "Destin Team",
+"host": "destinteam.xyz",
+"type": "comic",
+"ver": 3,
+"regexp": "destinteam\\.(xyz|com)/truyen/[^/]+/?$"
+},
+{
+"dir": "/home/claude/vbx/bf8483dc2b",
+"name": "idejian",
+"host": "staticm.idejian.com",
+"type": "chinese_novel",
+"ver": 11,
+"regexp": "https?://(?:(?:www\\.|staticm\\.)?idejian\\.com/book/\\d+/?|(?:qq|wechat)\\.idejian\\.com/api/(?:qq|wechat)/book/\\d+/?)"
+}
+]

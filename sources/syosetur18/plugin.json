@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Syosetu R18",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://novel18.syosetu.com",
+    "description": "Syosetu R18 — Kiritokmn Extension Repo",
+    "locale": "ja",
+    "regexp": "novel18\\.syosetu\\.com",
+    "type": "novel",
+    "nsfw": true
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://novel18.syosetu.com",
+      "values": [
+        "https://novel18.syosetu.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

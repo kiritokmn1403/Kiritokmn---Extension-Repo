@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "LoppyToon",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://loppytoon.com",
+    "description": "LoppyToon — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "loppytoon\\.com",
+    "type": "novel",
+    "nsfw": true
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://loppytoon.com",
+      "values": [
+        "https://loppytoon.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

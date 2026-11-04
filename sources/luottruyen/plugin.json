@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "name": "LuotTruyen",
+    "author": "Gold2k2k2k (Kiritokmn repack)",
+    "version": 8,
+    "source": "https://luottruyen7.com",
+    "regexp": "luottruyen\\d*\\.com\\/truyen-tranh\\/[^\\/]+\\/?$",
+    "description": "Lượt Truyện - Đọc truyện tranh online — gốc: Gold2k2k2k (Gold2k2k2k/HTri-Vbook-Ext)",
+    "locale": "vi_VN",
+    "type": "comic",
+    "language": "javascript",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "comment": "comment.js"
+  }
+}

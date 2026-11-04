@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "name": "Tiệm Truyện Chữ (Demo)",
+    "author": "kychi (Kiritokmn repack)",
+    "version": 1,
+    "source": "https://tiemtruyenchu.cloud",
+    "regexp": "(www\\.)?tiemtruyenchu\\.(com|cloud)/.*",
+    "description": "Tiệm Truyện Chữ - demo - kychi — gốc: kychi (kychitoge-vbook-ext)",
+    "locale": "vi_VN",
+    "type": "novel",
+    "language": "javascript",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "detail": "detail.js",
+    "gen": "gen.js",
+    "search": "search.js"
+  }
+}

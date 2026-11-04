@@ -1,0 +1,2980 @@
+[
+ {
+  "stt": 1,
+  "type": "movie",
+  "name": "Anime47",
+  "urls": [
+   "https://anime47.best/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "anime47.best",
+  "ref": null,
+  "id": "anime47",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 2,
+  "type": "movie",
+  "name": "AnimeVn.Net",
+  "urls": [
+   "https://animevn.net/the-loai/anime"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "animevn.net",
+  "ref": null,
+  "id": "animevnnet",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 3,
+  "type": "movie",
+  "name": "Bilibili",
+  "urls": [
+   "https://www.bilibili.tv/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "bilibili.tv",
+  "ref": null,
+  "id": "bilibili",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 4,
+  "type": "movie",
+  "name": "VTV Go",
+  "urls": [
+   "https://vtvgo.vn/",
+   "https://cache.vtvgo.vn/",
+   "https://vtvgo.vn/channel/1"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "vtvgo.vn",
+  "ref": null,
+  "id": "vtvgo",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 5,
+  "type": "movie",
+  "name": "Rổ Phim",
+  "urls": [
+   "https://www.rophimhd.com/phimhay",
+   "https://rophim9.online",
+   "https://www.rophim.soy"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "rophimhd.com",
+  "ref": null,
+  "id": "rophim",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 6,
+  "type": "movie",
+  "name": "HotPhim",
+  "urls": [
+   "https://hotphim.org/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "hotphim.org",
+  "ref": null,
+  "id": "hotphim",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 7,
+  "type": "movie",
+  "name": "AVSub – AnimeVietsub",
+  "urls": [
+   "https://animevietsub.nl/",
+   "https://animevietsub.news/",
+   "https://animevietsub.sale/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "animevietsub.nl",
+  "ref": null,
+  "id": "avsubanimevietsub",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 8,
+  "type": "movie",
+  "name": "HayChill",
+  "urls": [
+   "https://phimhaychill.org/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "phimhaychill.org",
+  "ref": null,
+  "id": "haychill",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 9,
+  "type": "movie",
+  "name": "XemPhimGi",
+  "urls": [
+   "https://xemphimgi.com/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "xemphimgi.com",
+  "ref": null,
+  "id": "xemphimgi",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 10,
+  "type": "movie",
+  "name": "NextPhim",
+  "urls": [
+   "https://nextphim.net/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "nextphim.net",
+  "ref": null,
+  "id": "nextphim",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 11,
+  "type": "movie",
+  "name": "Vfilm",
+  "urls": [
+   "http://vfilm.vn/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "vfilm.vn",
+  "ref": null,
+  "id": "vfilm",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 12,
+  "type": "movie",
+  "name": "Phimmoi",
+  "urls": [
+   "https://phimmoii.mom/",
+   "https://phimmoii.bid/",
+   "https://phimmoii.mom/categories/phim-bo/",
+   "https://messiahelartista.com/",
+   "https://phimmoic.ws",
+   "https://phimmois.sh/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "phimmoii.mom",
+  "ref": null,
+  "id": "phimmoi",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 13,
+  "type": "movie",
+  "name": "PornHub",
+  "urls": [
+   "https://www.pornhub.com/",
+   "https://www.pornhub.com/shorties"
+  ],
+  "lang": "Tất Cả",
+  "nsfw": true,
+  "short": true,
+  "host": "pornhub.com",
+  "ref": null,
+  "id": "pornhub",
+  "lang_code": "all"
+ },
+ {
+  "stt": 14,
+  "type": "movie",
+  "name": "FikFap",
+  "urls": [
+   "https://fikfap.com/"
+  ],
+  "lang": "Tất Cả",
+  "nsfw": true,
+  "short": true,
+  "host": "fikfap.com",
+  "ref": null,
+  "id": "fikfap",
+  "lang_code": "all"
+ },
+ {
+  "stt": 15,
+  "type": "movie",
+  "name": "Tik.Porn",
+  "urls": [
+   "https://tik.porn/"
+  ],
+  "lang": "Tất Cả",
+  "nsfw": true,
+  "short": true,
+  "host": "tik.porn",
+  "ref": null,
+  "id": "tikporn",
+  "lang_code": "all"
+ },
+ {
+  "stt": 16,
+  "type": "movie",
+  "name": "Kwiky",
+  "urls": [
+   "https://kwiky.com/cams?AFNO=2-162764.38182"
+  ],
+  "lang": "Tất Cả",
+  "nsfw": true,
+  "short": true,
+  "host": "kwiky.com",
+  "ref": null,
+  "id": "kwiky",
+  "lang_code": "all"
+ },
+ {
+  "stt": 17,
+  "type": "movie",
+  "name": "xFree",
+  "urls": [
+   "https://www.xfree.com/"
+  ],
+  "lang": "Tất Cả",
+  "nsfw": true,
+  "short": true,
+  "host": "xfree.com",
+  "ref": null,
+  "id": "xfree",
+  "lang_code": "all"
+ },
+ {
+  "stt": 18,
+  "type": "movie",
+  "name": "FapReel",
+  "urls": [
+   "https://fapreel.com/"
+  ],
+  "lang": "Tất Cả",
+  "nsfw": true,
+  "short": true,
+  "host": "fapreel.com",
+  "ref": null,
+  "id": "fapreel",
+  "lang_code": "all"
+ },
+ {
+  "stt": 19,
+  "type": "movie",
+  "name": "SexVietTop",
+  "urls": [
+   "https://top1sexvn.com/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": true,
+  "short": true,
+  "host": "top1sexvn.com",
+  "ref": null,
+  "id": "sexviettop",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 20,
+  "type": "movie",
+  "name": "Xôi Lạc",
+  "urls": [
+   "https://xoilacxxi.cc/",
+   "https://xoilacvb.cc/",
+   "https://xoilac32.org/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "xoilacxxi.cc",
+  "ref": null,
+  "id": "xoilac",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 21,
+  "type": "movie",
+  "name": "MotPhim",
+  "urls": [
+   "https://motphimc.my/",
+   "https://motphim.website/",
+   "https://motchill10.io/phim-bo",
+   "https://motchille.cx/",
+   "https://motphimc.mx",
+   "https://motchill10.io/quoc-gia/viet-nam"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "motphimc.my",
+  "ref": null,
+  "id": "motphim",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 22,
+  "type": "movie",
+  "name": "HiHiPhim",
+  "urls": [
+   "https://hihiphim.com/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "hihiphim.com",
+  "ref": null,
+  "id": "hihiphim",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 23,
+  "type": "movie",
+  "name": "PhimMoiHD",
+  "urls": [
+   "https://phimmoihd.online/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "phimmoihd.online",
+  "ref": null,
+  "id": "phimmoihd",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 24,
+  "type": "movie",
+  "name": "BLVietsub",
+  "urls": [
+   "https://www.blvietsub.vip/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "blvietsub.vip",
+  "ref": null,
+  "id": "blvietsub",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 25,
+  "type": "movie",
+  "name": "Dailymotion",
+  "urls": [
+   "https://www.dailymotion.com/vn"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "dailymotion.com",
+  "ref": null,
+  "id": "dailymotion",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 26,
+  "type": "movie",
+  "name": "Douyin",
+  "urls": [
+   "https://www.douyin.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": true,
+  "host": "douyin.com",
+  "ref": null,
+  "id": "douyin",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 27,
+  "type": "movie",
+  "name": "FreeReels",
+  "urls": [
+   "https://free-reels.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": true,
+  "host": "free-reels.com",
+  "ref": null,
+  "id": "freereels",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 28,
+  "type": "movie",
+  "name": "GuPhim",
+  "urls": [
+   "https://guphimz.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "guphimz.com",
+  "ref": null,
+  "id": "guphim",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 29,
+  "type": "movie",
+  "name": "HentaiVietsub.com",
+  "urls": [
+   "https://hentaivietsub.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": true,
+  "short": false,
+  "host": "hentaivietsub.com",
+  "ref": null,
+  "id": "hentaivietsubcom",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 30,
+  "type": "movie",
+  "name": "HHPanda",
+  "urls": [
+   "https://hhpanda.st"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "hhpanda.st",
+  "ref": null,
+  "id": "hhpanda",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 31,
+  "type": "movie",
+  "name": "HHTQHAY.VIP",
+  "urls": [
+   "https://hhtqhay.vip"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "hhtqhay.vip",
+  "ref": null,
+  "id": "hhtqhayvip",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 32,
+  "type": "movie",
+  "name": "Hồng Quả",
+  "urls": [
+   "https://hongguoduanju.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "hongguoduanju.com",
+  "ref": null,
+  "id": "hongqua",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 33,
+  "type": "movie",
+  "name": "iQIYI",
+  "urls": [
+   "https://www.iq.com/"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "iq.com",
+  "ref": null,
+  "id": "iqiyi",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 34,
+  "type": "movie",
+  "name": "LuPhim",
+  "urls": [
+   "https://luphim.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "luphim.com",
+  "ref": null,
+  "id": "luphim",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 35,
+  "type": "movie",
+  "name": "MGTV",
+  "urls": [
+   "https://w.mgtv.com/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "w.mgtv.com",
+  "ref": null,
+  "id": "mgtv",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 36,
+  "type": "movie",
+  "name": "NguonC",
+  "urls": [
+   "https://phim.nguonc.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "phim.nguonc.com",
+  "ref": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/video/nguonc",
+  "id": "nguonc",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 37,
+  "type": "movie",
+  "name": "Phim Nhựa",
+  "urls": [
+   "https://phimnhua.online"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "phimnhua.online",
+  "ref": null,
+  "id": "phimnhua",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 38,
+  "type": "movie",
+  "name": "Phim4K",
+  "urls": [
+   "https://phim4k.xyz/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "phim4k.xyz",
+  "ref": null,
+  "id": "phim4k",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 39,
+  "type": "movie",
+  "name": "PhimTV",
+  "urls": [
+   "https://phimtv.my",
+   "https://phimtv2.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "phimtv.my",
+  "ref": null,
+  "id": "phimtv",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 40,
+  "type": "movie",
+  "name": "Showbox",
+  "urls": [
+   "https://pixnet.cc/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "pixnet.cc",
+  "ref": null,
+  "id": "showbox",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 41,
+  "type": "movie",
+  "name": "TikTok",
+  "urls": [
+   "https://www.tiktok.com/"
+  ],
+  "lang": "Tất Cả",
+  "nsfw": false,
+  "short": true,
+  "host": "tiktok.com",
+  "ref": "/home/claude/vbx/140c7253d1",
+  "id": "tiktok",
+  "lang_code": "all"
+ },
+ {
+  "stt": 42,
+  "type": "movie",
+  "name": "Twitch",
+  "urls": [
+   "https://www.twitch.tv/"
+  ],
+  "lang": "Tất Cả",
+  "nsfw": false,
+  "short": false,
+  "host": "twitch.tv",
+  "ref": null,
+  "id": "twitch",
+  "lang_code": "all"
+ },
+ {
+  "stt": 43,
+  "type": "movie",
+  "name": "WatchHentai.net",
+  "urls": [
+   "https://watchhentai.net"
+  ],
+  "lang": "Tiếng Anh",
+  "nsfw": true,
+  "short": false,
+  "host": "watchhentai.net",
+  "ref": null,
+  "id": "watchhentainet",
+  "lang_code": "en"
+ },
+ {
+  "stt": 44,
+  "type": "movie",
+  "name": "YouTube",
+  "urls": [
+   "https://www.youtube.com/"
+  ],
+  "lang": "Tất Cả",
+  "nsfw": false,
+  "short": true,
+  "host": "youtube.com",
+  "ref": null,
+  "id": "youtube",
+  "lang_code": "all"
+ },
+ {
+  "stt": 1,
+  "type": "comic",
+  "name": "CBHentai",
+  "urls": [
+   "https://hentaicube.xyz",
+   "https://2tencb.pro/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": true,
+  "short": false,
+  "host": "hentaicube.xyz",
+  "ref": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/comic/hentaicube(ios)",
+  "id": "cbhentai",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 2,
+  "type": "comic",
+  "name": "Dâm Cô Nương",
+  "urls": [
+   "https://damconuong.pet",
+   "https://damconuong.name"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": true,
+  "short": false,
+  "host": "damconuong.pet",
+  "ref": null,
+  "id": "damconuong",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 3,
+  "type": "comic",
+  "name": "SayHentai",
+  "urls": [
+   "https://sayhentai.cx",
+   "https://sayhentais.com/",
+   "https://sayhentaii.art"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": true,
+  "short": false,
+  "host": "sayhentai.cx",
+  "ref": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/comic/sayhentai",
+  "id": "sayhentai",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 4,
+  "type": "comic",
+  "name": "CBunu Comic",
+  "urls": [
+   "https://cucbongunu.com/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": true,
+  "short": false,
+  "host": "cucbongunu.com",
+  "ref": null,
+  "id": "cbunucomic",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 5,
+  "type": "comic",
+  "name": "cosplaytele",
+  "urls": [
+   "https://cosplaytele.com/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": true,
+  "short": false,
+  "host": "cosplaytele.com",
+  "ref": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/comic/cosplaytele",
+  "id": "cosplaytele",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 6,
+  "type": "comic",
+  "name": "Destin Team",
+  "urls": [
+   "https://destinteam.xyz/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "destinteam.xyz",
+  "ref": null,
+  "id": "destinteam",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 7,
+  "type": "comic",
+  "name": "Dưa Leo truyện",
+  "urls": [
+   "https://dualeotruyenbet.com/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": true,
+  "short": false,
+  "host": "dualeotruyenbet.com",
+  "ref": null,
+  "id": "dualeotruyen",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 8,
+  "type": "comic",
+  "name": "E Hentai",
+  "urls": [
+   "https://e-hentai.org"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": true,
+  "short": false,
+  "host": "e-hentai.org",
+  "ref": null,
+  "id": "ehentai",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 9,
+  "type": "comic",
+  "name": "Góc Truyện Tranh",
+  "urls": [
+   "https://goctruyentranhvui41.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "goctruyentranhvui41.com",
+  "ref": null,
+  "id": "goctruyentranh",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 10,
+  "type": "comic",
+  "name": "HentaiVN",
+  "urls": [
+   "https://hentaivnreal.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "hentaivnreal.com",
+  "ref": "/home/claude/vbx/47116e1652",
+  "id": "hentaivn",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 11,
+  "type": "comic",
+  "name": "Hắc Ám Chi Các",
+  "urls": [
+   "https://haccbl.xyz/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "haccbl.xyz",
+  "ref": null,
+  "id": "hacamchicac",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 12,
+  "type": "comic",
+  "name": "Jelly Comics",
+  "urls": [
+   "https://jellycomics.online/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "jellycomics.online",
+  "ref": null,
+  "id": "jellycomics",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 13,
+  "type": "comic",
+  "name": "JulyComic",
+  "urls": [
+   "https://julycomics.site"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "julycomics.site",
+  "ref": null,
+  "id": "julycomic",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 14,
+  "type": "comic",
+  "name": "LuotTruyen",
+  "urls": [
+   "https://luottruyen.net"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "luottruyen.net",
+  "ref": "/home/claude/vbx/13d0af5682",
+  "id": "luottruyen",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 15,
+  "type": "comic",
+  "name": "MangaDex",
+  "urls": [
+   "https://mangadex.org"
+  ],
+  "lang": "Tất Cả",
+  "nsfw": false,
+  "short": false,
+  "host": "mangadex.org",
+  "ref": null,
+  "id": "mangadex",
+  "lang_code": "all"
+ },
+ {
+  "stt": 16,
+  "type": "comic",
+  "name": "ManhwaBuddy",
+  "urls": [
+   "https://manhwabuddy.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "manhwabuddy.com",
+  "ref": null,
+  "id": "manhwabuddy",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 17,
+  "type": "comic",
+  "name": "Mimimoe",
+  "urls": [
+   "https://mimimoe.moe"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "mimimoe.moe",
+  "ref": null,
+  "id": "mimimoe",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 18,
+  "type": "comic",
+  "name": "Misskon",
+  "urls": [
+   "https://misskon.com/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "misskon.com",
+  "ref": null,
+  "id": "misskon",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 19,
+  "type": "comic",
+  "name": "MoeTruyen",
+  "urls": [
+   "https://truyen.moe"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "truyen.moe",
+  "ref": "/home/claude/refs/vb_mizhm_vbook-extensions/truyennow",
+  "id": "moetruyen",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 20,
+  "type": "comic",
+  "name": "My Reading Manga",
+  "urls": [
+   "https://myreadingmanga.info/"
+  ],
+  "lang": "Tất Cả",
+  "nsfw": false,
+  "short": false,
+  "host": "myreadingmanga.info",
+  "ref": null,
+  "id": "myreadingmanga",
+  "lang_code": "all"
+ },
+ {
+  "stt": 21,
+  "type": "comic",
+  "name": "Navy Team Comic",
+  "urls": [
+   "https://navyteams.com/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "navyteams.com",
+  "ref": null,
+  "id": "navyteamcomic",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 22,
+  "type": "comic",
+  "name": "NetTruyen18",
+  "urls": [
+   "https://nettruyen18.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "nettruyen18.com",
+  "ref": null,
+  "id": "nettruyen18",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 23,
+  "type": "comic",
+  "name": "NetTruyenViet",
+  "urls": [
+   "https://nettruyenviet10.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "nettruyenviet10.com",
+  "ref": null,
+  "id": "nettruyenviet",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 24,
+  "type": "comic",
+  "name": "NetTruyenZ",
+  "urls": [
+   "https://nettruyenz.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "nettruyenz.com",
+  "ref": null,
+  "id": "nettruyenz",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 25,
+  "type": "comic",
+  "name": "Roads Team",
+  "urls": [
+   "https://roadsteami.net/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "roadsteami.net",
+  "ref": null,
+  "id": "roadsteam",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 26,
+  "type": "comic",
+  "name": "Thế Giới Truyện",
+  "urls": [
+   "https://thegioitruyen.vn"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "thegioitruyen.vn",
+  "ref": null,
+  "id": "thegioitruyen",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 27,
+  "type": "comic",
+  "name": "TruyenGG",
+  "urls": [
+   "https://truyenggvn.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "truyenggvn.com",
+  "ref": null,
+  "id": "truyengg",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 28,
+  "type": "comic",
+  "name": "TruyenQQ",
+  "urls": [
+   "https://truyenqqko.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "truyenqqko.com",
+  "ref": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/comic/truyenqq",
+  "id": "truyenqq",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 29,
+  "type": "comic",
+  "name": "TruyenQQ",
+  "urls": [
+   "https://truyenqq.com.vn"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "truyenqq.com.vn",
+  "ref": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/metruyenchu",
+  "id": "truyenqqc",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 30,
+  "type": "comic",
+  "name": "Truyentranhdammyy",
+  "urls": [
+   "https://truyentranhdammyy.site/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "truyentranhdammyy.site",
+  "ref": null,
+  "id": "truyentranhdammyy",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 31,
+  "type": "comic",
+  "name": "TVKH",
+  "urls": [
+   "https://bananacoo.com/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "bananacoo.com",
+  "ref": null,
+  "id": "tvkh",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 32,
+  "type": "comic",
+  "name": "VinaHentai",
+  "urls": [
+   "https://vinahentai.bond"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "vinahentai.bond",
+  "ref": null,
+  "id": "vinahentai",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 33,
+  "type": "comic",
+  "name": "WebtoonScan",
+  "urls": [
+   "https://webtoonscan.com"
+  ],
+  "lang": "Tiếng Anh",
+  "nsfw": false,
+  "short": false,
+  "host": "webtoonscan.com",
+  "ref": null,
+  "id": "webtoonscan",
+  "lang_code": "en"
+ },
+ {
+  "stt": 34,
+  "type": "comic",
+  "name": "Weeb Central",
+  "urls": [
+   "https://weebcentral.com"
+  ],
+  "lang": "Tiếng Anh",
+  "nsfw": false,
+  "short": false,
+  "host": "weebcentral.com",
+  "ref": null,
+  "id": "weebcentral",
+  "lang_code": "en"
+ },
+ {
+  "stt": 35,
+  "type": "comic",
+  "name": "Đọc Truyện Tranh BL",
+  "urls": [
+   "https://truyentranhbl.com/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "truyentranhbl.com",
+  "ref": null,
+  "id": "doctruyentranhbl",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 36,
+  "type": "comic",
+  "name": "Ưng Tỷ Comics",
+  "urls": [
+   "https://ungtycomics.net/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "ungtycomics.net",
+  "ref": "/home/claude/refs/vb_BaoBao666888_ext-vbook-w/ungtycomics",
+  "id": "ungtycomics",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 1,
+  "type": "novel",
+  "name": "Ln.Hako.Vn (Hako)",
+  "urls": [
+   "https://ln.hako.vn/",
+   "https://ln.hako.re/",
+   "https://docln.net",
+   "https://docln.sbs/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "ln.hako.vn",
+  "ref": "/home/claude/vbx/aef19c8324",
+  "id": "lnhakovnhako",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 2,
+  "type": "novel",
+  "name": "Sonako",
+  "urls": [
+   "https://sonako.fandom.com/vi/wiki/Sonako_Light_Novel"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "sonako.fandom.com",
+  "ref": null,
+  "id": "sonako",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 3,
+  "type": "novel",
+  "name": "07br",
+  "urls": [
+   "https://www.bqg128.xyz/#/"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "bqg128.xyz",
+  "ref": null,
+  "id": "07br",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 4,
+  "type": "novel",
+  "name": "101kks",
+  "urls": [
+   "https://101kks.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "101kks.com",
+  "ref": null,
+  "id": "101kks",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 5,
+  "type": "novel",
+  "name": "101Minc",
+  "urls": [
+   "https://www.101Minc.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "101Minc.com",
+  "ref": null,
+  "id": "101minc",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 6,
+  "type": "novel",
+  "name": "52shuku by QuocBao",
+  "urls": [
+   "https://www.52shuku.net"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "52shuku.net",
+  "ref": "/home/claude/refs/vb_Moleys_vbook-ext/52shuku",
+  "id": "52shukubyquocbao",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 7,
+  "type": "novel",
+  "name": "69shu - repo Đường đen",
+  "urls": [
+   "https://69shuba.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "69shuba.com",
+  "ref": "/home/claude/vbx/8ec234d2c1",
+  "id": "69shurepoduongden",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 8,
+  "type": "novel",
+  "name": "69书吧",
+  "urls": [
+   "https://www.69shuba.com",
+   "https://www.69shu.xyz",
+   "https://69shuba.tw"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "69shuba.com",
+  "ref": "/home/claude/vbx/8ec234d2c1",
+  "id": "69shuba",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 9,
+  "type": "novel",
+  "name": "75zwcom",
+  "urls": [
+   "https://m.qiwubiquge.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "m.qiwubiquge.com",
+  "ref": null,
+  "id": "75zwcom",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 10,
+  "type": "novel",
+  "name": "8book",
+  "urls": [
+   "https://www.8book.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "8book.com",
+  "ref": null,
+  "id": "8book",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 11,
+  "type": "novel",
+  "name": "alicesw",
+  "urls": [
+   "https://www.alicesw.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": true,
+  "short": false,
+  "host": "alicesw.com",
+  "ref": "/home/claude/vbx/1dcef5baa5",
+  "id": "alicesw",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 12,
+  "type": "novel",
+  "name": "allin1",
+  "urls": [
+   "http://14.225.254.182/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "14.225.254.182",
+  "ref": null,
+  "id": "allin1",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 13,
+  "type": "novel",
+  "name": "App Truyện Chữ",
+  "urls": [
+   "https://apptruyenchu.pro/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "apptruyenchu.pro",
+  "ref": null,
+  "id": "apptruyenchu",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 14,
+  "type": "novel",
+  "name": "BL Bất Tử",
+  "urls": [
+   "https://blbattu.com/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "blbattu.com",
+  "ref": null,
+  "id": "blbattu",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 15,
+  "type": "novel",
+  "name": "Boylove Bất Tử",
+  "urls": [
+   "https://boylovebattu.com/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "boylovebattu.com",
+  "ref": null,
+  "id": "boylovebattu",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 16,
+  "type": "novel",
+  "name": "Bàn Long",
+  "urls": [
+   "https://blhvip.vn"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "blhvip.vn",
+  "ref": "/home/claude/vbx/f077558e60",
+  "id": "banlong",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 17,
+  "type": "novel",
+  "name": "ciyuanji",
+  "urls": [
+   "https://www.ciyuanji.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "ciyuanji.com",
+  "ref": null,
+  "id": "ciyuanji",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 18,
+  "type": "novel",
+  "name": "czbooks - repo Đường đen",
+  "urls": [
+   "https://czbooks.net"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "czbooks.net",
+  "ref": null,
+  "id": "czbooksrepoduongden",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 19,
+  "type": "novel",
+  "name": "Deqixs",
+  "urls": [
+   "https://www.deqixss.com",
+   "https://www.deqixs.org"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "deqixss.com",
+  "ref": null,
+  "id": "deqixs",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 20,
+  "type": "novel",
+  "name": "douban",
+  "urls": [
+   "https://read.douban.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "read.douban.com",
+  "ref": null,
+  "id": "douban",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 21,
+  "type": "novel",
+  "name": "Dưa Hấu",
+  "urls": [
+   "https://xgmf.zuanqianyi.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "xgmf.zuanqianyi.com",
+  "ref": null,
+  "id": "duahau",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 22,
+  "type": "novel",
+  "name": "Faloo",
+  "urls": [
+   "https://faloo.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "",
+  "ref": "/home/claude/refs/vb_lethituyen_vbooks-extension/bfaloo",
+  "id": "faloo",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 23,
+  "type": "novel",
+  "name": "Fan MTL",
+  "urls": [
+   "https://www.fanmtl.com"
+  ],
+  "lang": "Tiếng Anh",
+  "nsfw": false,
+  "short": false,
+  "host": "fanmtl.com",
+  "ref": null,
+  "id": "fanmtl",
+  "lang_code": "en"
+ },
+ {
+  "stt": 24,
+  "type": "novel",
+  "name": "Giới Truyện",
+  "urls": [
+   "https://gioitruyen.com/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "gioitruyen.com",
+  "ref": null,
+  "id": "gioitruyen",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 25,
+  "type": "novel",
+  "name": "gongzicp",
+  "urls": [
+   "https://www.gongzicp.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "gongzicp.com",
+  "ref": null,
+  "id": "gongzicp",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 26,
+  "type": "novel",
+  "name": "Gấu Mèo Team",
+  "urls": [
+   "https://gaumeoteam.com/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "gaumeoteam.com",
+  "ref": null,
+  "id": "gaumeoteam",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 27,
+  "type": "novel",
+  "name": "Hameln (Syosetu.org)",
+  "urls": [
+   "https://syosetu.org"
+  ],
+  "lang": "Tiếng Nhật",
+  "nsfw": false,
+  "short": false,
+  "host": "syosetu.org",
+  "ref": null,
+  "id": "hamelnsyosetuorg",
+  "lang_code": "ja"
+ },
+ {
+  "stt": 28,
+  "type": "novel",
+  "name": "Hang Truyện Chữ",
+  "urls": [
+   "https://hangtruyenchu.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "hangtruyenchu.com",
+  "ref": null,
+  "id": "hangtruyenchu",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 29,
+  "type": "novel",
+  "name": "html5.qq.com",
+  "urls": [
+   "https://bookshelf.html5.qq.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "bookshelf.html5.qq.com",
+  "ref": "/home/claude/refs/vb_Moleys_vbook-ext/html5qq",
+  "id": "html5qqcom",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 30,
+  "type": "novel",
+  "name": "idejian",
+  "urls": [
+   "https://www.idejian.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "idejian.com",
+  "ref": null,
+  "id": "idejian",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 31,
+  "type": "novel",
+  "name": "ijjjxsxzw",
+  "urls": [
+   "https://m.ijjjxsxzw.com/"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "m.ijjjxsxzw.com",
+  "ref": null,
+  "id": "ijjjxsxzw",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 32,
+  "type": "novel",
+  "name": "ixdzs8",
+  "urls": [
+   "https://ixdzs8.com/"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "ixdzs8.com",
+  "ref": null,
+  "id": "ixdzs8",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 33,
+  "type": "novel",
+  "name": "JJWXC · Tấn Giang",
+  "urls": [
+   "http://www.jjwxc.net/"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "jjwxc.net",
+  "ref": null,
+  "id": "jjwxctangiang",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 34,
+  "type": "novel",
+  "name": "Jjwxc-repo duongden💰✅",
+  "urls": [
+   "https://www.jjwxc.net"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "jjwxc.net",
+  "ref": null,
+  "id": "jjwxcrepoduongden",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 35,
+  "type": "novel",
+  "name": "Kakuyomu",
+  "urls": [
+   "https://kakuyomu.jp"
+  ],
+  "lang": "Tiếng Nhật",
+  "nsfw": false,
+  "short": false,
+  "host": "kakuyomu.jp",
+  "ref": null,
+  "id": "kakuyomu",
+  "lang_code": "ja"
+ },
+ {
+  "stt": 36,
+  "type": "novel",
+  "name": "Kho Truyện Chữ",
+  "urls": [
+   "https://khotruyenchu.fun/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "khotruyenchu.fun",
+  "ref": "/home/claude/vbx/ae19161166",
+  "id": "khotruyenchu",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 37,
+  "type": "novel",
+  "name": "La Cà Truyện",
+  "urls": [
+   "https://lacatruyen.live/",
+   "https://lacatruyen.homes"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "lacatruyen.live",
+  "ref": null,
+  "id": "lacatruyen",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 38,
+  "type": "novel",
+  "name": "Langgee",
+  "urls": [
+   "https://v5.langge.uk"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "v5.langge.uk",
+  "ref": null,
+  "id": "langgee",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 39,
+  "type": "novel",
+  "name": "LN Kuro",
+  "urls": [
+   "https://lnkuro.top/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "lnkuro.top",
+  "ref": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/lnkuro",
+  "id": "lnkuro",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 40,
+  "type": "novel",
+  "name": "LOFTER",
+  "urls": [
+   "https://www.sudugu.org"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "sudugu.org",
+  "ref": null,
+  "id": "lofter",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 41,
+  "type": "novel",
+  "name": "LoHi",
+  "urls": [
+   "https://lohi2.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "lohi2.com",
+  "ref": null,
+  "id": "lohi",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 42,
+  "type": "novel",
+  "name": "LoppyToon",
+  "urls": [
+   "https://loppytoon.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": true,
+  "short": false,
+  "host": "loppytoon.com",
+  "ref": null,
+  "id": "loppytoon",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 43,
+  "type": "novel",
+  "name": "Luvevaland",
+  "urls": [
+   "https://luvevalandn2.co"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "luvevalandn2.co",
+  "ref": null,
+  "id": "luvevaland",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 44,
+  "type": "novel",
+  "name": "MangaDM",
+  "urls": [
+   "https://mangadm.me/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "mangadm.me",
+  "ref": null,
+  "id": "mangadm",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 45,
+  "type": "novel",
+  "name": "Matt Reading Translations",
+  "urls": [
+   "https://mattreadingtranslations.com/"
+  ],
+  "lang": "Tiếng Anh",
+  "nsfw": false,
+  "short": false,
+  "host": "mattreadingtranslations.com",
+  "ref": null,
+  "id": "mattreadingtranslations",
+  "lang_code": "en"
+ },
+ {
+  "stt": 46,
+  "type": "novel",
+  "name": "Mino Truyện",
+  "urls": [
+   "https://minotruyenv6.xyz/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "minotruyenv6.xyz",
+  "ref": null,
+  "id": "minotruyen",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 47,
+  "type": "novel",
+  "name": "Minttea Novel",
+  "urls": [
+   "https://mintteanovel.com/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "mintteanovel.com",
+  "ref": null,
+  "id": "mintteanovel",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 48,
+  "type": "novel",
+  "name": "MonkeyD",
+  "urls": [
+   "https://monkeydd.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "monkeydd.com",
+  "ref": null,
+  "id": "monkeyd",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 49,
+  "type": "novel",
+  "name": "Moyue · Mặc Duyệt",
+  "urls": [
+   "https://moyue.app"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "moyue.app",
+  "ref": null,
+  "id": "moyuemacduyet",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 50,
+  "type": "novel",
+  "name": "MTC",
+  "urls": [
+   "https://metruyencv.biz"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "metruyencv.biz",
+  "ref": "/home/claude/vbx/5af4204de4",
+  "id": "mtc",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 51,
+  "type": "novel",
+  "name": "Mê Truyện Chữ",
+  "urls": [
+   "https://metruyenchu.com.vn",
+   "https://metruyenchu.co",
+   "https://metruyenchuvn.org/",
+   "https://metruyenchu.com.vn/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "metruyenchu.com.vn",
+  "ref": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/metruyenchu",
+  "id": "metruyenchu",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 52,
+  "type": "novel",
+  "name": "Mê Truyện CV",
+  "urls": [
+   "https://metruyencv.com.vn/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "metruyencv.com.vn",
+  "ref": "/home/claude/vbx/5af4204de4",
+  "id": "metruyencv",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 53,
+  "type": "novel",
+  "name": "Mê Đọc Truyện",
+  "urls": [
+   "https://medoctruyen.vn/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "medoctruyen.vn",
+  "ref": null,
+  "id": "medoctruyen",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 54,
+  "type": "novel",
+  "name": "Mọt Truyện",
+  "urls": [
+   "https://mottruyen.app"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "mottruyen.app",
+  "ref": null,
+  "id": "mottruyen",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 55,
+  "type": "novel",
+  "name": "Navy Team Novel",
+  "urls": [
+   "https://navyteams.com/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "navyteams.com",
+  "ref": null,
+  "id": "navyteamnovel",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 56,
+  "type": "novel",
+  "name": "NetTruyen",
+  "urls": [
+   "https://nettruyen.com.vn"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "nettruyen.com.vn",
+  "ref": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/metruyenchu",
+  "id": "nettruyen",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 57,
+  "type": "novel",
+  "name": "Novel Next",
+  "urls": [
+   "https://www.novelnext.me",
+   "https://novelnext.me"
+  ],
+  "lang": "Tiếng Anh",
+  "nsfw": false,
+  "short": false,
+  "host": "novelnext.me",
+  "ref": null,
+  "id": "novelnext",
+  "lang_code": "en"
+ },
+ {
+  "stt": 58,
+  "type": "novel",
+  "name": "NovelFull.Net",
+  "urls": [
+   "https://novelfull.net"
+  ],
+  "lang": "Tiếng Anh",
+  "nsfw": false,
+  "short": false,
+  "host": "novelfull.net",
+  "ref": "/home/claude/refs/vb_Moleys_vbook-ext/novelfull",
+  "id": "novelfullnet",
+  "lang_code": "en"
+ },
+ {
+  "stt": 59,
+  "type": "novel",
+  "name": "NovelPhoenix",
+  "urls": [
+   "https://novelphoenix.net"
+  ],
+  "lang": "Tiếng Anh",
+  "nsfw": false,
+  "short": false,
+  "host": "novelphoenix.net",
+  "ref": null,
+  "id": "novelphoenix",
+  "lang_code": "en"
+ },
+ {
+  "stt": 60,
+  "type": "novel",
+  "name": "Novelpia Global",
+  "urls": [
+   "https://global.novelpia.com"
+  ],
+  "lang": "Tiếng Anh",
+  "nsfw": false,
+  "short": false,
+  "host": "global.novelpia.com",
+  "ref": null,
+  "id": "novelpiaglobal",
+  "lang_code": "en"
+ },
+ {
+  "stt": 61,
+  "type": "novel",
+  "name": "piaotian-app",
+  "urls": [
+   "https://www.piaotianapp.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "piaotianapp.com",
+  "ref": null,
+  "id": "piaotianapp",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 62,
+  "type": "novel",
+  "name": "po18",
+  "urls": [
+   "https://www.po18.tw"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": true,
+  "short": false,
+  "host": "po18.tw",
+  "ref": "/home/claude/refs/vb_Moleys_vbook-ext/po18",
+  "id": "po18",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 63,
+  "type": "novel",
+  "name": "po18sm",
+  "urls": [
+   "https://www.po18sm.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": true,
+  "short": false,
+  "host": "po18sm.com",
+  "ref": null,
+  "id": "po18sm",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 64,
+  "type": "novel",
+  "name": "qimao",
+  "urls": [
+   "https://www.qimao.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "qimao.com",
+  "ref": "/home/claude/refs/vb_lethituyen_vbooks-extension/qimao",
+  "id": "qimao",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 65,
+  "type": "novel",
+  "name": "qmbook",
+  "urls": [
+   "https://m.bqg998.cc/#/"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "m.bqg998.cc",
+  "ref": null,
+  "id": "qmbook",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 66,
+  "type": "novel",
+  "name": "quanben",
+  "urls": [
+   "https://quanben.io"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "quanben.io",
+  "ref": null,
+  "id": "quanben",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 67,
+  "type": "novel",
+  "name": "quanwenyuedu",
+  "urls": [
+   "https://www.quanwenyuedu.io"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "quanwenyuedu.io",
+  "ref": null,
+  "id": "quanwenyuedu",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 68,
+  "type": "novel",
+  "name": "QuyKiep",
+  "urls": [
+   "https://quykiep.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "quykiep.com",
+  "ref": "/home/claude/refs/vb_lethituyen_vbooks-extension/lightnovel",
+  "id": "quykiep",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 69,
+  "type": "novel",
+  "name": "Shinigami LN Team",
+  "urls": [
+   "https://shinigamilnteam.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "shinigamilnteam.com",
+  "ref": null,
+  "id": "shinigamilnteam",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 70,
+  "type": "novel",
+  "name": "Si Truyện CV",
+  "urls": [
+   "https://sitruyencv.com/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "sitruyencv.com",
+  "ref": null,
+  "id": "sitruyencv",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 71,
+  "type": "novel",
+  "name": "Snapd",
+  "urls": [
+   "https://m.snapd.net"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "m.snapd.net",
+  "ref": null,
+  "id": "snapd",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 72,
+  "type": "novel",
+  "name": "sohu",
+  "urls": [
+   "https://www.sohu.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "sohu.com",
+  "ref": null,
+  "id": "sohu",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 73,
+  "type": "novel",
+  "name": "STV App Vi",
+  "urls": [
+   "https://sangtacviet.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "sangtacviet.com",
+  "ref": null,
+  "id": "stvappvi",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 74,
+  "type": "novel",
+  "name": "sudugu",
+  "urls": [
+   "https://www.sudugu.org"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "sudugu.org",
+  "ref": null,
+  "id": "sudugu",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 75,
+  "type": "novel",
+  "name": "sweetastes",
+  "urls": [
+   "https://www.bjtriz.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "bjtriz.com",
+  "ref": null,
+  "id": "sweetastes",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 76,
+  "type": "novel",
+  "name": "Syosetu",
+  "urls": [
+   "https://syosetu.com",
+   "https://ncode.syosetu.com"
+  ],
+  "lang": "Tiếng Nhật",
+  "nsfw": false,
+  "short": false,
+  "host": "syosetu.com",
+  "ref": null,
+  "id": "syosetu",
+  "lang_code": "ja"
+ },
+ {
+  "stt": 77,
+  "type": "novel",
+  "name": "Syosetu R18",
+  "urls": [
+   "https://novel18.syosetu.com"
+  ],
+  "lang": "Tiếng Nhật",
+  "nsfw": true,
+  "short": false,
+  "host": "novel18.syosetu.com",
+  "ref": null,
+  "id": "syosetur18",
+  "lang_code": "ja"
+ },
+ {
+  "stt": 78,
+  "type": "novel",
+  "name": "Sói Xám (Fanqie)",
+  "urls": [
+   "https://api.langge.cf"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "api.langge.cf",
+  "ref": null,
+  "id": "soixamfanqie",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 79,
+  "type": "novel",
+  "name": "TaoNovel",
+  "urls": [
+   "https://tybook.taoyuewenhua.net"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "tybook.taoyuewenhua.net",
+  "ref": null,
+  "id": "taonovel",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 80,
+  "type": "novel",
+  "name": "Tinh Linh",
+  "urls": [
+   "https://tinhlinh.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "tinhlinh.com",
+  "ref": null,
+  "id": "tinhlinh",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 81,
+  "type": "novel",
+  "name": "Tiệm Truyện Chữ",
+  "urls": [
+   "https://tiemtruyenchu.cloud"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "tiemtruyenchu.cloud",
+  "ref": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi-tiemtruyenchu",
+  "id": "tiemtruyenchu",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 82,
+  "type": "novel",
+  "name": "Truyen H",
+  "urls": [
+   "https://truyenh.top/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": true,
+  "short": false,
+  "host": "truyenh.top",
+  "ref": null,
+  "id": "truyenh",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 83,
+  "type": "novel",
+  "name": "TruyenC",
+  "urls": [
+   "https://truyenc.net"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "truyenc.net",
+  "ref": null,
+  "id": "truyenc",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 84,
+  "type": "novel",
+  "name": "TruyenCV.io",
+  "urls": [
+   "https://truyencv.io"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "truyencv.io",
+  "ref": null,
+  "id": "truyencvio",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 85,
+  "type": "novel",
+  "name": "TruyenDich.AI",
+  "urls": [
+   "https://truyendich.space"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "truyendich.space",
+  "ref": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/novel/truyendich.ai",
+  "id": "truyendichai",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 86,
+  "type": "novel",
+  "name": "truyenfull",
+  "urls": [
+   "https://truyenfull.live"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "truyenfull.live",
+  "ref": "/home/claude/vbx/bce53d6f9f",
+  "id": "truyenfull",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 87,
+  "type": "novel",
+  "name": "Truyện Chữ",
+  "urls": [
+   "https://truyenchu.net/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "truyenchu.net",
+  "ref": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/truyenchu",
+  "id": "truyenchu",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 88,
+  "type": "novel",
+  "name": "Truyện Dịch AI",
+  "urls": [
+   "https://truyendichai.com",
+   "https://truyendichai.top"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "truyendichai.com",
+  "ref": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi-truyendichaitop",
+  "id": "truyendichain",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 89,
+  "type": "novel",
+  "name": "Truyện Full",
+  "urls": [
+   "https://truyenfull.today"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "truyenfull.today",
+  "ref": "/home/claude/vbx/bce53d6f9f",
+  "id": "truyenfulln",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 90,
+  "type": "novel",
+  "name": "Truyện Mới",
+  "urls": [
+   "https://truyenmoi.app"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "truyenmoi.app",
+  "ref": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi_truyenmoi",
+  "id": "truyenmoi",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 91,
+  "type": "novel",
+  "name": "Truyện Mới KK",
+  "urls": [
+   "https://truyenmoikk.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "truyenmoikk.com",
+  "ref": null,
+  "id": "truyenmoikk",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 92,
+  "type": "novel",
+  "name": "Truyện Net",
+  "urls": [
+   "https://truyennet.vn"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "truyennet.vn",
+  "ref": "/home/claude/vbx/faa1af5dcc",
+  "id": "truyennet",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 93,
+  "type": "novel",
+  "name": "Truyện Zhihu Tổng Hợp",
+  "urls": [
+   "https://www.truyendexuat.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "truyendexuat.com",
+  "ref": null,
+  "id": "truyenzhihutonghop",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 94,
+  "type": "novel",
+  "name": "TruyệnCV",
+  "urls": [
+   "https://metruyencv.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "metruyencv.com",
+  "ref": "/home/claude/vbx/5af4204de4",
+  "id": "truyencv",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 95,
+  "type": "novel",
+  "name": "Tu Tiên (.pro)",
+  "urls": [
+   "https://tutien.pro/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "tutien.pro",
+  "ref": null,
+  "id": "tutienpro",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 96,
+  "type": "novel",
+  "name": "uukanshu",
+  "urls": [
+   "https://uukanshu.cc"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "uukanshu.cc",
+  "ref": null,
+  "id": "uukanshu",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 97,
+  "type": "novel",
+  "name": "Valvrareteam",
+  "urls": [
+   "https://valvrareteam.net"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "valvrareteam.net",
+  "ref": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/valvrareteam",
+  "id": "valvrareteam",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 98,
+  "type": "novel",
+  "name": "Viblo",
+  "urls": [
+   "https://viblo.asia"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "viblo.asia",
+  "ref": null,
+  "id": "viblo",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 99,
+  "type": "novel",
+  "name": "vivutruyencom",
+  "urls": [
+   "https://vivutruyen.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "vivutruyen.com",
+  "ref": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi_vivutruyen",
+  "id": "vivutruyencom",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 100,
+  "type": "novel",
+  "name": "Việt Nam Thư Quán",
+  "urls": [
+   "https://vnthuquan.org/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "vnthuquan.org",
+  "ref": null,
+  "id": "vietnamthuquan",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 101,
+  "type": "novel",
+  "name": "Wattpad",
+  "urls": [
+   "https://www.wattpad.com"
+  ],
+  "lang": "Tất Cả",
+  "nsfw": false,
+  "short": false,
+  "host": "wattpad.com",
+  "ref": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/wattpad",
+  "id": "wattpad",
+  "lang_code": "all"
+ },
+ {
+  "stt": 102,
+  "type": "novel",
+  "name": "Web Truyện Chữ",
+  "urls": [
+   "https://webtruyenchu.com/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "webtruyenchu.com",
+  "ref": null,
+  "id": "webtruyenchu",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 103,
+  "type": "novel",
+  "name": "Web Truyện Dịch",
+  "urls": [
+   "https://webtruyendich.com"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "webtruyendich.com",
+  "ref": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi-webtruyendich",
+  "id": "webtruyendich",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 104,
+  "type": "novel",
+  "name": "Weibo",
+  "urls": [
+   "https://m.weibo.cn"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "m.weibo.cn",
+  "ref": null,
+  "id": "weibo",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 105,
+  "type": "novel",
+  "name": "Wiki Dịch",
+  "urls": [
+   "https://wikicv.org",
+   "https://wikicv.net"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "wikicv.org",
+  "ref": null,
+  "id": "wikidich",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 106,
+  "type": "novel",
+  "name": "wodeshucheng5",
+  "urls": [
+   "https://www.wodeshucheng5.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "wodeshucheng5.com",
+  "ref": null,
+  "id": "wodeshucheng5",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 107,
+  "type": "novel",
+  "name": "Xbanxia - repo Đường đen",
+  "urls": [
+   "https://www.xbanxia.cc"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "xbanxia.cc",
+  "ref": null,
+  "id": "xbanxiarepoduongden",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 108,
+  "type": "novel",
+  "name": "Xianqihaotiami APP",
+  "urls": [
+   "http://www.xianqihaotianmi.org/"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "xianqihaotianmi.org",
+  "ref": "/home/claude/vbx/ad6d62eb0d",
+  "id": "xianqihaotiamiapp",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 109,
+  "type": "novel",
+  "name": "xsw",
+  "urls": [
+   "https://m.xsw.tw"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "m.xsw.tw",
+  "ref": null,
+  "id": "xsw",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 110,
+  "type": "novel",
+  "name": "XTruyen",
+  "urls": [
+   "https://www.xtruyen.net/"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "xtruyen.net",
+  "ref": null,
+  "id": "xtruyen",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 111,
+  "type": "novel",
+  "name": "YPShuo - Bình luận sách",
+  "urls": [
+   "https://www.ypshuo.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "ypshuo.com",
+  "ref": null,
+  "id": "ypshuobinhluansach",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 112,
+  "type": "novel",
+  "name": "【VIP】Bạch Ngọc Sách",
+  "urls": [
+   "http://bnsvip.net"
+  ],
+  "lang": "Tiếng Việt",
+  "nsfw": false,
+  "short": false,
+  "host": "bnsvip.net",
+  "ref": "/home/claude/refs/vb_lethituyen_vbooks-extension/vipbns",
+  "id": "vipbachngocsach",
+  "lang_code": "vi"
+ },
+ {
+  "stt": 113,
+  "type": "novel",
+  "name": "书本书 Shubenshu",
+  "urls": [
+   "https://www.shubenshu.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "shubenshu.com",
+  "ref": null,
+  "id": "shubenshu",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 114,
+  "type": "novel",
+  "name": "搜笔趣阁",
+  "urls": [
+   "https://www.sobqg.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "sobqg.com",
+  "ref": null,
+  "id": "sobqg",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 115,
+  "type": "novel",
+  "name": "笔趣阁-abcbiquge",
+  "urls": [
+   "http://m.abcbiquge.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "m.abcbiquge.com",
+  "ref": null,
+  "id": "abcbiquge",
+  "lang_code": "zh"
+ },
+ {
+  "stt": 116,
+  "type": "novel",
+  "name": "飘天文学",
+  "urls": [
+   "https://www.piaotia.com"
+  ],
+  "lang": "Tiếng Trung",
+  "nsfw": false,
+  "short": false,
+  "host": "piaotia.com",
+  "ref": null,
+  "id": "piaotia",
+  "lang_code": "zh"
+ }
+]

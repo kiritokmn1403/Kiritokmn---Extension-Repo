@@ -1,0 +1,3079 @@
+{
+ "anime47": {
+  "base": "https://anime47.best",
+  "domains": [
+   "https://anime47.best"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "animevnnet": {
+  "base": "https://animevn.net",
+  "domains": [
+   "https://animevn.net"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/search?q={q}[&page={p}]",
+   "item": ".anime-cover",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "div.glo_contents a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "bilibili": {
+  "base": "https://www.bilibili.tv",
+  "domains": [
+   "https://www.bilibili.tv"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "div.video-player__right a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "vtvgo": {
+  "base": "https://cache.vtvgo.vn",
+  "domains": [
+   "https://vtvgo.vn",
+   "https://cache.vtvgo.vn",
+   "https://vtvgo.vn"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "rophim": {
+  "base": "https://www.rophim.soy",
+  "domains": [
+   "https://www.rophimhd.com",
+   "https://rophim9.online",
+   "https://www.rophim.soy"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "hotphim": {
+  "base": "https://hotphim.org",
+  "domains": [
+   "https://hotphim.org"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[page/{p}/]"
+   },
+   "search": "/[page/{p}/]?s={q}",
+   "item": ".swiper-slide",
+   "title": "h3 a || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "#tabpane-suggestion a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "avsubanimevietsub": {
+  "base": "https://animevietsub.sale",
+  "domains": [
+   "https://animevietsub.nl",
+   "https://animevietsub.news",
+   "https://animevietsub.sale"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "haychill": {
+  "base": "https://phimhaychill.org",
+  "domains": [
+   "https://phimhaychill.org"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "xemphimgi": {
+  "base": "https://xemphimgi.com",
+  "domains": [
+   "https://xemphimgi.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[page/{p}/]"
+   },
+   "search": "/?s={q}[&page={p}]",
+   "item": ".movie-poster",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "#col-842605008 a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "nextphim": {
+  "base": "https://nextphim.net",
+  "domains": [
+   "https://nextphim.net"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[page/{p}/]"
+   },
+   "search": "/?s={q}[&page={p}]",
+   "item": ".col-xs-12",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "ul.sub-menu a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "vfilm": {
+  "base": "http://vfilm.vn",
+  "domains": [
+   "http://vfilm.vn"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/Home/filter?keyword={q}[&page={p}]",
+   "item": ".col-xs-4",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "phimmoi": {
+  "base": "https://messiahelartista.com",
+  "domains": [
+   "https://phimmoii.mom",
+   "https://phimmoii.bid",
+   "https://phimmoii.mom",
+   "https://messiahelartista.com",
+   "https://phimmoic.ws",
+   "https://phimmois.sh"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[page/{p}/]"
+   },
+   "search": "/?s={q}[&page={p}]",
+   "item": ".item",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "pornhub": {
+  "base": "https://www.pornhub.com",
+  "domains": [
+   "https://www.pornhub.com",
+   "https://www.pornhub.com"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "fikfap": {
+  "base": "https://fikfap.com",
+  "domains": [
+   "https://fikfap.com"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "tikporn": {
+  "base": "https://tik.porn",
+  "domains": [
+   "https://tik.porn"
+  ],
+  "status": 403,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "kwiky": {
+  "base": "https://kwiky.com",
+  "domains": [
+   "https://kwiky.com"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "xfree": {
+  "base": "https://www.xfree.com",
+  "domains": [
+   "https://www.xfree.com"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "fapreel": {
+  "base": "https://fapreel.com",
+  "domains": [
+   "https://fapreel.com"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "sexviettop": {
+  "base": "https://top1sexvn.com",
+  "domains": [
+   "https://top1sexvn.com"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "xoilac": {
+  "base": "https://xoilac32.org",
+  "domains": [
+   "https://xoilacxxi.cc",
+   "https://xoilacvb.cc",
+   "https://xoilac32.org"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "motphim": {
+  "base": "https://motphimc.my",
+  "domains": [
+   "https://motphimc.my",
+   "https://motphim.website",
+   "https://motchill10.io",
+   "https://motchille.cx",
+   "https://motphimc.mx",
+   "https://motchill10.io"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/?search={q}[&page={p}]",
+   "item": ".mp-movie-card",
+   "title": "h3 a || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "hihiphim": {
+  "base": "https://hihiphim.com",
+  "domains": [
+   "https://hihiphim.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?q={q}[&page={p}]",
+   "item": ".h-item",
+   "title": "h4 a || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "phimmoihd": {
+  "base": "https://phimmoihd.online",
+  "domains": [
+   "https://phimmoihd.online"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "blvietsub": {
+  "base": "https://www.blvietsub.vip",
+  "domains": [
+   "https://www.blvietsub.vip"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "dailymotion": {
+  "base": "https://www.dailymotion.com",
+  "domains": [
+   "https://www.dailymotion.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "douyin": {
+  "base": "https://www.douyin.com",
+  "domains": [
+   "https://www.douyin.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "freereels": {
+  "base": "https://free-reels.com",
+  "domains": [
+   "https://free-reels.com"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "guphim": {
+  "base": "https://guphimz.com",
+  "domains": [
+   "https://guphimz.com"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "hentaivietsubcom": {
+  "base": "https://hentaivietsub.com",
+  "domains": [
+   "https://hentaivietsub.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?k={q}[&page={p}]",
+   "item": ".item-box__poster",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "div.container a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "hhpanda": {
+  "base": "https://hhpanda.st",
+  "domains": [
+   "https://hhpanda.st"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "preset": "halim"
+ },
+ "hhtqhayvip": {
+  "base": "https://hhtqhay.vip",
+  "domains": [
+   "https://hhtqhay.vip"
+  ],
+  "status": 403,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "hongqua": {
+  "base": "https://hongguoduanju.com",
+  "domains": [
+   "https://hongguoduanju.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "div.m-container-uiyzC2 a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "iqiyi": {
+  "base": "https://www.iq.com",
+  "domains": [
+   "https://www.iq.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "luphim": {
+  "base": "https://luphim.com",
+  "domains": [
+   "https://luphim.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/search?k={q}[&page={p}]",
+   "item": ".swiper-slide",
+   "title": "[class*=title] a || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "#tabpane-suggestion a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "mgtv": {
+  "base": "https://glb.m.mgtv.com",
+  "domains": [
+   "https://w.mgtv.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "nguonc": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/video/nguonc",
+  "origin": "yae-miko-313/ext-vbook"
+ },
+ "phimnhua": {
+  "base": "https://phimnhua.online",
+  "domains": [
+   "https://phimnhua.online"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[page/{p}/]"
+   },
+   "search": "/?s={q}[&page={p}]",
+   "item": ".card__cover",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "phim4k": {
+  "base": "https://phim4k.xyz",
+  "domains": [
+   "https://phim4k.xyz"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "phimtv": {
+  "base": "https://phimtv.my",
+  "domains": [
+   "https://phimtv.my",
+   "https://phimtv2.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/?search={q}[&page={p}]",
+   "item": ".item",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "div.latest-episode a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "showbox": {
+  "base": "https://pixnet.cc",
+  "domains": [
+   "https://pixnet.cc"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "tiktok": {
+  "base": "https://www.tiktok.com",
+  "domains": [
+   "https://www.tiktok.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "twitch": {
+  "base": "https://m.twitch.tv",
+  "domains": [
+   "https://www.twitch.tv"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "watchhentainet": {
+  "base": "https://watchhentai.net",
+  "domains": [
+   "https://watchhentai.net"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[page/{p}/]"
+   },
+   "search": "/?s={q}[&page={p}]",
+   "item": ".poster",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "#dt_contenedor a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "youtube": {
+  "base": "https://m.youtube.com",
+  "domains": [
+   "https://www.youtube.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "cbhentai": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/comic/hentaicube(ios)",
+  "origin": "yae-miko-313/ext-vbook"
+ },
+ "damconuong": {
+  "base": "https://damconuong.name",
+  "domains": [
+   "https://damconuong.pet",
+   "https://damconuong.name"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "sayhentai": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/comic/sayhentai",
+  "origin": "hienpro00123/vbook_MeoU"
+ },
+ "cbunucomic": {
+  "base": "https://cucbongunu.com",
+  "domains": [
+   "https://cucbongunu.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem.html?q={q}[&page={p}]",
+   "item": ".cb-story-card",
+   "title": "h3 a || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "div.cb-chapter-panel a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "pages": ".cb-reader-content img"
+  }
+ },
+ "cosplaytele": {
+  "base": "https://cosplaytele.com",
+  "domains": [
+   "https://cosplaytele.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "ref",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[page/{p}/]"
+   },
+   "search": "#?phrase={q}[&page={p}]",
+   "item": ".col",
+   "title": "[class*=title] a || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]",
+   "single": true,
+   "pages": ".entry-content img, .gallery img"
+  },
+  "ref": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/comic/cosplaytele",
+  "origin": "yae-miko-313/ext-vbook"
+ },
+ "destinteam": {
+  "base": "https://destinteam.xyz",
+  "domains": [
+   "https://destinteam.xyz"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[page/{p}/]"
+   },
+   "search": "/?username={q}[&page={p}]",
+   "item": ".uk-panel",
+   "title": "h3 a || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "dualeotruyen": {
+  "base": "https://dualeotruyenbet.com",
+  "domains": [
+   "https://dualeotruyenbet.com"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "ehentai": {
+  "base": "https://e-hentai.org",
+  "domains": [
+   "https://e-hentai.org"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/?f_search={q}[&page={p}]",
+   "item": ".gldown",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "goctruyentranh": {
+  "base": "https://goctruyentranhvui41.com",
+  "domains": [
+   "https://goctruyentranhvui41.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "item": ".relative",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "hentaivn": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/47116e1652",
+  "origin": "vbook-extensions"
+ },
+ "hacamchicac": {
+  "base": "https://haccbl.xyz",
+  "domains": [
+   "https://haccbl.xyz"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[page/{p}/]"
+   },
+   "search": "/?username={q}[&page={p}]",
+   "item": ".uk-overflow-hidden",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "div.uk-margin-top a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "jellycomics": {
+  "base": "https://jellycomics.online",
+  "domains": [
+   "https://jellycomics.online"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "madara"
+ },
+ "julycomic": {
+  "base": "https://julycomics.site",
+  "domains": [
+   "https://julycomics.site"
+  ],
+  "status": 522,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "luottruyen": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/13d0af5682",
+  "origin": "Gold2k2k2k/HTri-Vbook-Ext"
+ },
+ "mangadex": {
+  "base": "https://mangadex.org",
+  "domains": [
+   "https://mangadex.org"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "manhwabuddy": {
+  "base": "https://manhwabuddy.com",
+  "domains": [
+   "https://manhwabuddy.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/search/?s={q}[&page={p}]",
+   "item": ".latest-left",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "mimimoe": {
+  "base": "https://mimihentai.moe",
+  "domains": [
+   "https://mimimoe.moe"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "item": ".pl-4",
+   "title": "h4 || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "misskon": {
+  "base": "https://misskon.com",
+  "domains": [
+   "https://misskon.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[page/{p}/]"
+   },
+   "search": "/?s={q}[&page={p}]",
+   "item": ".post-thumbnail",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "div.entry a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "single": true,
+   "pages": ".entry img",
+   "pages_next": ".page-link a.post-page-numbers:last-child, a.post-page-numbers.next"
+  }
+ },
+ "moetruyen": {
+  "base": "https://truyen.moe",
+  "domains": [
+   "https://truyen.moe"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "item": ".manga-card",
+   "title": "h3 || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "myreadingmanga": {
+  "base": "https://myreadingmanga.info",
+  "domains": [
+   "https://myreadingmanga.info"
+  ],
+  "status": 403,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "navyteamcomic": {
+  "base": "https://navyteams.com",
+  "domains": [
+   "https://navyteams.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "item": ".comic-item",
+   "title": "h3 || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "div.bodyL a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "pages": ".content-type-manga img"
+  }
+ },
+ "nettruyen18": {
+  "base": "https://nettruyen18.com",
+  "domains": [
+   "https://nettruyen18.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "preset": "nettruyen"
+ },
+ "nettruyenviet": {
+  "base": "https://nettruyenviet10.com",
+  "domains": [
+   "https://nettruyenviet10.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "preset": "nettruyen"
+ },
+ "nettruyenz": {
+  "base": "https://nettruyenz.com",
+  "domains": [
+   "https://nettruyenz.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "roadsteam": {
+  "base": "https://roadsteami.net",
+  "domains": [
+   "https://roadsteami.net"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "madara"
+ },
+ "thegioitruyen": {
+  "base": "https://thegioitruyen.vn",
+  "domains": [
+   "https://thegioitruyen.vn"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[page/{p}/]"
+   },
+   "search": "/?s={q}[&page={p}]",
+   "item": ".tgt-card",
+   "title": "[class*=title] || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "section.tgt-section a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "truyengg": {
+  "base": "https://truyenggvn.com",
+  "domains": [
+   "https://truyenggvn.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "item": ".book_avatar",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "truyenqq": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/comic/truyenqq",
+  "origin": "yae-miko-313/ext-vbook"
+ },
+ "truyenqqc": {
+  "base": "https://truyenqq.com.vn",
+  "domains": [
+   "https://truyenqq.com.vn"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?s={q}[&page={p}]",
+   "item": ".item",
+   "title": "h3 || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "truyentranhdammyy": {
+  "base": "https://truyentranhdammyy.site",
+  "domains": [
+   "https://truyentranhdammyy.site"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "madara"
+ },
+ "tvkh": {
+  "base": "https://bananacoo.com",
+  "domains": [
+   "https://bananacoo.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "madara",
+  "opts": {
+   "MADARA": {
+    "path": "truyen"
+   }
+  }
+ },
+ "vinahentai": {
+  "base": "https://vinahentai.bond",
+  "domains": [
+   "https://vinahentai.bond"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "webtoonscan": {
+  "base": "https://webtoonscan.com",
+  "domains": [
+   "https://webtoonscan.com"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "weebcentral": {
+  "base": "https://weebcentral.com",
+  "domains": [
+   "https://weebcentral.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/?email={q}[&page={p}]",
+   "item": ".bg-base-100",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "doctruyentranhbl": {
+  "base": "https://truyentranhbl.com",
+  "domains": [
+   "https://truyentranhbl.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "madara",
+  "opts": {
+   "MADARA": {
+    "path": "truyen"
+   }
+  }
+ },
+ "ungtycomics": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_BaoBao666888_ext-vbook-w/ungtycomics",
+  "origin": "BaoBao666888/ext-vbook-w"
+ },
+ "lnhakovnhako": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/aef19c8324",
+  "origin": "Gold2k2k2k/HTri-Vbook-Ext"
+ },
+ "sonako": {
+  "base": "https://sonako.fandom.com",
+  "domains": [
+   "https://sonako.fandom.com"
+  ],
+  "status": 403,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "07br": {
+  "base": "https://www.bqg603.cc",
+  "domains": [
+   "https://www.bqg128.xyz"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "101kks": {
+  "base": "https://101kks.com",
+  "domains": [
+   "https://101kks.com"
+  ],
+  "status": 403,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "101minc": {
+  "base": "https://www.101minc.com",
+  "domains": [
+   "https://www.101Minc.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/modules/article/search.php?searchkey={q}[&page={p}]",
+   "item": ".rank_right",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "div.newbox a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "52shukubyquocbao": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_Moleys_vbook-ext/52shuku",
+  "origin": "Moleys/vbook-ext"
+ },
+ "69shurepoduongden": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/8ec234d2c1",
+  "origin": "Ivan1hai/ext"
+ },
+ "69shuba": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/8ec234d2c1",
+  "origin": "Ivan1hai/ext"
+ },
+ "75zwcom": {
+  "base": "https://m.75biquge.com",
+  "domains": [
+   "https://m.qiwubiquge.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "8book": {
+  "base": "https://www.8book.com",
+  "domains": [
+   "https://www.8book.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/search/?key={q}[&page={p}]",
+   "item": ".picsize",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "#chapters a.episode_li",
+   "content": "#text, .text, #content, .content"
+  }
+ },
+ "alicesw": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/1dcef5baa5",
+  "origin": "Ivan1hai/ext"
+ },
+ "allin1": {
+  "base": "http://14.225.254.182",
+  "domains": [
+   "http://14.225.254.182"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/?id={q}[&page={p}]",
+   "item": ".book-list-item",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "apptruyenchu": {
+  "base": "https://apptruyenchu.pro",
+  "domains": [
+   "https://apptruyenchu.pro"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "item": ".flex",
+   "title": "h3 || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "blbattu": {
+  "base": "https://blbattu.com",
+  "domains": [
+   "https://blbattu.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[page/{p}/]"
+   },
+   "search": "/?username={q}[&page={p}]",
+   "item": ".uk-panel",
+   "title": "h3 a || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "#chapter-list a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "boylovebattu": {
+  "base": "https://boylovebattu.com",
+  "domains": [
+   "https://boylovebattu.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "madara",
+  "opts": {
+   "MADARA": {
+    "path": "truyen"
+   }
+  }
+ },
+ "banlong": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/f077558e60",
+  "origin": "vbook-extensions"
+ },
+ "ciyuanji": {
+  "base": "https://m.ciyuanji.com",
+  "domains": [
+   "https://www.ciyuanji.com"
+  ],
+  "status": 403,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "czbooksrepoduongden": {
+  "base": "https://czbooks.net",
+  "domains": [
+   "https://czbooks.net"
+  ],
+  "status": 403,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "deqixs": {
+  "base": "https://www.deqixs.org",
+  "domains": [
+   "https://www.deqixss.com",
+   "https://www.deqixs.org"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "item": ".item",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "#list ul a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "content": "#content, .con, .content"
+  }
+ },
+ "douban": {
+  "base": "https://read.douban.com",
+  "domains": [
+   "https://read.douban.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "duahau": {
+  "base": "https://xgmf.zuanqianyi.com",
+  "domains": [
+   "https://xgmf.zuanqianyi.com"
+  ],
+  "status": 404,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "faloo": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_lethituyen_vbooks-extension/bfaloo",
+  "origin": "lethituyen/vbooks-extension"
+ },
+ "fanmtl": {
+  "base": "https://www.fanmtl.com",
+  "domains": [
+   "https://www.fanmtl.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "item": ".novel-item",
+   "title": "h4 || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "#chpagedlist a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_reverse": true,
+   "content": ".chapter-content, #chapter-content, .content"
+  }
+ },
+ "gioitruyen": {
+  "base": "https://gioitruyen.com",
+  "domains": [
+   "https://gioitruyen.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "gongzicp": {
+  "base": "https://www.gongzicp.com",
+  "domains": [
+   "https://www.gongzicp.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "gaumeoteam": {
+  "base": "https://gaumeoteam.com",
+  "domains": [
+   "https://gaumeoteam.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "madara"
+ },
+ "hamelnsyosetuorg": {
+  "base": "https://syosetu.org",
+  "domains": [
+   "https://syosetu.org"
+  ],
+  "status": 403,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "hangtruyenchu": {
+  "base": "https://hangtruyenchu.com",
+  "domains": [
+   "https://hangtruyenchu.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/danh-sach?keyword={q}[&page={p}]",
+   "item": ".col-lg-4",
+   "title": "[class*=title] a || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "div.container a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "html5qqcom": {
+  "base": "https://bookshelf.html5.qq.com",
+  "domains": [
+   "https://bookshelf.html5.qq.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "idejian": {
+  "base": "https://www.idejian.com",
+  "domains": [
+   "https://www.idejian.com"
+  ],
+  "status": 202,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "ijjjxsxzw": {
+  "base": "https://m.ijjjxsxzw.com",
+  "domains": [
+   "https://m.ijjjxsxzw.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "item": ".img",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "ixdzs8": {
+  "base": "https://ixdzs8.com",
+  "domains": [
+   "https://ixdzs8.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/bsearch?q={q}[&page={p}]",
+   "item": ".l-img",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "#a-list ul.u-chapter a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "content": ".page-content, article.page-content, #content, .content"
+  }
+ },
+ "jjwxctangiang": {
+  "base": "https://www.jjwxc.net",
+  "domains": [
+   "http://www.jjwxc.net"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "div.b3right a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "jjwxcrepoduongden": {
+  "base": "https://www.jjwxc.net",
+  "domains": [
+   "https://www.jjwxc.net"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "div.b3right a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "kakuyomu": {
+  "base": "https://kakuyomu.jp",
+  "domains": [
+   "https://kakuyomu.jp"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "item": ".Heading_heading__lQ85n",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "div._workId__workToc__P6xQs a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "content": ".widget-episodeBody",
+   "c_title": ".widget-episodeTitle"
+  }
+ },
+ "khotruyenchu": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/ae19161166",
+  "origin": "Ivan1hai/ext"
+ },
+ "lacatruyen": {
+  "base": "https://lacatruyen.homes",
+  "domains": [
+   "https://lacatruyen.live",
+   "https://lacatruyen.homes"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "langgee": {
+  "base": "https://v5.langge.uk",
+  "domains": [
+   "https://v5.langge.uk"
+  ],
+  "status": 502,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "lnkuro": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/lnkuro",
+  "origin": "hienpro00123/vbook_MeoU"
+ },
+ "lofter": {
+  "base": "https://www.sudugu.org",
+  "domains": [
+   "https://www.sudugu.org"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "lohi": {
+  "base": "https://lohi2.com",
+  "domains": [
+   "https://lohi2.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?q={q}[&page={p}]",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "loppytoon": {
+  "base": "https://loppytoon.com",
+  "domains": [
+   "https://loppytoon.com"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "luvevaland": {
+  "base": "https://luvevalandn2.co",
+  "domains": [
+   "https://luvevalandn2.co"
+  ],
+  "status": 403,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "mangadm": {
+  "base": "https://mangadm.me",
+  "domains": [
+   "https://mangadm.me"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[page/{p}/]"
+   },
+   "search": "/?s={q}[&page={p}]",
+   "item": ".comment-meta",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "mattreadingtranslations": {
+  "base": "https://mattreadingtranslations.com",
+  "domains": [
+   "https://mattreadingtranslations.com"
+  ],
+  "status": 403,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "minotruyen": {
+  "base": "https://minotruyenv6.xyz",
+  "domains": [
+   "https://minotruyenv6.xyz"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "mintteanovel": {
+  "base": "https://mintteanovel.com",
+  "domains": [
+   "https://mintteanovel.com"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "monkeyd": {
+  "base": "https://monkeydd.com",
+  "domains": [
+   "https://monkeydd.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?search={q}[&page={p}]",
+   "item": ".d-flex",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "moyuemacduyet": {
+  "base": "https://moyue.app",
+  "domains": [
+   "https://moyue.app"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/?email={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "mtc": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/5af4204de4",
+  "origin": "Ivan1hai/ext"
+ },
+ "metruyenchu": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/metruyenchu",
+  "origin": "hienpro00123/vbook_MeoU"
+ },
+ "metruyencv": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/5af4204de4",
+  "origin": "Ivan1hai/ext"
+ },
+ "medoctruyen": {
+  "base": "https://medoctruyen.vn",
+  "domains": [
+   "https://medoctruyen.vn"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "item": ".flex",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "div.rounded-xl > ul a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "content": "div.whitespace-pre-line"
+  }
+ },
+ "mottruyen": {
+  "base": "https://mottruyen.app",
+  "domains": [
+   "https://mottruyen.app"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "item": ".story_item_s12",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "navyteamnovel": {
+  "base": "https://navyteams.com",
+  "domains": [
+   "https://navyteams.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "item": ".comic-item",
+   "title": "h3 || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "div.bodyL a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "content": ".content-type-novel, .chapter-content, #chapter-content"
+  }
+ },
+ "nettruyen": {
+  "base": "https://nettruyen.com.vn",
+  "domains": [
+   "https://nettruyen.com.vn"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "novelnext": {
+  "base": "https://novelnext.me",
+  "domains": [
+   "https://www.novelnext.me",
+   "https://novelnext.me"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/?fluid-switch={q}[&page={p}]",
+   "item": ".item",
+   "title": "h3 || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "div.col-xs-12 a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "novelfullnet": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_Moleys_vbook-ext/novelfull",
+  "origin": "Moleys/vbook-ext"
+ },
+ "novelphoenix": {
+  "base": "https://novelphoenix.net",
+  "domains": [
+   "https://novelphoenix.net"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/search?keyword={q}[&page={p}]",
+   "item": ".home-release-title-cell",
+   "title": "[class*=title] a || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "div.csstransforms3d a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "novelpiaglobal": {
+  "base": "https://global.novelpia.com",
+  "domains": [
+   "https://global.novelpia.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "item": ".min-w-0",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "piaotianapp": {
+  "base": "https://www.piaotianapp.com",
+  "domains": [
+   "https://www.piaotianapp.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "div.col-xs-12 a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "po18": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_Moleys_vbook-ext/po18",
+  "origin": "Moleys/vbook-ext"
+ },
+ "po18sm": {
+  "base": "https://www.po18sm.com",
+  "domains": [
+   "https://www.po18sm.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "item": ".media-left",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "qimao": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_lethituyen_vbooks-extension/qimao",
+  "origin": "lethituyen/vbooks-extension"
+ },
+ "qmbook": {
+  "base": "https://m.bqg631.xyz",
+  "domains": [
+   "https://m.bqg998.cc"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "quanben": {
+  "base": "https://quanben.io",
+  "domains": [
+   "https://quanben.io"
+  ],
+  "status": 403,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "quanwenyuedu": {
+  "base": "https://www.quanwenyuedu.io",
+  "domains": [
+   "https://www.quanwenyuedu.io"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/index.php?keywords={q}[&page={p}]",
+   "item": ".top",
+   "title": "h3 a || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "quykiep": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_lethituyen_vbooks-extension/lightnovel",
+  "origin": "lethituyen/vbooks-extension"
+ },
+ "shinigamilnteam": {
+  "base": "https://shinigamilnteam.com",
+  "domains": [
+   "https://shinigamilnteam.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "#sright a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "sitruyencv": {
+  "base": "https://sitruyencv.com",
+  "domains": [
+   "https://sitruyencv.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "snapd": {
+  "base": "https://m.bqgsn.cc",
+  "domains": [
+   "https://m.snapd.net"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/s?q={q}[&page={p}]",
+   "ch_list": "div.book_last a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "sohu": {
+  "base": "https://m.sohu.com",
+  "domains": [
+   "https://www.sohu.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "item": ".swiper-slide",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "stvappvi": {
+  "base": "https://sangtacviet.com",
+  "domains": [
+   "https://sangtacviet.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/?id={q}[&page={p}]",
+   "item": ".book-list-item",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "sudugu": {
+  "base": "https://www.sudugu.org",
+  "domains": [
+   "https://www.sudugu.org"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "sweetastes": {
+  "base": "https://baby0world.com",
+  "domains": [
+   "https://www.bjtriz.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/search?query={q}[&page={p}]",
+   "item": ".listItem",
+   "title": "h4 || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "syosetu": {
+  "base": "https://syosetu.com",
+  "domains": [
+   "https://syosetu.com",
+   "https://ncode.syosetu.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/search.php?word={q}[&page={p}]",
+   "item": ".c-panel__item",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "syosetur18": {
+  "base": "https://novel18.syosetu.com",
+  "domains": [
+   "https://novel18.syosetu.com"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "soixamfanqie": {
+  "base": "https://api.langge.cf",
+  "domains": [
+   "https://api.langge.cf"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "taonovel": {
+  "base": "https://tybook.taoyuewenhua.net",
+  "domains": [
+   "https://tybook.taoyuewenhua.net"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "tinhlinh": {
+  "base": "https://tinhlinh.com",
+  "domains": [
+   "https://tinhlinh.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "item": ".story-thumb",
+   "title": "a@title || img@alt || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "#main a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "tiemtruyenchu": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi-tiemtruyenchu",
+  "origin": "kychitoge-vbook-ext"
+ },
+ "truyenh": {
+  "base": "https://truyenh.top",
+  "domains": [
+   "https://truyenh.top"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[page/{p}/]"
+   },
+   "search": "/?s={q}[&page={p}]",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "truyenc": {
+  "base": "https://truyenc.net",
+  "domains": [
+   "https://truyenc.net"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "div.bg-[var(--bg-surface)] a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "truyencvio": {
+  "base": "https://truyencv.io",
+  "domains": [
+   "https://truyencv.io"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[page/{p}/]"
+   },
+   "search": "/?username={q}[&page={p}]",
+   "item": ".grid-item",
+   "title": "h4 || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "truyendichai": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/novel/truyendich.ai",
+  "origin": "yae-miko-313/ext-vbook"
+ },
+ "truyenfull": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/bce53d6f9f",
+  "origin": "vbook-extensions"
+ },
+ "truyenchu": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/truyenchu",
+  "origin": "hienpro00123/vbook_MeoU"
+ },
+ "truyendichain": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi-truyendichaitop",
+  "origin": "kychitoge-vbook-ext"
+ },
+ "truyenfulln": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/bce53d6f9f",
+  "origin": "vbook-extensions"
+ },
+ "truyenmoi": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi_truyenmoi",
+  "origin": "kychitoge-vbook-ext"
+ },
+ "truyenmoikk": {
+  "base": "https://truyenmoikk.com",
+  "domains": [
+   "https://truyenmoikk.com"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "truyennet": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/faa1af5dcc",
+  "origin": "Ivan1hai/ext"
+ },
+ "truyenzhihutonghop": {
+  "base": "https://www.truyendexuat.com",
+  "domains": [
+   "https://www.truyendexuat.com"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "truyencv": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/5af4204de4",
+  "origin": "Ivan1hai/ext"
+ },
+ "tutienpro": {
+  "base": "https://tutien.pro",
+  "domains": [
+   "https://tutien.pro"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "uukanshu": {
+  "base": "https://uukanshu.cc",
+  "domains": [
+   "https://uukanshu.cc"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "valvrareteam": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/valvrareteam",
+  "origin": "hienpro00123/vbook_MeoU"
+ },
+ "viblo": {
+  "base": "https://viblo.asia",
+  "domains": [
+   "https://viblo.asia"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "vivutruyencom": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi_vivutruyen",
+  "origin": "kychitoge-vbook-ext"
+ },
+ "vietnamthuquan": {
+  "base": "https://vnthuquan.org",
+  "domains": [
+   "https://vnthuquan.org"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/?chu={q}[&page={p}]",
+   "item": ".truyen-info",
+   "title": "[class*=title] || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]",
+   "content": "#vntqTextContent"
+  }
+ },
+ "wattpad": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/wattpad",
+  "origin": "hienpro00123/vbook_MeoU"
+ },
+ "webtruyenchu": {
+  "base": "https://webtruyenchu.com",
+  "domains": [
+   "https://webtruyenchu.com"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "webtruyendich": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi-webtruyendich",
+  "origin": "kychitoge-vbook-ext"
+ },
+ "weibo": {
+  "base": "https://m.weibo.cn",
+  "domains": [
+   "https://m.weibo.cn"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "wikidich": {
+  "base": "https://wikicv.net",
+  "domains": [
+   "https://wikicv.org",
+   "https://wikicv.net"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "wodeshucheng5": {
+  "base": "https://www.wodeshucheng5.com",
+  "domains": [
+   "https://www.wodeshucheng5.com"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "xbanxiarepoduongden": {
+  "base": "https://www.xbanxia.cc",
+  "domains": [
+   "https://www.xbanxia.cc"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "item": ".pop-book",
+   "title": "h2 || a@title || img@alt",
+   "link": "a@href",
+   "ch_list": "#content-list a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ },
+ "xianqihaotiamiapp": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/ad6d62eb0d",
+  "origin": "duongden/vbook"
+ },
+ "xsw": {
+  "base": "https://m.xsw.tw",
+  "domains": [
+   "https://m.xsw.tw"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "xtruyen": {
+  "base": "https://www.xtruyen.net",
+  "domains": [
+   "https://www.xtruyen.net"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "ypshuobinhluansach": {
+  "base": "https://www.ypshuo.com",
+  "domains": [
+   "https://www.ypshuo.com"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "vipbachngocsach": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_lethituyen_vbooks-extension/vipbns",
+  "origin": "lethituyen/vbooks-extension"
+ },
+ "shubenshu": {
+  "base": "https://www.shubenshu.com",
+  "domains": [
+   "https://www.shubenshu.com"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "sobqg": {
+  "base": "https://www.sobqg.com",
+  "domains": [
+   "https://www.sobqg.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "item": ".g_col_2",
+   "title": "h3 || a@title || img@alt",
+   "link": "a@href",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "abcbiquge": {
+  "base": "http://m.abcbiquge.com",
+  "domains": [
+   "http://m.abcbiquge.com"
+  ],
+  "status": 0,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+  }
+ },
+ "piaotia": {
+  "base": "https://www.piaotia.com",
+  "domains": [
+   "https://www.piaotia.com"
+  ],
+  "status": 200,
+  "auto": true,
+  "tpl": "generic",
+  "G": {
+   "tabs": {
+    "Mới cập nhật": "/[?page={p}]"
+   },
+   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "ch_list": "#centerm a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
+   "d_desc": "meta[name=description]@content"
+  }
+ }
+}

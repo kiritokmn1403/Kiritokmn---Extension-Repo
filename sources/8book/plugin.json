@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "8book",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://www.8book.com",
+    "description": "8book — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "8book\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://www.8book.com",
+      "values": [
+        "https://www.8book.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

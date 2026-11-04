@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "Anime47",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://anime47.best",
+    "description": "Anime47 — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "anime47\\.best",
+    "type": "video",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://anime47.best",
+      "values": [
+        "https://anime47.best"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "NextPhim",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://nextphim.net",
+    "description": "NextPhim — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "nextphim\\.net",
+    "type": "video",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://nextphim.net",
+      "values": [
+        "https://nextphim.net"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

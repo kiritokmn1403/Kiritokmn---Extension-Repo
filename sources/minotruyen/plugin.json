@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Mino Truyện",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://minotruyenv6.xyz",
+    "description": "Mino Truyện — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "minotruyenv6\\.xyz",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://minotruyenv6.xyz",
+      "values": [
+        "https://minotruyenv6.xyz"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

@@ -1,0 +1,264 @@
+{
+ "nguonc": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/video/nguonc",
+  "origin": "yae-miko-313/ext-vbook"
+ },
+ "cbhentai": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/comic/hentaicube(ios)",
+  "origin": "yae-miko-313/ext-vbook"
+ },
+ "sayhentai": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/comic/sayhentai",
+  "origin": "hienpro00123/vbook_MeoU"
+ },
+ "cosplaytele": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/comic/cosplaytele",
+  "origin": "yae-miko-313/ext-vbook",
+  "patch": {
+   "single": true,
+   "pages": ".entry-content img, .gallery img"
+  }
+ },
+ "hentaivn": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/47116e1652",
+  "origin": "vbook-extensions"
+ },
+ "luottruyen": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/13d0af5682",
+  "origin": "Gold2k2k2k/HTri-Vbook-Ext"
+ },
+ "truyenqq": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/comic/truyenqq",
+  "origin": "yae-miko-313/ext-vbook"
+ },
+ "ungtycomics": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_BaoBao666888_ext-vbook-w/ungtycomics",
+  "origin": "BaoBao666888/ext-vbook-w"
+ },
+ "lnhakovnhako": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/aef19c8324",
+  "origin": "Gold2k2k2k/HTri-Vbook-Ext"
+ },
+ "52shukubyquocbao": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_Moleys_vbook-ext/52shuku",
+  "origin": "Moleys/vbook-ext"
+ },
+ "69shurepoduongden": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/8ec234d2c1",
+  "origin": "Ivan1hai/ext"
+ },
+ "69shuba": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/8ec234d2c1",
+  "origin": "Ivan1hai/ext"
+ },
+ "alicesw": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/1dcef5baa5",
+  "origin": "Ivan1hai/ext"
+ },
+ "banlong": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/f077558e60",
+  "origin": "vbook-extensions"
+ },
+ "faloo": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_lethituyen_vbooks-extension/bfaloo",
+  "origin": "lethituyen/vbooks-extension"
+ },
+ "khotruyenchu": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/ae19161166",
+  "origin": "Ivan1hai/ext"
+ },
+ "lnkuro": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/lnkuro",
+  "origin": "hienpro00123/vbook_MeoU"
+ },
+ "mtc": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/5af4204de4",
+  "origin": "Ivan1hai/ext"
+ },
+ "metruyenchu": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/metruyenchu",
+  "origin": "hienpro00123/vbook_MeoU"
+ },
+ "metruyencv": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/5af4204de4",
+  "origin": "Ivan1hai/ext"
+ },
+ "novelfullnet": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_Moleys_vbook-ext/novelfull",
+  "origin": "Moleys/vbook-ext"
+ },
+ "po18": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_Moleys_vbook-ext/po18",
+  "origin": "Moleys/vbook-ext"
+ },
+ "qimao": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_lethituyen_vbooks-extension/qimao",
+  "origin": "lethituyen/vbooks-extension"
+ },
+ "quykiep": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_lethituyen_vbooks-extension/lightnovel",
+  "origin": "lethituyen/vbooks-extension"
+ },
+ "tiemtruyenchu": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi-tiemtruyenchu",
+  "origin": "kychitoge-vbook-ext"
+ },
+ "truyendichai": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_yae-miko-313_ext-vbook/extensions/novel/truyendich.ai",
+  "origin": "yae-miko-313/ext-vbook"
+ },
+ "truyenfull": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/bce53d6f9f",
+  "origin": "vbook-extensions"
+ },
+ "truyenchu": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/truyenchu",
+  "origin": "hienpro00123/vbook_MeoU"
+ },
+ "truyendichain": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi-truyendichaitop",
+  "origin": "kychitoge-vbook-ext"
+ },
+ "truyenfulln": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/bce53d6f9f",
+  "origin": "vbook-extensions"
+ },
+ "truyenmoi": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi_truyenmoi",
+  "origin": "kychitoge-vbook-ext"
+ },
+ "truyennet": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/faa1af5dcc",
+  "origin": "Ivan1hai/ext"
+ },
+ "truyencv": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/5af4204de4",
+  "origin": "Ivan1hai/ext"
+ },
+ "valvrareteam": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/valvrareteam",
+  "origin": "hienpro00123/vbook_MeoU"
+ },
+ "vivutruyencom": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi_vivutruyen",
+  "origin": "kychitoge-vbook-ext"
+ },
+ "wattpad": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_hienpro00123_vbook_MeoU/novel/wattpad",
+  "origin": "hienpro00123/vbook_MeoU"
+ },
+ "webtruyendich": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/kychitoge-vbook-ext/extensions/novel/kychi-webtruyendich",
+  "origin": "kychitoge-vbook-ext"
+ },
+ "xianqihaotiamiapp": {
+  "tpl": "ref",
+  "ref": "/home/claude/vbx/ad6d62eb0d",
+  "origin": "duongden/vbook"
+ },
+ "vipbachngocsach": {
+  "tpl": "ref",
+  "ref": "/home/claude/refs/vb_lethituyen_vbooks-extension/vipbns",
+  "origin": "lethituyen/vbooks-extension"
+ },
+ "kakuyomu": {
+  "patch": {
+   "content": ".widget-episodeBody",
+   "c_title": ".widget-episodeTitle"
+  }
+ },
+ "medoctruyen": {
+  "patch": {
+   "content": "div.whitespace-pre-line"
+  }
+ },
+ "vietnamthuquan": {
+  "patch": {
+   "content": "#vntqTextContent"
+  }
+ },
+ "navyteamcomic": {
+  "patch": {
+   "pages": ".content-type-manga img"
+  }
+ },
+ "navyteamnovel": {
+  "patch": {
+   "content": ".content-type-novel, .chapter-content, #chapter-content"
+  }
+ },
+ "cbunucomic": {
+  "patch": {
+   "pages": ".cb-reader-content img"
+  }
+ },
+ "8book": {
+  "patch": {
+   "ch_list": "#chapters a.episode_li",
+   "content": "#text, .text, #content, .content"
+  }
+ },
+ "deqixs": {
+  "patch": {
+   "ch_list": "#list ul a",
+   "content": "#content, .con, .content"
+  }
+ },
+ "fanmtl": {
+  "patch": {
+   "ch_list": "#chpagedlist a",
+   "ch_reverse": true,
+   "content": ".chapter-content, #chapter-content, .content"
+  }
+ },
+ "ixdzs8": {
+  "patch": {
+   "ch_list": "#a-list ul.u-chapter a",
+   "content": ".page-content, article.page-content, #content, .content"
+  }
+ },
+ "misskon": {
+  "patch": {
+   "single": true,
+   "pages": ".entry img",
+   "pages_next": ".page-link a.post-page-numbers:last-child, a.post-page-numbers.next"
+  }
+ }
+}

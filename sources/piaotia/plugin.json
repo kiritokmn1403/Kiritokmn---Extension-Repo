@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "飘天文学",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://www.piaotia.com",
+    "description": "飘天文学 — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "piaotia\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://www.piaotia.com",
+      "values": [
+        "https://www.piaotia.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "xsw",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://m.xsw.tw",
+    "description": "xsw — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "m\\.xsw\\.tw",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://m.xsw.tw",
+      "values": [
+        "https://m.xsw.tw"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

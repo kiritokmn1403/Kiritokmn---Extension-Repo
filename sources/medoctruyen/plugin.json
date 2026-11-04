@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Mê Đọc Truyện",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://medoctruyen.vn",
+    "description": "Mê Đọc Truyện — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "medoctruyen\\.vn",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://medoctruyen.vn",
+      "values": [
+        "https://medoctruyen.vn"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

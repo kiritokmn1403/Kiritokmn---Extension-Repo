@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Kakuyomu",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://kakuyomu.jp",
+    "description": "Kakuyomu — Kiritokmn Extension Repo",
+    "locale": "ja",
+    "regexp": "kakuyomu\\.jp",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://kakuyomu.jp",
+      "values": [
+        "https://kakuyomu.jp"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "My Reading Manga",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://myreadingmanga.info",
+    "description": "My Reading Manga — Kiritokmn Extension Repo",
+    "locale": "global",
+    "regexp": "myreadingmanga\\.info",
+    "type": "comic",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://myreadingmanga.info",
+      "values": [
+        "https://myreadingmanga.info"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

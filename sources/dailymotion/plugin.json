@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "Dailymotion",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://www.dailymotion.com",
+    "description": "Dailymotion — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "dailymotion\\.com",
+    "type": "video",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://www.dailymotion.com",
+      "values": [
+        "https://www.dailymotion.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

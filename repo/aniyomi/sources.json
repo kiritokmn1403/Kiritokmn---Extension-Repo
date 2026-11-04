@@ -1,0 +1,722 @@
+[
+ {
+  "id": "anime47",
+  "name": "Anime47",
+  "lang": "vi",
+  "baseUrl": "https://anime47.best",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 780775032
+ },
+ {
+  "id": "animevnnet",
+  "name": "AnimeVn.Net",
+  "lang": "vi",
+  "baseUrl": "https://animevn.net",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 1527072694
+ },
+ {
+  "id": "avsubanimevietsub",
+  "name": "AVSub – AnimeVietsub",
+  "lang": "vi",
+  "baseUrl": "https://animevietsub.sale",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 513314104
+ },
+ {
+  "id": "bilibili",
+  "name": "Bilibili",
+  "lang": "vi",
+  "baseUrl": "https://www.bilibili.tv",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 948389851
+ },
+ {
+  "id": "blvietsub",
+  "name": "BLVietsub",
+  "lang": "vi",
+  "baseUrl": "https://www.blvietsub.vip",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 490751682
+ },
+ {
+  "id": "cbhentai",
+  "name": "HentaiCube -18+ (iOS)",
+  "lang": "vi_VN",
+  "baseUrl": "https://hentaicube.xyz",
+  "type": "comic",
+  "nsfw": true,
+  "sourceId": 1580482674
+ },
+ {
+  "id": "cbunucomic",
+  "name": "CBunu Comic",
+  "lang": "vi",
+  "baseUrl": "https://cucbongunu.com",
+  "type": "comic",
+  "nsfw": true,
+  "sourceId": 123796528
+ },
+ {
+  "id": "cosplaytele",
+  "name": "Cosplaytele",
+  "lang": "en_US",
+  "baseUrl": "https://cosplaytele.com",
+  "type": "comic",
+  "nsfw": true,
+  "sourceId": 780546796
+ },
+ {
+  "id": "dailymotion",
+  "name": "Dailymotion",
+  "lang": "vi",
+  "baseUrl": "https://www.dailymotion.com",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 440543255
+ },
+ {
+  "id": "damconuong",
+  "name": "Dâm Cô Nương",
+  "lang": "vi",
+  "baseUrl": "https://damconuong.name",
+  "type": "comic",
+  "nsfw": true,
+  "sourceId": 178663909
+ },
+ {
+  "id": "destinteam",
+  "name": "Destin Team",
+  "lang": "vi",
+  "baseUrl": "https://destinteam.xyz",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 764595440
+ },
+ {
+  "id": "doctruyentranhbl",
+  "name": "Đọc Truyện Tranh BL",
+  "lang": "vi",
+  "baseUrl": "https://truyentranhbl.com",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 1323373370
+ },
+ {
+  "id": "douyin",
+  "name": "Douyin",
+  "lang": "zh-CN",
+  "baseUrl": "https://www.douyin.com",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 200694529
+ },
+ {
+  "id": "dualeotruyen",
+  "name": "Dưa Leo truyện",
+  "lang": "vi",
+  "baseUrl": "https://dualeotruyenbet.com",
+  "type": "comic",
+  "nsfw": true,
+  "sourceId": 1548181525
+ },
+ {
+  "id": "ehentai",
+  "name": "E Hentai",
+  "lang": "vi",
+  "baseUrl": "https://e-hentai.org",
+  "type": "comic",
+  "nsfw": true,
+  "sourceId": 1567453988
+ },
+ {
+  "id": "fapreel",
+  "name": "FapReel",
+  "lang": "global",
+  "baseUrl": "https://fapreel.com",
+  "type": "video",
+  "nsfw": true,
+  "sourceId": 1629049543
+ },
+ {
+  "id": "fikfap",
+  "name": "FikFap",
+  "lang": "global",
+  "baseUrl": "https://fikfap.com",
+  "type": "video",
+  "nsfw": true,
+  "sourceId": 1189313281
+ },
+ {
+  "id": "freereels",
+  "name": "FreeReels",
+  "lang": "vi",
+  "baseUrl": "https://free-reels.com",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 2073926051
+ },
+ {
+  "id": "goctruyentranh",
+  "name": "Góc Truyện Tranh",
+  "lang": "vi",
+  "baseUrl": "https://goctruyentranhvui41.com",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 433674138
+ },
+ {
+  "id": "guphim",
+  "name": "GuPhim",
+  "lang": "vi",
+  "baseUrl": "https://guphimz.com",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 598979130
+ },
+ {
+  "id": "hacamchicac",
+  "name": "Hắc Ám Chi Các",
+  "lang": "vi",
+  "baseUrl": "https://haccbl.xyz",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 144909108
+ },
+ {
+  "id": "haychill",
+  "name": "HayChill",
+  "lang": "vi",
+  "baseUrl": "https://phimhaychill.org",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 272962811
+ },
+ {
+  "id": "hentaivietsubcom",
+  "name": "HentaiVietsub.com",
+  "lang": "vi",
+  "baseUrl": "https://hentaivietsub.com",
+  "type": "video",
+  "nsfw": true,
+  "sourceId": 2088721693
+ },
+ {
+  "id": "hentaivn",
+  "name": "HentaiVN",
+  "lang": "vi_VN",
+  "baseUrl": "https://hentaihvn.tv",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 1484689734
+ },
+ {
+  "id": "hhpanda",
+  "name": "HHPanda",
+  "lang": "vi",
+  "baseUrl": "https://hhpanda.st",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 1350604402
+ },
+ {
+  "id": "hhtqhayvip",
+  "name": "HHTQHAY.VIP",
+  "lang": "vi",
+  "baseUrl": "https://hhtqhay.vip",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 369387596
+ },
+ {
+  "id": "hihiphim",
+  "name": "HiHiPhim",
+  "lang": "vi",
+  "baseUrl": "https://hihiphim.com",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 1937000442
+ },
+ {
+  "id": "hongqua",
+  "name": "Hồng Quả",
+  "lang": "zh-CN",
+  "baseUrl": "https://hongguoduanju.com",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 1801338919
+ },
+ {
+  "id": "hotphim",
+  "name": "HotPhim",
+  "lang": "vi",
+  "baseUrl": "https://hotphim.org",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 814750280
+ },
+ {
+  "id": "iqiyi",
+  "name": "iQIYI",
+  "lang": "zh-CN",
+  "baseUrl": "https://www.iq.com",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 151140179
+ },
+ {
+  "id": "jellycomics",
+  "name": "Jelly Comics",
+  "lang": "vi",
+  "baseUrl": "https://jellycomics.online",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 694480705
+ },
+ {
+  "id": "julycomic",
+  "name": "JulyComic",
+  "lang": "vi",
+  "baseUrl": "https://julycomics.site",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 1334296365
+ },
+ {
+  "id": "kwiky",
+  "name": "Kwiky",
+  "lang": "global",
+  "baseUrl": "https://kwiky.com",
+  "type": "video",
+  "nsfw": true,
+  "sourceId": 957373704
+ },
+ {
+  "id": "luottruyen",
+  "name": "LuotTruyen",
+  "lang": "vi_VN",
+  "baseUrl": "https://luottruyen7.com",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 857592572
+ },
+ {
+  "id": "luphim",
+  "name": "LuPhim",
+  "lang": "vi",
+  "baseUrl": "https://luphim.com",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 675400803
+ },
+ {
+  "id": "mangadex",
+  "name": "MangaDex",
+  "lang": "global",
+  "baseUrl": "https://mangadex.org",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 881304093
+ },
+ {
+  "id": "manhwabuddy",
+  "name": "ManhwaBuddy",
+  "lang": "vi",
+  "baseUrl": "https://manhwabuddy.com",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 1056832606
+ },
+ {
+  "id": "mgtv",
+  "name": "MGTV",
+  "lang": "vi",
+  "baseUrl": "https://glb.m.mgtv.com",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 1641455956
+ },
+ {
+  "id": "mimimoe",
+  "name": "Mimimoe",
+  "lang": "vi",
+  "baseUrl": "https://mimihentai.moe",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 512017899
+ },
+ {
+  "id": "misskon",
+  "name": "Misskon",
+  "lang": "vi",
+  "baseUrl": "https://misskon.com",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 937496508
+ },
+ {
+  "id": "moetruyen",
+  "name": "MoeTruyen",
+  "lang": "vi",
+  "baseUrl": "https://truyen.moe",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 1908677364
+ },
+ {
+  "id": "motphim",
+  "name": "MotPhim",
+  "lang": "vi",
+  "baseUrl": "https://motphimc.my",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 1123614177
+ },
+ {
+  "id": "myreadingmanga",
+  "name": "My Reading Manga",
+  "lang": "global",
+  "baseUrl": "https://myreadingmanga.info",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 1068463358
+ },
+ {
+  "id": "navyteamcomic",
+  "name": "Navy Team Comic",
+  "lang": "vi",
+  "baseUrl": "https://navyteams.com",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 167984159
+ },
+ {
+  "id": "nettruyen18",
+  "name": "NetTruyen18",
+  "lang": "vi",
+  "baseUrl": "https://nettruyen18.com",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 822700156
+ },
+ {
+  "id": "nettruyenviet",
+  "name": "NetTruyenViet",
+  "lang": "vi",
+  "baseUrl": "https://nettruyenviet10.com",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 806710346
+ },
+ {
+  "id": "nettruyenz",
+  "name": "NetTruyenZ",
+  "lang": "vi",
+  "baseUrl": "https://nettruyenz.com",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 735450128
+ },
+ {
+  "id": "nextphim",
+  "name": "NextPhim",
+  "lang": "vi",
+  "baseUrl": "https://nextphim.net",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 867552912
+ },
+ {
+  "id": "nguonc",
+  "name": "NguonC",
+  "lang": "vi_VN",
+  "baseUrl": "https://phim.nguonc.com",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 1557924559
+ },
+ {
+  "id": "phim4k",
+  "name": "Phim4K",
+  "lang": "vi",
+  "baseUrl": "https://phim4k.xyz",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 1390062832
+ },
+ {
+  "id": "phimmoi",
+  "name": "Phimmoi",
+  "lang": "vi",
+  "baseUrl": "https://messiahelartista.com",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 1001551078
+ },
+ {
+  "id": "phimmoihd",
+  "name": "PhimMoiHD",
+  "lang": "vi",
+  "baseUrl": "https://phimmoihd.online",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 1348774956
+ },
+ {
+  "id": "phimnhua",
+  "name": "Phim Nhựa",
+  "lang": "vi",
+  "baseUrl": "https://phimnhua.online",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 1938158196
+ },
+ {
+  "id": "phimtv",
+  "name": "PhimTV",
+  "lang": "vi",
+  "baseUrl": "https://phimtv.my",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 1628167011
+ },
+ {
+  "id": "pornhub",
+  "name": "PornHub",
+  "lang": "global",
+  "baseUrl": "https://www.pornhub.com",
+  "type": "video",
+  "nsfw": true,
+  "sourceId": 1255718966
+ },
+ {
+  "id": "roadsteam",
+  "name": "Roads Team",
+  "lang": "vi",
+  "baseUrl": "https://roadsteami.net",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 343353709
+ },
+ {
+  "id": "rophim",
+  "name": "Rổ Phim",
+  "lang": "vi",
+  "baseUrl": "https://www.rophim.soy",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 583423809
+ },
+ {
+  "id": "sayhentai",
+  "name": "SayHentai -18+",
+  "lang": "vi_VN",
+  "baseUrl": "https://sayhentai.cx",
+  "type": "comic",
+  "nsfw": true,
+  "sourceId": 492867322
+ },
+ {
+  "id": "sexviettop",
+  "name": "SexVietTop",
+  "lang": "vi",
+  "baseUrl": "https://top1sexvn.com",
+  "type": "video",
+  "nsfw": true,
+  "sourceId": 2025759030
+ },
+ {
+  "id": "showbox",
+  "name": "Showbox",
+  "lang": "vi",
+  "baseUrl": "https://pixnet.cc",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 660522367
+ },
+ {
+  "id": "thegioitruyen",
+  "name": "Thế Giới Truyện",
+  "lang": "vi",
+  "baseUrl": "https://thegioitruyen.vn",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 493894600
+ },
+ {
+  "id": "tikporn",
+  "name": "Tik.Porn",
+  "lang": "global",
+  "baseUrl": "https://tik.porn",
+  "type": "video",
+  "nsfw": true,
+  "sourceId": 855719270
+ },
+ {
+  "id": "tiktok",
+  "name": "TikTok",
+  "lang": "global",
+  "baseUrl": "https://www.tiktok.com",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 389058404
+ },
+ {
+  "id": "truyengg",
+  "name": "TruyenGG",
+  "lang": "vi",
+  "baseUrl": "https://truyenggvn.com",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 1324960807
+ },
+ {
+  "id": "truyenqq",
+  "name": "Truyện QQ",
+  "lang": "vi_VN",
+  "baseUrl": "https://truyenqqko.com",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 1174800879
+ },
+ {
+  "id": "truyenqqc",
+  "name": "TruyenQQ",
+  "lang": "vi",
+  "baseUrl": "https://truyenqq.com.vn",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 1038497603
+ },
+ {
+  "id": "truyentranhdammyy",
+  "name": "Truyentranhdammyy",
+  "lang": "vi",
+  "baseUrl": "https://truyentranhdammyy.site",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 894955118
+ },
+ {
+  "id": "tvkh",
+  "name": "TVKH",
+  "lang": "vi",
+  "baseUrl": "https://bananacoo.com",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 1578784027
+ },
+ {
+  "id": "twitch",
+  "name": "Twitch",
+  "lang": "global",
+  "baseUrl": "https://m.twitch.tv",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 860964554
+ },
+ {
+  "id": "ungtycomics",
+  "name": "Ưng Tỷ Comics",
+  "lang": "vi_VN",
+  "baseUrl": "https://ungtycomicseo.com/",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 377587904
+ },
+ {
+  "id": "vfilm",
+  "name": "Vfilm",
+  "lang": "vi",
+  "baseUrl": "http://vfilm.vn",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 1856540070
+ },
+ {
+  "id": "vinahentai",
+  "name": "VinaHentai",
+  "lang": "vi",
+  "baseUrl": "https://vinahentai.bond",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 923234510
+ },
+ {
+  "id": "vtvgo",
+  "name": "VTV Go",
+  "lang": "vi",
+  "baseUrl": "https://cache.vtvgo.vn",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 318684011
+ },
+ {
+  "id": "watchhentainet",
+  "name": "WatchHentai.net",
+  "lang": "en",
+  "baseUrl": "https://watchhentai.net",
+  "type": "video",
+  "nsfw": true,
+  "sourceId": 113933994
+ },
+ {
+  "id": "webtoonscan",
+  "name": "WebtoonScan",
+  "lang": "en",
+  "baseUrl": "https://webtoonscan.com",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 269387873
+ },
+ {
+  "id": "weebcentral",
+  "name": "Weeb Central",
+  "lang": "en",
+  "baseUrl": "https://weebcentral.com",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 1706827870
+ },
+ {
+  "id": "xemphimgi",
+  "name": "XemPhimGi",
+  "lang": "vi",
+  "baseUrl": "https://xemphimgi.com",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 794722254
+ },
+ {
+  "id": "xfree",
+  "name": "xFree",
+  "lang": "global",
+  "baseUrl": "https://www.xfree.com",
+  "type": "video",
+  "nsfw": true,
+  "sourceId": 841357653
+ },
+ {
+  "id": "xoilac",
+  "name": "Xôi Lạc",
+  "lang": "vi",
+  "baseUrl": "https://xoilac32.org",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 767844963
+ },
+ {
+  "id": "youtube",
+  "name": "YouTube",
+  "lang": "global",
+  "baseUrl": "https://m.youtube.com",
+  "type": "video",
+  "nsfw": false,
+  "sourceId": 1215186726
+ }
+]

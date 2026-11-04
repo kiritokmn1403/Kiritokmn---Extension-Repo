@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "name": "SayHentai -18+",
+    "author": "Meo (Kiritokmn repack)",
+    "version": 3,
+    "source": "https://sayhentai.cx",
+    "regexp": "sayhentai\\.(?:sh|cx)\\/truyen-[^\\/]+(?:\\.html)?\\/?$",
+    "description": "SayHentai - truyen hentai, manhwa 18+ tieng Viet — gốc: Meo (hienpro00123/vbook_MeoU)",
+    "locale": "vi_VN",
+    "tag": "NSFW",
+    "type": "comic",
+    "nsfw": true
+  },
+  "script": {
+    "home": "home.js",
+    "homecontent": "homecontent.js",
+    "genre": "genre.js",
+    "genrecontent": "genrecontent.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}

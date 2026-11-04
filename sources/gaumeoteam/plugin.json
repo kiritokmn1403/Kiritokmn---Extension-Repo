@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Gấu Mèo Team",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://gaumeoteam.com",
+    "description": "Gấu Mèo Team — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "gaumeoteam\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://gaumeoteam.com",
+      "values": [
+        "https://gaumeoteam.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

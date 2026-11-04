@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "name": "VTV Go",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://cache.vtvgo.vn",
+    "description": "VTV Go — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "cache\\.vtvgo\\.vn",
+    "type": "video",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://cache.vtvgo.vn",
+      "values": [
+        "https://cache.vtvgo.vn",
+        "https://vtvgo.vn",
+        "https://vtvgo.vn"
+      ],
+      "mode": "select",
+      "format": "single"
+    }
+  }
+}

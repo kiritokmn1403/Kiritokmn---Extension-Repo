@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "TVKH",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://bananacoo.com",
+    "description": "TVKH — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "bananacoo\\.com",
+    "type": "comic",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://bananacoo.com",
+      "values": [
+        "https://bananacoo.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

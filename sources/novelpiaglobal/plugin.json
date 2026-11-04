@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Novelpia Global",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://global.novelpia.com",
+    "description": "Novelpia Global — Kiritokmn Extension Repo",
+    "locale": "en",
+    "regexp": "global\\.novelpia\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://global.novelpia.com",
+      "values": [
+        "https://global.novelpia.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "书本书 Shubenshu",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://www.shubenshu.com",
+    "description": "书本书 Shubenshu — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "shubenshu\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://www.shubenshu.com",
+      "values": [
+        "https://www.shubenshu.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

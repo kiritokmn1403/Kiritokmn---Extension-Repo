@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "101kks",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://101kks.com",
+    "description": "101kks — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "101kks\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://101kks.com",
+      "values": [
+        "https://101kks.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

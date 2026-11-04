@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Giới Truyện",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://gioitruyen.com",
+    "description": "Giới Truyện — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "gioitruyen\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://gioitruyen.com",
+      "values": [
+        "https://gioitruyen.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

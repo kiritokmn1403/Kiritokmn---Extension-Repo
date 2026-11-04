@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "Vfilm",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "http://vfilm.vn",
+    "description": "Vfilm — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "vfilm\\.vn",
+    "type": "video",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "http://vfilm.vn",
+      "values": [
+        "http://vfilm.vn"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

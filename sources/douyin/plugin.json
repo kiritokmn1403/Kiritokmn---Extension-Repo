@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "name": "Douyin",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://www.douyin.com",
+    "description": "Douyin — Kiritokmn Extension Repo",
+    "locale": "zh-CN",
+    "regexp": "douyin\\.com",
+    "type": "video",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js",
+    "track": "track.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://www.douyin.com",
+      "values": [
+        "https://www.douyin.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}

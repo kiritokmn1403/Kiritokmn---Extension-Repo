@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "name": "Boylove Bất Tử",
+    "author": "Kiritokmn",
+    "version": 1,
+    "source": "https://boylovebattu.com",
+    "description": "Boylove Bất Tử — Kiritokmn Extension Repo",
+    "locale": "vi",
+    "regexp": "boylovebattu\\.com",
+    "type": "novel",
+    "nsfw": false
+  },
+  "script": {
+    "home": "home.js",
+    "search": "search.js",
+    "detail": "detail.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "default": "https://boylovebattu.com",
+      "values": [
+        "https://boylovebattu.com"
+      ],
+      "mode": "input",
+      "format": "text"
+    }
+  }
+}
