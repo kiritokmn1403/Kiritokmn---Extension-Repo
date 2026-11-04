@@ -7,6 +7,7 @@ const selectAll = (css, root, o) => cselect(css, root, o);
 const selectOne = (css, root, o) => cselect(css, root, o, 1)[0] || null;
 import * as DU from 'domutils';
 import render from 'dom-serializer';
+import { resolveUrl } from './url.js';
 
 const WS = /[\s ]+/g;
 const BLOCK = new Set(['p', 'div', 'br', 'li', 'tr', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'table', 'section', 'article', 'header', 'footer', 'blockquote', 'pre', 'dd', 'dt', 'hr']);
@@ -52,7 +53,7 @@ function decodeLoose(s) { return s; } // htmlparser2 decodes entities already (d
 
 function absUrl(base, rel) {
   if (!rel) return '';
-  try { return new URL(rel, base || undefined).href; } catch { return base ? '' : rel; }
+  try { return resolveUrl(base, rel); } catch { return base ? '' : rel; }
 }
 
 export class Element {

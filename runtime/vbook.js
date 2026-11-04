@@ -2,13 +2,14 @@
 // A host adapter supplies: request({url,method,headers,body}) -> {status,url,headers,text,bytes?},
 // storage get/set (persistent), and config(key).
 import { parseHtml, cleanHtml, Elements, Element } from './dom.js';
+import { b64 } from './url.js';
 
 const DEFAULT_UA = 'Mozilla/5.0 (Linux; Android 14; SM-S918B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36';
 
 function b64encodeBytes(bytes) {
   if (typeof Buffer !== 'undefined') return Buffer.from(bytes).toString('base64');
   let s = ''; for (let i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]);
-  return btoa(s);
+  return b64(s);
 }
 function utf8Bytes(str) { return typeof TextEncoder !== 'undefined' ? new TextEncoder().encode(str) : Uint8Array.from(unescape(encodeURIComponent(str)), c => c.charCodeAt(0)); }
 
@@ -107,7 +108,7 @@ export function createEnv(host, meta) {
     setCookie: c => { host.storageSet(cookieKey, String(c).split(';')[0]); },
     getCookie: () => host.storageGet(cookieKey) || '',
   };
-  env.sleep = ms => new Promise(r => setTimeout(r, Math.min(Number(ms) || 0, 10000)));
+  env.sleep = ms => new Promise(r => (typeof setTimeout === 'function' ? setTimeout(r, Math.min(Number(ms) || 0, 10000)) : r()));
   const log = (...a) => { try { host.log && host.log(a.map(x => typeof x === 'string' ? x : JSON.stringify(x)).join(' ')); } catch (e) { } };
   env.Log = { log };
   env.console = { log, error: log, warn: log, info: log };

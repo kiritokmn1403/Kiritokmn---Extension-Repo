@@ -170,10 +170,10 @@ function abs(base, u) {
         return u;
     if (u.startsWith('//'))
         return 'https:' + u;
-    if (typeof URL === 'undefined')
+    if (typeof __abs === 'function')
         return __abs(base, u);
     try {
-        return new URL(u, base).href;
+        return resolveUrl(base, u);
     }
     catch (e) {
         return u;

@@ -1,14 +1,15 @@
 // High-level driver: turns a set of vBook scripts into the operations every host needs
 // (popular / latest / search / detail / chapter list / pages / novel text / video streams).
 import { createEnv } from './vbook.js';
+import { resolveUrl } from './url.js';
 
 function abs(base, u) {
   if (!u) return '';
   u = String(u).trim();
   if (/^data:|^blob:/.test(u)) return u;
   if (u.startsWith('//')) return 'https:' + u;
-  if (typeof URL === 'undefined') return __abs(base, u); // Rhino: resolved by java.net.URI
-  try { return new URL(u, base).href; } catch (e) { return u; }
+  if (typeof __abs === 'function') return __abs(base, u); // Rhino: resolved by java.net.URI
+  try { return resolveUrl(base, u); } catch (e) { return u; }
 }
 const str = v => (v == null ? '' : String(v));
 const uniq = a => a.filter((x, i) => x && a.indexOf(x) === i);

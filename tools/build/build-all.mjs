@@ -107,7 +107,7 @@ function generateScriptsModule(id, pj, srcDir) {
   const META = {
     id, name: md.name, source: md.source, type: md.type, locale: md.locale, nsfw: !!md.nsfw, version: md.version,
     config: pj.config || {}, configDefaults: cfgDefaults, itemType: ITEM_TYPE[md.type],
-    lnId: 'kiritokmn.' + id, lnIcon: '', lnVersion: '1.0.' + md.version,
+    lnId: 'kiritokmn.' + id, lnIcon: '', lnVersion: '1.1.' + md.version,
   };
   return `${needCrypto ? "import CryptoJS from 'crypto-js';\nglobalThis.CryptoJS = CryptoJS;\n" : ''}${ASYNC_HELPERS}\nexport const META = ${JSON.stringify(META)};\nexport const SCRIPTS = {\n${parts.join(',\n')}\n};\n`;
 }
@@ -173,7 +173,7 @@ for (const id of ids) {
     { const r = await esbuild.build({ entryPoints: [genFile], bundle: true, write: false, format: 'esm', platform: 'neutral', target: 'es2022', nodePaths: [path.join(ROOT, 'node_modules'), path.join(ROOT, '../_work/deps/node_modules')], mainFields: ['module', 'main'], logLevel: 'silent' });
       fs.mkdirSync(path.join(GEN, 'test'), { recursive: true }); fs.writeFileSync(path.join(GEN, 'test', id + '.mjs'), r.outputFiles[0].text); }
     // ---- Mangayomi / YomiHub
-    const ver = `0.0.${md.version}`;
+    const ver = `0.1.${md.version}`; // 0.1.x: pure-JS URL resolver (QuickJS has no URL class)
     const mgMeta = { name: md.name, lang: md.locale === 'all' ? 'all' : md.locale, id: hash31('kiritokmn:' + id), baseUrl: md.source, apiUrl: '', iconUrl: icon, typeSource: 'single', itemType: ITEM_TYPE[md.type], isNsfw: !!md.nsfw, version: ver, dateFormat: '', dateFormatLocale: '', pkgPath: `repo/mangayomi/${id}.js` };
     let mg = await bundle('entry.js', genFile, 'iife', { globalName: '__VB', target: 'es2020' });
     const needGbk = /gbk|gb2312|gb18030/i.test(scriptsSrc(id));
@@ -186,7 +186,7 @@ for (const id of ids) {
       let ln = await bundle('lnreader.js', genFile, 'cjs', { external: ['@libs/*'], target: 'es2017' });
       ln = downlevelES5(ln);
       fs.writeFileSync(path.join(OUT, 'lnreader', id + '.js'), ln); lnSize = ln.length;
-      lnIndex.push({ id: 'kiritokmn.' + id, name: md.name, site: md.source, lang: LN_LANG[md.locale] || 'Multi', version: '1.0.' + md.version, url: `${BASE}/repo/lnreader/${id}.js`, iconUrl: icon });
+      lnIndex.push({ id: 'kiritokmn.' + id, name: md.name, site: md.source, lang: LN_LANG[md.locale] || 'Multi', version: '1.1.' + md.version, url: `${BASE}/repo/lnreader/${id}.js`, iconUrl: icon });
     }
     // ---- Aniyomi / Nekoyomi (video + comic, built into multi-source APKs)
     if (md.type === 'video' || md.type === 'comic') {

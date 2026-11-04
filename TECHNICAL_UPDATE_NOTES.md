@@ -125,3 +125,23 @@ Chủ dự án yêu cầu tạo và duy trì tài liệu này ngày 25/10/2026. 
   | tik.porn (18+) | 22 ✅ | (sửa #25) | 36 ✅ | 1 tập ✅ | mp4 ✅ (sửa nhầm video #25) |
   | xfree (18+) | 21 ✅ | 21 ✅ | 30 ✅ | 1 tập ✅ | mp4 ✅ |
   | 69shuba | 50 ✅ | — | ❌ cần JS (chỉ vBook) | 569 ch ✅ | 2.405 ký tự, chữ Trung đúng ✅ |
+- Lượt 3 (plugin commit `0b4c983`, cùng cách thử): **11/11 nguồn đạt**.
+  | Nguồn | Kết quả |
+  |---|---|
+  | czbooks | 72 truyện/trang, trang 2 khác trang 1, tìm "嫁金釵" 42 kết quả, chi tiết + tác giả, nội dung 2.167 ký tự ✅ |
+  | 101kks | 15 truyện/trang, trang 2 khác, tìm "魔門" 20 kết quả (hết dòng rác), 112 chương, nội dung ✅ |
+  | uukanshu | tab 排行 30 truyện/trang, trang 2 khác, tìm "神通" 12 kết quả, 2.968 chương, nội dung 4.368 ký tự ✅ |
+  | mattreadingtranslations | White Wolves 154 chương (đủ 16 trang mục lục, không còn 429), nội dung 60.327 ký tự ✅ |
+  | tik.porn | 36 video/trang, trang 2 khác, link mp4 trùng đúng thẻ `<video>` của chính trang ✅ |
+  | ciyuanji | tìm "女神" 10 kết quả ✅ |
+  | luvevaland | tên truyện ở trang chi tiết đã có ✅ |
+  | novelfull.net, xfree, 69shuba | như lượt 2 ✅ |
+
+**Kiểm thử trong ứng dụng thật — Mangayomi 0.9.95 trên Emulator (04/11/2026 23:20)**
+- Deep link `mangayomi://add-repo` → hộp thoại *Add Repository?* → **Add** → "Source repository added!". Tab Browse → Novel → Extensions hiện đủ danh sách tiện ích Kiritokmn (Matt Reading 0.0.3, NovelFull.Net 0.0.2…); cài NovelFull.Net thành công.
+- Mangayomi bắt cấp quyền *All files access* mới cho cài tiện ích (đã được chủ dự án đồng ý bật trên máy ảo).
+
+| # | Lỗi | Sửa |
+|---|---|---|
+| 28 | **Mở nguồn trong Mangayomi báo `ReferenceError: '__abs' is not defined`** — engine JS của Mangayomi (QuickJS) không có lớp `URL`; runtime rơi sang hàm `__abs` vốn chỉ có trong bản Rhino. Lỗi này ảnh hưởng **toàn bộ 196 plugin Mangayomi/YomiHub** (trình duyệt và Node có `URL` nên các bài thử trước không phát hiện) | `runtime/url.js`: tự giải URL tương đối theo RFC 3986 (không phụ thuộc host, kiểm 11/11 ca khớp `URL` chuẩn); `engine.js`, `dom.js` (`abs:href`) dùng hàm này; thêm base64 thuần JS thay `btoa`, `sleep` chạy được cả khi không có `setTimeout`. Kiểm thử: chạy plugin trong `vm` **không có** `URL/btoa/TextDecoder` → danh sách, chi tiết, mục lục, nội dung đều đúng |
+| 29 | App đã cài sẽ không nhận bản sửa | Phiên bản Mangayomi/YomiHub `0.0.x` → `0.1.x`, LNReader/IReader `1.0.x` → `1.1.x` cho mọi nguồn |
