@@ -55,10 +55,10 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 |---|---|---|---|---|---|
 | 1 | Anime47 | anime47.best | vi |  | 🟡 một phần (popular lỗi) |
 | 2 | AnimeVn.Net | animevn.net/the-loai/anime | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
-| 3 | Bilibili | www.bilibili.tv | vi |  | 🟡 một phần (popular lỗi) |
+| 3 | Bilibili | www.bilibili.tv | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 4 | VTV Go | vtvgo.vn | vi |  | 🟡 một phần (popular lỗi) |
 | 5 | Rổ Phim | www.rophimhd.com/phimhay | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 6 | HotPhim | hotphim.org | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 6 | HotPhim | hotphim.org | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
 | 7 | AVSub – AnimeVietsub | animevietsub.nl | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 8 | HayChill | phimhaychill.org | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 9 | XemPhimGi | xemphimgi.com | vi |  | 🟡 một phần (popular, search, detail ✓; chapters lỗi) |
@@ -66,7 +66,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 11 | Vfilm | vfilm.vn | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; videos lỗi) |
 | 12 | Phimmoi | phimmoii.mom | vi |  | 🟡 một phần (popular, search ✓; detail lỗi) |
 | 13 | PornHub | www.pornhub.com | all | Có | 🟡 một phần (popular lỗi) |
-| 14 | FikFap | fikfap.com | all | Có | 🟡 một phần (popular lỗi) |
+| 14 | FikFap | fikfap.com | all | Có | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 15 | Tik.Porn | tik.porn | all | Có | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 16 | Kwiky | kwiky.com/cams?AFNO=2-162764.38182 | all | Có | 🟡 một phần (popular lỗi) |
 | 17 | xFree | www.xfree.com | all | Có | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
@@ -116,7 +116,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 12 | Jelly Comics | jellycomics.online | vi |  | ✅ hoạt động |
 | 13 | JulyComic | julycomics.site | vi |  | 🟠 bị Cloudflare/máy chủ chặn |
 | 14 | LuotTruyen | luottruyen.net | vi |  | 🟡 một phần (popular lỗi) |
-| 15 | MangaDex | mangadex.org | all |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 15 | MangaDex | mangadex.org | all |  | 🟠 bị Cloudflare/máy chủ chặn |
 | 16 | ManhwaBuddy | manhwabuddy.com | vi |  | ✅ hoạt động |
 | 17 | Mimimoe | mimimoe.moe | vi |  | 🟡 một phần (popular, detail ✓; search lỗi) |
 | 18 | Misskon | misskon.com | vi |  | ✅ hoạt động |
@@ -212,7 +212,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 67 | quanwenyuedu | www.quanwenyuedu.io | zh |  | 🟡 một phần (popular, search, detail ✓; chapters lỗi) |
 | 68 | QuyKiep | quykiep.com | vi |  | 🟡 một phần (popular lỗi) |
 | 69 | Shinigami LN Team | shinigamilnteam.com | vi |  | 🟡 một phần (popular lỗi) |
-| 70 | Si Truyện CV | sitruyencv.com | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 70 | Si Truyện CV | sitruyencv.com | vi |  | 🟡 một phần (popular lỗi) |
 | 71 | Snapd | m.snapd.net | zh |  | 🟡 một phần (popular lỗi) |
 | 72 | sohu | www.sohu.com | zh |  | 🟡 một phần (popular lỗi) |
 | 73 | STV App Vi | sangtacviet.com | vi |  | 🟡 một phần (popular lỗi) |
@@ -252,7 +252,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 107 | Xbanxia - repo Đường đen | www.xbanxia.cc | zh |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
 | 108 | Xianqihaotiami APP | www.xianqihaotianmi.org | zh |  | 🟡 một phần (popular lỗi) |
 | 109 | xsw | m.xsw.tw | zh |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 110 | XTruyen | www.xtruyen.net | vi |  | 🟡 một phần (popular lỗi) |
+| 110 | XTruyen | www.xtruyen.net | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 111 | YPShuo - Bình luận sách | www.ypshuo.com | zh |  | 🟡 một phần (popular lỗi) |
 | 112 | 【VIP】Bạch Ngọc Sách | bnsvip.net | vi |  | 🟡 một phần (popular lỗi) |
 | 113 | 书本书 Shubenshu | www.shubenshu.com | zh |  | 🟡 một phần (popular lỗi) |

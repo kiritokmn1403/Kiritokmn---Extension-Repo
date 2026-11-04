@@ -17,5 +17,6 @@ var G = {
  "ch_next": ".pagination a.current + a",
  "ch_maxPages": 80,
  "content": ".entry-content",
- "c_title": "h1"
+ "c_title": "h1",
+ "ch_delay": 500
 };

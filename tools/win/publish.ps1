@@ -10,11 +10,10 @@ $Owner = 'kiritokmn1403'; $Repo = 'Kiritokmn---Extension-Repo'
 $Ver = (Get-Content package.json -Raw | ConvertFrom-Json).version; $Tag = "v$Ver"
 $git = (Get-Command git -ErrorAction SilentlyContinue).Source
 if (-not $git) { $git = Get-ChildItem "$env:LOCALAPPDATA\GitHubDesktop" -Recurse -Filter git.exe -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty FullName }
-$Msg = if ($env:PUB_MSG) { $env:PUB_MSG } else { "Extension Repo ${Tag} - universal repo for Aniyomi, Nekoyomi, Mangayomi, YomiHub, LNReader, IReader, vBook, LeechText" }
 L "git=$git version=$Ver"
 & $git config core.autocrlf false
 & $git add -A *>> $Log
-& $git -c user.name="kiritokmn1403" -c user.email="kietnguyenworking1403@gmail.com" commit -m $Msg -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" -m "Claude-Session: https://claude.ai/code/session_01C7DNQDznQRw36waa7x7fzh" *>> $Log
+& $git -c user.name="kiritokmn1403" -c user.email="kietnguyenworking1403@gmail.com" commit -m "Extension Repo ${Tag} - universal repo for Aniyomi, Nekoyomi, Mangayomi, YomiHub, LNReader, IReader, vBook, LeechText" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" -m "Claude-Session: https://claude.ai/code/session_01C7DNQDznQRw36waa7x7fzh" *>> $Log
 L 'pushing (this can take a while: repo/ contains every built plugin)'
 & $git push origin HEAD:main *>> $Log
 L "push exit $LASTEXITCODE"

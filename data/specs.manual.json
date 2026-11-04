@@ -299,7 +299,7 @@
     "熱門": "/novels/hot"
    },
    "search": "/search/{q}/{p}.html",
-   "item": "li:has(a[href*='/book/'])",
+   "item": "#article_list_content > li",
    "title": "h3",
    "link": "a[href*='/book/']@href",
    "cover": "img@img",
@@ -318,7 +318,7 @@
    "content": "#txtcontent",
    "c_title": "h1"
   },
-  "version": 2
+  "version": 3
  },
  "czbooksrepoduongden": {
   "patch": {
@@ -332,8 +332,8 @@
    },
    "search": "/s/{q}[/{p}]",
    "item": ".novel-item",
-   "title": ".novel-item-title a",
-   "link": ".novel-item-title a@href",
+   "title": ".novel-item-title",
+   "link": "a[href*='/n/']@href",
    "cover": "img@img",
    "desc": ".novel-item-author",
    "pageSize": 20,
@@ -346,20 +346,25 @@
    "content": ".content",
    "c_title": "h1.name || h1"
   },
-  "version": 2
+  "version": 3
  },
  "uukanshu": {
   "patch": {
    "tabs": {
+    "排行": "/top/allvisit_{p}.html",
+    "玄幻": "/class_1_{p}.html",
+    "修真": "/class_2_{p}.html",
+    "都市": "/class_3_{p}.html",
+    "全本": "/quanben/",
     "首頁": "/"
    },
-   "search": "/search?searchtype=all&searchkey={q}",
-   "item": "div.item",
-   "title": "dt a",
-   "link": "dt a@href",
+   "search": "/search/{q}/{p}.html",
+   "item": "div.item, div.bookinfo",
+   "title": "dt a || .bookname a",
+   "link": "dt a@href || .bookname a@href",
    "cover": "img@img",
-   "desc": "dd",
-   "pageSize": 999,
+   "desc": "dd || .update",
+   "pageSize": 10,
    "d_title": "h1",
    "d_cover": "meta[property=og:image]@content",
    "d_author": "meta[property=og:novel:author]@content",
@@ -368,7 +373,7 @@
    "content": ".readcotent",
    "c_title": "h1"
   },
-  "version": 2
+  "version": 3
  },
  "luvevaland": {
   "patch": {
@@ -383,7 +388,7 @@
    "link": "a@href",
    "cover": "img@img",
    "pageSize": 10,
-   "d_title": "h1 || meta[property=og:title]@content",
+   "d_title": ".breadcrumb__container a.breadcrumb__item:last-child || h1 || meta[property=og:title]@content",
    "d_cover": "meta[property=og:image]@content || .book__detail-image img@img",
    "d_desc": "#home",
    "d_genres": ".book__detail-text a[href*='/the-loai/']",
@@ -391,7 +396,7 @@
    "content": "#chapter-content",
    "c_title": "h1 || h2"
   },
-  "version": 2
+  "version": 3
  },
  "mattreadingtranslations": {
   "patch": {
@@ -411,9 +416,10 @@
    "ch_next": ".pagination a.current + a",
    "ch_maxPages": 80,
    "content": ".entry-content",
-   "c_title": "h1"
+   "c_title": "h1",
+   "ch_delay": 500
   },
-  "version": 2
+  "version": 3
  },
  "ciyuanji": {
   "base": "https://www.ciyuanji.com",
@@ -429,7 +435,7 @@
     "都市": "/l_c_106_0_0_0_{p}.html",
     "仙侠": "/l_c_105_0_0_0_{p}.html"
    },
-   "search": "/search/{q}_0_{p}.html",
+   "search": "/search/{q}_{p}.html",
    "item": "section[class*=book_card]",
    "title": "img@alt",
    "link": "a@href",
@@ -442,16 +448,16 @@
    "content": "[class*=chapter_article]",
    "c_title": "h1"
   },
-  "version": 2
+  "version": 3
  },
  "tikporn": {
   "patch": {
    "tabs": {
-    "Trang chủ": "/",
     "Amateur": "/?s=amateur[&page={p}]",
     "Asian": "/?s=asian[&page={p}]",
     "MILF": "/?s=milf[&page={p}]",
-    "Teen 18+": "/?s=teen[&page={p}]"
+    "Teen 18+": "/?s=teen[&page={p}]",
+    "Trang chủ": "/"
    },
    "search": "/?s={q}[&page={p}]",
    "item": "a[href*='/video/'][title]",
@@ -462,9 +468,10 @@
    "d_title": "h1 || meta[property=og:title]@content",
    "d_cover": "meta[property=og:image]@content",
    "d_desc": "meta[property=og:description]@content",
-   "single": "Xem video"
+   "single": "Xem video",
+   "video": "video source@src || video@src"
   },
-  "version": 2
+  "version": 3
  },
  "xfree": {
   "patch": {

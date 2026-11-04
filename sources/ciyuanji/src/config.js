@@ -9,7 +9,7 @@ var G = {
   "都市": "/l_c_106_0_0_0_{p}.html",
   "仙侠": "/l_c_105_0_0_0_{p}.html"
  },
- "search": "/search/{q}_0_{p}.html",
+ "search": "/search/{q}_{p}.html",
  "ch_list": "a[class*=book_detail_item]",
  "item": "section[class*=book_card]",
  "title": "img@alt",

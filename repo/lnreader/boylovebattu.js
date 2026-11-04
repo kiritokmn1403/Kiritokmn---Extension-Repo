@@ -2324,11 +2324,11 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                             catch (r) { }
                                             U = { path: "truyen" }, f = { img: function (r) { if (!r)
                                                     return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < i.length; c++) {
-                                                    var l = r.attr(i[c]);
-                                                    if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
-                                                        return f.fix(l.trim());
-                                                } var d = r.attr("data-srcset") || r.attr("srcset"); return d ? f.fix(d.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l; return __generator(this, function (_b) {
+                                                    var d = r.attr(i[c]);
+                                                    if (d && d.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(d))
+                                                        return f.fix(d.trim());
+                                                } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? f.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
                                                                 c = 0;
@@ -2337,9 +2337,9 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                 if (!(c < i.length)) return [3, 4];
                                                                 return [4, r.select(i[c]).text()];
                                                             case 2:
-                                                                l = _b.sent();
-                                                                if (l)
-                                                                    return [2, l.trim()];
+                                                                d = _b.sent();
+                                                                if (d)
+                                                                    return [2, d.trim()];
                                                                 _b.label = 3;
                                                             case 3:
                                                                 c++;
@@ -2348,18 +2348,38 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                         }
                                                     }); });
                                                 }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b, _b; return __generator(this, function (_c) {
+                                                        switch (_c.label) {
                                                             case 0:
                                                                 i = i || {};
                                                                 c = { Referer: w + "/" };
                                                                 if (i.headers)
-                                                                    for (l in i.headers)
-                                                                        c[l] = i.headers[l];
+                                                                    for (d in i.headers)
+                                                                        c[d] = i.headers[d];
                                                                 return [4, u(r, { method: i.method, headers: c, body: i.body })];
                                                             case 1:
-                                                                d = _b.sent();
-                                                                return [2, d];
+                                                                l = _c.sent(), b = 0;
+                                                                _c.label = 2;
+                                                            case 2:
+                                                                _b = l && l.status === 429 && b < 3;
+                                                                if (!_b) return [3, 4];
+                                                                return [4, f.cf(l)];
+                                                            case 3:
+                                                                _b = !(_c.sent());
+                                                                _c.label = 4;
+                                                            case 4:
+                                                                if (!_b) return [3, 8];
+                                                                return [4, x(1500 * (b + 1))];
+                                                            case 5:
+                                                                _c.sent();
+                                                                return [4, u(r, { method: i.method, headers: c, body: i.body })];
+                                                            case 6:
+                                                                l = _c.sent();
+                                                                _c.label = 7;
+                                                            case 7:
+                                                                b++;
+                                                                return [3, 2];
+                                                            case 8: return [2, l];
                                                         }
                                                     }); });
                                                 }, cf: function (r) {
@@ -2421,7 +2441,7 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                     }); });
                                                 }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, y = { path: function () { return typeof U != "undefined" && U.path || "manga"; }, card: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, l, _b;
+                                                        var i, c, d, _b;
                                                         var _c;
                                                         return __generator(this, function (_d) {
                                                             switch (_d.label) {
@@ -2431,10 +2451,10 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                         return [2, null];
                                                                     return [4, i.text()];
                                                                 case 1:
-                                                                    c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), l = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
+                                                                    c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), d = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
                                                                     _c = { name: c, link: i.attr("href"), cover: f.img(r.select("img").first()) };
-                                                                    if (!l) return [3, 3];
-                                                                    return [4, l.text()];
+                                                                    if (!d) return [3, 3];
+                                                                    return [4, d.text()];
                                                                 case 2:
                                                                     _b = _d.sent();
                                                                     return [3, 4];
@@ -2446,75 +2466,75 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                         });
                                                     });
                                                 }, list: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, l, d, b, _b, _c; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var i, c, d, l, b, _b, _c; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
-                                                                i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], l = {}, d = 0;
+                                                                i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], d = {}, l = 0;
                                                                 _d.label = 1;
                                                             case 1:
-                                                                if (!(d < i.size())) return [3, 5];
+                                                                if (!(l < i.size())) return [3, 5];
                                                                 _c = (_b = y).card;
-                                                                return [4, i.get(d)];
+                                                                return [4, i.get(l)];
                                                             case 2: return [4, _c.apply(_b, [_d.sent()])];
                                                             case 3:
                                                                 b = _d.sent();
-                                                                b && b.link && !l[b.link] && (l[b.link] = 1, c.push(b));
+                                                                b && b.link && !d[b.link] && (d[b.link] = 1, c.push(b));
                                                                 _d.label = 4;
                                                             case 4:
-                                                                d++;
+                                                                l++;
                                                                 return [3, 1];
                                                             case 5: return [2, c];
                                                         }
                                                     }); });
                                                 }, hasNext: function (r, i) { return r.select(".nav-previous a, a.nextpostslink, .wp-pagenavi a.next, a.next.page-numbers, .pagination a.next, a[rel=next]").size() > 0 || r.select('a[href*="/page/' + (i + 1) + '"]').size() > 0; }, browse: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, b; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
-                                                                c = f.page(i), l = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
-                                                                return [4, f.html(l)];
+                                                                c = f.page(i), d = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
+                                                                return [4, f.html(d)];
                                                             case 1:
-                                                                d = _b.sent();
-                                                                return [4, y.list(d)];
+                                                                l = _b.sent();
+                                                                return [4, y.list(l)];
                                                             case 2:
                                                                 b = _b.sent();
-                                                                return [2, s.success(b, f.next(y.hasNext(d, c) && b.length > 0, i))];
+                                                                return [2, s.success(b, f.next(y.hasNext(l, c) && b.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, search: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, b; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
                                                                 if (!f.isUrl(r)) return [3, 2];
                                                                 return [4, y.byUrl(r, i)];
                                                             case 1: return [2, _b.sent()];
                                                             case 2:
-                                                                c = f.page(i), l = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + f.enc(r) + "&post_type=wp-manga";
-                                                                return [4, f.html(l)];
+                                                                c = f.page(i), d = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + f.enc(r) + "&post_type=wp-manga";
+                                                                return [4, f.html(d)];
                                                             case 3:
-                                                                d = _b.sent();
-                                                                return [4, y.list(d)];
+                                                                l = _b.sent();
+                                                                return [4, y.list(l)];
                                                             case 4:
                                                                 b = _b.sent();
-                                                                return [2, s.success(b, f.next(y.hasNext(d, c) && b.length > 0, i))];
+                                                                return [2, s.success(b, f.next(y.hasNext(l, c) && b.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, byUrl: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, b; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
-                                                                c = f.page(i), l = f.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
-                                                                return [4, f.html(l)];
+                                                                c = f.page(i), d = f.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
+                                                                return [4, f.html(d)];
                                                             case 1:
-                                                                d = _b.sent();
-                                                                return [4, y.list(d)];
+                                                                l = _b.sent();
+                                                                return [4, y.list(l)];
                                                             case 2:
                                                                 b = _b.sent();
-                                                                return [2, s.success(b, f.next(y.hasNext(d, c) && b.length > 0, i))];
+                                                                return [2, s.success(b, f.next(y.hasNext(l, c) && b.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, detail: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, l, d, _b, _c, _d;
+                                                        var i, c, d, l, _b, _c, _d;
                                                         var _f;
                                                         return __generator(this, function (_g) {
                                                             switch (_g.label) {
@@ -2538,7 +2558,7 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     c = _g.sent();
                                                                     return [4, f.text(i, [".post-status .summary-content", ".manga-status", ".post-content_item:contains(Tình trạng) .summary-content", ".post-content_item:contains(Status) .summary-content"])];
                                                                 case 3:
-                                                                    l = _g.sent(), d = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
+                                                                    d = _g.sent(), l = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
                                                                     _c = (_b = s).success;
                                                                     _f = {};
                                                                     return [4, f.text(i, [".post-title h1", ".post-title h3", "h1"])];
@@ -2547,32 +2567,32 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     return [4, f.text(i, [".author-content a", ".author-content", ".artist-content a"])];
                                                                 case 5:
                                                                     _f.author = _g.sent();
-                                                                    if (!d) return [3, 7];
-                                                                    return [4, d.html()];
+                                                                    if (!l) return [3, 7];
+                                                                    return [4, l.html()];
                                                                 case 6:
                                                                     _d = _g.sent();
                                                                     return [3, 8];
                                                                 case 7:
                                                                     _d = "";
                                                                     _g.label = 8;
-                                                                case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = l ? "Tình trạng: " + l : "", _f.ongoing = f.ongoing(l), _f.genres = c, _f.host = w, _f)])];
+                                                                case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = d ? "Tình trạng: " + d : "", _f.ongoing = f.ongoing(d), _f.genres = c, _f.host = w, _f)])];
                                                             }
                                                         });
                                                     });
                                                 }, chapterEls: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, _b, b, _c, _d; return __generator(this, function (_f) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, _b, b, _c, _d; return __generator(this, function (_f) {
                                                         switch (_f.label) {
                                                             case 0:
                                                                 c = r.select("li.wp-manga-chapter a, .listing-chapters_wrap li a, .version-chap li a");
                                                                 if (c.size() > 0)
                                                                     return [2, c];
-                                                                l = i.replace(/\/$/, "") + "/";
-                                                                return [4, u(l + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: l } })];
+                                                                d = i.replace(/\/$/, "") + "/";
+                                                                return [4, u(d + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: d } })];
                                                             case 1:
-                                                                d = _f.sent();
-                                                                _b = d.ok;
+                                                                l = _f.sent();
+                                                                _b = l.ok;
                                                                 if (!_b) return [3, 3];
-                                                                return [4, d.html()];
+                                                                return [4, l.html()];
                                                             case 2:
                                                                 _b = (c = (_f.sent()).select("li.wp-manga-chapter a"), c.size() > 0);
                                                                 _f.label = 3;
@@ -2584,11 +2604,11 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                 if (!_d) return [3, 5];
                                                                 return [4, u(w + "/wp-admin/admin-ajax.php", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", "Content-Type": "application/x-www-form-urlencoded" }, body: "action=manga_get_chapters&manga=" + b })];
                                                             case 4:
-                                                                _d = (d = _f.sent(), d.ok);
+                                                                _d = (l = _f.sent(), l.ok);
                                                                 _f.label = 5;
                                                             case 5:
                                                                 if (!_d) return [3, 7];
-                                                                return [4, d.html()];
+                                                                return [4, l.html()];
                                                             case 6:
                                                                 _c = (_f.sent()).select("li.wp-manga-chapter a");
                                                                 return [3, 8];
@@ -2600,7 +2620,7 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                     }); });
                                                 }, toc: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, l, d, b, k, _b, _c, _d;
+                                                        var i, c, d, l, b, k, _b, _c, _d;
                                                         var _f;
                                                         return __generator(this, function (_g) {
                                                             switch (_g.label) {
@@ -2609,16 +2629,16 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     i = _g.sent();
                                                                     return [4, y.chapterEls(i, r)];
                                                                 case 2:
-                                                                    c = _g.sent(), l = [], d = c.size() - 1;
+                                                                    c = _g.sent(), d = [], l = c.size() - 1;
                                                                     _g.label = 3;
                                                                 case 3:
-                                                                    if (!(d >= 0)) return [3, 8];
-                                                                    return [4, c.get(d)];
+                                                                    if (!(l >= 0)) return [3, 8];
+                                                                    return [4, c.get(l)];
                                                                 case 4:
                                                                     b = _g.sent(), k = b.attr("href");
                                                                     _b = !k || k === "#";
                                                                     if (_b) return [3, 6];
-                                                                    _d = (_c = l).push;
+                                                                    _d = (_c = d).push;
                                                                     _f = {};
                                                                     return [4, b.text()];
                                                                 case 5:
@@ -2628,33 +2648,33 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     _b;
                                                                     _g.label = 7;
                                                                 case 7:
-                                                                    d--;
+                                                                    l--;
                                                                     return [3, 3];
-                                                                case 8: return [2, s.success(l)];
+                                                                case 8: return [2, s.success(d)];
                                                             }
                                                         });
                                                     });
                                                 }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, l, d, b, k, _b, _c; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var i, c, d, l, b, k, _b, _c; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
                                                                 i = r.indexOf("?") > 0 ? r : r.replace(/\/$/, "") + "/?style=list";
                                                                 return [4, f.html(i)];
                                                             case 1:
-                                                                c = _d.sent(), l = c.select(".reading-content img, .page-break img, .read-container img"), d = [], b = 0;
+                                                                c = _d.sent(), d = c.select(".reading-content img, .page-break img, .read-container img"), l = [], b = 0;
                                                                 _d.label = 2;
                                                             case 2:
-                                                                if (!(b < l.size())) return [3, 5];
+                                                                if (!(b < d.size())) return [3, 5];
                                                                 _c = (_b = f).img;
-                                                                return [4, l.get(b)];
+                                                                return [4, d.get(b)];
                                                             case 3:
                                                                 k = _c.apply(_b, [_d.sent()]);
-                                                                k && d.push(k);
+                                                                k && l.push(k);
                                                                 _d.label = 4;
                                                             case 4:
                                                                 b++;
                                                                 return [3, 2];
-                                                            case 5: return [2, s.success(d)];
+                                                            case 5: return [2, s.success(l)];
                                                         }
                                                     }); });
                                                 }, text: function (r) {
@@ -2710,11 +2730,11 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                             catch (r) { }
                                             U = { path: "truyen" }, f = { img: function (r) { if (!r)
                                                     return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < i.length; c++) {
-                                                    var l = r.attr(i[c]);
-                                                    if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
-                                                        return f.fix(l.trim());
-                                                } var d = r.attr("data-srcset") || r.attr("srcset"); return d ? f.fix(d.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l; return __generator(this, function (_b) {
+                                                    var d = r.attr(i[c]);
+                                                    if (d && d.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(d))
+                                                        return f.fix(d.trim());
+                                                } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? f.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
                                                                 c = 0;
@@ -2723,9 +2743,9 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                 if (!(c < i.length)) return [3, 4];
                                                                 return [4, r.select(i[c]).text()];
                                                             case 2:
-                                                                l = _b.sent();
-                                                                if (l)
-                                                                    return [2, l.trim()];
+                                                                d = _b.sent();
+                                                                if (d)
+                                                                    return [2, d.trim()];
                                                                 _b.label = 3;
                                                             case 3:
                                                                 c++;
@@ -2734,18 +2754,38 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                         }
                                                     }); });
                                                 }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b, _b; return __generator(this, function (_c) {
+                                                        switch (_c.label) {
                                                             case 0:
                                                                 i = i || {};
                                                                 c = { Referer: w + "/" };
                                                                 if (i.headers)
-                                                                    for (l in i.headers)
-                                                                        c[l] = i.headers[l];
+                                                                    for (d in i.headers)
+                                                                        c[d] = i.headers[d];
                                                                 return [4, u(r, { method: i.method, headers: c, body: i.body })];
                                                             case 1:
-                                                                d = _b.sent();
-                                                                return [2, d];
+                                                                l = _c.sent(), b = 0;
+                                                                _c.label = 2;
+                                                            case 2:
+                                                                _b = l && l.status === 429 && b < 3;
+                                                                if (!_b) return [3, 4];
+                                                                return [4, f.cf(l)];
+                                                            case 3:
+                                                                _b = !(_c.sent());
+                                                                _c.label = 4;
+                                                            case 4:
+                                                                if (!_b) return [3, 8];
+                                                                return [4, x(1500 * (b + 1))];
+                                                            case 5:
+                                                                _c.sent();
+                                                                return [4, u(r, { method: i.method, headers: c, body: i.body })];
+                                                            case 6:
+                                                                l = _c.sent();
+                                                                _c.label = 7;
+                                                            case 7:
+                                                                b++;
+                                                                return [3, 2];
+                                                            case 8: return [2, l];
                                                         }
                                                     }); });
                                                 }, cf: function (r) {
@@ -2807,7 +2847,7 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                     }); });
                                                 }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, y = { path: function () { return typeof U != "undefined" && U.path || "manga"; }, card: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, l, _b;
+                                                        var i, c, d, _b;
                                                         var _c;
                                                         return __generator(this, function (_d) {
                                                             switch (_d.label) {
@@ -2817,10 +2857,10 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                         return [2, null];
                                                                     return [4, i.text()];
                                                                 case 1:
-                                                                    c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), l = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
+                                                                    c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), d = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
                                                                     _c = { name: c, link: i.attr("href"), cover: f.img(r.select("img").first()) };
-                                                                    if (!l) return [3, 3];
-                                                                    return [4, l.text()];
+                                                                    if (!d) return [3, 3];
+                                                                    return [4, d.text()];
                                                                 case 2:
                                                                     _b = _d.sent();
                                                                     return [3, 4];
@@ -2832,75 +2872,75 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                         });
                                                     });
                                                 }, list: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, l, d, b, _b, _c; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var i, c, d, l, b, _b, _c; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
-                                                                i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], l = {}, d = 0;
+                                                                i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], d = {}, l = 0;
                                                                 _d.label = 1;
                                                             case 1:
-                                                                if (!(d < i.size())) return [3, 5];
+                                                                if (!(l < i.size())) return [3, 5];
                                                                 _c = (_b = y).card;
-                                                                return [4, i.get(d)];
+                                                                return [4, i.get(l)];
                                                             case 2: return [4, _c.apply(_b, [_d.sent()])];
                                                             case 3:
                                                                 b = _d.sent();
-                                                                b && b.link && !l[b.link] && (l[b.link] = 1, c.push(b));
+                                                                b && b.link && !d[b.link] && (d[b.link] = 1, c.push(b));
                                                                 _d.label = 4;
                                                             case 4:
-                                                                d++;
+                                                                l++;
                                                                 return [3, 1];
                                                             case 5: return [2, c];
                                                         }
                                                     }); });
                                                 }, hasNext: function (r, i) { return r.select(".nav-previous a, a.nextpostslink, .wp-pagenavi a.next, a.next.page-numbers, .pagination a.next, a[rel=next]").size() > 0 || r.select('a[href*="/page/' + (i + 1) + '"]').size() > 0; }, browse: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, b; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
-                                                                c = f.page(i), l = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
-                                                                return [4, f.html(l)];
+                                                                c = f.page(i), d = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
+                                                                return [4, f.html(d)];
                                                             case 1:
-                                                                d = _b.sent();
-                                                                return [4, y.list(d)];
+                                                                l = _b.sent();
+                                                                return [4, y.list(l)];
                                                             case 2:
                                                                 b = _b.sent();
-                                                                return [2, s.success(b, f.next(y.hasNext(d, c) && b.length > 0, i))];
+                                                                return [2, s.success(b, f.next(y.hasNext(l, c) && b.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, search: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, b; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
                                                                 if (!f.isUrl(r)) return [3, 2];
                                                                 return [4, y.byUrl(r, i)];
                                                             case 1: return [2, _b.sent()];
                                                             case 2:
-                                                                c = f.page(i), l = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + f.enc(r) + "&post_type=wp-manga";
-                                                                return [4, f.html(l)];
+                                                                c = f.page(i), d = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + f.enc(r) + "&post_type=wp-manga";
+                                                                return [4, f.html(d)];
                                                             case 3:
-                                                                d = _b.sent();
-                                                                return [4, y.list(d)];
+                                                                l = _b.sent();
+                                                                return [4, y.list(l)];
                                                             case 4:
                                                                 b = _b.sent();
-                                                                return [2, s.success(b, f.next(y.hasNext(d, c) && b.length > 0, i))];
+                                                                return [2, s.success(b, f.next(y.hasNext(l, c) && b.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, byUrl: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, b; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
-                                                                c = f.page(i), l = f.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
-                                                                return [4, f.html(l)];
+                                                                c = f.page(i), d = f.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
+                                                                return [4, f.html(d)];
                                                             case 1:
-                                                                d = _b.sent();
-                                                                return [4, y.list(d)];
+                                                                l = _b.sent();
+                                                                return [4, y.list(l)];
                                                             case 2:
                                                                 b = _b.sent();
-                                                                return [2, s.success(b, f.next(y.hasNext(d, c) && b.length > 0, i))];
+                                                                return [2, s.success(b, f.next(y.hasNext(l, c) && b.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, detail: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, l, d, _b, _c, _d;
+                                                        var i, c, d, l, _b, _c, _d;
                                                         var _f;
                                                         return __generator(this, function (_g) {
                                                             switch (_g.label) {
@@ -2924,7 +2964,7 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     c = _g.sent();
                                                                     return [4, f.text(i, [".post-status .summary-content", ".manga-status", ".post-content_item:contains(Tình trạng) .summary-content", ".post-content_item:contains(Status) .summary-content"])];
                                                                 case 3:
-                                                                    l = _g.sent(), d = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
+                                                                    d = _g.sent(), l = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
                                                                     _c = (_b = s).success;
                                                                     _f = {};
                                                                     return [4, f.text(i, [".post-title h1", ".post-title h3", "h1"])];
@@ -2933,32 +2973,32 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     return [4, f.text(i, [".author-content a", ".author-content", ".artist-content a"])];
                                                                 case 5:
                                                                     _f.author = _g.sent();
-                                                                    if (!d) return [3, 7];
-                                                                    return [4, d.html()];
+                                                                    if (!l) return [3, 7];
+                                                                    return [4, l.html()];
                                                                 case 6:
                                                                     _d = _g.sent();
                                                                     return [3, 8];
                                                                 case 7:
                                                                     _d = "";
                                                                     _g.label = 8;
-                                                                case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = l ? "Tình trạng: " + l : "", _f.ongoing = f.ongoing(l), _f.genres = c, _f.host = w, _f)])];
+                                                                case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = d ? "Tình trạng: " + d : "", _f.ongoing = f.ongoing(d), _f.genres = c, _f.host = w, _f)])];
                                                             }
                                                         });
                                                     });
                                                 }, chapterEls: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, _b, b, _c, _d; return __generator(this, function (_f) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, _b, b, _c, _d; return __generator(this, function (_f) {
                                                         switch (_f.label) {
                                                             case 0:
                                                                 c = r.select("li.wp-manga-chapter a, .listing-chapters_wrap li a, .version-chap li a");
                                                                 if (c.size() > 0)
                                                                     return [2, c];
-                                                                l = i.replace(/\/$/, "") + "/";
-                                                                return [4, u(l + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: l } })];
+                                                                d = i.replace(/\/$/, "") + "/";
+                                                                return [4, u(d + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: d } })];
                                                             case 1:
-                                                                d = _f.sent();
-                                                                _b = d.ok;
+                                                                l = _f.sent();
+                                                                _b = l.ok;
                                                                 if (!_b) return [3, 3];
-                                                                return [4, d.html()];
+                                                                return [4, l.html()];
                                                             case 2:
                                                                 _b = (c = (_f.sent()).select("li.wp-manga-chapter a"), c.size() > 0);
                                                                 _f.label = 3;
@@ -2970,11 +3010,11 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                 if (!_d) return [3, 5];
                                                                 return [4, u(w + "/wp-admin/admin-ajax.php", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", "Content-Type": "application/x-www-form-urlencoded" }, body: "action=manga_get_chapters&manga=" + b })];
                                                             case 4:
-                                                                _d = (d = _f.sent(), d.ok);
+                                                                _d = (l = _f.sent(), l.ok);
                                                                 _f.label = 5;
                                                             case 5:
                                                                 if (!_d) return [3, 7];
-                                                                return [4, d.html()];
+                                                                return [4, l.html()];
                                                             case 6:
                                                                 _c = (_f.sent()).select("li.wp-manga-chapter a");
                                                                 return [3, 8];
@@ -2986,7 +3026,7 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                     }); });
                                                 }, toc: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, l, d, b, k, _b, _c, _d;
+                                                        var i, c, d, l, b, k, _b, _c, _d;
                                                         var _f;
                                                         return __generator(this, function (_g) {
                                                             switch (_g.label) {
@@ -2995,16 +3035,16 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     i = _g.sent();
                                                                     return [4, y.chapterEls(i, r)];
                                                                 case 2:
-                                                                    c = _g.sent(), l = [], d = c.size() - 1;
+                                                                    c = _g.sent(), d = [], l = c.size() - 1;
                                                                     _g.label = 3;
                                                                 case 3:
-                                                                    if (!(d >= 0)) return [3, 8];
-                                                                    return [4, c.get(d)];
+                                                                    if (!(l >= 0)) return [3, 8];
+                                                                    return [4, c.get(l)];
                                                                 case 4:
                                                                     b = _g.sent(), k = b.attr("href");
                                                                     _b = !k || k === "#";
                                                                     if (_b) return [3, 6];
-                                                                    _d = (_c = l).push;
+                                                                    _d = (_c = d).push;
                                                                     _f = {};
                                                                     return [4, b.text()];
                                                                 case 5:
@@ -3014,33 +3054,33 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     _b;
                                                                     _g.label = 7;
                                                                 case 7:
-                                                                    d--;
+                                                                    l--;
                                                                     return [3, 3];
-                                                                case 8: return [2, s.success(l)];
+                                                                case 8: return [2, s.success(d)];
                                                             }
                                                         });
                                                     });
                                                 }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, l, d, b, k, _b, _c; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var i, c, d, l, b, k, _b, _c; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
                                                                 i = r.indexOf("?") > 0 ? r : r.replace(/\/$/, "") + "/?style=list";
                                                                 return [4, f.html(i)];
                                                             case 1:
-                                                                c = _d.sent(), l = c.select(".reading-content img, .page-break img, .read-container img"), d = [], b = 0;
+                                                                c = _d.sent(), d = c.select(".reading-content img, .page-break img, .read-container img"), l = [], b = 0;
                                                                 _d.label = 2;
                                                             case 2:
-                                                                if (!(b < l.size())) return [3, 5];
+                                                                if (!(b < d.size())) return [3, 5];
                                                                 _c = (_b = f).img;
-                                                                return [4, l.get(b)];
+                                                                return [4, d.get(b)];
                                                             case 3:
                                                                 k = _c.apply(_b, [_d.sent()]);
-                                                                k && d.push(k);
+                                                                k && l.push(k);
                                                                 _d.label = 4;
                                                             case 4:
                                                                 b++;
                                                                 return [3, 2];
-                                                            case 5: return [2, s.success(d)];
+                                                            case 5: return [2, s.success(l)];
                                                         }
                                                     }); });
                                                 }, text: function (r) {
@@ -3096,11 +3136,11 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                             catch (r) { }
                                             U = { path: "truyen" }, f = { img: function (r) { if (!r)
                                                     return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < i.length; c++) {
-                                                    var l = r.attr(i[c]);
-                                                    if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
-                                                        return f.fix(l.trim());
-                                                } var d = r.attr("data-srcset") || r.attr("srcset"); return d ? f.fix(d.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l; return __generator(this, function (_b) {
+                                                    var d = r.attr(i[c]);
+                                                    if (d && d.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(d))
+                                                        return f.fix(d.trim());
+                                                } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? f.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
                                                                 c = 0;
@@ -3109,9 +3149,9 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                 if (!(c < i.length)) return [3, 4];
                                                                 return [4, r.select(i[c]).text()];
                                                             case 2:
-                                                                l = _b.sent();
-                                                                if (l)
-                                                                    return [2, l.trim()];
+                                                                d = _b.sent();
+                                                                if (d)
+                                                                    return [2, d.trim()];
                                                                 _b.label = 3;
                                                             case 3:
                                                                 c++;
@@ -3120,18 +3160,38 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                         }
                                                     }); });
                                                 }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b, _b; return __generator(this, function (_c) {
+                                                        switch (_c.label) {
                                                             case 0:
                                                                 i = i || {};
                                                                 c = { Referer: w + "/" };
                                                                 if (i.headers)
-                                                                    for (l in i.headers)
-                                                                        c[l] = i.headers[l];
+                                                                    for (d in i.headers)
+                                                                        c[d] = i.headers[d];
                                                                 return [4, u(r, { method: i.method, headers: c, body: i.body })];
                                                             case 1:
-                                                                d = _b.sent();
-                                                                return [2, d];
+                                                                l = _c.sent(), b = 0;
+                                                                _c.label = 2;
+                                                            case 2:
+                                                                _b = l && l.status === 429 && b < 3;
+                                                                if (!_b) return [3, 4];
+                                                                return [4, f.cf(l)];
+                                                            case 3:
+                                                                _b = !(_c.sent());
+                                                                _c.label = 4;
+                                                            case 4:
+                                                                if (!_b) return [3, 8];
+                                                                return [4, x(1500 * (b + 1))];
+                                                            case 5:
+                                                                _c.sent();
+                                                                return [4, u(r, { method: i.method, headers: c, body: i.body })];
+                                                            case 6:
+                                                                l = _c.sent();
+                                                                _c.label = 7;
+                                                            case 7:
+                                                                b++;
+                                                                return [3, 2];
+                                                            case 8: return [2, l];
                                                         }
                                                     }); });
                                                 }, cf: function (r) {
@@ -3193,7 +3253,7 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                     }); });
                                                 }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, y = { path: function () { return typeof U != "undefined" && U.path || "manga"; }, card: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, l, _b;
+                                                        var i, c, d, _b;
                                                         var _c;
                                                         return __generator(this, function (_d) {
                                                             switch (_d.label) {
@@ -3203,10 +3263,10 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                         return [2, null];
                                                                     return [4, i.text()];
                                                                 case 1:
-                                                                    c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), l = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
+                                                                    c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), d = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
                                                                     _c = { name: c, link: i.attr("href"), cover: f.img(r.select("img").first()) };
-                                                                    if (!l) return [3, 3];
-                                                                    return [4, l.text()];
+                                                                    if (!d) return [3, 3];
+                                                                    return [4, d.text()];
                                                                 case 2:
                                                                     _b = _d.sent();
                                                                     return [3, 4];
@@ -3218,75 +3278,75 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                         });
                                                     });
                                                 }, list: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, l, d, b, _b, _c; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var i, c, d, l, b, _b, _c; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
-                                                                i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], l = {}, d = 0;
+                                                                i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], d = {}, l = 0;
                                                                 _d.label = 1;
                                                             case 1:
-                                                                if (!(d < i.size())) return [3, 5];
+                                                                if (!(l < i.size())) return [3, 5];
                                                                 _c = (_b = y).card;
-                                                                return [4, i.get(d)];
+                                                                return [4, i.get(l)];
                                                             case 2: return [4, _c.apply(_b, [_d.sent()])];
                                                             case 3:
                                                                 b = _d.sent();
-                                                                b && b.link && !l[b.link] && (l[b.link] = 1, c.push(b));
+                                                                b && b.link && !d[b.link] && (d[b.link] = 1, c.push(b));
                                                                 _d.label = 4;
                                                             case 4:
-                                                                d++;
+                                                                l++;
                                                                 return [3, 1];
                                                             case 5: return [2, c];
                                                         }
                                                     }); });
                                                 }, hasNext: function (r, i) { return r.select(".nav-previous a, a.nextpostslink, .wp-pagenavi a.next, a.next.page-numbers, .pagination a.next, a[rel=next]").size() > 0 || r.select('a[href*="/page/' + (i + 1) + '"]').size() > 0; }, browse: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, b; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
-                                                                c = f.page(i), l = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
-                                                                return [4, f.html(l)];
+                                                                c = f.page(i), d = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
+                                                                return [4, f.html(d)];
                                                             case 1:
-                                                                d = _b.sent();
-                                                                return [4, y.list(d)];
+                                                                l = _b.sent();
+                                                                return [4, y.list(l)];
                                                             case 2:
                                                                 b = _b.sent();
-                                                                return [2, s.success(b, f.next(y.hasNext(d, c) && b.length > 0, i))];
+                                                                return [2, s.success(b, f.next(y.hasNext(l, c) && b.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, search: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, b; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
                                                                 if (!f.isUrl(r)) return [3, 2];
                                                                 return [4, y.byUrl(r, i)];
                                                             case 1: return [2, _b.sent()];
                                                             case 2:
-                                                                c = f.page(i), l = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + f.enc(r) + "&post_type=wp-manga";
-                                                                return [4, f.html(l)];
+                                                                c = f.page(i), d = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + f.enc(r) + "&post_type=wp-manga";
+                                                                return [4, f.html(d)];
                                                             case 3:
-                                                                d = _b.sent();
-                                                                return [4, y.list(d)];
+                                                                l = _b.sent();
+                                                                return [4, y.list(l)];
                                                             case 4:
                                                                 b = _b.sent();
-                                                                return [2, s.success(b, f.next(y.hasNext(d, c) && b.length > 0, i))];
+                                                                return [2, s.success(b, f.next(y.hasNext(l, c) && b.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, byUrl: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, b; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
-                                                                c = f.page(i), l = f.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
-                                                                return [4, f.html(l)];
+                                                                c = f.page(i), d = f.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
+                                                                return [4, f.html(d)];
                                                             case 1:
-                                                                d = _b.sent();
-                                                                return [4, y.list(d)];
+                                                                l = _b.sent();
+                                                                return [4, y.list(l)];
                                                             case 2:
                                                                 b = _b.sent();
-                                                                return [2, s.success(b, f.next(y.hasNext(d, c) && b.length > 0, i))];
+                                                                return [2, s.success(b, f.next(y.hasNext(l, c) && b.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, detail: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, l, d, _b, _c, _d;
+                                                        var i, c, d, l, _b, _c, _d;
                                                         var _f;
                                                         return __generator(this, function (_g) {
                                                             switch (_g.label) {
@@ -3310,7 +3370,7 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     c = _g.sent();
                                                                     return [4, f.text(i, [".post-status .summary-content", ".manga-status", ".post-content_item:contains(Tình trạng) .summary-content", ".post-content_item:contains(Status) .summary-content"])];
                                                                 case 3:
-                                                                    l = _g.sent(), d = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
+                                                                    d = _g.sent(), l = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
                                                                     _c = (_b = s).success;
                                                                     _f = {};
                                                                     return [4, f.text(i, [".post-title h1", ".post-title h3", "h1"])];
@@ -3319,32 +3379,32 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     return [4, f.text(i, [".author-content a", ".author-content", ".artist-content a"])];
                                                                 case 5:
                                                                     _f.author = _g.sent();
-                                                                    if (!d) return [3, 7];
-                                                                    return [4, d.html()];
+                                                                    if (!l) return [3, 7];
+                                                                    return [4, l.html()];
                                                                 case 6:
                                                                     _d = _g.sent();
                                                                     return [3, 8];
                                                                 case 7:
                                                                     _d = "";
                                                                     _g.label = 8;
-                                                                case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = l ? "Tình trạng: " + l : "", _f.ongoing = f.ongoing(l), _f.genres = c, _f.host = w, _f)])];
+                                                                case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = d ? "Tình trạng: " + d : "", _f.ongoing = f.ongoing(d), _f.genres = c, _f.host = w, _f)])];
                                                             }
                                                         });
                                                     });
                                                 }, chapterEls: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, _b, b, _c, _d; return __generator(this, function (_f) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, _b, b, _c, _d; return __generator(this, function (_f) {
                                                         switch (_f.label) {
                                                             case 0:
                                                                 c = r.select("li.wp-manga-chapter a, .listing-chapters_wrap li a, .version-chap li a");
                                                                 if (c.size() > 0)
                                                                     return [2, c];
-                                                                l = i.replace(/\/$/, "") + "/";
-                                                                return [4, u(l + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: l } })];
+                                                                d = i.replace(/\/$/, "") + "/";
+                                                                return [4, u(d + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: d } })];
                                                             case 1:
-                                                                d = _f.sent();
-                                                                _b = d.ok;
+                                                                l = _f.sent();
+                                                                _b = l.ok;
                                                                 if (!_b) return [3, 3];
-                                                                return [4, d.html()];
+                                                                return [4, l.html()];
                                                             case 2:
                                                                 _b = (c = (_f.sent()).select("li.wp-manga-chapter a"), c.size() > 0);
                                                                 _f.label = 3;
@@ -3356,11 +3416,11 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                 if (!_d) return [3, 5];
                                                                 return [4, u(w + "/wp-admin/admin-ajax.php", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", "Content-Type": "application/x-www-form-urlencoded" }, body: "action=manga_get_chapters&manga=" + b })];
                                                             case 4:
-                                                                _d = (d = _f.sent(), d.ok);
+                                                                _d = (l = _f.sent(), l.ok);
                                                                 _f.label = 5;
                                                             case 5:
                                                                 if (!_d) return [3, 7];
-                                                                return [4, d.html()];
+                                                                return [4, l.html()];
                                                             case 6:
                                                                 _c = (_f.sent()).select("li.wp-manga-chapter a");
                                                                 return [3, 8];
@@ -3372,7 +3432,7 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                     }); });
                                                 }, toc: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, l, d, b, k, _b, _c, _d;
+                                                        var i, c, d, l, b, k, _b, _c, _d;
                                                         var _f;
                                                         return __generator(this, function (_g) {
                                                             switch (_g.label) {
@@ -3381,16 +3441,16 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     i = _g.sent();
                                                                     return [4, y.chapterEls(i, r)];
                                                                 case 2:
-                                                                    c = _g.sent(), l = [], d = c.size() - 1;
+                                                                    c = _g.sent(), d = [], l = c.size() - 1;
                                                                     _g.label = 3;
                                                                 case 3:
-                                                                    if (!(d >= 0)) return [3, 8];
-                                                                    return [4, c.get(d)];
+                                                                    if (!(l >= 0)) return [3, 8];
+                                                                    return [4, c.get(l)];
                                                                 case 4:
                                                                     b = _g.sent(), k = b.attr("href");
                                                                     _b = !k || k === "#";
                                                                     if (_b) return [3, 6];
-                                                                    _d = (_c = l).push;
+                                                                    _d = (_c = d).push;
                                                                     _f = {};
                                                                     return [4, b.text()];
                                                                 case 5:
@@ -3400,33 +3460,33 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     _b;
                                                                     _g.label = 7;
                                                                 case 7:
-                                                                    d--;
+                                                                    l--;
                                                                     return [3, 3];
-                                                                case 8: return [2, s.success(l)];
+                                                                case 8: return [2, s.success(d)];
                                                             }
                                                         });
                                                     });
                                                 }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, l, d, b, k, _b, _c; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var i, c, d, l, b, k, _b, _c; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
                                                                 i = r.indexOf("?") > 0 ? r : r.replace(/\/$/, "") + "/?style=list";
                                                                 return [4, f.html(i)];
                                                             case 1:
-                                                                c = _d.sent(), l = c.select(".reading-content img, .page-break img, .read-container img"), d = [], b = 0;
+                                                                c = _d.sent(), d = c.select(".reading-content img, .page-break img, .read-container img"), l = [], b = 0;
                                                                 _d.label = 2;
                                                             case 2:
-                                                                if (!(b < l.size())) return [3, 5];
+                                                                if (!(b < d.size())) return [3, 5];
                                                                 _c = (_b = f).img;
-                                                                return [4, l.get(b)];
+                                                                return [4, d.get(b)];
                                                             case 3:
                                                                 k = _c.apply(_b, [_d.sent()]);
-                                                                k && d.push(k);
+                                                                k && l.push(k);
                                                                 _d.label = 4;
                                                             case 4:
                                                                 b++;
                                                                 return [3, 2];
-                                                            case 5: return [2, s.success(d)];
+                                                            case 5: return [2, s.success(l)];
                                                         }
                                                     }); });
                                                 }, text: function (r) {
@@ -3482,11 +3542,11 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                             catch (r) { }
                                             U = { path: "truyen" }, f = { img: function (r) { if (!r)
                                                     return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < i.length; c++) {
-                                                    var l = r.attr(i[c]);
-                                                    if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
-                                                        return f.fix(l.trim());
-                                                } var d = r.attr("data-srcset") || r.attr("srcset"); return d ? f.fix(d.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l; return __generator(this, function (_b) {
+                                                    var d = r.attr(i[c]);
+                                                    if (d && d.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(d))
+                                                        return f.fix(d.trim());
+                                                } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? f.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
                                                                 c = 0;
@@ -3495,9 +3555,9 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                 if (!(c < i.length)) return [3, 4];
                                                                 return [4, r.select(i[c]).text()];
                                                             case 2:
-                                                                l = _b.sent();
-                                                                if (l)
-                                                                    return [2, l.trim()];
+                                                                d = _b.sent();
+                                                                if (d)
+                                                                    return [2, d.trim()];
                                                                 _b.label = 3;
                                                             case 3:
                                                                 c++;
@@ -3506,18 +3566,38 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                         }
                                                     }); });
                                                 }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b, _b; return __generator(this, function (_c) {
+                                                        switch (_c.label) {
                                                             case 0:
                                                                 i = i || {};
                                                                 c = { Referer: w + "/" };
                                                                 if (i.headers)
-                                                                    for (l in i.headers)
-                                                                        c[l] = i.headers[l];
+                                                                    for (d in i.headers)
+                                                                        c[d] = i.headers[d];
                                                                 return [4, u(r, { method: i.method, headers: c, body: i.body })];
                                                             case 1:
-                                                                d = _b.sent();
-                                                                return [2, d];
+                                                                l = _c.sent(), b = 0;
+                                                                _c.label = 2;
+                                                            case 2:
+                                                                _b = l && l.status === 429 && b < 3;
+                                                                if (!_b) return [3, 4];
+                                                                return [4, f.cf(l)];
+                                                            case 3:
+                                                                _b = !(_c.sent());
+                                                                _c.label = 4;
+                                                            case 4:
+                                                                if (!_b) return [3, 8];
+                                                                return [4, x(1500 * (b + 1))];
+                                                            case 5:
+                                                                _c.sent();
+                                                                return [4, u(r, { method: i.method, headers: c, body: i.body })];
+                                                            case 6:
+                                                                l = _c.sent();
+                                                                _c.label = 7;
+                                                            case 7:
+                                                                b++;
+                                                                return [3, 2];
+                                                            case 8: return [2, l];
                                                         }
                                                     }); });
                                                 }, cf: function (r) {
@@ -3579,7 +3659,7 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                     }); });
                                                 }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, y = { path: function () { return typeof U != "undefined" && U.path || "manga"; }, card: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, l, _b;
+                                                        var i, c, d, _b;
                                                         var _c;
                                                         return __generator(this, function (_d) {
                                                             switch (_d.label) {
@@ -3589,10 +3669,10 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                         return [2, null];
                                                                     return [4, i.text()];
                                                                 case 1:
-                                                                    c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), l = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
+                                                                    c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), d = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
                                                                     _c = { name: c, link: i.attr("href"), cover: f.img(r.select("img").first()) };
-                                                                    if (!l) return [3, 3];
-                                                                    return [4, l.text()];
+                                                                    if (!d) return [3, 3];
+                                                                    return [4, d.text()];
                                                                 case 2:
                                                                     _b = _d.sent();
                                                                     return [3, 4];
@@ -3604,75 +3684,75 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                         });
                                                     });
                                                 }, list: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, l, d, b, _b, _c; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var i, c, d, l, b, _b, _c; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
-                                                                i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], l = {}, d = 0;
+                                                                i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], d = {}, l = 0;
                                                                 _d.label = 1;
                                                             case 1:
-                                                                if (!(d < i.size())) return [3, 5];
+                                                                if (!(l < i.size())) return [3, 5];
                                                                 _c = (_b = y).card;
-                                                                return [4, i.get(d)];
+                                                                return [4, i.get(l)];
                                                             case 2: return [4, _c.apply(_b, [_d.sent()])];
                                                             case 3:
                                                                 b = _d.sent();
-                                                                b && b.link && !l[b.link] && (l[b.link] = 1, c.push(b));
+                                                                b && b.link && !d[b.link] && (d[b.link] = 1, c.push(b));
                                                                 _d.label = 4;
                                                             case 4:
-                                                                d++;
+                                                                l++;
                                                                 return [3, 1];
                                                             case 5: return [2, c];
                                                         }
                                                     }); });
                                                 }, hasNext: function (r, i) { return r.select(".nav-previous a, a.nextpostslink, .wp-pagenavi a.next, a.next.page-numbers, .pagination a.next, a[rel=next]").size() > 0 || r.select('a[href*="/page/' + (i + 1) + '"]').size() > 0; }, browse: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, b; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
-                                                                c = f.page(i), l = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
-                                                                return [4, f.html(l)];
+                                                                c = f.page(i), d = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
+                                                                return [4, f.html(d)];
                                                             case 1:
-                                                                d = _b.sent();
-                                                                return [4, y.list(d)];
+                                                                l = _b.sent();
+                                                                return [4, y.list(l)];
                                                             case 2:
                                                                 b = _b.sent();
-                                                                return [2, s.success(b, f.next(y.hasNext(d, c) && b.length > 0, i))];
+                                                                return [2, s.success(b, f.next(y.hasNext(l, c) && b.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, search: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, b; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
                                                                 if (!f.isUrl(r)) return [3, 2];
                                                                 return [4, y.byUrl(r, i)];
                                                             case 1: return [2, _b.sent()];
                                                             case 2:
-                                                                c = f.page(i), l = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + f.enc(r) + "&post_type=wp-manga";
-                                                                return [4, f.html(l)];
+                                                                c = f.page(i), d = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + f.enc(r) + "&post_type=wp-manga";
+                                                                return [4, f.html(d)];
                                                             case 3:
-                                                                d = _b.sent();
-                                                                return [4, y.list(d)];
+                                                                l = _b.sent();
+                                                                return [4, y.list(l)];
                                                             case 4:
                                                                 b = _b.sent();
-                                                                return [2, s.success(b, f.next(y.hasNext(d, c) && b.length > 0, i))];
+                                                                return [2, s.success(b, f.next(y.hasNext(l, c) && b.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, byUrl: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, b; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
-                                                                c = f.page(i), l = f.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
-                                                                return [4, f.html(l)];
+                                                                c = f.page(i), d = f.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
+                                                                return [4, f.html(d)];
                                                             case 1:
-                                                                d = _b.sent();
-                                                                return [4, y.list(d)];
+                                                                l = _b.sent();
+                                                                return [4, y.list(l)];
                                                             case 2:
                                                                 b = _b.sent();
-                                                                return [2, s.success(b, f.next(y.hasNext(d, c) && b.length > 0, i))];
+                                                                return [2, s.success(b, f.next(y.hasNext(l, c) && b.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, detail: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, l, d, _b, _c, _d;
+                                                        var i, c, d, l, _b, _c, _d;
                                                         var _f;
                                                         return __generator(this, function (_g) {
                                                             switch (_g.label) {
@@ -3696,7 +3776,7 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     c = _g.sent();
                                                                     return [4, f.text(i, [".post-status .summary-content", ".manga-status", ".post-content_item:contains(Tình trạng) .summary-content", ".post-content_item:contains(Status) .summary-content"])];
                                                                 case 3:
-                                                                    l = _g.sent(), d = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
+                                                                    d = _g.sent(), l = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
                                                                     _c = (_b = s).success;
                                                                     _f = {};
                                                                     return [4, f.text(i, [".post-title h1", ".post-title h3", "h1"])];
@@ -3705,32 +3785,32 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     return [4, f.text(i, [".author-content a", ".author-content", ".artist-content a"])];
                                                                 case 5:
                                                                     _f.author = _g.sent();
-                                                                    if (!d) return [3, 7];
-                                                                    return [4, d.html()];
+                                                                    if (!l) return [3, 7];
+                                                                    return [4, l.html()];
                                                                 case 6:
                                                                     _d = _g.sent();
                                                                     return [3, 8];
                                                                 case 7:
                                                                     _d = "";
                                                                     _g.label = 8;
-                                                                case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = l ? "Tình trạng: " + l : "", _f.ongoing = f.ongoing(l), _f.genres = c, _f.host = w, _f)])];
+                                                                case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = d ? "Tình trạng: " + d : "", _f.ongoing = f.ongoing(d), _f.genres = c, _f.host = w, _f)])];
                                                             }
                                                         });
                                                     });
                                                 }, chapterEls: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, _b, b, _c, _d; return __generator(this, function (_f) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, _b, b, _c, _d; return __generator(this, function (_f) {
                                                         switch (_f.label) {
                                                             case 0:
                                                                 c = r.select("li.wp-manga-chapter a, .listing-chapters_wrap li a, .version-chap li a");
                                                                 if (c.size() > 0)
                                                                     return [2, c];
-                                                                l = i.replace(/\/$/, "") + "/";
-                                                                return [4, u(l + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: l } })];
+                                                                d = i.replace(/\/$/, "") + "/";
+                                                                return [4, u(d + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: d } })];
                                                             case 1:
-                                                                d = _f.sent();
-                                                                _b = d.ok;
+                                                                l = _f.sent();
+                                                                _b = l.ok;
                                                                 if (!_b) return [3, 3];
-                                                                return [4, d.html()];
+                                                                return [4, l.html()];
                                                             case 2:
                                                                 _b = (c = (_f.sent()).select("li.wp-manga-chapter a"), c.size() > 0);
                                                                 _f.label = 3;
@@ -3742,11 +3822,11 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                 if (!_d) return [3, 5];
                                                                 return [4, u(w + "/wp-admin/admin-ajax.php", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", "Content-Type": "application/x-www-form-urlencoded" }, body: "action=manga_get_chapters&manga=" + b })];
                                                             case 4:
-                                                                _d = (d = _f.sent(), d.ok);
+                                                                _d = (l = _f.sent(), l.ok);
                                                                 _f.label = 5;
                                                             case 5:
                                                                 if (!_d) return [3, 7];
-                                                                return [4, d.html()];
+                                                                return [4, l.html()];
                                                             case 6:
                                                                 _c = (_f.sent()).select("li.wp-manga-chapter a");
                                                                 return [3, 8];
@@ -3758,7 +3838,7 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                     }); });
                                                 }, toc: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, l, d, b, k, _b, _c, _d;
+                                                        var i, c, d, l, b, k, _b, _c, _d;
                                                         var _f;
                                                         return __generator(this, function (_g) {
                                                             switch (_g.label) {
@@ -3767,16 +3847,16 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     i = _g.sent();
                                                                     return [4, y.chapterEls(i, r)];
                                                                 case 2:
-                                                                    c = _g.sent(), l = [], d = c.size() - 1;
+                                                                    c = _g.sent(), d = [], l = c.size() - 1;
                                                                     _g.label = 3;
                                                                 case 3:
-                                                                    if (!(d >= 0)) return [3, 8];
-                                                                    return [4, c.get(d)];
+                                                                    if (!(l >= 0)) return [3, 8];
+                                                                    return [4, c.get(l)];
                                                                 case 4:
                                                                     b = _g.sent(), k = b.attr("href");
                                                                     _b = !k || k === "#";
                                                                     if (_b) return [3, 6];
-                                                                    _d = (_c = l).push;
+                                                                    _d = (_c = d).push;
                                                                     _f = {};
                                                                     return [4, b.text()];
                                                                 case 5:
@@ -3786,33 +3866,33 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     _b;
                                                                     _g.label = 7;
                                                                 case 7:
-                                                                    d--;
+                                                                    l--;
                                                                     return [3, 3];
-                                                                case 8: return [2, s.success(l)];
+                                                                case 8: return [2, s.success(d)];
                                                             }
                                                         });
                                                     });
                                                 }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, l, d, b, k, _b, _c; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var i, c, d, l, b, k, _b, _c; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
                                                                 i = r.indexOf("?") > 0 ? r : r.replace(/\/$/, "") + "/?style=list";
                                                                 return [4, f.html(i)];
                                                             case 1:
-                                                                c = _d.sent(), l = c.select(".reading-content img, .page-break img, .read-container img"), d = [], b = 0;
+                                                                c = _d.sent(), d = c.select(".reading-content img, .page-break img, .read-container img"), l = [], b = 0;
                                                                 _d.label = 2;
                                                             case 2:
-                                                                if (!(b < l.size())) return [3, 5];
+                                                                if (!(b < d.size())) return [3, 5];
                                                                 _c = (_b = f).img;
-                                                                return [4, l.get(b)];
+                                                                return [4, d.get(b)];
                                                             case 3:
                                                                 k = _c.apply(_b, [_d.sent()]);
-                                                                k && d.push(k);
+                                                                k && l.push(k);
                                                                 _d.label = 4;
                                                             case 4:
                                                                 b++;
                                                                 return [3, 2];
-                                                            case 5: return [2, s.success(d)];
+                                                            case 5: return [2, s.success(l)];
                                                         }
                                                     }); });
                                                 }, text: function (r) {
@@ -3868,11 +3948,11 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                             catch (r) { }
                                             U = { path: "truyen" }, f = { img: function (r) { if (!r)
                                                     return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < i.length; c++) {
-                                                    var l = r.attr(i[c]);
-                                                    if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
-                                                        return f.fix(l.trim());
-                                                } var d = r.attr("data-srcset") || r.attr("srcset"); return d ? f.fix(d.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l; return __generator(this, function (_b) {
+                                                    var d = r.attr(i[c]);
+                                                    if (d && d.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(d))
+                                                        return f.fix(d.trim());
+                                                } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? f.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
                                                                 c = 0;
@@ -3881,9 +3961,9 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                 if (!(c < i.length)) return [3, 4];
                                                                 return [4, r.select(i[c]).text()];
                                                             case 2:
-                                                                l = _b.sent();
-                                                                if (l)
-                                                                    return [2, l.trim()];
+                                                                d = _b.sent();
+                                                                if (d)
+                                                                    return [2, d.trim()];
                                                                 _b.label = 3;
                                                             case 3:
                                                                 c++;
@@ -3892,18 +3972,38 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                         }
                                                     }); });
                                                 }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b, _b; return __generator(this, function (_c) {
+                                                        switch (_c.label) {
                                                             case 0:
                                                                 i = i || {};
                                                                 c = { Referer: w + "/" };
                                                                 if (i.headers)
-                                                                    for (l in i.headers)
-                                                                        c[l] = i.headers[l];
+                                                                    for (d in i.headers)
+                                                                        c[d] = i.headers[d];
                                                                 return [4, u(r, { method: i.method, headers: c, body: i.body })];
                                                             case 1:
-                                                                d = _b.sent();
-                                                                return [2, d];
+                                                                l = _c.sent(), b = 0;
+                                                                _c.label = 2;
+                                                            case 2:
+                                                                _b = l && l.status === 429 && b < 3;
+                                                                if (!_b) return [3, 4];
+                                                                return [4, f.cf(l)];
+                                                            case 3:
+                                                                _b = !(_c.sent());
+                                                                _c.label = 4;
+                                                            case 4:
+                                                                if (!_b) return [3, 8];
+                                                                return [4, x(1500 * (b + 1))];
+                                                            case 5:
+                                                                _c.sent();
+                                                                return [4, u(r, { method: i.method, headers: c, body: i.body })];
+                                                            case 6:
+                                                                l = _c.sent();
+                                                                _c.label = 7;
+                                                            case 7:
+                                                                b++;
+                                                                return [3, 2];
+                                                            case 8: return [2, l];
                                                         }
                                                     }); });
                                                 }, cf: function (r) {
@@ -3965,7 +4065,7 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                     }); });
                                                 }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, y = { path: function () { return typeof U != "undefined" && U.path || "manga"; }, card: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, l, _b;
+                                                        var i, c, d, _b;
                                                         var _c;
                                                         return __generator(this, function (_d) {
                                                             switch (_d.label) {
@@ -3975,10 +4075,10 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                         return [2, null];
                                                                     return [4, i.text()];
                                                                 case 1:
-                                                                    c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), l = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
+                                                                    c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), d = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
                                                                     _c = { name: c, link: i.attr("href"), cover: f.img(r.select("img").first()) };
-                                                                    if (!l) return [3, 3];
-                                                                    return [4, l.text()];
+                                                                    if (!d) return [3, 3];
+                                                                    return [4, d.text()];
                                                                 case 2:
                                                                     _b = _d.sent();
                                                                     return [3, 4];
@@ -3990,75 +4090,75 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                         });
                                                     });
                                                 }, list: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, l, d, b, _b, _c; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var i, c, d, l, b, _b, _c; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
-                                                                i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], l = {}, d = 0;
+                                                                i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], d = {}, l = 0;
                                                                 _d.label = 1;
                                                             case 1:
-                                                                if (!(d < i.size())) return [3, 5];
+                                                                if (!(l < i.size())) return [3, 5];
                                                                 _c = (_b = y).card;
-                                                                return [4, i.get(d)];
+                                                                return [4, i.get(l)];
                                                             case 2: return [4, _c.apply(_b, [_d.sent()])];
                                                             case 3:
                                                                 b = _d.sent();
-                                                                b && b.link && !l[b.link] && (l[b.link] = 1, c.push(b));
+                                                                b && b.link && !d[b.link] && (d[b.link] = 1, c.push(b));
                                                                 _d.label = 4;
                                                             case 4:
-                                                                d++;
+                                                                l++;
                                                                 return [3, 1];
                                                             case 5: return [2, c];
                                                         }
                                                     }); });
                                                 }, hasNext: function (r, i) { return r.select(".nav-previous a, a.nextpostslink, .wp-pagenavi a.next, a.next.page-numbers, .pagination a.next, a[rel=next]").size() > 0 || r.select('a[href*="/page/' + (i + 1) + '"]').size() > 0; }, browse: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, b; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
-                                                                c = f.page(i), l = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
-                                                                return [4, f.html(l)];
+                                                                c = f.page(i), d = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
+                                                                return [4, f.html(d)];
                                                             case 1:
-                                                                d = _b.sent();
-                                                                return [4, y.list(d)];
+                                                                l = _b.sent();
+                                                                return [4, y.list(l)];
                                                             case 2:
                                                                 b = _b.sent();
-                                                                return [2, s.success(b, f.next(y.hasNext(d, c) && b.length > 0, i))];
+                                                                return [2, s.success(b, f.next(y.hasNext(l, c) && b.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, search: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, b; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
                                                                 if (!f.isUrl(r)) return [3, 2];
                                                                 return [4, y.byUrl(r, i)];
                                                             case 1: return [2, _b.sent()];
                                                             case 2:
-                                                                c = f.page(i), l = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + f.enc(r) + "&post_type=wp-manga";
-                                                                return [4, f.html(l)];
+                                                                c = f.page(i), d = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + f.enc(r) + "&post_type=wp-manga";
+                                                                return [4, f.html(d)];
                                                             case 3:
-                                                                d = _b.sent();
-                                                                return [4, y.list(d)];
+                                                                l = _b.sent();
+                                                                return [4, y.list(l)];
                                                             case 4:
                                                                 b = _b.sent();
-                                                                return [2, s.success(b, f.next(y.hasNext(d, c) && b.length > 0, i))];
+                                                                return [2, s.success(b, f.next(y.hasNext(l, c) && b.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, byUrl: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, b; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
-                                                                c = f.page(i), l = f.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
-                                                                return [4, f.html(l)];
+                                                                c = f.page(i), d = f.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
+                                                                return [4, f.html(d)];
                                                             case 1:
-                                                                d = _b.sent();
-                                                                return [4, y.list(d)];
+                                                                l = _b.sent();
+                                                                return [4, y.list(l)];
                                                             case 2:
                                                                 b = _b.sent();
-                                                                return [2, s.success(b, f.next(y.hasNext(d, c) && b.length > 0, i))];
+                                                                return [2, s.success(b, f.next(y.hasNext(l, c) && b.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, detail: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, l, d, _b, _c, _d;
+                                                        var i, c, d, l, _b, _c, _d;
                                                         var _f;
                                                         return __generator(this, function (_g) {
                                                             switch (_g.label) {
@@ -4082,7 +4182,7 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     c = _g.sent();
                                                                     return [4, f.text(i, [".post-status .summary-content", ".manga-status", ".post-content_item:contains(Tình trạng) .summary-content", ".post-content_item:contains(Status) .summary-content"])];
                                                                 case 3:
-                                                                    l = _g.sent(), d = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
+                                                                    d = _g.sent(), l = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
                                                                     _c = (_b = s).success;
                                                                     _f = {};
                                                                     return [4, f.text(i, [".post-title h1", ".post-title h3", "h1"])];
@@ -4091,32 +4191,32 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     return [4, f.text(i, [".author-content a", ".author-content", ".artist-content a"])];
                                                                 case 5:
                                                                     _f.author = _g.sent();
-                                                                    if (!d) return [3, 7];
-                                                                    return [4, d.html()];
+                                                                    if (!l) return [3, 7];
+                                                                    return [4, l.html()];
                                                                 case 6:
                                                                     _d = _g.sent();
                                                                     return [3, 8];
                                                                 case 7:
                                                                     _d = "";
                                                                     _g.label = 8;
-                                                                case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = l ? "Tình trạng: " + l : "", _f.ongoing = f.ongoing(l), _f.genres = c, _f.host = w, _f)])];
+                                                                case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = d ? "Tình trạng: " + d : "", _f.ongoing = f.ongoing(d), _f.genres = c, _f.host = w, _f)])];
                                                             }
                                                         });
                                                     });
                                                 }, chapterEls: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, _b, b, _c, _d; return __generator(this, function (_f) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, _b, b, _c, _d; return __generator(this, function (_f) {
                                                         switch (_f.label) {
                                                             case 0:
                                                                 c = r.select("li.wp-manga-chapter a, .listing-chapters_wrap li a, .version-chap li a");
                                                                 if (c.size() > 0)
                                                                     return [2, c];
-                                                                l = i.replace(/\/$/, "") + "/";
-                                                                return [4, u(l + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: l } })];
+                                                                d = i.replace(/\/$/, "") + "/";
+                                                                return [4, u(d + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: d } })];
                                                             case 1:
-                                                                d = _f.sent();
-                                                                _b = d.ok;
+                                                                l = _f.sent();
+                                                                _b = l.ok;
                                                                 if (!_b) return [3, 3];
-                                                                return [4, d.html()];
+                                                                return [4, l.html()];
                                                             case 2:
                                                                 _b = (c = (_f.sent()).select("li.wp-manga-chapter a"), c.size() > 0);
                                                                 _f.label = 3;
@@ -4128,11 +4228,11 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                 if (!_d) return [3, 5];
                                                                 return [4, u(w + "/wp-admin/admin-ajax.php", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", "Content-Type": "application/x-www-form-urlencoded" }, body: "action=manga_get_chapters&manga=" + b })];
                                                             case 4:
-                                                                _d = (d = _f.sent(), d.ok);
+                                                                _d = (l = _f.sent(), l.ok);
                                                                 _f.label = 5;
                                                             case 5:
                                                                 if (!_d) return [3, 7];
-                                                                return [4, d.html()];
+                                                                return [4, l.html()];
                                                             case 6:
                                                                 _c = (_f.sent()).select("li.wp-manga-chapter a");
                                                                 return [3, 8];
@@ -4144,7 +4244,7 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                     }); });
                                                 }, toc: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, l, d, b, k, _b, _c, _d;
+                                                        var i, c, d, l, b, k, _b, _c, _d;
                                                         var _f;
                                                         return __generator(this, function (_g) {
                                                             switch (_g.label) {
@@ -4153,16 +4253,16 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     i = _g.sent();
                                                                     return [4, y.chapterEls(i, r)];
                                                                 case 2:
-                                                                    c = _g.sent(), l = [], d = c.size() - 1;
+                                                                    c = _g.sent(), d = [], l = c.size() - 1;
                                                                     _g.label = 3;
                                                                 case 3:
-                                                                    if (!(d >= 0)) return [3, 8];
-                                                                    return [4, c.get(d)];
+                                                                    if (!(l >= 0)) return [3, 8];
+                                                                    return [4, c.get(l)];
                                                                 case 4:
                                                                     b = _g.sent(), k = b.attr("href");
                                                                     _b = !k || k === "#";
                                                                     if (_b) return [3, 6];
-                                                                    _d = (_c = l).push;
+                                                                    _d = (_c = d).push;
                                                                     _f = {};
                                                                     return [4, b.text()];
                                                                 case 5:
@@ -4172,33 +4272,33 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     _b;
                                                                     _g.label = 7;
                                                                 case 7:
-                                                                    d--;
+                                                                    l--;
                                                                     return [3, 3];
-                                                                case 8: return [2, s.success(l)];
+                                                                case 8: return [2, s.success(d)];
                                                             }
                                                         });
                                                     });
                                                 }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, l, d, b, k, _b, _c; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var i, c, d, l, b, k, _b, _c; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
                                                                 i = r.indexOf("?") > 0 ? r : r.replace(/\/$/, "") + "/?style=list";
                                                                 return [4, f.html(i)];
                                                             case 1:
-                                                                c = _d.sent(), l = c.select(".reading-content img, .page-break img, .read-container img"), d = [], b = 0;
+                                                                c = _d.sent(), d = c.select(".reading-content img, .page-break img, .read-container img"), l = [], b = 0;
                                                                 _d.label = 2;
                                                             case 2:
-                                                                if (!(b < l.size())) return [3, 5];
+                                                                if (!(b < d.size())) return [3, 5];
                                                                 _c = (_b = f).img;
-                                                                return [4, l.get(b)];
+                                                                return [4, d.get(b)];
                                                             case 3:
                                                                 k = _c.apply(_b, [_d.sent()]);
-                                                                k && d.push(k);
+                                                                k && l.push(k);
                                                                 _d.label = 4;
                                                             case 4:
                                                                 b++;
                                                                 return [3, 2];
-                                                            case 5: return [2, s.success(d)];
+                                                            case 5: return [2, s.success(l)];
                                                         }
                                                     }); });
                                                 }, text: function (r) {
@@ -4254,11 +4354,11 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                             catch (r) { }
                                             U = { path: "truyen" }, f = { img: function (r) { if (!r)
                                                     return ""; for (var i = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < i.length; c++) {
-                                                    var l = r.attr(i[c]);
-                                                    if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
-                                                        return f.fix(l.trim());
-                                                } var d = r.attr("data-srcset") || r.attr("srcset"); return d ? f.fix(d.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l; return __generator(this, function (_b) {
+                                                    var d = r.attr(i[c]);
+                                                    if (d && d.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(d))
+                                                        return f.fix(d.trim());
+                                                } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? f.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? w + r : w + "/" + r) : ""; }, text: function (r, i) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
                                                                 c = 0;
@@ -4267,9 +4367,9 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                 if (!(c < i.length)) return [3, 4];
                                                                 return [4, r.select(i[c]).text()];
                                                             case 2:
-                                                                l = _b.sent();
-                                                                if (l)
-                                                                    return [2, l.trim()];
+                                                                d = _b.sent();
+                                                                if (d)
+                                                                    return [2, d.trim()];
                                                                 _b.label = 3;
                                                             case 3:
                                                                 c++;
@@ -4278,18 +4378,38 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                         }
                                                     }); });
                                                 }, get: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d; return __generator(this, function (_b) {
-                                                        switch (_b.label) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b, _b; return __generator(this, function (_c) {
+                                                        switch (_c.label) {
                                                             case 0:
                                                                 i = i || {};
                                                                 c = { Referer: w + "/" };
                                                                 if (i.headers)
-                                                                    for (l in i.headers)
-                                                                        c[l] = i.headers[l];
+                                                                    for (d in i.headers)
+                                                                        c[d] = i.headers[d];
                                                                 return [4, u(r, { method: i.method, headers: c, body: i.body })];
                                                             case 1:
-                                                                d = _b.sent();
-                                                                return [2, d];
+                                                                l = _c.sent(), b = 0;
+                                                                _c.label = 2;
+                                                            case 2:
+                                                                _b = l && l.status === 429 && b < 3;
+                                                                if (!_b) return [3, 4];
+                                                                return [4, f.cf(l)];
+                                                            case 3:
+                                                                _b = !(_c.sent());
+                                                                _c.label = 4;
+                                                            case 4:
+                                                                if (!_b) return [3, 8];
+                                                                return [4, x(1500 * (b + 1))];
+                                                            case 5:
+                                                                _c.sent();
+                                                                return [4, u(r, { method: i.method, headers: c, body: i.body })];
+                                                            case 6:
+                                                                l = _c.sent();
+                                                                _c.label = 7;
+                                                            case 7:
+                                                                b++;
+                                                                return [3, 2];
+                                                            case 8: return [2, l];
                                                         }
                                                     }); });
                                                 }, cf: function (r) {
@@ -4351,7 +4471,7 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                     }); });
                                                 }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, y = { path: function () { return typeof U != "undefined" && U.path || "manga"; }, card: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, l, _b;
+                                                        var i, c, d, _b;
                                                         var _c;
                                                         return __generator(this, function (_d) {
                                                             switch (_d.label) {
@@ -4361,10 +4481,10 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                         return [2, null];
                                                                     return [4, i.text()];
                                                                 case 1:
-                                                                    c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), l = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
+                                                                    c = (_d.sent()) || i.attr("title") || r.select("img").attr("alt"), d = r.select(".chapter a, .list-chapter .chapter-item a, .latest-chap a, .my-chapter-name a").first();
                                                                     _c = { name: c, link: i.attr("href"), cover: f.img(r.select("img").first()) };
-                                                                    if (!l) return [3, 3];
-                                                                    return [4, l.text()];
+                                                                    if (!d) return [3, 3];
+                                                                    return [4, d.text()];
                                                                 case 2:
                                                                     _b = _d.sent();
                                                                     return [3, 4];
@@ -4376,75 +4496,75 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                         });
                                                     });
                                                 }, list: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, l, d, b, _b, _c; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var i, c, d, l, b, _b, _c; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
-                                                                i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], l = {}, d = 0;
+                                                                i = r.select(".c-tabs-item__content, .page-item-detail, .manga-item, .comic-list-item, .comic-block"), c = [], d = {}, l = 0;
                                                                 _d.label = 1;
                                                             case 1:
-                                                                if (!(d < i.size())) return [3, 5];
+                                                                if (!(l < i.size())) return [3, 5];
                                                                 _c = (_b = y).card;
-                                                                return [4, i.get(d)];
+                                                                return [4, i.get(l)];
                                                             case 2: return [4, _c.apply(_b, [_d.sent()])];
                                                             case 3:
                                                                 b = _d.sent();
-                                                                b && b.link && !l[b.link] && (l[b.link] = 1, c.push(b));
+                                                                b && b.link && !d[b.link] && (d[b.link] = 1, c.push(b));
                                                                 _d.label = 4;
                                                             case 4:
-                                                                d++;
+                                                                l++;
                                                                 return [3, 1];
                                                             case 5: return [2, c];
                                                         }
                                                     }); });
                                                 }, hasNext: function (r, i) { return r.select(".nav-previous a, a.nextpostslink, .wp-pagenavi a.next, a.next.page-numbers, .pagination a.next, a[rel=next]").size() > 0 || r.select('a[href*="/page/' + (i + 1) + '"]').size() > 0; }, browse: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, b; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
-                                                                c = f.page(i), l = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
-                                                                return [4, f.html(l)];
+                                                                c = f.page(i), d = w + "/" + y.path() + "/" + (c > 1 ? "page/" + c + "/" : "") + "?m_orderby=" + (r || "latest");
+                                                                return [4, f.html(d)];
                                                             case 1:
-                                                                d = _b.sent();
-                                                                return [4, y.list(d)];
+                                                                l = _b.sent();
+                                                                return [4, y.list(l)];
                                                             case 2:
                                                                 b = _b.sent();
-                                                                return [2, s.success(b, f.next(y.hasNext(d, c) && b.length > 0, i))];
+                                                                return [2, s.success(b, f.next(y.hasNext(l, c) && b.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, search: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, b; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
                                                                 if (!f.isUrl(r)) return [3, 2];
                                                                 return [4, y.byUrl(r, i)];
                                                             case 1: return [2, _b.sent()];
                                                             case 2:
-                                                                c = f.page(i), l = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + f.enc(r) + "&post_type=wp-manga";
-                                                                return [4, f.html(l)];
+                                                                c = f.page(i), d = w + "/" + (c > 1 ? "page/" + c + "/" : "") + "?s=" + f.enc(r) + "&post_type=wp-manga";
+                                                                return [4, f.html(d)];
                                                             case 3:
-                                                                d = _b.sent();
-                                                                return [4, y.list(d)];
+                                                                l = _b.sent();
+                                                                return [4, y.list(l)];
                                                             case 4:
                                                                 b = _b.sent();
-                                                                return [2, s.success(b, f.next(y.hasNext(d, c) && b.length > 0, i))];
+                                                                return [2, s.success(b, f.next(y.hasNext(l, c) && b.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, byUrl: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, b; return __generator(this, function (_b) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, b; return __generator(this, function (_b) {
                                                         switch (_b.label) {
                                                             case 0:
-                                                                c = f.page(i), l = f.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
-                                                                return [4, f.html(l)];
+                                                                c = f.page(i), d = f.fix(r).replace(/\/$/, "") + "/" + (c > 1 ? "page/" + c + "/" : "");
+                                                                return [4, f.html(d)];
                                                             case 1:
-                                                                d = _b.sent();
-                                                                return [4, y.list(d)];
+                                                                l = _b.sent();
+                                                                return [4, y.list(l)];
                                                             case 2:
                                                                 b = _b.sent();
-                                                                return [2, s.success(b, f.next(y.hasNext(d, c) && b.length > 0, i))];
+                                                                return [2, s.success(b, f.next(y.hasNext(l, c) && b.length > 0, i))];
                                                         }
                                                     }); });
                                                 }, detail: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, l, d, _b, _c, _d;
+                                                        var i, c, d, l, _b, _c, _d;
                                                         var _f;
                                                         return __generator(this, function (_g) {
                                                             switch (_g.label) {
@@ -4468,7 +4588,7 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     c = _g.sent();
                                                                     return [4, f.text(i, [".post-status .summary-content", ".manga-status", ".post-content_item:contains(Tình trạng) .summary-content", ".post-content_item:contains(Status) .summary-content"])];
                                                                 case 3:
-                                                                    l = _g.sent(), d = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
+                                                                    d = _g.sent(), l = i.select(".description-summary .summary__content, .summary__content, .manga-excerpt, .description-summary, .manga-summary").first();
                                                                     _c = (_b = s).success;
                                                                     _f = {};
                                                                     return [4, f.text(i, [".post-title h1", ".post-title h3", "h1"])];
@@ -4477,32 +4597,32 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     return [4, f.text(i, [".author-content a", ".author-content", ".artist-content a"])];
                                                                 case 5:
                                                                     _f.author = _g.sent();
-                                                                    if (!d) return [3, 7];
-                                                                    return [4, d.html()];
+                                                                    if (!l) return [3, 7];
+                                                                    return [4, l.html()];
                                                                 case 6:
                                                                     _d = _g.sent();
                                                                     return [3, 8];
                                                                 case 7:
                                                                     _d = "";
                                                                     _g.label = 8;
-                                                                case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = l ? "Tình trạng: " + l : "", _f.ongoing = f.ongoing(l), _f.genres = c, _f.host = w, _f)])];
+                                                                case 8: return [2, _c.apply(_b, [(_f.description = _d, _f.detail = d ? "Tình trạng: " + d : "", _f.ongoing = f.ongoing(d), _f.genres = c, _f.host = w, _f)])];
                                                             }
                                                         });
                                                     });
                                                 }, chapterEls: function (r, i) {
-                                                    return __awaiter(this, void 0, void 0, function () { var c, l, d, _b, b, _c, _d; return __generator(this, function (_f) {
+                                                    return __awaiter(this, void 0, void 0, function () { var c, d, l, _b, b, _c, _d; return __generator(this, function (_f) {
                                                         switch (_f.label) {
                                                             case 0:
                                                                 c = r.select("li.wp-manga-chapter a, .listing-chapters_wrap li a, .version-chap li a");
                                                                 if (c.size() > 0)
                                                                     return [2, c];
-                                                                l = i.replace(/\/$/, "") + "/";
-                                                                return [4, u(l + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: l } })];
+                                                                d = i.replace(/\/$/, "") + "/";
+                                                                return [4, u(d + "ajax/chapters/", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", Referer: d } })];
                                                             case 1:
-                                                                d = _f.sent();
-                                                                _b = d.ok;
+                                                                l = _f.sent();
+                                                                _b = l.ok;
                                                                 if (!_b) return [3, 3];
-                                                                return [4, d.html()];
+                                                                return [4, l.html()];
                                                             case 2:
                                                                 _b = (c = (_f.sent()).select("li.wp-manga-chapter a"), c.size() > 0);
                                                                 _f.label = 3;
@@ -4514,11 +4634,11 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                 if (!_d) return [3, 5];
                                                                 return [4, u(w + "/wp-admin/admin-ajax.php", { method: "POST", headers: { "X-Requested-With": "XMLHttpRequest", "Content-Type": "application/x-www-form-urlencoded" }, body: "action=manga_get_chapters&manga=" + b })];
                                                             case 4:
-                                                                _d = (d = _f.sent(), d.ok);
+                                                                _d = (l = _f.sent(), l.ok);
                                                                 _f.label = 5;
                                                             case 5:
                                                                 if (!_d) return [3, 7];
-                                                                return [4, d.html()];
+                                                                return [4, l.html()];
                                                             case 6:
                                                                 _c = (_f.sent()).select("li.wp-manga-chapter a");
                                                                 return [3, 8];
@@ -4530,7 +4650,7 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                     }); });
                                                 }, toc: function (r) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var i, c, l, d, b, k, _b, _c, _d;
+                                                        var i, c, d, l, b, k, _b, _c, _d;
                                                         var _f;
                                                         return __generator(this, function (_g) {
                                                             switch (_g.label) {
@@ -4539,16 +4659,16 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     i = _g.sent();
                                                                     return [4, y.chapterEls(i, r)];
                                                                 case 2:
-                                                                    c = _g.sent(), l = [], d = c.size() - 1;
+                                                                    c = _g.sent(), d = [], l = c.size() - 1;
                                                                     _g.label = 3;
                                                                 case 3:
-                                                                    if (!(d >= 0)) return [3, 8];
-                                                                    return [4, c.get(d)];
+                                                                    if (!(l >= 0)) return [3, 8];
+                                                                    return [4, c.get(l)];
                                                                 case 4:
                                                                     b = _g.sent(), k = b.attr("href");
                                                                     _b = !k || k === "#";
                                                                     if (_b) return [3, 6];
-                                                                    _d = (_c = l).push;
+                                                                    _d = (_c = d).push;
                                                                     _f = {};
                                                                     return [4, b.text()];
                                                                 case 5:
@@ -4558,33 +4678,33 @@ var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boyl
                                                                     _b;
                                                                     _g.label = 7;
                                                                 case 7:
-                                                                    d--;
+                                                                    l--;
                                                                     return [3, 3];
-                                                                case 8: return [2, s.success(l)];
+                                                                case 8: return [2, s.success(d)];
                                                             }
                                                         });
                                                     });
                                                 }, pages: function (r) {
-                                                    return __awaiter(this, void 0, void 0, function () { var i, c, l, d, b, k, _b, _c; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var i, c, d, l, b, k, _b, _c; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0:
                                                                 i = r.indexOf("?") > 0 ? r : r.replace(/\/$/, "") + "/?style=list";
                                                                 return [4, f.html(i)];
                                                             case 1:
-                                                                c = _d.sent(), l = c.select(".reading-content img, .page-break img, .read-container img"), d = [], b = 0;
+                                                                c = _d.sent(), d = c.select(".reading-content img, .page-break img, .read-container img"), l = [], b = 0;
                                                                 _d.label = 2;
                                                             case 2:
-                                                                if (!(b < l.size())) return [3, 5];
+                                                                if (!(b < d.size())) return [3, 5];
                                                                 _c = (_b = f).img;
-                                                                return [4, l.get(b)];
+                                                                return [4, d.get(b)];
                                                             case 3:
                                                                 k = _c.apply(_b, [_d.sent()]);
-                                                                k && d.push(k);
+                                                                k && l.push(k);
                                                                 _d.label = 4;
                                                             case 4:
                                                                 b++;
                                                                 return [3, 2];
-                                                            case 5: return [2, s.success(d)];
+                                                            case 5: return [2, s.success(l)];
                                                         }
                                                     }); });
                                                 }, text: function (r) {

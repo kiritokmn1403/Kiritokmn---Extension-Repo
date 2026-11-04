@@ -39,6 +39,8 @@ var C = {
     var h = { 'Referer': BASE_URL + '/' };
     if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
+    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
+    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
     return r;
   },
   cf: function (r) {
@@ -220,6 +222,8 @@ var C = {
     var h = { 'Referer': BASE_URL + '/' };
     if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
+    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
+    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
     return r;
   },
   cf: function (r) {
@@ -401,6 +405,8 @@ var C = {
     var h = { 'Referer': BASE_URL + '/' };
     if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
+    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
+    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
     return r;
   },
   cf: function (r) {
@@ -582,6 +588,8 @@ var C = {
     var h = { 'Referer': BASE_URL + '/' };
     if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
+    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
+    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
     return r;
   },
   cf: function (r) {
@@ -763,6 +771,8 @@ var C = {
     var h = { 'Referer': BASE_URL + '/' };
     if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
+    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
+    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
     return r;
   },
   cf: function (r) {
@@ -944,6 +954,8 @@ var C = {
     var h = { 'Referer': BASE_URL + '/' };
     if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
+    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
+    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
     return r;
   },
   cf: function (r) {

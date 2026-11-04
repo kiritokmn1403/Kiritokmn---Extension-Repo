@@ -1,4 +1,4 @@
-__register({ META: {"id":"tikporn","name":"Tik.Porn","source":"https://tik.porn","type":"video","locale":"global","nsfw":true,"version":2,"config":{"DOMAIN":{"title":"Tên miền","subtitle":"Đổi khi trang đổi tên miền","default":"https://tik.porn","values":["https://tik.porn"],"mode":"input","format":"text"}},"configDefaults":{"DOMAIN":"https://tik.porn"}}, SCRIPTS: {
+__register({ META: {"id":"tikporn","name":"Tik.Porn","source":"https://tik.porn","type":"video","locale":"global","nsfw":true,"version":3,"config":{"DOMAIN":{"title":"Tên miền","subtitle":"Đổi khi trang đổi tên miền","default":"https://tik.porn","values":["https://tik.porn"],"mode":"input","format":"text"}},"configDefaults":{"DOMAIN":"https://tik.porn"}}, SCRIPTS: {
 "home": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
 var DOMAIN = __cfg("DOMAIN");
@@ -8,11 +8,11 @@ var BASE_URL = "https://tik.porn";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
-  "Trang chủ": "/",
   "Amateur": "/?s=amateur[&page={p}]",
   "Asian": "/?s=asian[&page={p}]",
   "MILF": "/?s=milf[&page={p}]",
-  "Teen 18+": "/?s=teen[&page={p}]"
+  "Teen 18+": "/?s=teen[&page={p}]",
+  "Trang chủ": "/"
  },
  "search": "/?s={q}[&page={p}]",
  "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]",
@@ -24,7 +24,8 @@ var G = {
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content",
  "d_desc": "meta[property=og:description]@content",
- "single": "Xem video"
+ "single": "Xem video",
+ "video": "video source@src || video@src"
 };
 
 
@@ -59,6 +60,8 @@ var C = {
     var h = { 'Referer': BASE_URL + '/' };
     if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
+    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
+    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
     return r;
   },
   cf: function (r) {
@@ -178,7 +181,7 @@ var X = {
       if (!nx || !nx.attr('href')) break;
       var nu = C.fix(nx.attr('href'));
       if (pages.indexOf(nu) >= 0) break;
-      pages.push(nu); doc = C.html(nu, G.req);
+      pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
     return Response.success(list);
@@ -224,6 +227,7 @@ var X = {
     if (/\.(m3u8|mp4)(\?|$)/i.test(data)) return Response.success({ type: 'native', data: data, headers: { Referer: BASE_URL + '/' } });
     var r = C.get(data);
     var body = r.text();
+    if (G.video && !depth) { var vv = X.pick(Html.parse(body, data), G.video); if (vv) return Response.success({ type: 'native', data: C.fix(vv), headers: { Referer: BASE_URL + '/' } }); }
     var s = X.sniff(body);
     if (s) return Response.success({ type: 'native', data: s, headers: { Referer: (depth ? data : BASE_URL + '/') } });
     var doc = Html.parse(body, data);
@@ -249,11 +253,11 @@ var BASE_URL = "https://tik.porn";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
-  "Trang chủ": "/",
   "Amateur": "/?s=amateur[&page={p}]",
   "Asian": "/?s=asian[&page={p}]",
   "MILF": "/?s=milf[&page={p}]",
-  "Teen 18+": "/?s=teen[&page={p}]"
+  "Teen 18+": "/?s=teen[&page={p}]",
+  "Trang chủ": "/"
  },
  "search": "/?s={q}[&page={p}]",
  "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]",
@@ -265,7 +269,8 @@ var G = {
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content",
  "d_desc": "meta[property=og:description]@content",
- "single": "Xem video"
+ "single": "Xem video",
+ "video": "video source@src || video@src"
 };
 
 
@@ -300,6 +305,8 @@ var C = {
     var h = { 'Referer': BASE_URL + '/' };
     if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
+    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
+    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
     return r;
   },
   cf: function (r) {
@@ -419,7 +426,7 @@ var X = {
       if (!nx || !nx.attr('href')) break;
       var nu = C.fix(nx.attr('href'));
       if (pages.indexOf(nu) >= 0) break;
-      pages.push(nu); doc = C.html(nu, G.req);
+      pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
     return Response.success(list);
@@ -465,6 +472,7 @@ var X = {
     if (/\.(m3u8|mp4)(\?|$)/i.test(data)) return Response.success({ type: 'native', data: data, headers: { Referer: BASE_URL + '/' } });
     var r = C.get(data);
     var body = r.text();
+    if (G.video && !depth) { var vv = X.pick(Html.parse(body, data), G.video); if (vv) return Response.success({ type: 'native', data: C.fix(vv), headers: { Referer: BASE_URL + '/' } }); }
     var s = X.sniff(body);
     if (s) return Response.success({ type: 'native', data: s, headers: { Referer: (depth ? data : BASE_URL + '/') } });
     var doc = Html.parse(body, data);
@@ -490,11 +498,11 @@ var BASE_URL = "https://tik.porn";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
-  "Trang chủ": "/",
   "Amateur": "/?s=amateur[&page={p}]",
   "Asian": "/?s=asian[&page={p}]",
   "MILF": "/?s=milf[&page={p}]",
-  "Teen 18+": "/?s=teen[&page={p}]"
+  "Teen 18+": "/?s=teen[&page={p}]",
+  "Trang chủ": "/"
  },
  "search": "/?s={q}[&page={p}]",
  "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]",
@@ -506,7 +514,8 @@ var G = {
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content",
  "d_desc": "meta[property=og:description]@content",
- "single": "Xem video"
+ "single": "Xem video",
+ "video": "video source@src || video@src"
 };
 
 
@@ -541,6 +550,8 @@ var C = {
     var h = { 'Referer': BASE_URL + '/' };
     if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
+    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
+    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
     return r;
   },
   cf: function (r) {
@@ -660,7 +671,7 @@ var X = {
       if (!nx || !nx.attr('href')) break;
       var nu = C.fix(nx.attr('href'));
       if (pages.indexOf(nu) >= 0) break;
-      pages.push(nu); doc = C.html(nu, G.req);
+      pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
     return Response.success(list);
@@ -706,6 +717,7 @@ var X = {
     if (/\.(m3u8|mp4)(\?|$)/i.test(data)) return Response.success({ type: 'native', data: data, headers: { Referer: BASE_URL + '/' } });
     var r = C.get(data);
     var body = r.text();
+    if (G.video && !depth) { var vv = X.pick(Html.parse(body, data), G.video); if (vv) return Response.success({ type: 'native', data: C.fix(vv), headers: { Referer: BASE_URL + '/' } }); }
     var s = X.sniff(body);
     if (s) return Response.success({ type: 'native', data: s, headers: { Referer: (depth ? data : BASE_URL + '/') } });
     var doc = Html.parse(body, data);
@@ -731,11 +743,11 @@ var BASE_URL = "https://tik.porn";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
-  "Trang chủ": "/",
   "Amateur": "/?s=amateur[&page={p}]",
   "Asian": "/?s=asian[&page={p}]",
   "MILF": "/?s=milf[&page={p}]",
-  "Teen 18+": "/?s=teen[&page={p}]"
+  "Teen 18+": "/?s=teen[&page={p}]",
+  "Trang chủ": "/"
  },
  "search": "/?s={q}[&page={p}]",
  "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]",
@@ -747,7 +759,8 @@ var G = {
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content",
  "d_desc": "meta[property=og:description]@content",
- "single": "Xem video"
+ "single": "Xem video",
+ "video": "video source@src || video@src"
 };
 
 
@@ -782,6 +795,8 @@ var C = {
     var h = { 'Referer': BASE_URL + '/' };
     if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
+    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
+    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
     return r;
   },
   cf: function (r) {
@@ -901,7 +916,7 @@ var X = {
       if (!nx || !nx.attr('href')) break;
       var nu = C.fix(nx.attr('href'));
       if (pages.indexOf(nu) >= 0) break;
-      pages.push(nu); doc = C.html(nu, G.req);
+      pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
     return Response.success(list);
@@ -947,6 +962,7 @@ var X = {
     if (/\.(m3u8|mp4)(\?|$)/i.test(data)) return Response.success({ type: 'native', data: data, headers: { Referer: BASE_URL + '/' } });
     var r = C.get(data);
     var body = r.text();
+    if (G.video && !depth) { var vv = X.pick(Html.parse(body, data), G.video); if (vv) return Response.success({ type: 'native', data: C.fix(vv), headers: { Referer: BASE_URL + '/' } }); }
     var s = X.sniff(body);
     if (s) return Response.success({ type: 'native', data: s, headers: { Referer: (depth ? data : BASE_URL + '/') } });
     var doc = Html.parse(body, data);
@@ -972,11 +988,11 @@ var BASE_URL = "https://tik.porn";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
-  "Trang chủ": "/",
   "Amateur": "/?s=amateur[&page={p}]",
   "Asian": "/?s=asian[&page={p}]",
   "MILF": "/?s=milf[&page={p}]",
-  "Teen 18+": "/?s=teen[&page={p}]"
+  "Teen 18+": "/?s=teen[&page={p}]",
+  "Trang chủ": "/"
  },
  "search": "/?s={q}[&page={p}]",
  "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]",
@@ -988,7 +1004,8 @@ var G = {
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content",
  "d_desc": "meta[property=og:description]@content",
- "single": "Xem video"
+ "single": "Xem video",
+ "video": "video source@src || video@src"
 };
 
 
@@ -1023,6 +1040,8 @@ var C = {
     var h = { 'Referer': BASE_URL + '/' };
     if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
+    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
+    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
     return r;
   },
   cf: function (r) {
@@ -1142,7 +1161,7 @@ var X = {
       if (!nx || !nx.attr('href')) break;
       var nu = C.fix(nx.attr('href'));
       if (pages.indexOf(nu) >= 0) break;
-      pages.push(nu); doc = C.html(nu, G.req);
+      pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
     return Response.success(list);
@@ -1188,6 +1207,7 @@ var X = {
     if (/\.(m3u8|mp4)(\?|$)/i.test(data)) return Response.success({ type: 'native', data: data, headers: { Referer: BASE_URL + '/' } });
     var r = C.get(data);
     var body = r.text();
+    if (G.video && !depth) { var vv = X.pick(Html.parse(body, data), G.video); if (vv) return Response.success({ type: 'native', data: C.fix(vv), headers: { Referer: BASE_URL + '/' } }); }
     var s = X.sniff(body);
     if (s) return Response.success({ type: 'native', data: s, headers: { Referer: (depth ? data : BASE_URL + '/') } });
     var doc = Html.parse(body, data);
@@ -1213,11 +1233,11 @@ var BASE_URL = "https://tik.porn";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
-  "Trang chủ": "/",
   "Amateur": "/?s=amateur[&page={p}]",
   "Asian": "/?s=asian[&page={p}]",
   "MILF": "/?s=milf[&page={p}]",
-  "Teen 18+": "/?s=teen[&page={p}]"
+  "Teen 18+": "/?s=teen[&page={p}]",
+  "Trang chủ": "/"
  },
  "search": "/?s={q}[&page={p}]",
  "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]",
@@ -1229,7 +1249,8 @@ var G = {
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content",
  "d_desc": "meta[property=og:description]@content",
- "single": "Xem video"
+ "single": "Xem video",
+ "video": "video source@src || video@src"
 };
 
 
@@ -1264,6 +1285,8 @@ var C = {
     var h = { 'Referer': BASE_URL + '/' };
     if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
+    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
+    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
     return r;
   },
   cf: function (r) {
@@ -1383,7 +1406,7 @@ var X = {
       if (!nx || !nx.attr('href')) break;
       var nu = C.fix(nx.attr('href'));
       if (pages.indexOf(nu) >= 0) break;
-      pages.push(nu); doc = C.html(nu, G.req);
+      pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
     return Response.success(list);
@@ -1429,6 +1452,7 @@ var X = {
     if (/\.(m3u8|mp4)(\?|$)/i.test(data)) return Response.success({ type: 'native', data: data, headers: { Referer: BASE_URL + '/' } });
     var r = C.get(data);
     var body = r.text();
+    if (G.video && !depth) { var vv = X.pick(Html.parse(body, data), G.video); if (vv) return Response.success({ type: 'native', data: C.fix(vv), headers: { Referer: BASE_URL + '/' } }); }
     var s = X.sniff(body);
     if (s) return Response.success({ type: 'native', data: s, headers: { Referer: (depth ? data : BASE_URL + '/') } });
     var doc = Html.parse(body, data);
@@ -1454,11 +1478,11 @@ var BASE_URL = "https://tik.porn";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
-  "Trang chủ": "/",
   "Amateur": "/?s=amateur[&page={p}]",
   "Asian": "/?s=asian[&page={p}]",
   "MILF": "/?s=milf[&page={p}]",
-  "Teen 18+": "/?s=teen[&page={p}]"
+  "Teen 18+": "/?s=teen[&page={p}]",
+  "Trang chủ": "/"
  },
  "search": "/?s={q}[&page={p}]",
  "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]",
@@ -1470,7 +1494,8 @@ var G = {
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content",
  "d_desc": "meta[property=og:description]@content",
- "single": "Xem video"
+ "single": "Xem video",
+ "video": "video source@src || video@src"
 };
 
 
@@ -1505,6 +1530,8 @@ var C = {
     var h = { 'Referer': BASE_URL + '/' };
     if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
+    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
+    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
     return r;
   },
   cf: function (r) {
@@ -1624,7 +1651,7 @@ var X = {
       if (!nx || !nx.attr('href')) break;
       var nu = C.fix(nx.attr('href'));
       if (pages.indexOf(nu) >= 0) break;
-      pages.push(nu); doc = C.html(nu, G.req);
+      pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
     return Response.success(list);
@@ -1670,6 +1697,7 @@ var X = {
     if (/\.(m3u8|mp4)(\?|$)/i.test(data)) return Response.success({ type: 'native', data: data, headers: { Referer: BASE_URL + '/' } });
     var r = C.get(data);
     var body = r.text();
+    if (G.video && !depth) { var vv = X.pick(Html.parse(body, data), G.video); if (vv) return Response.success({ type: 'native', data: C.fix(vv), headers: { Referer: BASE_URL + '/' } }); }
     var s = X.sniff(body);
     if (s) return Response.success({ type: 'native', data: s, headers: { Referer: (depth ? data : BASE_URL + '/') } });
     var doc = Html.parse(body, data);

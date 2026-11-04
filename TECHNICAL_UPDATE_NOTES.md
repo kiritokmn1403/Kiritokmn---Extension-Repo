@@ -100,7 +100,28 @@ Chủ dự án yêu cầu tạo và duy trì tài liệu này ngày 25/10/2026. 
 | 19 | Tìm kiếm 69shuba cần chạy JavaScript (máy chủ trả trang trống cho POST thường) | Ghi nhận: tìm kiếm chỉ chạy trên vBook (có `Engine.newBrowser`), duyệt/đọc chạy ở mọi app |
 | 20 | Nguồn đã sửa không được app cập nhật | Tăng `version` = 2 cho 11 nguồn trên (`gen_sources.py` hỗ trợ `version` trong spec, kể cả nguồn `ref`) |
 
+| 21 | Kiểm thử plugin đã phát hành (commit `8550da9`) trong trình duyệt thật: czbooks trang thể loại khác trang chủ (tên truyện là `div.novel-item-title` nằm trong thẻ `a`) → 0 kết quả | sửa `title`/`link` |
+| 22 | 101kks: `li:has(a[href*='/book/'])` bắt cả khung "搜索關鍵詞…" và danh sách bên lề → trang 2 trùng trang 1 | `item: '#article_list_content > li'` |
+| 23 | uukanshu: tìm kiếm chuyển hướng sang `/search/<từ khoá>/1.html`, trang danh sách dùng `.bookinfo h4.bookname` | thêm tab 排行/玄幻/修真/都市/全本, `search: '/search/{q}/{p}.html'` |
+| 24 | mattreadingtranslations: mục lục 16 trang, tải nhanh bị **HTTP 429** ở trang 8 | `lib_common.js` `C.get`: tự thử lại khi 429 (chờ 1,5 s → 3 s → 4,5 s); `lib_generic.js` khoá `ch_delay` (500 ms giữa các trang mục lục) |
+| 25 | tik.porn: trang video chứa cả một "feed" 26–60 file `.mp4` của video khác → lấy nhầm video | khoá mới `video` trong `lib_generic.js` (lấy `video source@src` của chính trang); tab đầu đổi sang tab có phân trang |
+| 26 | luvevaland: trang chi tiết không có `h1` → tên truyện trống | `d_title: '.breadcrumb__container a.breadcrumb__item:last-child'` |
+| 27 | ciyuanji: tìm kiếm `_0_{p}` trả về khối "gợi ý" (MiniBook) | `search: '/search/{q}_{p}.html'` |
+
 **Kết quả kiểm thử Cloudflare trong trình duyệt thật (máy chủ dự án)**
 - Duyệt → chi tiết → chương → nội dung kiểm tra tay trên trang thật: 101kks (1.555 chương qua AJAX, nội dung `#txtcontent`), czbooks (150 chương, `.content`), uukanshu (190 chương, `.readcotent`), luvevaland (76 chương, `#chapter-content`), mattreadingtranslations (mục lục 16 trang, `.entry-content`), ciyuanji (949 chương, nội dung SSR `chapter_article`), novelfull.net (40 chương/trang + `rel=next`, `#chapter-content`), tik.porn & xfree (link `.mp4` trực tiếp trong trang video).
 - Plugin Mangayomi 69shuba bản cũ: popular 50 / detail 569 chương / nội dung 3.680 ký tự — chạy đúng; lỗi font chỉ do trình duyệt luôn giải mã UTF-8, đã kiểm thử bản sửa GBK bằng Node (`斗罗A大陆` giải mã đúng).
 - 101minc: vẫn dừng ở *Performing security verification* sau 8 giây → xác nhận cần người bấm xác minh.
+- Lượt 2 (plugin commit `8550da9`, chạy trong trình duyệt thật bằng shim Mangayomi, Dart-giống: charset không phải UTF-8 → Latin-1):
+  | Nguồn | Danh sách | Trang 2 | Tìm kiếm | Chi tiết + mục lục | Nội dung / video |
+  |---|---|---|---|---|---|
+  | 101kks | 25 ✅ | ⚠️ trùng (đã sửa #22) | ⚠️ (đã sửa #22) | 1.555 ch ✅ | 3.489 ký tự ✅ |
+  | czbooks | ❌ 0 (đã sửa #21) | | | | |
+  | uukanshu | 8 ✅ | (đã sửa #23) | ❌ (đã sửa #23) | 190 ch ✅ | 1.336 ký tự ✅ |
+  | luvevaland | 12 ✅ | 12 ✅ | 12 ✅ | 11 ch ✅ (tên trống, sửa #26) | 11.439 ký tự ✅ |
+  | mattreadingtranslations | 8 ✅ | — | 8 ✅ | ❌ 429 (đã sửa #24) | |
+  | ciyuanji | 10 ✅ | 10 ✅ | ❌ (đã sửa #27) | 141 ch ✅ | 5.622 ký tự ✅ |
+  | novel­full.net | 22 ✅ | 22 ✅ | 22 ✅ | 873 ch ✅ | 10.222 ký tự ✅ |
+  | tik.porn (18+) | 22 ✅ | (sửa #25) | 36 ✅ | 1 tập ✅ | mp4 ✅ (sửa nhầm video #25) |
+  | xfree (18+) | 21 ✅ | 21 ✅ | 30 ✅ | 1 tập ✅ | mp4 ✅ |
+  | 69shuba | 50 ✅ | — | ❌ cần JS (chỉ vBook) | 569 ch ✅ | 2.405 ký tự, chữ Trung đúng ✅ |

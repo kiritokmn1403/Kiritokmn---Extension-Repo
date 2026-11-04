@@ -13,7 +13,7 @@ var G = {
  "link": "a@href",
  "cover": "img@img",
  "pageSize": 10,
- "d_title": "h1 || meta[property=og:title]@content",
+ "d_title": ".breadcrumb__container a.breadcrumb__item:last-child || h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || .book__detail-image img@img",
  "d_desc": "#home",
  "d_genres": ".book__detail-text a[href*='/the-loai/']",

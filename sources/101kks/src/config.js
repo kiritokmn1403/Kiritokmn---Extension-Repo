@@ -8,7 +8,7 @@ var G = {
  },
  "search": "/search/{q}/{p}.html",
  "ch_list": "li a[href*='/txt/']",
- "item": "li:has(a[href*='/book/'])",
+ "item": "#article_list_content > li",
  "title": "h3",
  "link": "a[href*='/book/']@href",
  "cover": "img@img",

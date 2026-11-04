@@ -49,6 +49,8 @@ var C = {
     var h = { 'Referer': BASE_URL + '/' };
     if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
+    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
+    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
     return r;
   },
   cf: function (r) {
@@ -168,7 +170,7 @@ var X = {
       if (!nx || !nx.attr('href')) break;
       var nu = C.fix(nx.attr('href'));
       if (pages.indexOf(nu) >= 0) break;
-      pages.push(nu); doc = C.html(nu, G.req);
+      pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
     return Response.success(list);
@@ -214,6 +216,7 @@ var X = {
     if (/\.(m3u8|mp4)(\?|$)/i.test(data)) return Response.success({ type: 'native', data: data, headers: { Referer: BASE_URL + '/' } });
     var r = C.get(data);
     var body = r.text();
+    if (G.video && !depth) { var vv = X.pick(Html.parse(body, data), G.video); if (vv) return Response.success({ type: 'native', data: C.fix(vv), headers: { Referer: BASE_URL + '/' } }); }
     var s = X.sniff(body);
     if (s) return Response.success({ type: 'native', data: s, headers: { Referer: (depth ? data : BASE_URL + '/') } });
     var doc = Html.parse(body, data);
@@ -280,6 +283,8 @@ var C = {
     var h = { 'Referer': BASE_URL + '/' };
     if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
+    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
+    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
     return r;
   },
   cf: function (r) {
@@ -399,7 +404,7 @@ var X = {
       if (!nx || !nx.attr('href')) break;
       var nu = C.fix(nx.attr('href'));
       if (pages.indexOf(nu) >= 0) break;
-      pages.push(nu); doc = C.html(nu, G.req);
+      pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
     return Response.success(list);
@@ -445,6 +450,7 @@ var X = {
     if (/\.(m3u8|mp4)(\?|$)/i.test(data)) return Response.success({ type: 'native', data: data, headers: { Referer: BASE_URL + '/' } });
     var r = C.get(data);
     var body = r.text();
+    if (G.video && !depth) { var vv = X.pick(Html.parse(body, data), G.video); if (vv) return Response.success({ type: 'native', data: C.fix(vv), headers: { Referer: BASE_URL + '/' } }); }
     var s = X.sniff(body);
     if (s) return Response.success({ type: 'native', data: s, headers: { Referer: (depth ? data : BASE_URL + '/') } });
     var doc = Html.parse(body, data);
@@ -511,6 +517,8 @@ var C = {
     var h = { 'Referer': BASE_URL + '/' };
     if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
+    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
+    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
     return r;
   },
   cf: function (r) {
@@ -630,7 +638,7 @@ var X = {
       if (!nx || !nx.attr('href')) break;
       var nu = C.fix(nx.attr('href'));
       if (pages.indexOf(nu) >= 0) break;
-      pages.push(nu); doc = C.html(nu, G.req);
+      pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
     return Response.success(list);
@@ -676,6 +684,7 @@ var X = {
     if (/\.(m3u8|mp4)(\?|$)/i.test(data)) return Response.success({ type: 'native', data: data, headers: { Referer: BASE_URL + '/' } });
     var r = C.get(data);
     var body = r.text();
+    if (G.video && !depth) { var vv = X.pick(Html.parse(body, data), G.video); if (vv) return Response.success({ type: 'native', data: C.fix(vv), headers: { Referer: BASE_URL + '/' } }); }
     var s = X.sniff(body);
     if (s) return Response.success({ type: 'native', data: s, headers: { Referer: (depth ? data : BASE_URL + '/') } });
     var doc = Html.parse(body, data);
@@ -742,6 +751,8 @@ var C = {
     var h = { 'Referer': BASE_URL + '/' };
     if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
+    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
+    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
     return r;
   },
   cf: function (r) {
@@ -861,7 +872,7 @@ var X = {
       if (!nx || !nx.attr('href')) break;
       var nu = C.fix(nx.attr('href'));
       if (pages.indexOf(nu) >= 0) break;
-      pages.push(nu); doc = C.html(nu, G.req);
+      pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
     return Response.success(list);
@@ -907,6 +918,7 @@ var X = {
     if (/\.(m3u8|mp4)(\?|$)/i.test(data)) return Response.success({ type: 'native', data: data, headers: { Referer: BASE_URL + '/' } });
     var r = C.get(data);
     var body = r.text();
+    if (G.video && !depth) { var vv = X.pick(Html.parse(body, data), G.video); if (vv) return Response.success({ type: 'native', data: C.fix(vv), headers: { Referer: BASE_URL + '/' } }); }
     var s = X.sniff(body);
     if (s) return Response.success({ type: 'native', data: s, headers: { Referer: (depth ? data : BASE_URL + '/') } });
     var doc = Html.parse(body, data);
@@ -973,6 +985,8 @@ var C = {
     var h = { 'Referer': BASE_URL + '/' };
     if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
+    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
+    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
     return r;
   },
   cf: function (r) {
@@ -1092,7 +1106,7 @@ var X = {
       if (!nx || !nx.attr('href')) break;
       var nu = C.fix(nx.attr('href'));
       if (pages.indexOf(nu) >= 0) break;
-      pages.push(nu); doc = C.html(nu, G.req);
+      pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
     return Response.success(list);
@@ -1138,6 +1152,7 @@ var X = {
     if (/\.(m3u8|mp4)(\?|$)/i.test(data)) return Response.success({ type: 'native', data: data, headers: { Referer: BASE_URL + '/' } });
     var r = C.get(data);
     var body = r.text();
+    if (G.video && !depth) { var vv = X.pick(Html.parse(body, data), G.video); if (vv) return Response.success({ type: 'native', data: C.fix(vv), headers: { Referer: BASE_URL + '/' } }); }
     var s = X.sniff(body);
     if (s) return Response.success({ type: 'native', data: s, headers: { Referer: (depth ? data : BASE_URL + '/') } });
     var doc = Html.parse(body, data);
@@ -1204,6 +1219,8 @@ var C = {
     var h = { 'Referer': BASE_URL + '/' };
     if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
     var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
+    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
+    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
     return r;
   },
   cf: function (r) {
@@ -1323,7 +1340,7 @@ var X = {
       if (!nx || !nx.attr('href')) break;
       var nu = C.fix(nx.attr('href'));
       if (pages.indexOf(nu) >= 0) break;
-      pages.push(nu); doc = C.html(nu, G.req);
+      pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
     return Response.success(list);
@@ -1369,6 +1386,7 @@ var X = {
     if (/\.(m3u8|mp4)(\?|$)/i.test(data)) return Response.success({ type: 'native', data: data, headers: { Referer: BASE_URL + '/' } });
     var r = C.get(data);
     var body = r.text();
+    if (G.video && !depth) { var vv = X.pick(Html.parse(body, data), G.video); if (vv) return Response.success({ type: 'native', data: C.fix(vv), headers: { Referer: BASE_URL + '/' } }); }
     var s = X.sniff(body);
     if (s) return Response.success({ type: 'native', data: s, headers: { Referer: (depth ? data : BASE_URL + '/') } });
     var doc = Html.parse(body, data);
