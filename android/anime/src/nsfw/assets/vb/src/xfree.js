@@ -200,9 +200,13 @@ var X = {
     return Response.success(out);
   },
   text: function (url) {
-    var doc = C.html(url, G.req);
+    var r = C.check(C.get(url, G.req), url), body = r.text() || '';
+    var doc = Html.parse(body, url);
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
-    if (!el) return Response.error('Không tìm thấy nội dung');
+    if (!el) {
+      if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(body.slice(0, 20000))) throw new Error('CLOUDFLARE: trang ' + BASE_URL + ' yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
+      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)');
+    }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
   },
   // Video: list servers on the episode page, then sniff a playable stream from each.
@@ -443,9 +447,13 @@ var X = {
     return Response.success(out);
   },
   text: function (url) {
-    var doc = C.html(url, G.req);
+    var r = C.check(C.get(url, G.req), url), body = r.text() || '';
+    var doc = Html.parse(body, url);
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
-    if (!el) return Response.error('Không tìm thấy nội dung');
+    if (!el) {
+      if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(body.slice(0, 20000))) throw new Error('CLOUDFLARE: trang ' + BASE_URL + ' yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
+      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)');
+    }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
   },
   // Video: list servers on the episode page, then sniff a playable stream from each.
@@ -686,9 +694,13 @@ var X = {
     return Response.success(out);
   },
   text: function (url) {
-    var doc = C.html(url, G.req);
+    var r = C.check(C.get(url, G.req), url), body = r.text() || '';
+    var doc = Html.parse(body, url);
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
-    if (!el) return Response.error('Không tìm thấy nội dung');
+    if (!el) {
+      if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(body.slice(0, 20000))) throw new Error('CLOUDFLARE: trang ' + BASE_URL + ' yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
+      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)');
+    }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
   },
   // Video: list servers on the episode page, then sniff a playable stream from each.
@@ -929,9 +941,13 @@ var X = {
     return Response.success(out);
   },
   text: function (url) {
-    var doc = C.html(url, G.req);
+    var r = C.check(C.get(url, G.req), url), body = r.text() || '';
+    var doc = Html.parse(body, url);
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
-    if (!el) return Response.error('Không tìm thấy nội dung');
+    if (!el) {
+      if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(body.slice(0, 20000))) throw new Error('CLOUDFLARE: trang ' + BASE_URL + ' yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
+      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)');
+    }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
   },
   // Video: list servers on the episode page, then sniff a playable stream from each.
@@ -1172,9 +1188,13 @@ var X = {
     return Response.success(out);
   },
   text: function (url) {
-    var doc = C.html(url, G.req);
+    var r = C.check(C.get(url, G.req), url), body = r.text() || '';
+    var doc = Html.parse(body, url);
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
-    if (!el) return Response.error('Không tìm thấy nội dung');
+    if (!el) {
+      if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(body.slice(0, 20000))) throw new Error('CLOUDFLARE: trang ' + BASE_URL + ' yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
+      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)');
+    }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
   },
   // Video: list servers on the episode page, then sniff a playable stream from each.
@@ -1415,9 +1435,13 @@ var X = {
     return Response.success(out);
   },
   text: function (url) {
-    var doc = C.html(url, G.req);
+    var r = C.check(C.get(url, G.req), url), body = r.text() || '';
+    var doc = Html.parse(body, url);
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
-    if (!el) return Response.error('Không tìm thấy nội dung');
+    if (!el) {
+      if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(body.slice(0, 20000))) throw new Error('CLOUDFLARE: trang ' + BASE_URL + ' yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
+      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)');
+    }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
   },
   // Video: list servers on the episode page, then sniff a playable stream from each.
@@ -1658,9 +1682,13 @@ var X = {
     return Response.success(out);
   },
   text: function (url) {
-    var doc = C.html(url, G.req);
+    var r = C.check(C.get(url, G.req), url), body = r.text() || '';
+    var doc = Html.parse(body, url);
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
-    if (!el) return Response.error('Không tìm thấy nội dung');
+    if (!el) {
+      if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(body.slice(0, 20000))) throw new Error('CLOUDFLARE: trang ' + BASE_URL + ' yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
+      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)');
+    }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
   },
   // Video: list servers on the episode page, then sniff a playable stream from each.
