@@ -53,6 +53,7 @@ const ITEM_TYPE = { comic: 0, video: 1, novel: 2 };
 const VB_LOCALE = { vi: 'vi_VN', zh: 'zh_CN', en: 'en_US', ja: 'ja_JP', all: 'global' };
 const LN_LANG = { vi: 'Tiếng Việt', zh: '中文', 'zh-CN': '中文', en: 'English', ja: '日本語', all: 'Multi', global: 'Multi' };
 
+const LIB_GENERIC_SRC = fs.readFileSync(path.join(LIB_DIR, 'lib_generic.js'), 'utf8');
 function inlineLoads(code, srcDir, seen = new Set()) {
   return code.replace(/^\s*load\(\s*['"]([^'"]+)['"]\s*\)\s*;?/gm, (m, f) => {
     if (f === 'crypto.js') return '/* crypto.js -> CryptoJS global */';
@@ -95,7 +96,8 @@ function generateScriptsModule(id, pj, srcDir) {
     const p = path.join(srcDir, 'src', file);
     if (!fs.existsSync(p)) throw new Error(`${id}: script ${file} missing`);
     let code = inlineLoads(fs.readFileSync(p, 'utf8'), path.join(srcDir, 'src'));
-    if (/CryptoJS/.test(code)) needCrypto = true;
+    // lib_generic mentions CryptoJS for optional features; only bundle crypto-js when a script really needs it
+    if (/load\(\s*['"]crypto\.js['"]\s*\)/.test(fs.readFileSync(p, 'utf8')) || /CryptoJS/.test(code.split(LIB_GENERIC_SRC).join(''))) needCrypto = true;
     let out;
     try { out = asyncify(code); } catch (e) { throw new Error(`${id}/${file}: parse error ${e.message}`); }
     const cfgDecl = cfgKeys.map(k => `var ${k} = __cfg(${JSON.stringify(k)});`).join('\n');

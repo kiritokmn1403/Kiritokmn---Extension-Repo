@@ -120,6 +120,8 @@ for s in src:
         for k, v in m.items():
             if k == 'patch': spec.setdefault('G', {}).update(v)
             else: spec[k] = v
+    if spec.get('base') and spec.get('domains') is not None and spec['base'] not in spec['domains']:
+        spec['domains'] = [spec['base']] + spec['domains']
     specs[sid] = spec
 
 json.dump(specs, open(os.path.join(ROOT, 'data/specs.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)

@@ -1,4 +1,5 @@
 load('config.js');
-load('lib_common.js');
-load('lib_generic.js');
-function execute() { var t = []; for (var k in G.tabs) t.push({ title: k, input: k, script: "browse.js" }); return Response.success(t); }
+function execute() {
+  var t = [["Mới cập nhật", ""], ["Ngôn Tình", "ngon-tinh"], ["Cổ đại", "co-dai"], ["Hiện đại", "hien-dai"], ["Tiên Hiệp", "tien-hiep"], ["Huyền Huyễn", "huyen-huyen"], ["Đô Thị", "do-thi"], ["Trọng Sinh", "trong-sinh"], ["Đam Mỹ", "dam-my"]];
+  return Response.success(t.map(function (x) { return { title: x[0], input: x[1], script: "browse.js" }; }));
+}

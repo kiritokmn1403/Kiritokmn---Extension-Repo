@@ -4,7 +4,7 @@ var G = {
  "tabs": {
   "Mới cập nhật": "/[?page={p}]"
  },
- "search": "/tim-kiem?keyword={q}[&page={p}]",
+ "search": "/manga?q={q}[&page={p}]",
  "item": ".manga-card",
  "title": "h3 || a@title || img@alt",
  "link": "a@href",

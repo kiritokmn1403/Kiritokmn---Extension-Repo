@@ -2,11 +2,24 @@ var BASE_URL = "https://destinteam.xyz";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
-  "Mới cập nhật": "/[page/{p}/]"
+  "Mới cập nhật": "/truyen/[page/{p}/]"
  },
- "search": "/?username={q}[&page={p}]",
- "item": ".uk-panel",
- "title": "h3 a || a@title || img@alt",
- "link": "a@href",
- "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+ "search": "/?s={q}&post_type=manga",
+ "item": "div.manga-item-grid",
+ "title": "a.uk-link-heading || img@alt",
+ "link": "a.uk-link-heading@href || a@href",
+ "ch_list": "div.chapter-item a",
+ "cover": "img@img",
+ "s_item": "article.uk-grid-small",
+ "s_title": "a.uk-link-heading",
+ "s_link": "a.uk-link-heading@href",
+ "s_cover": "img@img",
+ "ch_name": "h3",
+ "ch_next": "#chapter-list ul.uk-pagination a[aria-label='Trang sau']",
+ "ch_reverse": true,
+ "initmanga": true,
+ "pages": "#chapter-content img",
+ "d_title": "h1 || meta[property=og:title]@content",
+ "d_cover": "meta[property=og:image]@content",
+ "d_desc": "meta[property=og:description]@content || meta[name=description]@content"
 };

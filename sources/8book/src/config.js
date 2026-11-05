@@ -12,5 +12,11 @@ var G = {
  "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
  "d_desc": "meta[name=description]@content",
  "ch_list": "#chapters a.episode_li",
- "content": "#text, .text, #content, .content"
+ "content": "#text, .text, #content, .content",
+ "s_item": "a.nowraphide",
+ "s_link": ":self@href",
+ "s_title": "li.nowraphide",
+ "s_desc": "div.row_detail",
+ "s_cover": "img@img",
+ "q_cut": "[，,：:！!？?]"
 };

@@ -676,6 +676,7 @@
  "mgtv": {
   "base": "https://glb.m.mgtv.com",
   "domains": [
+   "https://glb.m.mgtv.com",
    "https://w.mgtv.com"
   ],
   "status": 200,
@@ -797,6 +798,7 @@
  "twitch": {
   "base": "https://m.twitch.tv",
   "domains": [
+   "https://m.twitch.tv",
    "https://www.twitch.tv"
   ],
   "status": 200,
@@ -835,6 +837,7 @@
  "youtube": {
   "base": "https://m.youtube.com",
   "domains": [
+   "https://m.youtube.com",
    "https://www.youtube.com"
   ],
   "status": 200,
@@ -934,14 +937,28 @@
   "tpl": "generic",
   "G": {
    "tabs": {
-    "Mới cập nhật": "/[page/{p}/]"
+    "Mới cập nhật": "/truyen/[page/{p}/]"
    },
-   "search": "/?username={q}[&page={p}]",
-   "item": ".uk-panel",
-   "title": "h3 a || a@title || img@alt",
-   "link": "a@href",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "search": "/?s={q}&post_type=manga",
+   "item": "div.manga-item-grid",
+   "title": "a.uk-link-heading || img@alt",
+   "link": "a.uk-link-heading@href || a@href",
+   "ch_list": "div.chapter-item a",
+   "cover": "img@img",
+   "s_item": "article.uk-grid-small",
+   "s_title": "a.uk-link-heading",
+   "s_link": "a.uk-link-heading@href",
+   "s_cover": "img@img",
+   "ch_name": "h3",
+   "ch_next": "#chapter-list ul.uk-pagination a[aria-label='Trang sau']",
+   "ch_reverse": true,
+   "initmanga": true,
+   "pages": "#chapter-content img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content"
+  },
+  "version": 3
  },
  "dualeotruyen": {
   "base": "https://dualeotruyenbet.com",
@@ -1107,6 +1124,7 @@
  "mimimoe": {
   "base": "https://mimihentai.moe",
   "domains": [
+   "https://mimihentai.moe",
    "https://mimimoe.moe"
   ],
   "status": 200,
@@ -1165,7 +1183,7 @@
    "tabs": {
     "Mới cập nhật": "/[?page={p}]"
    },
-   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "search": "/manga?q={q}[&page={p}]",
    "item": ".manga-card",
    "title": "h3 || a@title || img@alt",
    "link": "a@href",
@@ -1173,7 +1191,8 @@
    "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
    "d_desc": "meta[name=description]@content",
    "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+  },
+  "version": 2
  },
  "myreadingmanga": {
   "base": "https://myreadingmanga.info",
@@ -1480,20 +1499,9 @@
   }
  },
  "07br": {
+  "tpl": "custom",
   "base": "https://www.bqg603.cc",
-  "domains": [
-   "https://www.bqg128.xyz"
-  ],
-  "status": 200,
-  "auto": true,
-  "tpl": "generic",
-  "G": {
-   "tabs": {
-    "Mới cập nhật": "/[?page={p}]"
-   },
-   "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+  "version": 2
  },
  "101kks": {
   "base": "https://101kks.com",
@@ -1534,6 +1542,7 @@
  "101minc": {
   "base": "https://www.101minc.com",
   "domains": [
+   "https://www.101minc.com",
    "https://www.101Minc.com"
   ],
   "status": 200,
@@ -1573,6 +1582,7 @@
  "75zwcom": {
   "base": "https://m.75biquge.com",
   "domains": [
+   "https://m.75biquge.com",
    "https://m.qiwubiquge.com"
   ],
   "status": 200,
@@ -1614,8 +1624,15 @@
    "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
    "d_desc": "meta[name=description]@content",
    "ch_list": "#chapters a.episode_li",
-   "content": "#text, .text, #content, .content"
-  }
+   "content": "#text, .text, #content, .content",
+   "s_item": "a.nowraphide",
+   "s_link": ":self@href",
+   "s_title": "li.nowraphide",
+   "s_desc": "div.row_detail",
+   "s_cover": "img@img",
+   "q_cut": "[，,：:！!？?]"
+  },
+  "version": 2
  },
  "alicesw": {
   "tpl": "ref",
@@ -1698,17 +1715,28 @@
   "tpl": "generic",
   "G": {
    "tabs": {
-    "Mới cập nhật": "/[page/{p}/]"
+    "Mới cập nhật": "/truyen/[page/{p}/]"
    },
-   "search": "/?username={q}[&page={p}]",
-   "item": ".uk-panel",
-   "title": "h3 a || a@title || img@alt",
-   "link": "a@href",
-   "ch_list": "#chapter-list a",
+   "search": "/?s={q}&post_type=manga",
+   "item": "div.manga-item-grid",
+   "title": "a.uk-link-heading || img@alt",
+   "link": "a.uk-link-heading@href || a@href",
+   "ch_list": "div.chapter-item a",
    "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content"
-  }
+   "d_cover": "meta[property=og:image]@content",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "cover": "img@img",
+   "s_item": "article.uk-grid-small",
+   "s_title": "a.uk-link-heading",
+   "s_link": "a.uk-link-heading@href",
+   "s_cover": "img@img",
+   "ch_name": "h3",
+   "ch_next": "#chapter-list ul.uk-pagination a[aria-label='Trang sau']",
+   "ch_reverse": true,
+   "initmanga": true,
+   "pages": "#chapter-content img"
+  },
+  "version": 3
  },
  "boylovebattu": {
   "base": "https://boylovebattu.com",
@@ -1944,17 +1972,20 @@
   "tpl": "generic",
   "G": {
    "tabs": {
-    "Mới cập nhật": "/[?page={p}]"
+    "Mới cập nhật": "/danh-sach[?page={p}]"
    },
    "search": "/danh-sach?keyword={q}[&page={p}]",
-   "item": ".col-lg-4",
-   "title": "[class*=title] a || a@title || img@alt",
+   "item": "div.story-item",
+   "title": "img@alt || a.story-title",
    "link": "a@href",
-   "ch_list": "div.container a",
-   "d_title": "h1 || meta[property=og:title]@content",
+   "ch_list": "a.chapter-item-link",
+   "d_title": "meta[property=og:title]@content || title",
    "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content"
-  }
+   "d_desc": "meta[name=description]@content",
+   "cover": "img@img",
+   "content": "div.chapter-content"
+  },
+  "version": 3
  },
  "html5qqcom": {
   "base": "https://bookshelf.html5.qq.com",
@@ -2038,6 +2069,7 @@
  "jjwxctangiang": {
   "base": "https://www.jjwxc.net",
   "domains": [
+   "https://www.jjwxc.net",
    "http://www.jjwxc.net"
   ],
   "status": 200,
@@ -2421,26 +2453,9 @@
   }
  },
  "mottruyen": {
+  "tpl": "custom",
   "base": "https://mottruyen.app",
-  "domains": [
-   "https://mottruyen.app"
-  ],
-  "status": 200,
-  "auto": true,
-  "tpl": "generic",
-  "G": {
-   "tabs": {
-    "Mới cập nhật": "/[?page={p}]"
-   },
-   "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "item": ".story_item_s12",
-   "title": "a@title || img@alt || a@title || img@alt",
-   "link": "a@href",
-   "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+  "version": 2
  },
  "navyteamnovel": {
   "base": "https://navyteams.com",
@@ -2462,8 +2477,15 @@
    "d_title": "h1 || meta[property=og:title]@content",
    "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
    "d_desc": "meta[name=description]@content",
-   "content": ".content-type-novel, .chapter-content, #chapter-content"
-  }
+   "content": ".content-type-novel, .chapter-content, #chapter-content",
+   "search_json": {
+    "url": "/api/search-story?keyword={q}",
+    "title": "title",
+    "link": "/truyen/{slug}",
+    "cover": "cover"
+   }
+  },
+  "version": 2
  },
  "nettruyen": {
   "base": "https://nettruyen.com.vn",
@@ -2644,6 +2666,7 @@
  "qmbook": {
   "base": "https://m.bqg631.xyz",
   "domains": [
+   "https://m.bqg631.xyz",
    "https://m.bqg998.cc"
   ],
   "status": 200,
@@ -2755,6 +2778,7 @@
  "snapd": {
   "base": "https://m.bqgsn.cc",
   "domains": [
+   "https://m.bqgsn.cc",
    "https://m.snapd.net"
   ],
   "status": 200,
@@ -2774,6 +2798,7 @@
  "sohu": {
   "base": "https://m.sohu.com",
   "domains": [
+   "https://m.sohu.com",
    "https://www.sohu.com"
   ],
   "status": 200,
@@ -2845,6 +2870,7 @@
  "sweetastes": {
   "base": "https://baby0world.com",
   "domains": [
+   "https://baby0world.com",
    "https://www.bjtriz.com"
   ],
   "status": 200,
@@ -2875,17 +2901,30 @@
   "tpl": "generic",
   "G": {
    "tabs": {
-    "Mới cập nhật": "/[?page={p}]"
+    "日間ランキング": "https://yomou.syosetu.com/rank/list/type/daily_total/[?p={p}]",
+    "週間ランキング": "https://yomou.syosetu.com/rank/list/type/weekly_total/[?p={p}]",
+    "月間ランキング": "https://yomou.syosetu.com/rank/list/type/monthly_total/[?p={p}]"
    },
-   "search": "/search.php?word={q}[&page={p}]",
-   "item": ".c-panel__item",
-   "title": "a@title || img@alt || a@title || img@alt",
-   "link": "a@href",
-   "d_title": "h1 || meta[property=og:title]@content",
+   "search": "https://yomou.syosetu.com/search.php?word={q}[&p={p}]",
+   "item": "div.p-ranklist-item",
+   "title": "div.p-ranklist-item__title a",
+   "link": "div.p-ranklist-item__title a@href",
+   "d_title": "h1.p-novel__title || h1",
    "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "d_desc": "div.p-novel__summary || #novel_ex || meta[name=description]@content",
+   "ch_list": "div.p-eplist__sublist a.p-eplist__subtitle, .p-eplist__sublist a",
+   "s_item": "div.searchkekka_box",
+   "s_title": "a.tl",
+   "s_link": "a.tl@href",
+   "s_cover": "img@img",
+   "s_desc": "div.ex",
+   "cover": "",
+   "ch_next": "a.c-pager__item--next",
+   "ch_fallback_single": "本文",
+   "content": "div.p-novel__body",
+   "c_title": "h1.p-novel__title || h1"
+  },
+  "version": 3
  },
  "syosetur18": {
   "base": "https://novel18.syosetu.com",
@@ -3317,15 +3356,21 @@
    "tabs": {
     "Mới cập nhật": "/[?page={p}]"
    },
-   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "search": "/modules/article/search_t.php?searchkey={q}[&page={p}]",
    "item": ".pop-book",
    "title": "h2 || a@title || img@alt",
    "link": "a@href",
-   "ch_list": "#content-list a",
-   "d_title": "h1 || meta[property=og:title]@content",
+   "ch_list": "div.book-list li a",
+   "d_title": "div.book-describe h1 || h1",
    "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content"
-  }
+   "d_desc": "meta[name=description]@content",
+   "s_item": "li.pop-book2",
+   "s_title": "h2 || a@title",
+   "s_link": "a@href",
+   "s_cover": "img@data-original || img@img",
+   "content": "#nr1"
+  },
+  "version": 3
  },
  "xianqihaotiamiapp": {
   "tpl": "ref",

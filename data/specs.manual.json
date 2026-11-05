@@ -260,8 +260,15 @@
  },
  "navyteamnovel": {
   "patch": {
-   "content": ".content-type-novel, .chapter-content, #chapter-content"
-  }
+   "content": ".content-type-novel, .chapter-content, #chapter-content",
+   "search_json": {
+    "url": "/api/search-story?keyword={q}",
+    "title": "title",
+    "link": "/truyen/{slug}",
+    "cover": "cover"
+   }
+  },
+  "version": 2
  },
  "cbunucomic": {
   "patch": {
@@ -271,8 +278,15 @@
  "8book": {
   "patch": {
    "ch_list": "#chapters a.episode_li",
-   "content": "#text, .text, #content, .content"
-  }
+   "content": "#text, .text, #content, .content",
+   "s_item": "a.nowraphide",
+   "s_link": ":self@href",
+   "s_title": "li.nowraphide",
+   "s_desc": "div.row_detail",
+   "s_cover": "img@img",
+   "q_cut": "[，,：:！!？?]"
+  },
+  "version": 2
  },
  "deqixs": {
   "patch": {
@@ -1085,5 +1099,128 @@
    "ch_fallback_single": true
   },
   "version": 2
+ },
+ "moetruyen": {
+  "patch": {
+   "search": "/manga?q={q}[&page={p}]"
+  },
+  "version": 2
+ },
+ "07br": {
+  "tpl": "custom",
+  "base": "https://www.bqg603.cc",
+  "version": 2
+ },
+ "xbanxiarepoduongden": {
+  "patch": {
+   "search": "/modules/article/search_t.php?searchkey={q}[&page={p}]",
+   "s_item": "li.pop-book2",
+   "s_title": "h2 || a@title",
+   "s_link": "a@href",
+   "s_cover": "img@data-original || img@img",
+   "d_title": "div.book-describe h1 || h1",
+   "ch_list": "div.book-list li a",
+   "content": "#nr1"
+  },
+  "version": 3
+ },
+ "syosetu": {
+  "patch": {
+   "search": "https://yomou.syosetu.com/search.php?word={q}[&p={p}]",
+   "s_item": "div.searchkekka_box",
+   "s_title": "a.tl",
+   "s_link": "a.tl@href",
+   "s_cover": "img@img",
+   "s_desc": "div.ex",
+   "tabs": {
+    "日間ランキング": "https://yomou.syosetu.com/rank/list/type/daily_total/[?p={p}]",
+    "週間ランキング": "https://yomou.syosetu.com/rank/list/type/weekly_total/[?p={p}]",
+    "月間ランキング": "https://yomou.syosetu.com/rank/list/type/monthly_total/[?p={p}]"
+   },
+   "item": "div.p-ranklist-item",
+   "title": "div.p-ranklist-item__title a",
+   "link": "div.p-ranklist-item__title a@href",
+   "cover": "",
+   "ch_list": "div.p-eplist__sublist a.p-eplist__subtitle, .p-eplist__sublist a",
+   "ch_next": "a.c-pager__item--next",
+   "ch_fallback_single": "本文",
+   "content": "div.p-novel__body",
+   "d_title": "h1.p-novel__title || h1",
+   "d_desc": "div.p-novel__summary || #novel_ex || meta[name=description]@content",
+   "c_title": "h1.p-novel__title || h1"
+  },
+  "version": 3
+ },
+ "hangtruyenchu": {
+  "patch": {
+   "tabs": {
+    "Mới cập nhật": "/danh-sach[?page={p}]"
+   },
+   "item": "div.story-item",
+   "title": "img@alt || a.story-title",
+   "link": "a@href",
+   "cover": "img@img",
+   "ch_list": "a.chapter-item-link",
+   "content": "div.chapter-content",
+   "d_title": "meta[property=og:title]@content || title"
+  },
+  "version": 3
+ },
+ "mottruyen": {
+  "tpl": "custom",
+  "base": "https://mottruyen.app",
+  "version": 2
+ },
+ "blbattu": {
+  "patch": {
+   "tabs": {
+    "Mới cập nhật": "/truyen/[page/{p}/]"
+   },
+   "item": "div.manga-item-grid",
+   "title": "a.uk-link-heading || img@alt",
+   "link": "a.uk-link-heading@href || a@href",
+   "cover": "img@img",
+   "search": "/?s={q}&post_type=manga",
+   "s_item": "article.uk-grid-small",
+   "s_title": "a.uk-link-heading",
+   "s_link": "a.uk-link-heading@href",
+   "s_cover": "img@img",
+   "ch_list": "div.chapter-item a",
+   "ch_name": "h3",
+   "ch_next": "#chapter-list ul.uk-pagination a[aria-label='Trang sau']",
+   "ch_reverse": true,
+   "initmanga": true,
+   "pages": "#chapter-content img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content"
+  },
+  "version": 3
+ },
+ "destinteam": {
+  "patch": {
+   "tabs": {
+    "Mới cập nhật": "/truyen/[page/{p}/]"
+   },
+   "item": "div.manga-item-grid",
+   "title": "a.uk-link-heading || img@alt",
+   "link": "a.uk-link-heading@href || a@href",
+   "cover": "img@img",
+   "search": "/?s={q}&post_type=manga",
+   "s_item": "article.uk-grid-small",
+   "s_title": "a.uk-link-heading",
+   "s_link": "a.uk-link-heading@href",
+   "s_cover": "img@img",
+   "ch_list": "div.chapter-item a",
+   "ch_name": "h3",
+   "ch_next": "#chapter-list ul.uk-pagination a[aria-label='Trang sau']",
+   "ch_reverse": true,
+   "initmanga": true,
+   "pages": "#chapter-content img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content"
+  },
+  "version": 3
  }
 }

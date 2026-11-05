@@ -45,7 +45,7 @@ mangayomi://add-repo?repo_name=Kiritokmn&manga_url=https://raw.githubusercontent
 
 Trang phát hành: https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/tag/v0.0.1
 
-## Trạng thái nguồn (kiểm thử tự động 2026-11-05: 57/196 chạy trọn chuỗi danh sách → chi tiết → mục lục → nội dung)
+## Trạng thái nguồn (kiểm thử tự động 2026-11-05: 65/196 chạy trọn chuỗi danh sách → chi tiết → mục lục → nội dung)
 
 Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự án). Nguồn "không truy cập được" thường do tên miền đã đổi — vào cài đặt nguồn để đổi **Tên miền**.
 
@@ -65,7 +65,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 10 | NextPhim | nextphim.net | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; videos lỗi) |
 | 11 | Vfilm | vfilm.vn | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; videos lỗi) |
 | 12 | Phimmoi | phimmoii.mom | vi |  | 🟡 một phần (popular, search ✓; detail lỗi) |
-| 13 | PornHub | www.pornhub.com | all | Có | 🟡 một phần (popular lỗi) |
+| 13 | PornHub | www.pornhub.com | all | Có | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 14 | FikFap | fikfap.com | all | Có | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 15 | Tik.Porn | tik.porn | all | Có | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 16 | Kwiky | kwiky.com/cams?AFNO=2-162764.38182 | all | Có | 🟡 một phần (popular lỗi) |
@@ -98,7 +98,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 43 | WatchHentai.net | watchhentai.net | en | Có | 🟡 một phần (popular, search, detail, chapters ✓; videos lỗi) |
 | 44 | YouTube | www.youtube.com | all |  | 🟡 một phần (popular lỗi) |
 
-### Truyện tranh (36)
+### Truyện tranh (37)
 
 | # | Nguồn | Trang | Ngôn ngữ | 18+ | Trạng thái |
 |---|---|---|---|---|---|
@@ -107,7 +107,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 3 | SayHentai | sayhentai.cx | vi | Có | 🟡 một phần (popular lỗi) |
 | 4 | CBunu Comic | cucbongunu.com | vi | Có | ✅ hoạt động |
 | 5 | cosplaytele | cosplaytele.com | vi | Có | ✅ hoạt động |
-| 6 | Destin Team | destinteam.xyz | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; pages lỗi) |
+| 6 | Destin Team | destinteam.xyz | vi |  | ✅ hoạt động |
 | 7 | Dưa Leo truyện | dualeotruyenbet.com | vi | Có | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 8 | E Hentai | e-hentai.org | vi | Có | ✅ hoạt động |
 | 9 | Góc Truyện Tranh | goctruyentranhvui41.com | vi |  | ✅ hoạt động |
@@ -116,13 +116,13 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 12 | Jelly Comics | jellycomics.online | vi |  | ✅ hoạt động |
 | 13 | JulyComic | julycomics.site | vi |  | 🟠 bị Cloudflare/máy chủ chặn |
 | 14 | LuotTruyen | luottruyen.net | vi |  | 🟡 một phần (popular lỗi) |
-| 15 | MangaDex | mangadex.org | all |  | 🟠 bị Cloudflare/máy chủ chặn |
+| 15 | MangaDex | mangadex.org | all |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 16 | ManhwaBuddy | manhwabuddy.com | vi |  | ✅ hoạt động |
 | 17 | Mimimoe | mimimoe.moe | vi |  | ✅ hoạt động |
 | 18 | Misskon | misskon.com | vi |  | ✅ hoạt động |
-| 19 | MoeTruyen | truyen.moe | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
+| 19 | MoeTruyen | truyen.moe | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; pages lỗi) |
 | 20 | My Reading Manga | myreadingmanga.info | all |  | 🛡️ Cloudflare Turnstile – cần **xác minh thủ công** trong WebView |
-| 21 | Navy Team Comic | navyteams.com | vi |  | ✅ hoạt động |
+| 21 | Navy Team Comic | navyteams.com | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
 | 22 | NetTruyen18 | nettruyen18.com | vi |  | ✅ hoạt động |
 | 23 | NetTruyenViet | nettruyenviet10.com | vi |  | ✅ hoạt động |
 | 24 | NetTruyenZ | nettruyenz.com | vi |  | 🟡 một phần (popular lỗi) |
@@ -138,127 +138,127 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 34 | Weeb Central | weebcentral.com | en |  | 🟡 một phần (popular, search, detail ✓; chapters lỗi) |
 | 35 | Đọc Truyện Tranh BL | truyentranhbl.com | vi |  | 🟠 bắt đăng nhập Google để xem ảnh chương |
 | 36 | Ưng Tỷ Comics | ungtycomics.net | vi |  | 🟡 một phần (popular lỗi) |
+| 37 | BL Bất Tử | blbattu.com | vi |  | ✅ hoạt động |
 
-### Tiểu thuyết (116)
+### Tiểu thuyết (115)
 
 | # | Nguồn | Trang | Ngôn ngữ | 18+ | Trạng thái |
 |---|---|---|---|---|---|
 | 1 | Ln.Hako.Vn (Hako) | ln.hako.vn | vi |  | 🟠 cần WebView (chỉ chạy trên vBook) |
 | 2 | Sonako | sonako.fandom.com/vi/wiki/Sonako_Light_Novel | vi |  | 🛡️ Cloudflare Turnstile – cần **xác minh thủ công** trong WebView |
-| 3 | 07br | www.bqg128.xyz/# | zh |  | 🟡 một phần (popular lỗi) |
+| 3 | 07br | www.bqg128.xyz/# | zh |  | ✅ hoạt động |
 | 4 | 101kks | 101kks.com | zh |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 5 | 101Minc | www.101Minc.com | zh |  | 🛡️ Cloudflare Turnstile – cần **xác minh thủ công** trong WebView |
 | 6 | 52shuku by QuocBao | www.52shuku.net | zh |  | 🟡 một phần (popular lỗi) |
 | 7 | 69shu - repo Đường đen | 69shuba.com | zh |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 8 | 69书吧 | www.69shuba.com | zh |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 9 | 75zwcom | m.qiwubiquge.com | zh |  | ✅ hoạt động |
-| 10 | 8book | www.8book.com | zh |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
+| 10 | 8book | www.8book.com | zh |  | 🟡 một phần (popular, search, detail, chapters ✓; content lỗi) |
 | 11 | alicesw | www.alicesw.com | zh | Có | ✅ hoạt động |
 | 12 | allin1 | 14.225.254.182 | vi |  | 🟡 một phần (popular lỗi) |
 | 13 | App Truyện Chữ | apptruyenchu.pro | vi |  | ✅ hoạt động |
-| 14 | BL Bất Tử | blbattu.com | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; content lỗi) |
-| 15 | Boylove Bất Tử | boylovebattu.com | vi |  | ✅ hoạt động |
-| 16 | Bàn Long | blhvip.vn | vi |  | ✅ hoạt động |
-| 17 | ciyuanji | www.ciyuanji.com | zh |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
-| 18 | czbooks - repo Đường đen | czbooks.net | zh |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
-| 19 | Deqixs | www.deqixss.com | zh |  | ✅ hoạt động |
-| 20 | douban | read.douban.com | zh |  | 🟡 một phần (popular lỗi) |
-| 21 | Dưa Hấu | xgmf.zuanqianyi.com | zh |  | 🟡 một phần (popular lỗi) |
-| 22 | Faloo | faloo.com | zh |  | ✅ hoạt động |
-| 23 | Fan MTL | www.fanmtl.com | en |  | ✅ hoạt động |
-| 24 | Giới Truyện | gioitruyen.com | vi |  | ✅ hoạt động |
-| 25 | gongzicp | www.gongzicp.com | zh |  | 🟡 một phần (popular lỗi) |
-| 26 | Gấu Mèo Team | gaumeoteam.com | vi |  | ✅ hoạt động |
-| 27 | Hameln (Syosetu.org) | syosetu.org | ja |  | 🛡️ Cloudflare chặn IP Việt Nam – cần VPN |
-| 28 | Hang Truyện Chữ | hangtruyenchu.com | vi |  | 🟡 một phần (popular, chapters ✓; search lỗi) |
-| 29 | html5.qq.com | bookshelf.html5.qq.com | zh |  | 🟡 một phần (popular lỗi) |
-| 30 | idejian | www.idejian.com | zh |  | 🟡 một phần (popular lỗi) |
-| 31 | ijjjxsxzw | m.ijjjxsxzw.com | zh |  | ✅ hoạt động |
-| 32 | ixdzs8 | ixdzs8.com | zh |  | ✅ hoạt động |
-| 33 | JJWXC · Tấn Giang | www.jjwxc.net | zh |  | 🟡 một phần (popular, detail ✓; search lỗi) |
-| 34 | Jjwxc-repo duongden💰✅ | www.jjwxc.net | zh |  | 🟡 một phần (popular, detail ✓; search lỗi) |
-| 35 | Kakuyomu | kakuyomu.jp | ja |  | ✅ hoạt động |
-| 36 | Kho Truyện Chữ | khotruyenchu.fun | vi |  | 🟡 một phần (popular lỗi) |
-| 37 | La Cà Truyện | lacatruyen.live | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 38 | Langgee | v5.langge.uk | zh |  | 🟠 bị Cloudflare/máy chủ chặn |
-| 39 | LN Kuro | lnkuro.top | vi |  | 🟡 một phần (popular lỗi) |
-| 40 | LOFTER | www.sudugu.org | zh |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 41 | LoHi | lohi2.com | vi |  | 🟡 một phần (popular lỗi) |
-| 42 | LoppyToon | loppytoon.com | vi | Có | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 43 | Luvevaland | luvevalandn2.co | vi |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
-| 44 | MangaDM | mangadm.me | vi |  | ✅ hoạt động |
-| 45 | Matt Reading Translations | mattreadingtranslations.com | en |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
-| 46 | Mino Truyện | minotruyenv6.xyz | vi |  | 🟡 một phần (popular lỗi) |
-| 47 | Minttea Novel | mintteanovel.com | vi |  | ✅ hoạt động |
-| 48 | MonkeyD | monkeydd.com | vi |  | ✅ hoạt động |
-| 49 | Moyue · Mặc Duyệt | moyue.app | vi |  | 🟡 một phần (popular, detail ✓; search lỗi) |
-| 50 | MTC | metruyencv.biz | vi |  | 🟡 một phần (popular lỗi) |
-| 51 | Mê Truyện Chữ | metruyenchu.com.vn | vi |  | ✅ hoạt động |
-| 52 | Mê Truyện CV | metruyencv.com.vn | vi |  | 🟡 một phần (popular lỗi) |
-| 53 | Mê Đọc Truyện | medoctruyen.vn | vi |  | ✅ hoạt động |
-| 54 | Mọt Truyện | mottruyen.app | vi |  | 🟡 một phần (popular, detail ✓; search lỗi) |
-| 55 | Navy Team Novel | navyteams.com | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
-| 56 | NetTruyen | nettruyen.com.vn | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 57 | Novel Next | www.novelnext.me | en |  | 🟡 một phần (popular, search, detail, chapters ✓; content lỗi) |
-| 58 | NovelFull.Net | novelfull.net | en |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
-| 59 | NovelPhoenix | novelphoenix.net | en |  | ✅ hoạt động |
-| 60 | Novelpia Global | global.novelpia.com | en |  | ✅ hoạt động |
-| 61 | piaotian-app | www.piaotianapp.com | zh |  | 🟡 một phần (popular lỗi) |
-| 62 | po18 | www.po18.tw | zh | Có | 🟡 một phần (popular lỗi) |
-| 63 | po18sm | www.po18sm.com | zh | Có | 🟡 một phần (popular, detail ✓; search lỗi) |
-| 64 | qimao | www.qimao.com | zh |  | 🟡 một phần (popular lỗi) |
-| 65 | qmbook | m.bqg998.cc/# | zh |  | 🟡 một phần (popular lỗi) |
-| 66 | quanben | quanben.io | zh |  | 🟠 máy chủ trả trang mặc định CentOS (403) – trang hỏng |
-| 67 | quanwenyuedu | www.quanwenyuedu.io | zh |  | 🟡 một phần (popular, search, detail ✓; chapters lỗi) |
-| 68 | QuyKiep | quykiep.com | vi |  | 🟡 một phần (popular lỗi) |
-| 69 | Shinigami LN Team | shinigamilnteam.com | vi |  | ✅ hoạt động |
-| 70 | Si Truyện CV | sitruyencv.com | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 71 | Snapd | m.snapd.net | zh |  | 🟡 một phần (popular lỗi) |
-| 72 | sohu | www.sohu.com | zh |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
-| 73 | STV App Vi | sangtacviet.com | vi |  | 🟡 một phần (popular lỗi) |
-| 74 | sudugu | www.sudugu.org | zh |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 75 | sweetastes | www.bjtriz.com | zh |  | 🟡 một phần (popular, detail ✓; search lỗi) |
-| 76 | Syosetu | syosetu.com | ja |  | 🟡 một phần (popular ✓; search lỗi) |
-| 77 | Syosetu R18 | novel18.syosetu.com | ja | Có | 🟡 một phần (popular lỗi) |
-| 78 | Sói Xám (Fanqie) | api.langge.cf | zh |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 79 | TaoNovel | tybook.taoyuewenhua.net | zh |  | 🟡 một phần (popular lỗi) |
-| 80 | Tinh Linh | tinhlinh.com | vi |  | ✅ hoạt động |
-| 81 | Tiệm Truyện Chữ | tiemtruyenchu.cloud | vi |  | 🟡 một phần (popular lỗi) |
-| 82 | Truyen H | truyenh.top | vi | Có | 🟠 bị Cloudflare/máy chủ chặn |
-| 83 | TruyenC | truyenc.net | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
-| 84 | TruyenCV.io | truyencv.io | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; content lỗi) |
-| 85 | TruyenDich.AI | truyendich.space | vi |  | ✅ hoạt động |
-| 86 | truyenfull | truyenfull.live | vi |  | ✅ hoạt động |
-| 87 | Truyện Chữ | truyenchu.net | vi |  | ✅ hoạt động |
-| 88 | Truyện Dịch AI | truyendichai.com | vi |  | 🟡 một phần (popular lỗi) |
-| 89 | Truyện Full | truyenfull.today | vi |  | ✅ hoạt động |
-| 90 | Truyện Mới | truyenmoi.app | vi |  | 🟡 một phần (popular lỗi) |
-| 91 | Truyện Mới KK | truyenmoikk.com | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 92 | Truyện Net | truyennet.vn | vi |  | 🟡 một phần (popular ✓; search lỗi) |
-| 93 | Truyện Zhihu Tổng Hợp | www.truyendexuat.com | vi |  | ✅ hoạt động |
-| 94 | TruyệnCV | metruyencv.com | vi |  | 🟡 một phần (popular lỗi) |
-| 95 | Tu Tiên (.pro) | tutien.pro | vi |  | 🟡 một phần (popular lỗi) |
-| 96 | uukanshu | uukanshu.cc | zh |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
-| 97 | Valvrareteam | valvrareteam.net | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; content lỗi) |
-| 98 | Viblo | viblo.asia | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
-| 99 | vivutruyencom | vivutruyen.com | vi |  | ✅ hoạt động |
-| 100 | Việt Nam Thư Quán | vnthuquan.org | vi |  | ✅ hoạt động |
-| 101 | Wattpad | www.wattpad.com | all |  | 🟡 một phần (popular lỗi) |
-| 102 | Web Truyện Chữ | webtruyenchu.com | vi |  | ✅ hoạt động |
-| 103 | Web Truyện Dịch | webtruyendich.com | vi |  | 🟡 một phần (popular lỗi) |
-| 104 | Weibo | m.weibo.cn | zh |  | 🟡 một phần (popular lỗi) |
-| 105 | Wiki Dịch | wikicv.org | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 106 | wodeshucheng5 | www.wodeshucheng5.com | zh |  | 🟠 nginx 403 – chặn IP/khu vực |
-| 107 | Xbanxia - repo Đường đen | www.xbanxia.cc | zh |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
-| 108 | Xianqihaotiami APP | www.xianqihaotianmi.org | zh |  | 🟡 một phần (popular lỗi) |
-| 109 | xsw | m.xsw.tw | zh |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 110 | XTruyen | www.xtruyen.net | vi |  | 🟡 một phần (popular lỗi) |
-| 111 | YPShuo - Bình luận sách | www.ypshuo.com | zh |  | 🟡 một phần (popular lỗi) |
-| 112 | 【VIP】Bạch Ngọc Sách | bnsvip.net | vi |  | 🟡 một phần (popular lỗi) |
-| 113 | 书本书 Shubenshu | www.shubenshu.com | zh |  | 🟡 một phần (popular, search, detail, chapters ✓; content lỗi) |
-| 114 | 搜笔趣阁 | www.sobqg.com | zh |  | ✅ hoạt động |
-| 115 | 笔趣阁-abcbiquge | m.abcbiquge.com | zh |  | 🟡 một phần (popular, search, detail ✓; chapters lỗi) |
-| 116 | 飘天文学 | www.piaotia.com | zh |  | ✅ hoạt động |
+| 14 | Boylove Bất Tử | boylovebattu.com | vi |  | ✅ hoạt động |
+| 15 | Bàn Long | blhvip.vn | vi |  | ✅ hoạt động |
+| 16 | ciyuanji | www.ciyuanji.com | zh |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
+| 17 | czbooks - repo Đường đen | czbooks.net | zh |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
+| 18 | Deqixs | www.deqixss.com | zh |  | ✅ hoạt động |
+| 19 | douban | read.douban.com | zh |  | 🟡 một phần (popular lỗi) |
+| 20 | Dưa Hấu | xgmf.zuanqianyi.com | zh |  | 🟡 một phần (popular lỗi) |
+| 21 | Faloo | faloo.com | zh |  | ✅ hoạt động |
+| 22 | Fan MTL | www.fanmtl.com | en |  | ✅ hoạt động |
+| 23 | Giới Truyện | gioitruyen.com | vi |  | ✅ hoạt động |
+| 24 | gongzicp | www.gongzicp.com | zh |  | 🟡 một phần (popular lỗi) |
+| 25 | Gấu Mèo Team | gaumeoteam.com | vi |  | ✅ hoạt động |
+| 26 | Hameln (Syosetu.org) | syosetu.org | ja |  | 🛡️ Cloudflare chặn IP Việt Nam – cần VPN |
+| 27 | Hang Truyện Chữ | hangtruyenchu.com | vi |  | ✅ hoạt động |
+| 28 | html5.qq.com | bookshelf.html5.qq.com | zh |  | 🟡 một phần (popular lỗi) |
+| 29 | idejian | www.idejian.com | zh |  | 🟡 một phần (popular lỗi) |
+| 30 | ijjjxsxzw | m.ijjjxsxzw.com | zh |  | ✅ hoạt động |
+| 31 | ixdzs8 | ixdzs8.com | zh |  | ✅ hoạt động |
+| 32 | JJWXC · Tấn Giang | www.jjwxc.net | zh |  | 🟡 một phần (popular, detail ✓; search lỗi) |
+| 33 | Jjwxc-repo duongden💰✅ | www.jjwxc.net | zh |  | 🟡 một phần (popular, detail ✓; search lỗi) |
+| 34 | Kakuyomu | kakuyomu.jp | ja |  | ✅ hoạt động |
+| 35 | Kho Truyện Chữ | khotruyenchu.fun | vi |  | 🟡 một phần (popular lỗi) |
+| 36 | La Cà Truyện | lacatruyen.live | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 37 | Langgee | v5.langge.uk | zh |  | 🟠 bị Cloudflare/máy chủ chặn |
+| 38 | LN Kuro | lnkuro.top | vi |  | 🟡 một phần (popular lỗi) |
+| 39 | LOFTER | www.sudugu.org | zh |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 40 | LoHi | lohi2.com | vi |  | 🟡 một phần (popular lỗi) |
+| 41 | LoppyToon | loppytoon.com | vi | Có | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 42 | Luvevaland | luvevalandn2.co | vi |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
+| 43 | MangaDM | mangadm.me | vi |  | ✅ hoạt động |
+| 44 | Matt Reading Translations | mattreadingtranslations.com | en |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
+| 45 | Mino Truyện | minotruyenv6.xyz | vi |  | 🟡 một phần (popular lỗi) |
+| 46 | Minttea Novel | mintteanovel.com | vi |  | ✅ hoạt động |
+| 47 | MonkeyD | monkeydd.com | vi |  | ✅ hoạt động |
+| 48 | Moyue · Mặc Duyệt | moyue.app | vi |  | 🟡 một phần (popular, detail ✓; search lỗi) |
+| 49 | MTC | metruyencv.biz | vi |  | 🟡 một phần (popular lỗi) |
+| 50 | Mê Truyện Chữ | metruyenchu.com.vn | vi |  | ✅ hoạt động |
+| 51 | Mê Truyện CV | metruyencv.com.vn | vi |  | 🟡 một phần (popular lỗi) |
+| 52 | Mê Đọc Truyện | medoctruyen.vn | vi |  | ✅ hoạt động |
+| 53 | Mọt Truyện | mottruyen.app | vi |  | ✅ hoạt động |
+| 54 | Navy Team Novel | navyteams.com | vi |  | ✅ hoạt động |
+| 55 | NetTruyen | nettruyen.com.vn | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 56 | Novel Next | www.novelnext.me | en |  | 🟡 một phần (popular, search, detail, chapters ✓; content lỗi) |
+| 57 | NovelFull.Net | novelfull.net | en |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
+| 58 | NovelPhoenix | novelphoenix.net | en |  | ✅ hoạt động |
+| 59 | Novelpia Global | global.novelpia.com | en |  | ✅ hoạt động |
+| 60 | piaotian-app | www.piaotianapp.com | zh |  | 🟡 một phần (popular lỗi) |
+| 61 | po18 | www.po18.tw | zh | Có | 🟡 một phần (popular lỗi) |
+| 62 | po18sm | www.po18sm.com | zh | Có | 🟡 một phần (popular, detail ✓; search lỗi) |
+| 63 | qimao | www.qimao.com | zh |  | 🟡 một phần (popular lỗi) |
+| 64 | qmbook | m.bqg998.cc/# | zh |  | 🟡 một phần (popular lỗi) |
+| 65 | quanben | quanben.io | zh |  | 🟠 máy chủ trả trang mặc định CentOS (403) – trang hỏng |
+| 66 | quanwenyuedu | www.quanwenyuedu.io | zh |  | 🟡 một phần (popular, search, detail ✓; chapters lỗi) |
+| 67 | QuyKiep | quykiep.com | vi |  | 🟡 một phần (popular lỗi) |
+| 68 | Shinigami LN Team | shinigamilnteam.com | vi |  | ✅ hoạt động |
+| 69 | Si Truyện CV | sitruyencv.com | vi |  | 🟡 một phần (popular lỗi) |
+| 70 | Snapd | m.snapd.net | zh |  | 🟡 một phần (popular lỗi) |
+| 71 | sohu | www.sohu.com | zh |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
+| 72 | STV App Vi | sangtacviet.com | vi |  | 🟡 một phần (popular lỗi) |
+| 73 | sudugu | www.sudugu.org | zh |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 74 | sweetastes | www.bjtriz.com | zh |  | 🟡 một phần (popular, detail ✓; search lỗi) |
+| 75 | Syosetu | syosetu.com | ja |  | ✅ hoạt động |
+| 76 | Syosetu R18 | novel18.syosetu.com | ja | Có | 🟡 một phần (popular lỗi) |
+| 77 | Sói Xám (Fanqie) | api.langge.cf | zh |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 78 | TaoNovel | tybook.taoyuewenhua.net | zh |  | 🟡 một phần (popular lỗi) |
+| 79 | Tinh Linh | tinhlinh.com | vi |  | ✅ hoạt động |
+| 80 | Tiệm Truyện Chữ | tiemtruyenchu.cloud | vi |  | 🟡 một phần (popular lỗi) |
+| 81 | Truyen H | truyenh.top | vi | Có | 🟡 một phần (popular lỗi) |
+| 82 | TruyenC | truyenc.net | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
+| 83 | TruyenCV.io | truyencv.io | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; content lỗi) |
+| 84 | TruyenDich.AI | truyendich.space | vi |  | ✅ hoạt động |
+| 85 | truyenfull | truyenfull.live | vi |  | ✅ hoạt động |
+| 86 | Truyện Chữ | truyenchu.net | vi |  | ✅ hoạt động |
+| 87 | Truyện Dịch AI | truyendichai.com | vi |  | 🟡 một phần (popular lỗi) |
+| 88 | Truyện Full | truyenfull.today | vi |  | ✅ hoạt động |
+| 89 | Truyện Mới | truyenmoi.app | vi |  | 🟡 một phần (popular lỗi) |
+| 90 | Truyện Mới KK | truyenmoikk.com | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 91 | Truyện Net | truyennet.vn | vi |  | 🟡 một phần (popular ✓; search lỗi) |
+| 92 | Truyện Zhihu Tổng Hợp | www.truyendexuat.com | vi |  | ✅ hoạt động |
+| 93 | TruyệnCV | metruyencv.com | vi |  | 🟡 một phần (popular lỗi) |
+| 94 | Tu Tiên (.pro) | tutien.pro | vi |  | 🟡 một phần (popular lỗi) |
+| 95 | uukanshu | uukanshu.cc | zh |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
+| 96 | Valvrareteam | valvrareteam.net | vi |  | ✅ hoạt động |
+| 97 | Viblo | viblo.asia | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
+| 98 | vivutruyencom | vivutruyen.com | vi |  | ✅ hoạt động |
+| 99 | Việt Nam Thư Quán | vnthuquan.org | vi |  | ✅ hoạt động |
+| 100 | Wattpad | www.wattpad.com | all |  | 🟡 một phần (popular lỗi) |
+| 101 | Web Truyện Chữ | webtruyenchu.com | vi |  | ✅ hoạt động |
+| 102 | Web Truyện Dịch | webtruyendich.com | vi |  | 🟡 một phần (popular lỗi) |
+| 103 | Weibo | m.weibo.cn | zh |  | 🟡 một phần (popular lỗi) |
+| 104 | Wiki Dịch | wikicv.org | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 105 | wodeshucheng5 | www.wodeshucheng5.com | zh |  | 🟠 nginx 403 – chặn IP/khu vực |
+| 106 | Xbanxia - repo Đường đen | www.xbanxia.cc | zh |  | ✅ hoạt động |
+| 107 | Xianqihaotiami APP | www.xianqihaotianmi.org | zh |  | 🟡 một phần (popular lỗi) |
+| 108 | xsw | m.xsw.tw | zh |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 109 | XTruyen | www.xtruyen.net | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 110 | YPShuo - Bình luận sách | www.ypshuo.com | zh |  | 🟡 một phần (popular lỗi) |
+| 111 | 【VIP】Bạch Ngọc Sách | bnsvip.net | vi |  | 🟡 một phần (popular lỗi) |
+| 112 | 书本书 Shubenshu | www.shubenshu.com | zh |  | 🟡 một phần (popular, search, detail, chapters ✓; content lỗi) |
+| 113 | 搜笔趣阁 | www.sobqg.com | zh |  | ✅ hoạt động |
+| 114 | 笔趣阁-abcbiquge | m.abcbiquge.com | zh |  | 🟡 một phần (popular, search, detail ✓; chapters lỗi) |
+| 115 | 飘天文学 | www.piaotia.com | zh |  | ✅ hoạt động |
 
 ## Cấu trúc dự án
 

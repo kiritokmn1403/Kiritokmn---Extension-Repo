@@ -2,12 +2,12 @@
   "metadata": {
     "name": "BL Bất Tử",
     "author": "Kiritokmn",
-    "version": 1,
+    "version": 3,
     "source": "https://blbattu.com",
     "description": "BL Bất Tử — Kiritokmn Extension Repo",
     "locale": "vi",
     "regexp": "blbattu\\.com",
-    "type": "novel",
+    "type": "comic",
     "nsfw": false
   },
   "script": {

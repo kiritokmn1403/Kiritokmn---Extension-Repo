@@ -217,3 +217,20 @@ Kiểm thử trực tiếp lúc 13:33: **34/196** nguồn đạt. Phân loại 1
 
 - Sau các lượt sửa: **53–54/196** nguồn đạt (dao động ±1 do trang chập chờn), chưa tính gioitruyen và các bản sửa tìm kiếm/phim cuối cùng.
 - Còn lại cần làm tay: trang dựng bằng JS/API (minotruyen dùng API `cloudkk-v2`, douyin, tiktok, youtube, iqiyi, mgtv, twitch, weibo…), Cloudflare tương tác, các trang đã chết/đổi tên miền (26 lỗi mạng), và nhóm phim phát qua iframe/API riêng (blvietsub, animevnnet, hentaivietsubcom, hhpanda, watchhentainet, hihiphim, phimmoi).
+
+### 05/11/2026 (tối) — Thêm nguồn viết tay qua API, giải mã Init Manga, sửa tìm kiếm
+
+Bản phát hành lúc 14:34 (commit `f4d7c73`): **57/196** nguồn đạt kiểm thử trực tiếp.
+
+| # | Việc | Chi tiết |
+|---|---|---|
+| 47 | **07br** (bqg603.cc) — trang dựng bằng JS (hash router) trên API `apibi.cc` | Viết tay (`tpl: custom`): danh mục `/api/sort?sort=`, trang chủ `/api/index`, tìm `/api/search?q=`, chi tiết `/api/book?id=`, mục lục `/api/booklist?id=` (chỉ có tên chương, số chương = vị trí), ảnh bìa `/bookimg/{id/1000}/{id}.jpg`. Nội dung `/api/chapter?token=` với token = Base64(**AES-128-CBC**(JSON `{"id":…,"chapterid":…}`), key `a3dc22cf70418a51`, iv `394c2c3202da6270`, PKCS7) — viết bộ mã hoá AES thuần ES5 trong `config.js` (đối chiếu đúng với Node `crypto`) để chạy trên mọi ứng dụng |
+| 48 | **Mọt Truyện** (mottruyen.app) — Vue app | Viết tay trên `api.mottruyen.app/api/v1`: danh sách/tìm `story?collection=SEARCH&page&size&keyword&categoryIds`, chi tiết `story/{id}`, mục lục `story/{id}/chapter?size=500&page`, nội dung `story/{id}/chapter/{n}` (`content` HTML; chương khoá hiện thông báo 🔒); ảnh `static.mottruyen.app/api/v1/storage` |
+| 49 | Template: tìm kiếm qua **JSON API** (`search_json`) | `{url, list, title, link, cover}` — `link` có thể là mẫu `/truyen/{slug}`. Dùng cho **Navy Team (truyện chữ)**: `/api/search-story?keyword=` |
+| 50 | Template: **`q_cut`** | Cắt từ khoá tại dấu câu cho trang tìm kiếm không chịu dấu phẩy toàn góc (8book) |
+| 51 | Template: giao diện WordPress **Init Manga** (`initmanga: true`) | Chương được mã hoá ngay trong trang: `InitMangaEncryptedChapter {ciphertext, iv, salt}` + `InitMangaData.decryption_key` (Base64 của passphrase) → khoá = PBKDF2-SHA512(passphrase, salt, 999 vòng, 32 byte), AES-256-CBC. Ảnh là `canvas[data-enc]` = Base64 của URL viết ngược. Bộ sinh mã chép `lib/extra/crypto.js` (CryptoJS) vào nguồn và thêm `load('crypto.js')` cho `chap.js`; `build-all` chỉ nhúng `crypto-js` khi nguồn thật sự cần (không làm phình mọi nguồn generic). Áp dụng: **blbattu** (đổi loại thành truyện tranh — thực chất là truyện tranh), **destinteam**; danh sách `/truyen/page/{p}/`, tìm `/?s=&post_type=manga`, mục lục `div.chapter-item` có phân trang |
+| 52 | Sửa tìm kiếm/selector | **moetruyen** `/manga?q=`; **xbanxia** `/modules/article/search_t.php?searchkey=` + mục lục `div.book-list li a`, nội dung `#nr1`; **8book** thẻ kết quả `a.nowraphide`; **syosetu** danh sách lấy từ bảng xếp hạng `yomou.syosetu.com/rank/list/type/*_total/`, tìm ở `yomou.syosetu.com/search.php`, truyện ngắn 1 chương dùng chính trang; **hangtruyenchu** danh sách `/danh-sach`, mục lục `a.chapter-item-link`, nội dung `div.chapter-content` |
+| 53 | `autospec.py` | Khi spec tay đổi `base`, tự đưa tên miền mới vào danh sách `domains` (trước đây bị mất khi sinh lại) |
+
+- Kiểm thử lượt này (11 nguồn): **07br, mottruyen, navyteamnovel** chuyển sang đạt; hacamchicac vẫn đạt với template mới.
+- Chưa làm được: **moetruyen** ảnh chương bị xáo/ẩn bằng script (`data-imgx-page-index`), **8book** nội dung chương nạp bằng JS trên tên miền ngụy trang, **tutien.pro** bắt đăng nhập mới xem truyện, **po18sm** tìm kiếm cần mã hoá GBK, **metruyencv/mtc/truyencv** tên miền `metruyencv.xyz` không truy cập được, **anime47/lohi** là ứng dụng JS dùng API riêng.

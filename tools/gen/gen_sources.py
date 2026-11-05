@@ -125,7 +125,14 @@ def gen(sid, spec):
         open(os.path.join(d, 'src', name + '.js'), 'w', encoding='utf-8').write(header + tpl[k] + '\n')
         if k != 'browse': scripts[name] = name + '.js'
     chap = tpl.get('chap_' + reg['type']) or tpl.get('chap_' + typ) or tpl.get('chap')
-    open(os.path.join(d, 'src', 'chap.js'), 'w', encoding='utf-8').write(header + chap + '\n')
+    chdr = header
+    cp = os.path.join(d, 'src', 'crypto.js')
+    if spec['tpl'] == 'generic' and merge_g(spec).get('initmanga'):
+        # chapter decryption needs CryptoJS: ship the bundled copy next to the scripts (vBook/Rhino load it; JS hosts import crypto-js)
+        open(cp, 'w', encoding='utf-8').write(open(os.path.join(ROOT, 'lib/extra/crypto.js'), encoding='utf-8').read())
+        chdr = "load('crypto.js');\n" + header
+    elif os.path.exists(cp): os.remove(cp)
+    open(os.path.join(d, 'src', 'chap.js'), 'w', encoding='utf-8').write(chdr + chap + '\n')
     scripts['chap'] = 'chap.js'
     if typ == 'video' and 'track' in tpl:
         open(os.path.join(d, 'src', 'track.js'), 'w', encoding='utf-8').write(header + tpl['track'] + '\n')

@@ -12,5 +12,11 @@ var G = {
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
  "d_desc": "meta[name=description]@content",
- "content": ".content-type-novel, .chapter-content, #chapter-content"
+ "content": ".content-type-novel, .chapter-content, #chapter-content",
+ "search_json": {
+  "url": "/api/search-story?keyword={q}",
+  "title": "title",
+  "link": "/truyen/{slug}",
+  "cover": "cover"
+ }
 };

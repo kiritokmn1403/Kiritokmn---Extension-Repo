@@ -137,6 +137,8 @@ var X = {
     return X.listPage(pat, p, '');
   },
   search: function (key, p) {
+    // q_cut: regex; sites whose search breaks on punctuation only get the text before it
+    if (G.q_cut && !C.isUrl(key)) key = String(key).split(new RegExp(G.q_cut))[0].trim() || key;
     if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
     if (G.search_post) {
       // POST search form: { url, body } — body uses {q}; results are parsed like any list page
@@ -144,7 +146,20 @@ var X = {
       var items = X.items(doc, 's_');
       return Response.success(items, null);
     }
+    if (G.search_json) return X.jsonSearch(G.search_json, key, p);
     return X.listPage(G.search, p, key);
+  },
+  // JSON search API: { url, list: 'data.items' (dot path, '' = root array), title, link ('/truyen/{slug}' template or field), cover }
+  jsonSearch: function (J, key, p) {
+    var d = C.json(X.url(J.url, p, key), G.req);
+    if (J.list) J.list.split('.').forEach(function (k) { d = d && d[k]; });
+    var fill = function (o, t) { return String(t || '').indexOf('{') >= 0 ? String(t).replace(/\{(\w+)\}/g, function (m, k) { return o[k] == null ? '' : o[k]; }) : (o[t] == null ? '' : String(o[t])); };
+    var out = [];
+    (d || []).forEach(function (o) {
+      var name = fill(o, J.title || 'title'), link = fill(o, J.link || 'url');
+      if (name && link) out.push({ name: name, link: C.fix(link), cover: C.fix(fill(o, J.cover || 'cover')), description: J.desc ? fill(o, J.desc) : '', host: BASE_URL });
+    });
+    return Response.success(out, J.paged && out.length ? C.next(true, p) : null);
   },
   genre: function () {
     if (!G.genre) return Response.success([]);
@@ -189,8 +204,20 @@ var X = {
   pages: function (url) {
     var out = [], visited = [url], u = url;
     for (var guard = 0; guard < (G.pages_max || 40); guard++) {
-      var doc = C.html(u, G.req);
-      var imgs = doc.select(G.pages || '.page-chapter img, .reading-content img, .chapter-content img');
+      var doc;
+      if (G.initmanga) {
+        var rr = C.check(C.get(u, G.req), u), bb = rr.text() || '', dec = X.initManga(bb);
+        doc = Html.parse(dec ? '<div id="imc-dec">' + dec + '</div>' : bb, u);
+      } else doc = C.html(u, G.req);
+      var imgs = doc.select(G.initmanga ? '#imc-dec img, ' + (G.pages || '#chapter-content img') : (G.pages || '.page-chapter img, .reading-content img, .chapter-content img'));
+      if (G.initmanga) {
+        // protected canvases: data-enc = base64 of the reversed image url
+        var cv = doc.select('#imc-dec canvas[data-enc]');
+        for (var ci = 0; ci < cv.size(); ci++) {
+          var cu = CryptoJS.enc.Latin1.stringify(CryptoJS.enc.Base64.parse(cv.get(ci).attr('data-enc'))).split('').reverse().join('');
+          if (cu && out.indexOf(cu) < 0) out.push(cu);
+        }
+      }
       for (var i = 0; i < imgs.size(); i++) { var s = C.img(imgs.get(i)); if (s && out.indexOf(s) < 0) out.push(s); }
       if (!G.pages_next) break;
       var nx = doc.select(G.pages_next).first();
@@ -208,6 +235,7 @@ var X = {
       var lockMsg = locked ? '<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại ' + BASE_URL + ' để đọc tiếp.</i></p>' : '';
       if (raw || locked) return Response.success(X.toParas(raw) + lockMsg, X.pick(Html.parse(body, url), G.c_title || 'h1 || title'));
     }
+    if (G.initmanga) { var dc = X.initManga(body); if (dc) return Response.success(C.cleanContent(Html.parse('<div id="imc-dec">' + dc + '</div>', url).select('#imc-dec').first()), X.pick(Html.parse(body, url), G.c_title || 'h1 || h2')); }
     var doc = Html.parse(body, url);
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
     if (!el) {
@@ -215,6 +243,17 @@ var X = {
       return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
     }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
+  },
+  // ---- WordPress "Init Manga" theme: chapter body is AES-256-CBC encrypted in the page
+  // (key = PBKDF2-SHA512(passphrase from InitMangaData.decryption_key, salt, 999 iter, 32 bytes)); needs CryptoJS (load('crypto.js')).
+  initManga: function (body) {
+    var m = /InitMangaEncryptedChapter\s*=\s*(\{[\s\S]*?\})\s*;/.exec(body), k = /"decryption_key"\s*:\s*"([^"]+)"/.exec(body);
+    if (!m || !k || typeof CryptoJS === 'undefined') return '';
+    var o; try { o = JSON.parse(m[1]); } catch (e) { return ''; }
+    if (!o || !o.ciphertext) return '';
+    var pass = CryptoJS.enc.Utf8.stringify(CryptoJS.enc.Base64.parse(k[1]));
+    var key = CryptoJS.PBKDF2(pass, CryptoJS.enc.Hex.parse(o.salt), { hasher: CryptoJS.algo.SHA512, keySize: 8, iterations: 999 });
+    try { return CryptoJS.AES.decrypt(o.ciphertext, key, { iv: CryptoJS.enc.Hex.parse(o.iv) }).toString(CryptoJS.enc.Utf8); } catch (e) { return ''; }
   },
   // ---- Next.js App Router helpers (sites whose TOC comes from a Server Action and whose text lives in the RSC stream)
   // Server Action ids change on every deploy: try the known id first, then look the id up by its exported name in the page's chunks.
@@ -446,6 +485,8 @@ var X = {
     return X.listPage(pat, p, '');
   },
   search: function (key, p) {
+    // q_cut: regex; sites whose search breaks on punctuation only get the text before it
+    if (G.q_cut && !C.isUrl(key)) key = String(key).split(new RegExp(G.q_cut))[0].trim() || key;
     if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
     if (G.search_post) {
       // POST search form: { url, body } — body uses {q}; results are parsed like any list page
@@ -453,7 +494,20 @@ var X = {
       var items = X.items(doc, 's_');
       return Response.success(items, null);
     }
+    if (G.search_json) return X.jsonSearch(G.search_json, key, p);
     return X.listPage(G.search, p, key);
+  },
+  // JSON search API: { url, list: 'data.items' (dot path, '' = root array), title, link ('/truyen/{slug}' template or field), cover }
+  jsonSearch: function (J, key, p) {
+    var d = C.json(X.url(J.url, p, key), G.req);
+    if (J.list) J.list.split('.').forEach(function (k) { d = d && d[k]; });
+    var fill = function (o, t) { return String(t || '').indexOf('{') >= 0 ? String(t).replace(/\{(\w+)\}/g, function (m, k) { return o[k] == null ? '' : o[k]; }) : (o[t] == null ? '' : String(o[t])); };
+    var out = [];
+    (d || []).forEach(function (o) {
+      var name = fill(o, J.title || 'title'), link = fill(o, J.link || 'url');
+      if (name && link) out.push({ name: name, link: C.fix(link), cover: C.fix(fill(o, J.cover || 'cover')), description: J.desc ? fill(o, J.desc) : '', host: BASE_URL });
+    });
+    return Response.success(out, J.paged && out.length ? C.next(true, p) : null);
   },
   genre: function () {
     if (!G.genre) return Response.success([]);
@@ -498,8 +552,20 @@ var X = {
   pages: function (url) {
     var out = [], visited = [url], u = url;
     for (var guard = 0; guard < (G.pages_max || 40); guard++) {
-      var doc = C.html(u, G.req);
-      var imgs = doc.select(G.pages || '.page-chapter img, .reading-content img, .chapter-content img');
+      var doc;
+      if (G.initmanga) {
+        var rr = C.check(C.get(u, G.req), u), bb = rr.text() || '', dec = X.initManga(bb);
+        doc = Html.parse(dec ? '<div id="imc-dec">' + dec + '</div>' : bb, u);
+      } else doc = C.html(u, G.req);
+      var imgs = doc.select(G.initmanga ? '#imc-dec img, ' + (G.pages || '#chapter-content img') : (G.pages || '.page-chapter img, .reading-content img, .chapter-content img'));
+      if (G.initmanga) {
+        // protected canvases: data-enc = base64 of the reversed image url
+        var cv = doc.select('#imc-dec canvas[data-enc]');
+        for (var ci = 0; ci < cv.size(); ci++) {
+          var cu = CryptoJS.enc.Latin1.stringify(CryptoJS.enc.Base64.parse(cv.get(ci).attr('data-enc'))).split('').reverse().join('');
+          if (cu && out.indexOf(cu) < 0) out.push(cu);
+        }
+      }
       for (var i = 0; i < imgs.size(); i++) { var s = C.img(imgs.get(i)); if (s && out.indexOf(s) < 0) out.push(s); }
       if (!G.pages_next) break;
       var nx = doc.select(G.pages_next).first();
@@ -517,6 +583,7 @@ var X = {
       var lockMsg = locked ? '<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại ' + BASE_URL + ' để đọc tiếp.</i></p>' : '';
       if (raw || locked) return Response.success(X.toParas(raw) + lockMsg, X.pick(Html.parse(body, url), G.c_title || 'h1 || title'));
     }
+    if (G.initmanga) { var dc = X.initManga(body); if (dc) return Response.success(C.cleanContent(Html.parse('<div id="imc-dec">' + dc + '</div>', url).select('#imc-dec').first()), X.pick(Html.parse(body, url), G.c_title || 'h1 || h2')); }
     var doc = Html.parse(body, url);
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
     if (!el) {
@@ -524,6 +591,17 @@ var X = {
       return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
     }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
+  },
+  // ---- WordPress "Init Manga" theme: chapter body is AES-256-CBC encrypted in the page
+  // (key = PBKDF2-SHA512(passphrase from InitMangaData.decryption_key, salt, 999 iter, 32 bytes)); needs CryptoJS (load('crypto.js')).
+  initManga: function (body) {
+    var m = /InitMangaEncryptedChapter\s*=\s*(\{[\s\S]*?\})\s*;/.exec(body), k = /"decryption_key"\s*:\s*"([^"]+)"/.exec(body);
+    if (!m || !k || typeof CryptoJS === 'undefined') return '';
+    var o; try { o = JSON.parse(m[1]); } catch (e) { return ''; }
+    if (!o || !o.ciphertext) return '';
+    var pass = CryptoJS.enc.Utf8.stringify(CryptoJS.enc.Base64.parse(k[1]));
+    var key = CryptoJS.PBKDF2(pass, CryptoJS.enc.Hex.parse(o.salt), { hasher: CryptoJS.algo.SHA512, keySize: 8, iterations: 999 });
+    try { return CryptoJS.AES.decrypt(o.ciphertext, key, { iv: CryptoJS.enc.Hex.parse(o.iv) }).toString(CryptoJS.enc.Utf8); } catch (e) { return ''; }
   },
   // ---- Next.js App Router helpers (sites whose TOC comes from a Server Action and whose text lives in the RSC stream)
   // Server Action ids change on every deploy: try the known id first, then look the id up by its exported name in the page's chunks.
@@ -755,6 +833,8 @@ var X = {
     return X.listPage(pat, p, '');
   },
   search: function (key, p) {
+    // q_cut: regex; sites whose search breaks on punctuation only get the text before it
+    if (G.q_cut && !C.isUrl(key)) key = String(key).split(new RegExp(G.q_cut))[0].trim() || key;
     if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
     if (G.search_post) {
       // POST search form: { url, body } — body uses {q}; results are parsed like any list page
@@ -762,7 +842,20 @@ var X = {
       var items = X.items(doc, 's_');
       return Response.success(items, null);
     }
+    if (G.search_json) return X.jsonSearch(G.search_json, key, p);
     return X.listPage(G.search, p, key);
+  },
+  // JSON search API: { url, list: 'data.items' (dot path, '' = root array), title, link ('/truyen/{slug}' template or field), cover }
+  jsonSearch: function (J, key, p) {
+    var d = C.json(X.url(J.url, p, key), G.req);
+    if (J.list) J.list.split('.').forEach(function (k) { d = d && d[k]; });
+    var fill = function (o, t) { return String(t || '').indexOf('{') >= 0 ? String(t).replace(/\{(\w+)\}/g, function (m, k) { return o[k] == null ? '' : o[k]; }) : (o[t] == null ? '' : String(o[t])); };
+    var out = [];
+    (d || []).forEach(function (o) {
+      var name = fill(o, J.title || 'title'), link = fill(o, J.link || 'url');
+      if (name && link) out.push({ name: name, link: C.fix(link), cover: C.fix(fill(o, J.cover || 'cover')), description: J.desc ? fill(o, J.desc) : '', host: BASE_URL });
+    });
+    return Response.success(out, J.paged && out.length ? C.next(true, p) : null);
   },
   genre: function () {
     if (!G.genre) return Response.success([]);
@@ -807,8 +900,20 @@ var X = {
   pages: function (url) {
     var out = [], visited = [url], u = url;
     for (var guard = 0; guard < (G.pages_max || 40); guard++) {
-      var doc = C.html(u, G.req);
-      var imgs = doc.select(G.pages || '.page-chapter img, .reading-content img, .chapter-content img');
+      var doc;
+      if (G.initmanga) {
+        var rr = C.check(C.get(u, G.req), u), bb = rr.text() || '', dec = X.initManga(bb);
+        doc = Html.parse(dec ? '<div id="imc-dec">' + dec + '</div>' : bb, u);
+      } else doc = C.html(u, G.req);
+      var imgs = doc.select(G.initmanga ? '#imc-dec img, ' + (G.pages || '#chapter-content img') : (G.pages || '.page-chapter img, .reading-content img, .chapter-content img'));
+      if (G.initmanga) {
+        // protected canvases: data-enc = base64 of the reversed image url
+        var cv = doc.select('#imc-dec canvas[data-enc]');
+        for (var ci = 0; ci < cv.size(); ci++) {
+          var cu = CryptoJS.enc.Latin1.stringify(CryptoJS.enc.Base64.parse(cv.get(ci).attr('data-enc'))).split('').reverse().join('');
+          if (cu && out.indexOf(cu) < 0) out.push(cu);
+        }
+      }
       for (var i = 0; i < imgs.size(); i++) { var s = C.img(imgs.get(i)); if (s && out.indexOf(s) < 0) out.push(s); }
       if (!G.pages_next) break;
       var nx = doc.select(G.pages_next).first();
@@ -826,6 +931,7 @@ var X = {
       var lockMsg = locked ? '<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại ' + BASE_URL + ' để đọc tiếp.</i></p>' : '';
       if (raw || locked) return Response.success(X.toParas(raw) + lockMsg, X.pick(Html.parse(body, url), G.c_title || 'h1 || title'));
     }
+    if (G.initmanga) { var dc = X.initManga(body); if (dc) return Response.success(C.cleanContent(Html.parse('<div id="imc-dec">' + dc + '</div>', url).select('#imc-dec').first()), X.pick(Html.parse(body, url), G.c_title || 'h1 || h2')); }
     var doc = Html.parse(body, url);
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
     if (!el) {
@@ -833,6 +939,17 @@ var X = {
       return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
     }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
+  },
+  // ---- WordPress "Init Manga" theme: chapter body is AES-256-CBC encrypted in the page
+  // (key = PBKDF2-SHA512(passphrase from InitMangaData.decryption_key, salt, 999 iter, 32 bytes)); needs CryptoJS (load('crypto.js')).
+  initManga: function (body) {
+    var m = /InitMangaEncryptedChapter\s*=\s*(\{[\s\S]*?\})\s*;/.exec(body), k = /"decryption_key"\s*:\s*"([^"]+)"/.exec(body);
+    if (!m || !k || typeof CryptoJS === 'undefined') return '';
+    var o; try { o = JSON.parse(m[1]); } catch (e) { return ''; }
+    if (!o || !o.ciphertext) return '';
+    var pass = CryptoJS.enc.Utf8.stringify(CryptoJS.enc.Base64.parse(k[1]));
+    var key = CryptoJS.PBKDF2(pass, CryptoJS.enc.Hex.parse(o.salt), { hasher: CryptoJS.algo.SHA512, keySize: 8, iterations: 999 });
+    try { return CryptoJS.AES.decrypt(o.ciphertext, key, { iv: CryptoJS.enc.Hex.parse(o.iv) }).toString(CryptoJS.enc.Utf8); } catch (e) { return ''; }
   },
   // ---- Next.js App Router helpers (sites whose TOC comes from a Server Action and whose text lives in the RSC stream)
   // Server Action ids change on every deploy: try the known id first, then look the id up by its exported name in the page's chunks.
@@ -1064,6 +1181,8 @@ var X = {
     return X.listPage(pat, p, '');
   },
   search: function (key, p) {
+    // q_cut: regex; sites whose search breaks on punctuation only get the text before it
+    if (G.q_cut && !C.isUrl(key)) key = String(key).split(new RegExp(G.q_cut))[0].trim() || key;
     if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
     if (G.search_post) {
       // POST search form: { url, body } — body uses {q}; results are parsed like any list page
@@ -1071,7 +1190,20 @@ var X = {
       var items = X.items(doc, 's_');
       return Response.success(items, null);
     }
+    if (G.search_json) return X.jsonSearch(G.search_json, key, p);
     return X.listPage(G.search, p, key);
+  },
+  // JSON search API: { url, list: 'data.items' (dot path, '' = root array), title, link ('/truyen/{slug}' template or field), cover }
+  jsonSearch: function (J, key, p) {
+    var d = C.json(X.url(J.url, p, key), G.req);
+    if (J.list) J.list.split('.').forEach(function (k) { d = d && d[k]; });
+    var fill = function (o, t) { return String(t || '').indexOf('{') >= 0 ? String(t).replace(/\{(\w+)\}/g, function (m, k) { return o[k] == null ? '' : o[k]; }) : (o[t] == null ? '' : String(o[t])); };
+    var out = [];
+    (d || []).forEach(function (o) {
+      var name = fill(o, J.title || 'title'), link = fill(o, J.link || 'url');
+      if (name && link) out.push({ name: name, link: C.fix(link), cover: C.fix(fill(o, J.cover || 'cover')), description: J.desc ? fill(o, J.desc) : '', host: BASE_URL });
+    });
+    return Response.success(out, J.paged && out.length ? C.next(true, p) : null);
   },
   genre: function () {
     if (!G.genre) return Response.success([]);
@@ -1116,8 +1248,20 @@ var X = {
   pages: function (url) {
     var out = [], visited = [url], u = url;
     for (var guard = 0; guard < (G.pages_max || 40); guard++) {
-      var doc = C.html(u, G.req);
-      var imgs = doc.select(G.pages || '.page-chapter img, .reading-content img, .chapter-content img');
+      var doc;
+      if (G.initmanga) {
+        var rr = C.check(C.get(u, G.req), u), bb = rr.text() || '', dec = X.initManga(bb);
+        doc = Html.parse(dec ? '<div id="imc-dec">' + dec + '</div>' : bb, u);
+      } else doc = C.html(u, G.req);
+      var imgs = doc.select(G.initmanga ? '#imc-dec img, ' + (G.pages || '#chapter-content img') : (G.pages || '.page-chapter img, .reading-content img, .chapter-content img'));
+      if (G.initmanga) {
+        // protected canvases: data-enc = base64 of the reversed image url
+        var cv = doc.select('#imc-dec canvas[data-enc]');
+        for (var ci = 0; ci < cv.size(); ci++) {
+          var cu = CryptoJS.enc.Latin1.stringify(CryptoJS.enc.Base64.parse(cv.get(ci).attr('data-enc'))).split('').reverse().join('');
+          if (cu && out.indexOf(cu) < 0) out.push(cu);
+        }
+      }
       for (var i = 0; i < imgs.size(); i++) { var s = C.img(imgs.get(i)); if (s && out.indexOf(s) < 0) out.push(s); }
       if (!G.pages_next) break;
       var nx = doc.select(G.pages_next).first();
@@ -1135,6 +1279,7 @@ var X = {
       var lockMsg = locked ? '<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại ' + BASE_URL + ' để đọc tiếp.</i></p>' : '';
       if (raw || locked) return Response.success(X.toParas(raw) + lockMsg, X.pick(Html.parse(body, url), G.c_title || 'h1 || title'));
     }
+    if (G.initmanga) { var dc = X.initManga(body); if (dc) return Response.success(C.cleanContent(Html.parse('<div id="imc-dec">' + dc + '</div>', url).select('#imc-dec').first()), X.pick(Html.parse(body, url), G.c_title || 'h1 || h2')); }
     var doc = Html.parse(body, url);
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
     if (!el) {
@@ -1142,6 +1287,17 @@ var X = {
       return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
     }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
+  },
+  // ---- WordPress "Init Manga" theme: chapter body is AES-256-CBC encrypted in the page
+  // (key = PBKDF2-SHA512(passphrase from InitMangaData.decryption_key, salt, 999 iter, 32 bytes)); needs CryptoJS (load('crypto.js')).
+  initManga: function (body) {
+    var m = /InitMangaEncryptedChapter\s*=\s*(\{[\s\S]*?\})\s*;/.exec(body), k = /"decryption_key"\s*:\s*"([^"]+)"/.exec(body);
+    if (!m || !k || typeof CryptoJS === 'undefined') return '';
+    var o; try { o = JSON.parse(m[1]); } catch (e) { return ''; }
+    if (!o || !o.ciphertext) return '';
+    var pass = CryptoJS.enc.Utf8.stringify(CryptoJS.enc.Base64.parse(k[1]));
+    var key = CryptoJS.PBKDF2(pass, CryptoJS.enc.Hex.parse(o.salt), { hasher: CryptoJS.algo.SHA512, keySize: 8, iterations: 999 });
+    try { return CryptoJS.AES.decrypt(o.ciphertext, key, { iv: CryptoJS.enc.Hex.parse(o.iv) }).toString(CryptoJS.enc.Utf8); } catch (e) { return ''; }
   },
   // ---- Next.js App Router helpers (sites whose TOC comes from a Server Action and whose text lives in the RSC stream)
   // Server Action ids change on every deploy: try the known id first, then look the id up by its exported name in the page's chunks.
@@ -1373,6 +1529,8 @@ var X = {
     return X.listPage(pat, p, '');
   },
   search: function (key, p) {
+    // q_cut: regex; sites whose search breaks on punctuation only get the text before it
+    if (G.q_cut && !C.isUrl(key)) key = String(key).split(new RegExp(G.q_cut))[0].trim() || key;
     if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
     if (G.search_post) {
       // POST search form: { url, body } — body uses {q}; results are parsed like any list page
@@ -1380,7 +1538,20 @@ var X = {
       var items = X.items(doc, 's_');
       return Response.success(items, null);
     }
+    if (G.search_json) return X.jsonSearch(G.search_json, key, p);
     return X.listPage(G.search, p, key);
+  },
+  // JSON search API: { url, list: 'data.items' (dot path, '' = root array), title, link ('/truyen/{slug}' template or field), cover }
+  jsonSearch: function (J, key, p) {
+    var d = C.json(X.url(J.url, p, key), G.req);
+    if (J.list) J.list.split('.').forEach(function (k) { d = d && d[k]; });
+    var fill = function (o, t) { return String(t || '').indexOf('{') >= 0 ? String(t).replace(/\{(\w+)\}/g, function (m, k) { return o[k] == null ? '' : o[k]; }) : (o[t] == null ? '' : String(o[t])); };
+    var out = [];
+    (d || []).forEach(function (o) {
+      var name = fill(o, J.title || 'title'), link = fill(o, J.link || 'url');
+      if (name && link) out.push({ name: name, link: C.fix(link), cover: C.fix(fill(o, J.cover || 'cover')), description: J.desc ? fill(o, J.desc) : '', host: BASE_URL });
+    });
+    return Response.success(out, J.paged && out.length ? C.next(true, p) : null);
   },
   genre: function () {
     if (!G.genre) return Response.success([]);
@@ -1425,8 +1596,20 @@ var X = {
   pages: function (url) {
     var out = [], visited = [url], u = url;
     for (var guard = 0; guard < (G.pages_max || 40); guard++) {
-      var doc = C.html(u, G.req);
-      var imgs = doc.select(G.pages || '.page-chapter img, .reading-content img, .chapter-content img');
+      var doc;
+      if (G.initmanga) {
+        var rr = C.check(C.get(u, G.req), u), bb = rr.text() || '', dec = X.initManga(bb);
+        doc = Html.parse(dec ? '<div id="imc-dec">' + dec + '</div>' : bb, u);
+      } else doc = C.html(u, G.req);
+      var imgs = doc.select(G.initmanga ? '#imc-dec img, ' + (G.pages || '#chapter-content img') : (G.pages || '.page-chapter img, .reading-content img, .chapter-content img'));
+      if (G.initmanga) {
+        // protected canvases: data-enc = base64 of the reversed image url
+        var cv = doc.select('#imc-dec canvas[data-enc]');
+        for (var ci = 0; ci < cv.size(); ci++) {
+          var cu = CryptoJS.enc.Latin1.stringify(CryptoJS.enc.Base64.parse(cv.get(ci).attr('data-enc'))).split('').reverse().join('');
+          if (cu && out.indexOf(cu) < 0) out.push(cu);
+        }
+      }
       for (var i = 0; i < imgs.size(); i++) { var s = C.img(imgs.get(i)); if (s && out.indexOf(s) < 0) out.push(s); }
       if (!G.pages_next) break;
       var nx = doc.select(G.pages_next).first();
@@ -1444,6 +1627,7 @@ var X = {
       var lockMsg = locked ? '<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại ' + BASE_URL + ' để đọc tiếp.</i></p>' : '';
       if (raw || locked) return Response.success(X.toParas(raw) + lockMsg, X.pick(Html.parse(body, url), G.c_title || 'h1 || title'));
     }
+    if (G.initmanga) { var dc = X.initManga(body); if (dc) return Response.success(C.cleanContent(Html.parse('<div id="imc-dec">' + dc + '</div>', url).select('#imc-dec').first()), X.pick(Html.parse(body, url), G.c_title || 'h1 || h2')); }
     var doc = Html.parse(body, url);
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
     if (!el) {
@@ -1451,6 +1635,17 @@ var X = {
       return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
     }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
+  },
+  // ---- WordPress "Init Manga" theme: chapter body is AES-256-CBC encrypted in the page
+  // (key = PBKDF2-SHA512(passphrase from InitMangaData.decryption_key, salt, 999 iter, 32 bytes)); needs CryptoJS (load('crypto.js')).
+  initManga: function (body) {
+    var m = /InitMangaEncryptedChapter\s*=\s*(\{[\s\S]*?\})\s*;/.exec(body), k = /"decryption_key"\s*:\s*"([^"]+)"/.exec(body);
+    if (!m || !k || typeof CryptoJS === 'undefined') return '';
+    var o; try { o = JSON.parse(m[1]); } catch (e) { return ''; }
+    if (!o || !o.ciphertext) return '';
+    var pass = CryptoJS.enc.Utf8.stringify(CryptoJS.enc.Base64.parse(k[1]));
+    var key = CryptoJS.PBKDF2(pass, CryptoJS.enc.Hex.parse(o.salt), { hasher: CryptoJS.algo.SHA512, keySize: 8, iterations: 999 });
+    try { return CryptoJS.AES.decrypt(o.ciphertext, key, { iv: CryptoJS.enc.Hex.parse(o.iv) }).toString(CryptoJS.enc.Utf8); } catch (e) { return ''; }
   },
   // ---- Next.js App Router helpers (sites whose TOC comes from a Server Action and whose text lives in the RSC stream)
   // Server Action ids change on every deploy: try the known id first, then look the id up by its exported name in the page's chunks.
@@ -1682,6 +1877,8 @@ var X = {
     return X.listPage(pat, p, '');
   },
   search: function (key, p) {
+    // q_cut: regex; sites whose search breaks on punctuation only get the text before it
+    if (G.q_cut && !C.isUrl(key)) key = String(key).split(new RegExp(G.q_cut))[0].trim() || key;
     if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
     if (G.search_post) {
       // POST search form: { url, body } — body uses {q}; results are parsed like any list page
@@ -1689,7 +1886,20 @@ var X = {
       var items = X.items(doc, 's_');
       return Response.success(items, null);
     }
+    if (G.search_json) return X.jsonSearch(G.search_json, key, p);
     return X.listPage(G.search, p, key);
+  },
+  // JSON search API: { url, list: 'data.items' (dot path, '' = root array), title, link ('/truyen/{slug}' template or field), cover }
+  jsonSearch: function (J, key, p) {
+    var d = C.json(X.url(J.url, p, key), G.req);
+    if (J.list) J.list.split('.').forEach(function (k) { d = d && d[k]; });
+    var fill = function (o, t) { return String(t || '').indexOf('{') >= 0 ? String(t).replace(/\{(\w+)\}/g, function (m, k) { return o[k] == null ? '' : o[k]; }) : (o[t] == null ? '' : String(o[t])); };
+    var out = [];
+    (d || []).forEach(function (o) {
+      var name = fill(o, J.title || 'title'), link = fill(o, J.link || 'url');
+      if (name && link) out.push({ name: name, link: C.fix(link), cover: C.fix(fill(o, J.cover || 'cover')), description: J.desc ? fill(o, J.desc) : '', host: BASE_URL });
+    });
+    return Response.success(out, J.paged && out.length ? C.next(true, p) : null);
   },
   genre: function () {
     if (!G.genre) return Response.success([]);
@@ -1734,8 +1944,20 @@ var X = {
   pages: function (url) {
     var out = [], visited = [url], u = url;
     for (var guard = 0; guard < (G.pages_max || 40); guard++) {
-      var doc = C.html(u, G.req);
-      var imgs = doc.select(G.pages || '.page-chapter img, .reading-content img, .chapter-content img');
+      var doc;
+      if (G.initmanga) {
+        var rr = C.check(C.get(u, G.req), u), bb = rr.text() || '', dec = X.initManga(bb);
+        doc = Html.parse(dec ? '<div id="imc-dec">' + dec + '</div>' : bb, u);
+      } else doc = C.html(u, G.req);
+      var imgs = doc.select(G.initmanga ? '#imc-dec img, ' + (G.pages || '#chapter-content img') : (G.pages || '.page-chapter img, .reading-content img, .chapter-content img'));
+      if (G.initmanga) {
+        // protected canvases: data-enc = base64 of the reversed image url
+        var cv = doc.select('#imc-dec canvas[data-enc]');
+        for (var ci = 0; ci < cv.size(); ci++) {
+          var cu = CryptoJS.enc.Latin1.stringify(CryptoJS.enc.Base64.parse(cv.get(ci).attr('data-enc'))).split('').reverse().join('');
+          if (cu && out.indexOf(cu) < 0) out.push(cu);
+        }
+      }
       for (var i = 0; i < imgs.size(); i++) { var s = C.img(imgs.get(i)); if (s && out.indexOf(s) < 0) out.push(s); }
       if (!G.pages_next) break;
       var nx = doc.select(G.pages_next).first();
@@ -1753,6 +1975,7 @@ var X = {
       var lockMsg = locked ? '<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại ' + BASE_URL + ' để đọc tiếp.</i></p>' : '';
       if (raw || locked) return Response.success(X.toParas(raw) + lockMsg, X.pick(Html.parse(body, url), G.c_title || 'h1 || title'));
     }
+    if (G.initmanga) { var dc = X.initManga(body); if (dc) return Response.success(C.cleanContent(Html.parse('<div id="imc-dec">' + dc + '</div>', url).select('#imc-dec').first()), X.pick(Html.parse(body, url), G.c_title || 'h1 || h2')); }
     var doc = Html.parse(body, url);
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
     if (!el) {
@@ -1760,6 +1983,17 @@ var X = {
       return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
     }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
+  },
+  // ---- WordPress "Init Manga" theme: chapter body is AES-256-CBC encrypted in the page
+  // (key = PBKDF2-SHA512(passphrase from InitMangaData.decryption_key, salt, 999 iter, 32 bytes)); needs CryptoJS (load('crypto.js')).
+  initManga: function (body) {
+    var m = /InitMangaEncryptedChapter\s*=\s*(\{[\s\S]*?\})\s*;/.exec(body), k = /"decryption_key"\s*:\s*"([^"]+)"/.exec(body);
+    if (!m || !k || typeof CryptoJS === 'undefined') return '';
+    var o; try { o = JSON.parse(m[1]); } catch (e) { return ''; }
+    if (!o || !o.ciphertext) return '';
+    var pass = CryptoJS.enc.Utf8.stringify(CryptoJS.enc.Base64.parse(k[1]));
+    var key = CryptoJS.PBKDF2(pass, CryptoJS.enc.Hex.parse(o.salt), { hasher: CryptoJS.algo.SHA512, keySize: 8, iterations: 999 });
+    try { return CryptoJS.AES.decrypt(o.ciphertext, key, { iv: CryptoJS.enc.Hex.parse(o.iv) }).toString(CryptoJS.enc.Utf8); } catch (e) { return ''; }
   },
   // ---- Next.js App Router helpers (sites whose TOC comes from a Server Action and whose text lives in the RSC stream)
   // Server Action ids change on every deploy: try the known id first, then look the id up by its exported name in the page's chunks.

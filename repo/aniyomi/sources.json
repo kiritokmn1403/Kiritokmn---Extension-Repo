@@ -36,6 +36,15 @@
   "sourceId": 948389851
  },
  {
+  "id": "blbattu",
+  "name": "BL Bất Tử",
+  "lang": "vi",
+  "baseUrl": "https://blbattu.com",
+  "type": "comic",
+  "nsfw": false,
+  "sourceId": 1487368103
+ },
+ {
   "id": "blvietsub",
   "name": "BLVietsub",
   "lang": "vi",
