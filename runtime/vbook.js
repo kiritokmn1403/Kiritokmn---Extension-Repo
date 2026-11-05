@@ -4,7 +4,7 @@
 import { parseHtml, cleanHtml, Elements, Element } from './dom.js';
 import { b64 } from './url.js';
 
-const DEFAULT_UA = 'Mozilla/5.0 (Linux; Android 14; SM-S918B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36';
+export const DEFAULT_UA = 'Mozilla/5.0 (Linux; Android 14; SM-S918B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36';
 
 function b64encodeBytes(bytes) {
   if (typeof Buffer !== 'undefined') return Buffer.from(bytes).toString('base64');

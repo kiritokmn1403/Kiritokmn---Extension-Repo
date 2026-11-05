@@ -149,3 +149,13 @@ Chủ dự án yêu cầu tạo và duy trì tài liệu này ngày 25/10/2026. 
 | 31 | czbooks trong Mangayomi hiện các ký tự `\r` giữa các đoạn (trang dùng xuống dòng CRLF) | `lib_common.js` `cleanContent`: bỏ `\r` / `&#13;` |
 
 - Kết quả trong Mangayomi (emulator, sau bản sửa): **NovelFull.Net** danh sách có ảnh bìa → chi tiết (tác giả FanficLord03, Ongoing, 636 chương) → đọc chương 1 đầy đủ ✅. **czbooks** (nguồn dính Cloudflare) danh sách → chi tiết (《全屬性武道》, 3.289 chương) → đọc chương 3309 ✅; app tự nhận bản cập nhật (Update pending) sau khi tăng phiên bản ✅. Ảnh: `_work/shots/emu_mangayomi_*.png`.
+
+**Kiểm thử trên Galaxy Note9 (SM-N960N) — 05/11/2026 06:45**
+- Mangayomi: deep link thêm repo ✅, danh sách tiện ích (phiên bản 0.1.x) ✅, cài NovelFull.Net / App Truyện Chữ / czbooks / TruyenQQ ✅.
+- czbooks (Cloudflare): danh sách → 《不打仗的將軍》 28 chương → đọc chương 1, **không còn ký tự `\r`** ✅.
+- App Truyện Chữ: danh sách và chi tiết ✅, nhưng **mục lục sai** (chỉ có "Chương mới nhất", "Đọc truyện") ❌ — cần viết selector riêng.
+- TruyenQQ: danh sách ✅, chi tiết 376 chương ✅ (lẫn 1 mục giả "Đọc từ đầu"), **trang ảnh không tải được** ❌.
+
+| # | Lỗi | Sửa |
+|---|---|---|
+| 32 | TruyenQQ: ảnh chương "This image couldn't be loaded". Thử bằng curl trên máy chủ dự án: CDN `i216.truyenvua.com` / `hinhtruyen.com` trả **403** khi không có `Referer` hoặc `Referer` sai tên miền (`truyenqq.com.vn`), **200** khi `Referer: https://truyenqqko.com/` | `hosts/mangayomi.tail.js`: `Referer` lấy từ tên miền của chính trang chương (không phụ thuộc giá trị cài đặt), thêm `User-Agent`, `Accept: image/*`; `__base()` bỏ qua giá trị cài đặt không phải URL. Phiên bản Mangayomi `0.1.x` → `0.2.x` |

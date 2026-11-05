@@ -5,3 +5,4 @@ import { META, SCRIPTS } from '__generated__/scripts.js';
 
 export { META };
 export function create(host) { return new VBookEngine({ meta: META, scripts: SCRIPTS, host }); }
+export { DEFAULT_UA as UA } from '../runtime/vbook.js';

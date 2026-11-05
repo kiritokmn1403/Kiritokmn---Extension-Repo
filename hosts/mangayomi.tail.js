@@ -3,8 +3,11 @@
 class DefaultExtension extends MProvider {
   constructor() { super(); this.client = new Client(); this.prefs = new SharedPreferences(); }
   get supportsLatest() { return true; }
-  getHeaders(url) { return { Referer: this.__base() + '/' }; }
-  __base() { let d = ''; try { d = this.prefs.get('DOMAIN'); } catch (e) { } return String(d || __VB.META.source).replace(/\/+$/, ''); }
+  getHeaders(url) { return this.__imgHeaders(url); }
+  __origin(u) { const m = /^https?:\/\/[^/?#]+/i.exec(String(u || '')); return m ? m[0] : ''; }
+  __base() { let d = ''; try { d = this.prefs.get('DOMAIN'); } catch (e) { } d = typeof d === 'string' ? d.trim() : ''; return (/^https?:\/\//i.test(d) ? d : __VB.META.source).replace(/\/+$/, ''); }
+  // Image CDNs (truyenvua, hinhtruyen…) answer 403 unless Referer is the site itself: use the page's own origin.
+  __imgHeaders(pageUrl) { return { Referer: (this.__origin(pageUrl) || this.__base()) + '/', 'User-Agent': __VB.UA, Accept: 'image/avif,image/webp,image/apng,image/*,*/*;q=0.8' }; }
   __eng() {
     if (this.__e) return this.__e;
     const self = this;
@@ -35,7 +38,7 @@ class DefaultExtension extends MProvider {
     if (__VB.META.itemType === 1) out.episodes = ch; else out.chapters = ch;
     return out;
   }
-  async getPageList(url) { const base = this.__base(); return (await this.__eng().pages(url)).map(p => ({ url: p, headers: { Referer: base + '/' } })); }
+  async getPageList(url) { const h = this.__imgHeaders(url); return (await this.__eng().pages(url)).map(p => ({ url: p, headers: h })); }
   async getVideoList(url) {
     return (await this.__eng().videos(url)).map(v => ({ url: v.url, originalUrl: v.url, quality: v.quality, headers: v.headers, subtitles: v.subtitles, audios: [] }));
   }
