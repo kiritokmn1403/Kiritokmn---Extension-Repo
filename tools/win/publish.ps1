@@ -34,7 +34,9 @@ if (-not $rel) {
 $files = Get-ChildItem (Join-Path $Root 'Output') -File | Where-Object { $_.Name -notmatch '\.log$' }
 foreach ($f in $files) {
   $exist = $rel.assets | Where-Object { $_.name -eq $f.Name }
-  if ($exist -and $exist.size -eq $f.Length) { L "  skip $($f.Name) (already uploaded)"; continue }
+  $same = $exist -and $exist.size -eq $f.Length
+  if ($same -and $exist.digest) { $same = ($exist.digest -eq ('sha256:' + (Get-FileHash $f.FullName -Algorithm SHA256).Hash.ToLower())) }
+  if ($same) { L "  skip $($f.Name) (already uploaded)"; continue }
   if ($exist) { Invoke-RestMethod -Headers $H -Method Delete -Uri "$api/releases/assets/$($exist.id)" | Out-Null }
   $u = "https://uploads.github.com/repos/$Owner/$Repo/releases/$($rel.id)/assets?name=$([uri]::EscapeDataString($f.Name))"
   try { $r = Invoke-RestMethod -Headers $H -Method Post -Uri $u -InFile $f.FullName -ContentType 'application/octet-stream' -TimeoutSec 1800; L "  uploaded $($f.Name) $($f.Length) bytes" }

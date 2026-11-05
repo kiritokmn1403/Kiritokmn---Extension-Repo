@@ -40,10 +40,12 @@ export function loadLNReader(id) {
     '@libs/fetch': { fetchApi: (u, i) => httpFetch(u, i) },
     '@libs/storage': { storage: { get: k => store[k], set: (k, v) => { store[k] = v; }, delete: k => { delete store[k]; } } },
   };
-  const module = { exports: {} };
-  const fn = new Function('require', 'module', 'exports', code);
-  fn(n => { if (libs[n]) return libs[n]; throw new Error('module not provided by LNReader: ' + n); }, module, module.exports);
-  return module.exports.default;
+  // Same wrapper as LNReader's src/plugins/pluginManager.ts initPlugin(): the plugin is whatever ends up in the
+  // ORIGINAL exports object's `default` (a bundle that only reassigns module.exports is seen as broken by the app).
+  const fn = new Function('require', 'module', 'const exports = module.exports = {};\n' + code + ';\nreturn exports.default');
+  const plugin = fn(n => { if (libs[n]) return libs[n]; throw new Error('module not provided by LNReader: ' + n); }, {});
+  if (!plugin) throw new Error('LNReader would reject this plugin: exports.default is undefined');
+  return plugin;
 }
 
 // quick CLI
