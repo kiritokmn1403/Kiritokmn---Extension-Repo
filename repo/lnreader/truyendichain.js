@@ -2314,7 +2314,7 @@ var G = function (t) { return t == null ? "" : String(t); }, Ra = function (t) {
 function a0(t) {
     return String(t).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var xe = { id: "truyendichain", name: "Truyện Dịch AI", source: "https://truyendichai.top/", type: "novel", locale: "vi_VN", nsfw: !1, version: 1, config: { DOMAIN: { title: "Tên miền", subtitle: "Chọn hoặc nhập tên miền", default: "https://truyendichai.top", mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://truyendichai.top" }, itemType: 2, lnId: "kiritokmn.truyendichain", lnIcon: "", lnVersion: "1.1.1" }, i0 = { home: function (t, e) {
+var xe = { id: "truyendichain", name: "Truyện Dịch AI", source: "https://truyendichai.top/", type: "novel", locale: "vi_VN", nsfw: !1, version: 1, config: { DOMAIN: { title: "Tên miền", subtitle: "Chọn hoặc nhập tên miền", default: "https://truyendichai.top", mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://truyendichai.top" }, itemType: 2, lnId: "kiritokmn.truyendichain", lnIcon: "", lnVersion: "1.2.1" }, i0 = { home: function (t, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
             return [2, (function (u, r, a, n, s, o, f, d, g, k, y, w, N, U, Y, _, fe) {
                     return __awaiter(this, void 0, void 0, function () { var j; return __generator(this, function (_a) {
@@ -3127,3 +3127,5 @@ var zu = {}, Wt = dt && dt.storage ? dt.storage : { get: function (t) { return z
     class_2.prototype.resolveUrl = function (e, u) { return /^https?:/i.test(e) ? e : xe.source.replace(/\/+$/, "") + "/" + String(e).replace(/^\/+/, ""); };
     return class_2;
 }()), Fa = new $u;
+
+if (typeof exports === "object" && exports && module.exports !== exports && module.exports && module.exports.default) exports.default = module.exports.default;

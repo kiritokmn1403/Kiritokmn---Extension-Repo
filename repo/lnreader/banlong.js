@@ -2314,7 +2314,7 @@ var L = function (u) { return u == null ? "" : String(u); }, gn = function (u) {
 function B0(u) {
     return String(u).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var iu = { id: "banlong", name: "Bàn Long", source: "https://blhvip.vn", type: "novel", locale: "vi", nsfw: !1, version: 8, config: { DOMAIN: { title: "Domain", default: "https://blhvip.vn", mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://blhvip.vn" }, itemType: 2, lnId: "kiritokmn.banlong", lnIcon: "", lnVersion: "1.1.8" }, R0 = { home: function (u, e) {
+var iu = { id: "banlong", name: "Bàn Long", source: "https://blhvip.vn", type: "novel", locale: "vi", nsfw: !1, version: 8, config: { DOMAIN: { title: "Domain", default: "https://blhvip.vn", mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://blhvip.vn" }, itemType: 2, lnId: "kiritokmn.banlong", lnIcon: "", lnVersion: "1.2.8" }, R0 = { home: function (u, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
             return [2, (function (t, r, n, a, i, s, o, l, d, y, b, p, w, S, P, V, Q) {
                     return __awaiter(this, void 0, void 0, function () { var v; return __generator(this, function (_a) {
@@ -2745,3 +2745,5 @@ var Et = {}, ve = Qu && Qu.storage ? Qu.storage : { get: function (u) { return E
     class_2.prototype.resolveUrl = function (e, t) { return /^https?:/i.test(e) ? e : iu.source.replace(/\/+$/, "") + "/" + String(e).replace(/^\/+/, ""); };
     return class_2;
 }()), xn = new Tt;
+
+if (typeof exports === "object" && exports && module.exports !== exports && module.exports && module.exports.default) exports.default = module.exports.default;

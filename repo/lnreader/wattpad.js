@@ -2314,7 +2314,7 @@ var R = function (u) { return u == null ? "" : String(u); }, Un = function (u) {
 function Z0(u) {
     return String(u).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var mu = { id: "wattpad", name: "Wattpad - Tiếng Việt", source: "https://www.wattpad.com", type: "novel", locale: "vi", nsfw: !1, version: 21, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.wattpad", lnIcon: "", lnVersion: "1.1.21" }, ur = { home: function (u, e) {
+var mu = { id: "wattpad", name: "Wattpad - Tiếng Việt", source: "https://www.wattpad.com", type: "novel", locale: "vi", nsfw: !1, version: 21, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.wattpad", lnIcon: "", lnVersion: "1.2.21" }, ur = { home: function (u, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
             return [2, (function (t, r, n, i, a, c, o, h, m, E, y, v, T, N, F, $, ru) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
@@ -3239,3 +3239,5 @@ var Bt = {}, Be = ae && ae.storage ? ae.storage : { get: function (u) { return B
     class_2.prototype.resolveUrl = function (e, t) { return /^https?:/i.test(e) ? e : mu.source.replace(/\/+$/, "") + "/" + String(e).replace(/^\/+/, ""); };
     return class_2;
 }()), On = new Pt;
+
+if (typeof exports === "object" && exports && module.exports !== exports && module.exports && module.exports.default) exports.default = module.exports.default;

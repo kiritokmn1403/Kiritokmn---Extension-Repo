@@ -2314,7 +2314,7 @@ var re = function (e) { return e == null ? "" : String(e); }, un = function (e) 
 function S0(e) {
     return String(e).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var Be = { id: "metruyenchu", name: "MeTruyenChu", source: "https://metruyenchu.com.vn", type: "novel", locale: "vi_VN", nsfw: !1, version: 17, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.metruyenchu", lnIcon: "", lnVersion: "1.1.17" }, A0 = { home: function (e, t) {
+var Be = { id: "metruyenchu", name: "MeTruyenChu", source: "https://metruyenchu.com.vn", type: "novel", locale: "vi_VN", nsfw: !1, version: 17, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.metruyenchu", lnIcon: "", lnVersion: "1.2.17" }, A0 = { home: function (e, t) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
                 return [2, (function (u, r, a, n, i, c, o, f, E, P, C, q, M, K, oe, pe, ve) {
@@ -3614,3 +3614,5 @@ var sr = {}, cu = Lt && Lt.storage ? Lt.storage : { get: function (e) { return s
     class_2.prototype.resolveUrl = function (t, u) { return /^https?:/i.test(t) ? t : Be.source.replace(/\/+$/, "") + "/" + String(t).replace(/^\/+/, ""); };
     return class_2;
 }()), an = new cr;
+
+if (typeof exports === "object" && exports && module.exports !== exports && module.exports && module.exports.default) exports.default = module.exports.default;

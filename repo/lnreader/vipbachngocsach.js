@@ -2665,7 +2665,7 @@ function pa(t) {
 }
 var Di = S0(Bi(), 1);
 globalThis.CryptoJS = Di.default;
-var B0 = { id: "vipbachngocsach", name: "【VIP】Bạch Ngọc Sách", source: "https://bnsvip.net", type: "novel", locale: "vi_VN", nsfw: !1, version: 1, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.vipbachngocsach", lnIcon: "", lnVersion: "1.1.1" }, Fi = { home: function (t, e) {
+var B0 = { id: "vipbachngocsach", name: "【VIP】Bạch Ngọc Sách", source: "https://bnsvip.net", type: "novel", locale: "vi_VN", nsfw: !1, version: 1, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.vipbachngocsach", lnIcon: "", lnVersion: "1.2.1" }, Fi = { home: function (t, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_c) {
             return [2, (function (u, r, a, i, c, n, o, l, f, p, d, h, b, m, E, x, g) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_c) {
@@ -3100,3 +3100,5 @@ var Ku = {}, jt = Fe && Fe.storage ? Fe.storage : { get: function (t) { return K
     class_2.prototype.resolveUrl = function (e, u) { return /^https?:/i.test(e) ? e : B0.source.replace(/\/+$/, "") + "/" + String(e).replace(/^\/+/, ""); };
     return class_2;
 }()), vs = new Xu;
+
+if (typeof exports === "object" && exports && module.exports !== exports && module.exports && module.exports.default) exports.default = module.exports.default;

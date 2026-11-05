@@ -2471,7 +2471,7 @@ function es(e, u, t) {
         }
     }); });
 }
-var Q = { id: "faloo", name: "bFaloo (飞卢小说)", source: "https://b.faloo.com", type: "novel", locale: "zh-CN", nsfw: !1, version: 5, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.faloo", lnIcon: "", lnVersion: "1.1.5" }, D0 = { home: function (e, u) {
+var Q = { id: "faloo", name: "bFaloo (飞卢小说)", source: "https://b.faloo.com", type: "novel", locale: "zh-CN", nsfw: !1, version: 5, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.faloo", lnIcon: "", lnVersion: "1.2.5" }, D0 = { home: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
             return [2, (function (t, r, a, n, i, s, c, o, f, g, h, b, m, y, U, F, eu) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
@@ -2695,3 +2695,5 @@ var xt = {}, we = Vu && Vu.storage ? Vu.storage : { get: function (e) { return x
     class_2.prototype.resolveUrl = function (u, t) { return /^https?:/i.test(u) ? u : Q.source.replace(/\/+$/, "") + "/" + String(u).replace(/^\/+/, ""); };
     return class_2;
 }()), fa = new yt;
+
+if (typeof exports === "object" && exports && module.exports !== exports && module.exports && module.exports.default) exports.default = module.exports.default;

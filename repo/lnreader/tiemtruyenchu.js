@@ -2314,7 +2314,7 @@ var A = function (e) { return e == null ? "" : String(e); }, an = function (e) {
 function k0(e) {
     return String(e).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var Z = { id: "tiemtruyenchu", name: "Tiệm Truyện Chữ (Demo)", source: "https://tiemtruyenchu.cloud", type: "novel", locale: "vi_VN", nsfw: !1, version: 1, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.tiemtruyenchu", lnIcon: "", lnVersion: "1.1.1" }, N0 = { home: function (e, u) {
+var Z = { id: "tiemtruyenchu", name: "Tiệm Truyện Chữ (Demo)", source: "https://tiemtruyenchu.cloud", type: "novel", locale: "vi_VN", nsfw: !1, version: 1, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.tiemtruyenchu", lnIcon: "", lnVersion: "1.2.1" }, N0 = { home: function (e, u) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 return [2, (function (t, r, n, a, i, s, c, o, f, g, d, b, m, w, R, F, Y) {
@@ -2548,3 +2548,5 @@ var pt = {}, me = Pu && Pu.storage ? Pu.storage : { get: function (e) { return p
     class_2.prototype.resolveUrl = function (u, t) { return /^https?:/i.test(u) ? u : Z.source.replace(/\/+$/, "") + "/" + String(u).replace(/^\/+/, ""); };
     return class_2;
 }()), cn = new gt;
+
+if (typeof exports === "object" && exports && module.exports !== exports && module.exports && module.exports.default) exports.default = module.exports.default;

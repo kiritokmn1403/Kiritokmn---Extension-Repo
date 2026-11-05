@@ -2665,7 +2665,7 @@ function pa(u) {
 }
 var y0 = F0(Bi(), 1);
 globalThis.CryptoJS = y0.default;
-var B0 = { id: "xianqihaotiamiapp", name: "言情小说阁 (APP)", source: "http://www.xianqihaotianmi.org", type: "novel", locale: "zh-CN", nsfw: !1, version: 1, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.xianqihaotiamiapp", lnIcon: "", lnVersion: "1.1.1" }, Di = { home: function (u, e) {
+var B0 = { id: "xianqihaotiamiapp", name: "言情小说阁 (APP)", source: "http://www.xianqihaotianmi.org", type: "novel", locale: "zh-CN", nsfw: !1, version: 1, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.xianqihaotiamiapp", lnIcon: "", lnVersion: "1.2.1" }, Di = { home: function (u, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_c) {
             return [2, (function (t, r, a, i, s, n, c, f, o, b, l, x, h, g, A, d, p) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_c) {
@@ -2996,3 +2996,5 @@ var Xt = {}, Vu = we && we.storage ? we.storage : { get: function (u) { return X
     class_2.prototype.resolveUrl = function (e, t) { return /^https?:/i.test(e) ? e : B0.source.replace(/\/+$/, "") + "/" + String(e).replace(/^\/+/, ""); };
     return class_2;
 }()), ms = new Jt;
+
+if (typeof exports === "object" && exports && module.exports !== exports && module.exports && module.exports.default) exports.default = module.exports.default;

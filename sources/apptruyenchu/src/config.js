@@ -11,5 +11,16 @@ var G = {
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
  "d_desc": "meta[name=description]@content",
- "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+ "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]",
+ "ch_action": {
+  "name": "fetchChaptersOfBook",
+  "id": "40846d9ab28025db6a72550e98f102a4cdecf4a9a7",
+  "arg": "bookId\\\\?\"\\s*:\\s*\\\\?\"([0-9a-f]{24})",
+  "title": "label",
+  "slug": "slugId",
+  "lock": "isLock"
+ },
+ "content_rsc": true,
+ "c_locked": "Chương này đã kho[áa]",
+ "c_title": "h1 || title"
 };

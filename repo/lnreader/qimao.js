@@ -2665,7 +2665,7 @@ function bi(t) {
 }
 var Y = F0(Ba(), 1);
 globalThis.CryptoJS = Y.default;
-var B0 = { id: "qimao", name: "Qimao (七猫文化)", source: "https://www.qimao.com", type: "novel", locale: "zh-CN", nsfw: !1, version: 2, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.qimao", lnIcon: "", lnVersion: "1.1.2" }, Da = { home: function (t, e) {
+var B0 = { id: "qimao", name: "Qimao (七猫文化)", source: "https://www.qimao.com", type: "novel", locale: "zh-CN", nsfw: !1, version: 2, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.qimao", lnIcon: "", lnVersion: "1.2.2" }, Da = { home: function (t, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_c) {
             return [2, (function (u, r, i, a, s, n, c, f, o, p, l, x, h, g, A, d, b) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_c) {
@@ -2928,3 +2928,5 @@ var $u = {}, Gt = we && we.storage ? we.storage : { get: function (t) { return $
     class_2.prototype.resolveUrl = function (e, u) { return /^https?:/i.test(e) ? e : B0.source.replace(/\/+$/, "") + "/" + String(e).replace(/^\/+/, ""); };
     return class_2;
 }()), ms = new Xu;
+
+if (typeof exports === "object" && exports && module.exports !== exports && module.exports && module.exports.default) exports.default = module.exports.default;

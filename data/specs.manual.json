@@ -493,5 +493,21 @@
    "single": "Xem video"
   },
   "version": 2
+ },
+ "apptruyenchu": {
+  "patch": {
+   "ch_action": {
+    "name": "fetchChaptersOfBook",
+    "id": "40846d9ab28025db6a72550e98f102a4cdecf4a9a7",
+    "arg": "bookId\\\\?\"\\s*:\\s*\\\\?\"([0-9a-f]{24})",
+    "title": "label",
+    "slug": "slugId",
+    "lock": "isLock"
+   },
+   "content_rsc": true,
+   "c_locked": "Chương này đã kho[áa]",
+   "c_title": "h1 || title"
+  },
+  "version": 2
  }
 }

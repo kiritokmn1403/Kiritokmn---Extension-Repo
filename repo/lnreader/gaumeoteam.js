@@ -2335,7 +2335,7 @@ function qt(e, t) {
         }
     }); });
 }
-var ut = { id: "gaumeoteam", name: "Gấu Mèo Team", source: "https://gaumeoteam.com", type: "novel", locale: "vi", nsfw: !1, version: 1, config: { DOMAIN: { title: "Tên miền", subtitle: "Đổi khi trang đổi tên miền", default: "https://gaumeoteam.com", values: ["https://gaumeoteam.com"], mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://gaumeoteam.com" }, itemType: 2, lnId: "kiritokmn.gaumeoteam", lnIcon: "", lnVersion: "1.1.1" }, Ia = { home: function (e, t) {
+var ut = { id: "gaumeoteam", name: "Gấu Mèo Team", source: "https://gaumeoteam.com", type: "novel", locale: "vi", nsfw: !1, version: 1, config: { DOMAIN: { title: "Tên miền", subtitle: "Đổi khi trang đổi tên miền", default: "https://gaumeoteam.com", values: ["https://gaumeoteam.com"], mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://gaumeoteam.com" }, itemType: 2, lnId: "kiritokmn.gaumeoteam", lnIcon: "", lnVersion: "1.2.1" }, Ia = { home: function (e, t) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
                 return [2, (function (u, a, n, s, o, h, p, m, x, T, v, S, N, C, F, z, K) {
@@ -4917,3 +4917,5 @@ var wu = {}, Se = Gt && Gt.storage ? Gt.storage : { get: function (e) { return w
     class_2.prototype.resolveUrl = function (t, u) { return /^https?:/i.test(t) ? t : ut.source.replace(/\/+$/, "") + "/" + String(t).replace(/^\/+/, ""); };
     return class_2;
 }()), d0 = new vu;
+
+if (typeof exports === "object" && exports && module.exports !== exports && module.exports && module.exports.default) exports.default = module.exports.default;

@@ -2314,7 +2314,7 @@ var L = function (u) { return u == null ? "" : String(u); }, Na = function (u) {
 function $0(u) {
     return String(u).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var iu = { id: "truyenmoi", name: "Truyện Mới", source: "https://truyenmoiqq.com/", type: "novel", locale: "vi_VN", nsfw: !1, version: 7, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.truyenmoi", lnIcon: "", lnVersion: "1.1.7" }, K0 = { home: function (u, e) {
+var iu = { id: "truyenmoi", name: "Truyện Mới", source: "https://truyenmoiqq.com/", type: "novel", locale: "vi_VN", nsfw: !1, version: 7, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.truyenmoi", lnIcon: "", lnVersion: "1.2.7" }, K0 = { home: function (u, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
             return [2, (function (t, r, a, i, n, s, c, o, d, y, h, b, S, w, R, P, Z) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
@@ -2801,3 +2801,5 @@ var kt = {}, ke = Zu && Zu.storage ? Zu.storage : { get: function (u) { return k
     class_2.prototype.resolveUrl = function (e, t) { return /^https?:/i.test(e) ? e : iu.source.replace(/\/+$/, "") + "/" + String(e).replace(/^\/+/, ""); };
     return class_2;
 }()), qa = new Lt;
+
+if (typeof exports === "object" && exports && module.exports !== exports && module.exports && module.exports.default) exports.default = module.exports.default;

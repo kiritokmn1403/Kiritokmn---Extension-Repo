@@ -159,6 +159,7 @@ var X = {
     });
   },
   toc: function (url) {
+    if (G.ch_action) return X.actionToc(url);
     if (G.single) return Response.success([{ name: G.single === true ? 'Xem / Đọc' : G.single, url: url, host: BASE_URL }]);
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
@@ -196,6 +197,11 @@ var X = {
   },
   text: function (url) {
     var r = C.check(C.get(url, G.req), url), body = r.text() || '';
+    if (G.content_rsc) {
+      var raw = X.rscText(body), locked = G.c_locked && new RegExp(G.c_locked, 'i').test(body);
+      var lockMsg = locked ? '<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại ' + BASE_URL + ' để đọc tiếp.</i></p>' : '';
+      if (raw || locked) return Response.success(X.toParas(raw) + lockMsg, X.pick(Html.parse(body, url), G.c_title || 'h1 || title'));
+    }
     var doc = Html.parse(body, url);
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
     if (!el) {
@@ -203,6 +209,61 @@ var X = {
       return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
     }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
+  },
+  // ---- Next.js App Router helpers (sites whose TOC comes from a Server Action and whose text lives in the RSC stream)
+  // Server Action ids change on every deploy: try the known id first, then look the id up by its exported name in the page's chunks.
+  rscAction: function (html, name) {
+    var srcs = [], m, re = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g;
+    while ((m = re.exec(html))) if (srcs.indexOf(m[0]) < 0) srcs.push(m[0]);
+    var pat = new RegExp('"([0-9a-f]{40,44})"[^"]{0,200}?"' + name + '"');
+    for (var i = 0; i < srcs.length && i < 60; i++) {
+      var r = C.get(BASE_URL + srcs[i]); if (!r || !r.ok) continue;
+      var mm = pat.exec(r.text() || ''); if (mm) return mm[1];
+    }
+    return '';
+  },
+  rscArray: function (body) {
+    var lines = String(body || '').split('\n');
+    for (var i = 0; i < lines.length; i++) {
+      var mm = /^[0-9a-f]+:(\[.*)$/.exec(lines[i]);
+      if (mm) { try { var a = JSON.parse(mm[1]); if (a && a.length) return a; } catch (e) { } }
+    }
+    return null;
+  },
+  actionToc: function (url) {
+    var A = G.ch_action, html = C.check(C.get(url, G.req), url).text() || '';
+    var am = new RegExp(A.arg).exec(html);
+    if (!am) return Response.error('Không tìm thấy mã truyện trên trang ' + url);
+    var payload = JSON.stringify([am[1]]);
+    var post = function (id) {
+      var r = C.get(url, { method: 'POST', headers: { 'Next-Action': id, 'Accept': 'text/x-component', 'Content-Type': 'text/plain;charset=UTF-8' }, body: payload });
+      return r && r.ok ? X.rscArray(r.text()) : null;
+    };
+    var arr = A.id ? post(A.id) : null;
+    if (!arr) { var id2 = X.rscAction(html, A.name); if (id2 && id2 !== A.id) arr = post(id2); }
+    if (!arr) return Response.error('Không lấy được danh sách chương (Server Action "' + A.name + '")');
+    var base = url.replace(/[?#].*$/, '').replace(/\/+$/, '');
+    return Response.success(arr.map(function (c) {
+      return { name: String(c[A.title || 'label'] || '') + (A.lock && c[A.lock] ? ' 🔒' : ''), url: base + '/' + c[A.slug || 'slugId'], host: BASE_URL };
+    }));
+  },
+  // Join the self.__next_f.push([1,"..."]) chunks and return the longest text row ("<id>:T<hex byte length>,<text>").
+  rscText: function (html) {
+    var s = '', m, re = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g;
+    while ((m = re.exec(html))) { try { s += JSON.parse(m[1]); } catch (e) { } }
+    var best = '', tr = /([0-9a-f]+):T([0-9a-f]+),/g, t;
+    while ((t = tr.exec(s))) {
+      var n = parseInt(t[2], 16), i = tr.lastIndex, b = 0;
+      while (i < s.length && b < n) { var c = s.charCodeAt(i); if (c < 0x80) b += 1; else if (c < 0x800) b += 2; else if (c >= 0xD800 && c <= 0xDBFF) { b += 4; i++; } else b += 3; i++; }
+      var txt = s.slice(tr.lastIndex, i);
+      if (txt.length > best.length) best = txt;
+      tr.lastIndex = i;
+    }
+    return best;
+  },
+  toParas: function (txt) {
+    if (/<p[\s>]|<br\s*\/?>/i.test(txt)) return txt;
+    return txt.split(/\n+/).map(function (l) { l = l.trim(); return l ? '<p>' + l.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</p>' : ''; }).join('');
   },
   // Video: list servers on the episode page, then sniff a playable stream from each.
   servers: function (url) {
@@ -401,6 +462,7 @@ var X = {
     });
   },
   toc: function (url) {
+    if (G.ch_action) return X.actionToc(url);
     if (G.single) return Response.success([{ name: G.single === true ? 'Xem / Đọc' : G.single, url: url, host: BASE_URL }]);
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
@@ -438,6 +500,11 @@ var X = {
   },
   text: function (url) {
     var r = C.check(C.get(url, G.req), url), body = r.text() || '';
+    if (G.content_rsc) {
+      var raw = X.rscText(body), locked = G.c_locked && new RegExp(G.c_locked, 'i').test(body);
+      var lockMsg = locked ? '<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại ' + BASE_URL + ' để đọc tiếp.</i></p>' : '';
+      if (raw || locked) return Response.success(X.toParas(raw) + lockMsg, X.pick(Html.parse(body, url), G.c_title || 'h1 || title'));
+    }
     var doc = Html.parse(body, url);
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
     if (!el) {
@@ -445,6 +512,61 @@ var X = {
       return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
     }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
+  },
+  // ---- Next.js App Router helpers (sites whose TOC comes from a Server Action and whose text lives in the RSC stream)
+  // Server Action ids change on every deploy: try the known id first, then look the id up by its exported name in the page's chunks.
+  rscAction: function (html, name) {
+    var srcs = [], m, re = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g;
+    while ((m = re.exec(html))) if (srcs.indexOf(m[0]) < 0) srcs.push(m[0]);
+    var pat = new RegExp('"([0-9a-f]{40,44})"[^"]{0,200}?"' + name + '"');
+    for (var i = 0; i < srcs.length && i < 60; i++) {
+      var r = C.get(BASE_URL + srcs[i]); if (!r || !r.ok) continue;
+      var mm = pat.exec(r.text() || ''); if (mm) return mm[1];
+    }
+    return '';
+  },
+  rscArray: function (body) {
+    var lines = String(body || '').split('\n');
+    for (var i = 0; i < lines.length; i++) {
+      var mm = /^[0-9a-f]+:(\[.*)$/.exec(lines[i]);
+      if (mm) { try { var a = JSON.parse(mm[1]); if (a && a.length) return a; } catch (e) { } }
+    }
+    return null;
+  },
+  actionToc: function (url) {
+    var A = G.ch_action, html = C.check(C.get(url, G.req), url).text() || '';
+    var am = new RegExp(A.arg).exec(html);
+    if (!am) return Response.error('Không tìm thấy mã truyện trên trang ' + url);
+    var payload = JSON.stringify([am[1]]);
+    var post = function (id) {
+      var r = C.get(url, { method: 'POST', headers: { 'Next-Action': id, 'Accept': 'text/x-component', 'Content-Type': 'text/plain;charset=UTF-8' }, body: payload });
+      return r && r.ok ? X.rscArray(r.text()) : null;
+    };
+    var arr = A.id ? post(A.id) : null;
+    if (!arr) { var id2 = X.rscAction(html, A.name); if (id2 && id2 !== A.id) arr = post(id2); }
+    if (!arr) return Response.error('Không lấy được danh sách chương (Server Action "' + A.name + '")');
+    var base = url.replace(/[?#].*$/, '').replace(/\/+$/, '');
+    return Response.success(arr.map(function (c) {
+      return { name: String(c[A.title || 'label'] || '') + (A.lock && c[A.lock] ? ' 🔒' : ''), url: base + '/' + c[A.slug || 'slugId'], host: BASE_URL };
+    }));
+  },
+  // Join the self.__next_f.push([1,"..."]) chunks and return the longest text row ("<id>:T<hex byte length>,<text>").
+  rscText: function (html) {
+    var s = '', m, re = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g;
+    while ((m = re.exec(html))) { try { s += JSON.parse(m[1]); } catch (e) { } }
+    var best = '', tr = /([0-9a-f]+):T([0-9a-f]+),/g, t;
+    while ((t = tr.exec(s))) {
+      var n = parseInt(t[2], 16), i = tr.lastIndex, b = 0;
+      while (i < s.length && b < n) { var c = s.charCodeAt(i); if (c < 0x80) b += 1; else if (c < 0x800) b += 2; else if (c >= 0xD800 && c <= 0xDBFF) { b += 4; i++; } else b += 3; i++; }
+      var txt = s.slice(tr.lastIndex, i);
+      if (txt.length > best.length) best = txt;
+      tr.lastIndex = i;
+    }
+    return best;
+  },
+  toParas: function (txt) {
+    if (/<p[\s>]|<br\s*\/?>/i.test(txt)) return txt;
+    return txt.split(/\n+/).map(function (l) { l = l.trim(); return l ? '<p>' + l.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</p>' : ''; }).join('');
   },
   // Video: list servers on the episode page, then sniff a playable stream from each.
   servers: function (url) {
@@ -643,6 +765,7 @@ var X = {
     });
   },
   toc: function (url) {
+    if (G.ch_action) return X.actionToc(url);
     if (G.single) return Response.success([{ name: G.single === true ? 'Xem / Đọc' : G.single, url: url, host: BASE_URL }]);
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
@@ -680,6 +803,11 @@ var X = {
   },
   text: function (url) {
     var r = C.check(C.get(url, G.req), url), body = r.text() || '';
+    if (G.content_rsc) {
+      var raw = X.rscText(body), locked = G.c_locked && new RegExp(G.c_locked, 'i').test(body);
+      var lockMsg = locked ? '<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại ' + BASE_URL + ' để đọc tiếp.</i></p>' : '';
+      if (raw || locked) return Response.success(X.toParas(raw) + lockMsg, X.pick(Html.parse(body, url), G.c_title || 'h1 || title'));
+    }
     var doc = Html.parse(body, url);
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
     if (!el) {
@@ -687,6 +815,61 @@ var X = {
       return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
     }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
+  },
+  // ---- Next.js App Router helpers (sites whose TOC comes from a Server Action and whose text lives in the RSC stream)
+  // Server Action ids change on every deploy: try the known id first, then look the id up by its exported name in the page's chunks.
+  rscAction: function (html, name) {
+    var srcs = [], m, re = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g;
+    while ((m = re.exec(html))) if (srcs.indexOf(m[0]) < 0) srcs.push(m[0]);
+    var pat = new RegExp('"([0-9a-f]{40,44})"[^"]{0,200}?"' + name + '"');
+    for (var i = 0; i < srcs.length && i < 60; i++) {
+      var r = C.get(BASE_URL + srcs[i]); if (!r || !r.ok) continue;
+      var mm = pat.exec(r.text() || ''); if (mm) return mm[1];
+    }
+    return '';
+  },
+  rscArray: function (body) {
+    var lines = String(body || '').split('\n');
+    for (var i = 0; i < lines.length; i++) {
+      var mm = /^[0-9a-f]+:(\[.*)$/.exec(lines[i]);
+      if (mm) { try { var a = JSON.parse(mm[1]); if (a && a.length) return a; } catch (e) { } }
+    }
+    return null;
+  },
+  actionToc: function (url) {
+    var A = G.ch_action, html = C.check(C.get(url, G.req), url).text() || '';
+    var am = new RegExp(A.arg).exec(html);
+    if (!am) return Response.error('Không tìm thấy mã truyện trên trang ' + url);
+    var payload = JSON.stringify([am[1]]);
+    var post = function (id) {
+      var r = C.get(url, { method: 'POST', headers: { 'Next-Action': id, 'Accept': 'text/x-component', 'Content-Type': 'text/plain;charset=UTF-8' }, body: payload });
+      return r && r.ok ? X.rscArray(r.text()) : null;
+    };
+    var arr = A.id ? post(A.id) : null;
+    if (!arr) { var id2 = X.rscAction(html, A.name); if (id2 && id2 !== A.id) arr = post(id2); }
+    if (!arr) return Response.error('Không lấy được danh sách chương (Server Action "' + A.name + '")');
+    var base = url.replace(/[?#].*$/, '').replace(/\/+$/, '');
+    return Response.success(arr.map(function (c) {
+      return { name: String(c[A.title || 'label'] || '') + (A.lock && c[A.lock] ? ' 🔒' : ''), url: base + '/' + c[A.slug || 'slugId'], host: BASE_URL };
+    }));
+  },
+  // Join the self.__next_f.push([1,"..."]) chunks and return the longest text row ("<id>:T<hex byte length>,<text>").
+  rscText: function (html) {
+    var s = '', m, re = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g;
+    while ((m = re.exec(html))) { try { s += JSON.parse(m[1]); } catch (e) { } }
+    var best = '', tr = /([0-9a-f]+):T([0-9a-f]+),/g, t;
+    while ((t = tr.exec(s))) {
+      var n = parseInt(t[2], 16), i = tr.lastIndex, b = 0;
+      while (i < s.length && b < n) { var c = s.charCodeAt(i); if (c < 0x80) b += 1; else if (c < 0x800) b += 2; else if (c >= 0xD800 && c <= 0xDBFF) { b += 4; i++; } else b += 3; i++; }
+      var txt = s.slice(tr.lastIndex, i);
+      if (txt.length > best.length) best = txt;
+      tr.lastIndex = i;
+    }
+    return best;
+  },
+  toParas: function (txt) {
+    if (/<p[\s>]|<br\s*\/?>/i.test(txt)) return txt;
+    return txt.split(/\n+/).map(function (l) { l = l.trim(); return l ? '<p>' + l.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</p>' : ''; }).join('');
   },
   // Video: list servers on the episode page, then sniff a playable stream from each.
   servers: function (url) {
@@ -885,6 +1068,7 @@ var X = {
     });
   },
   toc: function (url) {
+    if (G.ch_action) return X.actionToc(url);
     if (G.single) return Response.success([{ name: G.single === true ? 'Xem / Đọc' : G.single, url: url, host: BASE_URL }]);
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
@@ -922,6 +1106,11 @@ var X = {
   },
   text: function (url) {
     var r = C.check(C.get(url, G.req), url), body = r.text() || '';
+    if (G.content_rsc) {
+      var raw = X.rscText(body), locked = G.c_locked && new RegExp(G.c_locked, 'i').test(body);
+      var lockMsg = locked ? '<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại ' + BASE_URL + ' để đọc tiếp.</i></p>' : '';
+      if (raw || locked) return Response.success(X.toParas(raw) + lockMsg, X.pick(Html.parse(body, url), G.c_title || 'h1 || title'));
+    }
     var doc = Html.parse(body, url);
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
     if (!el) {
@@ -929,6 +1118,61 @@ var X = {
       return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
     }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
+  },
+  // ---- Next.js App Router helpers (sites whose TOC comes from a Server Action and whose text lives in the RSC stream)
+  // Server Action ids change on every deploy: try the known id first, then look the id up by its exported name in the page's chunks.
+  rscAction: function (html, name) {
+    var srcs = [], m, re = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g;
+    while ((m = re.exec(html))) if (srcs.indexOf(m[0]) < 0) srcs.push(m[0]);
+    var pat = new RegExp('"([0-9a-f]{40,44})"[^"]{0,200}?"' + name + '"');
+    for (var i = 0; i < srcs.length && i < 60; i++) {
+      var r = C.get(BASE_URL + srcs[i]); if (!r || !r.ok) continue;
+      var mm = pat.exec(r.text() || ''); if (mm) return mm[1];
+    }
+    return '';
+  },
+  rscArray: function (body) {
+    var lines = String(body || '').split('\n');
+    for (var i = 0; i < lines.length; i++) {
+      var mm = /^[0-9a-f]+:(\[.*)$/.exec(lines[i]);
+      if (mm) { try { var a = JSON.parse(mm[1]); if (a && a.length) return a; } catch (e) { } }
+    }
+    return null;
+  },
+  actionToc: function (url) {
+    var A = G.ch_action, html = C.check(C.get(url, G.req), url).text() || '';
+    var am = new RegExp(A.arg).exec(html);
+    if (!am) return Response.error('Không tìm thấy mã truyện trên trang ' + url);
+    var payload = JSON.stringify([am[1]]);
+    var post = function (id) {
+      var r = C.get(url, { method: 'POST', headers: { 'Next-Action': id, 'Accept': 'text/x-component', 'Content-Type': 'text/plain;charset=UTF-8' }, body: payload });
+      return r && r.ok ? X.rscArray(r.text()) : null;
+    };
+    var arr = A.id ? post(A.id) : null;
+    if (!arr) { var id2 = X.rscAction(html, A.name); if (id2 && id2 !== A.id) arr = post(id2); }
+    if (!arr) return Response.error('Không lấy được danh sách chương (Server Action "' + A.name + '")');
+    var base = url.replace(/[?#].*$/, '').replace(/\/+$/, '');
+    return Response.success(arr.map(function (c) {
+      return { name: String(c[A.title || 'label'] || '') + (A.lock && c[A.lock] ? ' 🔒' : ''), url: base + '/' + c[A.slug || 'slugId'], host: BASE_URL };
+    }));
+  },
+  // Join the self.__next_f.push([1,"..."]) chunks and return the longest text row ("<id>:T<hex byte length>,<text>").
+  rscText: function (html) {
+    var s = '', m, re = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g;
+    while ((m = re.exec(html))) { try { s += JSON.parse(m[1]); } catch (e) { } }
+    var best = '', tr = /([0-9a-f]+):T([0-9a-f]+),/g, t;
+    while ((t = tr.exec(s))) {
+      var n = parseInt(t[2], 16), i = tr.lastIndex, b = 0;
+      while (i < s.length && b < n) { var c = s.charCodeAt(i); if (c < 0x80) b += 1; else if (c < 0x800) b += 2; else if (c >= 0xD800 && c <= 0xDBFF) { b += 4; i++; } else b += 3; i++; }
+      var txt = s.slice(tr.lastIndex, i);
+      if (txt.length > best.length) best = txt;
+      tr.lastIndex = i;
+    }
+    return best;
+  },
+  toParas: function (txt) {
+    if (/<p[\s>]|<br\s*\/?>/i.test(txt)) return txt;
+    return txt.split(/\n+/).map(function (l) { l = l.trim(); return l ? '<p>' + l.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</p>' : ''; }).join('');
   },
   // Video: list servers on the episode page, then sniff a playable stream from each.
   servers: function (url) {
@@ -1127,6 +1371,7 @@ var X = {
     });
   },
   toc: function (url) {
+    if (G.ch_action) return X.actionToc(url);
     if (G.single) return Response.success([{ name: G.single === true ? 'Xem / Đọc' : G.single, url: url, host: BASE_URL }]);
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
@@ -1164,6 +1409,11 @@ var X = {
   },
   text: function (url) {
     var r = C.check(C.get(url, G.req), url), body = r.text() || '';
+    if (G.content_rsc) {
+      var raw = X.rscText(body), locked = G.c_locked && new RegExp(G.c_locked, 'i').test(body);
+      var lockMsg = locked ? '<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại ' + BASE_URL + ' để đọc tiếp.</i></p>' : '';
+      if (raw || locked) return Response.success(X.toParas(raw) + lockMsg, X.pick(Html.parse(body, url), G.c_title || 'h1 || title'));
+    }
     var doc = Html.parse(body, url);
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
     if (!el) {
@@ -1171,6 +1421,61 @@ var X = {
       return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
     }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
+  },
+  // ---- Next.js App Router helpers (sites whose TOC comes from a Server Action and whose text lives in the RSC stream)
+  // Server Action ids change on every deploy: try the known id first, then look the id up by its exported name in the page's chunks.
+  rscAction: function (html, name) {
+    var srcs = [], m, re = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g;
+    while ((m = re.exec(html))) if (srcs.indexOf(m[0]) < 0) srcs.push(m[0]);
+    var pat = new RegExp('"([0-9a-f]{40,44})"[^"]{0,200}?"' + name + '"');
+    for (var i = 0; i < srcs.length && i < 60; i++) {
+      var r = C.get(BASE_URL + srcs[i]); if (!r || !r.ok) continue;
+      var mm = pat.exec(r.text() || ''); if (mm) return mm[1];
+    }
+    return '';
+  },
+  rscArray: function (body) {
+    var lines = String(body || '').split('\n');
+    for (var i = 0; i < lines.length; i++) {
+      var mm = /^[0-9a-f]+:(\[.*)$/.exec(lines[i]);
+      if (mm) { try { var a = JSON.parse(mm[1]); if (a && a.length) return a; } catch (e) { } }
+    }
+    return null;
+  },
+  actionToc: function (url) {
+    var A = G.ch_action, html = C.check(C.get(url, G.req), url).text() || '';
+    var am = new RegExp(A.arg).exec(html);
+    if (!am) return Response.error('Không tìm thấy mã truyện trên trang ' + url);
+    var payload = JSON.stringify([am[1]]);
+    var post = function (id) {
+      var r = C.get(url, { method: 'POST', headers: { 'Next-Action': id, 'Accept': 'text/x-component', 'Content-Type': 'text/plain;charset=UTF-8' }, body: payload });
+      return r && r.ok ? X.rscArray(r.text()) : null;
+    };
+    var arr = A.id ? post(A.id) : null;
+    if (!arr) { var id2 = X.rscAction(html, A.name); if (id2 && id2 !== A.id) arr = post(id2); }
+    if (!arr) return Response.error('Không lấy được danh sách chương (Server Action "' + A.name + '")');
+    var base = url.replace(/[?#].*$/, '').replace(/\/+$/, '');
+    return Response.success(arr.map(function (c) {
+      return { name: String(c[A.title || 'label'] || '') + (A.lock && c[A.lock] ? ' 🔒' : ''), url: base + '/' + c[A.slug || 'slugId'], host: BASE_URL };
+    }));
+  },
+  // Join the self.__next_f.push([1,"..."]) chunks and return the longest text row ("<id>:T<hex byte length>,<text>").
+  rscText: function (html) {
+    var s = '', m, re = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g;
+    while ((m = re.exec(html))) { try { s += JSON.parse(m[1]); } catch (e) { } }
+    var best = '', tr = /([0-9a-f]+):T([0-9a-f]+),/g, t;
+    while ((t = tr.exec(s))) {
+      var n = parseInt(t[2], 16), i = tr.lastIndex, b = 0;
+      while (i < s.length && b < n) { var c = s.charCodeAt(i); if (c < 0x80) b += 1; else if (c < 0x800) b += 2; else if (c >= 0xD800 && c <= 0xDBFF) { b += 4; i++; } else b += 3; i++; }
+      var txt = s.slice(tr.lastIndex, i);
+      if (txt.length > best.length) best = txt;
+      tr.lastIndex = i;
+    }
+    return best;
+  },
+  toParas: function (txt) {
+    if (/<p[\s>]|<br\s*\/?>/i.test(txt)) return txt;
+    return txt.split(/\n+/).map(function (l) { l = l.trim(); return l ? '<p>' + l.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</p>' : ''; }).join('');
   },
   // Video: list servers on the episode page, then sniff a playable stream from each.
   servers: function (url) {
@@ -1369,6 +1674,7 @@ var X = {
     });
   },
   toc: function (url) {
+    if (G.ch_action) return X.actionToc(url);
     if (G.single) return Response.success([{ name: G.single === true ? 'Xem / Đọc' : G.single, url: url, host: BASE_URL }]);
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
@@ -1406,6 +1712,11 @@ var X = {
   },
   text: function (url) {
     var r = C.check(C.get(url, G.req), url), body = r.text() || '';
+    if (G.content_rsc) {
+      var raw = X.rscText(body), locked = G.c_locked && new RegExp(G.c_locked, 'i').test(body);
+      var lockMsg = locked ? '<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại ' + BASE_URL + ' để đọc tiếp.</i></p>' : '';
+      if (raw || locked) return Response.success(X.toParas(raw) + lockMsg, X.pick(Html.parse(body, url), G.c_title || 'h1 || title'));
+    }
     var doc = Html.parse(body, url);
     var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
     if (!el) {
@@ -1413,6 +1724,61 @@ var X = {
       return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
     }
     return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
+  },
+  // ---- Next.js App Router helpers (sites whose TOC comes from a Server Action and whose text lives in the RSC stream)
+  // Server Action ids change on every deploy: try the known id first, then look the id up by its exported name in the page's chunks.
+  rscAction: function (html, name) {
+    var srcs = [], m, re = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g;
+    while ((m = re.exec(html))) if (srcs.indexOf(m[0]) < 0) srcs.push(m[0]);
+    var pat = new RegExp('"([0-9a-f]{40,44})"[^"]{0,200}?"' + name + '"');
+    for (var i = 0; i < srcs.length && i < 60; i++) {
+      var r = C.get(BASE_URL + srcs[i]); if (!r || !r.ok) continue;
+      var mm = pat.exec(r.text() || ''); if (mm) return mm[1];
+    }
+    return '';
+  },
+  rscArray: function (body) {
+    var lines = String(body || '').split('\n');
+    for (var i = 0; i < lines.length; i++) {
+      var mm = /^[0-9a-f]+:(\[.*)$/.exec(lines[i]);
+      if (mm) { try { var a = JSON.parse(mm[1]); if (a && a.length) return a; } catch (e) { } }
+    }
+    return null;
+  },
+  actionToc: function (url) {
+    var A = G.ch_action, html = C.check(C.get(url, G.req), url).text() || '';
+    var am = new RegExp(A.arg).exec(html);
+    if (!am) return Response.error('Không tìm thấy mã truyện trên trang ' + url);
+    var payload = JSON.stringify([am[1]]);
+    var post = function (id) {
+      var r = C.get(url, { method: 'POST', headers: { 'Next-Action': id, 'Accept': 'text/x-component', 'Content-Type': 'text/plain;charset=UTF-8' }, body: payload });
+      return r && r.ok ? X.rscArray(r.text()) : null;
+    };
+    var arr = A.id ? post(A.id) : null;
+    if (!arr) { var id2 = X.rscAction(html, A.name); if (id2 && id2 !== A.id) arr = post(id2); }
+    if (!arr) return Response.error('Không lấy được danh sách chương (Server Action "' + A.name + '")');
+    var base = url.replace(/[?#].*$/, '').replace(/\/+$/, '');
+    return Response.success(arr.map(function (c) {
+      return { name: String(c[A.title || 'label'] || '') + (A.lock && c[A.lock] ? ' 🔒' : ''), url: base + '/' + c[A.slug || 'slugId'], host: BASE_URL };
+    }));
+  },
+  // Join the self.__next_f.push([1,"..."]) chunks and return the longest text row ("<id>:T<hex byte length>,<text>").
+  rscText: function (html) {
+    var s = '', m, re = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g;
+    while ((m = re.exec(html))) { try { s += JSON.parse(m[1]); } catch (e) { } }
+    var best = '', tr = /([0-9a-f]+):T([0-9a-f]+),/g, t;
+    while ((t = tr.exec(s))) {
+      var n = parseInt(t[2], 16), i = tr.lastIndex, b = 0;
+      while (i < s.length && b < n) { var c = s.charCodeAt(i); if (c < 0x80) b += 1; else if (c < 0x800) b += 2; else if (c >= 0xD800 && c <= 0xDBFF) { b += 4; i++; } else b += 3; i++; }
+      var txt = s.slice(tr.lastIndex, i);
+      if (txt.length > best.length) best = txt;
+      tr.lastIndex = i;
+    }
+    return best;
+  },
+  toParas: function (txt) {
+    if (/<p[\s>]|<br\s*\/?>/i.test(txt)) return txt;
+    return txt.split(/\n+/).map(function (l) { l = l.trim(); return l ? '<p>' + l.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</p>' : ''; }).join('');
   },
   // Video: list servers on the episode page, then sniff a playable stream from each.
   servers: function (url) {

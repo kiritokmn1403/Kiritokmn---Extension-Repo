@@ -2335,7 +2335,7 @@ function Ct(e, t) {
         }
     }); });
 }
-var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boylovebattu.com", type: "novel", locale: "vi", nsfw: !1, version: 1, config: { DOMAIN: { title: "Tên miền", subtitle: "Đổi khi trang đổi tên miền", default: "https://boylovebattu.com", values: ["https://boylovebattu.com"], mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://boylovebattu.com" }, itemType: 2, lnId: "kiritokmn.boylovebattu", lnIcon: "", lnVersion: "1.1.1" }, Ua = { home: function (e, t) {
+var at = { id: "boylovebattu", name: "Boylove Bất Tử", source: "https://boylovebattu.com", type: "novel", locale: "vi", nsfw: !1, version: 1, config: { DOMAIN: { title: "Tên miền", subtitle: "Đổi khi trang đổi tên miền", default: "https://boylovebattu.com", values: ["https://boylovebattu.com"], mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://boylovebattu.com" }, itemType: 2, lnId: "kiritokmn.boylovebattu", lnIcon: "", lnVersion: "1.2.1" }, Ua = { home: function (e, t) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
                 return [2, (function (u, a, n, s, o, h, p, m, x, T, v, S, N, C, V, G, Y) {
@@ -4917,3 +4917,5 @@ var vu = {}, Ae = _t && _t.storage ? _t.storage : { get: function (e) { return v
     class_2.prototype.resolveUrl = function (t, u) { return /^https?:/i.test(t) ? t : at.source.replace(/\/+$/, "") + "/" + String(t).replace(/^\/+/, ""); };
     return class_2;
 }()), h0 = new Su;
+
+if (typeof exports === "object" && exports && module.exports !== exports && module.exports && module.exports.default) exports.default = module.exports.default;

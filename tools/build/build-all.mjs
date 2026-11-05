@@ -107,7 +107,7 @@ function generateScriptsModule(id, pj, srcDir) {
   const META = {
     id, name: md.name, source: md.source, type: md.type, locale: md.locale, nsfw: !!md.nsfw, version: md.version,
     config: pj.config || {}, configDefaults: cfgDefaults, itemType: ITEM_TYPE[md.type],
-    lnId: 'kiritokmn.' + id, lnIcon: '', lnVersion: '1.1.' + md.version,
+    lnId: 'kiritokmn.' + id, lnIcon: '', lnVersion: '1.2.' + md.version,
   };
   return `${needCrypto ? "import CryptoJS from 'crypto-js';\nglobalThis.CryptoJS = CryptoJS;\n" : ''}${ASYNC_HELPERS}\nexport const META = ${JSON.stringify(META)};\nexport const SCRIPTS = {\n${parts.join(',\n')}\n};\n`;
 }
@@ -185,8 +185,11 @@ for (const id of ids) {
     if (md.type === 'novel') {
       let ln = await bundle('lnreader.js', genFile, 'cjs', { external: ['@libs/*'], target: 'es2017' });
       ln = downlevelES5(ln);
+      // LNReader's loader wraps the code as `const exports = module.exports = {}; <code>; return exports.default`,
+      // so a bundle that reassigns module.exports must also put default on the original exports object.
+      ln += '\nif (typeof exports === "object" && exports && module.exports !== exports && module.exports && module.exports.default) exports.default = module.exports.default;\n';
       fs.writeFileSync(path.join(OUT, 'lnreader', id + '.js'), ln); lnSize = ln.length;
-      lnIndex.push({ id: 'kiritokmn.' + id, name: md.name, site: md.source, lang: LN_LANG[md.locale] || 'Multi', version: '1.1.' + md.version, url: `${BASE}/repo/lnreader/${id}.js`, iconUrl: icon });
+      lnIndex.push({ id: 'kiritokmn.' + id, name: md.name, site: md.source, lang: LN_LANG[md.locale] || 'Multi', version: '1.2.' + md.version, url: `${BASE}/repo/lnreader/${id}.js`, iconUrl: icon });
     }
     // ---- Aniyomi / Nekoyomi (video + comic, built into multi-source APKs)
     if (md.type === 'video' || md.type === 'comic') {

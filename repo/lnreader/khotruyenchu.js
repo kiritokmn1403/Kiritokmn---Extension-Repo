@@ -2314,7 +2314,7 @@ var L = function (e) { return e == null ? "" : String(e); }, Nn = function (e) {
 function Q0(e) {
     return String(e).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var hu = { id: "khotruyenchu", name: "Kho Truyện Chữ", source: "https://khotruyenchu.me/", type: "novel", locale: "vi_VN", nsfw: !1, version: 1, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.khotruyenchu", lnIcon: "", lnVersion: "1.1.1" }, Z0 = { home: function (e, u) {
+var hu = { id: "khotruyenchu", name: "Kho Truyện Chữ", source: "https://khotruyenchu.me/", type: "novel", locale: "vi_VN", nsfw: !1, version: 1, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.khotruyenchu", lnIcon: "", lnVersion: "1.2.1" }, Z0 = { home: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
             return [2, (function (t, r, n, a, i, s, o, l, h, v, p, g, A, T, Q, Z, iu) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
@@ -2706,3 +2706,5 @@ var Mt = {}, Re = ae && ae.storage ? ae.storage : { get: function (e) { return M
     class_2.prototype.resolveUrl = function (u, t) { return /^https?:/i.test(u) ? u : hu.source.replace(/\/+$/, "") + "/" + String(u).replace(/^\/+/, ""); };
     return class_2;
 }()), qn = new Bt;
+
+if (typeof exports === "object" && exports && module.exports !== exports && module.exports && module.exports.default) exports.default = module.exports.default;

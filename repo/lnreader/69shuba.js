@@ -2314,7 +2314,7 @@ var U = function (e) { return e == null ? "" : String(e); }, Ni = function (e) {
 function $0(e) {
     return String(e).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var xe = { id: "69shuba", name: "69shuba", source: "https://www.69shuba.com", type: "novel", locale: "zh_CN", nsfw: !1, version: 2, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.69shuba", lnIcon: "", lnVersion: "1.1.2" }, Q0 = { home: function (e, u) {
+var xe = { id: "69shuba", name: "69shuba", source: "https://www.69shuba.com", type: "novel", locale: "zh_CN", nsfw: !1, version: 2, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.69shuba", lnIcon: "", lnVersion: "1.2.2" }, Q0 = { home: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
             return [2, (function (t, r, i, n, a, s, c, o, d, x, b, p, y, w, K, J, oe) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
@@ -2855,3 +2855,5 @@ var Rt = {}, Hu = au && au.storage ? au.storage : { get: function (e) { return R
     class_2.prototype.resolveUrl = function (u, t) { return /^https?:/i.test(u) ? u : xe.source.replace(/\/+$/, "") + "/" + String(u).replace(/^\/+/, ""); };
     return class_2;
 }()), ki = new Bt;
+
+if (typeof exports === "object" && exports && module.exports !== exports && module.exports && module.exports.default) exports.default = module.exports.default;

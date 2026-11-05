@@ -2314,7 +2314,7 @@ var T = function (e) { return e == null ? "" : String(e); }, ca = function (e) {
 function q0(e) {
     return String(e).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var K = { id: "52shukubyquocbao", name: "52shuku", source: "https://www.52shuku.net", type: "novel", locale: "zh_CN", nsfw: !1, version: 12, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.52shukubyquocbao", lnIcon: "", lnVersion: "1.1.12" }, L0 = { home: function (e, u) {
+var K = { id: "52shukubyquocbao", name: "52shuku", source: "https://www.52shuku.net", type: "novel", locale: "zh_CN", nsfw: !1, version: 12, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.52shukubyquocbao", lnIcon: "", lnVersion: "1.2.12" }, L0 = { home: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
             return [2, (function (t, r, a, n, i, s, c, o, f, g, d, h, m, w, R, F, Q) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
@@ -2593,3 +2593,5 @@ var mt = {}, ye = Pu && Pu.storage ? Pu.storage : { get: function (e) { return m
     class_2.prototype.resolveUrl = function (u, t) { return /^https?:/i.test(u) ? u : K.source.replace(/\/+$/, "") + "/" + String(u).replace(/^\/+/, ""); };
     return class_2;
 }()), la = new xt;
+
+if (typeof exports === "object" && exports && module.exports !== exports && module.exports && module.exports.default) exports.default = module.exports.default;
