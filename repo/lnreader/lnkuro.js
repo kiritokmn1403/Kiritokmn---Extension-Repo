@@ -2314,7 +2314,7 @@ var K = function (e) { return e == null ? "" : String(e); }, $a = function (e) {
 function d0(e) {
     return String(e).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var Ee = { id: "lnkuro", name: "LN Kuro", source: "https://lnkuro.top", type: "novel", locale: "vi_VN", nsfw: !1, version: 16, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.lnkuro", lnIcon: "", lnVersion: "1.2.16" }, h0 = { home: function (e, t) {
+var Ee = { id: "lnkuro", name: "LN Kuro", source: "https://lnkuro.top", type: "novel", locale: "vi", nsfw: !1, version: 16, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.lnkuro", lnIcon: "", lnVersion: "1.2.16" }, h0 = { home: function (e, t) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
             return [2, (function (u, r, a, n, c, l, d, h, w, O, A, T, D, R, j, ae, fe) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {

@@ -2334,7 +2334,7 @@ function Aa(e, u) {
         }
     }); });
 }
-var oe = { id: "truyennet", name: "Truyện Net", source: "https://truyennet.vn/", type: "novel", locale: "vi_VN", nsfw: !1, version: 2, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.truyennet", lnIcon: "", lnVersion: "1.2.2" }, j0 = { home: function (e, u) {
+var oe = { id: "truyennet", name: "Truyện Net", source: "https://truyennet.vn/", type: "novel", locale: "vi", nsfw: !1, version: 2, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.truyennet", lnIcon: "", lnVersion: "1.2.2" }, j0 = { home: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
             return [2, (function (t, r, a, i, n, s, c, o, f, g, d, h, m, v, j, W, _) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {

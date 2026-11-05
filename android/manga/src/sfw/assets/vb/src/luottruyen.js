@@ -1,4 +1,4 @@
-__register({ META: {"id":"luottruyen","name":"LuotTruyen","source":"https://luottruyen7.com","type":"comic","locale":"vi_VN","nsfw":false,"version":8,"config":{},"configDefaults":{}}, SCRIPTS: {
+__register({ META: {"id":"luottruyen","name":"LuotTruyen","source":"https://luottruyen7.com","type":"comic","locale":"vi","nsfw":false,"version":8,"config":{},"configDefaults":{}}, SCRIPTS: {
 "home": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
 

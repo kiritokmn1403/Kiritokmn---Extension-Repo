@@ -1,4 +1,4 @@
-__register({ META: {"id":"hentaivn","name":"HentaiVN","source":"https://hentaihvn.tv","type":"comic","locale":"vi_VN","nsfw":false,"version":28,"config":{},"configDefaults":{}}, SCRIPTS: {
+__register({ META: {"id":"hentaivn","name":"HentaiVN","source":"https://hentaihvn.tv","type":"comic","locale":"vi","nsfw":false,"version":28,"config":{},"configDefaults":{}}, SCRIPTS: {
 "home": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
 

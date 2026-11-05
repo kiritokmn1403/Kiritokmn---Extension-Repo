@@ -2314,7 +2314,7 @@ var O = function (u) { return u == null ? "" : String(u); }, En = function (u) {
 function j0(u) {
     return String(u).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var pu = { id: "valvrareteam", name: "Valvrareteam", source: "https://valvrareteam.net", type: "novel", locale: "vi_VN", nsfw: !1, version: 10, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.valvrareteam", lnIcon: "", lnVersion: "1.2.10" }, G0 = { home: function (u, e) {
+var pu = { id: "valvrareteam", name: "Valvrareteam", source: "https://valvrareteam.net", type: "novel", locale: "vi", nsfw: !1, version: 10, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.valvrareteam", lnIcon: "", lnVersion: "1.2.10" }, G0 = { home: function (u, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
             return [2, (function (t, r, n, a, s, o, l, f, b, A, m, y, E, k, j, W, Z) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {

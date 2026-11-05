@@ -191,3 +191,13 @@ Chủ dự án yêu cầu tạo và duy trì tài liệu này ngày 25/10/2026. 
 | # | Lỗi | Sửa |
 |---|---|---|
 | 39 | App Truyện Chữ: **tên truyện và ảnh bìa lệch nhau** trong danh sách (selector `.flex` bắt cả khung lồng nhau); **tìm kiếm `/tim-kiem` trả 404** | Thẻ truyện là `li > a.group` (link chính là thẻ, tên lấy từ `img@alt`); tìm kiếm `/truyen?keyword={q}&page={p}`; thêm tab *Truyện dịch nổi bật*, *Mới nhất*, *Tiên hiệp*, *Huyền huyễn*, *Đô thị*, *Ngôn tình*, *Đọc nhiều*. Kiểm bằng Node trên PC: Mangayomi 20 truyện/trang (tên khớp bìa), trang 2 khác trang 1, tìm "pháp sư" 19 kết quả, 322 chương, nội dung 8.294 ký tự, chương khoá hiện thông báo; LNReader danh sách 20, tìm kiếm 19. Phiên bản nguồn 2 → 3 |
+
+**Kiểm chứng Mangayomi trên máy ảo Android (Medium Phone API 37) — 05/11/2026 13:20**
+- **Truyện QQ** (truyenqqko.com): danh sách → *Võ Luyện Đỉnh Phong* (3.883 chương, thể loại, mô tả) → đọc Chương 3859: trang 1 (banner) và trang 2 (ảnh dài 900×23885) **hiển thị bình thường** ✅.
+- **TruyenQQ** (truyenqq.com.vn, ảnh `cc3t.net`): *Cường Giả Đến Từ Trại Tâm Thần* 376 chương → đọc Chương 374 (11 trang) **hiển thị bình thường** ✅.
+- ⇒ Bản sửa `Referer` (#32–33) **đúng**; lỗi "This image couldn't be loaded" chỉ xảy ra với Mangayomi 0.9.95 trên Galaxy Note9 (Android 10), không do tiện ích. Video `_work/shots/emu_mangayomi_truyenqq*.mp4`.
+- MangaDex trên máy ảo báo `HTTP 0 https://mangadex.org/` — nằm trong nhóm nguồn còn lỗi, chưa xử lý.
+
+| # | Lỗi | Sửa |
+|---|---|---|
+| 40 | Mangayomi tách các nguồn repack thành nhóm riêng **"VI_VN"** (và `zh_CN`, `en_US`) thay vì gộp vào *Tiếng Việt*; LNReader xếp nguồn `zh-CN` vào *Multi* | `build-all.mjs`: chuẩn hoá mã ngôn ngữ cho Mangayomi / LNReader / APK (`vi_VN`→`vi`, `zh_CN`/`zh`→`zh-CN`, `en_US`→`en`, `ja_JP`→`ja`); gói vBook giữ nguyên. LNReader thêm `zh-CN`→中文, `global`→Multi. Kết quả: Mangayomi `vi` 120, `zh-CN` 51, `global` 11, `en` 10, `ja` 4; LNReader 中文 48 (trước là Multi). ID nguồn không đổi (băm theo id, không theo ngôn ngữ) nên tiện ích đã cài không bị mất |

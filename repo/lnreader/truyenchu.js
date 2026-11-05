@@ -2314,7 +2314,7 @@ var B = function (e) { return e == null ? "" : String(e); }, Wa = function (e) {
 function f0(e) {
     return String(e).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", type: "novel", locale: "vi_VN", nsfw: !1, version: 9, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.truyenchu", lnIcon: "", lnVersion: "1.2.9" }, d0 = { home: function (e, t) {
+var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", type: "novel", locale: "vi", nsfw: !1, version: 9, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.truyenchu", lnIcon: "", lnVersion: "1.2.9" }, d0 = { home: function (e, t) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
             return [2, (function (u, r, a, n, i, c, f, b, w, L, A, T, I, D, K, J, ne) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {

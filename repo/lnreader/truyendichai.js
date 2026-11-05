@@ -2314,7 +2314,7 @@ var j = function (e) { return e == null ? "" : String(e); }, Dn = function (e) {
 function Zr(e) {
     return String(e).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var ve = { id: "truyendichai", name: "TruyenDich.AI", source: "https://truyendich.store", type: "novel", locale: "vi_VN", nsfw: !1, version: 5, config: { DOMAIN: { title: "Domain", default: "https://truyendich.store", mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://truyendich.store" }, itemType: 2, lnId: "kiritokmn.truyendichai", lnIcon: "", lnVersion: "1.2.5" }, Xr = { home: function (e, u) {
+var ve = { id: "truyendichai", name: "TruyenDich.AI", source: "https://truyendich.store", type: "novel", locale: "vi", nsfw: !1, version: 5, config: { DOMAIN: { title: "Domain", default: "https://truyendich.store", mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://truyendich.store" }, itemType: 2, lnId: "kiritokmn.truyendichai", lnIcon: "", lnVersion: "1.2.5" }, Xr = { home: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
             return [2, (function (t, r, n, i, a, o, h, b, v, D, A, E, q, M, J, ee, ce) {
                     return __awaiter(this, void 0, void 0, function () { var F; return __generator(this, function (_a) {

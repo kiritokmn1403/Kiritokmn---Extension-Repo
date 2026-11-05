@@ -1,4 +1,4 @@
-__register({ META: {"id":"cbhentai","name":"HentaiCube -18+ (iOS)","source":"https://hentaicube.xyz","type":"comic","locale":"vi_VN","nsfw":true,"version":15,"config":{},"configDefaults":{}}, SCRIPTS: {
+__register({ META: {"id":"cbhentai","name":"HentaiCube -18+ (iOS)","source":"https://hentaicube.xyz","type":"comic","locale":"vi","nsfw":true,"version":15,"config":{},"configDefaults":{}}, SCRIPTS: {
 "home": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
 

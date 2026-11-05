@@ -2314,7 +2314,7 @@ var q = function (u) { return u == null ? "" : String(u); }, fa = function (u) {
 function D0(u) {
     return String(u).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var tu = { id: "po18", name: "po18", source: "https://www.po18.tw", type: "novel", locale: "zh_CN", nsfw: !0, version: 1, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.po18", lnIcon: "", lnVersion: "1.2.1" }, U0 = { home: function (u, e) {
+var tu = { id: "po18", name: "po18", source: "https://www.po18.tw", type: "novel", locale: "zh-CN", nsfw: !0, version: 1, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.po18", lnIcon: "", lnVersion: "1.2.1" }, U0 = { home: function (u, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
             return [2, (function (t, r, a, n, i, s, c, o, f, g, d, h, m, S, D, B, V) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {

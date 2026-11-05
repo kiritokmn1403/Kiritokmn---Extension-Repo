@@ -2314,7 +2314,7 @@ var F = function (e) { return e == null ? "" : String(e); }, jn = function (e) {
 function la(e) {
     return String(e).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var Lt = { id: "mtc", name: "Mê Truyện CV", source: "https://metruyencv.xyz", type: "novel", locale: "vi_VN", nsfw: !1, version: 2, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.mtc", lnIcon: "", lnVersion: "1.2.2" }, fa = { book: function (e, t) {
+var Lt = { id: "mtc", name: "Mê Truyện CV", source: "https://metruyencv.xyz", type: "novel", locale: "vi", nsfw: !1, version: 2, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.mtc", lnIcon: "", lnVersion: "1.2.2" }, fa = { book: function (e, t) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
             return [2, (function (a, n, s, o, f, h, p, b, v, k, T, A, L, D, it, ct, St) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {

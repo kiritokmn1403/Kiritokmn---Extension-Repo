@@ -2314,7 +2314,7 @@ var R = function (u) { return u == null ? "" : String(u); }, ga = function (u) {
 function B0(u) {
     return String(u).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var cu = { id: "alicesw", name: "AliceSW", source: "https://www.alicesw.com/", type: "novel", locale: "zh_CN", nsfw: !0, version: 6, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.alicesw", lnIcon: "", lnVersion: "1.2.6" }, P0 = { home: function (u, e) {
+var cu = { id: "alicesw", name: "AliceSW", source: "https://www.alicesw.com/", type: "novel", locale: "zh-CN", nsfw: !0, version: 6, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.alicesw", lnIcon: "", lnVersion: "1.2.6" }, P0 = { home: function (u, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
             return [2, (function (t, r, a, n, i, s, c, o, f, S, p, g, A, T, H, W, X) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {

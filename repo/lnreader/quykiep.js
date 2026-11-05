@@ -2314,7 +2314,7 @@ var U = function (e) { return e == null ? "" : String(e); }, ba = function (e) {
 function O0(e) {
     return String(e).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var nu = { id: "quykiep", name: "LightNovel VN", source: "https://quykiep.com", type: "novel", locale: "vi_VN", nsfw: !1, version: 5, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.quykiep", lnIcon: "", lnVersion: "1.2.5" }, R0 = { detail: function (e, u) {
+var nu = { id: "quykiep", name: "LightNovel VN", source: "https://quykiep.com", type: "novel", locale: "vi", nsfw: !1, version: 5, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.quykiep", lnIcon: "", lnVersion: "1.2.5" }, R0 = { detail: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
             return [2, (function (t, r, a, n, i, s, c, o, f, S, h, b, w, E, P, V, Y) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {

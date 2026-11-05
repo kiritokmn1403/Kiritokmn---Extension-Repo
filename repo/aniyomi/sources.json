@@ -47,7 +47,7 @@
  {
   "id": "cbhentai",
   "name": "HentaiCube -18+ (iOS)",
-  "lang": "vi_VN",
+  "lang": "vi",
   "baseUrl": "https://hentaicube.xyz",
   "type": "comic",
   "nsfw": true,
@@ -65,7 +65,7 @@
  {
   "id": "cosplaytele",
   "name": "Cosplaytele",
-  "lang": "en_US",
+  "lang": "en",
   "baseUrl": "https://cosplaytele.com",
   "type": "comic",
   "nsfw": true,
@@ -209,7 +209,7 @@
  {
   "id": "hentaivn",
   "name": "HentaiVN",
-  "lang": "vi_VN",
+  "lang": "vi",
   "baseUrl": "https://hentaihvn.tv",
   "type": "comic",
   "nsfw": false,
@@ -299,7 +299,7 @@
  {
   "id": "luottruyen",
   "name": "LuotTruyen",
-  "lang": "vi_VN",
+  "lang": "vi",
   "baseUrl": "https://luottruyen7.com",
   "type": "comic",
   "nsfw": false,
@@ -434,7 +434,7 @@
  {
   "id": "nguonc",
   "name": "NguonC",
-  "lang": "vi_VN",
+  "lang": "vi",
   "baseUrl": "https://phim.nguonc.com",
   "type": "video",
   "nsfw": false,
@@ -515,7 +515,7 @@
  {
   "id": "sayhentai",
   "name": "SayHentai -18+",
-  "lang": "vi_VN",
+  "lang": "vi",
   "baseUrl": "https://sayhentai.cx",
   "type": "comic",
   "nsfw": true,
@@ -578,7 +578,7 @@
  {
   "id": "truyenqq",
   "name": "Truyện QQ",
-  "lang": "vi_VN",
+  "lang": "vi",
   "baseUrl": "https://truyenqqko.com",
   "type": "comic",
   "nsfw": false,
@@ -623,7 +623,7 @@
  {
   "id": "ungtycomics",
   "name": "Ưng Tỷ Comics",
-  "lang": "vi_VN",
+  "lang": "vi",
   "baseUrl": "https://ungtycomicseo.com/",
   "type": "comic",
   "nsfw": false,

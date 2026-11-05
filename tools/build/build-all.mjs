@@ -51,7 +51,7 @@ const CF_IDS = new Set([...(CF.auto || []), ...(CF.interactive || []), ...(CF.ip
 function hash31(s) { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return (h >>> 1) % 2000000000 + 100000000; }
 const ITEM_TYPE = { comic: 0, video: 1, novel: 2 };
 const VB_LOCALE = { vi: 'vi_VN', zh: 'zh_CN', en: 'en_US', ja: 'ja_JP', all: 'global' };
-const LN_LANG = { vi: 'Tiếng Việt', zh: '中文', en: 'English', ja: '日本語', all: 'Multi' };
+const LN_LANG = { vi: 'Tiếng Việt', zh: '中文', 'zh-CN': '中文', en: 'English', ja: '日本語', all: 'Multi', global: 'Multi' };
 
 function inlineLoads(code, srcDir, seen = new Set()) {
   return code.replace(/^\s*load\(\s*['"]([^'"]+)['"]\s*\)\s*;?/gm, (m, f) => {
@@ -159,6 +159,8 @@ for (const id of ids) {
     const icon = `https://www.google.com/s2/favicons?sz=128&domain=${encodeURIComponent(md.source)}`;
     // ---- vBook package (+ libraries it loads)
     const files = [{ name: 'plugin.json', data: JSON.stringify(pj, null, 2) }];
+    // Other hosts group sources by language code: repacked vBook sources use vi_VN / zh_CN / en_US, ours use vi / zh-CN / en.
+    md.locale = ({ vi_VN: 'vi', 'vi-VN': 'vi', zh_CN: 'zh-CN', zh: 'zh-CN', en_US: 'en', 'en-US': 'en', ja_JP: 'ja' })[md.locale] || md.locale;
     const srcFiles = fs.readdirSync(path.join(dir, 'src'));
     let allCode = '';
     for (const f of srcFiles) { const c = fs.readFileSync(path.join(dir, 'src', f), 'utf8'); allCode += c; files.push({ name: 'src/' + f, data: c }); }

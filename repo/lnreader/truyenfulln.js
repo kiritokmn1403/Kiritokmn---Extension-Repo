@@ -2314,7 +2314,7 @@ var k = function (u) { return u == null ? "" : String(u); }, oa = function (u) {
 function q0(u) {
     return String(u).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var _ = { id: "truyenfulln", name: "Truyện Full", source: "https://truyenfull.live", type: "novel", locale: "vi_VN", nsfw: !1, version: 14, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.truyenfulln", lnIcon: "", lnVersion: "1.2.14" }, L0 = { home: function (u, e) {
+var _ = { id: "truyenfulln", name: "Truyện Full", source: "https://truyenfull.live", type: "novel", locale: "vi", nsfw: !1, version: 14, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.truyenfulln", lnIcon: "", lnVersion: "1.2.14" }, L0 = { home: function (u, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
             return [2, (function (t, r, a, i, n, s, c, o, f, m, h, b, x, w, O, H, $) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {

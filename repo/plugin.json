@@ -49,7 +49,7 @@
    "icon": "https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/sources/52shukubyquocbao/icon.png",
    "description": "Đọc truyện trên trang https://www.52shuku.net — gốc: Moleys (Moleys/vbook-ext)",
    "type": "novel",
-   "locale": "zh_CN",
+   "locale": "zh-CN",
    "nsfw": false
   },
   {
@@ -61,7 +61,7 @@
    "icon": "https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/sources/69shuba/icon.png",
    "description": "69书吧 - 69shuba.com — gốc: ivanzzz (Ivan1hai/ext)",
    "type": "novel",
-   "locale": "zh_CN",
+   "locale": "zh-CN",
    "nsfw": false
   },
   {
@@ -73,7 +73,7 @@
    "icon": "https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/sources/69shurepoduongden/icon.png",
    "description": "69书吧 - 69shuba.com — gốc: ivanzzz (Ivan1hai/ext)",
    "type": "novel",
-   "locale": "zh_CN",
+   "locale": "zh-CN",
    "nsfw": false
   },
   {
@@ -121,7 +121,7 @@
    "icon": "https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/sources/alicesw/icon.png",
    "description": "trang truyên :v. — gốc: ivanzzz (Ivan1hai/ext)",
    "type": "novel",
-   "locale": "zh_CN",
+   "locale": "zh-CN",
    "nsfw": true
   },
   {
@@ -1405,7 +1405,7 @@
    "icon": "https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/sources/po18/icon.png",
    "description": "Đọc truyện trên trang www.po18.tw — gốc: Moleys (Moleys/vbook-ext)",
    "type": "novel",
-   "locale": "zh_CN",
+   "locale": "zh-CN",
    "nsfw": true
   },
   {
