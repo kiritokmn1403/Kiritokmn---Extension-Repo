@@ -506,8 +506,25 @@
    },
    "content_rsc": true,
    "c_locked": "Chương này đã kho[áa]",
-   "c_title": "h1 || title"
+   "c_title": "h1 || title",
+   "tabs": {
+    "Mới cập nhật": "/truyen[?page={p}]",
+    "Truyện dịch nổi bật": "/truyen?sort=1[&page={p}]",
+    "Mới nhất": "/truyen?sort=2[&page={p}]",
+    "Tiên hiệp": "/truyen?cate=tien-hiep[&page={p}]",
+    "Huyền huyễn": "/truyen?cate=huyen-huyen[&page={p}]",
+    "Đô thị": "/truyen?cate=do-thi[&page={p}]",
+    "Ngôn tình": "/truyen?cate=ngon-tinh[&page={p}]",
+    "Đọc nhiều": "/bang-xep-hang/doc-nhieu"
+   },
+   "search": "/truyen?keyword={q}[&page={p}]",
+   "item": "li > a.group",
+   "link": ":self@href",
+   "title": "img@alt || h3",
+   "cover": "img@img",
+   "desc": "",
+   "pageSize": 20
   },
-  "version": 2
+  "version": 3
  }
 }

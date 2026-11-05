@@ -183,3 +183,11 @@ Chủ dự án yêu cầu tạo và duy trì tài liệu này ngày 25/10/2026. 
 - **Kết luận: lỗi ở trình đọc của Mangayomi trên máy này, không phải ở tiện ích** (ảnh tải đủ, đúng header). Cần thử đọc truyện tranh Mangayomi trên thiết bị khác / máy ảo Android 14 để xác định, và có thể báo lỗi cho Mangayomi. Nekoyomi trên Note9 vẫn không nhận chạm vào chương (chưa đọc được truyện tranh để so sánh).
 - Mangayomi lưu danh sách trang của từng chương vĩnh viễn (`chapter_disk_cache`, khoá `mangaId_chapterUrl`): chương đã mở bằng plugin cũ sẽ không nhận bản sửa cho tới khi xoá bộ nhớ đệm chương.
 - Đã trả lại cài đặt trên máy: chế độ đọc mặc định *Vertical*, tắt *Enable logging*, gỡ 2 tiện ích debug + repo `127.0.0.1`, gỡ `adb reverse`. Giữ `LEGACY_STORAGE allow` cho Mangayomi.
+
+### 05/11/2026 (chiều) — Kiểm LNReader trên Note9, sửa danh sách App Truyện Chữ
+
+- **LNReader trên Note9 sau bản 1.2.x:** cài plugin **Bàn Long** và **App Truyện Chữ** thành công (sáng nay báo "Cài đặt lỗi") ✅. App Truyện Chữ: danh sách → chi tiết → **401 chương** có tên đầy đủ → đọc chương 1 ✅. Bàn Long: danh sách → chi tiết (tác giả, mô tả, thể loại) → mục lục → đọc chương ✅. Video `_work/shots/n9_lnreader.mp4`.
+
+| # | Lỗi | Sửa |
+|---|---|---|
+| 39 | App Truyện Chữ: **tên truyện và ảnh bìa lệch nhau** trong danh sách (selector `.flex` bắt cả khung lồng nhau); **tìm kiếm `/tim-kiem` trả 404** | Thẻ truyện là `li > a.group` (link chính là thẻ, tên lấy từ `img@alt`); tìm kiếm `/truyen?keyword={q}&page={p}`; thêm tab *Truyện dịch nổi bật*, *Mới nhất*, *Tiên hiệp*, *Huyền huyễn*, *Đô thị*, *Ngôn tình*, *Đọc nhiều*. Kiểm bằng Node trên PC: Mangayomi 20 truyện/trang (tên khớp bìa), trang 2 khác trang 1, tìm "pháp sư" 19 kết quả, 322 chương, nội dung 8.294 ký tự, chương khoá hiện thông báo; LNReader danh sách 20, tìm kiếm 19. Phiên bản nguồn 2 → 3 |

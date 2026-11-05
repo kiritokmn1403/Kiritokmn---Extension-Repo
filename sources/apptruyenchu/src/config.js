@@ -2,12 +2,19 @@ var BASE_URL = "https://apptruyenchu.pro";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
-  "Mới cập nhật": "/[?page={p}]"
+  "Mới cập nhật": "/truyen[?page={p}]",
+  "Truyện dịch nổi bật": "/truyen?sort=1[&page={p}]",
+  "Mới nhất": "/truyen?sort=2[&page={p}]",
+  "Tiên hiệp": "/truyen?cate=tien-hiep[&page={p}]",
+  "Huyền huyễn": "/truyen?cate=huyen-huyen[&page={p}]",
+  "Đô thị": "/truyen?cate=do-thi[&page={p}]",
+  "Ngôn tình": "/truyen?cate=ngon-tinh[&page={p}]",
+  "Đọc nhiều": "/bang-xep-hang/doc-nhieu"
  },
- "search": "/tim-kiem?keyword={q}[&page={p}]",
- "item": ".flex",
- "title": "h3 || a@title || img@alt",
- "link": "a@href",
+ "search": "/truyen?keyword={q}[&page={p}]",
+ "item": "li > a.group",
+ "title": "img@alt || h3",
+ "link": ":self@href",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
  "d_desc": "meta[name=description]@content",
@@ -22,5 +29,8 @@ var G = {
  },
  "content_rsc": true,
  "c_locked": "Chương này đã kho[áa]",
- "c_title": "h1 || title"
+ "c_title": "h1 || title",
+ "cover": "img@img",
+ "desc": "",
+ "pageSize": 20
 };
