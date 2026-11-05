@@ -307,7 +307,16 @@ var VBookEngine = (function () {
             data = [url];
         if (typeof data === 'string')
             data = data.split(/[\n,]+/);
-        return (data || []).map(function (p) { return abs(_this.base + '/', typeof p === 'string' ? p : (p && (p.link || p.url || p.data))); }).filter(Boolean);
+        var ph = function (u) { return !u || /^data:|loading|lazy|blank|placeholder|spacer|\/nocover|1x1\./i.test(String(u)); };
+        var pick = function (p) {
+            if (typeof p === 'string')
+                return p;
+            if (!p)
+                return '';
+            var main = p.link || p.url || p.data, fb = Array.isArray(p.fallback) ? p.fallback.filter(Boolean) : [];
+            return ph(main) && fb.length ? fb[0] : main;
+        };
+        return (data || []).map(function (p) { return abs(_this.base + '/', pick(p)); }).filter(Boolean);
     };
     VBookEngine.prototype.content = function (url) {
         var r = this.run('chap', url);

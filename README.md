@@ -45,7 +45,7 @@ mangayomi://add-repo?repo_name=Kiritokmn&manga_url=https://raw.githubusercontent
 
 Trang phát hành: https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/tag/v0.0.1
 
-## Trạng thái nguồn (kiểm thử tự động 2026-11-04: 31/196 chạy trọn chuỗi danh sách → chi tiết → mục lục → nội dung)
+## Trạng thái nguồn (kiểm thử tự động 2026-11-05: 31/196 chạy trọn chuỗi danh sách → chi tiết → mục lục → nội dung)
 
 Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự án). Nguồn "không truy cập được" thường do tên miền đã đổi — vào cài đặt nguồn để đổi **Tên miền**.
 
@@ -122,7 +122,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 18 | Misskon | misskon.com | vi |  | ✅ hoạt động |
 | 19 | MoeTruyen | truyen.moe | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
 | 20 | My Reading Manga | myreadingmanga.info | all |  | 🛡️ Cloudflare Turnstile – cần **xác minh thủ công** trong WebView |
-| 21 | Navy Team Comic | navyteams.com | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
+| 21 | Navy Team Comic | navyteams.com | vi |  | ✅ hoạt động |
 | 22 | NetTruyen18 | nettruyen18.com | vi |  | ✅ hoạt động |
 | 23 | NetTruyenViet | nettruyenviet10.com | vi |  | 🟡 một phần (search ✓; popular lỗi) |
 | 24 | NetTruyenZ | nettruyenz.com | vi |  | 🟡 một phần (popular lỗi) |
@@ -182,7 +182,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 37 | La Cà Truyện | lacatruyen.live | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 38 | Langgee | v5.langge.uk | zh |  | 🟠 bị Cloudflare/máy chủ chặn |
 | 39 | LN Kuro | lnkuro.top | vi |  | 🟡 một phần (popular lỗi) |
-| 40 | LOFTER | www.sudugu.org | zh |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 40 | LOFTER | www.sudugu.org | zh |  | 🟡 một phần (popular lỗi) |
 | 41 | LoHi | lohi2.com | vi |  | 🟡 một phần (popular lỗi) |
 | 42 | LoppyToon | loppytoon.com | vi | Có | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 43 | Luvevaland | luvevalandn2.co | vi |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
@@ -197,7 +197,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 52 | Mê Truyện CV | metruyencv.com.vn | vi |  | 🟡 một phần (popular lỗi) |
 | 53 | Mê Đọc Truyện | medoctruyen.vn | vi |  | ✅ hoạt động |
 | 54 | Mọt Truyện | mottruyen.app | vi |  | 🟡 một phần (popular, detail ✓; search lỗi) |
-| 55 | Navy Team Novel | navyteams.com | vi |  | ✅ hoạt động |
+| 55 | Navy Team Novel | navyteams.com | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
 | 56 | NetTruyen | nettruyen.com.vn | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 57 | Novel Next | www.novelnext.me | en |  | 🟡 một phần (popular, search, detail, chapters ✓; content lỗi) |
 | 58 | NovelFull.Net | novelfull.net | en |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
@@ -212,11 +212,11 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 67 | quanwenyuedu | www.quanwenyuedu.io | zh |  | 🟡 một phần (popular, search, detail ✓; chapters lỗi) |
 | 68 | QuyKiep | quykiep.com | vi |  | 🟡 một phần (popular lỗi) |
 | 69 | Shinigami LN Team | shinigamilnteam.com | vi |  | 🟡 một phần (popular lỗi) |
-| 70 | Si Truyện CV | sitruyencv.com | vi |  | 🟡 một phần (popular lỗi) |
+| 70 | Si Truyện CV | sitruyencv.com | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 71 | Snapd | m.snapd.net | zh |  | 🟡 một phần (popular lỗi) |
 | 72 | sohu | www.sohu.com | zh |  | 🟡 một phần (popular lỗi) |
 | 73 | STV App Vi | sangtacviet.com | vi |  | 🟡 một phần (popular lỗi) |
-| 74 | sudugu | www.sudugu.org | zh |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 74 | sudugu | www.sudugu.org | zh |  | 🟡 một phần (popular lỗi) |
 | 75 | sweetastes | www.bjtriz.com | zh |  | 🟡 một phần (popular, detail ✓; search lỗi) |
 | 76 | Syosetu | syosetu.com | ja |  | 🟡 một phần (popular ✓; search lỗi) |
 | 77 | Syosetu R18 | novel18.syosetu.com | ja | Có | 🟡 một phần (popular lỗi) |

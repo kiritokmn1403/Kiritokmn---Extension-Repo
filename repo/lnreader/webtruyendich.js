@@ -209,25 +209,25 @@ var Be = (function () {
     } };
     return Be;
 }());
-function Kt(e) { var u = "", t = new Be(e, function (r) { return u += Me(r); }); return function (n, i) { var s = 0, o = 0; for (; (o = n.indexOf("&", o)) >= 0;) {
-    u += n.slice(s, o), t.startEntity(i);
-    var d = t.write(n, o + 1);
+function Kt(e) { var u = "", t = new Be(e, function (r) { return u += Me(r); }); return function (n, i) { var s = 0, c = 0; for (; (c = n.indexOf("&", c)) >= 0;) {
+    u += n.slice(s, c), t.startEntity(i);
+    var d = t.write(n, c + 1);
     if (d < 0) {
-        s = o + t.end();
+        s = c + t.end();
         break;
     }
-    s = o + d, o = d === 0 ? s + 1 : s;
+    s = c + d, c = d === 0 ? s + 1 : s;
 } var l = u + n.slice(s); return u = "", l; }; }
 function mr(e, u, t, r) { var n = (u & we.BRANCH_LENGTH) >> 7, i = u & we.JUMP_TABLE; if (n === 0)
     return i !== 0 && r === i ? t : -1; if (i) {
     var l = r - i;
     return l < 0 || l >= n ? -1 : e[t + l] - 1;
-} var s = t, o = s + n - 1; for (; s <= o;) {
-    var l = s + o >>> 1, d = e[l];
+} var s = t, c = s + n - 1; for (; s <= c;) {
+    var l = s + c >>> 1, d = e[l];
     if (d < r)
         s = l + 1;
     else if (d > r)
-        o = l - 1;
+        c = l - 1;
     else
         return e[l + n];
 } return -1; }
@@ -430,8 +430,8 @@ var $ = { Cdata: new Uint8Array([67, 68, 65, 84, 65, 91]), CdataEnd: new Uint8Ar
 var He = new Set(["input", "option", "optgroup", "select", "button", "datalist", "textarea"]), U = new Set(["p"]), Xt = new Set(["thead", "tbody"]), Qt = new Set(["dd", "dt"]), Yt = new Set(["rt", "rp"]), yr = new Map([["tr", new Set(["tr", "th", "td"])], ["th", new Set(["th"])], ["td", new Set(["thead", "th", "td"])], ["body", new Set(["head", "link", "script"])], ["li", new Set(["li"])], ["p", U], ["h1", U], ["h2", U], ["h3", U], ["h4", U], ["h5", U], ["h6", U], ["select", He], ["input", He], ["output", He], ["button", He], ["datalist", He], ["textarea", He], ["option", new Set(["option"])], ["optgroup", new Set(["optgroup", "option"])], ["dd", Qt], ["dt", Qt], ["address", U], ["article", U], ["aside", U], ["blockquote", U], ["details", U], ["div", U], ["dl", U], ["fieldset", U], ["figcaption", U], ["figure", U], ["footer", U], ["form", U], ["header", U], ["hr", U], ["main", U], ["nav", U], ["ol", U], ["pre", U], ["section", U], ["table", U], ["ul", U], ["rt", Yt], ["rp", Yt], ["tbody", Xt], ["tfoot", Xt]]), vr = new Set(["area", "base", "basefont", "br", "col", "command", "embed", "frame", "hr", "img", "input", "isindex", "keygen", "link", "meta", "param", "source", "track", "wbr"]), Zt = new Set(["math", "svg"]), e0 = new Set(["mi", "mo", "mn", "ms", "mtext", "annotation-xml", "foreignobject", "desc", "title"]), Sr = /\s|\//, Ye = (function () {
     function Ye(u, t) {
         if (t === void 0) { t = {}; }
-        var r, n, i, s, o, l;
-        this.options = t, this.startIndex = 0, this.endIndex = 0, this.openTagStart = 0, this.tagname = "", this.attribname = "", this.attribvalue = "", this.attribs = null, this.stack = [], this.buffers = [], this.bufferOffset = 0, this.writeIndex = 0, this.ended = !1, this.cbs = u != null ? u : {}, this.htmlMode = !this.options.xmlMode, this.lowerCaseTagNames = (r = t.lowerCaseTags) !== null && r !== void 0 ? r : this.htmlMode, this.lowerCaseAttributeNames = (n = t.lowerCaseAttributeNames) !== null && n !== void 0 ? n : this.htmlMode, this.recognizeSelfClosing = (i = t.recognizeSelfClosing) !== null && i !== void 0 ? i : !this.htmlMode, this.tokenizer = new ((s = t.Tokenizer) !== null && s !== void 0 ? s : Ge)(this.options, this), this.foreignContext = [!this.htmlMode], (l = (o = this.cbs).onparserinit) === null || l === void 0 || l.call(o, this);
+        var r, n, i, s, c, l;
+        this.options = t, this.startIndex = 0, this.endIndex = 0, this.openTagStart = 0, this.tagname = "", this.attribname = "", this.attribvalue = "", this.attribs = null, this.stack = [], this.buffers = [], this.bufferOffset = 0, this.writeIndex = 0, this.ended = !1, this.cbs = u != null ? u : {}, this.htmlMode = !this.options.xmlMode, this.lowerCaseTagNames = (r = t.lowerCaseTags) !== null && r !== void 0 ? r : this.htmlMode, this.lowerCaseAttributeNames = (n = t.lowerCaseAttributeNames) !== null && n !== void 0 ? n : this.htmlMode, this.recognizeSelfClosing = (i = t.recognizeSelfClosing) !== null && i !== void 0 ? i : !this.htmlMode, this.tokenizer = new ((s = t.Tokenizer) !== null && s !== void 0 ? s : Ge)(this.options, this), this.foreignContext = [!this.htmlMode], (l = (c = this.cbs).onparserinit) === null || l === void 0 || l.call(c, this);
     }
     Ye.prototype.ontext = function (u, t) { var r, n; var i = this.getSlice(u, t); this.endIndex = t - 1, (n = (r = this.cbs).ontext) === null || n === void 0 || n.call(r, i), this.startIndex = t; };
     Ye.prototype.ontextentity = function (u, t) { var r, n; this.endIndex = t - 1, (n = (r = this.cbs).ontext) === null || n === void 0 || n.call(r, Me(u)), this.startIndex = t; };
@@ -439,13 +439,13 @@ var He = new Set(["input", "option", "optgroup", "select", "button", "datalist",
     Ye.prototype.onopentagname = function (u, t) { this.endIndex = t; var r = this.getSlice(u, t); this.lowerCaseTagNames && (r = r.toLowerCase()), this.emitOpenTag(r); };
     Ye.prototype.emitOpenTag = function (u) { var t, r, n, i; this.openTagStart = this.startIndex, this.tagname = u; var s = this.htmlMode && yr.get(u); if (s)
         for (; this.stack.length > 0 && s.has(this.stack[0]);) {
-            var o = this.stack.shift();
-            (r = (t = this.cbs).onclosetag) === null || r === void 0 || r.call(t, o, !0);
+            var c = this.stack.shift();
+            (r = (t = this.cbs).onclosetag) === null || r === void 0 || r.call(t, c, !0);
         } this.isVoidElement(u) || (this.stack.unshift(u), this.htmlMode && (Zt.has(u) ? this.foreignContext.unshift(!0) : e0.has(u) && this.foreignContext.unshift(!1))), (i = (n = this.cbs).onopentagname) === null || i === void 0 || i.call(n, u), this.cbs.onopentag && (this.attribs = {}); };
     Ye.prototype.endOpenTag = function (u) { var t, r; this.startIndex = this.openTagStart, this.attribs && ((r = (t = this.cbs).onopentag) === null || r === void 0 || r.call(t, this.tagname, this.attribs, u), this.attribs = null), this.cbs.onclosetag && this.isVoidElement(this.tagname) && this.cbs.onclosetag(this.tagname, !0), this.tagname = ""; };
     Ye.prototype.onopentagend = function (u) { this.endIndex = u, this.endOpenTag(!1), this.startIndex = u + 1; };
-    Ye.prototype.onclosetag = function (u, t) { var r, n, i, s, o, l, d, g; this.endIndex = t; var w = this.getSlice(u, t); if (this.lowerCaseTagNames && (w = w.toLowerCase()), this.htmlMode && (Zt.has(w) || e0.has(w)) && this.foreignContext.shift(), this.isVoidElement(w))
-        this.htmlMode && w === "br" && ((s = (i = this.cbs).onopentagname) === null || s === void 0 || s.call(i, "br"), (l = (o = this.cbs).onopentag) === null || l === void 0 || l.call(o, "br", {}, !0), (g = (d = this.cbs).onclosetag) === null || g === void 0 || g.call(d, "br", !1));
+    Ye.prototype.onclosetag = function (u, t) { var r, n, i, s, c, l, d, g; this.endIndex = t; var w = this.getSlice(u, t); if (this.lowerCaseTagNames && (w = w.toLowerCase()), this.htmlMode && (Zt.has(w) || e0.has(w)) && this.foreignContext.shift(), this.isVoidElement(w))
+        this.htmlMode && w === "br" && ((s = (i = this.cbs).onopentagname) === null || s === void 0 || s.call(i, "br"), (l = (c = this.cbs).onopentag) === null || l === void 0 || l.call(c, "br", {}, !0), (g = (d = this.cbs).onclosetag) === null || g === void 0 || g.call(d, "br", !1));
     else {
         var x = this.stack.indexOf(w);
         if (x !== -1)
@@ -471,8 +471,8 @@ var He = new Set(["input", "option", "optgroup", "select", "button", "datalist",
         var n = this.getInstructionName(r);
         this.cbs.onprocessinginstruction("?".concat(n), "?".concat(r));
     } this.startIndex = t + 1; };
-    Ye.prototype.oncomment = function (u, t, r) { var n, i, s, o; this.endIndex = t, (i = (n = this.cbs).oncomment) === null || i === void 0 || i.call(n, this.getSlice(u, t - r)), (o = (s = this.cbs).oncommentend) === null || o === void 0 || o.call(s), this.startIndex = t + 1; };
-    Ye.prototype.oncdata = function (u, t, r) { var n, i, s, o, l, d, g, w, x, y; this.endIndex = t; var E = this.getSlice(u, t - r); !this.htmlMode || this.options.recognizeCDATA ? ((i = (n = this.cbs).oncdatastart) === null || i === void 0 || i.call(n), (o = (s = this.cbs).ontext) === null || o === void 0 || o.call(s, E), (d = (l = this.cbs).oncdataend) === null || d === void 0 || d.call(l)) : ((w = (g = this.cbs).oncomment) === null || w === void 0 || w.call(g, "[CDATA[".concat(E, "]]")), (y = (x = this.cbs).oncommentend) === null || y === void 0 || y.call(x)), this.startIndex = t + 1; };
+    Ye.prototype.oncomment = function (u, t, r) { var n, i, s, c; this.endIndex = t, (i = (n = this.cbs).oncomment) === null || i === void 0 || i.call(n, this.getSlice(u, t - r)), (c = (s = this.cbs).oncommentend) === null || c === void 0 || c.call(s), this.startIndex = t + 1; };
+    Ye.prototype.oncdata = function (u, t, r) { var n, i, s, c, l, d, g, w, x, y; this.endIndex = t; var E = this.getSlice(u, t - r); !this.htmlMode || this.options.recognizeCDATA ? ((i = (n = this.cbs).oncdatastart) === null || i === void 0 || i.call(n), (c = (s = this.cbs).ontext) === null || c === void 0 || c.call(s, E), (d = (l = this.cbs).oncdataend) === null || d === void 0 || d.call(l)) : ((w = (g = this.cbs).oncomment) === null || w === void 0 || w.call(g, "[CDATA[".concat(E, "]]")), (y = (x = this.cbs).oncommentend) === null || y === void 0 || y.call(x)), this.startIndex = t + 1; };
     Ye.prototype.onend = function () { var u, t; if (this.cbs.onclosetag) {
         this.endIndex = this.startIndex;
         for (var r = 0; r < this.stack.length; r++)
@@ -753,7 +753,7 @@ var f0 = new Map(["altGlyph", "altGlyphDef", "altGlyphItem", "animateColor", "an
 var Tr = new Set(["style", "script", "xmp", "iframe", "noembed", "noframes", "plaintext", "noscript"]);
 function Nr(e) { return e.replace(/"/g, "&quot;"); }
 function Cr(e, u) { var t; if (!e)
-    return; var r = ((t = u.encodeEntities) !== null && t !== void 0 ? t : u.decodeEntities) === !1 ? Nr : u.xmlMode || u.encodeEntities !== "utf8" ? iu : yu; return Object.keys(e).map(function (n) { var i, s; var o = (i = e[n]) !== null && i !== void 0 ? i : ""; return u.xmlMode === "foreign" && (n = (s = l0.get(n)) !== null && s !== void 0 ? s : n), !u.emptyAttrs && !u.xmlMode && o === "" ? n : "".concat(n, "=\"").concat(r(o), "\""); }).join(" "); }
+    return; var r = ((t = u.encodeEntities) !== null && t !== void 0 ? t : u.decodeEntities) === !1 ? Nr : u.xmlMode || u.encodeEntities !== "utf8" ? iu : yu; return Object.keys(e).map(function (n) { var i, s; var c = (i = e[n]) !== null && i !== void 0 ? i : ""; return u.xmlMode === "foreign" && (n = (s = l0.get(n)) !== null && s !== void 0 ? s : n), !u.emptyAttrs && !u.xmlMode && c === "" ? n : "".concat(n, "=\"").concat(r(c), "\""); }).join(" "); }
 var d0 = new Set(["area", "base", "basefont", "br", "col", "command", "embed", "frame", "hr", "img", "input", "isindex", "keygen", "link", "meta", "param", "source", "track", "wbr"]);
 function dt(e, u) {
     if (u === void 0) { u = {}; }
@@ -862,10 +862,10 @@ function Eu(e, u, t, r) { var n = [], i = [Array.isArray(u) ? u : [u]], s = [0];
         i.shift(), s.shift();
         continue;
     }
-    var o = i[0][s[0]++];
-    if (e(o) && (n.push(o), --r <= 0))
+    var c = i[0][s[0]++];
+    if (e(c) && (n.push(c), --r <= 0))
         return n;
-    t && X(o) && o.children.length > 0 && (s.unshift(0), i.unshift(o.children));
+    t && X(c) && c.children.length > 0 && (s.unshift(0), i.unshift(c.children));
 } }
 function jr(e, u) { return u.find(e); }
 function Tu(e, u, t) {
@@ -942,11 +942,11 @@ function m0(e, u) { var t = [], r = []; if (e === u)
     t.unshift(n), n = n.parent; for (n = X(u) ? u : u.parent; n;)
     r.unshift(n), n = n.parent; var i = Math.min(t.length, r.length), s = 0; for (; s < i && t[s] === r[s];)
     s++; if (s === 0)
-    return ce.DISCONNECTED; var o = t[s - 1], l = o.children, d = t[s], g = r[s]; return l.indexOf(d) > l.indexOf(g) ? o === u ? ce.FOLLOWING | ce.CONTAINED_BY : ce.FOLLOWING : o === e ? ce.PRECEDING | ce.CONTAINS : ce.PRECEDING; }
+    return ce.DISCONNECTED; var c = t[s - 1], l = c.children, d = t[s], g = r[s]; return l.indexOf(d) > l.indexOf(g) ? c === u ? ce.FOLLOWING | ce.CONTAINED_BY : ce.FOLLOWING : c === e ? ce.PRECEDING | ce.CONTAINS : ce.PRECEDING; }
 function xt(e) { return e = e.filter(function (u, t, r) { return !r.includes(u, t + 1); }), e.sort(function (u, t) { var r = m0(u, t); return r & ce.PRECEDING ? -1 : r & ce.FOLLOWING ? 1 : 0; }), e; }
 function yt(e) { var u = Cu(rn, e); return u ? u.name === "feed" ? Zr(u) : en(u) : null; }
-function Zr(e) { var u; var t = e.children, r = { type: "atom", items: Le("entry", t).map(function (s) { var o; var l = s.children, d = { media: x0(l) }; ee(d, "id", "id", l), ee(d, "title", "title", l); var g = (o = Cu("link", l)) === null || o === void 0 ? void 0 : o.attribs.href; g && (d.link = g); var w = Te("summary", l) || Te("content", l); w && (d.description = w); var x = Te("updated", l); return x && (d.pubDate = new Date(x)), d; }) }; ee(r, "id", "id", t), ee(r, "title", "title", t); var n = (u = Cu("link", t)) === null || u === void 0 ? void 0 : u.attribs.href; n && (r.link = n), ee(r, "description", "subtitle", t); var i = Te("updated", t); return i && (r.updated = new Date(i)), ee(r, "author", "email", t, !0), r; }
-function en(e) { var u, t; var r = (t = (u = Cu("channel", e.children)) === null || u === void 0 ? void 0 : u.children) !== null && t !== void 0 ? t : [], n = { type: e.name.substr(0, 3), id: "", items: Le("item", e.children).map(function (s) { var o = s.children, l = { media: x0(o) }; ee(l, "id", "guid", o), ee(l, "title", "title", o), ee(l, "link", "link", o), ee(l, "description", "description", o); var d = Te("pubDate", o) || Te("dc:date", o); return d && (l.pubDate = new Date(d)), l; }) }; ee(n, "title", "title", r), ee(n, "link", "link", r), ee(n, "description", "description", r); var i = Te("lastBuildDate", r); return i && (n.updated = new Date(i)), ee(n, "author", "managingEditor", r, !0), n; }
+function Zr(e) { var u; var t = e.children, r = { type: "atom", items: Le("entry", t).map(function (s) { var c; var l = s.children, d = { media: x0(l) }; ee(d, "id", "id", l), ee(d, "title", "title", l); var g = (c = Cu("link", l)) === null || c === void 0 ? void 0 : c.attribs.href; g && (d.link = g); var w = Te("summary", l) || Te("content", l); w && (d.description = w); var x = Te("updated", l); return x && (d.pubDate = new Date(x)), d; }) }; ee(r, "id", "id", t), ee(r, "title", "title", t); var n = (u = Cu("link", t)) === null || u === void 0 ? void 0 : u.attribs.href; n && (r.link = n), ee(r, "description", "subtitle", t); var i = Te("updated", t); return i && (r.updated = new Date(i)), ee(r, "author", "email", t, !0), r; }
+function en(e) { var u, t; var r = (t = (u = Cu("channel", e.children)) === null || u === void 0 ? void 0 : u.children) !== null && t !== void 0 ? t : [], n = { type: e.name.substr(0, 3), id: "", items: Le("item", e.children).map(function (s) { var c = s.children, l = { media: x0(c) }; ee(l, "id", "guid", c), ee(l, "title", "title", c), ee(l, "link", "link", c), ee(l, "description", "description", c); var d = Te("pubDate", c) || Te("dc:date", c); return d && (l.pubDate = new Date(d)), l; }) }; ee(n, "title", "title", r), ee(n, "link", "link", r), ee(n, "description", "description", r); var i = Te("lastBuildDate", r); return i && (n.updated = new Date(i)), ee(n, "author", "managingEditor", r, !0), n; }
 var un = ["url", "type", "lang"], tn = ["fileSize", "bitrate", "framerate", "samplingrate", "channels", "duration", "height", "width"];
 function x0(e) { return Le("media:content", e).map(function (u) {
     var e_4, _a, e_5, _b;
@@ -1015,8 +1015,8 @@ function Ne(e) { var u = [], t = A0(u, "".concat(e), 0); if (t < e.length)
 function A0(e, u, t) { var r = []; function n(x) { var y = u.slice(t + x).match(v0); if (!y)
     throw new Error("Expected name, found ".concat(u.slice(t))); var _a = __read(y, 1), E = _a[0]; return t += x + E.length, su(E); } function i(x) { for (t += x; t < u.length && S0(u.charCodeAt(t));)
     t++; } function s() { t += 1; var x = t, y = 1; for (; y > 0 && t < u.length; t++)
-    u.charCodeAt(t) === 40 && !o(t) ? y++ : u.charCodeAt(t) === 41 && !o(t) && y--; if (y)
-    throw new Error("Parenthesis not matched"); return su(u.slice(x, t - 1)); } function o(x) { var y = 0; for (; u.charCodeAt(--x) === 92;)
+    u.charCodeAt(t) === 40 && !c(t) ? y++ : u.charCodeAt(t) === 41 && !c(t) && y--; if (y)
+    throw new Error("Parenthesis not matched"); return su(u.slice(x, t - 1)); } function c(x) { var y = 0; for (; u.charCodeAt(--x) === 92;)
     y++; return (y & 1) === 1; } function l() { if (r.length > 0 && Ue(r[r.length - 1]))
     throw new Error("Did not expect successive traversals."); } function d(x) { if (r.length > 0 && r[r.length - 1].type === S.Descendant) {
     r[r.length - 1].type = x;
@@ -1074,7 +1074,7 @@ function A0(e, u, t) { var r = []; function n(x) { var y = u.slice(t + x).match(
             if (C !== "exists") {
                 if (vt(u.charCodeAt(t))) {
                     var _ = u.charCodeAt(t), m = t + 1;
-                    for (; m < u.length && (u.charCodeAt(m) !== _ || o(m));)
+                    for (; m < u.length && (u.charCodeAt(m) !== _ || c(m));)
                         m += 1;
                     if (u.charCodeAt(m) !== _)
                         throw new Error("Attribute value didn't end");
@@ -1082,7 +1082,7 @@ function A0(e, u, t) { var r = []; function n(x) { var y = u.slice(t + x).match(
                 }
                 else {
                     var _ = t;
-                    for (; t < u.length && (!S0(u.charCodeAt(t)) && u.charCodeAt(t) !== 93 || o(t));)
+                    for (; t < u.length && (!S0(u.charCodeAt(t)) && u.charCodeAt(t) !== 93 || c(t));)
                         t += 1;
                     Q = su(u.slice(_, t));
                 }
@@ -1168,22 +1168,22 @@ var ou = ke(Ce(), 1), ln = /[-[\]{}()*+?.,\\^$|#\s]/g;
 function N0(e) { return e.replace(ln, "\\$&"); }
 var dn = new Set(["accept", "accept-charset", "align", "alink", "axis", "bgcolor", "charset", "checked", "clear", "codetype", "color", "compact", "declare", "defer", "dir", "direction", "disabled", "enctype", "face", "frame", "hreflang", "http-equiv", "lang", "language", "link", "media", "method", "multiple", "nohref", "noresize", "noshade", "nowrap", "readonly", "rel", "rev", "rules", "scope", "scrolling", "selected", "shape", "target", "text", "type", "valign", "valuetype", "vlink"]);
 function Oe(e, u) { return typeof e.ignoreCase == "boolean" ? e.ignoreCase : e.ignoreCase === "quirks" ? !!u.quirksMode : !u.xmlMode && dn.has(e.name); }
-var C0 = { equals: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value; return Oe(u, t) ? (i = i.toLowerCase(), function (s) { var o = r.getAttributeValue(s, n); return o != null && o.length === i.length && o.toLowerCase() === i && e(s); }) : function (s) { return r.getAttributeValue(s, n) === i && e(s); }; }, hyphen: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value, s = i.length; return Oe(u, t) ? (i = i.toLowerCase(), function (l) { var d = r.getAttributeValue(l, n); return d != null && (d.length === s || d.charAt(s) === "-") && d.substr(0, s).toLowerCase() === i && e(l); }) : function (l) { var d = r.getAttributeValue(l, n); return d != null && (d.length === s || d.charAt(s) === "-") && d.substr(0, s) === i && e(l); }; }, element: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value; if (/\s/.test(i))
+var C0 = { equals: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value; return Oe(u, t) ? (i = i.toLowerCase(), function (s) { var c = r.getAttributeValue(s, n); return c != null && c.length === i.length && c.toLowerCase() === i && e(s); }) : function (s) { return r.getAttributeValue(s, n) === i && e(s); }; }, hyphen: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value, s = i.length; return Oe(u, t) ? (i = i.toLowerCase(), function (l) { var d = r.getAttributeValue(l, n); return d != null && (d.length === s || d.charAt(s) === "-") && d.substr(0, s).toLowerCase() === i && e(l); }) : function (l) { var d = r.getAttributeValue(l, n); return d != null && (d.length === s || d.charAt(s) === "-") && d.substr(0, s) === i && e(l); }; }, element: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value; if (/\s/.test(i))
         return ou.default.falseFunc; var s = new RegExp("(?:^|\\s)".concat(N0(i), "(?:$|\\s)"), Oe(u, t) ? "i" : ""); return function (l) { var d = r.getAttributeValue(l, n); return d != null && d.length >= i.length && s.test(d) && e(l); }; }, exists: function (e, _a, _b) {
         var u = _a.name;
         var t = _b.adapter;
         return function (r) { return t.hasAttrib(r, u) && e(r); };
-    }, start: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value, s = i.length; return s === 0 ? ou.default.falseFunc : Oe(u, t) ? (i = i.toLowerCase(), function (o) { var l = r.getAttributeValue(o, n); return l != null && l.length >= s && l.substr(0, s).toLowerCase() === i && e(o); }) : function (o) { var l; return !!(!((l = r.getAttributeValue(o, n)) === null || l === void 0) && l.startsWith(i)) && e(o); }; }, end: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value, s = -i.length; return s === 0 ? ou.default.falseFunc : Oe(u, t) ? (i = i.toLowerCase(), function (o) { var l; return ((l = r.getAttributeValue(o, n)) === null || l === void 0 ? void 0 : l.substr(s).toLowerCase()) === i && e(o); }) : function (o) { var l; return !!(!((l = r.getAttributeValue(o, n)) === null || l === void 0) && l.endsWith(i)) && e(o); }; }, any: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value; if (i === "")
+    }, start: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value, s = i.length; return s === 0 ? ou.default.falseFunc : Oe(u, t) ? (i = i.toLowerCase(), function (c) { var l = r.getAttributeValue(c, n); return l != null && l.length >= s && l.substr(0, s).toLowerCase() === i && e(c); }) : function (c) { var l; return !!(!((l = r.getAttributeValue(c, n)) === null || l === void 0) && l.startsWith(i)) && e(c); }; }, end: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value, s = -i.length; return s === 0 ? ou.default.falseFunc : Oe(u, t) ? (i = i.toLowerCase(), function (c) { var l; return ((l = r.getAttributeValue(c, n)) === null || l === void 0 ? void 0 : l.substr(s).toLowerCase()) === i && e(c); }) : function (c) { var l; return !!(!((l = r.getAttributeValue(c, n)) === null || l === void 0) && l.endsWith(i)) && e(c); }; }, any: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value; if (i === "")
         return ou.default.falseFunc; if (Oe(u, t)) {
         var s_1 = new RegExp(N0(i), "i");
         return function (l) { var d = r.getAttributeValue(l, n); return d != null && d.length >= i.length && s_1.test(d) && e(l); };
-    } return function (s) { var o; return !!(!((o = r.getAttributeValue(s, n)) === null || o === void 0) && o.includes(i)) && e(s); }; }, not: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value; return i === "" ? function (s) { return !!r.getAttributeValue(s, n) && e(s); } : Oe(u, t) ? (i = i.toLowerCase(), function (s) { var o = r.getAttributeValue(s, n); return (o == null || o.length !== i.length || o.toLowerCase() !== i) && e(s); }) : function (s) { return r.getAttributeValue(s, n) !== i && e(s); }; } };
+    } return function (s) { var c; return !!(!((c = r.getAttributeValue(s, n)) === null || c === void 0) && c.includes(i)) && e(s); }; }, not: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value; return i === "" ? function (s) { return !!r.getAttributeValue(s, n) && e(s); } : Oe(u, t) ? (i = i.toLowerCase(), function (s) { var c = r.getAttributeValue(s, n); return (c == null || c.length !== i.length || c.toLowerCase() !== i) && e(s); }) : function (s) { return r.getAttributeValue(s, n) !== i && e(s); }; } };
 var hn = new Set([9, 10, 12, 13, 32]), I0 = 48, bn = 57;
 function q0(e) { if (e = e.trim().toLowerCase(), e === "even")
     return [2, 0]; if (e === "odd")
-    return [2, 1]; var u = 0, t = 0, r = i(), n = s(); if (u < e.length && e.charAt(u) === "n" && (u++, t = r * (n != null ? n : 1), o(), u < e.length ? (r = i(), o(), n = s()) : r = n = 0), n === null || u < e.length)
+    return [2, 1]; var u = 0, t = 0, r = i(), n = s(); if (u < e.length && e.charAt(u) === "n" && (u++, t = r * (n != null ? n : 1), c(), u < e.length ? (r = i(), c(), n = s()) : r = n = 0), n === null || u < e.length)
     throw new Error("n-th rule couldn't be parsed ('".concat(e, "')")); return [t, r * n]; function i() { return e.charAt(u) === "-" ? (u++, -1) : (e.charAt(u) === "+" && u++, 1); } function s() { var l = u, d = 0; for (; u < e.length && e.charCodeAt(u) >= I0 && e.charCodeAt(u) <= bn;)
-    d = d * 10 + (e.charCodeAt(u) - I0), u++; return u === l ? null : d; } function o() { for (; u < e.length && hn.has(e.charCodeAt(u));)
+    d = d * 10 + (e.charCodeAt(u) - I0), u++; return u === l ? null : d; } function c() { for (; u < e.length && hn.has(e.charCodeAt(u));)
     u++; } }
 var At = ke(Ce(), 1);
 function k0(e) { var u = e[0], t = e[1] - 1; if (t < 0 && u <= 0)
@@ -1204,18 +1204,18 @@ var Je = { contains: function (e, u, _a) {
     }, "nth-child": function (e, u, _a) {
         var t = _a.adapter, r = _a.equals;
         var n = $e(u);
-        return n === ue.default.falseFunc ? ue.default.falseFunc : n === ue.default.trueFunc ? Iu(e, t) : function (s) { var o = t.getSiblings(s), l = 0; for (var d = 0; d < o.length && !r(s, o[d]); d++)
-            t.isTag(o[d]) && l++; return n(l) && e(s); };
+        return n === ue.default.falseFunc ? ue.default.falseFunc : n === ue.default.trueFunc ? Iu(e, t) : function (s) { var c = t.getSiblings(s), l = 0; for (var d = 0; d < c.length && !r(s, c[d]); d++)
+            t.isTag(c[d]) && l++; return n(l) && e(s); };
     }, "nth-last-child": function (e, u, _a) {
         var t = _a.adapter, r = _a.equals;
         var n = $e(u);
-        return n === ue.default.falseFunc ? ue.default.falseFunc : n === ue.default.trueFunc ? Iu(e, t) : function (s) { var o = t.getSiblings(s), l = 0; for (var d = o.length - 1; d >= 0 && !r(s, o[d]); d--)
-            t.isTag(o[d]) && l++; return n(l) && e(s); };
+        return n === ue.default.falseFunc ? ue.default.falseFunc : n === ue.default.trueFunc ? Iu(e, t) : function (s) { var c = t.getSiblings(s), l = 0; for (var d = c.length - 1; d >= 0 && !r(s, c[d]); d--)
+            t.isTag(c[d]) && l++; return n(l) && e(s); };
     }, "nth-of-type": function (e, u, _a) {
         var t = _a.adapter, r = _a.equals;
         var n = $e(u);
-        return n === ue.default.falseFunc ? ue.default.falseFunc : n === ue.default.trueFunc ? Iu(e, t) : function (s) { var o = t.getSiblings(s), l = 0; for (var d = 0; d < o.length; d++) {
-            var g = o[d];
+        return n === ue.default.falseFunc ? ue.default.falseFunc : n === ue.default.trueFunc ? Iu(e, t) : function (s) { var c = t.getSiblings(s), l = 0; for (var d = 0; d < c.length; d++) {
+            var g = c[d];
             if (r(s, g))
                 break;
             t.isTag(g) && t.getName(g) === t.getName(s) && l++;
@@ -1223,8 +1223,8 @@ var Je = { contains: function (e, u, _a) {
     }, "nth-last-of-type": function (e, u, _a) {
         var t = _a.adapter, r = _a.equals;
         var n = $e(u);
-        return n === ue.default.falseFunc ? ue.default.falseFunc : n === ue.default.trueFunc ? Iu(e, t) : function (s) { var o = t.getSiblings(s), l = 0; for (var d = o.length - 1; d >= 0; d--) {
-            var g = o[d];
+        return n === ue.default.falseFunc ? ue.default.falseFunc : n === ue.default.trueFunc ? Iu(e, t) : function (s) { var c = t.getSiblings(s), l = 0; for (var d = c.length - 1; d >= 0; d--) {
+            var g = c[d];
             if (r(s, g))
                 break;
             t.isTag(g) && t.getName(g) === t.getName(s) && l++;
@@ -1236,7 +1236,7 @@ var Je = { contains: function (e, u, _a) {
 function wt(e) { return function (t, r, _a) {
     var n = _a.adapter;
     var i = n[e];
-    return typeof i != "function" ? ue.default.falseFunc : function (o) { return i(o) && t(o); };
+    return typeof i != "function" ? ue.default.falseFunc : function (c) { return i(c) && t(c); };
 }; }
 var fu = { empty: function (e, _a) {
         var u = _a.adapter;
@@ -1300,26 +1300,26 @@ function It(e, u) { return e === oe.default.falseFunc ? oe.default.falseFunc : f
 function qt(e, u) { var t = u.getSiblings(e); if (t.length <= 1)
     return []; var r = t.indexOf(e); return r < 0 || r === t.length - 1 ? [] : t.slice(r + 1).filter(u.isTag); }
 function Nt(e) { return { xmlMode: !!e.xmlMode, lowerCaseAttributeNames: !!e.lowerCaseAttributeNames, lowerCaseTags: !!e.lowerCaseTags, quirksMode: !!e.quirksMode, cacheResults: !!e.cacheResults, pseudos: e.pseudos, adapter: e.adapter, equals: e.equals }; }
-var Tt = function (e, u, t, r, n) { var i = n(u, Nt(t), r); return i === oe.default.trueFunc ? e : i === oe.default.falseFunc ? oe.default.falseFunc : function (s) { return i(s) && e(s); }; }, ku = { is: Tt, matches: Tt, where: Tt, not: function (e, u, t, r, n) { var i = n(u, Nt(t), r); return i === oe.default.falseFunc ? e : i === oe.default.trueFunc ? oe.default.falseFunc : function (s) { return !i(s) && e(s); }; }, has: function (e, u, t, r, n) { var i = t.adapter, s = Nt(t); s.relativeSelector = !0; var o = u.some(function (g) { return g.some(cu); }) ? [Ct] : void 0, l = n(u, s, o); if (l === oe.default.falseFunc)
-        return oe.default.falseFunc; var d = It(l, i); if (o && l !== oe.default.trueFunc) {
+var Tt = function (e, u, t, r, n) { var i = n(u, Nt(t), r); return i === oe.default.trueFunc ? e : i === oe.default.falseFunc ? oe.default.falseFunc : function (s) { return i(s) && e(s); }; }, ku = { is: Tt, matches: Tt, where: Tt, not: function (e, u, t, r, n) { var i = n(u, Nt(t), r); return i === oe.default.falseFunc ? e : i === oe.default.trueFunc ? oe.default.falseFunc : function (s) { return !i(s) && e(s); }; }, has: function (e, u, t, r, n) { var i = t.adapter, s = Nt(t); s.relativeSelector = !0; var c = u.some(function (g) { return g.some(cu); }) ? [Ct] : void 0, l = n(u, s, c); if (l === oe.default.falseFunc)
+        return oe.default.falseFunc; var d = It(l, i); if (c && l !== oe.default.trueFunc) {
         var _a = l.shouldTestNextSiblings, g_1 = _a === void 0 ? !1 : _a;
         return function (w) { if (!e(w))
-            return !1; o[0] = w; var x = i.getChildren(w), y = g_1 ? __spreadArray(__spreadArray([], __read(x), false), __read(qt(w, i)), false) : x; return i.existsOne(d, y); };
+            return !1; c[0] = w; var x = i.getChildren(w), y = g_1 ? __spreadArray(__spreadArray([], __read(x), false), __read(qt(w, i)), false) : x; return i.existsOne(d, y); };
     } return function (g) { return e(g) && i.existsOne(d, i.getChildren(g)); }; } };
-function L0(e, u, t, r, n) { var i; var s = u.name, o = u.data; if (Array.isArray(o)) {
+function L0(e, u, t, r, n) { var i; var s = u.name, c = u.data; if (Array.isArray(c)) {
     if (!(s in ku))
-        throw new Error("Unknown pseudo-class :".concat(s, "(").concat(o, ")"));
-    return ku[s](e, o, t, r, n);
+        throw new Error("Unknown pseudo-class :".concat(s, "(").concat(c, ")"));
+    return ku[s](e, c, t, r, n);
 } var l = (i = t.pseudos) === null || i === void 0 ? void 0 : i[s], d = typeof l == "string" ? l : qu[s]; if (typeof d == "string") {
-    if (o != null)
+    if (c != null)
         throw new Error("Pseudo ".concat(s, " doesn't have any arguments"));
     var g = Ne(d);
     return ku.is(e, g, t, r, n);
 } if (typeof l == "function")
-    return Et(l, s, o, 1), function (g) { return l(g, o) && e(g); }; if (s in Je)
-    return Je[s](e, o, t, r); if (s in fu) {
+    return Et(l, s, c, 1), function (g) { return l(g, c) && e(g); }; if (s in Je)
+    return Je[s](e, c, t, r); if (s in fu) {
     var g_2 = fu[s];
-    return Et(g_2, s, o, 2), function (w) { return g_2(w, t, o) && e(w); };
+    return Et(g_2, s, c, 2), function (w) { return g_2(w, t, c) && e(w); };
 } throw new Error("Unknown pseudo-class :".concat(s)); }
 function kt(e, u) { var t = u.getParent(e); return t && u.isTag(t) ? t : null; }
 function U0(e, u, t, r, n) { var i = t.adapter, s = t.equals; switch (u.type) {
@@ -1334,20 +1334,20 @@ function U0(e, u, t, r, n) { var i = t.adapter, s = t.equals; switch (u.type) {
     case S.Tag: {
         if (u.namespace != null)
             throw new Error("Namespaced tag names are not yet supported by css-select");
-        var o_1 = u.name;
-        return (!t.xmlMode || t.lowerCaseTags) && (o_1 = o_1.toLowerCase()), function (d) { return i.getName(d) === o_1 && e(d); };
+        var c_1 = u.name;
+        return (!t.xmlMode || t.lowerCaseTags) && (c_1 = c_1.toLowerCase()), function (d) { return i.getName(d) === c_1 && e(d); };
     }
     case S.Descendant: {
         if (t.cacheResults === !1 || typeof WeakSet == "undefined")
             return function (d) { var g = d; for (; g = kt(g, i);)
                 if (e(g))
                     return !0; return !1; };
-        var o_2 = new WeakSet;
+        var c_2 = new WeakSet;
         return function (d) { var g = d; for (; g = kt(g, i);)
-            if (!o_2.has(g)) {
+            if (!c_2.has(g)) {
                 if (i.isTag(g) && e(g))
                     return !0;
-                o_2.add(g);
+                c_2.add(g);
             } return !1; };
     }
     case "_flexibleDescendant": return function (l) { var d = l; do
@@ -1405,10 +1405,10 @@ function xn(e, _a, t) {
 function Uu(e, u, t) { var r; e.forEach(St), t = (r = u.context) !== null && r !== void 0 ? r : t; var n = Array.isArray(t), i = t && (Array.isArray(t) ? t : [t]); if (u.relativeSelector !== !1)
     xn(e, u, i);
 else if (e.some(function (l) { return l.length > 0 && cu(l[0]); }))
-    throw new Error("Relative selectors are not allowed when the `relativeSelector` option is disabled"); var s = !1, o = e.map(function (l) { if (l.length >= 2) {
+    throw new Error("Relative selectors are not allowed when the `relativeSelector` option is disabled"); var s = !1, c = e.map(function (l) { if (l.length >= 2) {
     var _a = __read(l, 2), d = _a[0], g = _a[1];
     d.type !== S.Pseudo || d.name !== "scope" || (n && g.type === S.Descendant ? l[1] = gn : (g.type === S.Adjacent || g.type === S.Sibling) && (s = !0));
-} return yn(l, u, i); }).reduce(vn, Se.default.falseFunc); return o.shouldTestNextSiblings = s, o; }
+} return yn(l, u, i); }).reduce(vn, Se.default.falseFunc); return c.shouldTestNextSiblings = s, c; }
 function yn(e, u, t) { var r; return e.reduce(function (n, i) { return n === Se.default.falseFunc ? Se.default.falseFunc : U0(n, i, u, t, Uu); }, (r = u.rootFunc) !== null && r !== void 0 ? r : Se.default.trueFunc); }
 function vn(e, u) { return u === Se.default.falseFunc || e === Se.default.trueFunc ? e : e === Se.default.falseFunc || u === Se.default.trueFunc ? u : function (r) { return e(r) || u(r); }; }
 var R0 = function (e, u) { return e === u; }, Sn = { adapter: be, equals: R0 };
@@ -1492,10 +1492,10 @@ function In(e, u, t) { if (u.length === 0)
         return s;
     s.length && (i = new Set(s));
 } for (var s = 0; s < n.length && (i == null ? void 0 : i.size) !== u.length; s++) {
-    var o = n[s];
+    var c = n[s];
     if ((i ? u.filter(function (g) { return k(g) && !i.has(g); }) : u).length === 0)
         break;
-    var d = H0(o, u, t);
+    var d = H0(c, u, t);
     if (d.length)
         if (i)
             d.forEach(function (g) { return i.add(g); });
@@ -1514,11 +1514,11 @@ function Ft(e, u, t, r) {
     if (r === void 0) { r = 1 / 0; }
     if (typeof e == "function")
         return P0(u, e);
-    var _a = __read(Ru(Ne(e)), 2), n = _a[0], i = _a[1], s = i.map(function (o) { return Mu(u, o, t, !0, r); });
-    return n.length && s.push(Ot(u, n, t, r)), s.length === 0 ? [] : s.length === 1 ? s[0] : xt(s.reduce(function (o, l) { return __spreadArray(__spreadArray([], __read(o), false), __read(l), false); }));
+    var _a = __read(Ru(Ne(e)), 2), n = _a[0], i = _a[1], s = i.map(function (c) { return Mu(u, c, t, !0, r); });
+    return n.length && s.push(Ot(u, n, t, r)), s.length === 0 ? [] : s.length === 1 ? s[0] : xt(s.reduce(function (c, l) { return __spreadArray(__spreadArray([], __read(c), false), __read(l), false); }));
 }
-function Mu(e, u, t, r, n) { var i = u.findIndex(Ke), s = u.slice(0, i), o = u[i], l = u.length - 1 === i ? n : 1 / 0, d = B0(o.name, o.data, l); if (d === 0)
-    return []; var w = (s.length === 0 && !Array.isArray(e) ? Au(e).filter(k) : s.length === 0 ? (Array.isArray(e) ? e : [e]).filter(k) : r || s.some(Ue) ? Ot(e, [s], t, d) : Dt(e, [s], t)).slice(0, d), x = Cn(o.name, w, o.data, t); if (x.length === 0 || u.length === i + 1)
+function Mu(e, u, t, r, n) { var i = u.findIndex(Ke), s = u.slice(0, i), c = u[i], l = u.length - 1 === i ? n : 1 / 0, d = B0(c.name, c.data, l); if (d === 0)
+    return []; var w = (s.length === 0 && !Array.isArray(e) ? Au(e).filter(k) : s.length === 0 ? (Array.isArray(e) ? e : [e]).filter(k) : r || s.some(Ue) ? Ot(e, [s], t, d) : Dt(e, [s], t)).slice(0, d), x = Cn(c.name, w, c.data, t); if (x.length === 0 || u.length === i + 1)
     return x; var y = u.slice(i + 1), E = y.some(Ue); if (E) {
     if (Ue(y[0])) {
         var C = y[0].type;
@@ -1551,8 +1551,8 @@ else {
     if (t.path.charAt(0) === "/")
         i = Mt(t.path);
     else {
-        var o = n !== void 0 && !r.path ? "/" : r.path.slice(0, r.path.lastIndexOf("/") + 1);
-        i = Mt(o + t.path);
+        var c = n !== void 0 && !r.path ? "/" : r.path.slice(0, r.path.lastIndexOf("/") + 1);
+        i = Mt(c + t.path);
     }
     s = t.query;
 } return n !== void 0 && i.charAt(0) !== "/" && (i = "/" + i), r.scheme + ":" + (n !== void 0 ? "//" + n : "") + i + (s !== void 0 ? "?" + s : "") + (t.frag !== void 0 ? "#" + t.frag : ""); }
@@ -1826,17 +1826,17 @@ function X0(e, u) { var t = new Set((u || ["p", "br", "b", "i", "em", "strong", 
                 continue;
             }
             if (s.type === "tag" && (n(s), !t.has(s.name))) {
-                var o = (s.children || []).slice();
+                var c = (s.children || []).slice();
                 try {
-                    for (var o_3 = (e_20 = void 0, __values(o)), o_3_1 = o_3.next(); !o_3_1.done; o_3_1 = o_3.next()) {
-                        var l = o_3_1.value;
+                    for (var c_3 = (e_20 = void 0, __values(c)), c_3_1 = c_3.next(); !c_3_1.done; c_3_1 = c_3.next()) {
+                        var l = c_3_1.value;
                         gt(s, l);
                     }
                 }
                 catch (e_20_1) { e_20 = { error: e_20_1 }; }
                 finally {
                     try {
-                        if (o_3_1 && !o_3_1.done && (_b = o_3.return)) _b.call(o_3);
+                        if (c_3_1 && !c_3_1.done && (_b = c_3.return)) _b.call(c_3);
                     }
                     finally { if (e_20) throw e_20.error; }
                 }
@@ -1914,12 +1914,12 @@ function On(e) {
     }
     return u;
 }
-function Z0(e, u) { var t = function (s) { return ({ getItem: function (o) { var l = e.storageGet(s + o); return l == null ? null : l; }, setItem: function (o, l) { return e.storageSet(s + o, l == null ? null : String(l)); }, removeItem: function (o) { return e.storageSet(s + o, null); }, clear: function () { return e.storageClear && e.storageClear(s); } }); }, r = "__cookie__", n = {}; n.Response = { success: function (s, o) { return ({ code: 0, data: s === void 0 ? null : s, data2: o === void 0 ? null : o }); }, error: function (s) { return ({ code: 1, data: s == null ? "" : String(s) }); } }, n.fetch = function (o, l) {
+function Z0(e, u) { var t = function (s) { return ({ getItem: function (c) { var l = e.storageGet(s + c); return l == null ? null : l; }, setItem: function (c, l) { return e.storageSet(s + c, l == null ? null : String(l)); }, removeItem: function (c) { return e.storageSet(s + c, null); }, clear: function () { return e.storageClear && e.storageClear(s); } }); }, r = "__cookie__", n = {}; n.Response = { success: function (s, c) { return ({ code: 0, data: s === void 0 ? null : s, data2: c === void 0 ? null : c }); }, error: function (s) { return ({ code: 1, data: s == null ? "" : String(s) }); } }, n.fetch = function (c, l) {
     return __awaiter(this, void 0, void 0, function () { var d, C, g, w, x, C, y, E, C_1; return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 l = l || {};
-                d = String(o);
+                d = String(c);
                 if (l.queries) {
                     C = Object.entries(l.queries).map(function (_a) {
                         var _b = __read(_a, 2), J = _b[0], Q = _b[1];
@@ -1952,15 +1952,15 @@ function Z0(e, u) { var t = function (s) { return ({ getItem: function (o) { var
             case 4: return [2, new _t(E, y)];
         }
     }); });
-}, n.Http = { get: function (s) { return Y0(n, "GET", s); }, post: function (s) { return Y0(n, "POST", s); } }, n.Html = { parse: function (s, o) { return _u(s, o || ""); }, clean: function (s, o) { return X0(s, o); } }, n.localStorage = t("ls:"), n.cacheStorage = t("cs:"), n.localConfig = { getItem: function (s) { return e.config(s); } }, n.localCookie = { setCookie: function (s) { e.storageSet(r, String(s).split(";")[0]); }, getCookie: function () { return e.storageGet(r) || ""; } }, n.sleep = function (s) { return new Promise(function (o) { return typeof setTimeout == "function" ? setTimeout(o, Math.min(Number(s) || 0, 1e4)) : o(); }); }; var i = function () {
+}, n.Http = { get: function (s) { return Y0(n, "GET", s); }, post: function (s) { return Y0(n, "POST", s); } }, n.Html = { parse: function (s, c) { return _u(s, c || ""); }, clean: function (s, c) { return X0(s, c); } }, n.localStorage = t("ls:"), n.cacheStorage = t("cs:"), n.localConfig = { getItem: function (s) { return e.config(s); } }, n.localCookie = { setCookie: function (s) { e.storageSet(r, String(s).split(";")[0]); }, getCookie: function () { return e.storageGet(r) || ""; } }, n.sleep = function (s) { return new Promise(function (c) { return typeof setTimeout == "function" ? setTimeout(c, Math.min(Number(s) || 0, 1e4)) : c(); }); }; var i = function () {
     var s = [];
     for (var _i = 0; _i < arguments.length; _i++) {
         s[_i] = arguments[_i];
     }
     try {
-        e.log && e.log(s.map(function (o) { return typeof o == "string" ? o : JSON.stringify(o); }).join(" "));
+        e.log && e.log(s.map(function (c) { return typeof c == "string" ? c : JSON.stringify(c); }).join(" "));
     }
-    catch (o) { }
+    catch (c) { }
 }; return n.Log = { log: i }, n.console = { log: i, error: i, warn: i, info: i }, n.Console = n.console, n.log = i, n.UserAgent = { system: function () { return lu; }, chrome: function () { return lu; }, android: function () { return lu; }, ios: function () { return "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1"; } }, n.Engine = { newBrowser: function () { throw new Error("Headless browser is not available in this app (" + (e.name || "host") + ")"); } }, n.Graphics = { createCanvas: function () { throw new Error("Graphics API is not available in this app"); }, createImage: function () { throw new Error("Graphics API is not available in this app"); } }, n.Script = { execute: function () { throw new Error("Script.execute is not available"); } }, n.Elements = pe, n.Element = De, n.__meta = u, n; }
 function Y0(e, u, t) { var r = { method: u, url: t, headers: {}, body: void 0, queries: void 0 }, n = { headers: function (i) { return Object.assign(r.headers, i || {}), n; }, header: function (i, s) { return r.headers[i] = s, n; }, params: function (i) { return r.queries = i, n; }, queries: function (i) { return r.queries = i, n; }, body: function (i) { return r.body = i, n; }, html: function (i) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
@@ -2026,7 +2026,7 @@ var F = function (e) { return e == null ? "" : String(e); }, Dn = function (e) {
                         r = this.scripts[u];
                         if (!r)
                             throw new Error("script " + u + " missing");
-                        n = function (o) { var l = _this.host.config(o); return l == null ? (_this.meta.configDefaults || {})[o] : l; };
+                        n = function (c) { var l = _this.host.config(c); return l == null ? (_this.meta.configDefaults || {})[c] : l; };
                         return [4, r(this.env, n)];
                     case 1:
                         i = _a.sent();
@@ -2086,7 +2086,7 @@ var F = function (e) { return e == null ? "" : String(e); }, Dn = function (e) {
     };
     class_1.prototype.list = function (u, t, r) {
         return __awaiter(this, void 0, void 0, function () {
-            var n, i, s, o, l;
+            var n, i, s, c, l;
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -2098,10 +2098,10 @@ var F = function (e) { return e == null ? "" : String(e); }, Dn = function (e) {
                             return [2, { items: [], hasNext: !1 }];
                         return [4, this.run(u, t, i)];
                     case 1:
-                        s = _a.sent(), o = F(s.data2);
-                        o && (this.tokens[n + "|" + (r + 1)] = o);
+                        s = _a.sent(), c = F(s.data2);
+                        c && (this.tokens[n + "|" + (r + 1)] = c);
                         l = (s.data || []).filter(Boolean).map(function (d) { return ({ name: F(d.name).trim(), link: Re(d.host || _this.base + "/", d.link), cover: Re(d.host || _this.base + "/", d.cover), description: F(d.description), tag: F(d.tag) }); }).filter(function (d) { return d.name && d.link; });
-                        return [2, { items: l, hasNext: !!o && l.length > 0 }];
+                        return [2, { items: l, hasNext: !!c && l.length > 0 }];
                 }
             });
         });
@@ -2199,7 +2199,7 @@ var F = function (e) { return e == null ? "" : String(e); }, Dn = function (e) {
     };
     class_1.prototype.pages = function (u) {
         return __awaiter(this, void 0, void 0, function () {
-            var t, _a, _b;
+            var t, _a, _b, r, n;
             var _this = this;
             return __generator(this, function (_c) {
                 switch (_c.label) {
@@ -2221,7 +2221,12 @@ var F = function (e) { return e == null ? "" : String(e); }, Dn = function (e) {
                     case 5:
                         _a = _b;
                         _c.label = 6;
-                    case 6: return [2, (_a, typeof t == "string" && (t = t.split(/[\n,]+/)), (t || []).map(function (r) { return Re(_this.base + "/", typeof r == "string" ? r : r && (r.link || r.url || r.data)); }).filter(Boolean))];
+                    case 6:
+                        _a, typeof t == "string" && (t = t.split(/[\n,]+/));
+                        r = function (i) { return !i || /^data:|loading|lazy|blank|placeholder|spacer|\/nocover|1x1\./i.test(String(i)); }, n = function (i) { if (typeof i == "string")
+                            return i; if (!i)
+                            return ""; var s = i.link || i.url || i.data, c = Array.isArray(i.fallback) ? i.fallback.filter(Boolean) : []; return r(s) && c.length ? c[0] : s; };
+                        return [2, (t || []).map(function (i) { return Re(_this.base + "/", n(i)); }).filter(Boolean)];
                 }
             });
         });
@@ -2238,7 +2243,7 @@ var F = function (e) { return e == null ? "" : String(e); }, Dn = function (e) {
     };
     class_1.prototype.videos = function (u) {
         return __awaiter(this, void 0, void 0, function () {
-            var t, n, r, t_3, t_3_1, n, i, s, s_2, s_2_1, o, i_2, e_23_1;
+            var t, n, r, t_3, t_3_1, n, i, s, s_2, s_2_1, c, i_2, e_23_1;
             var e_23, _a, e_24, _b;
             var _this = this;
             return __generator(this, function (_c) {
@@ -2269,8 +2274,8 @@ var F = function (e) { return e == null ? "" : String(e); }, Dn = function (e) {
                         i = (_c.sent()).data || {}, s = Array.isArray(i) ? i : [i];
                         try {
                             for (s_2 = (e_24 = void 0, __values(s)), s_2_1 = s_2.next(); !s_2_1.done; s_2_1 = s_2.next()) {
-                                o = s_2_1.value;
-                                !o || !o.data || o.type !== "webview" && r.push({ url: Re(o.host || this.base + "/", o.data), quality: n.title + (o.quality ? " " + o.quality : ""), headers: o.headers || { Referer: this.base + "/" }, subtitles: (o.subtitles || (o.subtitle ? [{ data: o.subtitle, label: "Sub" }] : [])).map(function (l) { return ({ file: Re(_this.base + "/", l.data || l.file), label: F(l.label || l.language || "Sub") }); }), mimeType: F(o.mimeType) });
+                                c = s_2_1.value;
+                                !c || !c.data || c.type !== "webview" && r.push({ url: Re(c.host || this.base + "/", c.data), quality: n.title + (c.quality ? " " + c.quality : ""), headers: c.headers || { Referer: this.base + "/" }, subtitles: (c.subtitles || (c.subtitle ? [{ data: c.subtitle, label: "Sub" }] : [])).map(function (l) { return ({ file: Re(_this.base + "/", l.data || l.file), label: F(l.label || l.language || "Sub") }); }), mimeType: F(c.mimeType) });
                             }
                         }
                         catch (e_24_1) { e_24 = { error: e_24_1 }; }
@@ -2311,34 +2316,34 @@ function er(e) {
 }
 var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://webtruyendich.com/", type: "novel", locale: "vi_VN", nsfw: !1, version: 1, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.webtruyendich", lnIcon: "", lnVersion: "1.1.1" }, ur = { home: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, n, i, s, o, l, d, g, w, x, y, E, C, J, Q, fe) {
+            return [2, (function (t, r, n, i, s, c, l, d, g, w, x, y, E, C, J, Q, fe) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0: return [4, (function () {
                                     return __awaiter(this, void 0, void 0, function () { function j(a) { return !a || (a = String(a).trim(), !a) ? "" : a.indexOf("//") === 0 ? "https:" + a : a.indexOf("http://") === 0 || a.indexOf("https://") === 0 ? a.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, m) : a.charAt(0) === "/" ? m + a : m + "/" + a; } function Ie(a) { if (!a)
                                         return ""; a = j(a); try {
-                                        var c = new URL(a);
-                                        return c.pathname = c.pathname.split("/").map(function (f) { try {
+                                        var o = new URL(a);
+                                        return o.pathname = o.pathname.split("/").map(function (f) { try {
                                             return encodeURIComponent(decodeURIComponent(f));
                                         }
                                         catch (h) {
                                             return encodeURIComponent(f);
-                                        } }).join("/"), c.toString() + "";
+                                        } }).join("/"), o.toString() + "";
                                     }
                                     catch (f) {
                                         return encodeURI(a) + "";
                                     } } function ge(a) { return a ? String(a).replace(/\s+/g, " ").trim() : ""; } function R(a) { return a ? (a = String(a).trim(), a.indexOf("http") === 0 ? a : a.indexOf("//") === 0 ? "https:" + a : m + (a.indexOf("/") === 0 ? "" : "/") + a) : ""; } function me(a) { if (!a)
-                                        return null; var c = String(a.title || a.name || a.novel_title || "").trim(); c && (c = c.replace(/^Bìa truyện\s+/i, "").trim()); var f = String(a.url || a.slug || a.novel_slug || "").trim(), h = f.indexOf("http") === 0 ? f : m + "/truyen/" + f, v = R(a.thumbnail || a.cover || a.image || ""), p = []; return (a.author || a.novel_author) && p.push(a.author || a.novel_author), a.genre_name && p.push(a.genre_name), (a.status || a.novel_status) && p.push(a.status || a.novel_status), a.max_chapters && p.push(a.max_chapters + " chương"), { name: c, link: R(h), cover: v, description: p.join(" · "), host: m }; } function xe(a, c) {
+                                        return null; var o = String(a.title || a.name || a.novel_title || "").trim(); o && (o = o.replace(/^Bìa truyện\s+/i, "").trim()); var f = String(a.url || a.slug || a.novel_slug || "").trim(), h = f.indexOf("http") === 0 ? f : m + "/truyen/" + f, v = R(a.thumbnail || a.cover || a.image || ""), p = []; return (a.author || a.novel_author) && p.push(a.author || a.novel_author), a.genre_name && p.push(a.genre_name), (a.status || a.novel_status) && p.push(a.status || a.novel_status), a.max_chapters && p.push(a.max_chapters + " chương"), { name: o, link: R(h), cover: v, description: p.join(" · "), host: m }; } function xe(a, o) {
                                         return __awaiter(this, void 0, void 0, function () { var f, h; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0:
-                                                    c || (c = {});
+                                                    o || (o = {});
                                                     f = { "User-Agent": L, Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en-US;q=0.8", Referer: m + "/" };
-                                                    if (c.headers)
-                                                        for (h in c.headers)
-                                                            f[h] = c.headers[h];
-                                                    c.headers = f;
-                                                    return [4, t(a, c)];
+                                                    if (o.headers)
+                                                        for (h in o.headers)
+                                                            f[h] = o.headers[h];
+                                                    o.headers = f;
+                                                    return [4, t(a, o)];
                                                 case 1: return [2, _a.sent()];
                                             }
                                         }); });
@@ -2355,7 +2360,7 @@ var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://we
                                         catch (a) { }
                                         m = String(N || "").replace(/\/+$/, "");
                                         if (typeof I == "undefined")
-                                            I = { success: function (a, c) { return JSON.stringify({ code: 0, data: a, data2: c }); }, error: function (a) { return JSON.stringify({ code: 1, data: a }); } };
+                                            I = { success: function (a, o) { return JSON.stringify({ code: 0, data: a, data2: o }); }, error: function (a) { return JSON.stringify({ code: 1, data: a }); } };
                                         return [2, typeof M == "function" ? M : void 0];
                                     }); });
                                 })()];
@@ -2366,46 +2371,46 @@ var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://we
         }); });
     }, detail: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, n, i, s, o, l, d, g, w, x, y, E, C, J, Q, fe) {
+            return [2, (function (t, r, n, i, s, c, l, d, g, w, x, y, E, C, J, Q, fe) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0: return [4, (function () {
                                     return __awaiter(this, void 0, void 0, function () { function j(a) { return !a || (a = String(a).trim(), !a) ? "" : a.indexOf("//") === 0 ? "https:" + a : a.indexOf("http://") === 0 || a.indexOf("https://") === 0 ? a.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, m) : a.charAt(0) === "/" ? m + a : m + "/" + a; } function Ie(a) { if (!a)
                                         return ""; a = j(a); try {
-                                        var c = new URL(a);
-                                        return c.pathname = c.pathname.split("/").map(function (f) { try {
+                                        var o = new URL(a);
+                                        return o.pathname = o.pathname.split("/").map(function (f) { try {
                                             return encodeURIComponent(decodeURIComponent(f));
                                         }
                                         catch (h) {
                                             return encodeURIComponent(f);
-                                        } }).join("/"), c.toString() + "";
+                                        } }).join("/"), o.toString() + "";
                                     }
                                     catch (f) {
                                         return encodeURI(a) + "";
                                     } } function ge(a) { return a ? String(a).replace(/\s+/g, " ").trim() : ""; } function R(a) { return a ? (a = String(a).trim(), a.indexOf("http") === 0 ? a : a.indexOf("//") === 0 ? "https:" + a : m + (a.indexOf("/") === 0 ? "" : "/") + a) : ""; } function me(a) { if (!a)
-                                        return null; var c = String(a.title || a.name || a.novel_title || "").trim(); c && (c = c.replace(/^Bìa truyện\s+/i, "").trim()); var f = String(a.url || a.slug || a.novel_slug || "").trim(), h = f.indexOf("http") === 0 ? f : m + "/truyen/" + f, v = R(a.thumbnail || a.cover || a.image || ""), p = []; return (a.author || a.novel_author) && p.push(a.author || a.novel_author), a.genre_name && p.push(a.genre_name), (a.status || a.novel_status) && p.push(a.status || a.novel_status), a.max_chapters && p.push(a.max_chapters + " chương"), { name: c, link: R(h), cover: v, description: p.join(" · "), host: m }; } function xe(a, c) {
+                                        return null; var o = String(a.title || a.name || a.novel_title || "").trim(); o && (o = o.replace(/^Bìa truyện\s+/i, "").trim()); var f = String(a.url || a.slug || a.novel_slug || "").trim(), h = f.indexOf("http") === 0 ? f : m + "/truyen/" + f, v = R(a.thumbnail || a.cover || a.image || ""), p = []; return (a.author || a.novel_author) && p.push(a.author || a.novel_author), a.genre_name && p.push(a.genre_name), (a.status || a.novel_status) && p.push(a.status || a.novel_status), a.max_chapters && p.push(a.max_chapters + " chương"), { name: o, link: R(h), cover: v, description: p.join(" · "), host: m }; } function xe(a, o) {
                                         return __awaiter(this, void 0, void 0, function () { var f, h; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0:
-                                                    c || (c = {});
+                                                    o || (o = {});
                                                     f = { "User-Agent": L, Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en-US;q=0.8", Referer: m + "/" };
-                                                    if (c.headers)
-                                                        for (h in c.headers)
-                                                            f[h] = c.headers[h];
-                                                    c.headers = f;
-                                                    return [4, t(a, c)];
+                                                    if (o.headers)
+                                                        for (h in o.headers)
+                                                            f[h] = o.headers[h];
+                                                    o.headers = f;
+                                                    return [4, t(a, o)];
                                                 case 1: return [2, _a.sent()];
                                             }
                                         }); });
                                     } function M(a) {
-                                        return __awaiter(this, void 0, void 0, function () { var c, f, h, v, p, T, O, G, D, V, H, Y, B, Z, te, ae; return __generator(this, function (_a) {
+                                        return __awaiter(this, void 0, void 0, function () { var o, f, h, v, p, T, O, G, D, V, H, Y, B, Z, te, ae; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0: return [4, t(a)];
                                                 case 1:
-                                                    c = _a.sent();
-                                                    if (!c || !c.ok)
+                                                    o = _a.sent();
+                                                    if (!o || !o.ok)
                                                         return [2, null];
-                                                    f = c.html(), h = f.select("h1").text().trim() + "", v = f.select('meta[property="og:image"]').attr("content") + "";
+                                                    f = o.html(), h = f.select("h1").text().trim() + "", v = f.select('meta[property="og:image"]').attr("content") + "";
                                                     v && v.indexOf("//") === 0 ? v = "https:" + v : v && v.indexOf("/") === 0 && (v = N + v);
                                                     p = f.select('meta[property="book:author"]').attr("content") + "";
                                                     if (!p) {
@@ -2441,7 +2446,7 @@ var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://we
                                         catch (a) { }
                                         m = String(N || "").replace(/\/+$/, "");
                                         if (typeof I == "undefined")
-                                            I = { success: function (a, c) { return JSON.stringify({ code: 0, data: a, data2: c }); }, error: function (a) { return JSON.stringify({ code: 1, data: a }); } };
+                                            I = { success: function (a, o) { return JSON.stringify({ code: 0, data: a, data2: o }); }, error: function (a) { return JSON.stringify({ code: 1, data: a }); } };
                                         return [2, typeof M == "function" ? M : void 0];
                                     }); });
                                 })()];
@@ -2452,48 +2457,48 @@ var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://we
         }); });
     }, toc: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, n, i, s, o, l, d, g, w, x, y, E, C, J, Q, fe) {
+            return [2, (function (t, r, n, i, s, c, l, d, g, w, x, y, E, C, J, Q, fe) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0: return [4, (function () {
                                     return __awaiter(this, void 0, void 0, function () { function j(a) { return !a || (a = String(a).trim(), !a) ? "" : a.indexOf("//") === 0 ? "https:" + a : a.indexOf("http://") === 0 || a.indexOf("https://") === 0 ? a.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, m) : a.charAt(0) === "/" ? m + a : m + "/" + a; } function Ie(a) { if (!a)
                                         return ""; a = j(a); try {
-                                        var c = new URL(a);
-                                        return c.pathname = c.pathname.split("/").map(function (f) { try {
+                                        var o = new URL(a);
+                                        return o.pathname = o.pathname.split("/").map(function (f) { try {
                                             return encodeURIComponent(decodeURIComponent(f));
                                         }
                                         catch (h) {
                                             return encodeURIComponent(f);
-                                        } }).join("/"), c.toString() + "";
+                                        } }).join("/"), o.toString() + "";
                                     }
                                     catch (f) {
                                         return encodeURI(a) + "";
                                     } } function ge(a) { return a ? String(a).replace(/\s+/g, " ").trim() : ""; } function R(a) { return a ? (a = String(a).trim(), a.indexOf("http") === 0 ? a : a.indexOf("//") === 0 ? "https:" + a : m + (a.indexOf("/") === 0 ? "" : "/") + a) : ""; } function me(a) { if (!a)
-                                        return null; var c = String(a.title || a.name || a.novel_title || "").trim(); c && (c = c.replace(/^Bìa truyện\s+/i, "").trim()); var f = String(a.url || a.slug || a.novel_slug || "").trim(), h = f.indexOf("http") === 0 ? f : m + "/truyen/" + f, v = R(a.thumbnail || a.cover || a.image || ""), p = []; return (a.author || a.novel_author) && p.push(a.author || a.novel_author), a.genre_name && p.push(a.genre_name), (a.status || a.novel_status) && p.push(a.status || a.novel_status), a.max_chapters && p.push(a.max_chapters + " chương"), { name: c, link: R(h), cover: v, description: p.join(" · "), host: m }; } function xe(a, c) {
+                                        return null; var o = String(a.title || a.name || a.novel_title || "").trim(); o && (o = o.replace(/^Bìa truyện\s+/i, "").trim()); var f = String(a.url || a.slug || a.novel_slug || "").trim(), h = f.indexOf("http") === 0 ? f : m + "/truyen/" + f, v = R(a.thumbnail || a.cover || a.image || ""), p = []; return (a.author || a.novel_author) && p.push(a.author || a.novel_author), a.genre_name && p.push(a.genre_name), (a.status || a.novel_status) && p.push(a.status || a.novel_status), a.max_chapters && p.push(a.max_chapters + " chương"), { name: o, link: R(h), cover: v, description: p.join(" · "), host: m }; } function xe(a, o) {
                                         return __awaiter(this, void 0, void 0, function () { var f, h; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0:
-                                                    c || (c = {});
+                                                    o || (o = {});
                                                     f = { "User-Agent": L, Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en-US;q=0.8", Referer: m + "/" };
-                                                    if (c.headers)
-                                                        for (h in c.headers)
-                                                            f[h] = c.headers[h];
-                                                    c.headers = f;
-                                                    return [4, t(a, c)];
+                                                    if (o.headers)
+                                                        for (h in o.headers)
+                                                            f[h] = o.headers[h];
+                                                    o.headers = f;
+                                                    return [4, t(a, o)];
                                                 case 1: return [2, _a.sent()];
                                             }
                                         }); });
                                     } function M(a) {
-                                        return __awaiter(this, void 0, void 0, function () { var c, f, h, v, p, T, O, G, D, V, H, Y, B, Z, te, ae, ie, K, re; return __generator(this, function (_a) {
+                                        return __awaiter(this, void 0, void 0, function () { var o, f, h, v, p, T, O, G, D, V, H, Y, B, Z, te, ae, ie, K, re; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0:
                                                     a = j(a);
                                                     return [4, xe(a)];
                                                 case 1:
-                                                    c = _a.sent();
-                                                    if (!c || !c.ok)
+                                                    o = _a.sent();
+                                                    if (!o || !o.ok)
                                                         return [2, I.success([])];
-                                                    f = c.text() + "", h = f.match(/novel_id\s*=\s*["'](\d+)["']/) || f.match(/data-novel-id=["'](\d+)["']/), v = f.match(/defaultSource\s*=\s*["']([^"']+)["']/) || f.match(/source_name\s*=\s*['"]([^'"]+)['"]/), p = f.match(/novel_url\s*=\s*["']([^"']+)["']/), T = p ? p[1] : a.split("/").filter(Boolean).pop() || "";
+                                                    f = o.text() + "", h = f.match(/novel_id\s*=\s*["'](\d+)["']/) || f.match(/data-novel-id=["'](\d+)["']/), v = f.match(/defaultSource\s*=\s*["']([^"']+)["']/) || f.match(/source_name\s*=\s*['"]([^'"]+)['"]/), p = f.match(/novel_url\s*=\s*["']([^"']+)["']/), T = p ? p[1] : a.split("/").filter(Boolean).pop() || "";
                                                     if (!T) {
                                                         O = a.match(/\/truyen\/([^\/\?#]+)/i);
                                                         O && (T = O[1]);
@@ -2516,7 +2521,7 @@ var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://we
                                                     }
                                                     _a.label = 3;
                                                 case 3:
-                                                    re = c.html();
+                                                    re = o.html();
                                                     return [2, (re && re.select("a[href*='/chuong-'], a[href*='/chuong']").forEach(function (de) { var Xe = de.attr("href") + "", Fe = ge(de.text() + ""); if (Xe && Fe && Xe.indexOf("danh-sach-chuong") < 0) {
                                                             var zu = j(Xe);
                                                             H[zu] || (V.push({ name: Fe, url: zu, host: N }), H[zu] = !0);
@@ -2531,7 +2536,7 @@ var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://we
                                         catch (a) { }
                                         m = String(N || "").replace(/\/+$/, "");
                                         if (typeof I == "undefined")
-                                            I = { success: function (a, c) { return JSON.stringify({ code: 0, data: a, data2: c }); }, error: function (a) { return JSON.stringify({ code: 1, data: a }); } };
+                                            I = { success: function (a, o) { return JSON.stringify({ code: 0, data: a, data2: o }); }, error: function (a) { return JSON.stringify({ code: 1, data: a }); } };
                                         return [2, typeof M == "function" ? M : void 0];
                                     }); });
                                 })()];
@@ -2543,7 +2548,7 @@ var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://we
     }, chap: function (e, u) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2, (function (t, r, n, i, s, o, l, d, g, w, x, y, E, C, J, Q, fe) {
+                return [2, (function (t, r, n, i, s, c, l, d, g, w, x, y, E, C, J, Q, fe) {
                         return __awaiter(this, void 0, void 0, function () {
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
@@ -2605,11 +2610,11 @@ var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://we
                                                                         try {
                                                                             te = JSON.parse(Z), ae = te.content || te.data || "";
                                                                             if (a(ae))
-                                                                                return [2, I.success(c(ae))];
+                                                                                return [2, I.success(o(ae))];
                                                                         }
                                                                         catch (de) {
                                                                             if (a(Z))
-                                                                                return [2, I.success(c(Z))];
+                                                                                return [2, I.success(o(Z))];
                                                                         }
                                                                 }
                                                                 ie = h.html();
@@ -2618,7 +2623,7 @@ var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://we
                                                                     if (K) {
                                                                         re = "" + K.html();
                                                                         if (a(re))
-                                                                            return [2, I.success(c(re))];
+                                                                            return [2, I.success(o(re))];
                                                                     }
                                                                 }
                                                                 return [2, I.error("Không lấy được nội dung chương.")];
@@ -2632,7 +2637,7 @@ var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://we
                                                 function a(f) { if (!f || ("" + f).replace(/\s/g, "").length < 50)
                                                     return !1; var h = ("" + f).toLowerCase(); if (h.indexOf("mô hình ai hiện đang quá tải") >= 0 || h.indexOf("vui lòng thử lại sau") >= 0 || h.indexOf("cloudflare") >= 0 || h.indexOf("just a moment") >= 0 || h.indexOf("chờ một chút") >= 0)
                                                     return !1; var v = ("" + f).replace(/^\s+|\s+$/g, ""); return !(v.charAt(0) === "{" && v.indexOf('"detail"') >= 0); }
-                                                function c(f) {
+                                                function o(f) {
                                                     var h = "" + f;
                                                     return h = h.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, ""), h = h.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, ""), h = h.replace(/<ins[^>]*>[\s\S]*?<\/ins>/gi, ""), h = h.replace(/<\/?(p|div|article|section|h[1-6]|blockquote|li|tr|ul|ol)[^>]*>/gi, "\n"), h = h.replace(/<br\s*\/?>/gi, "\n"), h = h.replace(/<[^>]+>/g, ""), h = h.replace(/&nbsp;/gi, " "), h = h.replace(/&quot;/gi, '"'), h = h.replace(/&#39;/gi, "'"), h = h.replace(/&lt;/gi, "<"), h = h.replace(/&gt;/gi, ">"), h = h.replace(/&amp;/gi, "&"), h = h.replace(/[ \t]+/g, " "), h = h.replace(/ *\n */g, "\n"), h = h.replace(/\n{3,}/g, "\n\n"), h = h.replace(/^\s+|\s+$/g, ""), h.replace(/\n/g, "<br>");
                                                 }
@@ -2659,42 +2664,42 @@ var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://we
         });
     }, page: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, n, i, s, o, l, d, g, w, x, y, E, C, J, Q, fe) {
+            return [2, (function (t, r, n, i, s, c, l, d, g, w, x, y, E, C, J, Q, fe) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0: return [4, (function () {
                                     return __awaiter(this, void 0, void 0, function () { function j(a) { return !a || (a = String(a).trim(), !a) ? "" : a.indexOf("//") === 0 ? "https:" + a : a.indexOf("http://") === 0 || a.indexOf("https://") === 0 ? a.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, m) : a.charAt(0) === "/" ? m + a : m + "/" + a; } function Ie(a) { if (!a)
                                         return ""; a = j(a); try {
-                                        var c = new URL(a);
-                                        return c.pathname = c.pathname.split("/").map(function (f) { try {
+                                        var o = new URL(a);
+                                        return o.pathname = o.pathname.split("/").map(function (f) { try {
                                             return encodeURIComponent(decodeURIComponent(f));
                                         }
                                         catch (h) {
                                             return encodeURIComponent(f);
-                                        } }).join("/"), c.toString() + "";
+                                        } }).join("/"), o.toString() + "";
                                     }
                                     catch (f) {
                                         return encodeURI(a) + "";
                                     } } function ge(a) { return a ? String(a).replace(/\s+/g, " ").trim() : ""; } function R(a) { return a ? (a = String(a).trim(), a.indexOf("http") === 0 ? a : a.indexOf("//") === 0 ? "https:" + a : m + (a.indexOf("/") === 0 ? "" : "/") + a) : ""; } function me(a) { if (!a)
-                                        return null; var c = String(a.title || a.name || a.novel_title || "").trim(); c && (c = c.replace(/^Bìa truyện\s+/i, "").trim()); var f = String(a.url || a.slug || a.novel_slug || "").trim(), h = f.indexOf("http") === 0 ? f : m + "/truyen/" + f, v = R(a.thumbnail || a.cover || a.image || ""), p = []; return (a.author || a.novel_author) && p.push(a.author || a.novel_author), a.genre_name && p.push(a.genre_name), (a.status || a.novel_status) && p.push(a.status || a.novel_status), a.max_chapters && p.push(a.max_chapters + " chương"), { name: c, link: R(h), cover: v, description: p.join(" · "), host: m }; } function xe(a, c) {
+                                        return null; var o = String(a.title || a.name || a.novel_title || "").trim(); o && (o = o.replace(/^Bìa truyện\s+/i, "").trim()); var f = String(a.url || a.slug || a.novel_slug || "").trim(), h = f.indexOf("http") === 0 ? f : m + "/truyen/" + f, v = R(a.thumbnail || a.cover || a.image || ""), p = []; return (a.author || a.novel_author) && p.push(a.author || a.novel_author), a.genre_name && p.push(a.genre_name), (a.status || a.novel_status) && p.push(a.status || a.novel_status), a.max_chapters && p.push(a.max_chapters + " chương"), { name: o, link: R(h), cover: v, description: p.join(" · "), host: m }; } function xe(a, o) {
                                         return __awaiter(this, void 0, void 0, function () { var f, h; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0:
-                                                    c || (c = {});
+                                                    o || (o = {});
                                                     f = { "User-Agent": L, Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en-US;q=0.8", Referer: m + "/" };
-                                                    if (c.headers)
-                                                        for (h in c.headers)
-                                                            f[h] = c.headers[h];
-                                                    c.headers = f;
-                                                    return [4, t(a, c)];
+                                                    if (o.headers)
+                                                        for (h in o.headers)
+                                                            f[h] = o.headers[h];
+                                                    o.headers = f;
+                                                    return [4, t(a, o)];
                                                 case 1: return [2, _a.sent()];
                                             }
                                         }); });
                                     } function M(a) {
-                                        return __awaiter(this, void 0, void 0, function () { var c; return __generator(this, function (_a) {
+                                        return __awaiter(this, void 0, void 0, function () { var o; return __generator(this, function (_a) {
                                             a = j(a);
-                                            c = [a];
-                                            return [2, I.success(c)];
+                                            o = [a];
+                                            return [2, I.success(o)];
                                         }); });
                                     } var N, L, _, m, I; return __generator(this, function (_a) {
                                         N = "https://webtruyendich.com", L = "Mozilla/5.0 (Linux; Android 13; SM-S908B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Mobile Safari/537.36", _ = "Vietphrase";
@@ -2704,7 +2709,7 @@ var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://we
                                         catch (a) { }
                                         m = String(N || "").replace(/\/+$/, "");
                                         if (typeof I == "undefined")
-                                            I = { success: function (a, c) { return JSON.stringify({ code: 0, data: a, data2: c }); }, error: function (a) { return JSON.stringify({ code: 1, data: a }); } };
+                                            I = { success: function (a, o) { return JSON.stringify({ code: 0, data: a, data2: o }); }, error: function (a) { return JSON.stringify({ code: 1, data: a }); } };
                                         return [2, typeof M == "function" ? M : void 0];
                                     }); });
                                 })()];
@@ -2715,44 +2720,44 @@ var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://we
         }); });
     }, search: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, n, i, s, o, l, d, g, w, x, y, E, C, J, Q, fe) {
+            return [2, (function (t, r, n, i, s, c, l, d, g, w, x, y, E, C, J, Q, fe) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0: return [4, (function () {
                                     return __awaiter(this, void 0, void 0, function () { function j(a) { return !a || (a = String(a).trim(), !a) ? "" : a.indexOf("//") === 0 ? "https:" + a : a.indexOf("http://") === 0 || a.indexOf("https://") === 0 ? a.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, m) : a.charAt(0) === "/" ? m + a : m + "/" + a; } function Ie(a) { if (!a)
                                         return ""; a = j(a); try {
-                                        var c = new URL(a);
-                                        return c.pathname = c.pathname.split("/").map(function (f) { try {
+                                        var o = new URL(a);
+                                        return o.pathname = o.pathname.split("/").map(function (f) { try {
                                             return encodeURIComponent(decodeURIComponent(f));
                                         }
                                         catch (h) {
                                             return encodeURIComponent(f);
-                                        } }).join("/"), c.toString() + "";
+                                        } }).join("/"), o.toString() + "";
                                     }
                                     catch (f) {
                                         return encodeURI(a) + "";
                                     } } function ge(a) { return a ? String(a).replace(/\s+/g, " ").trim() : ""; } function R(a) { return a ? (a = String(a).trim(), a.indexOf("http") === 0 ? a : a.indexOf("//") === 0 ? "https:" + a : m + (a.indexOf("/") === 0 ? "" : "/") + a) : ""; } function me(a) { if (!a)
-                                        return null; var c = String(a.title || a.name || a.novel_title || "").trim(); c && (c = c.replace(/^Bìa truyện\s+/i, "").trim()); var f = String(a.url || a.slug || a.novel_slug || "").trim(), h = f.indexOf("http") === 0 ? f : m + "/truyen/" + f, v = R(a.thumbnail || a.cover || a.image || ""), p = []; return (a.author || a.novel_author) && p.push(a.author || a.novel_author), a.genre_name && p.push(a.genre_name), (a.status || a.novel_status) && p.push(a.status || a.novel_status), a.max_chapters && p.push(a.max_chapters + " chương"), { name: c, link: R(h), cover: v, description: p.join(" · "), host: m }; } function xe(a, c) {
+                                        return null; var o = String(a.title || a.name || a.novel_title || "").trim(); o && (o = o.replace(/^Bìa truyện\s+/i, "").trim()); var f = String(a.url || a.slug || a.novel_slug || "").trim(), h = f.indexOf("http") === 0 ? f : m + "/truyen/" + f, v = R(a.thumbnail || a.cover || a.image || ""), p = []; return (a.author || a.novel_author) && p.push(a.author || a.novel_author), a.genre_name && p.push(a.genre_name), (a.status || a.novel_status) && p.push(a.status || a.novel_status), a.max_chapters && p.push(a.max_chapters + " chương"), { name: o, link: R(h), cover: v, description: p.join(" · "), host: m }; } function xe(a, o) {
                                         return __awaiter(this, void 0, void 0, function () { var f, h; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0:
-                                                    c || (c = {});
+                                                    o || (o = {});
                                                     f = { "User-Agent": L, Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en-US;q=0.8", Referer: m + "/" };
-                                                    if (c.headers)
-                                                        for (h in c.headers)
-                                                            f[h] = c.headers[h];
-                                                    c.headers = f;
-                                                    return [4, t(a, c)];
+                                                    if (o.headers)
+                                                        for (h in o.headers)
+                                                            f[h] = o.headers[h];
+                                                    o.headers = f;
+                                                    return [4, t(a, o)];
                                                 case 1: return [2, _a.sent()];
                                             }
                                         }); });
-                                    } function M(a, c) {
+                                    } function M(a, o) {
                                         return __awaiter(this, void 0, void 0, function () { var f, h, v, p, T, O, G, D, V, H, Y, B; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0:
                                                     f = "";
-                                                    Array.isArray(a) ? (f = a[0] || "", c || (c = a[1] || 1)) : (f = a || "", c || (c = 1));
-                                                    h = N + "/api/search-novels?keyword=" + encodeURIComponent(f) + "&page=" + (c || 1);
+                                                    Array.isArray(a) ? (f = a[0] || "", o || (o = a[1] || 1)) : (f = a || "", o || (o = 1));
+                                                    h = N + "/api/search-novels?keyword=" + encodeURIComponent(f) + "&page=" + (o || 1);
                                                     return [4, t(h, { headers: { "X-Requested-With": "XMLHttpRequest", Accept: "application/json" } })];
                                                 case 1:
                                                     v = _a.sent();
@@ -2765,7 +2770,7 @@ var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://we
                                                         D = me(T[G]);
                                                         D && D.name && D.link && O.push(D);
                                                     }
-                                                    V = "", H = parseInt(c || "1", 10), Y = p.current_page || p.page || H, B = p.last_page || p.total_pages;
+                                                    V = "", H = parseInt(o || "1", 10), Y = p.current_page || p.page || H, B = p.last_page || p.total_pages;
                                                     return [2, (B && Y < B ? V = String(Y + 1) : O.length >= 10 && (V = String(H + 1)), I.success(O, V))];
                                             }
                                         }); });
@@ -2777,7 +2782,7 @@ var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://we
                                         catch (a) { }
                                         m = String(N || "").replace(/\/+$/, "");
                                         if (typeof I == "undefined")
-                                            I = { success: function (a, c) { return JSON.stringify({ code: 0, data: a, data2: c }); }, error: function (a) { return JSON.stringify({ code: 1, data: a }); } };
+                                            I = { success: function (a, o) { return JSON.stringify({ code: 0, data: a, data2: o }); }, error: function (a) { return JSON.stringify({ code: 1, data: a }); } };
                                         return [2, typeof M == "function" ? M : void 0];
                                     }); });
                                 })()];
@@ -2788,34 +2793,34 @@ var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://we
         }); });
     }, genre: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, n, i, s, o, l, d, g, w, x, y, E, C, J, Q, fe) {
+            return [2, (function (t, r, n, i, s, c, l, d, g, w, x, y, E, C, J, Q, fe) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0: return [4, (function () {
                                     return __awaiter(this, void 0, void 0, function () { function j(a) { return !a || (a = String(a).trim(), !a) ? "" : a.indexOf("//") === 0 ? "https:" + a : a.indexOf("http://") === 0 || a.indexOf("https://") === 0 ? a.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, m) : a.charAt(0) === "/" ? m + a : m + "/" + a; } function Ie(a) { if (!a)
                                         return ""; a = j(a); try {
-                                        var c = new URL(a);
-                                        return c.pathname = c.pathname.split("/").map(function (f) { try {
+                                        var o = new URL(a);
+                                        return o.pathname = o.pathname.split("/").map(function (f) { try {
                                             return encodeURIComponent(decodeURIComponent(f));
                                         }
                                         catch (h) {
                                             return encodeURIComponent(f);
-                                        } }).join("/"), c.toString() + "";
+                                        } }).join("/"), o.toString() + "";
                                     }
                                     catch (f) {
                                         return encodeURI(a) + "";
                                     } } function ge(a) { return a ? String(a).replace(/\s+/g, " ").trim() : ""; } function R(a) { return a ? (a = String(a).trim(), a.indexOf("http") === 0 ? a : a.indexOf("//") === 0 ? "https:" + a : m + (a.indexOf("/") === 0 ? "" : "/") + a) : ""; } function me(a) { if (!a)
-                                        return null; var c = String(a.title || a.name || a.novel_title || "").trim(); c && (c = c.replace(/^Bìa truyện\s+/i, "").trim()); var f = String(a.url || a.slug || a.novel_slug || "").trim(), h = f.indexOf("http") === 0 ? f : m + "/truyen/" + f, v = R(a.thumbnail || a.cover || a.image || ""), p = []; return (a.author || a.novel_author) && p.push(a.author || a.novel_author), a.genre_name && p.push(a.genre_name), (a.status || a.novel_status) && p.push(a.status || a.novel_status), a.max_chapters && p.push(a.max_chapters + " chương"), { name: c, link: R(h), cover: v, description: p.join(" · "), host: m }; } function xe(a, c) {
+                                        return null; var o = String(a.title || a.name || a.novel_title || "").trim(); o && (o = o.replace(/^Bìa truyện\s+/i, "").trim()); var f = String(a.url || a.slug || a.novel_slug || "").trim(), h = f.indexOf("http") === 0 ? f : m + "/truyen/" + f, v = R(a.thumbnail || a.cover || a.image || ""), p = []; return (a.author || a.novel_author) && p.push(a.author || a.novel_author), a.genre_name && p.push(a.genre_name), (a.status || a.novel_status) && p.push(a.status || a.novel_status), a.max_chapters && p.push(a.max_chapters + " chương"), { name: o, link: R(h), cover: v, description: p.join(" · "), host: m }; } function xe(a, o) {
                                         return __awaiter(this, void 0, void 0, function () { var f, h; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0:
-                                                    c || (c = {});
+                                                    o || (o = {});
                                                     f = { "User-Agent": L, Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en-US;q=0.8", Referer: m + "/" };
-                                                    if (c.headers)
-                                                        for (h in c.headers)
-                                                            f[h] = c.headers[h];
-                                                    c.headers = f;
-                                                    return [4, t(a, c)];
+                                                    if (o.headers)
+                                                        for (h in o.headers)
+                                                            f[h] = o.headers[h];
+                                                    o.headers = f;
+                                                    return [4, t(a, o)];
                                                 case 1: return [2, _a.sent()];
                                             }
                                         }); });
@@ -2832,7 +2837,7 @@ var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://we
                                         catch (a) { }
                                         m = String(N || "").replace(/\/+$/, "");
                                         if (typeof I == "undefined")
-                                            I = { success: function (a, c) { return JSON.stringify({ code: 0, data: a, data2: c }); }, error: function (a) { return JSON.stringify({ code: 1, data: a }); } };
+                                            I = { success: function (a, o) { return JSON.stringify({ code: 0, data: a, data2: o }); }, error: function (a) { return JSON.stringify({ code: 1, data: a }); } };
                                         return [2, typeof M == "function" ? M : void 0];
                                     }); });
                                 })()];
@@ -2843,13 +2848,13 @@ var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://we
         }); });
     }, gen: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, n, i, s, o, l, d, g, w, x, y, E, C, J, Q, fe) {
+            return [2, (function (t, r, n, i, s, c, l, d, g, w, x, y, E, C, J, Q, fe) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0: return [4, (function () {
-                                    return __awaiter(this, void 0, void 0, function () { function j(c) { return !c || (c = String(c).trim(), !c) ? "" : c.indexOf("//") === 0 ? "https:" + c : c.indexOf("http://") === 0 || c.indexOf("https://") === 0 ? c.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, m) : c.charAt(0) === "/" ? m + c : m + "/" + c; } function Ie(c) { if (!c)
-                                        return ""; c = j(c); try {
-                                        var f = new URL(c);
+                                    return __awaiter(this, void 0, void 0, function () { function j(o) { return !o || (o = String(o).trim(), !o) ? "" : o.indexOf("//") === 0 ? "https:" + o : o.indexOf("http://") === 0 || o.indexOf("https://") === 0 ? o.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, m) : o.charAt(0) === "/" ? m + o : m + "/" + o; } function Ie(o) { if (!o)
+                                        return ""; o = j(o); try {
+                                        var f = new URL(o);
                                         return f.pathname = f.pathname.split("/").map(function (h) { try {
                                             return encodeURIComponent(decodeURIComponent(h));
                                         }
@@ -2858,9 +2863,9 @@ var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://we
                                         } }).join("/"), f.toString() + "";
                                     }
                                     catch (h) {
-                                        return encodeURI(c) + "";
-                                    } } function ge(c) { return c ? String(c).replace(/\s+/g, " ").trim() : ""; } function R(c) { return c ? (c = String(c).trim(), c.indexOf("http") === 0 ? c : c.indexOf("//") === 0 ? "https:" + c : m + (c.indexOf("/") === 0 ? "" : "/") + c) : ""; } function me(c) { if (!c)
-                                        return null; var f = String(c.title || c.name || c.novel_title || "").trim(); f && (f = f.replace(/^Bìa truyện\s+/i, "").trim()); var h = String(c.url || c.slug || c.novel_slug || "").trim(), v = h.indexOf("http") === 0 ? h : m + "/truyen/" + h, p = R(c.thumbnail || c.cover || c.image || ""), T = []; return (c.author || c.novel_author) && T.push(c.author || c.novel_author), c.genre_name && T.push(c.genre_name), (c.status || c.novel_status) && T.push(c.status || c.novel_status), c.max_chapters && T.push(c.max_chapters + " chương"), { name: f, link: R(v), cover: p, description: T.join(" · "), host: m }; } function xe(c, f) {
+                                        return encodeURI(o) + "";
+                                    } } function ge(o) { return o ? String(o).replace(/\s+/g, " ").trim() : ""; } function R(o) { return o ? (o = String(o).trim(), o.indexOf("http") === 0 ? o : o.indexOf("//") === 0 ? "https:" + o : m + (o.indexOf("/") === 0 ? "" : "/") + o) : ""; } function me(o) { if (!o)
+                                        return null; var f = String(o.title || o.name || o.novel_title || "").trim(); f && (f = f.replace(/^Bìa truyện\s+/i, "").trim()); var h = String(o.url || o.slug || o.novel_slug || "").trim(), v = h.indexOf("http") === 0 ? h : m + "/truyen/" + h, p = R(o.thumbnail || o.cover || o.image || ""), T = []; return (o.author || o.novel_author) && T.push(o.author || o.novel_author), o.genre_name && T.push(o.genre_name), (o.status || o.novel_status) && T.push(o.status || o.novel_status), o.max_chapters && T.push(o.max_chapters + " chương"), { name: f, link: R(v), cover: p, description: T.join(" · "), host: m }; } function xe(o, f) {
                                         return __awaiter(this, void 0, void 0, function () { var h, v; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0:
@@ -2870,12 +2875,12 @@ var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://we
                                                         for (v in f.headers)
                                                             h[v] = f.headers[v];
                                                     f.headers = h;
-                                                    return [4, t(c, f)];
+                                                    return [4, t(o, f)];
                                                 case 1: return [2, _a.sent()];
                                             }
                                         }); });
-                                    } function M(c, f) { if (!c)
-                                        return N + "/api/search-novels?page=" + (f || 1); var h = c + ""; if (h.indexOf("http") < 0 && h.indexOf("/") < 0 && h.indexOf("webtruyendich.com") < 0)
+                                    } function M(o, f) { if (!o)
+                                        return N + "/api/search-novels?page=" + (f || 1); var h = o + ""; if (h.indexOf("http") < 0 && h.indexOf("/") < 0 && h.indexOf("webtruyendich.com") < 0)
                                         return N + "/api/search-novels?keyword=" + encodeURIComponent(h) + "&page=" + (f || 1); var v = h.split("?")[0], p = h.split("?")[1] || "", T = {}; if (p)
                                         for (var O = p.split("&"), G = 0; G < O.length; G++) {
                                             var D = O[G].split("=");
@@ -2887,11 +2892,11 @@ var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://we
                                         var H = v.split("/xep-hang/")[1];
                                         H && (T.sort = H);
                                     } T.page = String(f || 1); var Y = []; for (var B in T)
-                                        T[B] !== void 0 && T[B] !== null && T[B] !== "" && Y.push(encodeURIComponent(B) + "=" + encodeURIComponent(T[B])); return N + "/api/search-novels?" + Y.join("&"); } function a(c, f) {
+                                        T[B] !== void 0 && T[B] !== null && T[B] !== "" && Y.push(encodeURIComponent(B) + "=" + encodeURIComponent(T[B])); return N + "/api/search-novels?" + Y.join("&"); } function a(o, f) {
                                         return __awaiter(this, void 0, void 0, function () { var h, v, p, T, O, G, D, V, H, Y, B; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0:
-                                                    h = parseInt(f || "1", 10), v = M(c, h);
+                                                    h = parseInt(f || "1", 10), v = M(o, h);
                                                     return [4, t(v, { headers: { "User-Agent": typeof L != "undefined" ? L : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36", "X-Requested-With": "XMLHttpRequest", Accept: "application/json, text/plain, */*" } })];
                                                 case 1:
                                                     p = _a.sent();
@@ -2913,10 +2918,10 @@ var Ae = { id: "webtruyendich", name: "Web Truyện Dịch", source: "https://we
                                         try {
                                             typeof CONFIG_URL != "undefined" && CONFIG_URL && (N = CONFIG_URL + ""), typeof CONFIG_UA != "undefined" && CONFIG_UA && (L = CONFIG_UA + ""), typeof CONFIG_AI != "undefined" && CONFIG_AI && (_ = CONFIG_AI + "");
                                         }
-                                        catch (c) { }
+                                        catch (o) { }
                                         m = String(N || "").replace(/\/+$/, "");
                                         if (typeof I == "undefined")
-                                            I = { success: function (c, f) { return JSON.stringify({ code: 0, data: c, data2: f }); }, error: function (c) { return JSON.stringify({ code: 1, data: c }); } };
+                                            I = { success: function (o, f) { return JSON.stringify({ code: 0, data: o, data2: f }); }, error: function (o) { return JSON.stringify({ code: 1, data: o }); } };
                                         return [2, typeof a == "function" ? a : void 0];
                                     }); });
                                 })()];

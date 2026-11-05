@@ -173,7 +173,7 @@ for (const id of ids) {
     { const r = await esbuild.build({ entryPoints: [genFile], bundle: true, write: false, format: 'esm', platform: 'neutral', target: 'es2022', nodePaths: [path.join(ROOT, 'node_modules'), path.join(ROOT, '../_work/deps/node_modules')], mainFields: ['module', 'main'], logLevel: 'silent' });
       fs.mkdirSync(path.join(GEN, 'test'), { recursive: true }); fs.writeFileSync(path.join(GEN, 'test', id + '.mjs'), r.outputFiles[0].text); }
     // ---- Mangayomi / YomiHub
-    const ver = `0.2.${md.version}`; // 0.1.x: pure-JS URL resolver; 0.2.x: image Referer from page origin
+    const ver = `0.3.${md.version}`; // 0.1.x: pure-JS URL resolver; 0.2.x: image Referer from page origin; 0.3.x: lazy-placeholder page fallback
     const mgMeta = { name: md.name, lang: md.locale === 'all' ? 'all' : md.locale, id: hash31('kiritokmn:' + id), baseUrl: md.source, apiUrl: '', iconUrl: icon, typeSource: 'single', itemType: ITEM_TYPE[md.type], isNsfw: !!md.nsfw, version: ver, dateFormat: '', dateFormatLocale: '', pkgPath: `repo/mangayomi/${id}.js` };
     let mg = await bundle('entry.js', genFile, 'iife', { globalName: '__VB', target: 'es2020' });
     const needGbk = /gbk|gb2312|gb18030/i.test(scriptsSrc(id));

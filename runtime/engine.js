@@ -100,7 +100,15 @@ export class VBookEngine {
     else if (this.has('page')) data = (await this.run('page', url)).data;
     else data = [url];
     if (typeof data === 'string') data = data.split(/[\n,]+/);
-    return (data || []).map(p => abs(this.base + '/', typeof p === 'string' ? p : (p && (p.link || p.url || p.data)))).filter(Boolean);
+    // vBook pages may be {link, fallback:[...]}: hosts without fallback support need the best single URL.
+    const ph = u => !u || /^data:|loading|lazy|blank|placeholder|spacer|\/nocover|1x1\./i.test(String(u));
+    const pick = p => {
+      if (typeof p === 'string') return p;
+      if (!p) return '';
+      const main = p.link || p.url || p.data, fb = Array.isArray(p.fallback) ? p.fallback.filter(Boolean) : [];
+      return ph(main) && fb.length ? fb[0] : main;
+    };
+    return (data || []).map(p => abs(this.base + '/', pick(p))).filter(Boolean);
   }
   async content(url) {
     const r = await this.run('chap', url);

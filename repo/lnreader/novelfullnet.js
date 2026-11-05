@@ -2199,7 +2199,7 @@ var F = function (t) { return t == null ? "" : String(t); }, mi = function (t) {
     };
     class_1.prototype.pages = function (e) {
         return __awaiter(this, void 0, void 0, function () {
-            var u, _b, _c;
+            var u, _b, _c, a, n;
             var _this = this;
             return __generator(this, function (_d) {
                 switch (_d.label) {
@@ -2221,7 +2221,12 @@ var F = function (t) { return t == null ? "" : String(t); }, mi = function (t) {
                     case 5:
                         _b = _c;
                         _d.label = 6;
-                    case 6: return [2, (_b, typeof u == "string" && (u = u.split(/[\n,]+/)), (u || []).map(function (a) { return Se(_this.base + "/", typeof a == "string" ? a : a && (a.link || a.url || a.data)); }).filter(Boolean))];
+                    case 6:
+                        _b, typeof u == "string" && (u = u.split(/[\n,]+/));
+                        a = function (s) { return !s || /^data:|loading|lazy|blank|placeholder|spacer|\/nocover|1x1\./i.test(String(s)); }, n = function (s) { if (typeof s == "string")
+                            return s; if (!s)
+                            return ""; var h = s.link || s.url || s.data, p = Array.isArray(s.fallback) ? s.fallback.filter(Boolean) : []; return a(h) && p.length ? p[0] : h; };
+                        return [2, (u || []).map(function (s) { return Se(_this.base + "/", n(s)); }).filter(Boolean)];
                 }
             });
         });
