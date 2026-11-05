@@ -246,8 +246,17 @@
  },
  "navyteamcomic": {
   "patch": {
-   "pages": ".content-type-manga img"
-  }
+   "pages": "div.content-type-manga img",
+   "item": "div.comic-grid.normal > div.comic-item",
+   "link": "a@href",
+   "title": "h3",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.episode-cover a"
+  },
+  "version": 2
  },
  "navyteamnovel": {
   "patch": {
@@ -268,8 +277,14 @@
  "deqixs": {
   "patch": {
    "ch_list": "#list ul a",
-   "content": "#content, .con, .content"
-  }
+   "content": "#content, .con, .content",
+   "search": "/modules/article/search.php?searchkey={q}",
+   "s_item": "div.container > div.item",
+   "s_title": "img@alt",
+   "s_link": "a@href",
+   "s_cover": "img@img"
+  },
+  "version": 2
  },
  "fanmtl": {
   "patch": {
@@ -422,7 +437,7 @@
   "version": 3
  },
  "ciyuanji": {
-  "base": "https://www.ciyuanji.com",
+  "base": "https://m.ciyuanji.com",
   "domains": [
    "https://www.ciyuanji.com"
   ],
@@ -436,19 +451,19 @@
     "仙侠": "/l_c_105_0_0_0_{p}.html"
    },
    "search": "/search/{q}_{p}.html",
-   "item": "section[class*=book_card]",
-   "title": "img@alt",
-   "link": "a@href",
+   "item": "li.index_block__1xPQX > a.MuiTypography-root.MuiLink-root",
+   "title": "h3",
+   "link": ":self@href",
    "cover": "img@img",
    "pageSize": 10,
-   "d_title": "[class*=book_detail_title] || [class*=book_detail] img@alt",
-   "d_cover": "[class*=book_detail] img@img",
-   "d_desc": "meta[name=description]@content",
-   "ch_list": "a[class*=book_detail_item]",
-   "content": "[class*=chapter_article]",
+   "d_title": "meta[property=og:title]@content || title",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.bookDetails_btns__3z8Fx a",
+   "content": "article.chapter_article__avlFR",
    "c_title": "h1"
   },
-  "version": 3
+  "version": 4
  },
  "tikporn": {
   "patch": {
@@ -526,5 +541,549 @@
    "pageSize": 20
   },
   "version": 3
+ },
+ "gioitruyen": {
+  "tpl": "custom",
+  "base": "https://gioitruyen.com",
+  "version": 2,
+  "note": "JSON API /api/v1 (client-rendered site)"
+ },
+ "ehentai": {
+  "patch": {
+   "item": "table.itg.gltc > tr",
+   "link": "[class*=name] a@href",
+   "title": "[class*=name] a",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "#gd5 a",
+   "pages": "p.g2.gsp img",
+   "search": "/?f_cats=0&f_search={q}"
+  },
+  "version": 2
+ },
+ "blvietsub": {
+  "patch": {
+   "item": "div.row-flex > article.phimitem",
+   "link": "a@href",
+   "title": "h3",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "ul.sub-menu a",
+   "search": "/search?q={q}"
+  },
+  "version": 2
+ },
+ "hacamchicac": {
+  "patch": {
+   "item": "div.uk-panel.uk-position-relative > div.uk-overflow-hidden.uk-border-rounded",
+   "link": "a@href",
+   "title": "img@alt",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.recent-comment-content.uk-background-muted a",
+   "pages": "div.uk-overflow-hidden.uk-border-rounded img"
+  },
+  "version": 2
+ },
+ "goctruyentranh": {
+  "patch": {
+   "item": "div.card.ele-2 > a.card-block.card-flat",
+   "link": ":self@href",
+   "title": "img@alt",
+   "cover": "img@img",
+   "d_title": "meta[property=og:title]@content || title",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.col-md-6.col-lg-4 a",
+   "pages": "a.logo img"
+  },
+  "version": 2
+ },
+ "abcbiquge": {
+  "patch": {
+   "item": "ul > li > a.blue",
+   "link": ":self@href",
+   "title": ":self",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "search": "/?searchkey={q}"
+  },
+  "base": "https://m.bqg6.xyz",
+  "version": 2
+ },
+ "jjwxcrepoduongden": {
+  "patch": {
+   "item": "div.div2 > div.concent_list",
+   "link": "h2 a@href",
+   "title": "h2 a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "#examine_num a",
+   "content": "div"
+  },
+  "version": 2
+ },
+ "75zwcom": {
+  "patch": {
+   "item": "ul.vlist > li",
+   "link": "a@href",
+   "title": "[class*=name]",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "ul.vlist a",
+   "content": "div.content",
+   "search": "/?q={q}"
+  },
+  "version": 3
+ },
+ "jjwxctangiang": {
+  "patch": {
+   "item": "div.div2 > div.concent_list",
+   "link": "h2 a@href",
+   "title": "h2 a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "#examine_num a",
+   "content": "div"
+  },
+  "version": 2
+ },
+ "hihiphim": {
+  "patch": {
+   "item": "div.grid-3x2 > div.h-item",
+   "link": "[class*=title] a@href",
+   "title": "h4 a",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.hl-tags a",
+   "search": "/tim-kiem?q={q}"
+  },
+  "version": 2
+ },
+ "hongqua": {
+  "patch": {
+   "item": "div.m-card-rail-ZAMiX2.m-card-rail-mask-right-nAETKt > a.m-card-vMOsDf",
+   "link": ":self@href",
+   "title": "[class*=title]",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.pc-actors-xnd4C2.m-actors-sBQbhN a"
+  },
+  "version": 2
+ },
+ "luphim": {
+  "patch": {
+   "item": "div.sw-item > a.v-thumbnail",
+   "link": ":self@href",
+   "title": "img@alt",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.de-eps a",
+   "search": "/search?k={q}",
+   "ch_url": "a[href*=\"/xem-phim/\"]@href"
+  },
+  "version": 3
+ },
+ "ijjjxsxzw": {
+  "patch": {
+   "item": "div.sosuo > ul > li.selected",
+   "link": "a@href",
+   "title": "a",
+   "d_title": "meta[property=og:title]@content || title",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.saixuan a",
+   "content": "div.main"
+  },
+  "version": 2
+ },
+ "mimimoe": {
+  "patch": {
+   "item": "ul.min-w-0.translate-x-px > li",
+   "link": "a@href",
+   "title": "a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.grid-cols-2 a",
+   "pages": "a.flex-1.min-w-0 img"
+  },
+  "version": 2
+ },
+ "mangadm": {
+  "patch": {
+   "item": "figure.wp-block-gallery.has-nested-images > figure.wp-block-image.size-large",
+   "link": "a@href",
+   "title": "img@alt",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "#page a",
+   "content": "div.entry-content"
+  },
+  "version": 2
+ },
+ "moyuemacduyet": {
+  "patch": {
+   "item": "div.ranking-panel > a.ranking-item",
+   "link": ":self@href",
+   "title": "[class*=title]",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "search": "/search?q={q}"
+  },
+  "version": 2
+ },
+ "mintteanovel": {
+  "patch": {
+   "item": "div.uk-panel.uk-position-relative > div.uk-overflow-hidden.uk-border-rounded",
+   "link": "a@href",
+   "title": "img@alt",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.chapter-item a",
+   "content": "div.mtl-ticker-content"
+  },
+  "version": 2
+ },
+ "hotphim": {
+  "patch": {
+   "item": "div.sw-item > a.v-thumbnail",
+   "link": ":self@href",
+   "title": "img@alt",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.de-eps.is-grid a"
+  },
+  "version": 2
+ },
+ "nettruyenviet": {
+  "patch": {
+   "item": "div.button-container > a.button-secondary",
+   "link": ":self@href",
+   "title": ":self",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "ul.comic-item a",
+   "pages": "div.page-chapter img",
+   "search": "/tim-truyen?keyword={q}",
+   "s_item": "div.item > figure > div.image",
+   "s_title": "a@title",
+   "s_link": "a@href",
+   "s_cover": "img@img"
+  },
+  "version": 3
+ },
+ "phimnhua": {
+  "patch": {
+   "item": "div.row--grid > div.col-6.col-sm-4",
+   "link": "h3 a@href",
+   "title": "h3 a",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "button[data-url]",
+   "ch_attr": "data-url",
+   "ch_fallback_single": true
+  },
+  "version": 3
+ },
+ "piaotia": {
+  "patch": {
+   "item": "table.hide > tr",
+   "link": "a@href",
+   "title": "a",
+   "d_title": "meta[property=og:title]@content || title",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "ul.navlist a",
+   "content": "div.main.m_foot"
+  },
+  "version": 2
+ },
+ "lofter": {
+  "patch": {
+   "item": "#gmenu > ul > li",
+   "link": "a@href",
+   "title": "a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.itemtxt a",
+   "content": "div.con"
+  },
+  "base": "https://www.suduguu.com",
+  "version": 2
+ },
+ "novelphoenix": {
+  "patch": {
+   "item": "ul.home-release-list.fwn-latest-list > li > div.home-release-title-cell",
+   "link": "[class*=title] a@href",
+   "title": "[class*=title] a",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "#idData a",
+   "content": "#chapter-content",
+   "search": "/search?keyword={q}",
+   "s_item": "div.ul-list1.ul-list1-2 > div.li-row",
+   "s_title": "h3 a",
+   "s_link": "h3 a@href",
+   "s_cover": "img@img"
+  },
+  "version": 3
+ },
+ "quanben": {
+  "patch": {
+   "item": "ul.list > li",
+   "link": "a@href",
+   "title": "a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.tool_button a",
+   "content": "div.description",
+   "search": "/index.php?c=book&a=search&keywords={q}",
+   "s_item": "div.box > div > div.list2",
+   "s_title": "h3 a",
+   "s_link": "h3 a@href",
+   "s_cover": "img@img"
+  },
+  "version": 3
+ },
+ "shinigamilnteam": {
+  "patch": {
+   "item": "div.info > a.story",
+   "link": ":self@href",
+   "title": ":self",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.clist a",
+   "content": "div.content.noselect"
+  },
+  "version": 2
+ },
+ "sobqg": {
+  "patch": {
+   "item": "ul.g_row.hom-rec > li.g_col_2.mb20",
+   "link": "a@href",
+   "title": "h3",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.g_browse_panel.g_browse_sub a",
+   "content": "div.g_col_9"
+  },
+  "version": 2
+ },
+ "novelpiaglobal": {
+  "patch": {
+   "item": "div.section-line > span.more",
+   "link": "a@href",
+   "title": "a",
+   "d_title": "meta[property=og:title]@content || title",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.nv-cover a",
+   "content": "#synopsis"
+  },
+  "version": 2
+ },
+ "shubenshu": {
+  "patch": {
+   "item": "ul > li > span.s2",
+   "link": "a@href",
+   "title": "a@title",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "#list a",
+   "content": "#booktxt"
+  },
+  "version": 2
+ },
+ "sohu": {
+  "patch": {
+   "item": "section.f-list.f-new > div.f",
+   "link": "a@href",
+   "title": "a",
+   "d_title": "meta[property=og:title]@content || title",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.author-info a",
+   "content": "div.title"
+  },
+  "version": 2
+ },
+ "sudugu": {
+  "patch": {
+   "item": "#gmenu > ul > li",
+   "link": "a@href",
+   "title": "a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.itemtxt a",
+   "content": "div.con"
+  },
+  "base": "https://www.suduguu.com",
+  "version": 2
+ },
+ "truyencvio": {
+  "patch": {
+   "item": "li.blog-item > a.blog-title",
+   "link": ":self@href",
+   "title": ":self",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "#menu-chinh a",
+   "content": "div.uk-article-content.uk-margin"
+  },
+  "version": 2
+ },
+ "truyenc": {
+  "patch": {
+   "item": "div.min-w-0 > a.text-sm.font-semibold",
+   "link": ":self@href",
+   "title": ":self@title",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.grid-cols-1 a",
+   "content": "article.reader-content.prose"
+  },
+  "version": 2
+ },
+ "thegioitruyen": {
+  "patch": {
+   "item": "div.tgt-card > a.tgt-card-thumb",
+   "link": ":self@href",
+   "title": "img@alt",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "#chapter-list a",
+   "pages": "div.tgt-reader-pages img",
+   "search": "/search/{q}",
+   "s_item": "div.wp-block-group.alignfull > h2.wp-block-post-title.has-x-large-font-size",
+   "s_title": "a",
+   "s_link": "a@href",
+   "s_cover": ""
+  },
+  "version": 3
+ },
+ "truyenzhihutonghop": {
+  "patch": {
+   "item": "ul.ranking-list > li.ranking-item",
+   "link": "a@href",
+   "title": "[class*=title]",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "#chapterGrid a",
+   "content": "div.uk-width-1-1.reading"
+  },
+  "base": "https://truyendexuat.com",
+  "version": 2
+ },
+ "vinahentai": {
+  "patch": {
+   "item": "div.-mx-2.grid-cols-2 > div > a.group.bg-bgc-layer1",
+   "link": ":self@href",
+   "title": ":self",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.flex-wrap.justify-center a",
+   "pages": "div.inset-0 img",
+   "search": "/tim-kiem?q={q}",
+   "s_item": "div.space-y-3.transition-opacity > a.group.border-bd-default",
+   "s_title": "h2",
+   "s_link": ":self@href",
+   "s_cover": "img@img"
+  },
+  "base": "https://vinahentai.bio",
+  "version": 3
+ },
+ "viblo": {
+  "patch": {
+   "item": "div.post-feed-item__info > div.post-title--inline",
+   "link": "h3 a@href",
+   "title": "h3 a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.support-article a",
+   "content": "div.md-contents"
+  },
+  "version": 2
+ },
+ "tinhlinh": {
+  "patch": {
+   "item": "div.media.m-b-30 > div.media-left.m-r-15",
+   "link": "a@href",
+   "title": "a@title",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.chapters a",
+   "content": "article"
+  },
+  "version": 2
+ },
+ "webtruyenchu": {
+  "patch": {
+   "item": "ul.grid-cols-1 > li.rounded-xl.border",
+   "link": "h3 a@href",
+   "title": "h3 a",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "ol.divide-y.divide-zinc-100 a",
+   "content": "article.doc-noidung",
+   "search": "/?q={q}"
+  },
+  "version": 2
+ },
+ "xemphimgi": {
+  "patch": {
+   "ch_list": "div.episodes-grid a",
+   "ch_reverse": true,
+   "ch_fallback_single": true
+  },
+  "version": 2
  }
 }

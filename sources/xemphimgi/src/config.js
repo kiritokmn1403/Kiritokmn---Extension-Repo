@@ -8,8 +8,10 @@ var G = {
  "item": ".movie-poster",
  "title": "a@title || img@alt || a@title || img@alt",
  "link": "a@href",
- "ch_list": "#col-842605008 a",
+ "ch_list": "div.episodes-grid a",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
- "d_desc": "meta[name=description]@content"
+ "d_desc": "meta[name=description]@content",
+ "ch_reverse": true,
+ "ch_fallback_single": true
 };

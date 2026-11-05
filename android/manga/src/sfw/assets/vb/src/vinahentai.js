@@ -1,17 +1,28 @@
-__register({ META: {"id":"vinahentai","name":"VinaHentai","source":"https://vinahentai.bond","type":"comic","locale":"vi","nsfw":false,"version":1,"config":{"DOMAIN":{"title":"Tên miền","subtitle":"Đổi khi trang đổi tên miền","default":"https://vinahentai.bond","values":["https://vinahentai.bond"],"mode":"input","format":"text"}},"configDefaults":{"DOMAIN":"https://vinahentai.bond"}}, SCRIPTS: {
+__register({ META: {"id":"vinahentai","name":"VinaHentai","source":"https://vinahentai.bio","type":"comic","locale":"vi","nsfw":false,"version":3,"config":{"DOMAIN":{"title":"Tên miền","subtitle":"Đổi khi trang đổi tên miền","default":"https://vinahentai.bio","values":["https://vinahentai.bio","https://vinahentai.bond"],"mode":"select","format":"single"}},"configDefaults":{"DOMAIN":"https://vinahentai.bio"}}, SCRIPTS: {
 "home": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
 var DOMAIN = __cfg("DOMAIN");
 return (function () {
 
-var BASE_URL = "https://vinahentai.bond";
+var BASE_URL = "https://vinahentai.bio";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
   "Mới cập nhật": "/[?page={p}]"
  },
- "search": "/tim-kiem?keyword={q}[&page={p}]",
- "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+ "search": "/tim-kiem?q={q}",
+ "ch_list": "div.flex-wrap.justify-center a",
+ "item": "div.-mx-2.grid-cols-2 > div > a.group.bg-bgc-layer1",
+ "link": ":self@href",
+ "title": ":self",
+ "d_title": "h1 || meta[property=og:title]@content",
+ "d_cover": "meta[property=og:image]@content || img@img",
+ "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+ "pages": "div.inset-0 img",
+ "s_item": "div.space-y-3.transition-opacity > a.group.border-bd-default",
+ "s_title": "h2",
+ "s_link": ":self@href",
+ "s_cover": "img@img"
 };
 
 
@@ -108,22 +119,24 @@ var X = {
     u = u.replace(/\{p\}/g, String(n)).replace(/\{p0\}/g, String(n - 1)).replace(/\{q\}/g, C.enc(q || '')).replace(/\{base\}/g, BASE_URL);
     return C.fix(u);
   },
-  items: function (doc) {
-    var els = doc.select(G.item), out = [], seen = {};
+  // `s` = 's_' when parsing a search result page whose cards differ from the list pages (G.s_item, G.s_title, ...)
+  items: function (doc, s) {
+    var k = function (n) { return (s && G[s + n]) || G[n]; };
+    var els = doc.select(k('item')), out = [], seen = {};
     for (var i = 0; i < els.size(); i++) {
       var e = els.get(i);
-      var link = X.pick(e, G.link || 'a@href');
+      var link = X.pick(e, k('link') || 'a@href');
       if (!link || seen[link] || /^javascript|#$/.test(link)) continue;
-      var name = X.pick(e, G.title || 'h3 || h2 || a@title || img@alt');
+      var name = X.pick(e, k('title') || 'h3 || h2 || a@title || img@alt');
       if (!name) continue;
       seen[link] = 1;
-      out.push({ name: name, link: C.fix(link), cover: X.pick(e, G.cover || 'img@img'), description: X.pick(e, G.desc || ''), host: BASE_URL });
+      out.push({ name: name, link: C.fix(link), cover: X.pick(e, k('cover') || 'img@img'), description: X.pick(e, k('desc') || ''), host: BASE_URL });
     }
     return out;
   },
   listPage: function (pat, p, q) {
     var doc = C.html(X.url(pat, p, q), G.req);
-    var items = X.items(doc);
+    var items = X.items(doc, q ? 's_' : '');
     var more = G.next ? doc.select(G.next).size() > 0 : items.length >= (G.pageSize || 10);
     return Response.success(items, C.next(more && items.length > 0, p));
   },
@@ -133,6 +146,12 @@ var X = {
   },
   search: function (key, p) {
     if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
+    if (G.search_post) {
+      // POST search form: { url, body } — body uses {q}; results are parsed like any list page
+      var doc = C.html(X.url(G.search_post.url, p, key), { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: String(G.search_post.body).replace(/\{q\}/g, C.enc(key)) });
+      var items = X.items(doc, 's_');
+      return Response.success(items, null);
+    }
     return X.listPage(G.search, p, key);
   },
   genre: function () {
@@ -160,7 +179,7 @@ var X = {
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
-        var a = els.get(i); var href = a.attr('href') || a.attr('data-href');
+        var a = els.get(i); var href = G.ch_attr ? a.attr(G.ch_attr) : (a.attr('href') || a.attr('data-href'));
         if (!href || href === '#' || seen[href]) continue;
         seen[href] = 1; list.push({ name: (G.ch_name ? X.pick(a, G.ch_name) : a.text()) || a.attr('title'), url: C.fix(href), host: BASE_URL });
       }
@@ -171,6 +190,8 @@ var X = {
       pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
+    // A movie page without an episode list is itself the one episode
+    if (!list.length && G.ch_fallback_single) list.push({ name: G.ch_fallback_single === true ? 'Xem phim' : G.ch_fallback_single, url: url, host: BASE_URL });
     return Response.success(list);
   },
   pages: function (url) {
@@ -300,14 +321,25 @@ return (function (fetch, Http, Html, Response, localStorage, cacheStorage, local
 var DOMAIN = __cfg("DOMAIN");
 return (function () {
 
-var BASE_URL = "https://vinahentai.bond";
+var BASE_URL = "https://vinahentai.bio";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
   "Mới cập nhật": "/[?page={p}]"
  },
- "search": "/tim-kiem?keyword={q}[&page={p}]",
- "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+ "search": "/tim-kiem?q={q}",
+ "ch_list": "div.flex-wrap.justify-center a",
+ "item": "div.-mx-2.grid-cols-2 > div > a.group.bg-bgc-layer1",
+ "link": ":self@href",
+ "title": ":self",
+ "d_title": "h1 || meta[property=og:title]@content",
+ "d_cover": "meta[property=og:image]@content || img@img",
+ "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+ "pages": "div.inset-0 img",
+ "s_item": "div.space-y-3.transition-opacity > a.group.border-bd-default",
+ "s_title": "h2",
+ "s_link": ":self@href",
+ "s_cover": "img@img"
 };
 
 
@@ -404,22 +436,24 @@ var X = {
     u = u.replace(/\{p\}/g, String(n)).replace(/\{p0\}/g, String(n - 1)).replace(/\{q\}/g, C.enc(q || '')).replace(/\{base\}/g, BASE_URL);
     return C.fix(u);
   },
-  items: function (doc) {
-    var els = doc.select(G.item), out = [], seen = {};
+  // `s` = 's_' when parsing a search result page whose cards differ from the list pages (G.s_item, G.s_title, ...)
+  items: function (doc, s) {
+    var k = function (n) { return (s && G[s + n]) || G[n]; };
+    var els = doc.select(k('item')), out = [], seen = {};
     for (var i = 0; i < els.size(); i++) {
       var e = els.get(i);
-      var link = X.pick(e, G.link || 'a@href');
+      var link = X.pick(e, k('link') || 'a@href');
       if (!link || seen[link] || /^javascript|#$/.test(link)) continue;
-      var name = X.pick(e, G.title || 'h3 || h2 || a@title || img@alt');
+      var name = X.pick(e, k('title') || 'h3 || h2 || a@title || img@alt');
       if (!name) continue;
       seen[link] = 1;
-      out.push({ name: name, link: C.fix(link), cover: X.pick(e, G.cover || 'img@img'), description: X.pick(e, G.desc || ''), host: BASE_URL });
+      out.push({ name: name, link: C.fix(link), cover: X.pick(e, k('cover') || 'img@img'), description: X.pick(e, k('desc') || ''), host: BASE_URL });
     }
     return out;
   },
   listPage: function (pat, p, q) {
     var doc = C.html(X.url(pat, p, q), G.req);
-    var items = X.items(doc);
+    var items = X.items(doc, q ? 's_' : '');
     var more = G.next ? doc.select(G.next).size() > 0 : items.length >= (G.pageSize || 10);
     return Response.success(items, C.next(more && items.length > 0, p));
   },
@@ -429,6 +463,12 @@ var X = {
   },
   search: function (key, p) {
     if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
+    if (G.search_post) {
+      // POST search form: { url, body } — body uses {q}; results are parsed like any list page
+      var doc = C.html(X.url(G.search_post.url, p, key), { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: String(G.search_post.body).replace(/\{q\}/g, C.enc(key)) });
+      var items = X.items(doc, 's_');
+      return Response.success(items, null);
+    }
     return X.listPage(G.search, p, key);
   },
   genre: function () {
@@ -456,7 +496,7 @@ var X = {
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
-        var a = els.get(i); var href = a.attr('href') || a.attr('data-href');
+        var a = els.get(i); var href = G.ch_attr ? a.attr(G.ch_attr) : (a.attr('href') || a.attr('data-href'));
         if (!href || href === '#' || seen[href]) continue;
         seen[href] = 1; list.push({ name: (G.ch_name ? X.pick(a, G.ch_name) : a.text()) || a.attr('title'), url: C.fix(href), host: BASE_URL });
       }
@@ -467,6 +507,8 @@ var X = {
       pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
+    // A movie page without an episode list is itself the one episode
+    if (!list.length && G.ch_fallback_single) list.push({ name: G.ch_fallback_single === true ? 'Xem phim' : G.ch_fallback_single, url: url, host: BASE_URL });
     return Response.success(list);
   },
   pages: function (url) {
@@ -596,14 +638,25 @@ return (function (fetch, Http, Html, Response, localStorage, cacheStorage, local
 var DOMAIN = __cfg("DOMAIN");
 return (function () {
 
-var BASE_URL = "https://vinahentai.bond";
+var BASE_URL = "https://vinahentai.bio";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
   "Mới cập nhật": "/[?page={p}]"
  },
- "search": "/tim-kiem?keyword={q}[&page={p}]",
- "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+ "search": "/tim-kiem?q={q}",
+ "ch_list": "div.flex-wrap.justify-center a",
+ "item": "div.-mx-2.grid-cols-2 > div > a.group.bg-bgc-layer1",
+ "link": ":self@href",
+ "title": ":self",
+ "d_title": "h1 || meta[property=og:title]@content",
+ "d_cover": "meta[property=og:image]@content || img@img",
+ "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+ "pages": "div.inset-0 img",
+ "s_item": "div.space-y-3.transition-opacity > a.group.border-bd-default",
+ "s_title": "h2",
+ "s_link": ":self@href",
+ "s_cover": "img@img"
 };
 
 
@@ -700,22 +753,24 @@ var X = {
     u = u.replace(/\{p\}/g, String(n)).replace(/\{p0\}/g, String(n - 1)).replace(/\{q\}/g, C.enc(q || '')).replace(/\{base\}/g, BASE_URL);
     return C.fix(u);
   },
-  items: function (doc) {
-    var els = doc.select(G.item), out = [], seen = {};
+  // `s` = 's_' when parsing a search result page whose cards differ from the list pages (G.s_item, G.s_title, ...)
+  items: function (doc, s) {
+    var k = function (n) { return (s && G[s + n]) || G[n]; };
+    var els = doc.select(k('item')), out = [], seen = {};
     for (var i = 0; i < els.size(); i++) {
       var e = els.get(i);
-      var link = X.pick(e, G.link || 'a@href');
+      var link = X.pick(e, k('link') || 'a@href');
       if (!link || seen[link] || /^javascript|#$/.test(link)) continue;
-      var name = X.pick(e, G.title || 'h3 || h2 || a@title || img@alt');
+      var name = X.pick(e, k('title') || 'h3 || h2 || a@title || img@alt');
       if (!name) continue;
       seen[link] = 1;
-      out.push({ name: name, link: C.fix(link), cover: X.pick(e, G.cover || 'img@img'), description: X.pick(e, G.desc || ''), host: BASE_URL });
+      out.push({ name: name, link: C.fix(link), cover: X.pick(e, k('cover') || 'img@img'), description: X.pick(e, k('desc') || ''), host: BASE_URL });
     }
     return out;
   },
   listPage: function (pat, p, q) {
     var doc = C.html(X.url(pat, p, q), G.req);
-    var items = X.items(doc);
+    var items = X.items(doc, q ? 's_' : '');
     var more = G.next ? doc.select(G.next).size() > 0 : items.length >= (G.pageSize || 10);
     return Response.success(items, C.next(more && items.length > 0, p));
   },
@@ -725,6 +780,12 @@ var X = {
   },
   search: function (key, p) {
     if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
+    if (G.search_post) {
+      // POST search form: { url, body } — body uses {q}; results are parsed like any list page
+      var doc = C.html(X.url(G.search_post.url, p, key), { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: String(G.search_post.body).replace(/\{q\}/g, C.enc(key)) });
+      var items = X.items(doc, 's_');
+      return Response.success(items, null);
+    }
     return X.listPage(G.search, p, key);
   },
   genre: function () {
@@ -752,7 +813,7 @@ var X = {
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
-        var a = els.get(i); var href = a.attr('href') || a.attr('data-href');
+        var a = els.get(i); var href = G.ch_attr ? a.attr(G.ch_attr) : (a.attr('href') || a.attr('data-href'));
         if (!href || href === '#' || seen[href]) continue;
         seen[href] = 1; list.push({ name: (G.ch_name ? X.pick(a, G.ch_name) : a.text()) || a.attr('title'), url: C.fix(href), host: BASE_URL });
       }
@@ -763,6 +824,8 @@ var X = {
       pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
+    // A movie page without an episode list is itself the one episode
+    if (!list.length && G.ch_fallback_single) list.push({ name: G.ch_fallback_single === true ? 'Xem phim' : G.ch_fallback_single, url: url, host: BASE_URL });
     return Response.success(list);
   },
   pages: function (url) {
@@ -892,14 +955,25 @@ return (function (fetch, Http, Html, Response, localStorage, cacheStorage, local
 var DOMAIN = __cfg("DOMAIN");
 return (function () {
 
-var BASE_URL = "https://vinahentai.bond";
+var BASE_URL = "https://vinahentai.bio";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
   "Mới cập nhật": "/[?page={p}]"
  },
- "search": "/tim-kiem?keyword={q}[&page={p}]",
- "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+ "search": "/tim-kiem?q={q}",
+ "ch_list": "div.flex-wrap.justify-center a",
+ "item": "div.-mx-2.grid-cols-2 > div > a.group.bg-bgc-layer1",
+ "link": ":self@href",
+ "title": ":self",
+ "d_title": "h1 || meta[property=og:title]@content",
+ "d_cover": "meta[property=og:image]@content || img@img",
+ "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+ "pages": "div.inset-0 img",
+ "s_item": "div.space-y-3.transition-opacity > a.group.border-bd-default",
+ "s_title": "h2",
+ "s_link": ":self@href",
+ "s_cover": "img@img"
 };
 
 
@@ -996,22 +1070,24 @@ var X = {
     u = u.replace(/\{p\}/g, String(n)).replace(/\{p0\}/g, String(n - 1)).replace(/\{q\}/g, C.enc(q || '')).replace(/\{base\}/g, BASE_URL);
     return C.fix(u);
   },
-  items: function (doc) {
-    var els = doc.select(G.item), out = [], seen = {};
+  // `s` = 's_' when parsing a search result page whose cards differ from the list pages (G.s_item, G.s_title, ...)
+  items: function (doc, s) {
+    var k = function (n) { return (s && G[s + n]) || G[n]; };
+    var els = doc.select(k('item')), out = [], seen = {};
     for (var i = 0; i < els.size(); i++) {
       var e = els.get(i);
-      var link = X.pick(e, G.link || 'a@href');
+      var link = X.pick(e, k('link') || 'a@href');
       if (!link || seen[link] || /^javascript|#$/.test(link)) continue;
-      var name = X.pick(e, G.title || 'h3 || h2 || a@title || img@alt');
+      var name = X.pick(e, k('title') || 'h3 || h2 || a@title || img@alt');
       if (!name) continue;
       seen[link] = 1;
-      out.push({ name: name, link: C.fix(link), cover: X.pick(e, G.cover || 'img@img'), description: X.pick(e, G.desc || ''), host: BASE_URL });
+      out.push({ name: name, link: C.fix(link), cover: X.pick(e, k('cover') || 'img@img'), description: X.pick(e, k('desc') || ''), host: BASE_URL });
     }
     return out;
   },
   listPage: function (pat, p, q) {
     var doc = C.html(X.url(pat, p, q), G.req);
-    var items = X.items(doc);
+    var items = X.items(doc, q ? 's_' : '');
     var more = G.next ? doc.select(G.next).size() > 0 : items.length >= (G.pageSize || 10);
     return Response.success(items, C.next(more && items.length > 0, p));
   },
@@ -1021,6 +1097,12 @@ var X = {
   },
   search: function (key, p) {
     if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
+    if (G.search_post) {
+      // POST search form: { url, body } — body uses {q}; results are parsed like any list page
+      var doc = C.html(X.url(G.search_post.url, p, key), { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: String(G.search_post.body).replace(/\{q\}/g, C.enc(key)) });
+      var items = X.items(doc, 's_');
+      return Response.success(items, null);
+    }
     return X.listPage(G.search, p, key);
   },
   genre: function () {
@@ -1048,7 +1130,7 @@ var X = {
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
-        var a = els.get(i); var href = a.attr('href') || a.attr('data-href');
+        var a = els.get(i); var href = G.ch_attr ? a.attr(G.ch_attr) : (a.attr('href') || a.attr('data-href'));
         if (!href || href === '#' || seen[href]) continue;
         seen[href] = 1; list.push({ name: (G.ch_name ? X.pick(a, G.ch_name) : a.text()) || a.attr('title'), url: C.fix(href), host: BASE_URL });
       }
@@ -1059,6 +1141,8 @@ var X = {
       pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
+    // A movie page without an episode list is itself the one episode
+    if (!list.length && G.ch_fallback_single) list.push({ name: G.ch_fallback_single === true ? 'Xem phim' : G.ch_fallback_single, url: url, host: BASE_URL });
     return Response.success(list);
   },
   pages: function (url) {
@@ -1188,14 +1272,25 @@ return (function (fetch, Http, Html, Response, localStorage, cacheStorage, local
 var DOMAIN = __cfg("DOMAIN");
 return (function () {
 
-var BASE_URL = "https://vinahentai.bond";
+var BASE_URL = "https://vinahentai.bio";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
   "Mới cập nhật": "/[?page={p}]"
  },
- "search": "/tim-kiem?keyword={q}[&page={p}]",
- "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+ "search": "/tim-kiem?q={q}",
+ "ch_list": "div.flex-wrap.justify-center a",
+ "item": "div.-mx-2.grid-cols-2 > div > a.group.bg-bgc-layer1",
+ "link": ":self@href",
+ "title": ":self",
+ "d_title": "h1 || meta[property=og:title]@content",
+ "d_cover": "meta[property=og:image]@content || img@img",
+ "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+ "pages": "div.inset-0 img",
+ "s_item": "div.space-y-3.transition-opacity > a.group.border-bd-default",
+ "s_title": "h2",
+ "s_link": ":self@href",
+ "s_cover": "img@img"
 };
 
 
@@ -1292,22 +1387,24 @@ var X = {
     u = u.replace(/\{p\}/g, String(n)).replace(/\{p0\}/g, String(n - 1)).replace(/\{q\}/g, C.enc(q || '')).replace(/\{base\}/g, BASE_URL);
     return C.fix(u);
   },
-  items: function (doc) {
-    var els = doc.select(G.item), out = [], seen = {};
+  // `s` = 's_' when parsing a search result page whose cards differ from the list pages (G.s_item, G.s_title, ...)
+  items: function (doc, s) {
+    var k = function (n) { return (s && G[s + n]) || G[n]; };
+    var els = doc.select(k('item')), out = [], seen = {};
     for (var i = 0; i < els.size(); i++) {
       var e = els.get(i);
-      var link = X.pick(e, G.link || 'a@href');
+      var link = X.pick(e, k('link') || 'a@href');
       if (!link || seen[link] || /^javascript|#$/.test(link)) continue;
-      var name = X.pick(e, G.title || 'h3 || h2 || a@title || img@alt');
+      var name = X.pick(e, k('title') || 'h3 || h2 || a@title || img@alt');
       if (!name) continue;
       seen[link] = 1;
-      out.push({ name: name, link: C.fix(link), cover: X.pick(e, G.cover || 'img@img'), description: X.pick(e, G.desc || ''), host: BASE_URL });
+      out.push({ name: name, link: C.fix(link), cover: X.pick(e, k('cover') || 'img@img'), description: X.pick(e, k('desc') || ''), host: BASE_URL });
     }
     return out;
   },
   listPage: function (pat, p, q) {
     var doc = C.html(X.url(pat, p, q), G.req);
-    var items = X.items(doc);
+    var items = X.items(doc, q ? 's_' : '');
     var more = G.next ? doc.select(G.next).size() > 0 : items.length >= (G.pageSize || 10);
     return Response.success(items, C.next(more && items.length > 0, p));
   },
@@ -1317,6 +1414,12 @@ var X = {
   },
   search: function (key, p) {
     if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
+    if (G.search_post) {
+      // POST search form: { url, body } — body uses {q}; results are parsed like any list page
+      var doc = C.html(X.url(G.search_post.url, p, key), { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: String(G.search_post.body).replace(/\{q\}/g, C.enc(key)) });
+      var items = X.items(doc, 's_');
+      return Response.success(items, null);
+    }
     return X.listPage(G.search, p, key);
   },
   genre: function () {
@@ -1344,7 +1447,7 @@ var X = {
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
-        var a = els.get(i); var href = a.attr('href') || a.attr('data-href');
+        var a = els.get(i); var href = G.ch_attr ? a.attr(G.ch_attr) : (a.attr('href') || a.attr('data-href'));
         if (!href || href === '#' || seen[href]) continue;
         seen[href] = 1; list.push({ name: (G.ch_name ? X.pick(a, G.ch_name) : a.text()) || a.attr('title'), url: C.fix(href), host: BASE_URL });
       }
@@ -1355,6 +1458,8 @@ var X = {
       pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
+    // A movie page without an episode list is itself the one episode
+    if (!list.length && G.ch_fallback_single) list.push({ name: G.ch_fallback_single === true ? 'Xem phim' : G.ch_fallback_single, url: url, host: BASE_URL });
     return Response.success(list);
   },
   pages: function (url) {
@@ -1484,14 +1589,25 @@ return (function (fetch, Http, Html, Response, localStorage, cacheStorage, local
 var DOMAIN = __cfg("DOMAIN");
 return (function () {
 
-var BASE_URL = "https://vinahentai.bond";
+var BASE_URL = "https://vinahentai.bio";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
   "Mới cập nhật": "/[?page={p}]"
  },
- "search": "/tim-kiem?keyword={q}[&page={p}]",
- "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+ "search": "/tim-kiem?q={q}",
+ "ch_list": "div.flex-wrap.justify-center a",
+ "item": "div.-mx-2.grid-cols-2 > div > a.group.bg-bgc-layer1",
+ "link": ":self@href",
+ "title": ":self",
+ "d_title": "h1 || meta[property=og:title]@content",
+ "d_cover": "meta[property=og:image]@content || img@img",
+ "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+ "pages": "div.inset-0 img",
+ "s_item": "div.space-y-3.transition-opacity > a.group.border-bd-default",
+ "s_title": "h2",
+ "s_link": ":self@href",
+ "s_cover": "img@img"
 };
 
 
@@ -1588,22 +1704,24 @@ var X = {
     u = u.replace(/\{p\}/g, String(n)).replace(/\{p0\}/g, String(n - 1)).replace(/\{q\}/g, C.enc(q || '')).replace(/\{base\}/g, BASE_URL);
     return C.fix(u);
   },
-  items: function (doc) {
-    var els = doc.select(G.item), out = [], seen = {};
+  // `s` = 's_' when parsing a search result page whose cards differ from the list pages (G.s_item, G.s_title, ...)
+  items: function (doc, s) {
+    var k = function (n) { return (s && G[s + n]) || G[n]; };
+    var els = doc.select(k('item')), out = [], seen = {};
     for (var i = 0; i < els.size(); i++) {
       var e = els.get(i);
-      var link = X.pick(e, G.link || 'a@href');
+      var link = X.pick(e, k('link') || 'a@href');
       if (!link || seen[link] || /^javascript|#$/.test(link)) continue;
-      var name = X.pick(e, G.title || 'h3 || h2 || a@title || img@alt');
+      var name = X.pick(e, k('title') || 'h3 || h2 || a@title || img@alt');
       if (!name) continue;
       seen[link] = 1;
-      out.push({ name: name, link: C.fix(link), cover: X.pick(e, G.cover || 'img@img'), description: X.pick(e, G.desc || ''), host: BASE_URL });
+      out.push({ name: name, link: C.fix(link), cover: X.pick(e, k('cover') || 'img@img'), description: X.pick(e, k('desc') || ''), host: BASE_URL });
     }
     return out;
   },
   listPage: function (pat, p, q) {
     var doc = C.html(X.url(pat, p, q), G.req);
-    var items = X.items(doc);
+    var items = X.items(doc, q ? 's_' : '');
     var more = G.next ? doc.select(G.next).size() > 0 : items.length >= (G.pageSize || 10);
     return Response.success(items, C.next(more && items.length > 0, p));
   },
@@ -1613,6 +1731,12 @@ var X = {
   },
   search: function (key, p) {
     if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
+    if (G.search_post) {
+      // POST search form: { url, body } — body uses {q}; results are parsed like any list page
+      var doc = C.html(X.url(G.search_post.url, p, key), { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: String(G.search_post.body).replace(/\{q\}/g, C.enc(key)) });
+      var items = X.items(doc, 's_');
+      return Response.success(items, null);
+    }
     return X.listPage(G.search, p, key);
   },
   genre: function () {
@@ -1640,7 +1764,7 @@ var X = {
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
-        var a = els.get(i); var href = a.attr('href') || a.attr('data-href');
+        var a = els.get(i); var href = G.ch_attr ? a.attr(G.ch_attr) : (a.attr('href') || a.attr('data-href'));
         if (!href || href === '#' || seen[href]) continue;
         seen[href] = 1; list.push({ name: (G.ch_name ? X.pick(a, G.ch_name) : a.text()) || a.attr('title'), url: C.fix(href), host: BASE_URL });
       }
@@ -1651,6 +1775,8 @@ var X = {
       pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
+    // A movie page without an episode list is itself the one episode
+    if (!list.length && G.ch_fallback_single) list.push({ name: G.ch_fallback_single === true ? 'Xem phim' : G.ch_fallback_single, url: url, host: BASE_URL });
     return Response.success(list);
   },
   pages: function (url) {

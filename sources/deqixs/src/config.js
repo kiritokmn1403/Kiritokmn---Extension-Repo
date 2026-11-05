@@ -4,7 +4,7 @@ var G = {
  "tabs": {
   "Mới cập nhật": "/[?page={p}]"
  },
- "search": "/tim-kiem?keyword={q}[&page={p}]",
+ "search": "/modules/article/search.php?searchkey={q}",
  "item": ".item",
  "title": "a@title || img@alt || a@title || img@alt",
  "link": "a@href",
@@ -12,5 +12,9 @@ var G = {
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
  "d_desc": "meta[name=description]@content",
- "content": "#content, .con, .content"
+ "content": "#content, .con, .content",
+ "s_item": "div.container > div.item",
+ "s_title": "img@alt",
+ "s_link": "a@href",
+ "s_cover": "img@img"
 };

@@ -86,15 +86,15 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 var e_1, _b;
-var Rr = Object.create;
-var Pe = Object.defineProperty, Hr = Object.defineProperties, jr = Object.getOwnPropertyDescriptor, zr = Object.getOwnPropertyDescriptors, Gr = Object.getOwnPropertyNames, _u = Object.getOwnPropertySymbols, $r = Object.getPrototypeOf, Du = Object.prototype.hasOwnProperty, Jr = Object.prototype.propertyIsEnumerable;
+var Hr = Object.create;
+var Pe = Object.defineProperty, Rr = Object.defineProperties, jr = Object.getOwnPropertyDescriptor, zr = Object.getOwnPropertyDescriptors, Gr = Object.getOwnPropertyNames, qu = Object.getOwnPropertySymbols, $r = Object.getPrototypeOf, Du = Object.prototype.hasOwnProperty, Jr = Object.prototype.propertyIsEnumerable;
 var Cu = function (t, e, u) { return e in t ? Pe(t, e, { enumerable: !0, configurable: !0, writable: !0, value: u }) : t[e] = u; }, ue = function (t, e) {
     var e_2, _b;
     for (var u in e || (e = {}))
         Du.call(e, u) && Cu(t, u, e[u]);
-    if (_u)
+    if (qu)
         try {
-            for (var _c = __values(_u(e)), _d = _c.next(); !_d.done; _d = _c.next()) {
+            for (var _c = __values(qu(e)), _d = _c.next(); !_d.done; _d = _c.next()) {
                 var u = _d.value;
                 Jr.call(e, u) && Cu(t, u, e[u]);
             }
@@ -107,7 +107,7 @@ var Cu = function (t, e, u) { return e in t ? Pe(t, e, { enumerable: !0, configu
             finally { if (e_2) throw e_2.error; }
         }
     return t;
-}, pe = function (t, e) { return Hr(t, zr(e)); };
+}, be = function (t, e) { return Rr(t, zr(e)); };
 var Wr = function (t, e) { return function () { return (e || t((e = { exports: {} }).exports, e), e.exports); }; }, Ct = function (t, e) { for (var u in e)
     Pe(t, u, { get: e[u], enumerable: !0 }); }, Iu = function (t, e, u, i) {
     var e_3, _b;
@@ -131,8 +131,8 @@ var Wr = function (t, e) { return function () { return (e || t((e = { exports: {
     }
     return t;
 };
-var me = function (t, e, u) { return (u = t != null ? Rr($r(t)) : {}, Iu(e || !t || !t.__esModule ? Pe(u, "default", { value: t, enumerable: !0 }) : u, t)); }, Xr = function (t) { return Iu(Pe({}, "__esModule", { value: !0 }), t); };
-var be = Wr(function (Kn, cr) { cr.exports = { trueFunc: function () { return !0; }, falseFunc: function () { return !1; } }; });
+var me = function (t, e, u) { return (u = t != null ? Hr($r(t)) : {}, Iu(e || !t || !t.__esModule ? Pe(u, "default", { value: t, enumerable: !0 }) : u, t)); }, Xr = function (t) { return Iu(Pe({}, "__esModule", { value: !0 }), t); };
+var pe = Wr(function (Kn, cr) { cr.exports = { trueFunc: function () { return !0; }, falseFunc: function () { return !1; } }; });
 var wi = {};
 Ct(wi, { default: function () { return vi; } });
 module.exports = Xr(wi);
@@ -142,32 +142,32 @@ var Dt, Kr = new Map([[0, 65533], [128, 8364], [130, 8218], [131, 402], [132, 82
 function It(t) { var e; return t >= 55296 && t <= 57343 || t > 1114111 ? 65533 : (e = Kr.get(t)) !== null && e !== void 0 ? e : t; }
 var j;
 (function (t) { t[t.NUM = 35] = "NUM", t[t.SEMI = 59] = "SEMI", t[t.EQUALS = 61] = "EQUALS", t[t.ZERO = 48] = "ZERO", t[t.NINE = 57] = "NINE", t[t.LOWER_A = 97] = "LOWER_A", t[t.LOWER_F = 102] = "LOWER_F", t[t.LOWER_X = 120] = "LOWER_X", t[t.LOWER_Z = 122] = "LOWER_Z", t[t.UPPER_A = 65] = "UPPER_A", t[t.UPPER_F = 70] = "UPPER_F", t[t.UPPER_Z = 90] = "UPPER_Z"; })(j || (j = {}));
-var Zr = 32, le;
-(function (t) { t[t.VALUE_LENGTH = 49152] = "VALUE_LENGTH", t[t.BRANCH_LENGTH = 16256] = "BRANCH_LENGTH", t[t.JUMP_TABLE = 127] = "JUMP_TABLE"; })(le || (le = {}));
+var Zr = 32, fe;
+(function (t) { t[t.VALUE_LENGTH = 49152] = "VALUE_LENGTH", t[t.BRANCH_LENGTH = 16256] = "BRANCH_LENGTH", t[t.JUMP_TABLE = 127] = "JUMP_TABLE"; })(fe || (fe = {}));
 function Lt(t) { return t >= j.ZERO && t <= j.NINE; }
 function Qr(t) { return t >= j.UPPER_A && t <= j.UPPER_F || t >= j.LOWER_A && t <= j.LOWER_F; }
 function Yr(t) { return t >= j.UPPER_A && t <= j.UPPER_Z || t >= j.LOWER_A && t <= j.LOWER_Z || Lt(t); }
 function ea(t) { return t === j.EQUALS || Yr(t); }
-var H;
-(function (t) { t[t.EntityStart = 0] = "EntityStart", t[t.NumericStart = 1] = "NumericStart", t[t.NumericDecimal = 2] = "NumericDecimal", t[t.NumericHex = 3] = "NumericHex", t[t.NamedEntity = 4] = "NamedEntity"; })(H || (H = {}));
+var R;
+(function (t) { t[t.EntityStart = 0] = "EntityStart", t[t.NumericStart = 1] = "NumericStart", t[t.NumericDecimal = 2] = "NumericDecimal", t[t.NumericHex = 3] = "NumericHex", t[t.NamedEntity = 4] = "NamedEntity"; })(R || (R = {}));
 var Q;
 (function (t) { t[t.Legacy = 0] = "Legacy", t[t.Strict = 1] = "Strict", t[t.Attribute = 2] = "Attribute"; })(Q || (Q = {}));
 var ke = (function () {
     function ke(e, u, i) {
-        this.decodeTree = e, this.emitCodePoint = u, this.errors = i, this.state = H.EntityStart, this.consumed = 1, this.result = 0, this.treeIndex = 0, this.excess = 1, this.decodeMode = Q.Strict;
+        this.decodeTree = e, this.emitCodePoint = u, this.errors = i, this.state = R.EntityStart, this.consumed = 1, this.result = 0, this.treeIndex = 0, this.excess = 1, this.decodeMode = Q.Strict;
     }
-    ke.prototype.startEntity = function (e) { this.decodeMode = e, this.state = H.EntityStart, this.result = 0, this.treeIndex = 0, this.excess = 1, this.consumed = 1; };
+    ke.prototype.startEntity = function (e) { this.decodeMode = e, this.state = R.EntityStart, this.result = 0, this.treeIndex = 0, this.excess = 1, this.consumed = 1; };
     ke.prototype.write = function (e, u) { switch (this.state) {
-        case H.EntityStart: return e.charCodeAt(u) === j.NUM ? (this.state = H.NumericStart, this.consumed += 1, this.stateNumericStart(e, u + 1)) : (this.state = H.NamedEntity, this.stateNamedEntity(e, u));
-        case H.NumericStart: return this.stateNumericStart(e, u);
-        case H.NumericDecimal: return this.stateNumericDecimal(e, u);
-        case H.NumericHex: return this.stateNumericHex(e, u);
-        case H.NamedEntity: return this.stateNamedEntity(e, u);
+        case R.EntityStart: return e.charCodeAt(u) === j.NUM ? (this.state = R.NumericStart, this.consumed += 1, this.stateNumericStart(e, u + 1)) : (this.state = R.NamedEntity, this.stateNamedEntity(e, u));
+        case R.NumericStart: return this.stateNumericStart(e, u);
+        case R.NumericDecimal: return this.stateNumericDecimal(e, u);
+        case R.NumericHex: return this.stateNumericHex(e, u);
+        case R.NamedEntity: return this.stateNamedEntity(e, u);
     } };
-    ke.prototype.stateNumericStart = function (e, u) { return u >= e.length ? -1 : (e.charCodeAt(u) | Zr) === j.LOWER_X ? (this.state = H.NumericHex, this.consumed += 1, this.stateNumericHex(e, u + 1)) : (this.state = H.NumericDecimal, this.stateNumericDecimal(e, u)); };
+    ke.prototype.stateNumericStart = function (e, u) { return u >= e.length ? -1 : (e.charCodeAt(u) | Zr) === j.LOWER_X ? (this.state = R.NumericHex, this.consumed += 1, this.stateNumericHex(e, u + 1)) : (this.state = R.NumericDecimal, this.stateNumericDecimal(e, u)); };
     ke.prototype.addToNumericResult = function (e, u, i, n) { if (u !== i) {
-        var c = i - u;
-        this.result = this.result * Math.pow(n, c) + parseInt(e.substr(u, c), n), this.consumed += c;
+        var s = i - u;
+        this.result = this.result * Math.pow(n, s) + parseInt(e.substr(u, s), n), this.consumed += s;
     } };
     ke.prototype.stateNumericHex = function (e, u) { var i = u; for (; u < e.length;) {
         var n = e.charCodeAt(u);
@@ -188,50 +188,50 @@ var ke = (function () {
         this.consumed += 1;
     else if (this.decodeMode === Q.Strict)
         return 0; return this.emitCodePoint(It(this.result), this.consumed), this.errors && (e !== j.SEMI && this.errors.missingSemicolonAfterCharacterReference(), this.errors.validateNumericCharacterReference(this.result)), this.consumed; };
-    ke.prototype.stateNamedEntity = function (e, u) { var i = this.decodeTree, n = i[this.treeIndex], c = (n & le.VALUE_LENGTH) >> 14; for (; u < e.length; u++, this.excess++) {
+    ke.prototype.stateNamedEntity = function (e, u) { var i = this.decodeTree, n = i[this.treeIndex], s = (n & fe.VALUE_LENGTH) >> 14; for (; u < e.length; u++, this.excess++) {
         var h = e.charCodeAt(u);
-        if (this.treeIndex = ta(i, n, this.treeIndex + Math.max(1, c), h), this.treeIndex < 0)
-            return this.result === 0 || this.decodeMode === Q.Attribute && (c === 0 || ea(h)) ? 0 : this.emitNotTerminatedNamedEntity();
-        if (n = i[this.treeIndex], c = (n & le.VALUE_LENGTH) >> 14, c !== 0) {
+        if (this.treeIndex = ta(i, n, this.treeIndex + Math.max(1, s), h), this.treeIndex < 0)
+            return this.result === 0 || this.decodeMode === Q.Attribute && (s === 0 || ea(h)) ? 0 : this.emitNotTerminatedNamedEntity();
+        if (n = i[this.treeIndex], s = (n & fe.VALUE_LENGTH) >> 14, s !== 0) {
             if (h === j.SEMI)
-                return this.emitNamedEntityData(this.treeIndex, c, this.consumed + this.excess);
+                return this.emitNamedEntityData(this.treeIndex, s, this.consumed + this.excess);
             this.decodeMode !== Q.Strict && (this.result = this.treeIndex, this.consumed += this.excess, this.excess = 0);
         }
     } return -1; };
-    ke.prototype.emitNotTerminatedNamedEntity = function () { var e; var _b = this, u = _b.result, i = _b.decodeTree, n = (i[u] & le.VALUE_LENGTH) >> 14; return this.emitNamedEntityData(u, n, this.consumed), (e = this.errors) === null || e === void 0 || e.missingSemicolonAfterCharacterReference(), this.consumed; };
-    ke.prototype.emitNamedEntityData = function (e, u, i) { var n = this.decodeTree; return this.emitCodePoint(u === 1 ? n[e] & ~le.VALUE_LENGTH : n[e + 1], i), u === 3 && this.emitCodePoint(n[e + 2], i), i; };
+    ke.prototype.emitNotTerminatedNamedEntity = function () { var e; var _b = this, u = _b.result, i = _b.decodeTree, n = (i[u] & fe.VALUE_LENGTH) >> 14; return this.emitNamedEntityData(u, n, this.consumed), (e = this.errors) === null || e === void 0 || e.missingSemicolonAfterCharacterReference(), this.consumed; };
+    ke.prototype.emitNamedEntityData = function (e, u, i) { var n = this.decodeTree; return this.emitCodePoint(u === 1 ? n[e] & ~fe.VALUE_LENGTH : n[e + 1], i), u === 3 && this.emitCodePoint(n[e + 2], i), i; };
     ke.prototype.end = function () { var e; switch (this.state) {
-        case H.NamedEntity: return this.result !== 0 && (this.decodeMode !== Q.Attribute || this.result === this.treeIndex) ? this.emitNotTerminatedNamedEntity() : 0;
-        case H.NumericDecimal: return this.emitNumericEntity(0, 2);
-        case H.NumericHex: return this.emitNumericEntity(0, 3);
-        case H.NumericStart: return (e = this.errors) === null || e === void 0 || e.absenceOfDigitsInNumericCharacterReference(this.consumed), 0;
-        case H.EntityStart: return 0;
+        case R.NamedEntity: return this.result !== 0 && (this.decodeMode !== Q.Attribute || this.result === this.treeIndex) ? this.emitNotTerminatedNamedEntity() : 0;
+        case R.NumericDecimal: return this.emitNumericEntity(0, 2);
+        case R.NumericHex: return this.emitNumericEntity(0, 3);
+        case R.NumericStart: return (e = this.errors) === null || e === void 0 || e.absenceOfDigitsInNumericCharacterReference(this.consumed), 0;
+        case R.EntityStart: return 0;
     } };
     return ke;
 }());
-function Lu(t) { var e = "", u = new ke(t, function (i) { return e += Ae(i); }); return function (n, c) { var h = 0, p = 0; for (; (p = n.indexOf("&", p)) >= 0;) {
-    e += n.slice(h, p), u.startEntity(c);
-    var S = u.write(n, p + 1);
+function Lu(t) { var e = "", u = new ke(t, function (i) { return e += Ae(i); }); return function (n, s) { var h = 0, m = 0; for (; (m = n.indexOf("&", m)) >= 0;) {
+    e += n.slice(h, m), u.startEntity(s);
+    var S = u.write(n, m + 1);
     if (S < 0) {
-        h = p + u.end();
+        h = m + u.end();
         break;
     }
-    h = p + S, p = S === 0 ? h + 1 : h;
-} var w = e + n.slice(h); return e = "", w; }; }
-function ta(t, e, u, i) { var n = (e & le.BRANCH_LENGTH) >> 7, c = e & le.JUMP_TABLE; if (n === 0)
-    return c !== 0 && i === c ? u : -1; if (c) {
-    var w = i - c;
-    return w < 0 || w >= n ? -1 : t[u + w] - 1;
-} var h = u, p = h + n - 1; for (; h <= p;) {
-    var w = h + p >>> 1, S = t[w];
+    h = m + S, m = S === 0 ? h + 1 : h;
+} var y = e + n.slice(h); return e = "", y; }; }
+function ta(t, e, u, i) { var n = (e & fe.BRANCH_LENGTH) >> 7, s = e & fe.JUMP_TABLE; if (n === 0)
+    return s !== 0 && i === s ? u : -1; if (s) {
+    var y = i - s;
+    return y < 0 || y >= n ? -1 : t[u + y] - 1;
+} var h = u, m = h + n - 1; for (; h <= m;) {
+    var y = h + m >>> 1, S = t[y];
     if (S < i)
-        h = w + 1;
+        h = y + 1;
     else if (S > i)
-        p = w - 1;
+        m = y - 1;
     else
-        return t[w + n];
+        return t[y + n];
 } return -1; }
-var _i = Lu(Qe), Ci = Lu(Ye);
+var qi = Lu(Qe), Ci = Lu(Ye);
 var C;
 (function (t) { t[t.Tab = 9] = "Tab", t[t.NewLine = 10] = "NewLine", t[t.FormFeed = 12] = "FormFeed", t[t.CarriageReturn = 13] = "CarriageReturn", t[t.Space = 32] = "Space", t[t.ExclamationMark = 33] = "ExclamationMark", t[t.Number = 35] = "Number", t[t.Amp = 38] = "Amp", t[t.SingleQuote = 39] = "SingleQuote", t[t.DoubleQuote = 34] = "DoubleQuote", t[t.Dash = 45] = "Dash", t[t.Slash = 47] = "Slash", t[t.Zero = 48] = "Zero", t[t.Nine = 57] = "Nine", t[t.Semi = 59] = "Semi", t[t.Lt = 60] = "Lt", t[t.Eq = 61] = "Eq", t[t.Gt = 62] = "Gt", t[t.Questionmark = 63] = "Questionmark", t[t.UpperA = 65] = "UpperA", t[t.LowerA = 97] = "LowerA", t[t.UpperF = 70] = "UpperF", t[t.LowerF = 102] = "LowerF", t[t.UpperZ = 90] = "UpperZ", t[t.LowerZ = 122] = "LowerZ", t[t.LowerX = 120] = "LowerX", t[t.OpeningSquareBracket = 91] = "OpeningSquareBracket"; })(C || (C = {}));
 var T;
@@ -245,7 +245,7 @@ var $ = { Cdata: new Uint8Array([67, 68, 65, 84, 65, 91]), CdataEnd: new Uint8Ar
     function Te(_b, i) {
         var _c = _b.xmlMode, e = _c === void 0 ? !1 : _c, _d = _b.decodeEntities, u = _d === void 0 ? !0 : _d;
         var _this = this;
-        this.cbs = i, this.state = T.Text, this.buffer = "", this.sectionStart = 0, this.index = 0, this.entityStart = 0, this.baseState = T.Text, this.isSpecial = !1, this.running = !0, this.offset = 0, this.currentSequence = void 0, this.sequenceIndex = 0, this.xmlMode = e, this.decodeEntities = u, this.entityDecoder = new ke(e ? Ye : Qe, function (n, c) { return _this.emitCodePoint(n, c); });
+        this.cbs = i, this.state = T.Text, this.buffer = "", this.sectionStart = 0, this.index = 0, this.entityStart = 0, this.baseState = T.Text, this.isSpecial = !1, this.running = !0, this.offset = 0, this.currentSequence = void 0, this.sequenceIndex = 0, this.xmlMode = e, this.decodeEntities = u, this.entityDecoder = new ke(e ? Ye : Qe, function (n, s) { return _this.emitCodePoint(n, s); });
     }
     Te.prototype.reset = function () { this.state = T.Text, this.buffer = "", this.sectionStart = 0, this.index = 0, this.baseState = T.Text, this.currentSequence = void 0, this.running = !0, this.offset = 0; };
     Te.prototype.write = function (e) { this.offset += this.buffer.length, this.buffer = e, this.parse(); };
@@ -430,28 +430,28 @@ var $ = { Cdata: new Uint8Array([67, 68, 65, 84, 65, 91]), CdataEnd: new Uint8Ar
 var Ee = new Set(["input", "option", "optgroup", "select", "button", "datalist", "textarea"]), B = new Set(["p"]), Ou = new Set(["thead", "tbody"]), Uu = new Set(["dd", "dt"]), Pu = new Set(["rt", "rp"]), ra = new Map([["tr", new Set(["tr", "th", "td"])], ["th", new Set(["th"])], ["td", new Set(["thead", "th", "td"])], ["body", new Set(["head", "link", "script"])], ["li", new Set(["li"])], ["p", B], ["h1", B], ["h2", B], ["h3", B], ["h4", B], ["h5", B], ["h6", B], ["select", Ee], ["input", Ee], ["output", Ee], ["button", Ee], ["datalist", Ee], ["textarea", Ee], ["option", new Set(["option"])], ["optgroup", new Set(["optgroup", "option"])], ["dd", Uu], ["dt", Uu], ["address", B], ["article", B], ["aside", B], ["blockquote", B], ["details", B], ["div", B], ["dl", B], ["fieldset", B], ["figcaption", B], ["figure", B], ["footer", B], ["form", B], ["header", B], ["hr", B], ["main", B], ["nav", B], ["ol", B], ["pre", B], ["section", B], ["table", B], ["ul", B], ["rt", Pu], ["rp", Pu], ["tbody", Ou], ["tfoot", Ou]]), aa = new Set(["area", "base", "basefont", "br", "col", "command", "embed", "frame", "hr", "img", "input", "isindex", "keygen", "link", "meta", "param", "source", "track", "wbr"]), Mu = new Set(["math", "svg"]), Bu = new Set(["mi", "mo", "mn", "ms", "mtext", "annotation-xml", "foreignobject", "desc", "title"]), ia = /\s|\//, Me = (function () {
     function Me(e, u) {
         if (u === void 0) { u = {}; }
-        var i, n, c, h, p, w;
-        this.options = u, this.startIndex = 0, this.endIndex = 0, this.openTagStart = 0, this.tagname = "", this.attribname = "", this.attribvalue = "", this.attribs = null, this.stack = [], this.buffers = [], this.bufferOffset = 0, this.writeIndex = 0, this.ended = !1, this.cbs = e != null ? e : {}, this.htmlMode = !this.options.xmlMode, this.lowerCaseTagNames = (i = u.lowerCaseTags) !== null && i !== void 0 ? i : this.htmlMode, this.lowerCaseAttributeNames = (n = u.lowerCaseAttributeNames) !== null && n !== void 0 ? n : this.htmlMode, this.recognizeSelfClosing = (c = u.recognizeSelfClosing) !== null && c !== void 0 ? c : !this.htmlMode, this.tokenizer = new ((h = u.Tokenizer) !== null && h !== void 0 ? h : Te)(this.options, this), this.foreignContext = [!this.htmlMode], (w = (p = this.cbs).onparserinit) === null || w === void 0 || w.call(p, this);
+        var i, n, s, h, m, y;
+        this.options = u, this.startIndex = 0, this.endIndex = 0, this.openTagStart = 0, this.tagname = "", this.attribname = "", this.attribvalue = "", this.attribs = null, this.stack = [], this.buffers = [], this.bufferOffset = 0, this.writeIndex = 0, this.ended = !1, this.cbs = e != null ? e : {}, this.htmlMode = !this.options.xmlMode, this.lowerCaseTagNames = (i = u.lowerCaseTags) !== null && i !== void 0 ? i : this.htmlMode, this.lowerCaseAttributeNames = (n = u.lowerCaseAttributeNames) !== null && n !== void 0 ? n : this.htmlMode, this.recognizeSelfClosing = (s = u.recognizeSelfClosing) !== null && s !== void 0 ? s : !this.htmlMode, this.tokenizer = new ((h = u.Tokenizer) !== null && h !== void 0 ? h : Te)(this.options, this), this.foreignContext = [!this.htmlMode], (y = (m = this.cbs).onparserinit) === null || y === void 0 || y.call(m, this);
     }
-    Me.prototype.ontext = function (e, u) { var i, n; var c = this.getSlice(e, u); this.endIndex = u - 1, (n = (i = this.cbs).ontext) === null || n === void 0 || n.call(i, c), this.startIndex = u; };
+    Me.prototype.ontext = function (e, u) { var i, n; var s = this.getSlice(e, u); this.endIndex = u - 1, (n = (i = this.cbs).ontext) === null || n === void 0 || n.call(i, s), this.startIndex = u; };
     Me.prototype.ontextentity = function (e, u) { var i, n; this.endIndex = u - 1, (n = (i = this.cbs).ontext) === null || n === void 0 || n.call(i, Ae(e)), this.startIndex = u; };
     Me.prototype.isVoidElement = function (e) { return this.htmlMode && aa.has(e); };
     Me.prototype.onopentagname = function (e, u) { this.endIndex = u; var i = this.getSlice(e, u); this.lowerCaseTagNames && (i = i.toLowerCase()), this.emitOpenTag(i); };
-    Me.prototype.emitOpenTag = function (e) { var u, i, n, c; this.openTagStart = this.startIndex, this.tagname = e; var h = this.htmlMode && ra.get(e); if (h)
+    Me.prototype.emitOpenTag = function (e) { var u, i, n, s; this.openTagStart = this.startIndex, this.tagname = e; var h = this.htmlMode && ra.get(e); if (h)
         for (; this.stack.length > 0 && h.has(this.stack[0]);) {
-            var p = this.stack.shift();
-            (i = (u = this.cbs).onclosetag) === null || i === void 0 || i.call(u, p, !0);
-        } this.isVoidElement(e) || (this.stack.unshift(e), this.htmlMode && (Mu.has(e) ? this.foreignContext.unshift(!0) : Bu.has(e) && this.foreignContext.unshift(!1))), (c = (n = this.cbs).onopentagname) === null || c === void 0 || c.call(n, e), this.cbs.onopentag && (this.attribs = {}); };
+            var m = this.stack.shift();
+            (i = (u = this.cbs).onclosetag) === null || i === void 0 || i.call(u, m, !0);
+        } this.isVoidElement(e) || (this.stack.unshift(e), this.htmlMode && (Mu.has(e) ? this.foreignContext.unshift(!0) : Bu.has(e) && this.foreignContext.unshift(!1))), (s = (n = this.cbs).onopentagname) === null || s === void 0 || s.call(n, e), this.cbs.onopentag && (this.attribs = {}); };
     Me.prototype.endOpenTag = function (e) { var u, i; this.startIndex = this.openTagStart, this.attribs && ((i = (u = this.cbs).onopentag) === null || i === void 0 || i.call(u, this.tagname, this.attribs, e), this.attribs = null), this.cbs.onclosetag && this.isVoidElement(this.tagname) && this.cbs.onclosetag(this.tagname, !0), this.tagname = ""; };
     Me.prototype.onopentagend = function (e) { this.endIndex = e, this.endOpenTag(!1), this.startIndex = e + 1; };
-    Me.prototype.onclosetag = function (e, u) { var i, n, c, h, p, w, S, E; this.endIndex = u; var D = this.getSlice(e, u); if (this.lowerCaseTagNames && (D = D.toLowerCase()), this.htmlMode && (Mu.has(D) || Bu.has(D)) && this.foreignContext.shift(), this.isVoidElement(D))
-        this.htmlMode && D === "br" && ((h = (c = this.cbs).onopentagname) === null || h === void 0 || h.call(c, "br"), (w = (p = this.cbs).onopentag) === null || w === void 0 || w.call(p, "br", {}, !0), (E = (S = this.cbs).onclosetag) === null || E === void 0 || E.call(S, "br", !1));
+    Me.prototype.onclosetag = function (e, u) { var i, n, s, h, m, y, S, E; this.endIndex = u; var D = this.getSlice(e, u); if (this.lowerCaseTagNames && (D = D.toLowerCase()), this.htmlMode && (Mu.has(D) || Bu.has(D)) && this.foreignContext.shift(), this.isVoidElement(D))
+        this.htmlMode && D === "br" && ((h = (s = this.cbs).onopentagname) === null || h === void 0 || h.call(s, "br"), (y = (m = this.cbs).onopentag) === null || y === void 0 || y.call(m, "br", {}, !0), (E = (S = this.cbs).onclosetag) === null || E === void 0 || E.call(S, "br", !1));
     else {
-        var N = this.stack.indexOf(D);
-        if (N !== -1)
-            for (var q = 0; q <= N; q++) {
+        var _ = this.stack.indexOf(D);
+        if (_ !== -1)
+            for (var N = 0; N <= _; N++) {
                 var I = this.stack.shift();
-                (n = (i = this.cbs).onclosetag) === null || n === void 0 || n.call(i, I, q !== N);
+                (n = (i = this.cbs).onclosetag) === null || n === void 0 || n.call(i, I, N !== _);
             }
         else
             this.htmlMode && D === "p" && (this.emitOpenTag("p"), this.closeCurrentTag(!0));
@@ -471,8 +471,8 @@ var Ee = new Set(["input", "option", "optgroup", "select", "button", "datalist",
         var n = this.getInstructionName(i);
         this.cbs.onprocessinginstruction("?".concat(n), "?".concat(i));
     } this.startIndex = u + 1; };
-    Me.prototype.oncomment = function (e, u, i) { var n, c, h, p; this.endIndex = u, (c = (n = this.cbs).oncomment) === null || c === void 0 || c.call(n, this.getSlice(e, u - i)), (p = (h = this.cbs).oncommentend) === null || p === void 0 || p.call(h), this.startIndex = u + 1; };
-    Me.prototype.oncdata = function (e, u, i) { var n, c, h, p, w, S, E, D, N, q; this.endIndex = u; var I = this.getSlice(e, u - i); !this.htmlMode || this.options.recognizeCDATA ? ((c = (n = this.cbs).oncdatastart) === null || c === void 0 || c.call(n), (p = (h = this.cbs).ontext) === null || p === void 0 || p.call(h, I), (S = (w = this.cbs).oncdataend) === null || S === void 0 || S.call(w)) : ((D = (E = this.cbs).oncomment) === null || D === void 0 || D.call(E, "[CDATA[".concat(I, "]]")), (q = (N = this.cbs).oncommentend) === null || q === void 0 || q.call(N)), this.startIndex = u + 1; };
+    Me.prototype.oncomment = function (e, u, i) { var n, s, h, m; this.endIndex = u, (s = (n = this.cbs).oncomment) === null || s === void 0 || s.call(n, this.getSlice(e, u - i)), (m = (h = this.cbs).oncommentend) === null || m === void 0 || m.call(h), this.startIndex = u + 1; };
+    Me.prototype.oncdata = function (e, u, i) { var n, s, h, m, y, S, E, D, _, N; this.endIndex = u; var I = this.getSlice(e, u - i); !this.htmlMode || this.options.recognizeCDATA ? ((s = (n = this.cbs).oncdatastart) === null || s === void 0 || s.call(n), (m = (h = this.cbs).ontext) === null || m === void 0 || m.call(h, I), (S = (y = this.cbs).oncdataend) === null || S === void 0 || S.call(y)) : ((D = (E = this.cbs).oncomment) === null || D === void 0 || D.call(E, "[CDATA[".concat(I, "]]")), (N = (_ = this.cbs).oncommentend) === null || N === void 0 || N.call(_)), this.startIndex = u + 1; };
     Me.prototype.onend = function () { var e, u; if (this.cbs.onclosetag) {
         this.endIndex = this.startIndex;
         for (var i = 0; i < this.stack.length; i++)
@@ -500,11 +500,11 @@ var Ee = new Set(["input", "option", "optgroup", "select", "button", "datalist",
     return Me;
 }());
 var tt = {};
-Ct(tt, { CDATA: function () { return Ht; }, Comment: function () { return Bt; }, Directive: function () { return Mt; }, Doctype: function () { return jt; }, ElementType: function () { return O; }, Root: function () { return Ut; }, Script: function () { return Ft; }, Style: function () { return Vt; }, Tag: function () { return Rt; }, Text: function () { return Pt; }, isTag: function () { return Ot; } });
+Ct(tt, { CDATA: function () { return Rt; }, Comment: function () { return Bt; }, Directive: function () { return Mt; }, Doctype: function () { return jt; }, ElementType: function () { return O; }, Root: function () { return Ut; }, Script: function () { return Ft; }, Style: function () { return Vt; }, Tag: function () { return Ht; }, Text: function () { return Pt; }, isTag: function () { return Ot; } });
 var O;
 (function (t) { t.Root = "root", t.Text = "text", t.Directive = "directive", t.Comment = "comment", t.Script = "script", t.Style = "style", t.Tag = "tag", t.CDATA = "cdata", t.Doctype = "doctype"; })(O || (O = {}));
 function Ot(t) { return t.type === O.Tag || t.type === O.Script || t.type === O.Style; }
-var Ut = O.Root, Pt = O.Text, Mt = O.Directive, Bt = O.Comment, Ft = O.Script, Vt = O.Style, Rt = O.Tag, Ht = O.CDATA, jt = O.Doctype;
+var Ut = O.Root, Pt = O.Text, Mt = O.Directive, Bt = O.Comment, Ft = O.Script, Vt = O.Style, Ht = O.Tag, Rt = O.CDATA, jt = O.Doctype;
 var ut = (function () {
     function ut() {
         this.parent = null, this.prev = null, this.next = null, this.startIndex = null, this.endIndex = null;
@@ -546,19 +546,19 @@ var ut = (function () {
         configurable: true
     });
     return Be;
-}(ut)), Ne = (function (_super) {
-    __extends(Ne, _super);
-    function Ne() {
+}(ut)), _e = (function (_super) {
+    __extends(_e, _super);
+    function _e() {
         var _this = this;
         _this = _super.apply(this, __spreadArray([], __read(arguments), false)) || this, _this.type = O.Text;
         return _this;
     }
-    Object.defineProperty(Ne.prototype, "nodeType", {
+    Object.defineProperty(_e.prototype, "nodeType", {
         get: function () { return 3; },
         enumerable: false,
         configurable: true
     });
-    return Ne;
+    return _e;
 }(Be)), Fe = (function (_super) {
     __extends(Fe, _super);
     function Fe() {
@@ -585,57 +585,57 @@ var ut = (function () {
         configurable: true
     });
     return Ve;
-}(Be)), Re = (function (_super) {
-    __extends(Re, _super);
-    function Re(e) {
+}(Be)), He = (function (_super) {
+    __extends(He, _super);
+    function He(e) {
         var _this = this;
         _this = _super.call(this) || this, _this.children = e;
         return _this;
     }
-    Object.defineProperty(Re.prototype, "firstChild", {
+    Object.defineProperty(He.prototype, "firstChild", {
         get: function () { var e; return (e = this.children[0]) !== null && e !== void 0 ? e : null; },
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Re.prototype, "lastChild", {
+    Object.defineProperty(He.prototype, "lastChild", {
         get: function () { return this.children.length > 0 ? this.children[this.children.length - 1] : null; },
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Re.prototype, "childNodes", {
+    Object.defineProperty(He.prototype, "childNodes", {
         get: function () { return this.children; },
         set: function (e) { this.children = e; },
         enumerable: false,
         configurable: true
     });
-    return Re;
-}(ut)), He = (function (_super) {
-    __extends(He, _super);
-    function He() {
+    return He;
+}(ut)), Re = (function (_super) {
+    __extends(Re, _super);
+    function Re() {
         var _this = this;
         _this = _super.apply(this, __spreadArray([], __read(arguments), false)) || this, _this.type = O.CDATA;
         return _this;
     }
-    Object.defineProperty(He.prototype, "nodeType", {
+    Object.defineProperty(Re.prototype, "nodeType", {
         get: function () { return 4; },
         enumerable: false,
         configurable: true
     });
-    return He;
-}(Re)), qe = (function (_super) {
-    __extends(qe, _super);
-    function qe() {
+    return Re;
+}(He)), Ne = (function (_super) {
+    __extends(Ne, _super);
+    function Ne() {
         var _this = this;
         _this = _super.apply(this, __spreadArray([], __read(arguments), false)) || this, _this.type = O.Root;
         return _this;
     }
-    Object.defineProperty(qe.prototype, "nodeType", {
+    Object.defineProperty(Ne.prototype, "nodeType", {
         get: function () { return 9; },
         enumerable: false,
         configurable: true
     });
-    return qe;
-}(Re)), je = (function (_super) {
+    return Ne;
+}(He)), je = (function (_super) {
     __extends(je, _super);
     function je(e, u, i, n) {
         if (i === void 0) { i = []; }
@@ -664,9 +664,9 @@ var ut = (function () {
         configurable: true
     });
     return je;
-}(Re));
+}(He));
 function P(t) { return Ot(t); }
-function _e(t) { return t.type === O.CDATA; }
+function qe(t) { return t.type === O.CDATA; }
 function re(t) { return t.type === O.Text; }
 function ze(t) { return t.type === O.Comment; }
 function na(t) { return t.type === O.Directive; }
@@ -676,20 +676,20 @@ function Fu(t, e) {
     if (e === void 0) { e = !1; }
     var u;
     if (re(t))
-        u = new Ne(t.data);
+        u = new _e(t.data);
     else if (ze(t))
         u = new Fe(t.data);
     else if (P(t)) {
         var i = e ? zt(t.children) : [], n_1 = new je(t.name, ue({}, t.attribs), i);
-        i.forEach(function (c) { return c.parent = n_1; }), t.namespace != null && (n_1.namespace = t.namespace), t["x-attribsNamespace"] && (n_1["x-attribsNamespace"] = ue({}, t["x-attribsNamespace"])), t["x-attribsPrefix"] && (n_1["x-attribsPrefix"] = ue({}, t["x-attribsPrefix"])), u = n_1;
+        i.forEach(function (s) { return s.parent = n_1; }), t.namespace != null && (n_1.namespace = t.namespace), t["x-attribsNamespace"] && (n_1["x-attribsNamespace"] = ue({}, t["x-attribsNamespace"])), t["x-attribsPrefix"] && (n_1["x-attribsPrefix"] = ue({}, t["x-attribsPrefix"])), u = n_1;
     }
-    else if (_e(t)) {
-        var i = e ? zt(t.children) : [], n_2 = new He(i);
-        i.forEach(function (c) { return c.parent = n_2; }), u = n_2;
+    else if (qe(t)) {
+        var i = e ? zt(t.children) : [], n_2 = new Re(i);
+        i.forEach(function (s) { return s.parent = n_2; }), u = n_2;
     }
     else if (Gt(t)) {
-        var i = e ? zt(t.children) : [], n_3 = new qe(i);
-        i.forEach(function (c) { return c.parent = n_3; }), t["x-mode"] && (n_3["x-mode"] = t["x-mode"]), u = n_3;
+        var i = e ? zt(t.children) : [], n_3 = new Ne(i);
+        i.forEach(function (s) { return s.parent = n_3; }), t["x-mode"] && (n_3["x-mode"] = t["x-mode"]), u = n_3;
     }
     else if (na(t)) {
         var i = new Ve(t.name, t.data);
@@ -703,10 +703,10 @@ function zt(t) { var e = t.map(function (u) { return Fu(u, !0); }); for (var u =
     e[u].prev = e[u - 1], e[u - 1].next = e[u]; return e; }
 var Vu = { withStartIndices: !1, withEndIndices: !1, xmlMode: !1 }, Ce = (function () {
     function Ce(e, u, i) {
-        this.dom = [], this.root = new qe(this.dom), this.done = !1, this.tagStack = [this.root], this.lastNode = null, this.parser = null, typeof u == "function" && (i = u, u = Vu), typeof e == "object" && (u = e, e = void 0), this.callback = e != null ? e : null, this.options = u != null ? u : Vu, this.elementCB = i != null ? i : null;
+        this.dom = [], this.root = new Ne(this.dom), this.done = !1, this.tagStack = [this.root], this.lastNode = null, this.parser = null, typeof u == "function" && (i = u, u = Vu), typeof e == "object" && (u = e, e = void 0), this.callback = e != null ? e : null, this.options = u != null ? u : Vu, this.elementCB = i != null ? i : null;
     }
     Ce.prototype.onparserinit = function (e) { this.parser = e; };
-    Ce.prototype.onreset = function () { this.dom = [], this.root = new qe(this.dom), this.done = !1, this.tagStack = [this.root], this.lastNode = null, this.parser = null; };
+    Ce.prototype.onreset = function () { this.dom = [], this.root = new Ne(this.dom), this.done = !1, this.tagStack = [this.root], this.lastNode = null, this.parser = null; };
     Ce.prototype.onend = function () { this.done || (this.done = !0, this.parser = null, this.handleCallback(null)); };
     Ce.prototype.onerror = function (e) { this.handleCallback(e); };
     Ce.prototype.onclosetag = function () { this.lastNode = null; var e = this.tagStack.pop(); this.options.withEndIndices && (e.endIndex = this.parser.endIndex), this.elementCB && this.elementCB(e); };
@@ -714,7 +714,7 @@ var Vu = { withStartIndices: !1, withEndIndices: !1, xmlMode: !1 }, Ce = (functi
     Ce.prototype.ontext = function (e) { var u = this.lastNode; if (u && u.type === O.Text)
         u.data += e, this.options.withEndIndices && (u.endIndex = this.parser.endIndex);
     else {
-        var i = new Ne(e);
+        var i = new _e(e);
         this.addNode(i), this.lastNode = i;
     } };
     Ce.prototype.oncomment = function (e) { if (this.lastNode && this.lastNode.type === O.Comment) {
@@ -722,7 +722,7 @@ var Vu = { withStartIndices: !1, withEndIndices: !1, xmlMode: !1 }, Ce = (functi
         return;
     } var u = new Fe(e); this.addNode(u), this.lastNode = u; };
     Ce.prototype.oncommentend = function () { this.lastNode = null; };
-    Ce.prototype.oncdatastart = function () { var e = new Ne(""), u = new He([e]); this.addNode(u), e.parent = u, this.lastNode = e; };
+    Ce.prototype.oncdatastart = function () { var e = new _e(""), u = new Re([e]); this.addNode(u), e.parent = u, this.lastNode = e; };
     Ce.prototype.oncdataend = function () { this.lastNode = null; };
     Ce.prototype.onprocessinginstruction = function (e, u) { var i = new Ve(e, u); this.addNode(i); };
     Ce.prototype.handleCallback = function (e) { if (typeof this.callback == "function")
@@ -733,27 +733,27 @@ var Vu = { withStartIndices: !1, withEndIndices: !1, xmlMode: !1 }, Ce = (functi
     return Ce;
 }());
 var ae = {};
-Ct(ae, { DocumentPosition: function () { return ee; }, append: function () { return Ea; }, appendChild: function () { return Ta; }, compareDocumentPosition: function () { return tr; }, existsOne: function () { return Yu; }, filter: function () { return Ie; }, find: function () { return ot; }, findAll: function () { return _a; }, findOne: function () { return ft; }, findOneChild: function () { return qa; }, getAttributeValue: function () { return ya; }, getChildren: function () { return ct; }, getElementById: function () { return La; }, getElements: function () { return Ia; }, getElementsByClassName: function () { return Oa; }, getElementsByTagName: function () { return xe; }, getElementsByTagType: function () { return Ua; }, getFeed: function () { return ru; }, getInnerHTML: function () { return wa; }, getName: function () { return Aa; }, getOuterHTML: function () { return Zu; }, getParent: function () { return Qu; }, getSiblings: function () { return st; }, getText: function () { return nt; }, hasAttrib: function () { return Sa; }, hasChildren: function () { return J; }, innerText: function () { return Zt; }, isCDATA: function () { return _e; }, isComment: function () { return ze; }, isDocument: function () { return Gt; }, isTag: function () { return P; }, isText: function () { return re; }, nextElementSibling: function () { return Qt; }, prepend: function () { return eu; }, prependChild: function () { return Na; }, prevElementSibling: function () { return Yt; }, removeElement: function () { return se; }, removeSubsets: function () { return Pa; }, replaceElement: function () { return ka; }, testElement: function () { return Da; }, textContent: function () { return de; }, uniqueSort: function () { return uu; } });
+Ct(ae, { DocumentPosition: function () { return ee; }, append: function () { return Ea; }, appendChild: function () { return Ta; }, compareDocumentPosition: function () { return tr; }, existsOne: function () { return Yu; }, filter: function () { return Ie; }, find: function () { return ot; }, findAll: function () { return qa; }, findOne: function () { return lt; }, findOneChild: function () { return Na; }, getAttributeValue: function () { return ya; }, getChildren: function () { return ct; }, getElementById: function () { return La; }, getElements: function () { return Ia; }, getElementsByClassName: function () { return Oa; }, getElementsByTagName: function () { return xe; }, getElementsByTagType: function () { return Ua; }, getFeed: function () { return ru; }, getInnerHTML: function () { return wa; }, getName: function () { return Aa; }, getOuterHTML: function () { return Zu; }, getParent: function () { return Qu; }, getSiblings: function () { return st; }, getText: function () { return nt; }, hasAttrib: function () { return Sa; }, hasChildren: function () { return J; }, innerText: function () { return Zt; }, isCDATA: function () { return qe; }, isComment: function () { return ze; }, isDocument: function () { return Gt; }, isTag: function () { return P; }, isText: function () { return re; }, nextElementSibling: function () { return Qt; }, prepend: function () { return eu; }, prependChild: function () { return _a; }, prevElementSibling: function () { return Yt; }, removeElement: function () { return se; }, removeSubsets: function () { return Pa; }, replaceElement: function () { return ka; }, testElement: function () { return Da; }, textContent: function () { return de; }, uniqueSort: function () { return uu; } });
 function rt(t) { for (var e = 1; e < t.length; e++)
     t[e][0] += t[e - 1][0] + 1; return t; }
 var ca = new Map(rt([[9, "&Tab;"], [0, "&NewLine;"], [22, "&excl;"], [0, "&quot;"], [0, "&num;"], [0, "&dollar;"], [0, "&percnt;"], [0, "&amp;"], [0, "&apos;"], [0, "&lpar;"], [0, "&rpar;"], [0, "&ast;"], [0, "&plus;"], [0, "&comma;"], [1, "&period;"], [0, "&sol;"], [10, "&colon;"], [0, "&semi;"], [0, { v: "&lt;", n: 8402, o: "&nvlt;" }], [0, { v: "&equals;", n: 8421, o: "&bne;" }], [0, { v: "&gt;", n: 8402, o: "&nvgt;" }], [0, "&quest;"], [0, "&commat;"], [26, "&lbrack;"], [0, "&bsol;"], [0, "&rbrack;"], [0, "&Hat;"], [0, "&lowbar;"], [0, "&DiacriticalGrave;"], [5, { n: 106, o: "&fjlig;" }], [20, "&lbrace;"], [0, "&verbar;"], [0, "&rbrace;"], [34, "&nbsp;"], [0, "&iexcl;"], [0, "&cent;"], [0, "&pound;"], [0, "&curren;"], [0, "&yen;"], [0, "&brvbar;"], [0, "&sect;"], [0, "&die;"], [0, "&copy;"], [0, "&ordf;"], [0, "&laquo;"], [0, "&not;"], [0, "&shy;"], [0, "&circledR;"], [0, "&macr;"], [0, "&deg;"], [0, "&PlusMinus;"], [0, "&sup2;"], [0, "&sup3;"], [0, "&acute;"], [0, "&micro;"], [0, "&para;"], [0, "&centerdot;"], [0, "&cedil;"], [0, "&sup1;"], [0, "&ordm;"], [0, "&raquo;"], [0, "&frac14;"], [0, "&frac12;"], [0, "&frac34;"], [0, "&iquest;"], [0, "&Agrave;"], [0, "&Aacute;"], [0, "&Acirc;"], [0, "&Atilde;"], [0, "&Auml;"], [0, "&angst;"], [0, "&AElig;"], [0, "&Ccedil;"], [0, "&Egrave;"], [0, "&Eacute;"], [0, "&Ecirc;"], [0, "&Euml;"], [0, "&Igrave;"], [0, "&Iacute;"], [0, "&Icirc;"], [0, "&Iuml;"], [0, "&ETH;"], [0, "&Ntilde;"], [0, "&Ograve;"], [0, "&Oacute;"], [0, "&Ocirc;"], [0, "&Otilde;"], [0, "&Ouml;"], [0, "&times;"], [0, "&Oslash;"], [0, "&Ugrave;"], [0, "&Uacute;"], [0, "&Ucirc;"], [0, "&Uuml;"], [0, "&Yacute;"], [0, "&THORN;"], [0, "&szlig;"], [0, "&agrave;"], [0, "&aacute;"], [0, "&acirc;"], [0, "&atilde;"], [0, "&auml;"], [0, "&aring;"], [0, "&aelig;"], [0, "&ccedil;"], [0, "&egrave;"], [0, "&eacute;"], [0, "&ecirc;"], [0, "&euml;"], [0, "&igrave;"], [0, "&iacute;"], [0, "&icirc;"], [0, "&iuml;"], [0, "&eth;"], [0, "&ntilde;"], [0, "&ograve;"], [0, "&oacute;"], [0, "&ocirc;"], [0, "&otilde;"], [0, "&ouml;"], [0, "&div;"], [0, "&oslash;"], [0, "&ugrave;"], [0, "&uacute;"], [0, "&ucirc;"], [0, "&uuml;"], [0, "&yacute;"], [0, "&thorn;"], [0, "&yuml;"], [0, "&Amacr;"], [0, "&amacr;"], [0, "&Abreve;"], [0, "&abreve;"], [0, "&Aogon;"], [0, "&aogon;"], [0, "&Cacute;"], [0, "&cacute;"], [0, "&Ccirc;"], [0, "&ccirc;"], [0, "&Cdot;"], [0, "&cdot;"], [0, "&Ccaron;"], [0, "&ccaron;"], [0, "&Dcaron;"], [0, "&dcaron;"], [0, "&Dstrok;"], [0, "&dstrok;"], [0, "&Emacr;"], [0, "&emacr;"], [2, "&Edot;"], [0, "&edot;"], [0, "&Eogon;"], [0, "&eogon;"], [0, "&Ecaron;"], [0, "&ecaron;"], [0, "&Gcirc;"], [0, "&gcirc;"], [0, "&Gbreve;"], [0, "&gbreve;"], [0, "&Gdot;"], [0, "&gdot;"], [0, "&Gcedil;"], [1, "&Hcirc;"], [0, "&hcirc;"], [0, "&Hstrok;"], [0, "&hstrok;"], [0, "&Itilde;"], [0, "&itilde;"], [0, "&Imacr;"], [0, "&imacr;"], [2, "&Iogon;"], [0, "&iogon;"], [0, "&Idot;"], [0, "&imath;"], [0, "&IJlig;"], [0, "&ijlig;"], [0, "&Jcirc;"], [0, "&jcirc;"], [0, "&Kcedil;"], [0, "&kcedil;"], [0, "&kgreen;"], [0, "&Lacute;"], [0, "&lacute;"], [0, "&Lcedil;"], [0, "&lcedil;"], [0, "&Lcaron;"], [0, "&lcaron;"], [0, "&Lmidot;"], [0, "&lmidot;"], [0, "&Lstrok;"], [0, "&lstrok;"], [0, "&Nacute;"], [0, "&nacute;"], [0, "&Ncedil;"], [0, "&ncedil;"], [0, "&Ncaron;"], [0, "&ncaron;"], [0, "&napos;"], [0, "&ENG;"], [0, "&eng;"], [0, "&Omacr;"], [0, "&omacr;"], [2, "&Odblac;"], [0, "&odblac;"], [0, "&OElig;"], [0, "&oelig;"], [0, "&Racute;"], [0, "&racute;"], [0, "&Rcedil;"], [0, "&rcedil;"], [0, "&Rcaron;"], [0, "&rcaron;"], [0, "&Sacute;"], [0, "&sacute;"], [0, "&Scirc;"], [0, "&scirc;"], [0, "&Scedil;"], [0, "&scedil;"], [0, "&Scaron;"], [0, "&scaron;"], [0, "&Tcedil;"], [0, "&tcedil;"], [0, "&Tcaron;"], [0, "&tcaron;"], [0, "&Tstrok;"], [0, "&tstrok;"], [0, "&Utilde;"], [0, "&utilde;"], [0, "&Umacr;"], [0, "&umacr;"], [0, "&Ubreve;"], [0, "&ubreve;"], [0, "&Uring;"], [0, "&uring;"], [0, "&Udblac;"], [0, "&udblac;"], [0, "&Uogon;"], [0, "&uogon;"], [0, "&Wcirc;"], [0, "&wcirc;"], [0, "&Ycirc;"], [0, "&ycirc;"], [0, "&Yuml;"], [0, "&Zacute;"], [0, "&zacute;"], [0, "&Zdot;"], [0, "&zdot;"], [0, "&Zcaron;"], [0, "&zcaron;"], [19, "&fnof;"], [34, "&imped;"], [63, "&gacute;"], [65, "&jmath;"], [142, "&circ;"], [0, "&caron;"], [16, "&breve;"], [0, "&DiacriticalDot;"], [0, "&ring;"], [0, "&ogon;"], [0, "&DiacriticalTilde;"], [0, "&dblac;"], [51, "&DownBreve;"], [127, "&Alpha;"], [0, "&Beta;"], [0, "&Gamma;"], [0, "&Delta;"], [0, "&Epsilon;"], [0, "&Zeta;"], [0, "&Eta;"], [0, "&Theta;"], [0, "&Iota;"], [0, "&Kappa;"], [0, "&Lambda;"], [0, "&Mu;"], [0, "&Nu;"], [0, "&Xi;"], [0, "&Omicron;"], [0, "&Pi;"], [0, "&Rho;"], [1, "&Sigma;"], [0, "&Tau;"], [0, "&Upsilon;"], [0, "&Phi;"], [0, "&Chi;"], [0, "&Psi;"], [0, "&ohm;"], [7, "&alpha;"], [0, "&beta;"], [0, "&gamma;"], [0, "&delta;"], [0, "&epsi;"], [0, "&zeta;"], [0, "&eta;"], [0, "&theta;"], [0, "&iota;"], [0, "&kappa;"], [0, "&lambda;"], [0, "&mu;"], [0, "&nu;"], [0, "&xi;"], [0, "&omicron;"], [0, "&pi;"], [0, "&rho;"], [0, "&sigmaf;"], [0, "&sigma;"], [0, "&tau;"], [0, "&upsi;"], [0, "&phi;"], [0, "&chi;"], [0, "&psi;"], [0, "&omega;"], [7, "&thetasym;"], [0, "&Upsi;"], [2, "&phiv;"], [0, "&piv;"], [5, "&Gammad;"], [0, "&digamma;"], [18, "&kappav;"], [0, "&rhov;"], [3, "&epsiv;"], [0, "&backepsilon;"], [10, "&IOcy;"], [0, "&DJcy;"], [0, "&GJcy;"], [0, "&Jukcy;"], [0, "&DScy;"], [0, "&Iukcy;"], [0, "&YIcy;"], [0, "&Jsercy;"], [0, "&LJcy;"], [0, "&NJcy;"], [0, "&TSHcy;"], [0, "&KJcy;"], [1, "&Ubrcy;"], [0, "&DZcy;"], [0, "&Acy;"], [0, "&Bcy;"], [0, "&Vcy;"], [0, "&Gcy;"], [0, "&Dcy;"], [0, "&IEcy;"], [0, "&ZHcy;"], [0, "&Zcy;"], [0, "&Icy;"], [0, "&Jcy;"], [0, "&Kcy;"], [0, "&Lcy;"], [0, "&Mcy;"], [0, "&Ncy;"], [0, "&Ocy;"], [0, "&Pcy;"], [0, "&Rcy;"], [0, "&Scy;"], [0, "&Tcy;"], [0, "&Ucy;"], [0, "&Fcy;"], [0, "&KHcy;"], [0, "&TScy;"], [0, "&CHcy;"], [0, "&SHcy;"], [0, "&SHCHcy;"], [0, "&HARDcy;"], [0, "&Ycy;"], [0, "&SOFTcy;"], [0, "&Ecy;"], [0, "&YUcy;"], [0, "&YAcy;"], [0, "&acy;"], [0, "&bcy;"], [0, "&vcy;"], [0, "&gcy;"], [0, "&dcy;"], [0, "&iecy;"], [0, "&zhcy;"], [0, "&zcy;"], [0, "&icy;"], [0, "&jcy;"], [0, "&kcy;"], [0, "&lcy;"], [0, "&mcy;"], [0, "&ncy;"], [0, "&ocy;"], [0, "&pcy;"], [0, "&rcy;"], [0, "&scy;"], [0, "&tcy;"], [0, "&ucy;"], [0, "&fcy;"], [0, "&khcy;"], [0, "&tscy;"], [0, "&chcy;"], [0, "&shcy;"], [0, "&shchcy;"], [0, "&hardcy;"], [0, "&ycy;"], [0, "&softcy;"], [0, "&ecy;"], [0, "&yucy;"], [0, "&yacy;"], [1, "&iocy;"], [0, "&djcy;"], [0, "&gjcy;"], [0, "&jukcy;"], [0, "&dscy;"], [0, "&iukcy;"], [0, "&yicy;"], [0, "&jsercy;"], [0, "&ljcy;"], [0, "&njcy;"], [0, "&tshcy;"], [0, "&kjcy;"], [1, "&ubrcy;"], [0, "&dzcy;"], [7074, "&ensp;"], [0, "&emsp;"], [0, "&emsp13;"], [0, "&emsp14;"], [1, "&numsp;"], [0, "&puncsp;"], [0, "&ThinSpace;"], [0, "&hairsp;"], [0, "&NegativeMediumSpace;"], [0, "&zwnj;"], [0, "&zwj;"], [0, "&lrm;"], [0, "&rlm;"], [0, "&dash;"], [2, "&ndash;"], [0, "&mdash;"], [0, "&horbar;"], [0, "&Verbar;"], [1, "&lsquo;"], [0, "&CloseCurlyQuote;"], [0, "&lsquor;"], [1, "&ldquo;"], [0, "&CloseCurlyDoubleQuote;"], [0, "&bdquo;"], [1, "&dagger;"], [0, "&Dagger;"], [0, "&bull;"], [2, "&nldr;"], [0, "&hellip;"], [9, "&permil;"], [0, "&pertenk;"], [0, "&prime;"], [0, "&Prime;"], [0, "&tprime;"], [0, "&backprime;"], [3, "&lsaquo;"], [0, "&rsaquo;"], [3, "&oline;"], [2, "&caret;"], [1, "&hybull;"], [0, "&frasl;"], [10, "&bsemi;"], [7, "&qprime;"], [7, { v: "&MediumSpace;", n: 8202, o: "&ThickSpace;" }], [0, "&NoBreak;"], [0, "&af;"], [0, "&InvisibleTimes;"], [0, "&ic;"], [72, "&euro;"], [46, "&tdot;"], [0, "&DotDot;"], [37, "&complexes;"], [2, "&incare;"], [4, "&gscr;"], [0, "&hamilt;"], [0, "&Hfr;"], [0, "&Hopf;"], [0, "&planckh;"], [0, "&hbar;"], [0, "&imagline;"], [0, "&Ifr;"], [0, "&lagran;"], [0, "&ell;"], [1, "&naturals;"], [0, "&numero;"], [0, "&copysr;"], [0, "&weierp;"], [0, "&Popf;"], [0, "&Qopf;"], [0, "&realine;"], [0, "&real;"], [0, "&reals;"], [0, "&rx;"], [3, "&trade;"], [1, "&integers;"], [2, "&mho;"], [0, "&zeetrf;"], [0, "&iiota;"], [2, "&bernou;"], [0, "&Cayleys;"], [1, "&escr;"], [0, "&Escr;"], [0, "&Fouriertrf;"], [1, "&Mellintrf;"], [0, "&order;"], [0, "&alefsym;"], [0, "&beth;"], [0, "&gimel;"], [0, "&daleth;"], [12, "&CapitalDifferentialD;"], [0, "&dd;"], [0, "&ee;"], [0, "&ii;"], [10, "&frac13;"], [0, "&frac23;"], [0, "&frac15;"], [0, "&frac25;"], [0, "&frac35;"], [0, "&frac45;"], [0, "&frac16;"], [0, "&frac56;"], [0, "&frac18;"], [0, "&frac38;"], [0, "&frac58;"], [0, "&frac78;"], [49, "&larr;"], [0, "&ShortUpArrow;"], [0, "&rarr;"], [0, "&darr;"], [0, "&harr;"], [0, "&updownarrow;"], [0, "&nwarr;"], [0, "&nearr;"], [0, "&LowerRightArrow;"], [0, "&LowerLeftArrow;"], [0, "&nlarr;"], [0, "&nrarr;"], [1, { v: "&rarrw;", n: 824, o: "&nrarrw;" }], [0, "&Larr;"], [0, "&Uarr;"], [0, "&Rarr;"], [0, "&Darr;"], [0, "&larrtl;"], [0, "&rarrtl;"], [0, "&LeftTeeArrow;"], [0, "&mapstoup;"], [0, "&map;"], [0, "&DownTeeArrow;"], [1, "&hookleftarrow;"], [0, "&hookrightarrow;"], [0, "&larrlp;"], [0, "&looparrowright;"], [0, "&harrw;"], [0, "&nharr;"], [1, "&lsh;"], [0, "&rsh;"], [0, "&ldsh;"], [0, "&rdsh;"], [1, "&crarr;"], [0, "&cularr;"], [0, "&curarr;"], [2, "&circlearrowleft;"], [0, "&circlearrowright;"], [0, "&leftharpoonup;"], [0, "&DownLeftVector;"], [0, "&RightUpVector;"], [0, "&LeftUpVector;"], [0, "&rharu;"], [0, "&DownRightVector;"], [0, "&dharr;"], [0, "&dharl;"], [0, "&RightArrowLeftArrow;"], [0, "&udarr;"], [0, "&LeftArrowRightArrow;"], [0, "&leftleftarrows;"], [0, "&upuparrows;"], [0, "&rightrightarrows;"], [0, "&ddarr;"], [0, "&leftrightharpoons;"], [0, "&Equilibrium;"], [0, "&nlArr;"], [0, "&nhArr;"], [0, "&nrArr;"], [0, "&DoubleLeftArrow;"], [0, "&DoubleUpArrow;"], [0, "&DoubleRightArrow;"], [0, "&dArr;"], [0, "&DoubleLeftRightArrow;"], [0, "&DoubleUpDownArrow;"], [0, "&nwArr;"], [0, "&neArr;"], [0, "&seArr;"], [0, "&swArr;"], [0, "&lAarr;"], [0, "&rAarr;"], [1, "&zigrarr;"], [6, "&larrb;"], [0, "&rarrb;"], [15, "&DownArrowUpArrow;"], [7, "&loarr;"], [0, "&roarr;"], [0, "&hoarr;"], [0, "&forall;"], [0, "&comp;"], [0, { v: "&part;", n: 824, o: "&npart;" }], [0, "&exist;"], [0, "&nexist;"], [0, "&empty;"], [1, "&Del;"], [0, "&Element;"], [0, "&NotElement;"], [1, "&ni;"], [0, "&notni;"], [2, "&prod;"], [0, "&coprod;"], [0, "&sum;"], [0, "&minus;"], [0, "&MinusPlus;"], [0, "&dotplus;"], [1, "&Backslash;"], [0, "&lowast;"], [0, "&compfn;"], [1, "&radic;"], [2, "&prop;"], [0, "&infin;"], [0, "&angrt;"], [0, { v: "&ang;", n: 8402, o: "&nang;" }], [0, "&angmsd;"], [0, "&angsph;"], [0, "&mid;"], [0, "&nmid;"], [0, "&DoubleVerticalBar;"], [0, "&NotDoubleVerticalBar;"], [0, "&and;"], [0, "&or;"], [0, { v: "&cap;", n: 65024, o: "&caps;" }], [0, { v: "&cup;", n: 65024, o: "&cups;" }], [0, "&int;"], [0, "&Int;"], [0, "&iiint;"], [0, "&conint;"], [0, "&Conint;"], [0, "&Cconint;"], [0, "&cwint;"], [0, "&ClockwiseContourIntegral;"], [0, "&awconint;"], [0, "&there4;"], [0, "&becaus;"], [0, "&ratio;"], [0, "&Colon;"], [0, "&dotminus;"], [1, "&mDDot;"], [0, "&homtht;"], [0, { v: "&sim;", n: 8402, o: "&nvsim;" }], [0, { v: "&backsim;", n: 817, o: "&race;" }], [0, { v: "&ac;", n: 819, o: "&acE;" }], [0, "&acd;"], [0, "&VerticalTilde;"], [0, "&NotTilde;"], [0, { v: "&eqsim;", n: 824, o: "&nesim;" }], [0, "&sime;"], [0, "&NotTildeEqual;"], [0, "&cong;"], [0, "&simne;"], [0, "&ncong;"], [0, "&ap;"], [0, "&nap;"], [0, "&ape;"], [0, { v: "&apid;", n: 824, o: "&napid;" }], [0, "&backcong;"], [0, { v: "&asympeq;", n: 8402, o: "&nvap;" }], [0, { v: "&bump;", n: 824, o: "&nbump;" }], [0, { v: "&bumpe;", n: 824, o: "&nbumpe;" }], [0, { v: "&doteq;", n: 824, o: "&nedot;" }], [0, "&doteqdot;"], [0, "&efDot;"], [0, "&erDot;"], [0, "&Assign;"], [0, "&ecolon;"], [0, "&ecir;"], [0, "&circeq;"], [1, "&wedgeq;"], [0, "&veeeq;"], [1, "&triangleq;"], [2, "&equest;"], [0, "&ne;"], [0, { v: "&Congruent;", n: 8421, o: "&bnequiv;" }], [0, "&nequiv;"], [1, { v: "&le;", n: 8402, o: "&nvle;" }], [0, { v: "&ge;", n: 8402, o: "&nvge;" }], [0, { v: "&lE;", n: 824, o: "&nlE;" }], [0, { v: "&gE;", n: 824, o: "&ngE;" }], [0, { v: "&lnE;", n: 65024, o: "&lvertneqq;" }], [0, { v: "&gnE;", n: 65024, o: "&gvertneqq;" }], [0, { v: "&ll;", n: new Map(rt([[824, "&nLtv;"], [7577, "&nLt;"]])) }], [0, { v: "&gg;", n: new Map(rt([[824, "&nGtv;"], [7577, "&nGt;"]])) }], [0, "&between;"], [0, "&NotCupCap;"], [0, "&nless;"], [0, "&ngt;"], [0, "&nle;"], [0, "&nge;"], [0, "&lesssim;"], [0, "&GreaterTilde;"], [0, "&nlsim;"], [0, "&ngsim;"], [0, "&LessGreater;"], [0, "&gl;"], [0, "&NotLessGreater;"], [0, "&NotGreaterLess;"], [0, "&pr;"], [0, "&sc;"], [0, "&prcue;"], [0, "&sccue;"], [0, "&PrecedesTilde;"], [0, { v: "&scsim;", n: 824, o: "&NotSucceedsTilde;" }], [0, "&NotPrecedes;"], [0, "&NotSucceeds;"], [0, { v: "&sub;", n: 8402, o: "&NotSubset;" }], [0, { v: "&sup;", n: 8402, o: "&NotSuperset;" }], [0, "&nsub;"], [0, "&nsup;"], [0, "&sube;"], [0, "&supe;"], [0, "&NotSubsetEqual;"], [0, "&NotSupersetEqual;"], [0, { v: "&subne;", n: 65024, o: "&varsubsetneq;" }], [0, { v: "&supne;", n: 65024, o: "&varsupsetneq;" }], [1, "&cupdot;"], [0, "&UnionPlus;"], [0, { v: "&sqsub;", n: 824, o: "&NotSquareSubset;" }], [0, { v: "&sqsup;", n: 824, o: "&NotSquareSuperset;" }], [0, "&sqsube;"], [0, "&sqsupe;"], [0, { v: "&sqcap;", n: 65024, o: "&sqcaps;" }], [0, { v: "&sqcup;", n: 65024, o: "&sqcups;" }], [0, "&CirclePlus;"], [0, "&CircleMinus;"], [0, "&CircleTimes;"], [0, "&osol;"], [0, "&CircleDot;"], [0, "&circledcirc;"], [0, "&circledast;"], [1, "&circleddash;"], [0, "&boxplus;"], [0, "&boxminus;"], [0, "&boxtimes;"], [0, "&dotsquare;"], [0, "&RightTee;"], [0, "&dashv;"], [0, "&DownTee;"], [0, "&bot;"], [1, "&models;"], [0, "&DoubleRightTee;"], [0, "&Vdash;"], [0, "&Vvdash;"], [0, "&VDash;"], [0, "&nvdash;"], [0, "&nvDash;"], [0, "&nVdash;"], [0, "&nVDash;"], [0, "&prurel;"], [1, "&LeftTriangle;"], [0, "&RightTriangle;"], [0, { v: "&LeftTriangleEqual;", n: 8402, o: "&nvltrie;" }], [0, { v: "&RightTriangleEqual;", n: 8402, o: "&nvrtrie;" }], [0, "&origof;"], [0, "&imof;"], [0, "&multimap;"], [0, "&hercon;"], [0, "&intcal;"], [0, "&veebar;"], [1, "&barvee;"], [0, "&angrtvb;"], [0, "&lrtri;"], [0, "&bigwedge;"], [0, "&bigvee;"], [0, "&bigcap;"], [0, "&bigcup;"], [0, "&diam;"], [0, "&sdot;"], [0, "&sstarf;"], [0, "&divideontimes;"], [0, "&bowtie;"], [0, "&ltimes;"], [0, "&rtimes;"], [0, "&leftthreetimes;"], [0, "&rightthreetimes;"], [0, "&backsimeq;"], [0, "&curlyvee;"], [0, "&curlywedge;"], [0, "&Sub;"], [0, "&Sup;"], [0, "&Cap;"], [0, "&Cup;"], [0, "&fork;"], [0, "&epar;"], [0, "&lessdot;"], [0, "&gtdot;"], [0, { v: "&Ll;", n: 824, o: "&nLl;" }], [0, { v: "&Gg;", n: 824, o: "&nGg;" }], [0, { v: "&leg;", n: 65024, o: "&lesg;" }], [0, { v: "&gel;", n: 65024, o: "&gesl;" }], [2, "&cuepr;"], [0, "&cuesc;"], [0, "&NotPrecedesSlantEqual;"], [0, "&NotSucceedsSlantEqual;"], [0, "&NotSquareSubsetEqual;"], [0, "&NotSquareSupersetEqual;"], [2, "&lnsim;"], [0, "&gnsim;"], [0, "&precnsim;"], [0, "&scnsim;"], [0, "&nltri;"], [0, "&NotRightTriangle;"], [0, "&nltrie;"], [0, "&NotRightTriangleEqual;"], [0, "&vellip;"], [0, "&ctdot;"], [0, "&utdot;"], [0, "&dtdot;"], [0, "&disin;"], [0, "&isinsv;"], [0, "&isins;"], [0, { v: "&isindot;", n: 824, o: "&notindot;" }], [0, "&notinvc;"], [0, "&notinvb;"], [1, { v: "&isinE;", n: 824, o: "&notinE;" }], [0, "&nisd;"], [0, "&xnis;"], [0, "&nis;"], [0, "&notnivc;"], [0, "&notnivb;"], [6, "&barwed;"], [0, "&Barwed;"], [1, "&lceil;"], [0, "&rceil;"], [0, "&LeftFloor;"], [0, "&rfloor;"], [0, "&drcrop;"], [0, "&dlcrop;"], [0, "&urcrop;"], [0, "&ulcrop;"], [0, "&bnot;"], [1, "&profline;"], [0, "&profsurf;"], [1, "&telrec;"], [0, "&target;"], [5, "&ulcorn;"], [0, "&urcorn;"], [0, "&dlcorn;"], [0, "&drcorn;"], [2, "&frown;"], [0, "&smile;"], [9, "&cylcty;"], [0, "&profalar;"], [7, "&topbot;"], [6, "&ovbar;"], [1, "&solbar;"], [60, "&angzarr;"], [51, "&lmoustache;"], [0, "&rmoustache;"], [2, "&OverBracket;"], [0, "&bbrk;"], [0, "&bbrktbrk;"], [37, "&OverParenthesis;"], [0, "&UnderParenthesis;"], [0, "&OverBrace;"], [0, "&UnderBrace;"], [2, "&trpezium;"], [4, "&elinters;"], [59, "&blank;"], [164, "&circledS;"], [55, "&boxh;"], [1, "&boxv;"], [9, "&boxdr;"], [3, "&boxdl;"], [3, "&boxur;"], [3, "&boxul;"], [3, "&boxvr;"], [7, "&boxvl;"], [7, "&boxhd;"], [7, "&boxhu;"], [7, "&boxvh;"], [19, "&boxH;"], [0, "&boxV;"], [0, "&boxdR;"], [0, "&boxDr;"], [0, "&boxDR;"], [0, "&boxdL;"], [0, "&boxDl;"], [0, "&boxDL;"], [0, "&boxuR;"], [0, "&boxUr;"], [0, "&boxUR;"], [0, "&boxuL;"], [0, "&boxUl;"], [0, "&boxUL;"], [0, "&boxvR;"], [0, "&boxVr;"], [0, "&boxVR;"], [0, "&boxvL;"], [0, "&boxVl;"], [0, "&boxVL;"], [0, "&boxHd;"], [0, "&boxhD;"], [0, "&boxHD;"], [0, "&boxHu;"], [0, "&boxhU;"], [0, "&boxHU;"], [0, "&boxvH;"], [0, "&boxVh;"], [0, "&boxVH;"], [19, "&uhblk;"], [3, "&lhblk;"], [3, "&block;"], [8, "&blk14;"], [0, "&blk12;"], [0, "&blk34;"], [13, "&square;"], [8, "&blacksquare;"], [0, "&EmptyVerySmallSquare;"], [1, "&rect;"], [0, "&marker;"], [2, "&fltns;"], [1, "&bigtriangleup;"], [0, "&blacktriangle;"], [0, "&triangle;"], [2, "&blacktriangleright;"], [0, "&rtri;"], [3, "&bigtriangledown;"], [0, "&blacktriangledown;"], [0, "&dtri;"], [2, "&blacktriangleleft;"], [0, "&ltri;"], [6, "&loz;"], [0, "&cir;"], [32, "&tridot;"], [2, "&bigcirc;"], [8, "&ultri;"], [0, "&urtri;"], [0, "&lltri;"], [0, "&EmptySmallSquare;"], [0, "&FilledSmallSquare;"], [8, "&bigstar;"], [0, "&star;"], [7, "&phone;"], [49, "&female;"], [1, "&male;"], [29, "&spades;"], [2, "&clubs;"], [1, "&hearts;"], [0, "&diamondsuit;"], [3, "&sung;"], [2, "&flat;"], [0, "&natural;"], [0, "&sharp;"], [163, "&check;"], [3, "&cross;"], [8, "&malt;"], [21, "&sext;"], [33, "&VerticalSeparator;"], [25, "&lbbrk;"], [0, "&rbbrk;"], [84, "&bsolhsub;"], [0, "&suphsol;"], [28, "&LeftDoubleBracket;"], [0, "&RightDoubleBracket;"], [0, "&lang;"], [0, "&rang;"], [0, "&Lang;"], [0, "&Rang;"], [0, "&loang;"], [0, "&roang;"], [7, "&longleftarrow;"], [0, "&longrightarrow;"], [0, "&longleftrightarrow;"], [0, "&DoubleLongLeftArrow;"], [0, "&DoubleLongRightArrow;"], [0, "&DoubleLongLeftRightArrow;"], [1, "&longmapsto;"], [2, "&dzigrarr;"], [258, "&nvlArr;"], [0, "&nvrArr;"], [0, "&nvHarr;"], [0, "&Map;"], [6, "&lbarr;"], [0, "&bkarow;"], [0, "&lBarr;"], [0, "&dbkarow;"], [0, "&drbkarow;"], [0, "&DDotrahd;"], [0, "&UpArrowBar;"], [0, "&DownArrowBar;"], [2, "&Rarrtl;"], [2, "&latail;"], [0, "&ratail;"], [0, "&lAtail;"], [0, "&rAtail;"], [0, "&larrfs;"], [0, "&rarrfs;"], [0, "&larrbfs;"], [0, "&rarrbfs;"], [2, "&nwarhk;"], [0, "&nearhk;"], [0, "&hksearow;"], [0, "&hkswarow;"], [0, "&nwnear;"], [0, "&nesear;"], [0, "&seswar;"], [0, "&swnwar;"], [8, { v: "&rarrc;", n: 824, o: "&nrarrc;" }], [1, "&cudarrr;"], [0, "&ldca;"], [0, "&rdca;"], [0, "&cudarrl;"], [0, "&larrpl;"], [2, "&curarrm;"], [0, "&cularrp;"], [7, "&rarrpl;"], [2, "&harrcir;"], [0, "&Uarrocir;"], [0, "&lurdshar;"], [0, "&ldrushar;"], [2, "&LeftRightVector;"], [0, "&RightUpDownVector;"], [0, "&DownLeftRightVector;"], [0, "&LeftUpDownVector;"], [0, "&LeftVectorBar;"], [0, "&RightVectorBar;"], [0, "&RightUpVectorBar;"], [0, "&RightDownVectorBar;"], [0, "&DownLeftVectorBar;"], [0, "&DownRightVectorBar;"], [0, "&LeftUpVectorBar;"], [0, "&LeftDownVectorBar;"], [0, "&LeftTeeVector;"], [0, "&RightTeeVector;"], [0, "&RightUpTeeVector;"], [0, "&RightDownTeeVector;"], [0, "&DownLeftTeeVector;"], [0, "&DownRightTeeVector;"], [0, "&LeftUpTeeVector;"], [0, "&LeftDownTeeVector;"], [0, "&lHar;"], [0, "&uHar;"], [0, "&rHar;"], [0, "&dHar;"], [0, "&luruhar;"], [0, "&ldrdhar;"], [0, "&ruluhar;"], [0, "&rdldhar;"], [0, "&lharul;"], [0, "&llhard;"], [0, "&rharul;"], [0, "&lrhard;"], [0, "&udhar;"], [0, "&duhar;"], [0, "&RoundImplies;"], [0, "&erarr;"], [0, "&simrarr;"], [0, "&larrsim;"], [0, "&rarrsim;"], [0, "&rarrap;"], [0, "&ltlarr;"], [1, "&gtrarr;"], [0, "&subrarr;"], [1, "&suplarr;"], [0, "&lfisht;"], [0, "&rfisht;"], [0, "&ufisht;"], [0, "&dfisht;"], [5, "&lopar;"], [0, "&ropar;"], [4, "&lbrke;"], [0, "&rbrke;"], [0, "&lbrkslu;"], [0, "&rbrksld;"], [0, "&lbrksld;"], [0, "&rbrkslu;"], [0, "&langd;"], [0, "&rangd;"], [0, "&lparlt;"], [0, "&rpargt;"], [0, "&gtlPar;"], [0, "&ltrPar;"], [3, "&vzigzag;"], [1, "&vangrt;"], [0, "&angrtvbd;"], [6, "&ange;"], [0, "&range;"], [0, "&dwangle;"], [0, "&uwangle;"], [0, "&angmsdaa;"], [0, "&angmsdab;"], [0, "&angmsdac;"], [0, "&angmsdad;"], [0, "&angmsdae;"], [0, "&angmsdaf;"], [0, "&angmsdag;"], [0, "&angmsdah;"], [0, "&bemptyv;"], [0, "&demptyv;"], [0, "&cemptyv;"], [0, "&raemptyv;"], [0, "&laemptyv;"], [0, "&ohbar;"], [0, "&omid;"], [0, "&opar;"], [1, "&operp;"], [1, "&olcross;"], [0, "&odsold;"], [1, "&olcir;"], [0, "&ofcir;"], [0, "&olt;"], [0, "&ogt;"], [0, "&cirscir;"], [0, "&cirE;"], [0, "&solb;"], [0, "&bsolb;"], [3, "&boxbox;"], [3, "&trisb;"], [0, "&rtriltri;"], [0, { v: "&LeftTriangleBar;", n: 824, o: "&NotLeftTriangleBar;" }], [0, { v: "&RightTriangleBar;", n: 824, o: "&NotRightTriangleBar;" }], [11, "&iinfin;"], [0, "&infintie;"], [0, "&nvinfin;"], [4, "&eparsl;"], [0, "&smeparsl;"], [0, "&eqvparsl;"], [5, "&blacklozenge;"], [8, "&RuleDelayed;"], [1, "&dsol;"], [9, "&bigodot;"], [0, "&bigoplus;"], [0, "&bigotimes;"], [1, "&biguplus;"], [1, "&bigsqcup;"], [5, "&iiiint;"], [0, "&fpartint;"], [2, "&cirfnint;"], [0, "&awint;"], [0, "&rppolint;"], [0, "&scpolint;"], [0, "&npolint;"], [0, "&pointint;"], [0, "&quatint;"], [0, "&intlarhk;"], [10, "&pluscir;"], [0, "&plusacir;"], [0, "&simplus;"], [0, "&plusdu;"], [0, "&plussim;"], [0, "&plustwo;"], [1, "&mcomma;"], [0, "&minusdu;"], [2, "&loplus;"], [0, "&roplus;"], [0, "&Cross;"], [0, "&timesd;"], [0, "&timesbar;"], [1, "&smashp;"], [0, "&lotimes;"], [0, "&rotimes;"], [0, "&otimesas;"], [0, "&Otimes;"], [0, "&odiv;"], [0, "&triplus;"], [0, "&triminus;"], [0, "&tritime;"], [0, "&intprod;"], [2, "&amalg;"], [0, "&capdot;"], [1, "&ncup;"], [0, "&ncap;"], [0, "&capand;"], [0, "&cupor;"], [0, "&cupcap;"], [0, "&capcup;"], [0, "&cupbrcap;"], [0, "&capbrcup;"], [0, "&cupcup;"], [0, "&capcap;"], [0, "&ccups;"], [0, "&ccaps;"], [2, "&ccupssm;"], [2, "&And;"], [0, "&Or;"], [0, "&andand;"], [0, "&oror;"], [0, "&orslope;"], [0, "&andslope;"], [1, "&andv;"], [0, "&orv;"], [0, "&andd;"], [0, "&ord;"], [1, "&wedbar;"], [6, "&sdote;"], [3, "&simdot;"], [2, { v: "&congdot;", n: 824, o: "&ncongdot;" }], [0, "&easter;"], [0, "&apacir;"], [0, { v: "&apE;", n: 824, o: "&napE;" }], [0, "&eplus;"], [0, "&pluse;"], [0, "&Esim;"], [0, "&Colone;"], [0, "&Equal;"], [1, "&ddotseq;"], [0, "&equivDD;"], [0, "&ltcir;"], [0, "&gtcir;"], [0, "&ltquest;"], [0, "&gtquest;"], [0, { v: "&leqslant;", n: 824, o: "&nleqslant;" }], [0, { v: "&geqslant;", n: 824, o: "&ngeqslant;" }], [0, "&lesdot;"], [0, "&gesdot;"], [0, "&lesdoto;"], [0, "&gesdoto;"], [0, "&lesdotor;"], [0, "&gesdotol;"], [0, "&lap;"], [0, "&gap;"], [0, "&lne;"], [0, "&gne;"], [0, "&lnap;"], [0, "&gnap;"], [0, "&lEg;"], [0, "&gEl;"], [0, "&lsime;"], [0, "&gsime;"], [0, "&lsimg;"], [0, "&gsiml;"], [0, "&lgE;"], [0, "&glE;"], [0, "&lesges;"], [0, "&gesles;"], [0, "&els;"], [0, "&egs;"], [0, "&elsdot;"], [0, "&egsdot;"], [0, "&el;"], [0, "&eg;"], [2, "&siml;"], [0, "&simg;"], [0, "&simlE;"], [0, "&simgE;"], [0, { v: "&LessLess;", n: 824, o: "&NotNestedLessLess;" }], [0, { v: "&GreaterGreater;", n: 824, o: "&NotNestedGreaterGreater;" }], [1, "&glj;"], [0, "&gla;"], [0, "&ltcc;"], [0, "&gtcc;"], [0, "&lescc;"], [0, "&gescc;"], [0, "&smt;"], [0, "&lat;"], [0, { v: "&smte;", n: 65024, o: "&smtes;" }], [0, { v: "&late;", n: 65024, o: "&lates;" }], [0, "&bumpE;"], [0, { v: "&PrecedesEqual;", n: 824, o: "&NotPrecedesEqual;" }], [0, { v: "&sce;", n: 824, o: "&NotSucceedsEqual;" }], [2, "&prE;"], [0, "&scE;"], [0, "&precneqq;"], [0, "&scnE;"], [0, "&prap;"], [0, "&scap;"], [0, "&precnapprox;"], [0, "&scnap;"], [0, "&Pr;"], [0, "&Sc;"], [0, "&subdot;"], [0, "&supdot;"], [0, "&subplus;"], [0, "&supplus;"], [0, "&submult;"], [0, "&supmult;"], [0, "&subedot;"], [0, "&supedot;"], [0, { v: "&subE;", n: 824, o: "&nsubE;" }], [0, { v: "&supE;", n: 824, o: "&nsupE;" }], [0, "&subsim;"], [0, "&supsim;"], [2, { v: "&subnE;", n: 65024, o: "&varsubsetneqq;" }], [0, { v: "&supnE;", n: 65024, o: "&varsupsetneqq;" }], [2, "&csub;"], [0, "&csup;"], [0, "&csube;"], [0, "&csupe;"], [0, "&subsup;"], [0, "&supsub;"], [0, "&subsub;"], [0, "&supsup;"], [0, "&suphsub;"], [0, "&supdsub;"], [0, "&forkv;"], [0, "&topfork;"], [0, "&mlcp;"], [8, "&Dashv;"], [1, "&Vdashl;"], [0, "&Barv;"], [0, "&vBar;"], [0, "&vBarv;"], [1, "&Vbar;"], [0, "&Not;"], [0, "&bNot;"], [0, "&rnmid;"], [0, "&cirmid;"], [0, "&midcir;"], [0, "&topcir;"], [0, "&nhpar;"], [0, "&parsim;"], [9, { v: "&parsl;", n: 8421, o: "&nparsl;" }], [44343, { n: new Map(rt([[56476, "&Ascr;"], [1, "&Cscr;"], [0, "&Dscr;"], [2, "&Gscr;"], [2, "&Jscr;"], [0, "&Kscr;"], [2, "&Nscr;"], [0, "&Oscr;"], [0, "&Pscr;"], [0, "&Qscr;"], [1, "&Sscr;"], [0, "&Tscr;"], [0, "&Uscr;"], [0, "&Vscr;"], [0, "&Wscr;"], [0, "&Xscr;"], [0, "&Yscr;"], [0, "&Zscr;"], [0, "&ascr;"], [0, "&bscr;"], [0, "&cscr;"], [0, "&dscr;"], [1, "&fscr;"], [1, "&hscr;"], [0, "&iscr;"], [0, "&jscr;"], [0, "&kscr;"], [0, "&lscr;"], [0, "&mscr;"], [0, "&nscr;"], [1, "&pscr;"], [0, "&qscr;"], [0, "&rscr;"], [0, "&sscr;"], [0, "&tscr;"], [0, "&uscr;"], [0, "&vscr;"], [0, "&wscr;"], [0, "&xscr;"], [0, "&yscr;"], [0, "&zscr;"], [52, "&Afr;"], [0, "&Bfr;"], [1, "&Dfr;"], [0, "&Efr;"], [0, "&Ffr;"], [0, "&Gfr;"], [2, "&Jfr;"], [0, "&Kfr;"], [0, "&Lfr;"], [0, "&Mfr;"], [0, "&Nfr;"], [0, "&Ofr;"], [0, "&Pfr;"], [0, "&Qfr;"], [1, "&Sfr;"], [0, "&Tfr;"], [0, "&Ufr;"], [0, "&Vfr;"], [0, "&Wfr;"], [0, "&Xfr;"], [0, "&Yfr;"], [1, "&afr;"], [0, "&bfr;"], [0, "&cfr;"], [0, "&dfr;"], [0, "&efr;"], [0, "&ffr;"], [0, "&gfr;"], [0, "&hfr;"], [0, "&ifr;"], [0, "&jfr;"], [0, "&kfr;"], [0, "&lfr;"], [0, "&mfr;"], [0, "&nfr;"], [0, "&ofr;"], [0, "&pfr;"], [0, "&qfr;"], [0, "&rfr;"], [0, "&sfr;"], [0, "&tfr;"], [0, "&ufr;"], [0, "&vfr;"], [0, "&wfr;"], [0, "&xfr;"], [0, "&yfr;"], [0, "&zfr;"], [0, "&Aopf;"], [0, "&Bopf;"], [1, "&Dopf;"], [0, "&Eopf;"], [0, "&Fopf;"], [0, "&Gopf;"], [1, "&Iopf;"], [0, "&Jopf;"], [0, "&Kopf;"], [0, "&Lopf;"], [0, "&Mopf;"], [1, "&Oopf;"], [3, "&Sopf;"], [0, "&Topf;"], [0, "&Uopf;"], [0, "&Vopf;"], [0, "&Wopf;"], [0, "&Xopf;"], [0, "&Yopf;"], [1, "&aopf;"], [0, "&bopf;"], [0, "&copf;"], [0, "&dopf;"], [0, "&eopf;"], [0, "&fopf;"], [0, "&gopf;"], [0, "&hopf;"], [0, "&iopf;"], [0, "&jopf;"], [0, "&kopf;"], [0, "&lopf;"], [0, "&mopf;"], [0, "&nopf;"], [0, "&oopf;"], [0, "&popf;"], [0, "&qopf;"], [0, "&ropf;"], [0, "&sopf;"], [0, "&topf;"], [0, "&uopf;"], [0, "&vopf;"], [0, "&wopf;"], [0, "&xopf;"], [0, "&yopf;"], [0, "&zopf;"]])) }], [8906, "&fflig;"], [0, "&filig;"], [0, "&fllig;"], [0, "&ffilig;"], [0, "&ffllig;"]]));
-var $t = /["&'<>$\x80-\uFFFF]/g, Ru = new Map([[34, "&quot;"], [38, "&amp;"], [39, "&apos;"], [60, "&lt;"], [62, "&gt;"]]), Hu = String.prototype.codePointAt != null ? function (t, e) { return t.codePointAt(e); } : function (t, e) { return (t.charCodeAt(e) & 64512) === 55296 ? (t.charCodeAt(e) - 55296) * 1024 + t.charCodeAt(e + 1) - 56320 + 65536 : t.charCodeAt(e); };
+var $t = /["&'<>$\x80-\uFFFF]/g, Hu = new Map([[34, "&quot;"], [38, "&amp;"], [39, "&apos;"], [60, "&lt;"], [62, "&gt;"]]), Ru = String.prototype.codePointAt != null ? function (t, e) { return t.codePointAt(e); } : function (t, e) { return (t.charCodeAt(e) & 64512) === 55296 ? (t.charCodeAt(e) - 55296) * 1024 + t.charCodeAt(e + 1) - 56320 + 65536 : t.charCodeAt(e); };
 function Ge(t) { var e = "", u = 0, i; for (; (i = $t.exec(t)) !== null;) {
-    var n = i.index, c = t.charCodeAt(n), h = Ru.get(c);
-    h !== void 0 ? (e += t.substring(u, n) + h, u = n + 1) : (e += "".concat(t.substring(u, n), "&#x").concat(Hu(t, n).toString(16), ";"), u = $t.lastIndex += +((c & 64512) === 55296));
+    var n = i.index, s = t.charCodeAt(n), h = Hu.get(s);
+    h !== void 0 ? (e += t.substring(u, n) + h, u = n + 1) : (e += "".concat(t.substring(u, n), "&#x").concat(Ru(t, n).toString(16), ";"), u = $t.lastIndex += +((s & 64512) === 55296));
 } return e + t.substr(u); }
-function Jt(t, e) { return function (i) { var n, c = 0, h = ""; for (; n = t.exec(i);)
-    c !== n.index && (h += i.substring(c, n.index)), h += e.get(n[0].charCodeAt(0)), c = n.index + 1; return h + i.substring(c); }; }
-var ju = Jt(/[&<>'"]/g, Ru), at = Jt(/["&\u00A0]/g, new Map([[34, "&quot;"], [38, "&amp;"], [160, "&nbsp;"]])), it = Jt(/[&<>\u00A0]/g, new Map([[38, "&amp;"], [60, "&lt;"], [62, "&gt;"], [160, "&nbsp;"]]));
+function Jt(t, e) { return function (i) { var n, s = 0, h = ""; for (; n = t.exec(i);)
+    s !== n.index && (h += i.substring(s, n.index)), h += e.get(n[0].charCodeAt(0)), s = n.index + 1; return h + i.substring(s); }; }
+var ju = Jt(/[&<>'"]/g, Hu), at = Jt(/["&\u00A0]/g, new Map([[34, "&quot;"], [38, "&amp;"], [160, "&nbsp;"]])), it = Jt(/[&<>\u00A0]/g, new Map([[38, "&amp;"], [60, "&lt;"], [62, "&gt;"], [160, "&nbsp;"]]));
 var zu;
 (function (t) { t[t.XML = 0] = "XML", t[t.HTML = 1] = "HTML"; })(zu || (zu = {}));
 var Gu;
 (function (t) { t[t.UTF8 = 0] = "UTF8", t[t.ASCII = 1] = "ASCII", t[t.Extensive = 2] = "Extensive", t[t.Attribute = 3] = "Attribute", t[t.Text = 4] = "Text"; })(Gu || (Gu = {}));
 var Wu = new Map(["altGlyph", "altGlyphDef", "altGlyphItem", "animateColor", "animateMotion", "animateTransform", "clipPath", "feBlend", "feColorMatrix", "feComponentTransfer", "feComposite", "feConvolveMatrix", "feDiffuseLighting", "feDisplacementMap", "feDistantLight", "feDropShadow", "feFlood", "feFuncA", "feFuncB", "feFuncG", "feFuncR", "feGaussianBlur", "feImage", "feMerge", "feMergeNode", "feMorphology", "feOffset", "fePointLight", "feSpecularLighting", "feSpotLight", "feTile", "feTurbulence", "foreignObject", "glyphRef", "linearGradient", "radialGradient", "textPath"].map(function (t) { return [t.toLowerCase(), t]; })), Xu = new Map(["definitionURL", "attributeName", "attributeType", "baseFrequency", "baseProfile", "calcMode", "clipPathUnits", "diffuseConstant", "edgeMode", "filterUnits", "glyphRef", "gradientTransform", "gradientUnits", "kernelMatrix", "kernelUnitLength", "keyPoints", "keySplines", "keyTimes", "lengthAdjust", "limitingConeAngle", "markerHeight", "markerUnits", "markerWidth", "maskContentUnits", "maskUnits", "numOctaves", "pathLength", "patternContentUnits", "patternTransform", "patternUnits", "pointsAtX", "pointsAtY", "pointsAtZ", "preserveAlpha", "preserveAspectRatio", "primitiveUnits", "refX", "refY", "repeatCount", "repeatDur", "requiredExtensions", "requiredFeatures", "specularConstant", "specularExponent", "spreadMethod", "startOffset", "stdDeviation", "stitchTiles", "surfaceScale", "systemLanguage", "tableValues", "targetX", "targetY", "textLength", "viewBox", "viewTarget", "xChannelSelector", "yChannelSelector", "zoomAndPan"].map(function (t) { return [t.toLowerCase(), t]; }));
 var oa = new Set(["style", "script", "xmp", "iframe", "noembed", "noframes", "plaintext", "noscript"]);
-function fa(t) { return t.replace(/"/g, "&quot;"); }
-function la(t, e) { var u; if (!t)
-    return; var i = ((u = e.encodeEntities) !== null && u !== void 0 ? u : e.decodeEntities) === !1 ? fa : e.xmlMode || e.encodeEntities !== "utf8" ? Ge : at; return Object.keys(t).map(function (n) { var c, h; var p = (c = t[n]) !== null && c !== void 0 ? c : ""; return e.xmlMode === "foreign" && (n = (h = Xu.get(n)) !== null && h !== void 0 ? h : n), !e.emptyAttrs && !e.xmlMode && p === "" ? n : "".concat(n, "=\"").concat(i(p), "\""); }).join(" "); }
+function la(t) { return t.replace(/"/g, "&quot;"); }
+function fa(t, e) { var u; if (!t)
+    return; var i = ((u = e.encodeEntities) !== null && u !== void 0 ? u : e.decodeEntities) === !1 ? la : e.xmlMode || e.encodeEntities !== "utf8" ? Ge : at; return Object.keys(t).map(function (n) { var s, h; var m = (s = t[n]) !== null && s !== void 0 ? s : ""; return e.xmlMode === "foreign" && (n = (h = Xu.get(n)) !== null && h !== void 0 ? h : n), !e.emptyAttrs && !e.xmlMode && m === "" ? n : "".concat(n, "=\"").concat(i(m), "\""); }).join(" "); }
 var Ku = new Set(["area", "base", "basefont", "br", "col", "command", "embed", "frame", "hr", "img", "input", "isindex", "keygen", "link", "meta", "param", "source", "track", "wbr"]);
 function Kt(t, e) {
     if (e === void 0) { e = {}; }
@@ -766,27 +766,27 @@ var De = Kt;
 function da(t, e) { switch (t.type) {
     case Ut: return Kt(t.children, e);
     case jt:
-    case Mt: return pa(t);
+    case Mt: return ba(t);
     case Bt: return va(t);
-    case Ht: return xa(t);
+    case Rt: return xa(t);
     case Ft:
     case Vt:
-    case Rt: return ba(t, e);
+    case Ht: return pa(t, e);
     case Pt: return ma(t, e);
 } }
 var ha = new Set(["mi", "mo", "mn", "ms", "mtext", "annotation-xml", "foreignObject", "desc", "title"]), ga = new Set(["svg", "math"]);
-function ba(t, e) { var u; e.xmlMode === "foreign" && (t.name = (u = Wu.get(t.name)) !== null && u !== void 0 ? u : t.name, t.parent && ha.has(t.parent.name) && (e = pe(ue({}, e), { xmlMode: !1 }))), !e.xmlMode && ga.has(t.name) && (e = pe(ue({}, e), { xmlMode: "foreign" })); var i = "<".concat(t.name), n = la(t.attribs, e); return n && (i += " ".concat(n)), t.children.length === 0 && (e.xmlMode ? e.selfClosingTags !== !1 : e.selfClosingTags && Ku.has(t.name)) ? (e.xmlMode || (i += " "), i += "/>") : (i += ">", t.children.length > 0 && (i += Kt(t.children, e)), (e.xmlMode || !Ku.has(t.name)) && (i += "</".concat(t.name, ">"))), i; }
-function pa(t) { return "<".concat(t.data, ">"); }
+function pa(t, e) { var u; e.xmlMode === "foreign" && (t.name = (u = Wu.get(t.name)) !== null && u !== void 0 ? u : t.name, t.parent && ha.has(t.parent.name) && (e = be(ue({}, e), { xmlMode: !1 }))), !e.xmlMode && ga.has(t.name) && (e = be(ue({}, e), { xmlMode: "foreign" })); var i = "<".concat(t.name), n = fa(t.attribs, e); return n && (i += " ".concat(n)), t.children.length === 0 && (e.xmlMode ? e.selfClosingTags !== !1 : e.selfClosingTags && Ku.has(t.name)) ? (e.xmlMode || (i += " "), i += "/>") : (i += ">", t.children.length > 0 && (i += Kt(t.children, e)), (e.xmlMode || !Ku.has(t.name)) && (i += "</".concat(t.name, ">"))), i; }
+function ba(t) { return "<".concat(t.data, ">"); }
 function ma(t, e) { var u; var i = t.data || ""; return ((u = e.encodeEntities) !== null && u !== void 0 ? u : e.decodeEntities) !== !1 && !(!e.xmlMode && t.parent && oa.has(t.parent.name)) && (i = e.xmlMode || e.encodeEntities !== "utf8" ? Ge(i) : it(i)), i; }
 function xa(t) { return "<![CDATA[".concat(t.children[0].data, "]]>"); }
 function va(t) { return "<!--".concat(t.data, "-->"); }
 function Zu(t, e) { return De(t, e); }
 function wa(t, e) { return J(t) ? t.children.map(function (u) { return Zu(u, e); }).join("") : ""; }
 function nt(t) {
-    return Array.isArray(t) ? t.map(nt).join("") : P(t) ? t.name === "br" ? "\n" : nt(t.children) : _e(t) ? nt(t.children) : re(t) ? t.data : "";
+    return Array.isArray(t) ? t.map(nt).join("") : P(t) ? t.name === "br" ? "\n" : nt(t.children) : qe(t) ? nt(t.children) : re(t) ? t.data : "";
 }
 function de(t) { return Array.isArray(t) ? t.map(de).join("") : J(t) && !ze(t) ? de(t.children) : re(t) ? t.data : ""; }
-function Zt(t) { return Array.isArray(t) ? t.map(Zt).join("") : J(t) && (t.type === O.Tag || _e(t)) ? Zt(t.children) : re(t) ? t.data : ""; }
+function Zt(t) { return Array.isArray(t) ? t.map(Zt).join("") : J(t) && (t.type === O.Tag || qe(t)) ? Zt(t.children) : re(t) ? t.data : ""; }
 function ct(t) { return J(t) ? t.children : []; }
 function Qu(t) { return t.parent || null; }
 function st(t) {
@@ -823,8 +823,8 @@ function se(t) { if (t.prev && (t.prev.next = t.next), t.next && (t.next.prev = 
     u >= 0 && e.splice(u, 1);
 } t.next = null, t.prev = null, t.parent = null; }
 function ka(t, e) { var u = e.prev = t.prev; u && (u.next = e); var i = e.next = t.next; i && (i.prev = e); var n = e.parent = t.parent; if (n) {
-    var c = n.children;
-    c[c.lastIndexOf(t)] = e, t.parent = null;
+    var s = n.children;
+    s[s.lastIndexOf(t)] = e, t.parent = null;
 } }
 function Ta(t, e) { if (se(e), e.next = null, e.parent = t, t.children.push(e) > 1) {
     var u = t.children[t.children.length - 2];
@@ -840,7 +840,7 @@ function Ea(t, e) { se(e); var u = t.parent, i = t.next; if (e.next = i, e.prev 
 }
 else
     u && u.children.push(e); }
-function Na(t, e) { if (se(e), e.parent = t, e.prev = null, t.children.unshift(e) !== 1) {
+function _a(t, e) { if (se(e), e.parent = t, e.prev = null, t.children.unshift(e) !== 1) {
     var u = t.children[1];
     u.prev = e, e.next = u;
 }
@@ -855,28 +855,28 @@ function Ie(t, e, u, i) {
     if (i === void 0) { i = 1 / 0; }
     return ot(t, Array.isArray(e) ? e : [e], u, i);
 }
-function ot(t, e, u, i) { var n = [], c = [Array.isArray(e) ? e : [e]], h = [0]; for (;;) {
-    if (h[0] >= c[0].length) {
+function ot(t, e, u, i) { var n = [], s = [Array.isArray(e) ? e : [e]], h = [0]; for (;;) {
+    if (h[0] >= s[0].length) {
         if (h.length === 1)
             return n;
-        c.shift(), h.shift();
+        s.shift(), h.shift();
         continue;
     }
-    var p = c[0][h[0]++];
-    if (t(p) && (n.push(p), --i <= 0))
+    var m = s[0][h[0]++];
+    if (t(m) && (n.push(m), --i <= 0))
         return n;
-    u && J(p) && p.children.length > 0 && (h.unshift(0), c.unshift(p.children));
+    u && J(m) && m.children.length > 0 && (h.unshift(0), s.unshift(m.children));
 } }
-function qa(t, e) { return e.find(t); }
-function ft(t, e, u) {
+function Na(t, e) { return e.find(t); }
+function lt(t, e, u) {
     if (u === void 0) { u = !0; }
     var i = Array.isArray(e) ? e : [e];
     for (var n = 0; n < i.length; n++) {
-        var c = i[n];
-        if (P(c) && t(c))
-            return c;
-        if (u && J(c) && c.children.length > 0) {
-            var h = ft(t, c.children, !0);
+        var s = i[n];
+        if (P(s) && t(s))
+            return s;
+        if (u && J(s) && s.children.length > 0) {
+            var h = lt(t, s.children, !0);
             if (h)
                 return h;
         }
@@ -884,20 +884,20 @@ function ft(t, e, u) {
     return null;
 }
 function Yu(t, e) { return (Array.isArray(e) ? e : [e]).some(function (u) { return P(u) && t(u) || J(u) && Yu(t, u.children); }); }
-function _a(t, e) { var u = [], i = [Array.isArray(e) ? e : [e]], n = [0]; for (;;) {
+function qa(t, e) { var u = [], i = [Array.isArray(e) ? e : [e]], n = [0]; for (;;) {
     if (n[0] >= i[0].length) {
         if (i.length === 1)
             return u;
         i.shift(), n.shift();
         continue;
     }
-    var c = i[0][n[0]++];
-    P(c) && t(c) && u.push(c), J(c) && c.children.length > 0 && (n.unshift(0), i.unshift(c.children));
+    var s = i[0][n[0]++];
+    P(s) && t(s) && u.push(s), J(s) && s.children.length > 0 && (n.unshift(0), i.unshift(s.children));
 } }
-var lt = { tag_name: function (t) { return typeof t == "function" ? function (e) { return P(e) && t(e.name); } : t === "*" ? P : function (e) { return P(e) && e.name === t; }; }, tag_type: function (t) { return typeof t == "function" ? function (e) { return t(e.type); } : function (e) { return e.type === t; }; }, tag_contains: function (t) { return typeof t == "function" ? function (e) { return re(e) && t(e.data); } : function (e) { return re(e) && e.data === t; }; } };
+var ft = { tag_name: function (t) { return typeof t == "function" ? function (e) { return P(e) && t(e.name); } : t === "*" ? P : function (e) { return P(e) && e.name === t; }; }, tag_type: function (t) { return typeof t == "function" ? function (e) { return t(e.type); } : function (e) { return e.type === t; }; }, tag_contains: function (t) { return typeof t == "function" ? function (e) { return re(e) && t(e.data); } : function (e) { return re(e) && e.data === t; }; } };
 function tu(t, e) { return typeof e == "function" ? function (u) { return P(u) && e(u.attribs[t]); } : function (u) { return P(u) && u.attribs[t] === e; }; }
 function Ca(t, e) { return function (u) { return t(u) || e(u); }; }
-function er(t) { var e = Object.keys(t).map(function (u) { var i = t[u]; return Object.prototype.hasOwnProperty.call(lt, u) ? lt[u](i) : tu(u, i); }); return e.length === 0 ? null : e.reduce(Ca); }
+function er(t) { var e = Object.keys(t).map(function (u) { var i = t[u]; return Object.prototype.hasOwnProperty.call(ft, u) ? ft[u](i) : tu(u, i); }); return e.length === 0 ? null : e.reduce(Ca); }
 function Da(t, e) { var u = er(t); return u ? u(e) : !0; }
 function Ia(t, e, u, i) {
     if (i === void 0) { i = 1 / 0; }
@@ -906,12 +906,12 @@ function Ia(t, e, u, i) {
 }
 function La(t, e, u) {
     if (u === void 0) { u = !0; }
-    return Array.isArray(e) || (e = [e]), ft(tu("id", t), e, u);
+    return Array.isArray(e) || (e = [e]), lt(tu("id", t), e, u);
 }
 function xe(t, e, u, i) {
     if (u === void 0) { u = !0; }
     if (i === void 0) { i = 1 / 0; }
-    return Ie(lt.tag_name(t), e, u, i);
+    return Ie(ft.tag_name(t), e, u, i);
 }
 function Oa(t, e, u, i) {
     if (u === void 0) { u = !0; }
@@ -921,7 +921,7 @@ function Oa(t, e, u, i) {
 function Ua(t, e, u, i) {
     if (u === void 0) { u = !0; }
     if (i === void 0) { i = 1 / 0; }
-    return Ie(lt.tag_type(t), e, u, i);
+    return Ie(ft.tag_type(t), e, u, i);
 }
 function Pa(t) { var e = t.length; for (; --e >= 0;) {
     var u = t[e];
@@ -940,13 +940,13 @@ var ee;
 function tr(t, e) { var u = [], i = []; if (t === e)
     return 0; var n = J(t) ? t : t.parent; for (; n;)
     u.unshift(n), n = n.parent; for (n = J(e) ? e : e.parent; n;)
-    i.unshift(n), n = n.parent; var c = Math.min(u.length, i.length), h = 0; for (; h < c && u[h] === i[h];)
+    i.unshift(n), n = n.parent; var s = Math.min(u.length, i.length), h = 0; for (; h < s && u[h] === i[h];)
     h++; if (h === 0)
-    return ee.DISCONNECTED; var p = u[h - 1], w = p.children, S = u[h], E = i[h]; return w.indexOf(S) > w.indexOf(E) ? p === e ? ee.FOLLOWING | ee.CONTAINED_BY : ee.FOLLOWING : p === t ? ee.PRECEDING | ee.CONTAINS : ee.PRECEDING; }
+    return ee.DISCONNECTED; var m = u[h - 1], y = m.children, S = u[h], E = i[h]; return y.indexOf(S) > y.indexOf(E) ? m === e ? ee.FOLLOWING | ee.CONTAINED_BY : ee.FOLLOWING : m === t ? ee.PRECEDING | ee.CONTAINS : ee.PRECEDING; }
 function uu(t) { return t = t.filter(function (e, u, i) { return !i.includes(e, u + 1); }), t.sort(function (e, u) { var i = tr(e, u); return i & ee.PRECEDING ? -1 : i & ee.FOLLOWING ? 1 : 0; }), t; }
-function ru(t) { var e = dt(Ra, t); return e ? e.name === "feed" ? Ma(e) : Ba(e) : null; }
-function Ma(t) { var e; var u = t.children, i = { type: "atom", items: xe("entry", u).map(function (h) { var p; var w = h.children, S = { media: ur(w) }; X(S, "id", "id", w), X(S, "title", "title", w); var E = (p = dt("link", w)) === null || p === void 0 ? void 0 : p.attribs.href; E && (S.link = E); var D = he("summary", w) || he("content", w); D && (S.description = D); var N = he("updated", w); return N && (S.pubDate = new Date(N)), S; }) }; X(i, "id", "id", u), X(i, "title", "title", u); var n = (e = dt("link", u)) === null || e === void 0 ? void 0 : e.attribs.href; n && (i.link = n), X(i, "description", "subtitle", u); var c = he("updated", u); return c && (i.updated = new Date(c)), X(i, "author", "email", u, !0), i; }
-function Ba(t) { var e, u; var i = (u = (e = dt("channel", t.children)) === null || e === void 0 ? void 0 : e.children) !== null && u !== void 0 ? u : [], n = { type: t.name.substr(0, 3), id: "", items: xe("item", t.children).map(function (h) { var p = h.children, w = { media: ur(p) }; X(w, "id", "guid", p), X(w, "title", "title", p), X(w, "link", "link", p), X(w, "description", "description", p); var S = he("pubDate", p) || he("dc:date", p); return S && (w.pubDate = new Date(S)), w; }) }; X(n, "title", "title", i), X(n, "link", "link", i), X(n, "description", "description", i); var c = he("lastBuildDate", i); return c && (n.updated = new Date(c)), X(n, "author", "managingEditor", i, !0), n; }
+function ru(t) { var e = dt(Ha, t); return e ? e.name === "feed" ? Ma(e) : Ba(e) : null; }
+function Ma(t) { var e; var u = t.children, i = { type: "atom", items: xe("entry", u).map(function (h) { var m; var y = h.children, S = { media: ur(y) }; X(S, "id", "id", y), X(S, "title", "title", y); var E = (m = dt("link", y)) === null || m === void 0 ? void 0 : m.attribs.href; E && (S.link = E); var D = he("summary", y) || he("content", y); D && (S.description = D); var _ = he("updated", y); return _ && (S.pubDate = new Date(_)), S; }) }; X(i, "id", "id", u), X(i, "title", "title", u); var n = (e = dt("link", u)) === null || e === void 0 ? void 0 : e.attribs.href; n && (i.link = n), X(i, "description", "subtitle", u); var s = he("updated", u); return s && (i.updated = new Date(s)), X(i, "author", "email", u, !0), i; }
+function Ba(t) { var e, u; var i = (u = (e = dt("channel", t.children)) === null || e === void 0 ? void 0 : e.children) !== null && u !== void 0 ? u : [], n = { type: t.name.substr(0, 3), id: "", items: xe("item", t.children).map(function (h) { var m = h.children, y = { media: ur(m) }; X(y, "id", "guid", m), X(y, "title", "title", m), X(y, "link", "link", m), X(y, "description", "description", m); var S = he("pubDate", m) || he("dc:date", m); return S && (y.pubDate = new Date(S)), y; }) }; X(n, "title", "title", i), X(n, "link", "link", i), X(n, "description", "description", i); var s = he("lastBuildDate", i); return s && (n.updated = new Date(s)), X(n, "author", "managingEditor", i, !0), n; }
 var Fa = ["url", "type", "lang"], Va = ["fileSize", "bitrate", "framerate", "samplingrate", "channels", "duration", "height", "width"];
 function ur(t) { return xe("media:content", t).map(function (e) {
     var e_4, _b, e_5, _c;
@@ -986,68 +986,68 @@ function he(t, e, u) {
 }
 function X(t, e, u, i, n) {
     if (n === void 0) { n = !1; }
-    var c = he(u, i, n);
-    c && (t[e] = c);
+    var s = he(u, i, n);
+    s && (t[e] = s);
 }
-function Ra(t) { return t === "rss" || t === "feed" || t === "rdf:RDF"; }
+function Ha(t) { return t === "rss" || t === "feed" || t === "rdf:RDF"; }
 function rr(t, e) { var u = new Ce(void 0, e); return new Me(u, e).end(t), u.root; }
-var _;
-(function (t) { t.Attribute = "attribute", t.Pseudo = "pseudo", t.PseudoElement = "pseudo-element", t.Tag = "tag", t.Universal = "universal", t.Adjacent = "adjacent", t.Child = "child", t.Descendant = "descendant", t.Parent = "parent", t.Sibling = "sibling", t.ColumnCombinator = "column-combinator"; })(_ || (_ = {}));
+var q;
+(function (t) { t.Attribute = "attribute", t.Pseudo = "pseudo", t.PseudoElement = "pseudo-element", t.Tag = "tag", t.Universal = "universal", t.Adjacent = "adjacent", t.Child = "child", t.Descendant = "descendant", t.Parent = "parent", t.Sibling = "sibling", t.ColumnCombinator = "column-combinator"; })(q || (q = {}));
 var V;
 (function (t) { t.Any = "any", t.Element = "element", t.End = "end", t.Equals = "equals", t.Exists = "exists", t.Hyphen = "hyphen", t.Not = "not", t.Start = "start"; })(V || (V = {}));
-var ar = /^[^\\#]?(?:\\(?:[\da-f]{1,6}\s?|.)|[\w\-\u00b0-\uFFFF])+/, Ha = /\\([\da-f]{1,6}\s?|(\s)|.)/gi, ja = new Map([[126, V.Element], [94, V.Start], [36, V.End], [42, V.Any], [33, V.Not], [124, V.Hyphen]]), za = new Set(["has", "not", "matches", "is", "where", "host", "host-context"]);
+var ar = /^[^\\#]?(?:\\(?:[\da-f]{1,6}\s?|.)|[\w\-\u00b0-\uFFFF])+/, Ra = /\\([\da-f]{1,6}\s?|(\s)|.)/gi, ja = new Map([[126, V.Element], [94, V.Start], [36, V.End], [42, V.Any], [33, V.Not], [124, V.Hyphen]]), za = new Set(["has", "not", "matches", "is", "where", "host", "host-context"]);
 function ve(t) { switch (t.type) {
-    case _.Adjacent:
-    case _.Child:
-    case _.Descendant:
-    case _.Parent:
-    case _.Sibling:
-    case _.ColumnCombinator: return !0;
+    case q.Adjacent:
+    case q.Child:
+    case q.Descendant:
+    case q.Parent:
+    case q.Sibling:
+    case q.ColumnCombinator: return !0;
     default: return !1;
 } }
 var Ga = new Set(["contains", "icontains"]);
 function $a(t, e, u) { var i = parseInt(e, 16) - 65536; return i !== i || u ? e : i < 0 ? String.fromCharCode(i + 65536) : String.fromCharCode(i >> 10 | 55296, i & 1023 | 56320); }
-function $e(t) { return t.replace(Ha, $a); }
+function $e(t) { return t.replace(Ra, $a); }
 function au(t) { return t === 39 || t === 34; }
 function ir(t) { return t === 32 || t === 9 || t === 10 || t === 12 || t === 13; }
 function ge(t) { var e = [], u = nr(e, "".concat(t), 0); if (u < t.length)
     throw new Error("Unmatched selector: ".concat(t.slice(u))); return e; }
-function nr(t, e, u) { var i = []; function n(N) { var q = e.slice(u + N).match(ar); if (!q)
-    throw new Error("Expected name, found ".concat(e.slice(u))); var _b = __read(q, 1), I = _b[0]; return u += N + I.length, $e(I); } function c(N) { for (u += N; u < e.length && ir(e.charCodeAt(u));)
-    u++; } function h() { u += 1; var N = u, q = 1; for (; q > 0 && u < e.length; u++)
-    e.charCodeAt(u) === 40 && !p(u) ? q++ : e.charCodeAt(u) === 41 && !p(u) && q--; if (q)
-    throw new Error("Parenthesis not matched"); return $e(e.slice(N, u - 1)); } function p(N) { var q = 0; for (; e.charCodeAt(--N) === 92;)
-    q++; return (q & 1) === 1; } function w() { if (i.length > 0 && ve(i[i.length - 1]))
-    throw new Error("Did not expect successive traversals."); } function S(N) { if (i.length > 0 && i[i.length - 1].type === _.Descendant) {
-    i[i.length - 1].type = N;
+function nr(t, e, u) { var i = []; function n(_) { var N = e.slice(u + _).match(ar); if (!N)
+    throw new Error("Expected name, found ".concat(e.slice(u))); var _b = __read(N, 1), I = _b[0]; return u += _ + I.length, $e(I); } function s(_) { for (u += _; u < e.length && ir(e.charCodeAt(u));)
+    u++; } function h() { u += 1; var _ = u, N = 1; for (; N > 0 && u < e.length; u++)
+    e.charCodeAt(u) === 40 && !m(u) ? N++ : e.charCodeAt(u) === 41 && !m(u) && N--; if (N)
+    throw new Error("Parenthesis not matched"); return $e(e.slice(_, u - 1)); } function m(_) { var N = 0; for (; e.charCodeAt(--_) === 92;)
+    N++; return (N & 1) === 1; } function y() { if (i.length > 0 && ve(i[i.length - 1]))
+    throw new Error("Did not expect successive traversals."); } function S(_) { if (i.length > 0 && i[i.length - 1].type === q.Descendant) {
+    i[i.length - 1].type = _;
     return;
-} w(), i.push({ type: N }); } function E(N, q) { i.push({ type: _.Attribute, name: N, action: q, value: n(1), namespace: null, ignoreCase: "quirks" }); } function D() { if (i.length && i[i.length - 1].type === _.Descendant && i.pop(), i.length === 0)
-    throw new Error("Empty sub-selector"); t.push(i); } if (c(0), e.length === u)
+} y(), i.push({ type: _ }); } function E(_, N) { i.push({ type: q.Attribute, name: _, action: N, value: n(1), namespace: null, ignoreCase: "quirks" }); } function D() { if (i.length && i[i.length - 1].type === q.Descendant && i.pop(), i.length === 0)
+    throw new Error("Empty sub-selector"); t.push(i); } if (s(0), e.length === u)
     return u; e: for (; u < e.length;) {
-    var N = e.charCodeAt(u);
-    switch (N) {
+    var _ = e.charCodeAt(u);
+    switch (_) {
         case 32:
         case 9:
         case 10:
         case 12:
         case 13: {
-            (i.length === 0 || i[0].type !== _.Descendant) && (w(), i.push({ type: _.Descendant })), c(1);
+            (i.length === 0 || i[0].type !== q.Descendant) && (y(), i.push({ type: q.Descendant })), s(1);
             break;
         }
         case 62: {
-            S(_.Child), c(1);
+            S(q.Child), s(1);
             break;
         }
         case 60: {
-            S(_.Parent), c(1);
+            S(q.Parent), s(1);
             break;
         }
         case 126: {
-            S(_.Sibling), c(1);
+            S(q.Sibling), s(1);
             break;
         }
         case 43: {
-            S(_.Adjacent), c(1);
+            S(q.Adjacent), s(1);
             break;
         }
         case 46: {
@@ -1059,22 +1059,22 @@ function nr(t, e, u) { var i = []; function n(N) { var q = e.slice(u + N).match(
             break;
         }
         case 91: {
-            c(1);
-            var q = void 0, I = null;
-            e.charCodeAt(u) === 124 ? q = n(1) : e.startsWith("*|", u) ? (I = "*", q = n(2)) : (q = n(0), e.charCodeAt(u) === 124 && e.charCodeAt(u + 1) !== 61 && (I = q, q = n(1))), c(0);
+            s(1);
+            var N = void 0, I = null;
+            e.charCodeAt(u) === 124 ? N = n(1) : e.startsWith("*|", u) ? (I = "*", N = n(2)) : (N = n(0), e.charCodeAt(u) === 124 && e.charCodeAt(u + 1) !== 61 && (I = N, N = n(1))), s(0);
             var U = V.Exists, W = ja.get(e.charCodeAt(u));
             if (W) {
                 if (U = W, e.charCodeAt(u + 1) !== 61)
                     throw new Error("Expected `=`");
-                c(2);
+                s(2);
             }
             else
-                e.charCodeAt(u) === 61 && (U = V.Equals, c(1));
+                e.charCodeAt(u) === 61 && (U = V.Equals, s(1));
             var Z = "", ne = null;
             if (U !== "exists") {
                 if (au(e.charCodeAt(u))) {
                     var o = e.charCodeAt(u), d = u + 1;
-                    for (; d < e.length && (e.charCodeAt(d) !== o || p(d));)
+                    for (; d < e.length && (e.charCodeAt(d) !== o || m(d));)
                         d += 1;
                     if (e.charCodeAt(d) !== o)
                         throw new Error("Attribute value didn't end");
@@ -1082,47 +1082,47 @@ function nr(t, e, u) { var i = []; function n(N) { var q = e.slice(u + N).match(
                 }
                 else {
                     var o = u;
-                    for (; u < e.length && (!ir(e.charCodeAt(u)) && e.charCodeAt(u) !== 93 || p(u));)
+                    for (; u < e.length && (!ir(e.charCodeAt(u)) && e.charCodeAt(u) !== 93 || m(u));)
                         u += 1;
                     Z = $e(e.slice(o, u));
                 }
-                c(0);
+                s(0);
                 var k = e.charCodeAt(u) | 32;
-                k === 115 ? (ne = !1, c(1)) : k === 105 && (ne = !0, c(1));
+                k === 115 ? (ne = !1, s(1)) : k === 105 && (ne = !0, s(1));
             }
             if (e.charCodeAt(u) !== 93)
                 throw new Error("Attribute selector didn't terminate");
             u += 1;
-            var R = { type: _.Attribute, name: q, action: U, value: Z, namespace: I, ignoreCase: ne };
-            i.push(R);
+            var H = { type: q.Attribute, name: N, action: U, value: Z, namespace: I, ignoreCase: ne };
+            i.push(H);
             break;
         }
         case 58: {
             if (e.charCodeAt(u + 1) === 58) {
-                i.push({ type: _.PseudoElement, name: n(2).toLowerCase(), data: e.charCodeAt(u) === 40 ? h() : null });
+                i.push({ type: q.PseudoElement, name: n(2).toLowerCase(), data: e.charCodeAt(u) === 40 ? h() : null });
                 continue;
             }
-            var q = n(1).toLowerCase(), I = null;
+            var N = n(1).toLowerCase(), I = null;
             if (e.charCodeAt(u) === 40)
-                if (za.has(q)) {
+                if (za.has(N)) {
                     if (au(e.charCodeAt(u + 1)))
-                        throw new Error("Pseudo-selector ".concat(q, " cannot be quoted"));
+                        throw new Error("Pseudo-selector ".concat(N, " cannot be quoted"));
                     if (I = [], u = nr(I, e, u + 1), e.charCodeAt(u) !== 41)
-                        throw new Error("Missing closing parenthesis in :".concat(q, " (").concat(e, ")"));
+                        throw new Error("Missing closing parenthesis in :".concat(N, " (").concat(e, ")"));
                     u += 1;
                 }
                 else {
-                    if (I = h(), Ga.has(q)) {
+                    if (I = h(), Ga.has(N)) {
                         var U = I.charCodeAt(0);
                         U === I.charCodeAt(I.length - 1) && au(U) && (I = I.slice(1, -1));
                     }
                     I = $e(I);
                 }
-            i.push({ type: _.Pseudo, name: q, data: I });
+            i.push({ type: q.Pseudo, name: N, data: I });
             break;
         }
         case 44: {
-            D(), i = [], c(1);
+            D(), i = [], s(1);
             break;
         }
         default: {
@@ -1130,15 +1130,15 @@ function nr(t, e, u) { var i = []; function n(N) { var q = e.slice(u + N).match(
                 var U = e.indexOf("*/", u + 2);
                 if (U < 0)
                     throw new Error("Comment was not terminated");
-                u = U + 2, i.length === 0 && c(0);
+                u = U + 2, i.length === 0 && s(0);
                 break;
             }
-            var q = null, I = void 0;
-            if (N === 42)
+            var N = null, I = void 0;
+            if (_ === 42)
                 u += 1, I = "*";
-            else if (N === 124) {
+            else if (_ === 124) {
                 if (I = "", e.charCodeAt(u + 1) === 124) {
-                    S(_.ColumnCombinator), c(2);
+                    S(q.ColumnCombinator), s(2);
                     break;
                 }
             }
@@ -1146,53 +1146,53 @@ function nr(t, e, u) { var i = []; function n(N) { var q = e.slice(u + N).match(
                 I = n(0);
             else
                 break e;
-            e.charCodeAt(u) === 124 && e.charCodeAt(u + 1) !== 124 && (q = I, e.charCodeAt(u + 1) === 42 ? (I = "*", u += 2) : I = n(1)), i.push(I === "*" ? { type: _.Universal, namespace: q } : { type: _.Tag, name: I, namespace: q });
+            e.charCodeAt(u) === 124 && e.charCodeAt(u + 1) !== 124 && (N = I, e.charCodeAt(u + 1) === 42 ? (I = "*", u += 2) : I = n(1)), i.push(I === "*" ? { type: q.Universal, namespace: N } : { type: q.Tag, name: I, namespace: N });
         }
     }
 } return D(), u; }
-var bu = me(be(), 1);
-var oe = me(be(), 1);
-var sr = new Map([[_.Universal, 50], [_.Tag, 30], [_.Attribute, 1], [_.Pseudo, 0]]);
+var pu = me(pe(), 1);
+var oe = me(pe(), 1);
+var sr = new Map([[q.Universal, 50], [q.Tag, 30], [q.Attribute, 1], [q.Pseudo, 0]]);
 function Je(t) { return !sr.has(t.type); }
 var Ja = new Map([[V.Exists, 10], [V.Equals, 8], [V.Not, 7], [V.Start, 6], [V.End, 6], [V.Any, 5]]);
 function iu(t) { var e = t.map(or); for (var u = 1; u < t.length; u++) {
     var i = e[u];
     if (!(i < 0))
         for (var n = u - 1; n >= 0 && i < e[n]; n--) {
-            var c = t[n + 1];
-            t[n + 1] = t[n], t[n] = c, e[n + 1] = e[n], e[n] = i;
+            var s = t[n + 1];
+            t[n + 1] = t[n], t[n] = s, e[n + 1] = e[n], e[n] = i;
         }
 } }
-function or(t) { var e, u; var i = (e = sr.get(t.type)) !== null && e !== void 0 ? e : -1; return t.type === _.Attribute ? (i = (u = Ja.get(t.action)) !== null && u !== void 0 ? u : 4, t.action === V.Equals && t.name === "id" && (i = 9), t.ignoreCase && (i >>= 1)) : t.type === _.Pseudo && (t.data ? t.name === "has" || t.name === "contains" ? i = 0 : Array.isArray(t.data) ? (i = Math.min.apply(Math, __spreadArray([], __read(t.data.map(function (n) { return Math.min.apply(Math, __spreadArray([], __read(n.map(or)), false)); })), false)), i < 0 && (i = 0)) : i = 2 : i = 3), i; }
-var We = me(be(), 1), Wa = /[-[\]{}()*+?.,\\^$|#\s]/g;
-function fr(t) { return t.replace(Wa, "\\$&"); }
+function or(t) { var e, u; var i = (e = sr.get(t.type)) !== null && e !== void 0 ? e : -1; return t.type === q.Attribute ? (i = (u = Ja.get(t.action)) !== null && u !== void 0 ? u : 4, t.action === V.Equals && t.name === "id" && (i = 9), t.ignoreCase && (i >>= 1)) : t.type === q.Pseudo && (t.data ? t.name === "has" || t.name === "contains" ? i = 0 : Array.isArray(t.data) ? (i = Math.min.apply(Math, __spreadArray([], __read(t.data.map(function (n) { return Math.min.apply(Math, __spreadArray([], __read(n.map(or)), false)); })), false)), i < 0 && (i = 0)) : i = 2 : i = 3), i; }
+var We = me(pe(), 1), Wa = /[-[\]{}()*+?.,\\^$|#\s]/g;
+function lr(t) { return t.replace(Wa, "\\$&"); }
 var Xa = new Set(["accept", "accept-charset", "align", "alink", "axis", "bgcolor", "charset", "checked", "clear", "codetype", "color", "compact", "declare", "defer", "dir", "direction", "disabled", "enctype", "face", "frame", "hreflang", "http-equiv", "lang", "language", "link", "media", "method", "multiple", "nohref", "noresize", "noshade", "nowrap", "readonly", "rel", "rev", "rules", "scope", "scrolling", "selected", "shape", "target", "text", "type", "valign", "valuetype", "vlink"]);
 function we(t, e) { return typeof t.ignoreCase == "boolean" ? t.ignoreCase : t.ignoreCase === "quirks" ? !!e.quirksMode : !e.xmlMode && Xa.has(t.name); }
-var lr = { equals: function (t, e, u) { var i = u.adapter, n = e.name, c = e.value; return we(e, u) ? (c = c.toLowerCase(), function (h) { var p = i.getAttributeValue(h, n); return p != null && p.length === c.length && p.toLowerCase() === c && t(h); }) : function (h) { return i.getAttributeValue(h, n) === c && t(h); }; }, hyphen: function (t, e, u) { var i = u.adapter, n = e.name, c = e.value, h = c.length; return we(e, u) ? (c = c.toLowerCase(), function (w) { var S = i.getAttributeValue(w, n); return S != null && (S.length === h || S.charAt(h) === "-") && S.substr(0, h).toLowerCase() === c && t(w); }) : function (w) { var S = i.getAttributeValue(w, n); return S != null && (S.length === h || S.charAt(h) === "-") && S.substr(0, h) === c && t(w); }; }, element: function (t, e, u) { var i = u.adapter, n = e.name, c = e.value; if (/\s/.test(c))
-        return We.default.falseFunc; var h = new RegExp("(?:^|\\s)".concat(fr(c), "(?:$|\\s)"), we(e, u) ? "i" : ""); return function (w) { var S = i.getAttributeValue(w, n); return S != null && S.length >= c.length && h.test(S) && t(w); }; }, exists: function (t, _b, _c) {
+var fr = { equals: function (t, e, u) { var i = u.adapter, n = e.name, s = e.value; return we(e, u) ? (s = s.toLowerCase(), function (h) { var m = i.getAttributeValue(h, n); return m != null && m.length === s.length && m.toLowerCase() === s && t(h); }) : function (h) { return i.getAttributeValue(h, n) === s && t(h); }; }, hyphen: function (t, e, u) { var i = u.adapter, n = e.name, s = e.value, h = s.length; return we(e, u) ? (s = s.toLowerCase(), function (y) { var S = i.getAttributeValue(y, n); return S != null && (S.length === h || S.charAt(h) === "-") && S.substr(0, h).toLowerCase() === s && t(y); }) : function (y) { var S = i.getAttributeValue(y, n); return S != null && (S.length === h || S.charAt(h) === "-") && S.substr(0, h) === s && t(y); }; }, element: function (t, e, u) { var i = u.adapter, n = e.name, s = e.value; if (/\s/.test(s))
+        return We.default.falseFunc; var h = new RegExp("(?:^|\\s)".concat(lr(s), "(?:$|\\s)"), we(e, u) ? "i" : ""); return function (y) { var S = i.getAttributeValue(y, n); return S != null && S.length >= s.length && h.test(S) && t(y); }; }, exists: function (t, _b, _c) {
         var e = _b.name;
         var u = _c.adapter;
         return function (i) { return u.hasAttrib(i, e) && t(i); };
-    }, start: function (t, e, u) { var i = u.adapter, n = e.name, c = e.value, h = c.length; return h === 0 ? We.default.falseFunc : we(e, u) ? (c = c.toLowerCase(), function (p) { var w = i.getAttributeValue(p, n); return w != null && w.length >= h && w.substr(0, h).toLowerCase() === c && t(p); }) : function (p) { var w; return !!(!((w = i.getAttributeValue(p, n)) === null || w === void 0) && w.startsWith(c)) && t(p); }; }, end: function (t, e, u) { var i = u.adapter, n = e.name, c = e.value, h = -c.length; return h === 0 ? We.default.falseFunc : we(e, u) ? (c = c.toLowerCase(), function (p) { var w; return ((w = i.getAttributeValue(p, n)) === null || w === void 0 ? void 0 : w.substr(h).toLowerCase()) === c && t(p); }) : function (p) { var w; return !!(!((w = i.getAttributeValue(p, n)) === null || w === void 0) && w.endsWith(c)) && t(p); }; }, any: function (t, e, u) { var i = u.adapter, n = e.name, c = e.value; if (c === "")
+    }, start: function (t, e, u) { var i = u.adapter, n = e.name, s = e.value, h = s.length; return h === 0 ? We.default.falseFunc : we(e, u) ? (s = s.toLowerCase(), function (m) { var y = i.getAttributeValue(m, n); return y != null && y.length >= h && y.substr(0, h).toLowerCase() === s && t(m); }) : function (m) { var y; return !!(!((y = i.getAttributeValue(m, n)) === null || y === void 0) && y.startsWith(s)) && t(m); }; }, end: function (t, e, u) { var i = u.adapter, n = e.name, s = e.value, h = -s.length; return h === 0 ? We.default.falseFunc : we(e, u) ? (s = s.toLowerCase(), function (m) { var y; return ((y = i.getAttributeValue(m, n)) === null || y === void 0 ? void 0 : y.substr(h).toLowerCase()) === s && t(m); }) : function (m) { var y; return !!(!((y = i.getAttributeValue(m, n)) === null || y === void 0) && y.endsWith(s)) && t(m); }; }, any: function (t, e, u) { var i = u.adapter, n = e.name, s = e.value; if (s === "")
         return We.default.falseFunc; if (we(e, u)) {
-        var h_1 = new RegExp(fr(c), "i");
-        return function (w) { var S = i.getAttributeValue(w, n); return S != null && S.length >= c.length && h_1.test(S) && t(w); };
-    } return function (h) { var p; return !!(!((p = i.getAttributeValue(h, n)) === null || p === void 0) && p.includes(c)) && t(h); }; }, not: function (t, e, u) { var i = u.adapter, n = e.name, c = e.value; return c === "" ? function (h) { return !!i.getAttributeValue(h, n) && t(h); } : we(e, u) ? (c = c.toLowerCase(), function (h) { var p = i.getAttributeValue(h, n); return (p == null || p.length !== c.length || p.toLowerCase() !== c) && t(h); }) : function (h) { return i.getAttributeValue(h, n) !== c && t(h); }; } };
+        var h_1 = new RegExp(lr(s), "i");
+        return function (y) { var S = i.getAttributeValue(y, n); return S != null && S.length >= s.length && h_1.test(S) && t(y); };
+    } return function (h) { var m; return !!(!((m = i.getAttributeValue(h, n)) === null || m === void 0) && m.includes(s)) && t(h); }; }, not: function (t, e, u) { var i = u.adapter, n = e.name, s = e.value; return s === "" ? function (h) { return !!i.getAttributeValue(h, n) && t(h); } : we(e, u) ? (s = s.toLowerCase(), function (h) { var m = i.getAttributeValue(h, n); return (m == null || m.length !== s.length || m.toLowerCase() !== s) && t(h); }) : function (h) { return i.getAttributeValue(h, n) !== s && t(h); }; } };
 var Ka = new Set([9, 10, 12, 13, 32]), dr = 48, Za = 57;
 function hr(t) { if (t = t.trim().toLowerCase(), t === "even")
     return [2, 0]; if (t === "odd")
-    return [2, 1]; var e = 0, u = 0, i = c(), n = h(); if (e < t.length && t.charAt(e) === "n" && (e++, u = i * (n != null ? n : 1), p(), e < t.length ? (i = c(), p(), n = h()) : i = n = 0), n === null || e < t.length)
-    throw new Error("n-th rule couldn't be parsed ('".concat(t, "')")); return [u, i * n]; function c() { return t.charAt(e) === "-" ? (e++, -1) : (t.charAt(e) === "+" && e++, 1); } function h() { var w = e, S = 0; for (; e < t.length && t.charCodeAt(e) >= dr && t.charCodeAt(e) <= Za;)
-    S = S * 10 + (t.charCodeAt(e) - dr), e++; return e === w ? null : S; } function p() { for (; e < t.length && Ka.has(t.charCodeAt(e));)
+    return [2, 1]; var e = 0, u = 0, i = s(), n = h(); if (e < t.length && t.charAt(e) === "n" && (e++, u = i * (n != null ? n : 1), m(), e < t.length ? (i = s(), m(), n = h()) : i = n = 0), n === null || e < t.length)
+    throw new Error("n-th rule couldn't be parsed ('".concat(t, "')")); return [u, i * n]; function s() { return t.charAt(e) === "-" ? (e++, -1) : (t.charAt(e) === "+" && e++, 1); } function h() { var y = e, S = 0; for (; e < t.length && t.charCodeAt(e) >= dr && t.charCodeAt(e) <= Za;)
+    S = S * 10 + (t.charCodeAt(e) - dr), e++; return e === y ? null : S; } function m() { for (; e < t.length && Ka.has(t.charCodeAt(e));)
     e++; } }
-var nu = me(be(), 1);
+var nu = me(pe(), 1);
 function gr(t) { var e = t[0], u = t[1] - 1; if (u < 0 && e <= 0)
     return nu.default.falseFunc; if (e === -1)
-    return function (c) { return c <= u; }; if (e === 0)
-    return function (c) { return c === u; }; if (e === 1)
-    return u < 0 ? nu.default.trueFunc : function (c) { return c >= u; }; var i = Math.abs(e), n = (u % i + i) % i; return e > 1 ? function (c) { return c >= u && c % i === n; } : function (c) { return c <= u && c % i === n; }; }
+    return function (s) { return s <= u; }; if (e === 0)
+    return function (s) { return s === u; }; if (e === 1)
+    return u < 0 ? nu.default.trueFunc : function (s) { return s >= u; }; var i = Math.abs(e), n = (u % i + i) % i; return e > 1 ? function (s) { return s >= u && s % i === n; } : function (s) { return s <= u && s % i === n; }; }
 function Le(t) { return gr(hr(t)); }
-var K = me(be(), 1);
+var K = me(pe(), 1);
 function ht(t, e) { return function (u) { var i = e.getParent(u); return i != null && e.isTag(i) && t(u); }; }
 var Oe = { contains: function (t, e, _b) {
         var u = _b.adapter;
@@ -1200,43 +1200,43 @@ var Oe = { contains: function (t, e, _b) {
     }, icontains: function (t, e, _b) {
         var u = _b.adapter;
         var i = e.toLowerCase();
-        return function (c) { return t(c) && u.getText(c).toLowerCase().includes(i); };
+        return function (s) { return t(s) && u.getText(s).toLowerCase().includes(i); };
     }, "nth-child": function (t, e, _b) {
         var u = _b.adapter, i = _b.equals;
         var n = Le(e);
-        return n === K.default.falseFunc ? K.default.falseFunc : n === K.default.trueFunc ? ht(t, u) : function (h) { var p = u.getSiblings(h), w = 0; for (var S = 0; S < p.length && !i(h, p[S]); S++)
-            u.isTag(p[S]) && w++; return n(w) && t(h); };
+        return n === K.default.falseFunc ? K.default.falseFunc : n === K.default.trueFunc ? ht(t, u) : function (h) { var m = u.getSiblings(h), y = 0; for (var S = 0; S < m.length && !i(h, m[S]); S++)
+            u.isTag(m[S]) && y++; return n(y) && t(h); };
     }, "nth-last-child": function (t, e, _b) {
         var u = _b.adapter, i = _b.equals;
         var n = Le(e);
-        return n === K.default.falseFunc ? K.default.falseFunc : n === K.default.trueFunc ? ht(t, u) : function (h) { var p = u.getSiblings(h), w = 0; for (var S = p.length - 1; S >= 0 && !i(h, p[S]); S--)
-            u.isTag(p[S]) && w++; return n(w) && t(h); };
+        return n === K.default.falseFunc ? K.default.falseFunc : n === K.default.trueFunc ? ht(t, u) : function (h) { var m = u.getSiblings(h), y = 0; for (var S = m.length - 1; S >= 0 && !i(h, m[S]); S--)
+            u.isTag(m[S]) && y++; return n(y) && t(h); };
     }, "nth-of-type": function (t, e, _b) {
         var u = _b.adapter, i = _b.equals;
         var n = Le(e);
-        return n === K.default.falseFunc ? K.default.falseFunc : n === K.default.trueFunc ? ht(t, u) : function (h) { var p = u.getSiblings(h), w = 0; for (var S = 0; S < p.length; S++) {
-            var E = p[S];
+        return n === K.default.falseFunc ? K.default.falseFunc : n === K.default.trueFunc ? ht(t, u) : function (h) { var m = u.getSiblings(h), y = 0; for (var S = 0; S < m.length; S++) {
+            var E = m[S];
             if (i(h, E))
                 break;
-            u.isTag(E) && u.getName(E) === u.getName(h) && w++;
-        } return n(w) && t(h); };
+            u.isTag(E) && u.getName(E) === u.getName(h) && y++;
+        } return n(y) && t(h); };
     }, "nth-last-of-type": function (t, e, _b) {
         var u = _b.adapter, i = _b.equals;
         var n = Le(e);
-        return n === K.default.falseFunc ? K.default.falseFunc : n === K.default.trueFunc ? ht(t, u) : function (h) { var p = u.getSiblings(h), w = 0; for (var S = p.length - 1; S >= 0; S--) {
-            var E = p[S];
+        return n === K.default.falseFunc ? K.default.falseFunc : n === K.default.trueFunc ? ht(t, u) : function (h) { var m = u.getSiblings(h), y = 0; for (var S = m.length - 1; S >= 0; S--) {
+            var E = m[S];
             if (i(h, E))
                 break;
-            u.isTag(E) && u.getName(E) === u.getName(h) && w++;
-        } return n(w) && t(h); };
+            u.isTag(E) && u.getName(E) === u.getName(h) && y++;
+        } return n(y) && t(h); };
     }, root: function (t, e, _b) {
         var u = _b.adapter;
         return function (i) { var n = u.getParent(i); return (n == null || !u.isTag(n)) && t(i); };
-    }, scope: function (t, e, u, i) { var n = u.equals; return !i || i.length === 0 ? Oe.root(t, e, u) : i.length === 1 ? function (c) { return n(i[0], c) && t(c); } : function (c) { return i.includes(c) && t(c); }; }, hover: cu("isHovered"), visited: cu("isVisited"), active: cu("isActive") };
+    }, scope: function (t, e, u, i) { var n = u.equals; return !i || i.length === 0 ? Oe.root(t, e, u) : i.length === 1 ? function (s) { return n(i[0], s) && t(s); } : function (s) { return i.includes(s) && t(s); }; }, hover: cu("isHovered"), visited: cu("isVisited"), active: cu("isActive") };
 function cu(t) { return function (u, i, _b) {
     var n = _b.adapter;
-    var c = n[t];
-    return typeof c != "function" ? K.default.falseFunc : function (p) { return c(p) && u(p); };
+    var s = n[t];
+    return typeof s != "function" ? K.default.falseFunc : function (m) { return s(m) && u(m); };
 }; }
 var Xe = { empty: function (t, _b) {
         var e = _b.adapter;
@@ -1260,8 +1260,8 @@ var Xe = { empty: function (t, _b) {
     }, "first-of-type": function (t, _b) {
         var e = _b.adapter, u = _b.equals;
         var i = e.getSiblings(t), n = e.getName(t);
-        for (var c = 0; c < i.length; c++) {
-            var h = i[c];
+        for (var s = 0; s < i.length; s++) {
+            var h = i[s];
             if (u(t, h))
                 return !0;
             if (e.isTag(h) && e.getName(h) === n)
@@ -1271,8 +1271,8 @@ var Xe = { empty: function (t, _b) {
     }, "last-of-type": function (t, _b) {
         var e = _b.adapter, u = _b.equals;
         var i = e.getSiblings(t), n = e.getName(t);
-        for (var c = i.length - 1; c >= 0; c--) {
-            var h = i[c];
+        for (var s = i.length - 1; s >= 0; s--) {
+            var h = i[s];
             if (u(t, h))
                 return !0;
             if (e.isTag(h) && e.getName(h) === n)
@@ -1294,99 +1294,99 @@ function su(t, e, u, i) { if (u === null) {
 else if (t.length === i)
     throw new Error("Pseudo-class :".concat(e, " doesn't have any arguments")); }
 var gt = { "any-link": ":is(a, area, link)[href]", link: ":any-link:not(:visited)", disabled: ":is(\n        :is(button, input, select, textarea, optgroup, option)[disabled],\n        optgroup[disabled] > option,\n        fieldset[disabled]:not(fieldset[disabled] legend:first-of-type *)\n    )", enabled: ":not(:disabled)", checked: ":is(:is(input[type=radio], input[type=checkbox])[checked], option:selected)", required: ":is(input, select, textarea)[required]", optional: ":is(input, select, textarea):not([required])", selected: "option:is([selected], select:not([multiple]):not(:has(> option[selected])) > :first-of-type)", checkbox: "[type=checkbox]", file: "[type=file]", password: "[type=password]", radio: "[type=radio]", reset: "[type=reset]", image: "[type=image]", submit: "[type=submit]", parent: ":not(:empty)", header: ":is(h1, h2, h3, h4, h5, h6)", button: ":is(button, input[type=button])", input: ":is(input, textarea, select, button)", text: "input:is(:not([type!='']), [type=text])" };
-var te = me(be(), 1);
-var lu = {};
+var te = me(pe(), 1);
+var fu = {};
 function du(t, e) { return t === te.default.falseFunc ? te.default.falseFunc : function (u) { return e.isTag(u) && t(u); }; }
 function hu(t, e) { var u = e.getSiblings(t); if (u.length <= 1)
     return []; var i = u.indexOf(t); return i < 0 || i === u.length - 1 ? [] : u.slice(i + 1).filter(e.isTag); }
-function fu(t) { return { xmlMode: !!t.xmlMode, lowerCaseAttributeNames: !!t.lowerCaseAttributeNames, lowerCaseTags: !!t.lowerCaseTags, quirksMode: !!t.quirksMode, cacheResults: !!t.cacheResults, pseudos: t.pseudos, adapter: t.adapter, equals: t.equals }; }
-var ou = function (t, e, u, i, n) { var c = n(e, fu(u), i); return c === te.default.trueFunc ? t : c === te.default.falseFunc ? te.default.falseFunc : function (h) { return c(h) && t(h); }; }, bt = { is: ou, matches: ou, where: ou, not: function (t, e, u, i, n) { var c = n(e, fu(u), i); return c === te.default.falseFunc ? t : c === te.default.trueFunc ? te.default.falseFunc : function (h) { return !c(h) && t(h); }; }, has: function (t, e, u, i, n) { var c = u.adapter, h = fu(u); h.relativeSelector = !0; var p = e.some(function (E) { return E.some(Je); }) ? [lu] : void 0, w = n(e, h, p); if (w === te.default.falseFunc)
-        return te.default.falseFunc; var S = du(w, c); if (p && w !== te.default.trueFunc) {
-        var _b = w.shouldTestNextSiblings, E_1 = _b === void 0 ? !1 : _b;
+function lu(t) { return { xmlMode: !!t.xmlMode, lowerCaseAttributeNames: !!t.lowerCaseAttributeNames, lowerCaseTags: !!t.lowerCaseTags, quirksMode: !!t.quirksMode, cacheResults: !!t.cacheResults, pseudos: t.pseudos, adapter: t.adapter, equals: t.equals }; }
+var ou = function (t, e, u, i, n) { var s = n(e, lu(u), i); return s === te.default.trueFunc ? t : s === te.default.falseFunc ? te.default.falseFunc : function (h) { return s(h) && t(h); }; }, pt = { is: ou, matches: ou, where: ou, not: function (t, e, u, i, n) { var s = n(e, lu(u), i); return s === te.default.falseFunc ? t : s === te.default.trueFunc ? te.default.falseFunc : function (h) { return !s(h) && t(h); }; }, has: function (t, e, u, i, n) { var s = u.adapter, h = lu(u); h.relativeSelector = !0; var m = e.some(function (E) { return E.some(Je); }) ? [fu] : void 0, y = n(e, h, m); if (y === te.default.falseFunc)
+        return te.default.falseFunc; var S = du(y, s); if (m && y !== te.default.trueFunc) {
+        var _b = y.shouldTestNextSiblings, E_1 = _b === void 0 ? !1 : _b;
         return function (D) { if (!t(D))
-            return !1; p[0] = D; var N = c.getChildren(D), q = E_1 ? __spreadArray(__spreadArray([], __read(N), false), __read(hu(D, c)), false) : N; return c.existsOne(S, q); };
-    } return function (E) { return t(E) && c.existsOne(S, c.getChildren(E)); }; } };
-function br(t, e, u, i, n) { var c; var h = e.name, p = e.data; if (Array.isArray(p)) {
-    if (!(h in bt))
-        throw new Error("Unknown pseudo-class :".concat(h, "(").concat(p, ")"));
-    return bt[h](t, p, u, i, n);
-} var w = (c = u.pseudos) === null || c === void 0 ? void 0 : c[h], S = typeof w == "string" ? w : gt[h]; if (typeof S == "string") {
-    if (p != null)
+            return !1; m[0] = D; var _ = s.getChildren(D), N = E_1 ? __spreadArray(__spreadArray([], __read(_), false), __read(hu(D, s)), false) : _; return s.existsOne(S, N); };
+    } return function (E) { return t(E) && s.existsOne(S, s.getChildren(E)); }; } };
+function pr(t, e, u, i, n) { var s; var h = e.name, m = e.data; if (Array.isArray(m)) {
+    if (!(h in pt))
+        throw new Error("Unknown pseudo-class :".concat(h, "(").concat(m, ")"));
+    return pt[h](t, m, u, i, n);
+} var y = (s = u.pseudos) === null || s === void 0 ? void 0 : s[h], S = typeof y == "string" ? y : gt[h]; if (typeof S == "string") {
+    if (m != null)
         throw new Error("Pseudo ".concat(h, " doesn't have any arguments"));
     var E = ge(S);
-    return bt.is(t, E, u, i, n);
-} if (typeof w == "function")
-    return su(w, h, p, 1), function (E) { return w(E, p) && t(E); }; if (h in Oe)
-    return Oe[h](t, p, u, i); if (h in Xe) {
+    return pt.is(t, E, u, i, n);
+} if (typeof y == "function")
+    return su(y, h, m, 1), function (E) { return y(E, m) && t(E); }; if (h in Oe)
+    return Oe[h](t, m, u, i); if (h in Xe) {
     var E_2 = Xe[h];
-    return su(E_2, h, p, 2), function (D) { return E_2(D, u, p) && t(D); };
+    return su(E_2, h, m, 2), function (D) { return E_2(D, u, m) && t(D); };
 } throw new Error("Unknown pseudo-class :".concat(h)); }
 function gu(t, e) { var u = e.getParent(t); return u && e.isTag(u) ? u : null; }
-function pr(t, e, u, i, n) { var c = u.adapter, h = u.equals; switch (e.type) {
-    case _.PseudoElement: throw new Error("Pseudo-elements are not supported by css-select");
-    case _.ColumnCombinator: throw new Error("Column combinators are not yet supported by css-select");
-    case _.Attribute: {
+function br(t, e, u, i, n) { var s = u.adapter, h = u.equals; switch (e.type) {
+    case q.PseudoElement: throw new Error("Pseudo-elements are not supported by css-select");
+    case q.ColumnCombinator: throw new Error("Column combinators are not yet supported by css-select");
+    case q.Attribute: {
         if (e.namespace != null)
             throw new Error("Namespaced attributes are not yet supported by css-select");
-        return (!u.xmlMode || u.lowerCaseAttributeNames) && (e.name = e.name.toLowerCase()), lr[e.action](t, e, u);
+        return (!u.xmlMode || u.lowerCaseAttributeNames) && (e.name = e.name.toLowerCase()), fr[e.action](t, e, u);
     }
-    case _.Pseudo: return br(t, e, u, i, n);
-    case _.Tag: {
+    case q.Pseudo: return pr(t, e, u, i, n);
+    case q.Tag: {
         if (e.namespace != null)
             throw new Error("Namespaced tag names are not yet supported by css-select");
-        var p_1 = e.name;
-        return (!u.xmlMode || u.lowerCaseTags) && (p_1 = p_1.toLowerCase()), function (S) { return c.getName(S) === p_1 && t(S); };
+        var m_1 = e.name;
+        return (!u.xmlMode || u.lowerCaseTags) && (m_1 = m_1.toLowerCase()), function (S) { return s.getName(S) === m_1 && t(S); };
     }
-    case _.Descendant: {
+    case q.Descendant: {
         if (u.cacheResults === !1 || typeof WeakSet == "undefined")
-            return function (S) { var E = S; for (; E = gu(E, c);)
+            return function (S) { var E = S; for (; E = gu(E, s);)
                 if (t(E))
                     return !0; return !1; };
-        var p_2 = new WeakSet;
-        return function (S) { var E = S; for (; E = gu(E, c);)
-            if (!p_2.has(E)) {
-                if (c.isTag(E) && t(E))
+        var m_2 = new WeakSet;
+        return function (S) { var E = S; for (; E = gu(E, s);)
+            if (!m_2.has(E)) {
+                if (s.isTag(E) && t(E))
                     return !0;
-                p_2.add(E);
+                m_2.add(E);
             } return !1; };
     }
-    case "_flexibleDescendant": return function (w) { var S = w; do
+    case "_flexibleDescendant": return function (y) { var S = y; do
         if (t(S))
             return !0;
-    while (S = gu(S, c)); return !1; };
-    case _.Parent: return function (w) { return c.getChildren(w).some(function (S) { return c.isTag(S) && t(S); }); };
-    case _.Child: return function (w) { var S = c.getParent(w); return S != null && c.isTag(S) && t(S); };
-    case _.Sibling: return function (w) { var S = c.getSiblings(w); for (var E = 0; E < S.length; E++) {
+    while (S = gu(S, s)); return !1; };
+    case q.Parent: return function (y) { return s.getChildren(y).some(function (S) { return s.isTag(S) && t(S); }); };
+    case q.Child: return function (y) { var S = s.getParent(y); return S != null && s.isTag(S) && t(S); };
+    case q.Sibling: return function (y) { var S = s.getSiblings(y); for (var E = 0; E < S.length; E++) {
         var D = S[E];
-        if (h(w, D))
+        if (h(y, D))
             break;
-        if (c.isTag(D) && t(D))
+        if (s.isTag(D) && t(D))
             return !0;
     } return !1; };
-    case _.Adjacent: return c.prevElementSibling ? function (w) { var S = c.prevElementSibling(w); return S != null && t(S); } : function (w) { var S = c.getSiblings(w), E; for (var D = 0; D < S.length; D++) {
-        var N = S[D];
-        if (h(w, N))
+    case q.Adjacent: return s.prevElementSibling ? function (y) { var S = s.prevElementSibling(y); return S != null && t(S); } : function (y) { var S = s.getSiblings(y), E; for (var D = 0; D < S.length; D++) {
+        var _ = S[D];
+        if (h(y, _))
             break;
-        c.isTag(N) && (E = N);
+        s.isTag(_) && (E = _);
     } return !!E && t(E); };
-    case _.Universal: {
+    case q.Universal: {
         if (e.namespace != null && e.namespace !== "*")
             throw new Error("Namespaced universal selectors are not yet supported by css-select");
         return t;
     }
 } }
-function mr(t, e, u) { var i = pt(t, e, u); return du(i, e.adapter); }
-function pt(t, e, u) { var i = typeof t == "string" ? ge(t) : t; return mt(i, e, u); }
-function xr(t) { return t.type === _.Pseudo && (t.name === "scope" || Array.isArray(t.data) && t.data.some(function (e) { return e.some(xr); })); }
-var Qa = { type: _.Descendant }, Ya = { type: "_flexibleDescendant" }, ei = { type: _.Pseudo, name: "scope", data: null };
+function mr(t, e, u) { var i = bt(t, e, u); return du(i, e.adapter); }
+function bt(t, e, u) { var i = typeof t == "string" ? ge(t) : t; return mt(i, e, u); }
+function xr(t) { return t.type === q.Pseudo && (t.name === "scope" || Array.isArray(t.data) && t.data.some(function (e) { return e.some(xr); })); }
+var Qa = { type: q.Descendant }, Ya = { type: "_flexibleDescendant" }, ei = { type: q.Pseudo, name: "scope", data: null };
 function ti(t, _b, u) {
     var e_6, _c;
     var e = _b.adapter;
-    var i = !!(u != null && u.every(function (n) { var c = e.isTag(n) && e.getParent(n); return n === lu || c && e.isTag(c); }));
+    var i = !!(u != null && u.every(function (n) { var s = e.isTag(n) && e.getParent(n); return n === fu || s && e.isTag(s); }));
     try {
         for (var t_1 = __values(t), t_1_1 = t_1.next(); !t_1_1.done; t_1_1 = t_1.next()) {
             var n = t_1_1.value;
-            if (!(n.length > 0 && Je(n[0]) && n[0].type !== _.Descendant))
+            if (!(n.length > 0 && Je(n[0]) && n[0].type !== q.Descendant))
                 if (i && !n.some(xr))
                     n.unshift(Qa);
                 else
@@ -1402,30 +1402,30 @@ function ti(t, _b, u) {
         finally { if (e_6) throw e_6.error; }
     }
 }
-function mt(t, e, u) { var i; t.forEach(iu), u = (i = e.context) !== null && i !== void 0 ? i : u; var n = Array.isArray(u), c = u && (Array.isArray(u) ? u : [u]); if (e.relativeSelector !== !1)
-    ti(t, e, c);
-else if (t.some(function (w) { return w.length > 0 && Je(w[0]); }))
-    throw new Error("Relative selectors are not allowed when the `relativeSelector` option is disabled"); var h = !1, p = t.map(function (w) { if (w.length >= 2) {
-    var _b = __read(w, 2), S = _b[0], E = _b[1];
-    S.type !== _.Pseudo || S.name !== "scope" || (n && E.type === _.Descendant ? w[1] = Ya : (E.type === _.Adjacent || E.type === _.Sibling) && (h = !0));
-} return ui(w, e, c); }).reduce(ri, oe.default.falseFunc); return p.shouldTestNextSiblings = h, p; }
-function ui(t, e, u) { var i; return t.reduce(function (n, c) { return n === oe.default.falseFunc ? oe.default.falseFunc : pr(n, c, e, u, mt); }, (i = e.rootFunc) !== null && i !== void 0 ? i : oe.default.trueFunc); }
+function mt(t, e, u) { var i; t.forEach(iu), u = (i = e.context) !== null && i !== void 0 ? i : u; var n = Array.isArray(u), s = u && (Array.isArray(u) ? u : [u]); if (e.relativeSelector !== !1)
+    ti(t, e, s);
+else if (t.some(function (y) { return y.length > 0 && Je(y[0]); }))
+    throw new Error("Relative selectors are not allowed when the `relativeSelector` option is disabled"); var h = !1, m = t.map(function (y) { if (y.length >= 2) {
+    var _b = __read(y, 2), S = _b[0], E = _b[1];
+    S.type !== q.Pseudo || S.name !== "scope" || (n && E.type === q.Descendant ? y[1] = Ya : (E.type === q.Adjacent || E.type === q.Sibling) && (h = !0));
+} return ui(y, e, s); }).reduce(ri, oe.default.falseFunc); return m.shouldTestNextSiblings = h, m; }
+function ui(t, e, u) { var i; return t.reduce(function (n, s) { return n === oe.default.falseFunc ? oe.default.falseFunc : br(n, s, e, u, mt); }, (i = e.rootFunc) !== null && i !== void 0 ? i : oe.default.trueFunc); }
 function ri(t, e) { return e === oe.default.falseFunc || t === oe.default.trueFunc ? t : t === oe.default.falseFunc || e === oe.default.trueFunc ? e : function (i) { return t(i) || e(i); }; }
 var vr = function (t, e) { return t === e; }, ai = { adapter: ae, equals: vr };
-function wr(t) { var e, u, i, n; var c = t != null ? t : ai; return (e = c.adapter) !== null && e !== void 0 || (c.adapter = ae), (u = c.equals) !== null && u !== void 0 || (c.equals = (n = (i = c.adapter) === null || i === void 0 ? void 0 : i.equals) !== null && n !== void 0 ? n : vr), c; }
-function pu(t) { return function (u, i, n) { var c = wr(i); return t(u, c, n); }; }
-var _0 = pu(mr), C0 = pu(pt), xt = pu(mt);
-function yr(t) { return function (u, i, n) { var c = wr(n); typeof u != "function" && (u = pt(u, c, i)); var h = vt(i, c.adapter, u.shouldTestNextSiblings); return t(u, h, c); }; }
+function wr(t) { var e, u, i, n; var s = t != null ? t : ai; return (e = s.adapter) !== null && e !== void 0 || (s.adapter = ae), (u = s.equals) !== null && u !== void 0 || (s.equals = (n = (i = s.adapter) === null || i === void 0 ? void 0 : i.equals) !== null && n !== void 0 ? n : vr), s; }
+function bu(t) { return function (u, i, n) { var s = wr(i); return t(u, s, n); }; }
+var q0 = bu(mr), C0 = bu(bt), xt = bu(mt);
+function yr(t) { return function (u, i, n) { var s = wr(n); typeof u != "function" && (u = bt(u, s, i)); var h = vt(i, s.adapter, u.shouldTestNextSiblings); return t(u, h, s); }; }
 function vt(t, e, u) {
     if (u === void 0) { u = !1; }
     return u && (t = ii(t, e)), Array.isArray(t) ? e.removeSubsets(t) : e.getChildren(t);
 }
 function ii(t, e) { var u = Array.isArray(t) ? t.slice(0) : [t], i = u.length; for (var n = 0; n < i; n++) {
-    var c = hu(u[n], e);
-    u.push.apply(u, __spreadArray([], __read(c), false));
+    var s = hu(u[n], e);
+    u.push.apply(u, __spreadArray([], __read(s), false));
 } return u; }
-var D0 = yr(function (t, e, u) { return t === bu.default.falseFunc || !e || e.length === 0 ? [] : u.adapter.findAll(t, e); }), I0 = yr(function (t, e, u) { return t === bu.default.falseFunc || !e || e.length === 0 ? null : u.adapter.findOne(t, e); });
-var yt = me(be(), 1);
+var D0 = yr(function (t, e, u) { return t === pu.default.falseFunc || !e || e.length === 0 ? [] : u.adapter.findAll(t, e); }), I0 = yr(function (t, e, u) { return t === pu.default.falseFunc || !e || e.length === 0 ? null : u.adapter.findOne(t, e); });
+var yt = me(pe(), 1);
 var ni = new Set(["first", "last", "eq", "gt", "nth", "lt", "even", "odd"]);
 function Ue(t) { return t.type !== "pseudo" ? !1 : ni.has(t.name) ? !0 : t.name === "not" && Array.isArray(t.data) ? t.data.some(function (e) { return e.some(Ue); }) : !1; }
 function Sr(t, e, u) { var i = e != null ? parseInt(e, 10) : NaN; switch (t) {
@@ -1459,7 +1459,7 @@ function wt(t) {
     }
     return [u, e];
 }
-var ci = { type: _.Universal, namespace: null }, si = { type: _.Pseudo, name: "scope", data: null };
+var ci = { type: q.Universal, namespace: null }, si = { type: q.Pseudo, name: "scope", data: null };
 function vu(t, e, u) {
     if (u === void 0) { u = {}; }
     return oi([t], e, u);
@@ -1469,65 +1469,65 @@ function oi(t, e, u) {
     if (typeof e == "function")
         return t.some(e);
     var _b = __read(wt(ge(e)), 2), i = _b[0], n = _b[1];
-    return i.length > 0 && t.some(xt(i, u)) || n.some(function (c) { return kr(c, t, u).length > 0; });
+    return i.length > 0 && t.some(xt(i, u)) || n.some(function (s) { return kr(s, t, u).length > 0; });
 }
-function fi(t, e, u, i) { var n = typeof u == "string" ? parseInt(u, 10) : NaN; switch (t) {
+function li(t, e, u, i) { var n = typeof u == "string" ? parseInt(u, 10) : NaN; switch (t) {
     case "first":
     case "lt": return e;
     case "last": return e.length > 0 ? [e[e.length - 1]] : e;
     case "nth":
     case "eq": return isFinite(n) && Math.abs(n) < e.length ? [n < 0 ? e[e.length + n] : e[n]] : [];
     case "gt": return isFinite(n) ? e.slice(n + 1) : [];
-    case "even": return e.filter(function (c, h) { return h % 2 === 0; });
-    case "odd": return e.filter(function (c, h) { return h % 2 === 1; });
+    case "even": return e.filter(function (s, h) { return h % 2 === 0; });
+    case "odd": return e.filter(function (s, h) { return h % 2 === 1; });
     case "not": {
-        var c_1 = new Set(li(u, e, i));
-        return e.filter(function (h) { return !c_1.has(h); });
+        var s_1 = new Set(fi(u, e, i));
+        return e.filter(function (h) { return !s_1.has(h); });
     }
 } }
-function li(t, e, u) { if (e.length === 0)
-    return []; var _b = __read(wt(t), 2), i = _b[0], n = _b[1], c; if (i.length) {
+function fi(t, e, u) { if (e.length === 0)
+    return []; var _b = __read(wt(t), 2), i = _b[0], n = _b[1], s; if (i.length) {
     var h = xu(e, i, u);
     if (n.length === 0)
         return h;
-    h.length && (c = new Set(h));
-} for (var h = 0; h < n.length && (c == null ? void 0 : c.size) !== e.length; h++) {
-    var p = n[h];
-    if ((c ? e.filter(function (E) { return P(E) && !c.has(E); }) : e).length === 0)
+    h.length && (s = new Set(h));
+} for (var h = 0; h < n.length && (s == null ? void 0 : s.size) !== e.length; h++) {
+    var m = n[h];
+    if ((s ? e.filter(function (E) { return P(E) && !s.has(E); }) : e).length === 0)
         break;
-    var S = kr(p, e, u);
+    var S = kr(m, e, u);
     if (S.length)
-        if (c)
-            S.forEach(function (E) { return c.add(E); });
+        if (s)
+            S.forEach(function (E) { return s.add(E); });
         else {
             if (h === n.length - 1)
                 return S;
-            c = new Set(S);
+            s = new Set(S);
         }
-} return typeof c != "undefined" ? c.size === e.length ? e : e.filter(function (h) { return c.has(h); }) : []; }
+} return typeof s != "undefined" ? s.size === e.length ? e : e.filter(function (h) { return s.has(h); }) : []; }
 function kr(t, e, u) { var i; if (t.some(ve)) {
-    var n = (i = u.root) !== null && i !== void 0 ? i : Ar(e[0]), c = pe(ue({}, u), { context: e, relativeSelector: !1 });
-    return t.push(si), St(n, t, c, !0, e.length);
+    var n = (i = u.root) !== null && i !== void 0 ? i : Ar(e[0]), s = be(ue({}, u), { context: e, relativeSelector: !1 });
+    return t.push(si), St(n, t, s, !0, e.length);
 } return St(e, t, u, !1, e.length); }
 function wu(t, e, u, i) {
     if (u === void 0) { u = {}; }
     if (i === void 0) { i = 1 / 0; }
     if (typeof t == "function")
         return Tr(e, t);
-    var _b = __read(wt(ge(t)), 2), n = _b[0], c = _b[1], h = c.map(function (p) { return St(e, p, u, !0, i); });
-    return n.length && h.push(mu(e, n, u, i)), h.length === 0 ? [] : h.length === 1 ? h[0] : uu(h.reduce(function (p, w) { return __spreadArray(__spreadArray([], __read(p), false), __read(w), false); }));
+    var _b = __read(wt(ge(t)), 2), n = _b[0], s = _b[1], h = s.map(function (m) { return St(e, m, u, !0, i); });
+    return n.length && h.push(mu(e, n, u, i)), h.length === 0 ? [] : h.length === 1 ? h[0] : uu(h.reduce(function (m, y) { return __spreadArray(__spreadArray([], __read(m), false), __read(y), false); }));
 }
-function St(t, e, u, i, n) { var c = e.findIndex(Ue), h = e.slice(0, c), p = e[c], w = e.length - 1 === c ? n : 1 / 0, S = Sr(p.name, p.data, w); if (S === 0)
-    return []; var D = (h.length === 0 && !Array.isArray(t) ? ct(t).filter(P) : h.length === 0 ? (Array.isArray(t) ? t : [t]).filter(P) : i || h.some(ve) ? mu(t, [h], u, S) : xu(t, [h], u)).slice(0, S), N = fi(p.name, D, p.data, u); if (N.length === 0 || e.length === c + 1)
-    return N; var q = e.slice(c + 1), I = q.some(ve); if (I) {
-    if (ve(q[0])) {
-        var U = q[0].type;
-        (U === _.Sibling || U === _.Adjacent) && (N = vt(N, ae, !0)), q.unshift(ci);
+function St(t, e, u, i, n) { var s = e.findIndex(Ue), h = e.slice(0, s), m = e[s], y = e.length - 1 === s ? n : 1 / 0, S = Sr(m.name, m.data, y); if (S === 0)
+    return []; var D = (h.length === 0 && !Array.isArray(t) ? ct(t).filter(P) : h.length === 0 ? (Array.isArray(t) ? t : [t]).filter(P) : i || h.some(ve) ? mu(t, [h], u, S) : xu(t, [h], u)).slice(0, S), _ = li(m.name, D, m.data, u); if (_.length === 0 || e.length === s + 1)
+    return _; var N = e.slice(s + 1), I = N.some(ve); if (I) {
+    if (ve(N[0])) {
+        var U = N[0].type;
+        (U === q.Sibling || U === q.Adjacent) && (_ = vt(_, ae, !0)), N.unshift(ci);
     }
-    u = pe(ue({}, u), { relativeSelector: !1, rootFunc: function (U) { return N.includes(U); } });
+    u = be(ue({}, u), { relativeSelector: !1, rootFunc: function (U) { return _.includes(U); } });
 }
 else
-    u.rootFunc && u.rootFunc !== yt.trueFunc && (u = pe(ue({}, u), { rootFunc: yt.trueFunc })); return q.some(Ue) ? St(N, q, u, !1, n) : I ? mu(N, [q], u, n) : xu(N, [q], u); }
+    u.rootFunc && u.rootFunc !== yt.trueFunc && (u = be(ue({}, u), { rootFunc: yt.trueFunc })); return N.some(Ue) ? St(_, N, u, !1, n) : I ? mu(_, [N], u, n) : xu(_, [N], u); }
 function mu(t, e, u, i) { var n = xt(e, u, t); return Tr(t, n, i); }
 function Tr(t, e, u) {
     if (u === void 0) { u = 1 / 0; }
@@ -1543,27 +1543,27 @@ function yu(t) { var e = [], u = t.split("/"); for (var i = 0; i < u.length; i++
 } return e.join("/"); }
 function kt(t, e) { e = e == null ? "" : String(e).trim(); var u = Er(e); if (u.scheme || !t)
     return e; var i = Er(String(t)); if (!i.scheme)
-    return e; var n = i.auth, c, h; if (u.auth !== void 0)
-    n = u.auth, c = yu(u.path), h = u.query;
+    return e; var n = i.auth, s, h; if (u.auth !== void 0)
+    n = u.auth, s = yu(u.path), h = u.query;
 else if (!u.path)
-    c = i.path, h = u.query !== void 0 ? u.query : i.query;
+    s = i.path, h = u.query !== void 0 ? u.query : i.query;
 else {
     if (u.path.charAt(0) === "/")
-        c = yu(u.path);
+        s = yu(u.path);
     else {
-        var p = n !== void 0 && !i.path ? "/" : i.path.slice(0, i.path.lastIndexOf("/") + 1);
-        c = yu(p + u.path);
+        var m = n !== void 0 && !i.path ? "/" : i.path.slice(0, i.path.lastIndexOf("/") + 1);
+        s = yu(m + u.path);
     }
     h = u.query;
-} return n !== void 0 && c.charAt(0) !== "/" && (c = "/" + c), i.scheme + ":" + (n !== void 0 ? "//" + n : "") + c + (h !== void 0 ? "?" + h : "") + (u.frag !== void 0 ? "#" + u.frag : ""); }
+} return n !== void 0 && s.charAt(0) !== "/" && (s = "/" + s), i.scheme + ":" + (n !== void 0 ? "//" + n : "") + s + (h !== void 0 ? "?" + h : "") + (u.frag !== void 0 ? "#" + u.frag : ""); }
 var At = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-function Nr(t) { if (typeof btoa == "function")
+function _r(t) { if (typeof btoa == "function")
     return btoa(t); var e = ""; for (var u = 0; u < t.length; u += 3) {
-    var i = t.charCodeAt(u), n = t.charCodeAt(u + 1), c = t.charCodeAt(u + 2), h = i << 16 | (n || 0) << 8 | (c || 0);
+    var i = t.charCodeAt(u), n = t.charCodeAt(u + 1), s = t.charCodeAt(u + 2), h = i << 16 | (n || 0) << 8 | (s || 0);
     e += At[h >> 18 & 63] + At[h >> 12 & 63] + (u + 1 < t.length ? At[h >> 6 & 63] : "=") + (u + 2 < t.length ? At[h & 63] : "=");
 } return e; }
-var di = function (t, e, u) { return wu(t, e, u); }, Dr = function (t, e, u) { return wu(t, e, u, 1)[0] || null; }, Ir = /[\s ]+/g, qr = new Set(["p", "div", "br", "li", "tr", "h1", "h2", "h3", "h4", "h5", "h6", "ul", "ol", "table", "section", "article", "header", "footer", "blockquote", "pre", "dd", "dt", "hr"]), hi = { containsOwn: function (t, e) { return Au(t).toLowerCase().includes(String(e).toLowerCase()); }, matches: function (t, e) { return _r(e).test(Su(t)); }, matchesOwn: function (t, e) { return _r(e).test(Au(t)); }, containsData: function (t, e) { return de(t).includes(e); }, "contains-ci": function (t, e) { return Su(t).toLowerCase().includes(String(e).toLowerCase()); } };
-function _r(t) { try {
+var di = function (t, e, u) { return wu(t, e, u); }, Dr = function (t, e, u) { return wu(t, e, u, 1)[0] || null; }, Ir = /[\s ]+/g, Nr = new Set(["p", "div", "br", "li", "tr", "h1", "h2", "h3", "h4", "h5", "h6", "ul", "ol", "table", "section", "article", "header", "footer", "blockquote", "pre", "dd", "dt", "hr"]), hi = { containsOwn: function (t, e) { return Au(t).toLowerCase().includes(String(e).toLowerCase()); }, matches: function (t, e) { return qr(e).test(Su(t)); }, matchesOwn: function (t, e) { return qr(e).test(Au(t)); }, containsData: function (t, e) { return de(t).includes(e); }, "contains-ci": function (t, e) { return Su(t).toLowerCase().includes(String(e).toLowerCase()); } };
+function qr(t) { try {
     return new RegExp(t);
 }
 catch (e) {
@@ -1578,7 +1578,7 @@ function Su(t) { if (!t)
     try {
         for (var _c = __values(i.children || []), _d = _c.next(); !_d.done; _d = _c.next()) {
             var n = _d.value;
-            n.type === "text" ? e += n.data : (n.type === "tag" || n.type === "script" || n.type === "style") && (n.name === "br" ? e += " " : n.type === "tag" && (qr.has(n.name) && (e += " "), u(n), qr.has(n.name) && (e += " ")));
+            n.type === "text" ? e += n.data : (n.type === "tag" || n.type === "script" || n.type === "style") && (n.name === "br" ? e += " " : n.type === "tag" && (Nr.has(n.name) && (e += " "), u(n), Nr.has(n.name) && (e += " ")));
         }
     }
     catch (e_8_1) { e_8 = { error: e_8_1 }; }
@@ -1815,28 +1815,28 @@ finally {
     }
     finally { if (e_1) throw e_1.error; }
 }
-function Nt(t, e) { var u = rr(String(t == null ? "" : t), { decodeEntities: !0, lowerCaseAttributeNames: !0 }), i = new ye(u, null); i.doc = i, i.__base = e || ""; var n = Dr("base[href]", u); return n && n.attribs.href && (i.__base = Lr(i.__base, n.attribs.href)), i; }
-function Or(t, e) { var u = new Set((e || ["p", "br", "b", "i", "em", "strong", "img", "div", "span"]).map(String)), i = Nt(t), n = function (c) {
+function _t(t, e) { var u = rr(String(t == null ? "" : t), { decodeEntities: !0, lowerCaseAttributeNames: !0 }), i = new ye(u, null); i.doc = i, i.__base = e || ""; var n = Dr("base[href]", u); return n && n.attribs.href && (i.__base = Lr(i.__base, n.attribs.href)), i; }
+function Or(t, e) { var u = new Set((e || ["p", "br", "b", "i", "em", "strong", "img", "div", "span"]).map(String)), i = _t(t), n = function (s) {
     var e_17, _b, e_18, _c;
     try {
-        for (var _d = __values((c.children || []).slice()), _f = _d.next(); !_f.done; _f = _d.next()) {
+        for (var _d = __values((s.children || []).slice()), _f = _d.next(); !_f.done; _f = _d.next()) {
             var h = _f.value;
             if (h.type === "script" || h.type === "style" || h.type === "comment") {
                 se(h);
                 continue;
             }
             if (h.type === "tag" && (n(h), !u.has(h.name))) {
-                var p = (h.children || []).slice();
+                var m = (h.children || []).slice();
                 try {
-                    for (var p_3 = (e_18 = void 0, __values(p)), p_3_1 = p_3.next(); !p_3_1.done; p_3_1 = p_3.next()) {
-                        var w = p_3_1.value;
-                        eu(h, w);
+                    for (var m_3 = (e_18 = void 0, __values(m)), m_3_1 = m_3.next(); !m_3_1.done; m_3_1 = m_3.next()) {
+                        var y = m_3_1.value;
+                        eu(h, y);
                     }
                 }
                 catch (e_18_1) { e_18 = { error: e_18_1 }; }
                 finally {
                     try {
-                        if (p_3_1 && !p_3_1.done && (_c = p_3.return)) _c.call(p_3);
+                        if (m_3_1 && !m_3_1.done && (_c = m_3.return)) _c.call(m_3);
                     }
                     finally { if (e_18) throw e_18.error; }
                 }
@@ -1855,9 +1855,9 @@ function Or(t, e) { var u = new Set((e || ["p", "br", "b", "i", "em", "strong", 
 var Ke = "Mozilla/5.0 (Linux; Android 14; SM-S918B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36";
 function gi(t) { if (typeof Buffer != "undefined")
     return Buffer.from(t).toString("base64"); var e = ""; for (var u = 0; u < t.length; u++)
-    e += String.fromCharCode(t[u]); return Nr(e); }
+    e += String.fromCharCode(t[u]); return _r(e); }
 function Ur(t) { return typeof TextEncoder != "undefined" ? new TextEncoder().encode(t) : Uint8Array.from(unescape(encodeURIComponent(t)), function (e) { return e.charCodeAt(0); }); }
-function bi(t) { var e = ""; for (var u = 0; u < t.length; u++) {
+function pi(t) { var e = ""; for (var u = 0; u < t.length; u++) {
     var i = t.charCodeAt(u);
     if (i < 128) {
         e += t[u];
@@ -1879,9 +1879,9 @@ var Eu = (function () {
         try {
             return new TextDecoder(String(e).toLowerCase()).decode(this._raw.bytes);
         }
-        catch (i) { } var u = this._raw.text == null ? "" : String(this._raw.text); return e || (e = (String(this.header("content-type") || "").match(/charset=([\w-]+)/i) || [])[1]), e && /^(gbk|gb2312|gb18030)$/i.test(String(e)) && typeof __GBK_TABLE == "string" && /[\x80-\xff]/.test(u) && !/[^\x00-\xff]/.test(u) ? bi(u) : u; };
+        catch (i) { } var u = this._raw.text == null ? "" : String(this._raw.text); return e || (e = (String(this.header("content-type") || "").match(/charset=([\w-]+)/i) || [])[1]), e && /^(gbk|gb2312|gb18030)$/i.test(String(e)) && typeof __GBK_TABLE == "string" && /[\x80-\xff]/.test(u) && !/[^\x00-\xff]/.test(u) ? pi(u) : u; };
     Eu.prototype.string = function (e) { return this.text(e); };
-    Eu.prototype.html = function (e) { return Nt(this.text(e), this.url); };
+    Eu.prototype.html = function (e) { return _t(this.text(e), this.url); };
     Eu.prototype.json = function () { try {
         return JSON.parse(this.text());
     }
@@ -1892,7 +1892,7 @@ var Eu = (function () {
     Eu.prototype.blob = function () { var e = this; return { size: (this._raw.bytes || Ur(this.text())).length, type: this.header("content-type"), base64: function () { return e.base64(); } }; };
     return Eu;
 }());
-function pi(t) {
+function bi(t) {
     var e_19, _b;
     var e = {};
     if (!t)
@@ -1914,34 +1914,34 @@ function pi(t) {
     }
     return e;
 }
-function Mr(t, e) { var u = function (h) { return ({ getItem: function (p) { var w = t.storageGet(h + p); return w == null ? null : w; }, setItem: function (p, w) { return t.storageSet(h + p, w == null ? null : String(w)); }, removeItem: function (p) { return t.storageSet(h + p, null); }, clear: function () { return t.storageClear && t.storageClear(h); } }); }, i = "__cookie__", n = {}; n.Response = { success: function (h, p) { return ({ code: 0, data: h === void 0 ? null : h, data2: p === void 0 ? null : p }); }, error: function (h) { return ({ code: 1, data: h == null ? "" : String(h) }); } }, n.fetch = function (p, w) {
-    return __awaiter(this, void 0, void 0, function () { var S, U, E, D, N, U, q, I, U_1; return __generator(this, function (_b) {
+function Mr(t, e) { var u = function (h) { return ({ getItem: function (m) { var y = t.storageGet(h + m); return y == null ? null : y; }, setItem: function (m, y) { return t.storageSet(h + m, y == null ? null : String(y)); }, removeItem: function (m) { return t.storageSet(h + m, null); }, clear: function () { return t.storageClear && t.storageClear(h); } }); }, i = "__cookie__", n = {}; n.Response = { success: function (h, m) { return ({ code: 0, data: h === void 0 ? null : h, data2: m === void 0 ? null : m }); }, error: function (h) { return ({ code: 1, data: h == null ? "" : String(h) }); } }, n.fetch = function (m, y) {
+    return __awaiter(this, void 0, void 0, function () { var S, U, E, D, _, U, N, I, U_1; return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                w = w || {};
-                S = String(p);
-                if (w.queries) {
-                    U = Object.entries(w.queries).map(function (_b) {
+                y = y || {};
+                S = String(m);
+                if (y.queries) {
+                    U = Object.entries(y.queries).map(function (_b) {
                         var _c = __read(_b, 2), W = _c[0], Z = _c[1];
                         return encodeURIComponent(W) + "=" + encodeURIComponent(Z);
                     }).join("&");
                     U && (S += (S.includes("?") ? "&" : "?") + U);
                 }
-                E = Object.assign({ "User-Agent": Ke }, pi(w.headers)), D = t.storageGet(i);
+                E = Object.assign({ "User-Agent": Ke }, bi(y.headers)), D = t.storageGet(i);
                 D && !Object.keys(E).some(function (U) { return U.toLowerCase() === "cookie"; }) && (E.Cookie = D);
-                N = w.body;
-                if (N != null && typeof N == "object") {
+                _ = y.body;
+                if (_ != null && typeof _ == "object") {
                     U = Object.keys(E).find(function (W) { return W.toLowerCase() === "content-type"; });
-                    U && /json/i.test(E[U]) ? N = JSON.stringify(N) : (N = Object.entries(N).map(function (_b) {
+                    U && /json/i.test(E[U]) ? _ = JSON.stringify(_) : (_ = Object.entries(_).map(function (_b) {
                         var _c = __read(_b, 2), W = _c[0], Z = _c[1];
                         return encodeURIComponent(W) + "=" + encodeURIComponent(Z);
                     }).join("&"), U || (E["Content-Type"] = "application/x-www-form-urlencoded"));
                 }
-                q = { url: S, method: (w.method || (N != null ? "POST" : "GET")).toUpperCase(), headers: E, body: N, timeout: w.timeout };
+                N = { url: S, method: (y.method || (_ != null ? "POST" : "GET")).toUpperCase(), headers: E, body: _, timeout: y.timeout };
                 _b.label = 1;
             case 1:
                 _b.trys.push([1, 3, , 4]);
-                return [4, t.request(q)];
+                return [4, t.request(N)];
             case 2:
                 I = _b.sent();
                 return [3, 4];
@@ -1949,38 +1949,38 @@ function Mr(t, e) { var u = function (h) { return ({ getItem: function (p) { var
                 U_1 = _b.sent();
                 I = { status: 0, url: S, headers: {}, text: "", error: String(U_1 && U_1.message || U_1) };
                 return [3, 4];
-            case 4: return [2, new Eu(I, q)];
+            case 4: return [2, new Eu(I, N)];
         }
     }); });
-}, n.Http = { get: function (h) { return Pr(n, "GET", h); }, post: function (h) { return Pr(n, "POST", h); } }, n.Html = { parse: function (h, p) { return Nt(h, p || ""); }, clean: function (h, p) { return Or(h, p); } }, n.localStorage = u("ls:"), n.cacheStorage = u("cs:"), n.localConfig = { getItem: function (h) { return t.config(h); } }, n.localCookie = { setCookie: function (h) { t.storageSet(i, String(h).split(";")[0]); }, getCookie: function () { return t.storageGet(i) || ""; } }, n.sleep = function (h) { return new Promise(function (p) { return typeof setTimeout == "function" ? setTimeout(p, Math.min(Number(h) || 0, 1e4)) : p(); }); }; var c = function () {
+}, n.Http = { get: function (h) { return Pr(n, "GET", h); }, post: function (h) { return Pr(n, "POST", h); } }, n.Html = { parse: function (h, m) { return _t(h, m || ""); }, clean: function (h, m) { return Or(h, m); } }, n.localStorage = u("ls:"), n.cacheStorage = u("cs:"), n.localConfig = { getItem: function (h) { return t.config(h); } }, n.localCookie = { setCookie: function (h) { t.storageSet(i, String(h).split(";")[0]); }, getCookie: function () { return t.storageGet(i) || ""; } }, n.sleep = function (h) { return new Promise(function (m) { return typeof setTimeout == "function" ? setTimeout(m, Math.min(Number(h) || 0, 1e4)) : m(); }); }; var s = function () {
     var h = [];
-    for (var _b = 0; _b < arguments.length; _b++) {
-        h[_b] = arguments[_b];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        h[_i] = arguments[_i];
     }
     try {
-        t.log && t.log(h.map(function (p) { return typeof p == "string" ? p : JSON.stringify(p); }).join(" "));
+        t.log && t.log(h.map(function (m) { return typeof m == "string" ? m : JSON.stringify(m); }).join(" "));
     }
-    catch (p) { }
-}; return n.Log = { log: c }, n.console = { log: c, error: c, warn: c, info: c }, n.Console = n.console, n.log = c, n.UserAgent = { system: function () { return Ke; }, chrome: function () { return Ke; }, android: function () { return Ke; }, ios: function () { return "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1"; } }, n.Engine = { newBrowser: function () { throw new Error("Headless browser is not available in this app (" + (t.name || "host") + ")"); } }, n.Graphics = { createCanvas: function () { throw new Error("Graphics API is not available in this app"); }, createImage: function () { throw new Error("Graphics API is not available in this app"); } }, n.Script = { execute: function () { throw new Error("Script.execute is not available"); } }, n.Elements = ie, n.Element = ye, n.__meta = e, n; }
-function Pr(t, e, u) { var i = { method: e, url: u, headers: {}, body: void 0, queries: void 0 }, n = { headers: function (c) { return Object.assign(i.headers, c || {}), n; }, header: function (c, h) { return i.headers[c] = h, n; }, params: function (c) { return i.queries = c, n; }, queries: function (c) { return i.queries = c, n; }, body: function (c) { return i.body = c, n; }, html: function (c) {
+    catch (m) { }
+}; return n.Log = { log: s }, n.console = { log: s, error: s, warn: s, info: s }, n.Console = n.console, n.log = s, n.UserAgent = { system: function () { return Ke; }, chrome: function () { return Ke; }, android: function () { return Ke; }, ios: function () { return "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1"; } }, n.Engine = { newBrowser: function () { throw new Error("Headless browser is not available in this app (" + (t.name || "host") + ")"); } }, n.Graphics = { createCanvas: function () { throw new Error("Graphics API is not available in this app"); }, createImage: function () { throw new Error("Graphics API is not available in this app"); } }, n.Script = { execute: function () { throw new Error("Script.execute is not available"); } }, n.Elements = ie, n.Element = ye, n.__meta = e, n; }
+function Pr(t, e, u) { var i = { method: e, url: u, headers: {}, body: void 0, queries: void 0 }, n = { headers: function (s) { return Object.assign(i.headers, s || {}), n; }, header: function (s, h) { return i.headers[s] = h, n; }, params: function (s) { return i.queries = s, n; }, queries: function (s) { return i.queries = s, n; }, body: function (s) { return i.body = s, n; }, html: function (s) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0: return [4, t.fetch(i.url, i)];
-                case 1: return [2, (_b.sent()).html(c)];
+                case 1: return [2, (_b.sent()).html(s)];
             }
         }); });
-    }, string: function (c) {
+    }, string: function (s) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0: return [4, t.fetch(i.url, i)];
-                case 1: return [2, (_b.sent()).text(c)];
+                case 1: return [2, (_b.sent()).text(s)];
             }
         }); });
-    }, text: function (c) {
+    }, text: function (s) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0: return [4, t.fetch(i.url, i)];
-                case 1: return [2, (_b.sent()).text(c)];
+                case 1: return [2, (_b.sent()).text(s)];
             }
         }); });
     }, json: function () {
@@ -2001,7 +2001,7 @@ function Se(t, e) { if (!e)
 catch (u) {
     return e;
 } }
-var F = function (t) { return t == null ? "" : String(t); }, mi = function (t) { return t.filter(function (e, u) { return e && t.indexOf(e) === u; }); }, qt = (function () {
+var F = function (t) { return t == null ? "" : String(t); }, mi = function (t) { return t.filter(function (e, u) { return e && t.indexOf(e) === u; }); }, Nt = (function () {
     function class_1(e) {
         var u = e.meta, i = e.scripts, n = e.host;
         this.meta = u, this.host = n, this.env = e.env || Mr(n, u), this.scripts = i, this.cache = {}, this.tokens = {};
@@ -2014,27 +2014,27 @@ var F = function (t) { return t == null ? "" : String(t); }, mi = function (t) {
     class_1.prototype.has = function (e) { return !!this.scripts[e]; };
     class_1.prototype.run = function (e) {
         var u = [];
-        for (var _b = 1; _b < arguments.length; _b++) {
-            u[_b - 1] = arguments[_b];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            u[_i - 1] = arguments[_i];
         }
         return __awaiter(this, void 0, void 0, function () {
-            var i, n, c, h;
+            var i, n, s, h;
             var _this = this;
-            return __generator(this, function (_c) {
-                switch (_c.label) {
+            return __generator(this, function (_b) {
+                switch (_b.label) {
                     case 0:
                         i = this.scripts[e];
                         if (!i)
                             throw new Error("script " + e + " missing");
-                        n = function (p) { var w = _this.host.config(p); return w == null ? (_this.meta.configDefaults || {})[p] : w; };
+                        n = function (m) { var y = _this.host.config(m); return y == null ? (_this.meta.configDefaults || {})[m] : y; };
                         return [4, i(this.env, n)];
                     case 1:
-                        c = _c.sent();
-                        if (typeof c != "function")
+                        s = _b.sent();
+                        if (typeof s != "function")
                             throw new Error(e + ": execute() not defined");
-                        return [4, c.apply(void 0, __spreadArray([], __read(u.map(F)), false))];
+                        return [4, s.apply(void 0, __spreadArray([], __read(u.map(F)), false))];
                     case 2:
-                        h = _c.sent();
+                        h = _b.sent();
                         if (!h)
                             throw new Error(e + ": empty result");
                         if (h.code !== 0)
@@ -2086,22 +2086,22 @@ var F = function (t) { return t == null ? "" : String(t); }, mi = function (t) {
     };
     class_1.prototype.list = function (e, u, i) {
         return __awaiter(this, void 0, void 0, function () {
-            var n, c, h, p, w;
+            var n, s, h, m, y;
             var _this = this;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
                         n = e + "|" + u;
                         i = Math.max(1, i | 0);
-                        c = i === 1 ? "" : this.tokens[n + "|" + i];
-                        if (i > 1 && c == null)
+                        s = i === 1 ? "" : this.tokens[n + "|" + i];
+                        if (i > 1 && s == null)
                             return [2, { items: [], hasNext: !1 }];
-                        return [4, this.run(e, u, c)];
+                        return [4, this.run(e, u, s)];
                     case 1:
-                        h = _b.sent(), p = F(h.data2);
-                        p && (this.tokens[n + "|" + (i + 1)] = p);
-                        w = (h.data || []).filter(Boolean).map(function (S) { return ({ name: F(S.name).trim(), link: Se(S.host || _this.base + "/", S.link), cover: Se(S.host || _this.base + "/", S.cover), description: F(S.description), tag: F(S.tag) }); }).filter(function (S) { return S.name && S.link; });
-                        return [2, { items: w, hasNext: !!p && w.length > 0 }];
+                        h = _b.sent(), m = F(h.data2);
+                        m && (this.tokens[n + "|" + (i + 1)] = m);
+                        y = (h.data || []).filter(Boolean).map(function (S) { return ({ name: F(S.name).trim(), link: Se(S.host || _this.base + "/", S.link), cover: Se(S.host || _this.base + "/", S.cover), description: F(S.description), tag: F(S.tag) }); }).filter(function (S) { return S.name && S.link; });
+                        return [2, { items: y, hasNext: !!m && y.length > 0 }];
                 }
             });
         });
@@ -2223,10 +2223,10 @@ var F = function (t) { return t == null ? "" : String(t); }, mi = function (t) {
                         _d.label = 6;
                     case 6:
                         _b, typeof u == "string" && (u = u.split(/[\n,]+/));
-                        i = function (c) { return !c || /^data:|loading|lazy|blank|placeholder|spacer|\/nocover|1x1\./i.test(String(c)); }, n = function (c) { if (typeof c == "string")
-                            return c; if (!c)
-                            return ""; var h = c.link || c.url || c.data, p = Array.isArray(c.fallback) ? c.fallback.filter(Boolean) : []; return i(h) && p.length ? p[0] : h; };
-                        return [2, (u || []).map(function (c) { return Se(_this.base + "/", n(c)); }).filter(Boolean)];
+                        i = function (s) { return !s || /^data:|loading|lazy|blank|placeholder|spacer|\/nocover|1x1\./i.test(String(s)); }, n = function (s) { if (typeof s == "string")
+                            return s; if (!s)
+                            return ""; var h = s.link || s.url || s.data, m = Array.isArray(s.fallback) ? s.fallback.filter(Boolean) : []; return i(h) && m.length ? m[0] : h; };
+                        return [2, (u || []).map(function (s) { return Se(_this.base + "/", n(s)); }).filter(Boolean)];
                 }
             });
         });
@@ -2243,7 +2243,7 @@ var F = function (t) { return t == null ? "" : String(t); }, mi = function (t) {
     };
     class_1.prototype.videos = function (e) {
         return __awaiter(this, void 0, void 0, function () {
-            var u, n, i, u_3, u_3_1, n, c, h, h_2, h_2_1, p, c_2, e_21_1;
+            var u, n, i, u_3, u_3_1, n, s, h, h_2, h_2_1, m, s_2, e_21_1;
             var e_21, _b, e_22, _c;
             var _this = this;
             return __generator(this, function (_d) {
@@ -2254,7 +2254,7 @@ var F = function (t) { return t == null ? "" : String(t); }, mi = function (t) {
                         return [4, this.run("chap", e)];
                     case 1:
                         n = (_d.sent()).data;
-                        Array.isArray(n) && n.length && (u = n.map(function (c) { return typeof c == "string" ? { title: "Server", data: c } : { title: F(c.title || c.name || "Server"), data: F(c.data || c.url || c.link) }; }));
+                        Array.isArray(n) && n.length && (u = n.map(function (s) { return typeof s == "string" ? { title: "Server", data: s } : { title: F(s.title || s.name || "Server"), data: F(s.data || s.url || s.link) }; }));
                         _d.label = 2;
                     case 2:
                         i = [];
@@ -2271,11 +2271,11 @@ var F = function (t) { return t == null ? "" : String(t); }, mi = function (t) {
                         _d.trys.push([5, 7, , 8]);
                         return [4, this.run("track", n.data)];
                     case 6:
-                        c = (_d.sent()).data || {}, h = Array.isArray(c) ? c : [c];
+                        s = (_d.sent()).data || {}, h = Array.isArray(s) ? s : [s];
                         try {
                             for (h_2 = (e_22 = void 0, __values(h)), h_2_1 = h_2.next(); !h_2_1.done; h_2_1 = h_2.next()) {
-                                p = h_2_1.value;
-                                !p || !p.data || p.type !== "webview" && i.push({ url: Se(p.host || this.base + "/", p.data), quality: n.title + (p.quality ? " " + p.quality : ""), headers: p.headers || { Referer: this.base + "/" }, subtitles: (p.subtitles || (p.subtitle ? [{ data: p.subtitle, label: "Sub" }] : [])).map(function (w) { return ({ file: Se(_this.base + "/", w.data || w.file), label: F(w.label || w.language || "Sub") }); }), mimeType: F(p.mimeType) });
+                                m = h_2_1.value;
+                                !m || !m.data || m.type !== "webview" && i.push({ url: Se(m.host || this.base + "/", m.data), quality: n.title + (m.quality ? " " + m.quality : ""), headers: m.headers || { Referer: this.base + "/" }, subtitles: (m.subtitles || (m.subtitle ? [{ data: m.subtitle, label: "Sub" }] : [])).map(function (y) { return ({ file: Se(_this.base + "/", y.data || y.file), label: F(y.label || y.language || "Sub") }); }), mimeType: F(m.mimeType) });
                             }
                         }
                         catch (e_22_1) { e_22 = { error: e_22_1 }; }
@@ -2287,8 +2287,8 @@ var F = function (t) { return t == null ? "" : String(t); }, mi = function (t) {
                         }
                         return [3, 8];
                     case 7:
-                        c_2 = _d.sent();
-                        this.host.log && this.host.log("track " + n.title + ": " + c_2.message);
+                        s_2 = _d.sent();
+                        this.host.log && this.host.log("track " + n.title + ": " + s_2.message);
                         return [3, 8];
                     case 8:
                         u_3_1 = u_3.next();
@@ -2335,16 +2335,16 @@ function z(t, e) {
         }
     }); });
 }
-var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.co", type: "novel", locale: "vi", nsfw: !1, version: 3, config: { DOMAIN: { title: "Tên miền", subtitle: "Đổi khi trang đổi tên miền", default: "https://luvevalandn2.co", values: ["https://luvevalandn2.co"], mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://luvevalandn2.co" }, itemType: 2, lnId: "kiritokmn.luvevaland", lnIcon: "", lnVersion: "1.2.3" }, Fr = { home: function (t, e) {
+var le = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.co", type: "novel", locale: "vi", nsfw: !1, version: 3, config: { DOMAIN: { title: "Tên miền", subtitle: "Đổi khi trang đổi tên miền", default: "https://luvevalandn2.co", values: ["https://luvevalandn2.co"], mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://luvevalandn2.co" }, itemType: 2, lnId: "kiritokmn.luvevaland", lnIcon: "", lnVersion: "1.2.3" }, Fr = { home: function (t, e) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
-                return [2, (function (u, i, n, c, h, p, w, S, E, D, N, q, I, U, W, Z, ne) {
+                return [2, (function (u, i, n, s, h, m, y, S, E, D, _, N, I, U, W, Z, ne) {
                         return __awaiter(this, void 0, void 0, function () {
-                            var R;
+                            var H;
                             return __generator(this, function (_b) {
                                 switch (_b.label) {
                                     case 0:
-                                        R = e("DOMAIN");
+                                        H = e("DOMAIN");
                                         return [4, (function () {
                                                 return __awaiter(this, void 0, void 0, function () {
                                                     function G() {
@@ -2352,58 +2352,58 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                             r = [];
                                                             for (a in o.tabs)
                                                                 r.push({ title: a, input: a, script: "browse.js" });
-                                                            return [2, c.success(r)];
+                                                            return [2, s.success(r)];
                                                         }); });
                                                     }
                                                     var k, o, d, v;
                                                     return __generator(this, function (_b) {
                                                         k = "https://luvevalandn2.co";
                                                         try {
-                                                            R && (k = String(R).replace(/\/+$/, ""));
+                                                            H && (k = String(H).replace(/\/+$/, ""));
                                                         }
                                                         catch (r) { }
                                                         o = { tabs: { "Truyện mới": "/danh-sach/moi-dang[?page={p}]", "Hot tuần": "/danh-sach/truyen-hot-tuan[?page={p}]", "Xem nhiều": "/danh-sach/truyen-nhieu-nguoi-xem[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", ch_list: "td.list-chapter__name a", item: ".book-vertical__item, tr.book__list-item", title: ".book__lg-title a || td.book__list-name a || img@alt", link: "a@href", cover: "img@img", pageSize: 10, d_title: ".breadcrumb__container a.breadcrumb__item:last-child || h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .book__detail-image img@img", d_desc: "#home", d_genres: ".book__detail-text a[href*='/the-loai/']", content: "#chapter-content", c_title: "h1 || h2" }, d = { img: function (r) { if (!r)
-                                                                return ""; for (var a = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], s = 0; s < a.length; s++) {
-                                                                var l = r.attr(a[s]);
-                                                                if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
-                                                                    return d.fix(l.trim());
-                                                            } var f = r.attr("data-srcset") || r.attr("srcset"); return f ? d.fix(f.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? k + r : k + "/" + r) : ""; }, text: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l; return __generator(this, function (_b) {
+                                                                return ""; for (var a = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < a.length; c++) {
+                                                                var f = r.attr(a[c]);
+                                                                if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
+                                                                    return d.fix(f.trim());
+                                                            } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? d.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? k + r : k + "/" + r) : ""; }, text: function (r, a) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            s = 0;
+                                                                            c = 0;
                                                                             _b.label = 1;
                                                                         case 1:
-                                                                            if (!(s < a.length)) return [3, 4];
-                                                                            return [4, r.select(a[s]).text()];
+                                                                            if (!(c < a.length)) return [3, 4];
+                                                                            return [4, r.select(a[c]).text()];
                                                                         case 2:
-                                                                            l = _b.sent();
-                                                                            if (l)
-                                                                                return [2, l.trim()];
+                                                                            f = _b.sent();
+                                                                            if (f)
+                                                                                return [2, f.trim()];
                                                                             _b.label = 3;
                                                                         case 3:
-                                                                            s++;
+                                                                            c++;
                                                                             return [3, 1];
                                                                         case 4: return [2, ""];
                                                                     }
                                                                 }); });
                                                             }, get: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, _b; return __generator(this, function (_c) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, _b; return __generator(this, function (_c) {
                                                                     switch (_c.label) {
                                                                         case 0:
                                                                             a = a || {};
-                                                                            s = { Referer: k + "/" };
+                                                                            c = { Referer: k + "/" };
                                                                             if (a.headers)
-                                                                                for (l in a.headers)
-                                                                                    s[l] = a.headers[l];
-                                                                            return [4, u(r, { method: a.method, headers: s, body: a.body })];
+                                                                                for (f in a.headers)
+                                                                                    c[f] = a.headers[f];
+                                                                            return [4, u(r, { method: a.method, headers: c, body: a.body })];
                                                                         case 1:
-                                                                            f = _c.sent(), g = 0;
+                                                                            l = _c.sent(), g = 0;
                                                                             _c.label = 2;
                                                                         case 2:
-                                                                            _b = f && f.status === 429 && g < 3;
+                                                                            _b = l && l.status === 429 && g < 3;
                                                                             if (!_b) return [3, 4];
-                                                                            return [4, d.cf(f)];
+                                                                            return [4, d.cf(l)];
                                                                         case 3:
                                                                             _b = !(_c.sent());
                                                                             _c.label = 4;
@@ -2412,14 +2412,14 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             return [4, E(1500 * (g + 1))];
                                                                         case 5:
                                                                             _c.sent();
-                                                                            return [4, u(r, { method: a.method, headers: s, body: a.body })];
+                                                                            return [4, u(r, { method: a.method, headers: c, body: a.body })];
                                                                         case 6:
-                                                                            f = _c.sent();
+                                                                            l = _c.sent();
                                                                             _c.label = 7;
                                                                         case 7:
                                                                             g++;
                                                                             return [3, 2];
-                                                                        case 8: return [2, f];
+                                                                        case 8: return [2, l];
                                                                     }
                                                                 }); });
                                                             }, cf: function (r) {
@@ -2445,28 +2445,28 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     }
                                                                 }); });
                                                             }, html: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
                                                                             return [4, d.get(r, a)];
                                                                         case 1: return [4, _c.apply(_b, [_d.sent(), r])];
                                                                         case 2:
-                                                                            s = _d.sent();
-                                                                            return [4, s.html(a && a.charset)];
+                                                                            c = _d.sent();
+                                                                            return [4, c.html(a && a.charset)];
                                                                         case 3: return [2, _d.sent()];
                                                                     }
                                                                 }); });
                                                             }, json: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
                                                                             return [4, d.get(r, a)];
                                                                         case 1: return [4, _c.apply(_b, [_d.sent(), r])];
                                                                         case 2:
-                                                                            s = _d.sent();
-                                                                            return [4, s.json()];
+                                                                            c = _d.sent();
+                                                                            return [4, c.json()];
                                                                         case 3: return [2, _d.sent()];
                                                                     }
                                                                 }); });
@@ -2482,77 +2482,77 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     });
                                                                 });
                                                             }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, v = { pick: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, b, x, m, y, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, b, x, p, w, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             if (!a || !r)
                                                                                 return [2, ""];
-                                                                            s = String(a).split(" || "), l = 0;
+                                                                            c = String(a).split(" || "), f = 0;
                                                                             _d.label = 1;
                                                                         case 1:
-                                                                            if (!(l < s.length)) return [3, 9];
-                                                                            f = s[l], g = "text", b = f.lastIndexOf("@");
-                                                                            b > 0 && !/\[[^\]]*@/.test(f.slice(b)) && (g = f.slice(b + 1), f = f.slice(0, b));
-                                                                            x = f === ":self" ? null : r.select(f), m = f === ":self" ? r : x.size() ? x.first() : null;
-                                                                            if (!m) return [3, 8];
+                                                                            if (!(f < c.length)) return [3, 9];
+                                                                            l = c[f], g = "text", b = l.lastIndexOf("@");
+                                                                            b > 0 && !/\[[^\]]*@/.test(l.slice(b)) && (g = l.slice(b + 1), l = l.slice(0, b));
+                                                                            x = l === ":self" ? null : r.select(l), p = l === ":self" ? r : x.size() ? x.first() : null;
+                                                                            if (!p) return [3, 8];
                                                                             if (!(g === "text")) return [3, 3];
-                                                                            return [4, m.text()];
+                                                                            return [4, p.text()];
                                                                         case 2:
                                                                             _b = _d.sent();
                                                                             return [3, 7];
                                                                         case 3:
                                                                             if (!(g === "html")) return [3, 5];
-                                                                            return [4, m.html()];
+                                                                            return [4, p.html()];
                                                                         case 4:
                                                                             _c = _d.sent();
                                                                             return [3, 6];
                                                                         case 5:
-                                                                            _c = g === "img" ? d.img(m.is("img") ? m : m.select("img").first()) : g === "own" ? m.ownText() : m.attr(g);
+                                                                            _c = g === "img" ? d.img(p.is("img") ? p : p.select("img").first()) : g === "own" ? p.ownText() : p.attr(g);
                                                                             _d.label = 6;
                                                                         case 6:
                                                                             _b = _c;
                                                                             _d.label = 7;
                                                                         case 7:
-                                                                            y = _b;
-                                                                            if (y)
-                                                                                return [2, String(y).trim()];
+                                                                            w = _b;
+                                                                            if (w)
+                                                                                return [2, String(w).trim()];
                                                                             _d.label = 8;
                                                                         case 8:
-                                                                            l++;
+                                                                            f++;
                                                                             return [3, 1];
                                                                         case 9: return [2, ""];
                                                                     }
                                                                 }); });
-                                                            }, url: function (r, a, s) { var l = d.page(a), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (g, b) { return l > 1 ? b : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(s || "")).replace(/\{base\}/g, k), d.fix(f); }, items: function (r) {
+                                                            }, url: function (r, a, c) { var f = d.page(a), l = String(r); return l = l.replace(/\[([^\]]*)\]/g, function (g, b) { return f > 1 ? b : ""; }), l = l.replace(/\{p\}/g, String(f)).replace(/\{p0\}/g, String(f - 1)).replace(/\{q\}/g, d.enc(c || "")).replace(/\{base\}/g, k), d.fix(l); }, items: function (r, a) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, s, l, f, g, b, x, _b, _c, _d;
+                                                                    var c, f, l, g, b, x, p, w, _b, _c, _d;
                                                                     var _f;
                                                                     return __generator(this, function (_g) {
                                                                         switch (_g.label) {
                                                                             case 0:
-                                                                                a = r.select(o.item), s = [], l = {}, f = 0;
+                                                                                c = function (A) { return a && o[a + A] || o[A]; }, f = r.select(c("item")), l = [], g = {}, b = 0;
                                                                                 _g.label = 1;
                                                                             case 1:
-                                                                                if (!(f < a.size())) return [3, 9];
-                                                                                return [4, a.get(f)];
+                                                                                if (!(b < f.size())) return [3, 9];
+                                                                                return [4, f.get(b)];
                                                                             case 2:
-                                                                                g = _g.sent();
-                                                                                return [4, v.pick(g, o.link || "a@href")];
-                                                                            case 3:
-                                                                                b = _g.sent();
-                                                                                if (!!(!b || l[b] || /^javascript|#$/.test(b))) return [3, 8];
-                                                                                return [4, v.pick(g, o.title || "h3 || h2 || a@title || img@alt")];
-                                                                            case 4:
                                                                                 x = _g.sent();
-                                                                                _b = x;
+                                                                                return [4, v.pick(x, c("link") || "a@href")];
+                                                                            case 3:
+                                                                                p = _g.sent();
+                                                                                if (!!(!p || g[p] || /^javascript|#$/.test(p))) return [3, 8];
+                                                                                return [4, v.pick(x, c("title") || "h3 || h2 || a@title || img@alt")];
+                                                                            case 4:
+                                                                                w = _g.sent();
+                                                                                _b = w;
                                                                                 if (!_b) return [3, 7];
-                                                                                l[b] = 1;
-                                                                                _d = (_c = s).push;
-                                                                                _f = { name: x, link: d.fix(b) };
-                                                                                return [4, v.pick(g, o.cover || "img@img")];
+                                                                                g[p] = 1;
+                                                                                _d = (_c = l).push;
+                                                                                _f = { name: w, link: d.fix(p) };
+                                                                                return [4, v.pick(x, c("cover") || "img@img")];
                                                                             case 5:
                                                                                 _f.cover = _g.sent();
-                                                                                return [4, v.pick(g, o.desc || "")];
+                                                                                return [4, v.pick(x, c("desc") || "")];
                                                                             case 6:
                                                                                 _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = k, _f)]));
                                                                                 _g.label = 7;
@@ -2560,43 +2560,52 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _b;
                                                                                 _g.label = 8;
                                                                             case 8:
-                                                                                f++;
+                                                                                b++;
                                                                                 return [3, 1];
-                                                                            case 9: return [2, s];
+                                                                            case 9: return [2, l];
                                                                         }
                                                                     });
                                                                 });
-                                                            }, listPage: function (r, a, s) {
-                                                                return __awaiter(this, void 0, void 0, function () { var l, f, g; return __generator(this, function (_b) {
+                                                            }, listPage: function (r, a, c) {
+                                                                return __awaiter(this, void 0, void 0, function () { var f, l, g; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
-                                                                        case 0: return [4, d.html(v.url(r, a, s), o.req)];
+                                                                        case 0: return [4, d.html(v.url(r, a, c), o.req)];
                                                                         case 1:
-                                                                            l = _b.sent();
-                                                                            return [4, v.items(l)];
+                                                                            f = _b.sent();
+                                                                            return [4, v.items(f, c ? "s_" : "")];
                                                                         case 2:
-                                                                            f = _b.sent(), g = o.next ? l.select(o.next).size() > 0 : f.length >= (o.pageSize || 10);
-                                                                            return [2, c.success(f, d.next(g && f.length > 0, a))];
+                                                                            l = _b.sent(), g = o.next ? f.select(o.next).size() > 0 : l.length >= (o.pageSize || 10);
+                                                                            return [2, s.success(l, d.next(g && l.length > 0, a))];
                                                                     }
                                                                 }); });
                                                             }, browse: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            s = o.tabs && o.tabs[r] || r;
-                                                                            return [4, v.listPage(s, a, "")];
+                                                                            c = o.tabs && o.tabs[r] || r;
+                                                                            return [4, v.listPage(c, a, "")];
                                                                         case 1: return [2, _b.sent()];
                                                                     }
                                                                 }); });
                                                             }, search: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (!d.isUrl(r)) return [3, 2];
-                                                                            s = d.fix(r);
-                                                                            return [4, v.listPage(s + (s.indexOf("?") > 0 ? "&" : "?") + (o.pageParam || "page") + "={p}", a, "")];
+                                                                            c = d.fix(r);
+                                                                            return [4, v.listPage(c + (c.indexOf("?") > 0 ? "&" : "?") + (o.pageParam || "page") + "={p}", a, "")];
                                                                         case 1: return [2, _b.sent()];
-                                                                        case 2: return [4, v.listPage(o.search, a, r)];
-                                                                        case 3: return [2, _b.sent()];
+                                                                        case 2:
+                                                                            if (!o.search_post) return [3, 5];
+                                                                            return [4, d.html(v.url(o.search_post.url, a, r), { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: String(o.search_post.body).replace(/\{q\}/g, d.enc(r)) })];
+                                                                        case 3:
+                                                                            f = _b.sent();
+                                                                            return [4, v.items(f, "s_")];
+                                                                        case 4:
+                                                                            l = _b.sent();
+                                                                            return [2, s.success(l, null)];
+                                                                        case 5: return [4, v.listPage(o.search, a, r)];
+                                                                        case 6: return [2, _b.sent()];
                                                                     }
                                                                 }); });
                                                             }, genre: function () {
@@ -2604,31 +2613,31 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (!o.genre)
-                                                                                return [2, c.success([])];
+                                                                                return [2, s.success([])];
                                                                             return [4, d.html(d.fix(o.genrePage || "/"))];
                                                                         case 1:
                                                                             r = _b.sent();
-                                                                            return [4, z(r.select(o.genre), function (s) {
+                                                                            return [4, z(r.select(o.genre), function (c) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
                                                                                             switch (_c.label) {
                                                                                                 case 0:
                                                                                                     _b = {};
-                                                                                                    return [4, s.text()];
-                                                                                                case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(s.attr("href")), _b.script = "search.js", _b)];
+                                                                                                    return [4, c.text()];
+                                                                                                case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(c.attr("href")), _b.script = "search.js", _b)];
                                                                                             }
                                                                                         });
                                                                                     });
                                                                                 })];
                                                                         case 2:
                                                                             a = _b.sent();
-                                                                            return [2, c.success(a.filter(function (s) { return s.title; }))];
+                                                                            return [2, s.success(a.filter(function (c) { return c.title; }))];
                                                                     }
                                                                 }); });
                                                             }, detail: function (r) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, s, l, _b, _c, _d, _f, _g;
+                                                                    var a, c, f, _b, _c, _d, _f, _g;
                                                                     var _h;
                                                                     return __generator(this, function (_j) {
                                                                         switch (_j.label) {
@@ -2636,15 +2645,15 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             case 1:
                                                                                 a = _j.sent();
                                                                                 if (!o.d_genres) return [3, 3];
-                                                                                return [4, z(a.select(o.d_genres), function (f) {
+                                                                                return [4, z(a.select(o.d_genres), function (l) {
                                                                                         return __awaiter(this, void 0, void 0, function () {
                                                                                             var _b;
                                                                                             return __generator(this, function (_c) {
                                                                                                 switch (_c.label) {
                                                                                                     case 0:
                                                                                                         _b = {};
-                                                                                                        return [4, f.text()];
-                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(f.attr("href")), _b.script = "search.js", _b)];
+                                                                                                        return [4, l.text()];
+                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(l.attr("href")), _b.script = "search.js", _b)];
                                                                                                 }
                                                                                             });
                                                                                         });
@@ -2656,11 +2665,11 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _b = [];
                                                                                 _j.label = 4;
                                                                             case 4:
-                                                                                s = _b;
+                                                                                c = _b;
                                                                                 return [4, v.pick(a, o.d_status)];
                                                                             case 5:
-                                                                                l = _j.sent();
-                                                                                _d = (_c = c).success;
+                                                                                f = _j.sent();
+                                                                                _d = (_c = s).success;
                                                                                 _h = {};
                                                                                 return [4, v.pick(a, o.d_title || "h1")];
                                                                             case 6:
@@ -2673,13 +2682,13 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             case 8:
                                                                                 _h.author = _j.sent();
                                                                                 return [4, v.pick(a, (o.d_desc || "meta[name=description]@content").replace(/$/, ""))];
-                                                                            case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = l ? "Tình trạng: " + l : "", _h.ongoing = d.ongoing(l), _h.genres = s, _h.host = k, _h)])];
+                                                                            case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = f ? "Tình trạng: " + f : "", _h.ongoing = d.ongoing(f), _h.genres = c, _h.host = k, _h)])];
                                                                         }
                                                                     });
                                                                 });
                                                             }, toc: function (r) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, s, l, f, g, _b, b, x, m, y, A, _c, _d, _f, _g, L, M, _h;
+                                                                    var a, c, f, l, g, _b, b, x, p, w, A, _c, _d, _f, _g, L, M, _h;
                                                                     var _j;
                                                                     return __generator(this, function (_k) {
                                                                         switch (_k.label) {
@@ -2689,20 +2698,20 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             case 1: return [2, _k.sent()];
                                                                             case 2:
                                                                                 if (o.single)
-                                                                                    return [2, c.success([{ name: o.single === !0 ? "Xem / Đọc" : o.single, url: r, host: k }])];
-                                                                                a = [r], s = [], l = {};
+                                                                                    return [2, s.success([{ name: o.single === !0 ? "Xem / Đọc" : o.single, url: r, host: k }])];
+                                                                                a = [r], c = [], f = {};
                                                                                 return [4, d.html(o.ch_rewrite ? r.replace(new RegExp(o.ch_rewrite[0]), o.ch_rewrite[1]) : r, o.req)];
                                                                             case 3:
-                                                                                f = _k.sent();
+                                                                                l = _k.sent();
                                                                                 if (!o.ch_url) return [3, 7];
-                                                                                return [4, v.pick(f, o.ch_url)];
+                                                                                return [4, v.pick(l, o.ch_url)];
                                                                             case 4:
                                                                                 g = _k.sent();
                                                                                 _b = g;
                                                                                 if (!_b) return [3, 6];
                                                                                 return [4, d.html(d.fix(g), o.req)];
                                                                             case 5:
-                                                                                _b = (f = _k.sent());
+                                                                                _b = (l = _k.sent());
                                                                                 _k.label = 6;
                                                                             case 6:
                                                                                 _b;
@@ -2712,38 +2721,38 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _k.label = 8;
                                                                             case 8:
                                                                                 if (!(b < (o.ch_maxPages || 60))) return [3, 22];
-                                                                                x = f.select(o.ch_list), m = 0;
+                                                                                x = l.select(o.ch_list), p = 0;
                                                                                 _k.label = 9;
                                                                             case 9:
-                                                                                if (!(m < x.size())) return [3, 17];
-                                                                                return [4, x.get(m)];
+                                                                                if (!(p < x.size())) return [3, 17];
+                                                                                return [4, x.get(p)];
                                                                             case 10:
-                                                                                y = _k.sent(), A = y.attr("href") || y.attr("data-href");
-                                                                                _c = !A || A === "#" || l[A];
+                                                                                w = _k.sent(), A = o.ch_attr ? w.attr(o.ch_attr) : w.attr("href") || w.attr("data-href");
+                                                                                _c = !A || A === "#" || f[A];
                                                                                 if (_c) return [3, 15];
-                                                                                l[A] = 1;
-                                                                                _f = (_d = s).push;
+                                                                                f[A] = 1;
+                                                                                _f = (_d = c).push;
                                                                                 _j = {};
                                                                                 if (!o.ch_name) return [3, 12];
-                                                                                return [4, v.pick(y, o.ch_name)];
+                                                                                return [4, v.pick(w, o.ch_name)];
                                                                             case 11:
                                                                                 _g = _k.sent();
                                                                                 return [3, 14];
-                                                                            case 12: return [4, y.text()];
+                                                                            case 12: return [4, w.text()];
                                                                             case 13:
                                                                                 _g = _k.sent();
                                                                                 _k.label = 14;
                                                                             case 14:
-                                                                                _c = (_f.apply(_d, [(_j.name = (_g) || y.attr("title"), _j.url = d.fix(A), _j.host = k, _j)]));
+                                                                                _c = (_f.apply(_d, [(_j.name = (_g) || w.attr("title"), _j.url = d.fix(A), _j.host = k, _j)]));
                                                                                 _k.label = 15;
                                                                             case 15:
                                                                                 _c;
                                                                                 _k.label = 16;
                                                                             case 16:
-                                                                                m++;
+                                                                                p++;
                                                                                 return [3, 9];
                                                                             case 17:
-                                                                                L = o.ch_next ? f.select(o.ch_next).first() : null;
+                                                                                L = o.ch_next ? l.select(o.ch_next).first() : null;
                                                                                 if (!L || !L.attr("href"))
                                                                                     return [3, 22];
                                                                                 M = d.fix(L.attr("href"));
@@ -2760,24 +2769,24 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _h;
                                                                                 return [4, d.html(M, o.req)];
                                                                             case 20:
-                                                                                f = _k.sent();
+                                                                                l = _k.sent();
                                                                                 _k.label = 21;
                                                                             case 21:
                                                                                 b++;
                                                                                 return [3, 8];
-                                                                            case 22: return [2, (o.ch_reverse && s.reverse(), c.success(s))];
+                                                                            case 22: return [2, (o.ch_reverse && c.reverse(), !c.length && o.ch_fallback_single && c.push({ name: o.ch_fallback_single === !0 ? "Xem phim" : o.ch_fallback_single, url: r, host: k }), s.success(c))];
                                                                         }
                                                                     });
                                                                 });
                                                             }, pages: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s, l, f, g, b, x, m, _b, _c, y, A; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c, f, l, g, b, x, p, _b, _c, w, A; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
-                                                                            a = [], s = [r], l = r, f = 0;
+                                                                            a = [], c = [r], f = r, l = 0;
                                                                             _d.label = 1;
                                                                         case 1:
-                                                                            if (!(f < (o.pages_max || 40))) return [3, 8];
-                                                                            return [4, d.html(l, o.req)];
+                                                                            if (!(l < (o.pages_max || 40))) return [3, 8];
+                                                                            return [4, d.html(f, o.req)];
                                                                         case 2:
                                                                             g = _d.sent(), b = g.select(o.pages || ".page-chapter img, .reading-content img, .chapter-content img"), x = 0;
                                                                             _d.label = 3;
@@ -2786,8 +2795,8 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             _c = (_b = d).img;
                                                                             return [4, b.get(x)];
                                                                         case 4:
-                                                                            m = _c.apply(_b, [_d.sent()]);
-                                                                            m && a.indexOf(m) < 0 && a.push(m);
+                                                                            p = _c.apply(_b, [_d.sent()]);
+                                                                            p && a.indexOf(p) < 0 && a.push(p);
                                                                             _d.label = 5;
                                                                         case 5:
                                                                             x++;
@@ -2795,22 +2804,22 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                         case 6:
                                                                             if (!o.pages_next)
                                                                                 return [3, 8];
-                                                                            y = g.select(o.pages_next).first();
-                                                                            if (!y)
+                                                                            w = g.select(o.pages_next).first();
+                                                                            if (!w)
                                                                                 return [3, 8];
-                                                                            A = d.fix(y.attr("href"));
-                                                                            if (!A || s.indexOf(A) >= 0)
+                                                                            A = d.fix(w.attr("href"));
+                                                                            if (!A || c.indexOf(A) >= 0)
                                                                                 return [3, 8];
-                                                                            s.push(A), l = A;
+                                                                            c.push(A), f = A;
                                                                             _d.label = 7;
                                                                         case 7:
-                                                                            f++;
+                                                                            l++;
                                                                             return [3, 1];
-                                                                        case 8: return [2, c.success(a)];
+                                                                        case 8: return [2, s.success(a)];
                                                                     }
                                                                 }); });
                                                             }, text: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s, _b, _c, l, f, g, _d, _f, _g, b, x, _h, _j, _k, _l, _m, _o; return __generator(this, function (_p) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c, _b, _c, f, l, g, _d, _f, _g, b, x, _h, _j, _k, _l, _m, _o; return __generator(this, function (_p) {
                                                                     switch (_p.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
@@ -2820,25 +2829,25 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             a = _p.sent();
                                                                             return [4, a.text()];
                                                                         case 3:
-                                                                            s = (_p.sent()) || "";
+                                                                            c = (_p.sent()) || "";
                                                                             if (!o.content_rsc) return [3, 5];
-                                                                            l = v.rscText(s), f = o.c_locked && new RegExp(o.c_locked, "i").test(s), g = f ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
-                                                                            if (!(l || f)) return [3, 5];
-                                                                            _f = (_d = c).success;
-                                                                            _g = [v.toParas(l) + g];
-                                                                            return [4, v.pick(n.parse(s, r), o.c_title || "h1 || title")];
+                                                                            f = v.rscText(c), l = o.c_locked && new RegExp(o.c_locked, "i").test(c), g = l ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
+                                                                            if (!(f || l)) return [3, 5];
+                                                                            _f = (_d = s).success;
+                                                                            _g = [v.toParas(f) + g];
+                                                                            return [4, v.pick(n.parse(c, r), o.c_title || "h1 || title")];
                                                                         case 4: return [2, _f.apply(_d, _g.concat([_p.sent()]))];
                                                                         case 5:
-                                                                            b = n.parse(s, r), x = b.select(o.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            b = n.parse(c, r), x = b.select(o.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
                                                                             if (!!x) return [3, 7];
-                                                                            if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(s.slice(0, 2e4)))
+                                                                            if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(c.slice(0, 2e4)))
                                                                                 throw new Error("CLOUDFLARE: trang " + k + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
-                                                                            _j = (_h = c).error;
+                                                                            _j = (_h = s).error;
                                                                             _k = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                             return [4, v.pick(b, "title")];
-                                                                        case 6: return [2, _j.apply(_h, [_k + ((_p.sent()) || "?").slice(0, 60) + '" (' + a.status + ", " + s.length + " ký tự)" + (s.length < 400 ? ": " + s.replace(/\s+/g, " ").slice(0, 200) : "")])];
+                                                                        case 6: return [2, _j.apply(_h, [_k + ((_p.sent()) || "?").slice(0, 60) + '" (' + a.status + ", " + c.length + " ký tự)" + (c.length < 400 ? ": " + c.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                                         case 7:
-                                                                            _m = (_l = c).success;
+                                                                            _m = (_l = s).success;
                                                                             return [4, d.cleanContent(x)];
                                                                         case 8:
                                                                             _o = [_p.sent()];
@@ -2847,25 +2856,25 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     }
                                                                 }); });
                                                             }, rscAction: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, b, x, m, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, b, x, p, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
-                                                                            for (s = [], f = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g; l = f.exec(r);)
-                                                                                s.indexOf(l[0]) < 0 && s.push(l[0]);
+                                                                            for (c = [], l = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g; f = l.exec(r);)
+                                                                                c.indexOf(f[0]) < 0 && c.push(f[0]);
                                                                             g = new RegExp('"([0-9a-f]{40,44})"[^"]{0,200}?"' + a + '"'), b = 0;
                                                                             _d.label = 1;
                                                                         case 1:
-                                                                            if (!(b < s.length && b < 60)) return [3, 5];
-                                                                            return [4, d.get(k + s[b])];
+                                                                            if (!(b < c.length && b < 60)) return [3, 5];
+                                                                            return [4, d.get(k + c[b])];
                                                                         case 2:
                                                                             x = _d.sent();
                                                                             if (!!(!x || !x.ok)) return [3, 4];
                                                                             _c = (_b = g).exec;
                                                                             return [4, x.text()];
                                                                         case 3:
-                                                                            m = _c.apply(_b, [(_d.sent()) || ""]);
-                                                                            if (m)
-                                                                                return [2, m[1]];
+                                                                            p = _c.apply(_b, [(_d.sent()) || ""]);
+                                                                            if (p)
+                                                                                return [2, p[1]];
                                                                             _d.label = 4;
                                                                         case 4:
                                                                             b++;
@@ -2874,19 +2883,19 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     }
                                                                 }); });
                                                             }, rscArray: function (r) {
-                                                                for (var a = String(r || "").split("\n"), s = 0; s < a.length; s++) {
-                                                                    var l = /^[0-9a-f]+:(\[.*)$/.exec(a[s]);
-                                                                    if (l)
+                                                                for (var a = String(r || "").split("\n"), c = 0; c < a.length; c++) {
+                                                                    var f = /^[0-9a-f]+:(\[.*)$/.exec(a[c]);
+                                                                    if (f)
                                                                         try {
-                                                                            var f = JSON.parse(l[1]);
-                                                                            if (f && f.length)
-                                                                                return f;
+                                                                            var l = JSON.parse(f[1]);
+                                                                            if (l && l.length)
+                                                                                return l;
                                                                         }
                                                                         catch (g) { }
                                                                 }
                                                                 return null;
                                                             }, actionToc: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s, l, _b, _c, f, g, b, _d, x, _f, m; return __generator(this, function (_g) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c, f, _b, _c, l, g, b, _d, x, _f, p; return __generator(this, function (_g) {
                                                                     switch (_g.label) {
                                                                         case 0:
                                                                             a = o.ch_action;
@@ -2895,13 +2904,13 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                         case 1: return [4, _c.apply(_b, [_g.sent(), r])];
                                                                         case 2: return [4, (_g.sent()).text()];
                                                                         case 3:
-                                                                            s = (_g.sent()) || "", l = new RegExp(a.arg).exec(s);
-                                                                            if (!l)
-                                                                                return [2, c.error("Không tìm thấy mã truyện trên trang " + r)];
-                                                                            f = JSON.stringify([l[1]]), g = function (y) {
+                                                                            c = (_g.sent()) || "", f = new RegExp(a.arg).exec(c);
+                                                                            if (!f)
+                                                                                return [2, s.error("Không tìm thấy mã truyện trên trang " + r)];
+                                                                            l = JSON.stringify([f[1]]), g = function (w) {
                                                                                 return __awaiter(this, void 0, void 0, function () { var A, _b, _c, _d; return __generator(this, function (_f) {
                                                                                     switch (_f.label) {
-                                                                                        case 0: return [4, d.get(r, { method: "POST", headers: { "Next-Action": y, Accept: "text/x-component", "Content-Type": "text/plain;charset=UTF-8" }, body: f })];
+                                                                                        case 0: return [4, d.get(r, { method: "POST", headers: { "Next-Action": w, Accept: "text/x-component", "Content-Type": "text/plain;charset=UTF-8" }, body: l })];
                                                                                         case 1:
                                                                                             A = _f.sent();
                                                                                             if (!(A && A.ok)) return [3, 3];
@@ -2928,7 +2937,7 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                         case 6:
                                                                             b = _d;
                                                                             if (!!b) return [3, 10];
-                                                                            return [4, v.rscAction(s, a.name)];
+                                                                            return [4, v.rscAction(c, a.name)];
                                                                         case 7:
                                                                             x = _g.sent();
                                                                             _f = x && x !== a.id;
@@ -2942,82 +2951,82 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             _g.label = 10;
                                                                         case 10:
                                                                             if (!b)
-                                                                                return [2, c.error('Không lấy được danh sách chương (Server Action "' + a.name + '")')];
-                                                                            m = r.replace(/[?#].*$/, "").replace(/\/+$/, "");
-                                                                            return [2, c.success(b.map(function (y) { return { name: String(y[a.title || "label"] || "") + (a.lock && y[a.lock] ? " 🔒" : ""), url: m + "/" + y[a.slug || "slugId"], host: k }; }))];
+                                                                                return [2, s.error('Không lấy được danh sách chương (Server Action "' + a.name + '")')];
+                                                                            p = r.replace(/[?#].*$/, "").replace(/\/+$/, "");
+                                                                            return [2, s.success(b.map(function (w) { return { name: String(w[a.title || "label"] || "") + (a.lock && w[a.lock] ? " 🔒" : ""), url: p + "/" + w[a.slug || "slugId"], host: k }; }))];
                                                                     }
                                                                 }); });
-                                                            }, rscText: function (r) { for (var a = "", s, l = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g; s = l.exec(r);)
+                                                            }, rscText: function (r) { for (var a = "", c, f = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g; c = f.exec(r);)
                                                                 try {
-                                                                    a += JSON.parse(s[1]);
+                                                                    a += JSON.parse(c[1]);
                                                                 }
-                                                                catch (M) { } for (var f = "", g = /([0-9a-f]+):T([0-9a-f]+),/g, b; b = g.exec(a);) {
-                                                                for (var x = parseInt(b[2], 16), m = g.lastIndex, y = 0; m < a.length && y < x;) {
-                                                                    var A = a.charCodeAt(m);
-                                                                    A < 128 ? y += 1 : A < 2048 ? y += 2 : A >= 55296 && A <= 56319 ? (y += 4, m++) : y += 3, m++;
+                                                                catch (M) { } for (var l = "", g = /([0-9a-f]+):T([0-9a-f]+),/g, b; b = g.exec(a);) {
+                                                                for (var x = parseInt(b[2], 16), p = g.lastIndex, w = 0; p < a.length && w < x;) {
+                                                                    var A = a.charCodeAt(p);
+                                                                    A < 128 ? w += 1 : A < 2048 ? w += 2 : A >= 55296 && A <= 56319 ? (w += 4, p++) : w += 3, p++;
                                                                 }
-                                                                var L = a.slice(g.lastIndex, m);
-                                                                L.length > f.length && (f = L), g.lastIndex = m;
-                                                            } return f; }, toParas: function (r) { return /<p[\s>]|<br\s*\/?>/i.test(r) ? r : r.split(/\n+/).map(function (a) { return a = a.trim(), a ? "<p>" + a.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</p>" : ""; }).join(""); }, servers: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s; return __generator(this, function (_b) {
+                                                                var L = a.slice(g.lastIndex, p);
+                                                                L.length > l.length && (l = L), g.lastIndex = p;
+                                                            } return l; }, toParas: function (r) { return /<p[\s>]|<br\s*\/?>/i.test(r) ? r : r.split(/\n+/).map(function (a) { return a = a.trim(), a ? "<p>" + a.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</p>" : ""; }).join(""); }, servers: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (!o.servers)
-                                                                                return [2, c.success([{ title: "Server", data: r }])];
+                                                                                return [2, s.success([{ title: "Server", data: r }])];
                                                                             return [4, d.html(r, o.req)];
                                                                         case 1:
                                                                             a = _b.sent();
-                                                                            return [4, z(a.select(o.servers), function (l) {
+                                                                            return [4, z(a.select(o.servers), function (f) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
-                                                                                        var f;
+                                                                                        var l;
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
                                                                                             switch (_c.label) {
-                                                                                                case 0: return [4, v.pick(l, o.server_data || ":self@data-link || :self@data-src || :self@href")];
+                                                                                                case 0: return [4, v.pick(f, o.server_data || ":self@data-link || :self@data-src || :self@href")];
                                                                                                 case 1:
-                                                                                                    f = _c.sent();
+                                                                                                    l = _c.sent();
                                                                                                     _b = {};
-                                                                                                    return [4, l.text()];
-                                                                                                case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(f), _b)];
+                                                                                                    return [4, f.text()];
+                                                                                                case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(l), _b)];
                                                                                             }
                                                                                         });
                                                                                     });
                                                                                 })];
                                                                         case 2:
-                                                                            s = (_b.sent()).filter(function (l) { return l.data; });
-                                                                            return [2, c.success(s.length ? s : [{ title: "Server", data: r }])];
+                                                                            c = (_b.sent()).filter(function (f) { return f.data; });
+                                                                            return [2, s.success(c.length ? c : [{ title: "Server", data: r }])];
                                                                     }
                                                                 }); });
                                                             }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var a = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return a ? a[0] : ""; }, track: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, b, x, m; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, b, x, p; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (a = a || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
-                                                                                return [2, c.success({ type: "native", data: r, headers: { Referer: k + "/" } })];
+                                                                                return [2, s.success({ type: "native", data: r, headers: { Referer: k + "/" } })];
                                                                             return [4, d.get(r)];
                                                                         case 1:
-                                                                            s = _b.sent();
-                                                                            return [4, s.text()];
+                                                                            c = _b.sent();
+                                                                            return [4, c.text()];
                                                                         case 2:
-                                                                            l = _b.sent();
-                                                                            if (!(o.video && !a)) return [3, 4];
-                                                                            return [4, v.pick(n.parse(l, r), o.video)];
-                                                                        case 3:
                                                                             f = _b.sent();
-                                                                            if (f)
-                                                                                return [2, c.success({ type: "native", data: d.fix(f), headers: { Referer: k + "/" } })];
+                                                                            if (!(o.video && !a)) return [3, 4];
+                                                                            return [4, v.pick(n.parse(f, r), o.video)];
+                                                                        case 3:
+                                                                            l = _b.sent();
+                                                                            if (l)
+                                                                                return [2, s.success({ type: "native", data: d.fix(l), headers: { Referer: k + "/" } })];
                                                                             _b.label = 4;
                                                                         case 4:
-                                                                            g = v.sniff(l);
+                                                                            g = v.sniff(f);
                                                                             if (g)
-                                                                                return [2, c.success({ type: "native", data: g, headers: { Referer: a ? r : k + "/" } })];
-                                                                            b = n.parse(l, r), x = b.select(o.iframe || "iframe[src], iframe[data-src]").first();
+                                                                                return [2, s.success({ type: "native", data: g, headers: { Referer: a ? r : k + "/" } })];
+                                                                            b = n.parse(f, r), x = b.select(o.iframe || "iframe[src], iframe[data-src]").first();
                                                                             if (!(x && a < 2)) return [3, 6];
-                                                                            m = d.fix(x.attr("src") || x.attr("data-src"));
-                                                                            if (!m) return [3, 6];
-                                                                            return [4, v.track(m, a + 1)];
+                                                                            p = d.fix(x.attr("src") || x.attr("data-src"));
+                                                                            if (!p) return [3, 6];
+                                                                            return [4, v.track(p, a + 1)];
                                                                         case 5: return [2, _b.sent()];
-                                                                        case 6: return [2, c.success({ type: "webview", data: r })];
+                                                                        case 6: return [2, s.success({ type: "webview", data: r })];
                                                                     }
                                                                 }); });
                                                             } };
@@ -3035,13 +3044,13 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
     }, search: function (t, e) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
-                return [2, (function (u, i, n, c, h, p, w, S, E, D, N, q, I, U, W, Z, ne) {
+                return [2, (function (u, i, n, s, h, m, y, S, E, D, _, N, I, U, W, Z, ne) {
                         return __awaiter(this, void 0, void 0, function () {
-                            var R;
+                            var H;
                             return __generator(this, function (_b) {
                                 switch (_b.label) {
                                     case 0:
-                                        R = e("DOMAIN");
+                                        H = e("DOMAIN");
                                         return [4, (function () {
                                                 return __awaiter(this, void 0, void 0, function () {
                                                     function G(r, a) {
@@ -3056,51 +3065,51 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                     return __generator(this, function (_b) {
                                                         k = "https://luvevalandn2.co";
                                                         try {
-                                                            R && (k = String(R).replace(/\/+$/, ""));
+                                                            H && (k = String(H).replace(/\/+$/, ""));
                                                         }
                                                         catch (r) { }
                                                         o = { tabs: { "Truyện mới": "/danh-sach/moi-dang[?page={p}]", "Hot tuần": "/danh-sach/truyen-hot-tuan[?page={p}]", "Xem nhiều": "/danh-sach/truyen-nhieu-nguoi-xem[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", ch_list: "td.list-chapter__name a", item: ".book-vertical__item, tr.book__list-item", title: ".book__lg-title a || td.book__list-name a || img@alt", link: "a@href", cover: "img@img", pageSize: 10, d_title: ".breadcrumb__container a.breadcrumb__item:last-child || h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .book__detail-image img@img", d_desc: "#home", d_genres: ".book__detail-text a[href*='/the-loai/']", content: "#chapter-content", c_title: "h1 || h2" }, d = { img: function (r) { if (!r)
-                                                                return ""; for (var a = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], s = 0; s < a.length; s++) {
-                                                                var l = r.attr(a[s]);
-                                                                if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
-                                                                    return d.fix(l.trim());
-                                                            } var f = r.attr("data-srcset") || r.attr("srcset"); return f ? d.fix(f.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? k + r : k + "/" + r) : ""; }, text: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l; return __generator(this, function (_b) {
+                                                                return ""; for (var a = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < a.length; c++) {
+                                                                var f = r.attr(a[c]);
+                                                                if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
+                                                                    return d.fix(f.trim());
+                                                            } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? d.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? k + r : k + "/" + r) : ""; }, text: function (r, a) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            s = 0;
+                                                                            c = 0;
                                                                             _b.label = 1;
                                                                         case 1:
-                                                                            if (!(s < a.length)) return [3, 4];
-                                                                            return [4, r.select(a[s]).text()];
+                                                                            if (!(c < a.length)) return [3, 4];
+                                                                            return [4, r.select(a[c]).text()];
                                                                         case 2:
-                                                                            l = _b.sent();
-                                                                            if (l)
-                                                                                return [2, l.trim()];
+                                                                            f = _b.sent();
+                                                                            if (f)
+                                                                                return [2, f.trim()];
                                                                             _b.label = 3;
                                                                         case 3:
-                                                                            s++;
+                                                                            c++;
                                                                             return [3, 1];
                                                                         case 4: return [2, ""];
                                                                     }
                                                                 }); });
                                                             }, get: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, _b; return __generator(this, function (_c) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, _b; return __generator(this, function (_c) {
                                                                     switch (_c.label) {
                                                                         case 0:
                                                                             a = a || {};
-                                                                            s = { Referer: k + "/" };
+                                                                            c = { Referer: k + "/" };
                                                                             if (a.headers)
-                                                                                for (l in a.headers)
-                                                                                    s[l] = a.headers[l];
-                                                                            return [4, u(r, { method: a.method, headers: s, body: a.body })];
+                                                                                for (f in a.headers)
+                                                                                    c[f] = a.headers[f];
+                                                                            return [4, u(r, { method: a.method, headers: c, body: a.body })];
                                                                         case 1:
-                                                                            f = _c.sent(), g = 0;
+                                                                            l = _c.sent(), g = 0;
                                                                             _c.label = 2;
                                                                         case 2:
-                                                                            _b = f && f.status === 429 && g < 3;
+                                                                            _b = l && l.status === 429 && g < 3;
                                                                             if (!_b) return [3, 4];
-                                                                            return [4, d.cf(f)];
+                                                                            return [4, d.cf(l)];
                                                                         case 3:
                                                                             _b = !(_c.sent());
                                                                             _c.label = 4;
@@ -3109,14 +3118,14 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             return [4, E(1500 * (g + 1))];
                                                                         case 5:
                                                                             _c.sent();
-                                                                            return [4, u(r, { method: a.method, headers: s, body: a.body })];
+                                                                            return [4, u(r, { method: a.method, headers: c, body: a.body })];
                                                                         case 6:
-                                                                            f = _c.sent();
+                                                                            l = _c.sent();
                                                                             _c.label = 7;
                                                                         case 7:
                                                                             g++;
                                                                             return [3, 2];
-                                                                        case 8: return [2, f];
+                                                                        case 8: return [2, l];
                                                                     }
                                                                 }); });
                                                             }, cf: function (r) {
@@ -3142,28 +3151,28 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     }
                                                                 }); });
                                                             }, html: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
                                                                             return [4, d.get(r, a)];
                                                                         case 1: return [4, _c.apply(_b, [_d.sent(), r])];
                                                                         case 2:
-                                                                            s = _d.sent();
-                                                                            return [4, s.html(a && a.charset)];
+                                                                            c = _d.sent();
+                                                                            return [4, c.html(a && a.charset)];
                                                                         case 3: return [2, _d.sent()];
                                                                     }
                                                                 }); });
                                                             }, json: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
                                                                             return [4, d.get(r, a)];
                                                                         case 1: return [4, _c.apply(_b, [_d.sent(), r])];
                                                                         case 2:
-                                                                            s = _d.sent();
-                                                                            return [4, s.json()];
+                                                                            c = _d.sent();
+                                                                            return [4, c.json()];
                                                                         case 3: return [2, _d.sent()];
                                                                     }
                                                                 }); });
@@ -3179,77 +3188,77 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     });
                                                                 });
                                                             }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, v = { pick: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, b, x, m, y, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, b, x, p, w, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             if (!a || !r)
                                                                                 return [2, ""];
-                                                                            s = String(a).split(" || "), l = 0;
+                                                                            c = String(a).split(" || "), f = 0;
                                                                             _d.label = 1;
                                                                         case 1:
-                                                                            if (!(l < s.length)) return [3, 9];
-                                                                            f = s[l], g = "text", b = f.lastIndexOf("@");
-                                                                            b > 0 && !/\[[^\]]*@/.test(f.slice(b)) && (g = f.slice(b + 1), f = f.slice(0, b));
-                                                                            x = f === ":self" ? null : r.select(f), m = f === ":self" ? r : x.size() ? x.first() : null;
-                                                                            if (!m) return [3, 8];
+                                                                            if (!(f < c.length)) return [3, 9];
+                                                                            l = c[f], g = "text", b = l.lastIndexOf("@");
+                                                                            b > 0 && !/\[[^\]]*@/.test(l.slice(b)) && (g = l.slice(b + 1), l = l.slice(0, b));
+                                                                            x = l === ":self" ? null : r.select(l), p = l === ":self" ? r : x.size() ? x.first() : null;
+                                                                            if (!p) return [3, 8];
                                                                             if (!(g === "text")) return [3, 3];
-                                                                            return [4, m.text()];
+                                                                            return [4, p.text()];
                                                                         case 2:
                                                                             _b = _d.sent();
                                                                             return [3, 7];
                                                                         case 3:
                                                                             if (!(g === "html")) return [3, 5];
-                                                                            return [4, m.html()];
+                                                                            return [4, p.html()];
                                                                         case 4:
                                                                             _c = _d.sent();
                                                                             return [3, 6];
                                                                         case 5:
-                                                                            _c = g === "img" ? d.img(m.is("img") ? m : m.select("img").first()) : g === "own" ? m.ownText() : m.attr(g);
+                                                                            _c = g === "img" ? d.img(p.is("img") ? p : p.select("img").first()) : g === "own" ? p.ownText() : p.attr(g);
                                                                             _d.label = 6;
                                                                         case 6:
                                                                             _b = _c;
                                                                             _d.label = 7;
                                                                         case 7:
-                                                                            y = _b;
-                                                                            if (y)
-                                                                                return [2, String(y).trim()];
+                                                                            w = _b;
+                                                                            if (w)
+                                                                                return [2, String(w).trim()];
                                                                             _d.label = 8;
                                                                         case 8:
-                                                                            l++;
+                                                                            f++;
                                                                             return [3, 1];
                                                                         case 9: return [2, ""];
                                                                     }
                                                                 }); });
-                                                            }, url: function (r, a, s) { var l = d.page(a), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (g, b) { return l > 1 ? b : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(s || "")).replace(/\{base\}/g, k), d.fix(f); }, items: function (r) {
+                                                            }, url: function (r, a, c) { var f = d.page(a), l = String(r); return l = l.replace(/\[([^\]]*)\]/g, function (g, b) { return f > 1 ? b : ""; }), l = l.replace(/\{p\}/g, String(f)).replace(/\{p0\}/g, String(f - 1)).replace(/\{q\}/g, d.enc(c || "")).replace(/\{base\}/g, k), d.fix(l); }, items: function (r, a) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, s, l, f, g, b, x, _b, _c, _d;
+                                                                    var c, f, l, g, b, x, p, w, _b, _c, _d;
                                                                     var _f;
                                                                     return __generator(this, function (_g) {
                                                                         switch (_g.label) {
                                                                             case 0:
-                                                                                a = r.select(o.item), s = [], l = {}, f = 0;
+                                                                                c = function (A) { return a && o[a + A] || o[A]; }, f = r.select(c("item")), l = [], g = {}, b = 0;
                                                                                 _g.label = 1;
                                                                             case 1:
-                                                                                if (!(f < a.size())) return [3, 9];
-                                                                                return [4, a.get(f)];
+                                                                                if (!(b < f.size())) return [3, 9];
+                                                                                return [4, f.get(b)];
                                                                             case 2:
-                                                                                g = _g.sent();
-                                                                                return [4, v.pick(g, o.link || "a@href")];
-                                                                            case 3:
-                                                                                b = _g.sent();
-                                                                                if (!!(!b || l[b] || /^javascript|#$/.test(b))) return [3, 8];
-                                                                                return [4, v.pick(g, o.title || "h3 || h2 || a@title || img@alt")];
-                                                                            case 4:
                                                                                 x = _g.sent();
-                                                                                _b = x;
+                                                                                return [4, v.pick(x, c("link") || "a@href")];
+                                                                            case 3:
+                                                                                p = _g.sent();
+                                                                                if (!!(!p || g[p] || /^javascript|#$/.test(p))) return [3, 8];
+                                                                                return [4, v.pick(x, c("title") || "h3 || h2 || a@title || img@alt")];
+                                                                            case 4:
+                                                                                w = _g.sent();
+                                                                                _b = w;
                                                                                 if (!_b) return [3, 7];
-                                                                                l[b] = 1;
-                                                                                _d = (_c = s).push;
-                                                                                _f = { name: x, link: d.fix(b) };
-                                                                                return [4, v.pick(g, o.cover || "img@img")];
+                                                                                g[p] = 1;
+                                                                                _d = (_c = l).push;
+                                                                                _f = { name: w, link: d.fix(p) };
+                                                                                return [4, v.pick(x, c("cover") || "img@img")];
                                                                             case 5:
                                                                                 _f.cover = _g.sent();
-                                                                                return [4, v.pick(g, o.desc || "")];
+                                                                                return [4, v.pick(x, c("desc") || "")];
                                                                             case 6:
                                                                                 _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = k, _f)]));
                                                                                 _g.label = 7;
@@ -3257,43 +3266,52 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _b;
                                                                                 _g.label = 8;
                                                                             case 8:
-                                                                                f++;
+                                                                                b++;
                                                                                 return [3, 1];
-                                                                            case 9: return [2, s];
+                                                                            case 9: return [2, l];
                                                                         }
                                                                     });
                                                                 });
-                                                            }, listPage: function (r, a, s) {
-                                                                return __awaiter(this, void 0, void 0, function () { var l, f, g; return __generator(this, function (_b) {
+                                                            }, listPage: function (r, a, c) {
+                                                                return __awaiter(this, void 0, void 0, function () { var f, l, g; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
-                                                                        case 0: return [4, d.html(v.url(r, a, s), o.req)];
+                                                                        case 0: return [4, d.html(v.url(r, a, c), o.req)];
                                                                         case 1:
-                                                                            l = _b.sent();
-                                                                            return [4, v.items(l)];
+                                                                            f = _b.sent();
+                                                                            return [4, v.items(f, c ? "s_" : "")];
                                                                         case 2:
-                                                                            f = _b.sent(), g = o.next ? l.select(o.next).size() > 0 : f.length >= (o.pageSize || 10);
-                                                                            return [2, c.success(f, d.next(g && f.length > 0, a))];
+                                                                            l = _b.sent(), g = o.next ? f.select(o.next).size() > 0 : l.length >= (o.pageSize || 10);
+                                                                            return [2, s.success(l, d.next(g && l.length > 0, a))];
                                                                     }
                                                                 }); });
                                                             }, browse: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            s = o.tabs && o.tabs[r] || r;
-                                                                            return [4, v.listPage(s, a, "")];
+                                                                            c = o.tabs && o.tabs[r] || r;
+                                                                            return [4, v.listPage(c, a, "")];
                                                                         case 1: return [2, _b.sent()];
                                                                     }
                                                                 }); });
                                                             }, search: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (!d.isUrl(r)) return [3, 2];
-                                                                            s = d.fix(r);
-                                                                            return [4, v.listPage(s + (s.indexOf("?") > 0 ? "&" : "?") + (o.pageParam || "page") + "={p}", a, "")];
+                                                                            c = d.fix(r);
+                                                                            return [4, v.listPage(c + (c.indexOf("?") > 0 ? "&" : "?") + (o.pageParam || "page") + "={p}", a, "")];
                                                                         case 1: return [2, _b.sent()];
-                                                                        case 2: return [4, v.listPage(o.search, a, r)];
-                                                                        case 3: return [2, _b.sent()];
+                                                                        case 2:
+                                                                            if (!o.search_post) return [3, 5];
+                                                                            return [4, d.html(v.url(o.search_post.url, a, r), { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: String(o.search_post.body).replace(/\{q\}/g, d.enc(r)) })];
+                                                                        case 3:
+                                                                            f = _b.sent();
+                                                                            return [4, v.items(f, "s_")];
+                                                                        case 4:
+                                                                            l = _b.sent();
+                                                                            return [2, s.success(l, null)];
+                                                                        case 5: return [4, v.listPage(o.search, a, r)];
+                                                                        case 6: return [2, _b.sent()];
                                                                     }
                                                                 }); });
                                                             }, genre: function () {
@@ -3301,31 +3319,31 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (!o.genre)
-                                                                                return [2, c.success([])];
+                                                                                return [2, s.success([])];
                                                                             return [4, d.html(d.fix(o.genrePage || "/"))];
                                                                         case 1:
                                                                             r = _b.sent();
-                                                                            return [4, z(r.select(o.genre), function (s) {
+                                                                            return [4, z(r.select(o.genre), function (c) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
                                                                                             switch (_c.label) {
                                                                                                 case 0:
                                                                                                     _b = {};
-                                                                                                    return [4, s.text()];
-                                                                                                case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(s.attr("href")), _b.script = "search.js", _b)];
+                                                                                                    return [4, c.text()];
+                                                                                                case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(c.attr("href")), _b.script = "search.js", _b)];
                                                                                             }
                                                                                         });
                                                                                     });
                                                                                 })];
                                                                         case 2:
                                                                             a = _b.sent();
-                                                                            return [2, c.success(a.filter(function (s) { return s.title; }))];
+                                                                            return [2, s.success(a.filter(function (c) { return c.title; }))];
                                                                     }
                                                                 }); });
                                                             }, detail: function (r) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, s, l, _b, _c, _d, _f, _g;
+                                                                    var a, c, f, _b, _c, _d, _f, _g;
                                                                     var _h;
                                                                     return __generator(this, function (_j) {
                                                                         switch (_j.label) {
@@ -3333,15 +3351,15 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             case 1:
                                                                                 a = _j.sent();
                                                                                 if (!o.d_genres) return [3, 3];
-                                                                                return [4, z(a.select(o.d_genres), function (f) {
+                                                                                return [4, z(a.select(o.d_genres), function (l) {
                                                                                         return __awaiter(this, void 0, void 0, function () {
                                                                                             var _b;
                                                                                             return __generator(this, function (_c) {
                                                                                                 switch (_c.label) {
                                                                                                     case 0:
                                                                                                         _b = {};
-                                                                                                        return [4, f.text()];
-                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(f.attr("href")), _b.script = "search.js", _b)];
+                                                                                                        return [4, l.text()];
+                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(l.attr("href")), _b.script = "search.js", _b)];
                                                                                                 }
                                                                                             });
                                                                                         });
@@ -3353,11 +3371,11 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _b = [];
                                                                                 _j.label = 4;
                                                                             case 4:
-                                                                                s = _b;
+                                                                                c = _b;
                                                                                 return [4, v.pick(a, o.d_status)];
                                                                             case 5:
-                                                                                l = _j.sent();
-                                                                                _d = (_c = c).success;
+                                                                                f = _j.sent();
+                                                                                _d = (_c = s).success;
                                                                                 _h = {};
                                                                                 return [4, v.pick(a, o.d_title || "h1")];
                                                                             case 6:
@@ -3370,13 +3388,13 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             case 8:
                                                                                 _h.author = _j.sent();
                                                                                 return [4, v.pick(a, (o.d_desc || "meta[name=description]@content").replace(/$/, ""))];
-                                                                            case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = l ? "Tình trạng: " + l : "", _h.ongoing = d.ongoing(l), _h.genres = s, _h.host = k, _h)])];
+                                                                            case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = f ? "Tình trạng: " + f : "", _h.ongoing = d.ongoing(f), _h.genres = c, _h.host = k, _h)])];
                                                                         }
                                                                     });
                                                                 });
                                                             }, toc: function (r) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, s, l, f, g, _b, b, x, m, y, A, _c, _d, _f, _g, L, M, _h;
+                                                                    var a, c, f, l, g, _b, b, x, p, w, A, _c, _d, _f, _g, L, M, _h;
                                                                     var _j;
                                                                     return __generator(this, function (_k) {
                                                                         switch (_k.label) {
@@ -3386,20 +3404,20 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             case 1: return [2, _k.sent()];
                                                                             case 2:
                                                                                 if (o.single)
-                                                                                    return [2, c.success([{ name: o.single === !0 ? "Xem / Đọc" : o.single, url: r, host: k }])];
-                                                                                a = [r], s = [], l = {};
+                                                                                    return [2, s.success([{ name: o.single === !0 ? "Xem / Đọc" : o.single, url: r, host: k }])];
+                                                                                a = [r], c = [], f = {};
                                                                                 return [4, d.html(o.ch_rewrite ? r.replace(new RegExp(o.ch_rewrite[0]), o.ch_rewrite[1]) : r, o.req)];
                                                                             case 3:
-                                                                                f = _k.sent();
+                                                                                l = _k.sent();
                                                                                 if (!o.ch_url) return [3, 7];
-                                                                                return [4, v.pick(f, o.ch_url)];
+                                                                                return [4, v.pick(l, o.ch_url)];
                                                                             case 4:
                                                                                 g = _k.sent();
                                                                                 _b = g;
                                                                                 if (!_b) return [3, 6];
                                                                                 return [4, d.html(d.fix(g), o.req)];
                                                                             case 5:
-                                                                                _b = (f = _k.sent());
+                                                                                _b = (l = _k.sent());
                                                                                 _k.label = 6;
                                                                             case 6:
                                                                                 _b;
@@ -3409,38 +3427,38 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _k.label = 8;
                                                                             case 8:
                                                                                 if (!(b < (o.ch_maxPages || 60))) return [3, 22];
-                                                                                x = f.select(o.ch_list), m = 0;
+                                                                                x = l.select(o.ch_list), p = 0;
                                                                                 _k.label = 9;
                                                                             case 9:
-                                                                                if (!(m < x.size())) return [3, 17];
-                                                                                return [4, x.get(m)];
+                                                                                if (!(p < x.size())) return [3, 17];
+                                                                                return [4, x.get(p)];
                                                                             case 10:
-                                                                                y = _k.sent(), A = y.attr("href") || y.attr("data-href");
-                                                                                _c = !A || A === "#" || l[A];
+                                                                                w = _k.sent(), A = o.ch_attr ? w.attr(o.ch_attr) : w.attr("href") || w.attr("data-href");
+                                                                                _c = !A || A === "#" || f[A];
                                                                                 if (_c) return [3, 15];
-                                                                                l[A] = 1;
-                                                                                _f = (_d = s).push;
+                                                                                f[A] = 1;
+                                                                                _f = (_d = c).push;
                                                                                 _j = {};
                                                                                 if (!o.ch_name) return [3, 12];
-                                                                                return [4, v.pick(y, o.ch_name)];
+                                                                                return [4, v.pick(w, o.ch_name)];
                                                                             case 11:
                                                                                 _g = _k.sent();
                                                                                 return [3, 14];
-                                                                            case 12: return [4, y.text()];
+                                                                            case 12: return [4, w.text()];
                                                                             case 13:
                                                                                 _g = _k.sent();
                                                                                 _k.label = 14;
                                                                             case 14:
-                                                                                _c = (_f.apply(_d, [(_j.name = (_g) || y.attr("title"), _j.url = d.fix(A), _j.host = k, _j)]));
+                                                                                _c = (_f.apply(_d, [(_j.name = (_g) || w.attr("title"), _j.url = d.fix(A), _j.host = k, _j)]));
                                                                                 _k.label = 15;
                                                                             case 15:
                                                                                 _c;
                                                                                 _k.label = 16;
                                                                             case 16:
-                                                                                m++;
+                                                                                p++;
                                                                                 return [3, 9];
                                                                             case 17:
-                                                                                L = o.ch_next ? f.select(o.ch_next).first() : null;
+                                                                                L = o.ch_next ? l.select(o.ch_next).first() : null;
                                                                                 if (!L || !L.attr("href"))
                                                                                     return [3, 22];
                                                                                 M = d.fix(L.attr("href"));
@@ -3457,24 +3475,24 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _h;
                                                                                 return [4, d.html(M, o.req)];
                                                                             case 20:
-                                                                                f = _k.sent();
+                                                                                l = _k.sent();
                                                                                 _k.label = 21;
                                                                             case 21:
                                                                                 b++;
                                                                                 return [3, 8];
-                                                                            case 22: return [2, (o.ch_reverse && s.reverse(), c.success(s))];
+                                                                            case 22: return [2, (o.ch_reverse && c.reverse(), !c.length && o.ch_fallback_single && c.push({ name: o.ch_fallback_single === !0 ? "Xem phim" : o.ch_fallback_single, url: r, host: k }), s.success(c))];
                                                                         }
                                                                     });
                                                                 });
                                                             }, pages: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s, l, f, g, b, x, m, _b, _c, y, A; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c, f, l, g, b, x, p, _b, _c, w, A; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
-                                                                            a = [], s = [r], l = r, f = 0;
+                                                                            a = [], c = [r], f = r, l = 0;
                                                                             _d.label = 1;
                                                                         case 1:
-                                                                            if (!(f < (o.pages_max || 40))) return [3, 8];
-                                                                            return [4, d.html(l, o.req)];
+                                                                            if (!(l < (o.pages_max || 40))) return [3, 8];
+                                                                            return [4, d.html(f, o.req)];
                                                                         case 2:
                                                                             g = _d.sent(), b = g.select(o.pages || ".page-chapter img, .reading-content img, .chapter-content img"), x = 0;
                                                                             _d.label = 3;
@@ -3483,8 +3501,8 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             _c = (_b = d).img;
                                                                             return [4, b.get(x)];
                                                                         case 4:
-                                                                            m = _c.apply(_b, [_d.sent()]);
-                                                                            m && a.indexOf(m) < 0 && a.push(m);
+                                                                            p = _c.apply(_b, [_d.sent()]);
+                                                                            p && a.indexOf(p) < 0 && a.push(p);
                                                                             _d.label = 5;
                                                                         case 5:
                                                                             x++;
@@ -3492,22 +3510,22 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                         case 6:
                                                                             if (!o.pages_next)
                                                                                 return [3, 8];
-                                                                            y = g.select(o.pages_next).first();
-                                                                            if (!y)
+                                                                            w = g.select(o.pages_next).first();
+                                                                            if (!w)
                                                                                 return [3, 8];
-                                                                            A = d.fix(y.attr("href"));
-                                                                            if (!A || s.indexOf(A) >= 0)
+                                                                            A = d.fix(w.attr("href"));
+                                                                            if (!A || c.indexOf(A) >= 0)
                                                                                 return [3, 8];
-                                                                            s.push(A), l = A;
+                                                                            c.push(A), f = A;
                                                                             _d.label = 7;
                                                                         case 7:
-                                                                            f++;
+                                                                            l++;
                                                                             return [3, 1];
-                                                                        case 8: return [2, c.success(a)];
+                                                                        case 8: return [2, s.success(a)];
                                                                     }
                                                                 }); });
                                                             }, text: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s, _b, _c, l, f, g, _d, _f, _g, b, x, _h, _j, _k, _l, _m, _o; return __generator(this, function (_p) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c, _b, _c, f, l, g, _d, _f, _g, b, x, _h, _j, _k, _l, _m, _o; return __generator(this, function (_p) {
                                                                     switch (_p.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
@@ -3517,25 +3535,25 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             a = _p.sent();
                                                                             return [4, a.text()];
                                                                         case 3:
-                                                                            s = (_p.sent()) || "";
+                                                                            c = (_p.sent()) || "";
                                                                             if (!o.content_rsc) return [3, 5];
-                                                                            l = v.rscText(s), f = o.c_locked && new RegExp(o.c_locked, "i").test(s), g = f ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
-                                                                            if (!(l || f)) return [3, 5];
-                                                                            _f = (_d = c).success;
-                                                                            _g = [v.toParas(l) + g];
-                                                                            return [4, v.pick(n.parse(s, r), o.c_title || "h1 || title")];
+                                                                            f = v.rscText(c), l = o.c_locked && new RegExp(o.c_locked, "i").test(c), g = l ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
+                                                                            if (!(f || l)) return [3, 5];
+                                                                            _f = (_d = s).success;
+                                                                            _g = [v.toParas(f) + g];
+                                                                            return [4, v.pick(n.parse(c, r), o.c_title || "h1 || title")];
                                                                         case 4: return [2, _f.apply(_d, _g.concat([_p.sent()]))];
                                                                         case 5:
-                                                                            b = n.parse(s, r), x = b.select(o.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            b = n.parse(c, r), x = b.select(o.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
                                                                             if (!!x) return [3, 7];
-                                                                            if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(s.slice(0, 2e4)))
+                                                                            if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(c.slice(0, 2e4)))
                                                                                 throw new Error("CLOUDFLARE: trang " + k + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
-                                                                            _j = (_h = c).error;
+                                                                            _j = (_h = s).error;
                                                                             _k = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                             return [4, v.pick(b, "title")];
-                                                                        case 6: return [2, _j.apply(_h, [_k + ((_p.sent()) || "?").slice(0, 60) + '" (' + a.status + ", " + s.length + " ký tự)" + (s.length < 400 ? ": " + s.replace(/\s+/g, " ").slice(0, 200) : "")])];
+                                                                        case 6: return [2, _j.apply(_h, [_k + ((_p.sent()) || "?").slice(0, 60) + '" (' + a.status + ", " + c.length + " ký tự)" + (c.length < 400 ? ": " + c.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                                         case 7:
-                                                                            _m = (_l = c).success;
+                                                                            _m = (_l = s).success;
                                                                             return [4, d.cleanContent(x)];
                                                                         case 8:
                                                                             _o = [_p.sent()];
@@ -3544,25 +3562,25 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     }
                                                                 }); });
                                                             }, rscAction: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, b, x, m, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, b, x, p, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
-                                                                            for (s = [], f = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g; l = f.exec(r);)
-                                                                                s.indexOf(l[0]) < 0 && s.push(l[0]);
+                                                                            for (c = [], l = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g; f = l.exec(r);)
+                                                                                c.indexOf(f[0]) < 0 && c.push(f[0]);
                                                                             g = new RegExp('"([0-9a-f]{40,44})"[^"]{0,200}?"' + a + '"'), b = 0;
                                                                             _d.label = 1;
                                                                         case 1:
-                                                                            if (!(b < s.length && b < 60)) return [3, 5];
-                                                                            return [4, d.get(k + s[b])];
+                                                                            if (!(b < c.length && b < 60)) return [3, 5];
+                                                                            return [4, d.get(k + c[b])];
                                                                         case 2:
                                                                             x = _d.sent();
                                                                             if (!!(!x || !x.ok)) return [3, 4];
                                                                             _c = (_b = g).exec;
                                                                             return [4, x.text()];
                                                                         case 3:
-                                                                            m = _c.apply(_b, [(_d.sent()) || ""]);
-                                                                            if (m)
-                                                                                return [2, m[1]];
+                                                                            p = _c.apply(_b, [(_d.sent()) || ""]);
+                                                                            if (p)
+                                                                                return [2, p[1]];
                                                                             _d.label = 4;
                                                                         case 4:
                                                                             b++;
@@ -3571,19 +3589,19 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     }
                                                                 }); });
                                                             }, rscArray: function (r) {
-                                                                for (var a = String(r || "").split("\n"), s = 0; s < a.length; s++) {
-                                                                    var l = /^[0-9a-f]+:(\[.*)$/.exec(a[s]);
-                                                                    if (l)
+                                                                for (var a = String(r || "").split("\n"), c = 0; c < a.length; c++) {
+                                                                    var f = /^[0-9a-f]+:(\[.*)$/.exec(a[c]);
+                                                                    if (f)
                                                                         try {
-                                                                            var f = JSON.parse(l[1]);
-                                                                            if (f && f.length)
-                                                                                return f;
+                                                                            var l = JSON.parse(f[1]);
+                                                                            if (l && l.length)
+                                                                                return l;
                                                                         }
                                                                         catch (g) { }
                                                                 }
                                                                 return null;
                                                             }, actionToc: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s, l, _b, _c, f, g, b, _d, x, _f, m; return __generator(this, function (_g) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c, f, _b, _c, l, g, b, _d, x, _f, p; return __generator(this, function (_g) {
                                                                     switch (_g.label) {
                                                                         case 0:
                                                                             a = o.ch_action;
@@ -3592,13 +3610,13 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                         case 1: return [4, _c.apply(_b, [_g.sent(), r])];
                                                                         case 2: return [4, (_g.sent()).text()];
                                                                         case 3:
-                                                                            s = (_g.sent()) || "", l = new RegExp(a.arg).exec(s);
-                                                                            if (!l)
-                                                                                return [2, c.error("Không tìm thấy mã truyện trên trang " + r)];
-                                                                            f = JSON.stringify([l[1]]), g = function (y) {
+                                                                            c = (_g.sent()) || "", f = new RegExp(a.arg).exec(c);
+                                                                            if (!f)
+                                                                                return [2, s.error("Không tìm thấy mã truyện trên trang " + r)];
+                                                                            l = JSON.stringify([f[1]]), g = function (w) {
                                                                                 return __awaiter(this, void 0, void 0, function () { var A, _b, _c, _d; return __generator(this, function (_f) {
                                                                                     switch (_f.label) {
-                                                                                        case 0: return [4, d.get(r, { method: "POST", headers: { "Next-Action": y, Accept: "text/x-component", "Content-Type": "text/plain;charset=UTF-8" }, body: f })];
+                                                                                        case 0: return [4, d.get(r, { method: "POST", headers: { "Next-Action": w, Accept: "text/x-component", "Content-Type": "text/plain;charset=UTF-8" }, body: l })];
                                                                                         case 1:
                                                                                             A = _f.sent();
                                                                                             if (!(A && A.ok)) return [3, 3];
@@ -3625,7 +3643,7 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                         case 6:
                                                                             b = _d;
                                                                             if (!!b) return [3, 10];
-                                                                            return [4, v.rscAction(s, a.name)];
+                                                                            return [4, v.rscAction(c, a.name)];
                                                                         case 7:
                                                                             x = _g.sent();
                                                                             _f = x && x !== a.id;
@@ -3639,82 +3657,82 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             _g.label = 10;
                                                                         case 10:
                                                                             if (!b)
-                                                                                return [2, c.error('Không lấy được danh sách chương (Server Action "' + a.name + '")')];
-                                                                            m = r.replace(/[?#].*$/, "").replace(/\/+$/, "");
-                                                                            return [2, c.success(b.map(function (y) { return { name: String(y[a.title || "label"] || "") + (a.lock && y[a.lock] ? " 🔒" : ""), url: m + "/" + y[a.slug || "slugId"], host: k }; }))];
+                                                                                return [2, s.error('Không lấy được danh sách chương (Server Action "' + a.name + '")')];
+                                                                            p = r.replace(/[?#].*$/, "").replace(/\/+$/, "");
+                                                                            return [2, s.success(b.map(function (w) { return { name: String(w[a.title || "label"] || "") + (a.lock && w[a.lock] ? " 🔒" : ""), url: p + "/" + w[a.slug || "slugId"], host: k }; }))];
                                                                     }
                                                                 }); });
-                                                            }, rscText: function (r) { for (var a = "", s, l = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g; s = l.exec(r);)
+                                                            }, rscText: function (r) { for (var a = "", c, f = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g; c = f.exec(r);)
                                                                 try {
-                                                                    a += JSON.parse(s[1]);
+                                                                    a += JSON.parse(c[1]);
                                                                 }
-                                                                catch (M) { } for (var f = "", g = /([0-9a-f]+):T([0-9a-f]+),/g, b; b = g.exec(a);) {
-                                                                for (var x = parseInt(b[2], 16), m = g.lastIndex, y = 0; m < a.length && y < x;) {
-                                                                    var A = a.charCodeAt(m);
-                                                                    A < 128 ? y += 1 : A < 2048 ? y += 2 : A >= 55296 && A <= 56319 ? (y += 4, m++) : y += 3, m++;
+                                                                catch (M) { } for (var l = "", g = /([0-9a-f]+):T([0-9a-f]+),/g, b; b = g.exec(a);) {
+                                                                for (var x = parseInt(b[2], 16), p = g.lastIndex, w = 0; p < a.length && w < x;) {
+                                                                    var A = a.charCodeAt(p);
+                                                                    A < 128 ? w += 1 : A < 2048 ? w += 2 : A >= 55296 && A <= 56319 ? (w += 4, p++) : w += 3, p++;
                                                                 }
-                                                                var L = a.slice(g.lastIndex, m);
-                                                                L.length > f.length && (f = L), g.lastIndex = m;
-                                                            } return f; }, toParas: function (r) { return /<p[\s>]|<br\s*\/?>/i.test(r) ? r : r.split(/\n+/).map(function (a) { return a = a.trim(), a ? "<p>" + a.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</p>" : ""; }).join(""); }, servers: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s; return __generator(this, function (_b) {
+                                                                var L = a.slice(g.lastIndex, p);
+                                                                L.length > l.length && (l = L), g.lastIndex = p;
+                                                            } return l; }, toParas: function (r) { return /<p[\s>]|<br\s*\/?>/i.test(r) ? r : r.split(/\n+/).map(function (a) { return a = a.trim(), a ? "<p>" + a.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</p>" : ""; }).join(""); }, servers: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (!o.servers)
-                                                                                return [2, c.success([{ title: "Server", data: r }])];
+                                                                                return [2, s.success([{ title: "Server", data: r }])];
                                                                             return [4, d.html(r, o.req)];
                                                                         case 1:
                                                                             a = _b.sent();
-                                                                            return [4, z(a.select(o.servers), function (l) {
+                                                                            return [4, z(a.select(o.servers), function (f) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
-                                                                                        var f;
+                                                                                        var l;
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
                                                                                             switch (_c.label) {
-                                                                                                case 0: return [4, v.pick(l, o.server_data || ":self@data-link || :self@data-src || :self@href")];
+                                                                                                case 0: return [4, v.pick(f, o.server_data || ":self@data-link || :self@data-src || :self@href")];
                                                                                                 case 1:
-                                                                                                    f = _c.sent();
+                                                                                                    l = _c.sent();
                                                                                                     _b = {};
-                                                                                                    return [4, l.text()];
-                                                                                                case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(f), _b)];
+                                                                                                    return [4, f.text()];
+                                                                                                case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(l), _b)];
                                                                                             }
                                                                                         });
                                                                                     });
                                                                                 })];
                                                                         case 2:
-                                                                            s = (_b.sent()).filter(function (l) { return l.data; });
-                                                                            return [2, c.success(s.length ? s : [{ title: "Server", data: r }])];
+                                                                            c = (_b.sent()).filter(function (f) { return f.data; });
+                                                                            return [2, s.success(c.length ? c : [{ title: "Server", data: r }])];
                                                                     }
                                                                 }); });
                                                             }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var a = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return a ? a[0] : ""; }, track: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, b, x, m; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, b, x, p; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (a = a || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
-                                                                                return [2, c.success({ type: "native", data: r, headers: { Referer: k + "/" } })];
+                                                                                return [2, s.success({ type: "native", data: r, headers: { Referer: k + "/" } })];
                                                                             return [4, d.get(r)];
                                                                         case 1:
-                                                                            s = _b.sent();
-                                                                            return [4, s.text()];
+                                                                            c = _b.sent();
+                                                                            return [4, c.text()];
                                                                         case 2:
-                                                                            l = _b.sent();
-                                                                            if (!(o.video && !a)) return [3, 4];
-                                                                            return [4, v.pick(n.parse(l, r), o.video)];
-                                                                        case 3:
                                                                             f = _b.sent();
-                                                                            if (f)
-                                                                                return [2, c.success({ type: "native", data: d.fix(f), headers: { Referer: k + "/" } })];
+                                                                            if (!(o.video && !a)) return [3, 4];
+                                                                            return [4, v.pick(n.parse(f, r), o.video)];
+                                                                        case 3:
+                                                                            l = _b.sent();
+                                                                            if (l)
+                                                                                return [2, s.success({ type: "native", data: d.fix(l), headers: { Referer: k + "/" } })];
                                                                             _b.label = 4;
                                                                         case 4:
-                                                                            g = v.sniff(l);
+                                                                            g = v.sniff(f);
                                                                             if (g)
-                                                                                return [2, c.success({ type: "native", data: g, headers: { Referer: a ? r : k + "/" } })];
-                                                                            b = n.parse(l, r), x = b.select(o.iframe || "iframe[src], iframe[data-src]").first();
+                                                                                return [2, s.success({ type: "native", data: g, headers: { Referer: a ? r : k + "/" } })];
+                                                                            b = n.parse(f, r), x = b.select(o.iframe || "iframe[src], iframe[data-src]").first();
                                                                             if (!(x && a < 2)) return [3, 6];
-                                                                            m = d.fix(x.attr("src") || x.attr("data-src"));
-                                                                            if (!m) return [3, 6];
-                                                                            return [4, v.track(m, a + 1)];
+                                                                            p = d.fix(x.attr("src") || x.attr("data-src"));
+                                                                            if (!p) return [3, 6];
+                                                                            return [4, v.track(p, a + 1)];
                                                                         case 5: return [2, _b.sent()];
-                                                                        case 6: return [2, c.success({ type: "webview", data: r })];
+                                                                        case 6: return [2, s.success({ type: "webview", data: r })];
                                                                     }
                                                                 }); });
                                                             } };
@@ -3732,13 +3750,13 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
     }, detail: function (t, e) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
-                return [2, (function (u, i, n, c, h, p, w, S, E, D, N, q, I, U, W, Z, ne) {
+                return [2, (function (u, i, n, s, h, m, y, S, E, D, _, N, I, U, W, Z, ne) {
                         return __awaiter(this, void 0, void 0, function () {
-                            var R;
+                            var H;
                             return __generator(this, function (_b) {
                                 switch (_b.label) {
                                     case 0:
-                                        R = e("DOMAIN");
+                                        H = e("DOMAIN");
                                         return [4, (function () {
                                                 return __awaiter(this, void 0, void 0, function () {
                                                     function G(r) {
@@ -3753,51 +3771,51 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                     return __generator(this, function (_b) {
                                                         k = "https://luvevalandn2.co";
                                                         try {
-                                                            R && (k = String(R).replace(/\/+$/, ""));
+                                                            H && (k = String(H).replace(/\/+$/, ""));
                                                         }
                                                         catch (r) { }
                                                         o = { tabs: { "Truyện mới": "/danh-sach/moi-dang[?page={p}]", "Hot tuần": "/danh-sach/truyen-hot-tuan[?page={p}]", "Xem nhiều": "/danh-sach/truyen-nhieu-nguoi-xem[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", ch_list: "td.list-chapter__name a", item: ".book-vertical__item, tr.book__list-item", title: ".book__lg-title a || td.book__list-name a || img@alt", link: "a@href", cover: "img@img", pageSize: 10, d_title: ".breadcrumb__container a.breadcrumb__item:last-child || h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .book__detail-image img@img", d_desc: "#home", d_genres: ".book__detail-text a[href*='/the-loai/']", content: "#chapter-content", c_title: "h1 || h2" }, d = { img: function (r) { if (!r)
-                                                                return ""; for (var a = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], s = 0; s < a.length; s++) {
-                                                                var l = r.attr(a[s]);
-                                                                if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
-                                                                    return d.fix(l.trim());
-                                                            } var f = r.attr("data-srcset") || r.attr("srcset"); return f ? d.fix(f.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? k + r : k + "/" + r) : ""; }, text: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l; return __generator(this, function (_b) {
+                                                                return ""; for (var a = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < a.length; c++) {
+                                                                var f = r.attr(a[c]);
+                                                                if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
+                                                                    return d.fix(f.trim());
+                                                            } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? d.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? k + r : k + "/" + r) : ""; }, text: function (r, a) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            s = 0;
+                                                                            c = 0;
                                                                             _b.label = 1;
                                                                         case 1:
-                                                                            if (!(s < a.length)) return [3, 4];
-                                                                            return [4, r.select(a[s]).text()];
+                                                                            if (!(c < a.length)) return [3, 4];
+                                                                            return [4, r.select(a[c]).text()];
                                                                         case 2:
-                                                                            l = _b.sent();
-                                                                            if (l)
-                                                                                return [2, l.trim()];
+                                                                            f = _b.sent();
+                                                                            if (f)
+                                                                                return [2, f.trim()];
                                                                             _b.label = 3;
                                                                         case 3:
-                                                                            s++;
+                                                                            c++;
                                                                             return [3, 1];
                                                                         case 4: return [2, ""];
                                                                     }
                                                                 }); });
                                                             }, get: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, _b; return __generator(this, function (_c) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, _b; return __generator(this, function (_c) {
                                                                     switch (_c.label) {
                                                                         case 0:
                                                                             a = a || {};
-                                                                            s = { Referer: k + "/" };
+                                                                            c = { Referer: k + "/" };
                                                                             if (a.headers)
-                                                                                for (l in a.headers)
-                                                                                    s[l] = a.headers[l];
-                                                                            return [4, u(r, { method: a.method, headers: s, body: a.body })];
+                                                                                for (f in a.headers)
+                                                                                    c[f] = a.headers[f];
+                                                                            return [4, u(r, { method: a.method, headers: c, body: a.body })];
                                                                         case 1:
-                                                                            f = _c.sent(), g = 0;
+                                                                            l = _c.sent(), g = 0;
                                                                             _c.label = 2;
                                                                         case 2:
-                                                                            _b = f && f.status === 429 && g < 3;
+                                                                            _b = l && l.status === 429 && g < 3;
                                                                             if (!_b) return [3, 4];
-                                                                            return [4, d.cf(f)];
+                                                                            return [4, d.cf(l)];
                                                                         case 3:
                                                                             _b = !(_c.sent());
                                                                             _c.label = 4;
@@ -3806,14 +3824,14 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             return [4, E(1500 * (g + 1))];
                                                                         case 5:
                                                                             _c.sent();
-                                                                            return [4, u(r, { method: a.method, headers: s, body: a.body })];
+                                                                            return [4, u(r, { method: a.method, headers: c, body: a.body })];
                                                                         case 6:
-                                                                            f = _c.sent();
+                                                                            l = _c.sent();
                                                                             _c.label = 7;
                                                                         case 7:
                                                                             g++;
                                                                             return [3, 2];
-                                                                        case 8: return [2, f];
+                                                                        case 8: return [2, l];
                                                                     }
                                                                 }); });
                                                             }, cf: function (r) {
@@ -3839,28 +3857,28 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     }
                                                                 }); });
                                                             }, html: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
                                                                             return [4, d.get(r, a)];
                                                                         case 1: return [4, _c.apply(_b, [_d.sent(), r])];
                                                                         case 2:
-                                                                            s = _d.sent();
-                                                                            return [4, s.html(a && a.charset)];
+                                                                            c = _d.sent();
+                                                                            return [4, c.html(a && a.charset)];
                                                                         case 3: return [2, _d.sent()];
                                                                     }
                                                                 }); });
                                                             }, json: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
                                                                             return [4, d.get(r, a)];
                                                                         case 1: return [4, _c.apply(_b, [_d.sent(), r])];
                                                                         case 2:
-                                                                            s = _d.sent();
-                                                                            return [4, s.json()];
+                                                                            c = _d.sent();
+                                                                            return [4, c.json()];
                                                                         case 3: return [2, _d.sent()];
                                                                     }
                                                                 }); });
@@ -3876,77 +3894,77 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     });
                                                                 });
                                                             }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, v = { pick: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, b, x, m, y, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, b, x, p, w, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             if (!a || !r)
                                                                                 return [2, ""];
-                                                                            s = String(a).split(" || "), l = 0;
+                                                                            c = String(a).split(" || "), f = 0;
                                                                             _d.label = 1;
                                                                         case 1:
-                                                                            if (!(l < s.length)) return [3, 9];
-                                                                            f = s[l], g = "text", b = f.lastIndexOf("@");
-                                                                            b > 0 && !/\[[^\]]*@/.test(f.slice(b)) && (g = f.slice(b + 1), f = f.slice(0, b));
-                                                                            x = f === ":self" ? null : r.select(f), m = f === ":self" ? r : x.size() ? x.first() : null;
-                                                                            if (!m) return [3, 8];
+                                                                            if (!(f < c.length)) return [3, 9];
+                                                                            l = c[f], g = "text", b = l.lastIndexOf("@");
+                                                                            b > 0 && !/\[[^\]]*@/.test(l.slice(b)) && (g = l.slice(b + 1), l = l.slice(0, b));
+                                                                            x = l === ":self" ? null : r.select(l), p = l === ":self" ? r : x.size() ? x.first() : null;
+                                                                            if (!p) return [3, 8];
                                                                             if (!(g === "text")) return [3, 3];
-                                                                            return [4, m.text()];
+                                                                            return [4, p.text()];
                                                                         case 2:
                                                                             _b = _d.sent();
                                                                             return [3, 7];
                                                                         case 3:
                                                                             if (!(g === "html")) return [3, 5];
-                                                                            return [4, m.html()];
+                                                                            return [4, p.html()];
                                                                         case 4:
                                                                             _c = _d.sent();
                                                                             return [3, 6];
                                                                         case 5:
-                                                                            _c = g === "img" ? d.img(m.is("img") ? m : m.select("img").first()) : g === "own" ? m.ownText() : m.attr(g);
+                                                                            _c = g === "img" ? d.img(p.is("img") ? p : p.select("img").first()) : g === "own" ? p.ownText() : p.attr(g);
                                                                             _d.label = 6;
                                                                         case 6:
                                                                             _b = _c;
                                                                             _d.label = 7;
                                                                         case 7:
-                                                                            y = _b;
-                                                                            if (y)
-                                                                                return [2, String(y).trim()];
+                                                                            w = _b;
+                                                                            if (w)
+                                                                                return [2, String(w).trim()];
                                                                             _d.label = 8;
                                                                         case 8:
-                                                                            l++;
+                                                                            f++;
                                                                             return [3, 1];
                                                                         case 9: return [2, ""];
                                                                     }
                                                                 }); });
-                                                            }, url: function (r, a, s) { var l = d.page(a), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (g, b) { return l > 1 ? b : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(s || "")).replace(/\{base\}/g, k), d.fix(f); }, items: function (r) {
+                                                            }, url: function (r, a, c) { var f = d.page(a), l = String(r); return l = l.replace(/\[([^\]]*)\]/g, function (g, b) { return f > 1 ? b : ""; }), l = l.replace(/\{p\}/g, String(f)).replace(/\{p0\}/g, String(f - 1)).replace(/\{q\}/g, d.enc(c || "")).replace(/\{base\}/g, k), d.fix(l); }, items: function (r, a) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, s, l, f, g, b, x, _b, _c, _d;
+                                                                    var c, f, l, g, b, x, p, w, _b, _c, _d;
                                                                     var _f;
                                                                     return __generator(this, function (_g) {
                                                                         switch (_g.label) {
                                                                             case 0:
-                                                                                a = r.select(o.item), s = [], l = {}, f = 0;
+                                                                                c = function (A) { return a && o[a + A] || o[A]; }, f = r.select(c("item")), l = [], g = {}, b = 0;
                                                                                 _g.label = 1;
                                                                             case 1:
-                                                                                if (!(f < a.size())) return [3, 9];
-                                                                                return [4, a.get(f)];
+                                                                                if (!(b < f.size())) return [3, 9];
+                                                                                return [4, f.get(b)];
                                                                             case 2:
-                                                                                g = _g.sent();
-                                                                                return [4, v.pick(g, o.link || "a@href")];
-                                                                            case 3:
-                                                                                b = _g.sent();
-                                                                                if (!!(!b || l[b] || /^javascript|#$/.test(b))) return [3, 8];
-                                                                                return [4, v.pick(g, o.title || "h3 || h2 || a@title || img@alt")];
-                                                                            case 4:
                                                                                 x = _g.sent();
-                                                                                _b = x;
+                                                                                return [4, v.pick(x, c("link") || "a@href")];
+                                                                            case 3:
+                                                                                p = _g.sent();
+                                                                                if (!!(!p || g[p] || /^javascript|#$/.test(p))) return [3, 8];
+                                                                                return [4, v.pick(x, c("title") || "h3 || h2 || a@title || img@alt")];
+                                                                            case 4:
+                                                                                w = _g.sent();
+                                                                                _b = w;
                                                                                 if (!_b) return [3, 7];
-                                                                                l[b] = 1;
-                                                                                _d = (_c = s).push;
-                                                                                _f = { name: x, link: d.fix(b) };
-                                                                                return [4, v.pick(g, o.cover || "img@img")];
+                                                                                g[p] = 1;
+                                                                                _d = (_c = l).push;
+                                                                                _f = { name: w, link: d.fix(p) };
+                                                                                return [4, v.pick(x, c("cover") || "img@img")];
                                                                             case 5:
                                                                                 _f.cover = _g.sent();
-                                                                                return [4, v.pick(g, o.desc || "")];
+                                                                                return [4, v.pick(x, c("desc") || "")];
                                                                             case 6:
                                                                                 _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = k, _f)]));
                                                                                 _g.label = 7;
@@ -3954,43 +3972,52 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _b;
                                                                                 _g.label = 8;
                                                                             case 8:
-                                                                                f++;
+                                                                                b++;
                                                                                 return [3, 1];
-                                                                            case 9: return [2, s];
+                                                                            case 9: return [2, l];
                                                                         }
                                                                     });
                                                                 });
-                                                            }, listPage: function (r, a, s) {
-                                                                return __awaiter(this, void 0, void 0, function () { var l, f, g; return __generator(this, function (_b) {
+                                                            }, listPage: function (r, a, c) {
+                                                                return __awaiter(this, void 0, void 0, function () { var f, l, g; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
-                                                                        case 0: return [4, d.html(v.url(r, a, s), o.req)];
+                                                                        case 0: return [4, d.html(v.url(r, a, c), o.req)];
                                                                         case 1:
-                                                                            l = _b.sent();
-                                                                            return [4, v.items(l)];
+                                                                            f = _b.sent();
+                                                                            return [4, v.items(f, c ? "s_" : "")];
                                                                         case 2:
-                                                                            f = _b.sent(), g = o.next ? l.select(o.next).size() > 0 : f.length >= (o.pageSize || 10);
-                                                                            return [2, c.success(f, d.next(g && f.length > 0, a))];
+                                                                            l = _b.sent(), g = o.next ? f.select(o.next).size() > 0 : l.length >= (o.pageSize || 10);
+                                                                            return [2, s.success(l, d.next(g && l.length > 0, a))];
                                                                     }
                                                                 }); });
                                                             }, browse: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            s = o.tabs && o.tabs[r] || r;
-                                                                            return [4, v.listPage(s, a, "")];
+                                                                            c = o.tabs && o.tabs[r] || r;
+                                                                            return [4, v.listPage(c, a, "")];
                                                                         case 1: return [2, _b.sent()];
                                                                     }
                                                                 }); });
                                                             }, search: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (!d.isUrl(r)) return [3, 2];
-                                                                            s = d.fix(r);
-                                                                            return [4, v.listPage(s + (s.indexOf("?") > 0 ? "&" : "?") + (o.pageParam || "page") + "={p}", a, "")];
+                                                                            c = d.fix(r);
+                                                                            return [4, v.listPage(c + (c.indexOf("?") > 0 ? "&" : "?") + (o.pageParam || "page") + "={p}", a, "")];
                                                                         case 1: return [2, _b.sent()];
-                                                                        case 2: return [4, v.listPage(o.search, a, r)];
-                                                                        case 3: return [2, _b.sent()];
+                                                                        case 2:
+                                                                            if (!o.search_post) return [3, 5];
+                                                                            return [4, d.html(v.url(o.search_post.url, a, r), { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: String(o.search_post.body).replace(/\{q\}/g, d.enc(r)) })];
+                                                                        case 3:
+                                                                            f = _b.sent();
+                                                                            return [4, v.items(f, "s_")];
+                                                                        case 4:
+                                                                            l = _b.sent();
+                                                                            return [2, s.success(l, null)];
+                                                                        case 5: return [4, v.listPage(o.search, a, r)];
+                                                                        case 6: return [2, _b.sent()];
                                                                     }
                                                                 }); });
                                                             }, genre: function () {
@@ -3998,31 +4025,31 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (!o.genre)
-                                                                                return [2, c.success([])];
+                                                                                return [2, s.success([])];
                                                                             return [4, d.html(d.fix(o.genrePage || "/"))];
                                                                         case 1:
                                                                             r = _b.sent();
-                                                                            return [4, z(r.select(o.genre), function (s) {
+                                                                            return [4, z(r.select(o.genre), function (c) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
                                                                                             switch (_c.label) {
                                                                                                 case 0:
                                                                                                     _b = {};
-                                                                                                    return [4, s.text()];
-                                                                                                case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(s.attr("href")), _b.script = "search.js", _b)];
+                                                                                                    return [4, c.text()];
+                                                                                                case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(c.attr("href")), _b.script = "search.js", _b)];
                                                                                             }
                                                                                         });
                                                                                     });
                                                                                 })];
                                                                         case 2:
                                                                             a = _b.sent();
-                                                                            return [2, c.success(a.filter(function (s) { return s.title; }))];
+                                                                            return [2, s.success(a.filter(function (c) { return c.title; }))];
                                                                     }
                                                                 }); });
                                                             }, detail: function (r) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, s, l, _b, _c, _d, _f, _g;
+                                                                    var a, c, f, _b, _c, _d, _f, _g;
                                                                     var _h;
                                                                     return __generator(this, function (_j) {
                                                                         switch (_j.label) {
@@ -4030,15 +4057,15 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             case 1:
                                                                                 a = _j.sent();
                                                                                 if (!o.d_genres) return [3, 3];
-                                                                                return [4, z(a.select(o.d_genres), function (f) {
+                                                                                return [4, z(a.select(o.d_genres), function (l) {
                                                                                         return __awaiter(this, void 0, void 0, function () {
                                                                                             var _b;
                                                                                             return __generator(this, function (_c) {
                                                                                                 switch (_c.label) {
                                                                                                     case 0:
                                                                                                         _b = {};
-                                                                                                        return [4, f.text()];
-                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(f.attr("href")), _b.script = "search.js", _b)];
+                                                                                                        return [4, l.text()];
+                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(l.attr("href")), _b.script = "search.js", _b)];
                                                                                                 }
                                                                                             });
                                                                                         });
@@ -4050,11 +4077,11 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _b = [];
                                                                                 _j.label = 4;
                                                                             case 4:
-                                                                                s = _b;
+                                                                                c = _b;
                                                                                 return [4, v.pick(a, o.d_status)];
                                                                             case 5:
-                                                                                l = _j.sent();
-                                                                                _d = (_c = c).success;
+                                                                                f = _j.sent();
+                                                                                _d = (_c = s).success;
                                                                                 _h = {};
                                                                                 return [4, v.pick(a, o.d_title || "h1")];
                                                                             case 6:
@@ -4067,13 +4094,13 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             case 8:
                                                                                 _h.author = _j.sent();
                                                                                 return [4, v.pick(a, (o.d_desc || "meta[name=description]@content").replace(/$/, ""))];
-                                                                            case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = l ? "Tình trạng: " + l : "", _h.ongoing = d.ongoing(l), _h.genres = s, _h.host = k, _h)])];
+                                                                            case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = f ? "Tình trạng: " + f : "", _h.ongoing = d.ongoing(f), _h.genres = c, _h.host = k, _h)])];
                                                                         }
                                                                     });
                                                                 });
                                                             }, toc: function (r) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, s, l, f, g, _b, b, x, m, y, A, _c, _d, _f, _g, L, M, _h;
+                                                                    var a, c, f, l, g, _b, b, x, p, w, A, _c, _d, _f, _g, L, M, _h;
                                                                     var _j;
                                                                     return __generator(this, function (_k) {
                                                                         switch (_k.label) {
@@ -4083,20 +4110,20 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             case 1: return [2, _k.sent()];
                                                                             case 2:
                                                                                 if (o.single)
-                                                                                    return [2, c.success([{ name: o.single === !0 ? "Xem / Đọc" : o.single, url: r, host: k }])];
-                                                                                a = [r], s = [], l = {};
+                                                                                    return [2, s.success([{ name: o.single === !0 ? "Xem / Đọc" : o.single, url: r, host: k }])];
+                                                                                a = [r], c = [], f = {};
                                                                                 return [4, d.html(o.ch_rewrite ? r.replace(new RegExp(o.ch_rewrite[0]), o.ch_rewrite[1]) : r, o.req)];
                                                                             case 3:
-                                                                                f = _k.sent();
+                                                                                l = _k.sent();
                                                                                 if (!o.ch_url) return [3, 7];
-                                                                                return [4, v.pick(f, o.ch_url)];
+                                                                                return [4, v.pick(l, o.ch_url)];
                                                                             case 4:
                                                                                 g = _k.sent();
                                                                                 _b = g;
                                                                                 if (!_b) return [3, 6];
                                                                                 return [4, d.html(d.fix(g), o.req)];
                                                                             case 5:
-                                                                                _b = (f = _k.sent());
+                                                                                _b = (l = _k.sent());
                                                                                 _k.label = 6;
                                                                             case 6:
                                                                                 _b;
@@ -4106,38 +4133,38 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _k.label = 8;
                                                                             case 8:
                                                                                 if (!(b < (o.ch_maxPages || 60))) return [3, 22];
-                                                                                x = f.select(o.ch_list), m = 0;
+                                                                                x = l.select(o.ch_list), p = 0;
                                                                                 _k.label = 9;
                                                                             case 9:
-                                                                                if (!(m < x.size())) return [3, 17];
-                                                                                return [4, x.get(m)];
+                                                                                if (!(p < x.size())) return [3, 17];
+                                                                                return [4, x.get(p)];
                                                                             case 10:
-                                                                                y = _k.sent(), A = y.attr("href") || y.attr("data-href");
-                                                                                _c = !A || A === "#" || l[A];
+                                                                                w = _k.sent(), A = o.ch_attr ? w.attr(o.ch_attr) : w.attr("href") || w.attr("data-href");
+                                                                                _c = !A || A === "#" || f[A];
                                                                                 if (_c) return [3, 15];
-                                                                                l[A] = 1;
-                                                                                _f = (_d = s).push;
+                                                                                f[A] = 1;
+                                                                                _f = (_d = c).push;
                                                                                 _j = {};
                                                                                 if (!o.ch_name) return [3, 12];
-                                                                                return [4, v.pick(y, o.ch_name)];
+                                                                                return [4, v.pick(w, o.ch_name)];
                                                                             case 11:
                                                                                 _g = _k.sent();
                                                                                 return [3, 14];
-                                                                            case 12: return [4, y.text()];
+                                                                            case 12: return [4, w.text()];
                                                                             case 13:
                                                                                 _g = _k.sent();
                                                                                 _k.label = 14;
                                                                             case 14:
-                                                                                _c = (_f.apply(_d, [(_j.name = (_g) || y.attr("title"), _j.url = d.fix(A), _j.host = k, _j)]));
+                                                                                _c = (_f.apply(_d, [(_j.name = (_g) || w.attr("title"), _j.url = d.fix(A), _j.host = k, _j)]));
                                                                                 _k.label = 15;
                                                                             case 15:
                                                                                 _c;
                                                                                 _k.label = 16;
                                                                             case 16:
-                                                                                m++;
+                                                                                p++;
                                                                                 return [3, 9];
                                                                             case 17:
-                                                                                L = o.ch_next ? f.select(o.ch_next).first() : null;
+                                                                                L = o.ch_next ? l.select(o.ch_next).first() : null;
                                                                                 if (!L || !L.attr("href"))
                                                                                     return [3, 22];
                                                                                 M = d.fix(L.attr("href"));
@@ -4154,24 +4181,24 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _h;
                                                                                 return [4, d.html(M, o.req)];
                                                                             case 20:
-                                                                                f = _k.sent();
+                                                                                l = _k.sent();
                                                                                 _k.label = 21;
                                                                             case 21:
                                                                                 b++;
                                                                                 return [3, 8];
-                                                                            case 22: return [2, (o.ch_reverse && s.reverse(), c.success(s))];
+                                                                            case 22: return [2, (o.ch_reverse && c.reverse(), !c.length && o.ch_fallback_single && c.push({ name: o.ch_fallback_single === !0 ? "Xem phim" : o.ch_fallback_single, url: r, host: k }), s.success(c))];
                                                                         }
                                                                     });
                                                                 });
                                                             }, pages: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s, l, f, g, b, x, m, _b, _c, y, A; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c, f, l, g, b, x, p, _b, _c, w, A; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
-                                                                            a = [], s = [r], l = r, f = 0;
+                                                                            a = [], c = [r], f = r, l = 0;
                                                                             _d.label = 1;
                                                                         case 1:
-                                                                            if (!(f < (o.pages_max || 40))) return [3, 8];
-                                                                            return [4, d.html(l, o.req)];
+                                                                            if (!(l < (o.pages_max || 40))) return [3, 8];
+                                                                            return [4, d.html(f, o.req)];
                                                                         case 2:
                                                                             g = _d.sent(), b = g.select(o.pages || ".page-chapter img, .reading-content img, .chapter-content img"), x = 0;
                                                                             _d.label = 3;
@@ -4180,8 +4207,8 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             _c = (_b = d).img;
                                                                             return [4, b.get(x)];
                                                                         case 4:
-                                                                            m = _c.apply(_b, [_d.sent()]);
-                                                                            m && a.indexOf(m) < 0 && a.push(m);
+                                                                            p = _c.apply(_b, [_d.sent()]);
+                                                                            p && a.indexOf(p) < 0 && a.push(p);
                                                                             _d.label = 5;
                                                                         case 5:
                                                                             x++;
@@ -4189,22 +4216,22 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                         case 6:
                                                                             if (!o.pages_next)
                                                                                 return [3, 8];
-                                                                            y = g.select(o.pages_next).first();
-                                                                            if (!y)
+                                                                            w = g.select(o.pages_next).first();
+                                                                            if (!w)
                                                                                 return [3, 8];
-                                                                            A = d.fix(y.attr("href"));
-                                                                            if (!A || s.indexOf(A) >= 0)
+                                                                            A = d.fix(w.attr("href"));
+                                                                            if (!A || c.indexOf(A) >= 0)
                                                                                 return [3, 8];
-                                                                            s.push(A), l = A;
+                                                                            c.push(A), f = A;
                                                                             _d.label = 7;
                                                                         case 7:
-                                                                            f++;
+                                                                            l++;
                                                                             return [3, 1];
-                                                                        case 8: return [2, c.success(a)];
+                                                                        case 8: return [2, s.success(a)];
                                                                     }
                                                                 }); });
                                                             }, text: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s, _b, _c, l, f, g, _d, _f, _g, b, x, _h, _j, _k, _l, _m, _o; return __generator(this, function (_p) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c, _b, _c, f, l, g, _d, _f, _g, b, x, _h, _j, _k, _l, _m, _o; return __generator(this, function (_p) {
                                                                     switch (_p.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
@@ -4214,25 +4241,25 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             a = _p.sent();
                                                                             return [4, a.text()];
                                                                         case 3:
-                                                                            s = (_p.sent()) || "";
+                                                                            c = (_p.sent()) || "";
                                                                             if (!o.content_rsc) return [3, 5];
-                                                                            l = v.rscText(s), f = o.c_locked && new RegExp(o.c_locked, "i").test(s), g = f ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
-                                                                            if (!(l || f)) return [3, 5];
-                                                                            _f = (_d = c).success;
-                                                                            _g = [v.toParas(l) + g];
-                                                                            return [4, v.pick(n.parse(s, r), o.c_title || "h1 || title")];
+                                                                            f = v.rscText(c), l = o.c_locked && new RegExp(o.c_locked, "i").test(c), g = l ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
+                                                                            if (!(f || l)) return [3, 5];
+                                                                            _f = (_d = s).success;
+                                                                            _g = [v.toParas(f) + g];
+                                                                            return [4, v.pick(n.parse(c, r), o.c_title || "h1 || title")];
                                                                         case 4: return [2, _f.apply(_d, _g.concat([_p.sent()]))];
                                                                         case 5:
-                                                                            b = n.parse(s, r), x = b.select(o.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            b = n.parse(c, r), x = b.select(o.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
                                                                             if (!!x) return [3, 7];
-                                                                            if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(s.slice(0, 2e4)))
+                                                                            if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(c.slice(0, 2e4)))
                                                                                 throw new Error("CLOUDFLARE: trang " + k + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
-                                                                            _j = (_h = c).error;
+                                                                            _j = (_h = s).error;
                                                                             _k = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                             return [4, v.pick(b, "title")];
-                                                                        case 6: return [2, _j.apply(_h, [_k + ((_p.sent()) || "?").slice(0, 60) + '" (' + a.status + ", " + s.length + " ký tự)" + (s.length < 400 ? ": " + s.replace(/\s+/g, " ").slice(0, 200) : "")])];
+                                                                        case 6: return [2, _j.apply(_h, [_k + ((_p.sent()) || "?").slice(0, 60) + '" (' + a.status + ", " + c.length + " ký tự)" + (c.length < 400 ? ": " + c.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                                         case 7:
-                                                                            _m = (_l = c).success;
+                                                                            _m = (_l = s).success;
                                                                             return [4, d.cleanContent(x)];
                                                                         case 8:
                                                                             _o = [_p.sent()];
@@ -4241,25 +4268,25 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     }
                                                                 }); });
                                                             }, rscAction: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, b, x, m, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, b, x, p, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
-                                                                            for (s = [], f = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g; l = f.exec(r);)
-                                                                                s.indexOf(l[0]) < 0 && s.push(l[0]);
+                                                                            for (c = [], l = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g; f = l.exec(r);)
+                                                                                c.indexOf(f[0]) < 0 && c.push(f[0]);
                                                                             g = new RegExp('"([0-9a-f]{40,44})"[^"]{0,200}?"' + a + '"'), b = 0;
                                                                             _d.label = 1;
                                                                         case 1:
-                                                                            if (!(b < s.length && b < 60)) return [3, 5];
-                                                                            return [4, d.get(k + s[b])];
+                                                                            if (!(b < c.length && b < 60)) return [3, 5];
+                                                                            return [4, d.get(k + c[b])];
                                                                         case 2:
                                                                             x = _d.sent();
                                                                             if (!!(!x || !x.ok)) return [3, 4];
                                                                             _c = (_b = g).exec;
                                                                             return [4, x.text()];
                                                                         case 3:
-                                                                            m = _c.apply(_b, [(_d.sent()) || ""]);
-                                                                            if (m)
-                                                                                return [2, m[1]];
+                                                                            p = _c.apply(_b, [(_d.sent()) || ""]);
+                                                                            if (p)
+                                                                                return [2, p[1]];
                                                                             _d.label = 4;
                                                                         case 4:
                                                                             b++;
@@ -4268,19 +4295,19 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     }
                                                                 }); });
                                                             }, rscArray: function (r) {
-                                                                for (var a = String(r || "").split("\n"), s = 0; s < a.length; s++) {
-                                                                    var l = /^[0-9a-f]+:(\[.*)$/.exec(a[s]);
-                                                                    if (l)
+                                                                for (var a = String(r || "").split("\n"), c = 0; c < a.length; c++) {
+                                                                    var f = /^[0-9a-f]+:(\[.*)$/.exec(a[c]);
+                                                                    if (f)
                                                                         try {
-                                                                            var f = JSON.parse(l[1]);
-                                                                            if (f && f.length)
-                                                                                return f;
+                                                                            var l = JSON.parse(f[1]);
+                                                                            if (l && l.length)
+                                                                                return l;
                                                                         }
                                                                         catch (g) { }
                                                                 }
                                                                 return null;
                                                             }, actionToc: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s, l, _b, _c, f, g, b, _d, x, _f, m; return __generator(this, function (_g) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c, f, _b, _c, l, g, b, _d, x, _f, p; return __generator(this, function (_g) {
                                                                     switch (_g.label) {
                                                                         case 0:
                                                                             a = o.ch_action;
@@ -4289,13 +4316,13 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                         case 1: return [4, _c.apply(_b, [_g.sent(), r])];
                                                                         case 2: return [4, (_g.sent()).text()];
                                                                         case 3:
-                                                                            s = (_g.sent()) || "", l = new RegExp(a.arg).exec(s);
-                                                                            if (!l)
-                                                                                return [2, c.error("Không tìm thấy mã truyện trên trang " + r)];
-                                                                            f = JSON.stringify([l[1]]), g = function (y) {
+                                                                            c = (_g.sent()) || "", f = new RegExp(a.arg).exec(c);
+                                                                            if (!f)
+                                                                                return [2, s.error("Không tìm thấy mã truyện trên trang " + r)];
+                                                                            l = JSON.stringify([f[1]]), g = function (w) {
                                                                                 return __awaiter(this, void 0, void 0, function () { var A, _b, _c, _d; return __generator(this, function (_f) {
                                                                                     switch (_f.label) {
-                                                                                        case 0: return [4, d.get(r, { method: "POST", headers: { "Next-Action": y, Accept: "text/x-component", "Content-Type": "text/plain;charset=UTF-8" }, body: f })];
+                                                                                        case 0: return [4, d.get(r, { method: "POST", headers: { "Next-Action": w, Accept: "text/x-component", "Content-Type": "text/plain;charset=UTF-8" }, body: l })];
                                                                                         case 1:
                                                                                             A = _f.sent();
                                                                                             if (!(A && A.ok)) return [3, 3];
@@ -4322,7 +4349,7 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                         case 6:
                                                                             b = _d;
                                                                             if (!!b) return [3, 10];
-                                                                            return [4, v.rscAction(s, a.name)];
+                                                                            return [4, v.rscAction(c, a.name)];
                                                                         case 7:
                                                                             x = _g.sent();
                                                                             _f = x && x !== a.id;
@@ -4336,82 +4363,82 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             _g.label = 10;
                                                                         case 10:
                                                                             if (!b)
-                                                                                return [2, c.error('Không lấy được danh sách chương (Server Action "' + a.name + '")')];
-                                                                            m = r.replace(/[?#].*$/, "").replace(/\/+$/, "");
-                                                                            return [2, c.success(b.map(function (y) { return { name: String(y[a.title || "label"] || "") + (a.lock && y[a.lock] ? " 🔒" : ""), url: m + "/" + y[a.slug || "slugId"], host: k }; }))];
+                                                                                return [2, s.error('Không lấy được danh sách chương (Server Action "' + a.name + '")')];
+                                                                            p = r.replace(/[?#].*$/, "").replace(/\/+$/, "");
+                                                                            return [2, s.success(b.map(function (w) { return { name: String(w[a.title || "label"] || "") + (a.lock && w[a.lock] ? " 🔒" : ""), url: p + "/" + w[a.slug || "slugId"], host: k }; }))];
                                                                     }
                                                                 }); });
-                                                            }, rscText: function (r) { for (var a = "", s, l = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g; s = l.exec(r);)
+                                                            }, rscText: function (r) { for (var a = "", c, f = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g; c = f.exec(r);)
                                                                 try {
-                                                                    a += JSON.parse(s[1]);
+                                                                    a += JSON.parse(c[1]);
                                                                 }
-                                                                catch (M) { } for (var f = "", g = /([0-9a-f]+):T([0-9a-f]+),/g, b; b = g.exec(a);) {
-                                                                for (var x = parseInt(b[2], 16), m = g.lastIndex, y = 0; m < a.length && y < x;) {
-                                                                    var A = a.charCodeAt(m);
-                                                                    A < 128 ? y += 1 : A < 2048 ? y += 2 : A >= 55296 && A <= 56319 ? (y += 4, m++) : y += 3, m++;
+                                                                catch (M) { } for (var l = "", g = /([0-9a-f]+):T([0-9a-f]+),/g, b; b = g.exec(a);) {
+                                                                for (var x = parseInt(b[2], 16), p = g.lastIndex, w = 0; p < a.length && w < x;) {
+                                                                    var A = a.charCodeAt(p);
+                                                                    A < 128 ? w += 1 : A < 2048 ? w += 2 : A >= 55296 && A <= 56319 ? (w += 4, p++) : w += 3, p++;
                                                                 }
-                                                                var L = a.slice(g.lastIndex, m);
-                                                                L.length > f.length && (f = L), g.lastIndex = m;
-                                                            } return f; }, toParas: function (r) { return /<p[\s>]|<br\s*\/?>/i.test(r) ? r : r.split(/\n+/).map(function (a) { return a = a.trim(), a ? "<p>" + a.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</p>" : ""; }).join(""); }, servers: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s; return __generator(this, function (_b) {
+                                                                var L = a.slice(g.lastIndex, p);
+                                                                L.length > l.length && (l = L), g.lastIndex = p;
+                                                            } return l; }, toParas: function (r) { return /<p[\s>]|<br\s*\/?>/i.test(r) ? r : r.split(/\n+/).map(function (a) { return a = a.trim(), a ? "<p>" + a.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</p>" : ""; }).join(""); }, servers: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (!o.servers)
-                                                                                return [2, c.success([{ title: "Server", data: r }])];
+                                                                                return [2, s.success([{ title: "Server", data: r }])];
                                                                             return [4, d.html(r, o.req)];
                                                                         case 1:
                                                                             a = _b.sent();
-                                                                            return [4, z(a.select(o.servers), function (l) {
+                                                                            return [4, z(a.select(o.servers), function (f) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
-                                                                                        var f;
+                                                                                        var l;
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
                                                                                             switch (_c.label) {
-                                                                                                case 0: return [4, v.pick(l, o.server_data || ":self@data-link || :self@data-src || :self@href")];
+                                                                                                case 0: return [4, v.pick(f, o.server_data || ":self@data-link || :self@data-src || :self@href")];
                                                                                                 case 1:
-                                                                                                    f = _c.sent();
+                                                                                                    l = _c.sent();
                                                                                                     _b = {};
-                                                                                                    return [4, l.text()];
-                                                                                                case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(f), _b)];
+                                                                                                    return [4, f.text()];
+                                                                                                case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(l), _b)];
                                                                                             }
                                                                                         });
                                                                                     });
                                                                                 })];
                                                                         case 2:
-                                                                            s = (_b.sent()).filter(function (l) { return l.data; });
-                                                                            return [2, c.success(s.length ? s : [{ title: "Server", data: r }])];
+                                                                            c = (_b.sent()).filter(function (f) { return f.data; });
+                                                                            return [2, s.success(c.length ? c : [{ title: "Server", data: r }])];
                                                                     }
                                                                 }); });
                                                             }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var a = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return a ? a[0] : ""; }, track: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, b, x, m; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, b, x, p; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (a = a || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
-                                                                                return [2, c.success({ type: "native", data: r, headers: { Referer: k + "/" } })];
+                                                                                return [2, s.success({ type: "native", data: r, headers: { Referer: k + "/" } })];
                                                                             return [4, d.get(r)];
                                                                         case 1:
-                                                                            s = _b.sent();
-                                                                            return [4, s.text()];
+                                                                            c = _b.sent();
+                                                                            return [4, c.text()];
                                                                         case 2:
-                                                                            l = _b.sent();
-                                                                            if (!(o.video && !a)) return [3, 4];
-                                                                            return [4, v.pick(n.parse(l, r), o.video)];
-                                                                        case 3:
                                                                             f = _b.sent();
-                                                                            if (f)
-                                                                                return [2, c.success({ type: "native", data: d.fix(f), headers: { Referer: k + "/" } })];
+                                                                            if (!(o.video && !a)) return [3, 4];
+                                                                            return [4, v.pick(n.parse(f, r), o.video)];
+                                                                        case 3:
+                                                                            l = _b.sent();
+                                                                            if (l)
+                                                                                return [2, s.success({ type: "native", data: d.fix(l), headers: { Referer: k + "/" } })];
                                                                             _b.label = 4;
                                                                         case 4:
-                                                                            g = v.sniff(l);
+                                                                            g = v.sniff(f);
                                                                             if (g)
-                                                                                return [2, c.success({ type: "native", data: g, headers: { Referer: a ? r : k + "/" } })];
-                                                                            b = n.parse(l, r), x = b.select(o.iframe || "iframe[src], iframe[data-src]").first();
+                                                                                return [2, s.success({ type: "native", data: g, headers: { Referer: a ? r : k + "/" } })];
+                                                                            b = n.parse(f, r), x = b.select(o.iframe || "iframe[src], iframe[data-src]").first();
                                                                             if (!(x && a < 2)) return [3, 6];
-                                                                            m = d.fix(x.attr("src") || x.attr("data-src"));
-                                                                            if (!m) return [3, 6];
-                                                                            return [4, v.track(m, a + 1)];
+                                                                            p = d.fix(x.attr("src") || x.attr("data-src"));
+                                                                            if (!p) return [3, 6];
+                                                                            return [4, v.track(p, a + 1)];
                                                                         case 5: return [2, _b.sent()];
-                                                                        case 6: return [2, c.success({ type: "webview", data: r })];
+                                                                        case 6: return [2, s.success({ type: "webview", data: r })];
                                                                     }
                                                                 }); });
                                                             } };
@@ -4429,13 +4456,13 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
     }, toc: function (t, e) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
-                return [2, (function (u, i, n, c, h, p, w, S, E, D, N, q, I, U, W, Z, ne) {
+                return [2, (function (u, i, n, s, h, m, y, S, E, D, _, N, I, U, W, Z, ne) {
                         return __awaiter(this, void 0, void 0, function () {
-                            var R;
+                            var H;
                             return __generator(this, function (_b) {
                                 switch (_b.label) {
                                     case 0:
-                                        R = e("DOMAIN");
+                                        H = e("DOMAIN");
                                         return [4, (function () {
                                                 return __awaiter(this, void 0, void 0, function () {
                                                     function G(r) {
@@ -4450,51 +4477,51 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                     return __generator(this, function (_b) {
                                                         k = "https://luvevalandn2.co";
                                                         try {
-                                                            R && (k = String(R).replace(/\/+$/, ""));
+                                                            H && (k = String(H).replace(/\/+$/, ""));
                                                         }
                                                         catch (r) { }
                                                         o = { tabs: { "Truyện mới": "/danh-sach/moi-dang[?page={p}]", "Hot tuần": "/danh-sach/truyen-hot-tuan[?page={p}]", "Xem nhiều": "/danh-sach/truyen-nhieu-nguoi-xem[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", ch_list: "td.list-chapter__name a", item: ".book-vertical__item, tr.book__list-item", title: ".book__lg-title a || td.book__list-name a || img@alt", link: "a@href", cover: "img@img", pageSize: 10, d_title: ".breadcrumb__container a.breadcrumb__item:last-child || h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .book__detail-image img@img", d_desc: "#home", d_genres: ".book__detail-text a[href*='/the-loai/']", content: "#chapter-content", c_title: "h1 || h2" }, d = { img: function (r) { if (!r)
-                                                                return ""; for (var a = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], s = 0; s < a.length; s++) {
-                                                                var l = r.attr(a[s]);
-                                                                if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
-                                                                    return d.fix(l.trim());
-                                                            } var f = r.attr("data-srcset") || r.attr("srcset"); return f ? d.fix(f.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? k + r : k + "/" + r) : ""; }, text: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l; return __generator(this, function (_b) {
+                                                                return ""; for (var a = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < a.length; c++) {
+                                                                var f = r.attr(a[c]);
+                                                                if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
+                                                                    return d.fix(f.trim());
+                                                            } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? d.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? k + r : k + "/" + r) : ""; }, text: function (r, a) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            s = 0;
+                                                                            c = 0;
                                                                             _b.label = 1;
                                                                         case 1:
-                                                                            if (!(s < a.length)) return [3, 4];
-                                                                            return [4, r.select(a[s]).text()];
+                                                                            if (!(c < a.length)) return [3, 4];
+                                                                            return [4, r.select(a[c]).text()];
                                                                         case 2:
-                                                                            l = _b.sent();
-                                                                            if (l)
-                                                                                return [2, l.trim()];
+                                                                            f = _b.sent();
+                                                                            if (f)
+                                                                                return [2, f.trim()];
                                                                             _b.label = 3;
                                                                         case 3:
-                                                                            s++;
+                                                                            c++;
                                                                             return [3, 1];
                                                                         case 4: return [2, ""];
                                                                     }
                                                                 }); });
                                                             }, get: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, _b; return __generator(this, function (_c) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, _b; return __generator(this, function (_c) {
                                                                     switch (_c.label) {
                                                                         case 0:
                                                                             a = a || {};
-                                                                            s = { Referer: k + "/" };
+                                                                            c = { Referer: k + "/" };
                                                                             if (a.headers)
-                                                                                for (l in a.headers)
-                                                                                    s[l] = a.headers[l];
-                                                                            return [4, u(r, { method: a.method, headers: s, body: a.body })];
+                                                                                for (f in a.headers)
+                                                                                    c[f] = a.headers[f];
+                                                                            return [4, u(r, { method: a.method, headers: c, body: a.body })];
                                                                         case 1:
-                                                                            f = _c.sent(), g = 0;
+                                                                            l = _c.sent(), g = 0;
                                                                             _c.label = 2;
                                                                         case 2:
-                                                                            _b = f && f.status === 429 && g < 3;
+                                                                            _b = l && l.status === 429 && g < 3;
                                                                             if (!_b) return [3, 4];
-                                                                            return [4, d.cf(f)];
+                                                                            return [4, d.cf(l)];
                                                                         case 3:
                                                                             _b = !(_c.sent());
                                                                             _c.label = 4;
@@ -4503,14 +4530,14 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             return [4, E(1500 * (g + 1))];
                                                                         case 5:
                                                                             _c.sent();
-                                                                            return [4, u(r, { method: a.method, headers: s, body: a.body })];
+                                                                            return [4, u(r, { method: a.method, headers: c, body: a.body })];
                                                                         case 6:
-                                                                            f = _c.sent();
+                                                                            l = _c.sent();
                                                                             _c.label = 7;
                                                                         case 7:
                                                                             g++;
                                                                             return [3, 2];
-                                                                        case 8: return [2, f];
+                                                                        case 8: return [2, l];
                                                                     }
                                                                 }); });
                                                             }, cf: function (r) {
@@ -4536,28 +4563,28 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     }
                                                                 }); });
                                                             }, html: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
                                                                             return [4, d.get(r, a)];
                                                                         case 1: return [4, _c.apply(_b, [_d.sent(), r])];
                                                                         case 2:
-                                                                            s = _d.sent();
-                                                                            return [4, s.html(a && a.charset)];
+                                                                            c = _d.sent();
+                                                                            return [4, c.html(a && a.charset)];
                                                                         case 3: return [2, _d.sent()];
                                                                     }
                                                                 }); });
                                                             }, json: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
                                                                             return [4, d.get(r, a)];
                                                                         case 1: return [4, _c.apply(_b, [_d.sent(), r])];
                                                                         case 2:
-                                                                            s = _d.sent();
-                                                                            return [4, s.json()];
+                                                                            c = _d.sent();
+                                                                            return [4, c.json()];
                                                                         case 3: return [2, _d.sent()];
                                                                     }
                                                                 }); });
@@ -4573,77 +4600,77 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     });
                                                                 });
                                                             }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, v = { pick: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, b, x, m, y, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, b, x, p, w, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             if (!a || !r)
                                                                                 return [2, ""];
-                                                                            s = String(a).split(" || "), l = 0;
+                                                                            c = String(a).split(" || "), f = 0;
                                                                             _d.label = 1;
                                                                         case 1:
-                                                                            if (!(l < s.length)) return [3, 9];
-                                                                            f = s[l], g = "text", b = f.lastIndexOf("@");
-                                                                            b > 0 && !/\[[^\]]*@/.test(f.slice(b)) && (g = f.slice(b + 1), f = f.slice(0, b));
-                                                                            x = f === ":self" ? null : r.select(f), m = f === ":self" ? r : x.size() ? x.first() : null;
-                                                                            if (!m) return [3, 8];
+                                                                            if (!(f < c.length)) return [3, 9];
+                                                                            l = c[f], g = "text", b = l.lastIndexOf("@");
+                                                                            b > 0 && !/\[[^\]]*@/.test(l.slice(b)) && (g = l.slice(b + 1), l = l.slice(0, b));
+                                                                            x = l === ":self" ? null : r.select(l), p = l === ":self" ? r : x.size() ? x.first() : null;
+                                                                            if (!p) return [3, 8];
                                                                             if (!(g === "text")) return [3, 3];
-                                                                            return [4, m.text()];
+                                                                            return [4, p.text()];
                                                                         case 2:
                                                                             _b = _d.sent();
                                                                             return [3, 7];
                                                                         case 3:
                                                                             if (!(g === "html")) return [3, 5];
-                                                                            return [4, m.html()];
+                                                                            return [4, p.html()];
                                                                         case 4:
                                                                             _c = _d.sent();
                                                                             return [3, 6];
                                                                         case 5:
-                                                                            _c = g === "img" ? d.img(m.is("img") ? m : m.select("img").first()) : g === "own" ? m.ownText() : m.attr(g);
+                                                                            _c = g === "img" ? d.img(p.is("img") ? p : p.select("img").first()) : g === "own" ? p.ownText() : p.attr(g);
                                                                             _d.label = 6;
                                                                         case 6:
                                                                             _b = _c;
                                                                             _d.label = 7;
                                                                         case 7:
-                                                                            y = _b;
-                                                                            if (y)
-                                                                                return [2, String(y).trim()];
+                                                                            w = _b;
+                                                                            if (w)
+                                                                                return [2, String(w).trim()];
                                                                             _d.label = 8;
                                                                         case 8:
-                                                                            l++;
+                                                                            f++;
                                                                             return [3, 1];
                                                                         case 9: return [2, ""];
                                                                     }
                                                                 }); });
-                                                            }, url: function (r, a, s) { var l = d.page(a), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (g, b) { return l > 1 ? b : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(s || "")).replace(/\{base\}/g, k), d.fix(f); }, items: function (r) {
+                                                            }, url: function (r, a, c) { var f = d.page(a), l = String(r); return l = l.replace(/\[([^\]]*)\]/g, function (g, b) { return f > 1 ? b : ""; }), l = l.replace(/\{p\}/g, String(f)).replace(/\{p0\}/g, String(f - 1)).replace(/\{q\}/g, d.enc(c || "")).replace(/\{base\}/g, k), d.fix(l); }, items: function (r, a) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, s, l, f, g, b, x, _b, _c, _d;
+                                                                    var c, f, l, g, b, x, p, w, _b, _c, _d;
                                                                     var _f;
                                                                     return __generator(this, function (_g) {
                                                                         switch (_g.label) {
                                                                             case 0:
-                                                                                a = r.select(o.item), s = [], l = {}, f = 0;
+                                                                                c = function (A) { return a && o[a + A] || o[A]; }, f = r.select(c("item")), l = [], g = {}, b = 0;
                                                                                 _g.label = 1;
                                                                             case 1:
-                                                                                if (!(f < a.size())) return [3, 9];
-                                                                                return [4, a.get(f)];
+                                                                                if (!(b < f.size())) return [3, 9];
+                                                                                return [4, f.get(b)];
                                                                             case 2:
-                                                                                g = _g.sent();
-                                                                                return [4, v.pick(g, o.link || "a@href")];
-                                                                            case 3:
-                                                                                b = _g.sent();
-                                                                                if (!!(!b || l[b] || /^javascript|#$/.test(b))) return [3, 8];
-                                                                                return [4, v.pick(g, o.title || "h3 || h2 || a@title || img@alt")];
-                                                                            case 4:
                                                                                 x = _g.sent();
-                                                                                _b = x;
+                                                                                return [4, v.pick(x, c("link") || "a@href")];
+                                                                            case 3:
+                                                                                p = _g.sent();
+                                                                                if (!!(!p || g[p] || /^javascript|#$/.test(p))) return [3, 8];
+                                                                                return [4, v.pick(x, c("title") || "h3 || h2 || a@title || img@alt")];
+                                                                            case 4:
+                                                                                w = _g.sent();
+                                                                                _b = w;
                                                                                 if (!_b) return [3, 7];
-                                                                                l[b] = 1;
-                                                                                _d = (_c = s).push;
-                                                                                _f = { name: x, link: d.fix(b) };
-                                                                                return [4, v.pick(g, o.cover || "img@img")];
+                                                                                g[p] = 1;
+                                                                                _d = (_c = l).push;
+                                                                                _f = { name: w, link: d.fix(p) };
+                                                                                return [4, v.pick(x, c("cover") || "img@img")];
                                                                             case 5:
                                                                                 _f.cover = _g.sent();
-                                                                                return [4, v.pick(g, o.desc || "")];
+                                                                                return [4, v.pick(x, c("desc") || "")];
                                                                             case 6:
                                                                                 _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = k, _f)]));
                                                                                 _g.label = 7;
@@ -4651,43 +4678,52 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _b;
                                                                                 _g.label = 8;
                                                                             case 8:
-                                                                                f++;
+                                                                                b++;
                                                                                 return [3, 1];
-                                                                            case 9: return [2, s];
+                                                                            case 9: return [2, l];
                                                                         }
                                                                     });
                                                                 });
-                                                            }, listPage: function (r, a, s) {
-                                                                return __awaiter(this, void 0, void 0, function () { var l, f, g; return __generator(this, function (_b) {
+                                                            }, listPage: function (r, a, c) {
+                                                                return __awaiter(this, void 0, void 0, function () { var f, l, g; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
-                                                                        case 0: return [4, d.html(v.url(r, a, s), o.req)];
+                                                                        case 0: return [4, d.html(v.url(r, a, c), o.req)];
                                                                         case 1:
-                                                                            l = _b.sent();
-                                                                            return [4, v.items(l)];
+                                                                            f = _b.sent();
+                                                                            return [4, v.items(f, c ? "s_" : "")];
                                                                         case 2:
-                                                                            f = _b.sent(), g = o.next ? l.select(o.next).size() > 0 : f.length >= (o.pageSize || 10);
-                                                                            return [2, c.success(f, d.next(g && f.length > 0, a))];
+                                                                            l = _b.sent(), g = o.next ? f.select(o.next).size() > 0 : l.length >= (o.pageSize || 10);
+                                                                            return [2, s.success(l, d.next(g && l.length > 0, a))];
                                                                     }
                                                                 }); });
                                                             }, browse: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            s = o.tabs && o.tabs[r] || r;
-                                                                            return [4, v.listPage(s, a, "")];
+                                                                            c = o.tabs && o.tabs[r] || r;
+                                                                            return [4, v.listPage(c, a, "")];
                                                                         case 1: return [2, _b.sent()];
                                                                     }
                                                                 }); });
                                                             }, search: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (!d.isUrl(r)) return [3, 2];
-                                                                            s = d.fix(r);
-                                                                            return [4, v.listPage(s + (s.indexOf("?") > 0 ? "&" : "?") + (o.pageParam || "page") + "={p}", a, "")];
+                                                                            c = d.fix(r);
+                                                                            return [4, v.listPage(c + (c.indexOf("?") > 0 ? "&" : "?") + (o.pageParam || "page") + "={p}", a, "")];
                                                                         case 1: return [2, _b.sent()];
-                                                                        case 2: return [4, v.listPage(o.search, a, r)];
-                                                                        case 3: return [2, _b.sent()];
+                                                                        case 2:
+                                                                            if (!o.search_post) return [3, 5];
+                                                                            return [4, d.html(v.url(o.search_post.url, a, r), { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: String(o.search_post.body).replace(/\{q\}/g, d.enc(r)) })];
+                                                                        case 3:
+                                                                            f = _b.sent();
+                                                                            return [4, v.items(f, "s_")];
+                                                                        case 4:
+                                                                            l = _b.sent();
+                                                                            return [2, s.success(l, null)];
+                                                                        case 5: return [4, v.listPage(o.search, a, r)];
+                                                                        case 6: return [2, _b.sent()];
                                                                     }
                                                                 }); });
                                                             }, genre: function () {
@@ -4695,31 +4731,31 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (!o.genre)
-                                                                                return [2, c.success([])];
+                                                                                return [2, s.success([])];
                                                                             return [4, d.html(d.fix(o.genrePage || "/"))];
                                                                         case 1:
                                                                             r = _b.sent();
-                                                                            return [4, z(r.select(o.genre), function (s) {
+                                                                            return [4, z(r.select(o.genre), function (c) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
                                                                                             switch (_c.label) {
                                                                                                 case 0:
                                                                                                     _b = {};
-                                                                                                    return [4, s.text()];
-                                                                                                case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(s.attr("href")), _b.script = "search.js", _b)];
+                                                                                                    return [4, c.text()];
+                                                                                                case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(c.attr("href")), _b.script = "search.js", _b)];
                                                                                             }
                                                                                         });
                                                                                     });
                                                                                 })];
                                                                         case 2:
                                                                             a = _b.sent();
-                                                                            return [2, c.success(a.filter(function (s) { return s.title; }))];
+                                                                            return [2, s.success(a.filter(function (c) { return c.title; }))];
                                                                     }
                                                                 }); });
                                                             }, detail: function (r) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, s, l, _b, _c, _d, _f, _g;
+                                                                    var a, c, f, _b, _c, _d, _f, _g;
                                                                     var _h;
                                                                     return __generator(this, function (_j) {
                                                                         switch (_j.label) {
@@ -4727,15 +4763,15 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             case 1:
                                                                                 a = _j.sent();
                                                                                 if (!o.d_genres) return [3, 3];
-                                                                                return [4, z(a.select(o.d_genres), function (f) {
+                                                                                return [4, z(a.select(o.d_genres), function (l) {
                                                                                         return __awaiter(this, void 0, void 0, function () {
                                                                                             var _b;
                                                                                             return __generator(this, function (_c) {
                                                                                                 switch (_c.label) {
                                                                                                     case 0:
                                                                                                         _b = {};
-                                                                                                        return [4, f.text()];
-                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(f.attr("href")), _b.script = "search.js", _b)];
+                                                                                                        return [4, l.text()];
+                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(l.attr("href")), _b.script = "search.js", _b)];
                                                                                                 }
                                                                                             });
                                                                                         });
@@ -4747,11 +4783,11 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _b = [];
                                                                                 _j.label = 4;
                                                                             case 4:
-                                                                                s = _b;
+                                                                                c = _b;
                                                                                 return [4, v.pick(a, o.d_status)];
                                                                             case 5:
-                                                                                l = _j.sent();
-                                                                                _d = (_c = c).success;
+                                                                                f = _j.sent();
+                                                                                _d = (_c = s).success;
                                                                                 _h = {};
                                                                                 return [4, v.pick(a, o.d_title || "h1")];
                                                                             case 6:
@@ -4764,13 +4800,13 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             case 8:
                                                                                 _h.author = _j.sent();
                                                                                 return [4, v.pick(a, (o.d_desc || "meta[name=description]@content").replace(/$/, ""))];
-                                                                            case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = l ? "Tình trạng: " + l : "", _h.ongoing = d.ongoing(l), _h.genres = s, _h.host = k, _h)])];
+                                                                            case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = f ? "Tình trạng: " + f : "", _h.ongoing = d.ongoing(f), _h.genres = c, _h.host = k, _h)])];
                                                                         }
                                                                     });
                                                                 });
                                                             }, toc: function (r) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, s, l, f, g, _b, b, x, m, y, A, _c, _d, _f, _g, L, M, _h;
+                                                                    var a, c, f, l, g, _b, b, x, p, w, A, _c, _d, _f, _g, L, M, _h;
                                                                     var _j;
                                                                     return __generator(this, function (_k) {
                                                                         switch (_k.label) {
@@ -4780,20 +4816,20 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             case 1: return [2, _k.sent()];
                                                                             case 2:
                                                                                 if (o.single)
-                                                                                    return [2, c.success([{ name: o.single === !0 ? "Xem / Đọc" : o.single, url: r, host: k }])];
-                                                                                a = [r], s = [], l = {};
+                                                                                    return [2, s.success([{ name: o.single === !0 ? "Xem / Đọc" : o.single, url: r, host: k }])];
+                                                                                a = [r], c = [], f = {};
                                                                                 return [4, d.html(o.ch_rewrite ? r.replace(new RegExp(o.ch_rewrite[0]), o.ch_rewrite[1]) : r, o.req)];
                                                                             case 3:
-                                                                                f = _k.sent();
+                                                                                l = _k.sent();
                                                                                 if (!o.ch_url) return [3, 7];
-                                                                                return [4, v.pick(f, o.ch_url)];
+                                                                                return [4, v.pick(l, o.ch_url)];
                                                                             case 4:
                                                                                 g = _k.sent();
                                                                                 _b = g;
                                                                                 if (!_b) return [3, 6];
                                                                                 return [4, d.html(d.fix(g), o.req)];
                                                                             case 5:
-                                                                                _b = (f = _k.sent());
+                                                                                _b = (l = _k.sent());
                                                                                 _k.label = 6;
                                                                             case 6:
                                                                                 _b;
@@ -4803,38 +4839,38 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _k.label = 8;
                                                                             case 8:
                                                                                 if (!(b < (o.ch_maxPages || 60))) return [3, 22];
-                                                                                x = f.select(o.ch_list), m = 0;
+                                                                                x = l.select(o.ch_list), p = 0;
                                                                                 _k.label = 9;
                                                                             case 9:
-                                                                                if (!(m < x.size())) return [3, 17];
-                                                                                return [4, x.get(m)];
+                                                                                if (!(p < x.size())) return [3, 17];
+                                                                                return [4, x.get(p)];
                                                                             case 10:
-                                                                                y = _k.sent(), A = y.attr("href") || y.attr("data-href");
-                                                                                _c = !A || A === "#" || l[A];
+                                                                                w = _k.sent(), A = o.ch_attr ? w.attr(o.ch_attr) : w.attr("href") || w.attr("data-href");
+                                                                                _c = !A || A === "#" || f[A];
                                                                                 if (_c) return [3, 15];
-                                                                                l[A] = 1;
-                                                                                _f = (_d = s).push;
+                                                                                f[A] = 1;
+                                                                                _f = (_d = c).push;
                                                                                 _j = {};
                                                                                 if (!o.ch_name) return [3, 12];
-                                                                                return [4, v.pick(y, o.ch_name)];
+                                                                                return [4, v.pick(w, o.ch_name)];
                                                                             case 11:
                                                                                 _g = _k.sent();
                                                                                 return [3, 14];
-                                                                            case 12: return [4, y.text()];
+                                                                            case 12: return [4, w.text()];
                                                                             case 13:
                                                                                 _g = _k.sent();
                                                                                 _k.label = 14;
                                                                             case 14:
-                                                                                _c = (_f.apply(_d, [(_j.name = (_g) || y.attr("title"), _j.url = d.fix(A), _j.host = k, _j)]));
+                                                                                _c = (_f.apply(_d, [(_j.name = (_g) || w.attr("title"), _j.url = d.fix(A), _j.host = k, _j)]));
                                                                                 _k.label = 15;
                                                                             case 15:
                                                                                 _c;
                                                                                 _k.label = 16;
                                                                             case 16:
-                                                                                m++;
+                                                                                p++;
                                                                                 return [3, 9];
                                                                             case 17:
-                                                                                L = o.ch_next ? f.select(o.ch_next).first() : null;
+                                                                                L = o.ch_next ? l.select(o.ch_next).first() : null;
                                                                                 if (!L || !L.attr("href"))
                                                                                     return [3, 22];
                                                                                 M = d.fix(L.attr("href"));
@@ -4851,24 +4887,24 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _h;
                                                                                 return [4, d.html(M, o.req)];
                                                                             case 20:
-                                                                                f = _k.sent();
+                                                                                l = _k.sent();
                                                                                 _k.label = 21;
                                                                             case 21:
                                                                                 b++;
                                                                                 return [3, 8];
-                                                                            case 22: return [2, (o.ch_reverse && s.reverse(), c.success(s))];
+                                                                            case 22: return [2, (o.ch_reverse && c.reverse(), !c.length && o.ch_fallback_single && c.push({ name: o.ch_fallback_single === !0 ? "Xem phim" : o.ch_fallback_single, url: r, host: k }), s.success(c))];
                                                                         }
                                                                     });
                                                                 });
                                                             }, pages: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s, l, f, g, b, x, m, _b, _c, y, A; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c, f, l, g, b, x, p, _b, _c, w, A; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
-                                                                            a = [], s = [r], l = r, f = 0;
+                                                                            a = [], c = [r], f = r, l = 0;
                                                                             _d.label = 1;
                                                                         case 1:
-                                                                            if (!(f < (o.pages_max || 40))) return [3, 8];
-                                                                            return [4, d.html(l, o.req)];
+                                                                            if (!(l < (o.pages_max || 40))) return [3, 8];
+                                                                            return [4, d.html(f, o.req)];
                                                                         case 2:
                                                                             g = _d.sent(), b = g.select(o.pages || ".page-chapter img, .reading-content img, .chapter-content img"), x = 0;
                                                                             _d.label = 3;
@@ -4877,8 +4913,8 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             _c = (_b = d).img;
                                                                             return [4, b.get(x)];
                                                                         case 4:
-                                                                            m = _c.apply(_b, [_d.sent()]);
-                                                                            m && a.indexOf(m) < 0 && a.push(m);
+                                                                            p = _c.apply(_b, [_d.sent()]);
+                                                                            p && a.indexOf(p) < 0 && a.push(p);
                                                                             _d.label = 5;
                                                                         case 5:
                                                                             x++;
@@ -4886,22 +4922,22 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                         case 6:
                                                                             if (!o.pages_next)
                                                                                 return [3, 8];
-                                                                            y = g.select(o.pages_next).first();
-                                                                            if (!y)
+                                                                            w = g.select(o.pages_next).first();
+                                                                            if (!w)
                                                                                 return [3, 8];
-                                                                            A = d.fix(y.attr("href"));
-                                                                            if (!A || s.indexOf(A) >= 0)
+                                                                            A = d.fix(w.attr("href"));
+                                                                            if (!A || c.indexOf(A) >= 0)
                                                                                 return [3, 8];
-                                                                            s.push(A), l = A;
+                                                                            c.push(A), f = A;
                                                                             _d.label = 7;
                                                                         case 7:
-                                                                            f++;
+                                                                            l++;
                                                                             return [3, 1];
-                                                                        case 8: return [2, c.success(a)];
+                                                                        case 8: return [2, s.success(a)];
                                                                     }
                                                                 }); });
                                                             }, text: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s, _b, _c, l, f, g, _d, _f, _g, b, x, _h, _j, _k, _l, _m, _o; return __generator(this, function (_p) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c, _b, _c, f, l, g, _d, _f, _g, b, x, _h, _j, _k, _l, _m, _o; return __generator(this, function (_p) {
                                                                     switch (_p.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
@@ -4911,25 +4947,25 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             a = _p.sent();
                                                                             return [4, a.text()];
                                                                         case 3:
-                                                                            s = (_p.sent()) || "";
+                                                                            c = (_p.sent()) || "";
                                                                             if (!o.content_rsc) return [3, 5];
-                                                                            l = v.rscText(s), f = o.c_locked && new RegExp(o.c_locked, "i").test(s), g = f ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
-                                                                            if (!(l || f)) return [3, 5];
-                                                                            _f = (_d = c).success;
-                                                                            _g = [v.toParas(l) + g];
-                                                                            return [4, v.pick(n.parse(s, r), o.c_title || "h1 || title")];
+                                                                            f = v.rscText(c), l = o.c_locked && new RegExp(o.c_locked, "i").test(c), g = l ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
+                                                                            if (!(f || l)) return [3, 5];
+                                                                            _f = (_d = s).success;
+                                                                            _g = [v.toParas(f) + g];
+                                                                            return [4, v.pick(n.parse(c, r), o.c_title || "h1 || title")];
                                                                         case 4: return [2, _f.apply(_d, _g.concat([_p.sent()]))];
                                                                         case 5:
-                                                                            b = n.parse(s, r), x = b.select(o.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            b = n.parse(c, r), x = b.select(o.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
                                                                             if (!!x) return [3, 7];
-                                                                            if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(s.slice(0, 2e4)))
+                                                                            if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(c.slice(0, 2e4)))
                                                                                 throw new Error("CLOUDFLARE: trang " + k + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
-                                                                            _j = (_h = c).error;
+                                                                            _j = (_h = s).error;
                                                                             _k = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                             return [4, v.pick(b, "title")];
-                                                                        case 6: return [2, _j.apply(_h, [_k + ((_p.sent()) || "?").slice(0, 60) + '" (' + a.status + ", " + s.length + " ký tự)" + (s.length < 400 ? ": " + s.replace(/\s+/g, " ").slice(0, 200) : "")])];
+                                                                        case 6: return [2, _j.apply(_h, [_k + ((_p.sent()) || "?").slice(0, 60) + '" (' + a.status + ", " + c.length + " ký tự)" + (c.length < 400 ? ": " + c.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                                         case 7:
-                                                                            _m = (_l = c).success;
+                                                                            _m = (_l = s).success;
                                                                             return [4, d.cleanContent(x)];
                                                                         case 8:
                                                                             _o = [_p.sent()];
@@ -4938,25 +4974,25 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     }
                                                                 }); });
                                                             }, rscAction: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, b, x, m, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, b, x, p, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
-                                                                            for (s = [], f = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g; l = f.exec(r);)
-                                                                                s.indexOf(l[0]) < 0 && s.push(l[0]);
+                                                                            for (c = [], l = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g; f = l.exec(r);)
+                                                                                c.indexOf(f[0]) < 0 && c.push(f[0]);
                                                                             g = new RegExp('"([0-9a-f]{40,44})"[^"]{0,200}?"' + a + '"'), b = 0;
                                                                             _d.label = 1;
                                                                         case 1:
-                                                                            if (!(b < s.length && b < 60)) return [3, 5];
-                                                                            return [4, d.get(k + s[b])];
+                                                                            if (!(b < c.length && b < 60)) return [3, 5];
+                                                                            return [4, d.get(k + c[b])];
                                                                         case 2:
                                                                             x = _d.sent();
                                                                             if (!!(!x || !x.ok)) return [3, 4];
                                                                             _c = (_b = g).exec;
                                                                             return [4, x.text()];
                                                                         case 3:
-                                                                            m = _c.apply(_b, [(_d.sent()) || ""]);
-                                                                            if (m)
-                                                                                return [2, m[1]];
+                                                                            p = _c.apply(_b, [(_d.sent()) || ""]);
+                                                                            if (p)
+                                                                                return [2, p[1]];
                                                                             _d.label = 4;
                                                                         case 4:
                                                                             b++;
@@ -4965,19 +5001,19 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     }
                                                                 }); });
                                                             }, rscArray: function (r) {
-                                                                for (var a = String(r || "").split("\n"), s = 0; s < a.length; s++) {
-                                                                    var l = /^[0-9a-f]+:(\[.*)$/.exec(a[s]);
-                                                                    if (l)
+                                                                for (var a = String(r || "").split("\n"), c = 0; c < a.length; c++) {
+                                                                    var f = /^[0-9a-f]+:(\[.*)$/.exec(a[c]);
+                                                                    if (f)
                                                                         try {
-                                                                            var f = JSON.parse(l[1]);
-                                                                            if (f && f.length)
-                                                                                return f;
+                                                                            var l = JSON.parse(f[1]);
+                                                                            if (l && l.length)
+                                                                                return l;
                                                                         }
                                                                         catch (g) { }
                                                                 }
                                                                 return null;
                                                             }, actionToc: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s, l, _b, _c, f, g, b, _d, x, _f, m; return __generator(this, function (_g) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c, f, _b, _c, l, g, b, _d, x, _f, p; return __generator(this, function (_g) {
                                                                     switch (_g.label) {
                                                                         case 0:
                                                                             a = o.ch_action;
@@ -4986,13 +5022,13 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                         case 1: return [4, _c.apply(_b, [_g.sent(), r])];
                                                                         case 2: return [4, (_g.sent()).text()];
                                                                         case 3:
-                                                                            s = (_g.sent()) || "", l = new RegExp(a.arg).exec(s);
-                                                                            if (!l)
-                                                                                return [2, c.error("Không tìm thấy mã truyện trên trang " + r)];
-                                                                            f = JSON.stringify([l[1]]), g = function (y) {
+                                                                            c = (_g.sent()) || "", f = new RegExp(a.arg).exec(c);
+                                                                            if (!f)
+                                                                                return [2, s.error("Không tìm thấy mã truyện trên trang " + r)];
+                                                                            l = JSON.stringify([f[1]]), g = function (w) {
                                                                                 return __awaiter(this, void 0, void 0, function () { var A, _b, _c, _d; return __generator(this, function (_f) {
                                                                                     switch (_f.label) {
-                                                                                        case 0: return [4, d.get(r, { method: "POST", headers: { "Next-Action": y, Accept: "text/x-component", "Content-Type": "text/plain;charset=UTF-8" }, body: f })];
+                                                                                        case 0: return [4, d.get(r, { method: "POST", headers: { "Next-Action": w, Accept: "text/x-component", "Content-Type": "text/plain;charset=UTF-8" }, body: l })];
                                                                                         case 1:
                                                                                             A = _f.sent();
                                                                                             if (!(A && A.ok)) return [3, 3];
@@ -5019,7 +5055,7 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                         case 6:
                                                                             b = _d;
                                                                             if (!!b) return [3, 10];
-                                                                            return [4, v.rscAction(s, a.name)];
+                                                                            return [4, v.rscAction(c, a.name)];
                                                                         case 7:
                                                                             x = _g.sent();
                                                                             _f = x && x !== a.id;
@@ -5033,82 +5069,82 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             _g.label = 10;
                                                                         case 10:
                                                                             if (!b)
-                                                                                return [2, c.error('Không lấy được danh sách chương (Server Action "' + a.name + '")')];
-                                                                            m = r.replace(/[?#].*$/, "").replace(/\/+$/, "");
-                                                                            return [2, c.success(b.map(function (y) { return { name: String(y[a.title || "label"] || "") + (a.lock && y[a.lock] ? " 🔒" : ""), url: m + "/" + y[a.slug || "slugId"], host: k }; }))];
+                                                                                return [2, s.error('Không lấy được danh sách chương (Server Action "' + a.name + '")')];
+                                                                            p = r.replace(/[?#].*$/, "").replace(/\/+$/, "");
+                                                                            return [2, s.success(b.map(function (w) { return { name: String(w[a.title || "label"] || "") + (a.lock && w[a.lock] ? " 🔒" : ""), url: p + "/" + w[a.slug || "slugId"], host: k }; }))];
                                                                     }
                                                                 }); });
-                                                            }, rscText: function (r) { for (var a = "", s, l = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g; s = l.exec(r);)
+                                                            }, rscText: function (r) { for (var a = "", c, f = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g; c = f.exec(r);)
                                                                 try {
-                                                                    a += JSON.parse(s[1]);
+                                                                    a += JSON.parse(c[1]);
                                                                 }
-                                                                catch (M) { } for (var f = "", g = /([0-9a-f]+):T([0-9a-f]+),/g, b; b = g.exec(a);) {
-                                                                for (var x = parseInt(b[2], 16), m = g.lastIndex, y = 0; m < a.length && y < x;) {
-                                                                    var A = a.charCodeAt(m);
-                                                                    A < 128 ? y += 1 : A < 2048 ? y += 2 : A >= 55296 && A <= 56319 ? (y += 4, m++) : y += 3, m++;
+                                                                catch (M) { } for (var l = "", g = /([0-9a-f]+):T([0-9a-f]+),/g, b; b = g.exec(a);) {
+                                                                for (var x = parseInt(b[2], 16), p = g.lastIndex, w = 0; p < a.length && w < x;) {
+                                                                    var A = a.charCodeAt(p);
+                                                                    A < 128 ? w += 1 : A < 2048 ? w += 2 : A >= 55296 && A <= 56319 ? (w += 4, p++) : w += 3, p++;
                                                                 }
-                                                                var L = a.slice(g.lastIndex, m);
-                                                                L.length > f.length && (f = L), g.lastIndex = m;
-                                                            } return f; }, toParas: function (r) { return /<p[\s>]|<br\s*\/?>/i.test(r) ? r : r.split(/\n+/).map(function (a) { return a = a.trim(), a ? "<p>" + a.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</p>" : ""; }).join(""); }, servers: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s; return __generator(this, function (_b) {
+                                                                var L = a.slice(g.lastIndex, p);
+                                                                L.length > l.length && (l = L), g.lastIndex = p;
+                                                            } return l; }, toParas: function (r) { return /<p[\s>]|<br\s*\/?>/i.test(r) ? r : r.split(/\n+/).map(function (a) { return a = a.trim(), a ? "<p>" + a.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</p>" : ""; }).join(""); }, servers: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (!o.servers)
-                                                                                return [2, c.success([{ title: "Server", data: r }])];
+                                                                                return [2, s.success([{ title: "Server", data: r }])];
                                                                             return [4, d.html(r, o.req)];
                                                                         case 1:
                                                                             a = _b.sent();
-                                                                            return [4, z(a.select(o.servers), function (l) {
+                                                                            return [4, z(a.select(o.servers), function (f) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
-                                                                                        var f;
+                                                                                        var l;
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
                                                                                             switch (_c.label) {
-                                                                                                case 0: return [4, v.pick(l, o.server_data || ":self@data-link || :self@data-src || :self@href")];
+                                                                                                case 0: return [4, v.pick(f, o.server_data || ":self@data-link || :self@data-src || :self@href")];
                                                                                                 case 1:
-                                                                                                    f = _c.sent();
+                                                                                                    l = _c.sent();
                                                                                                     _b = {};
-                                                                                                    return [4, l.text()];
-                                                                                                case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(f), _b)];
+                                                                                                    return [4, f.text()];
+                                                                                                case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(l), _b)];
                                                                                             }
                                                                                         });
                                                                                     });
                                                                                 })];
                                                                         case 2:
-                                                                            s = (_b.sent()).filter(function (l) { return l.data; });
-                                                                            return [2, c.success(s.length ? s : [{ title: "Server", data: r }])];
+                                                                            c = (_b.sent()).filter(function (f) { return f.data; });
+                                                                            return [2, s.success(c.length ? c : [{ title: "Server", data: r }])];
                                                                     }
                                                                 }); });
                                                             }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var a = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return a ? a[0] : ""; }, track: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, b, x, m; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, b, x, p; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (a = a || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
-                                                                                return [2, c.success({ type: "native", data: r, headers: { Referer: k + "/" } })];
+                                                                                return [2, s.success({ type: "native", data: r, headers: { Referer: k + "/" } })];
                                                                             return [4, d.get(r)];
                                                                         case 1:
-                                                                            s = _b.sent();
-                                                                            return [4, s.text()];
+                                                                            c = _b.sent();
+                                                                            return [4, c.text()];
                                                                         case 2:
-                                                                            l = _b.sent();
-                                                                            if (!(o.video && !a)) return [3, 4];
-                                                                            return [4, v.pick(n.parse(l, r), o.video)];
-                                                                        case 3:
                                                                             f = _b.sent();
-                                                                            if (f)
-                                                                                return [2, c.success({ type: "native", data: d.fix(f), headers: { Referer: k + "/" } })];
+                                                                            if (!(o.video && !a)) return [3, 4];
+                                                                            return [4, v.pick(n.parse(f, r), o.video)];
+                                                                        case 3:
+                                                                            l = _b.sent();
+                                                                            if (l)
+                                                                                return [2, s.success({ type: "native", data: d.fix(l), headers: { Referer: k + "/" } })];
                                                                             _b.label = 4;
                                                                         case 4:
-                                                                            g = v.sniff(l);
+                                                                            g = v.sniff(f);
                                                                             if (g)
-                                                                                return [2, c.success({ type: "native", data: g, headers: { Referer: a ? r : k + "/" } })];
-                                                                            b = n.parse(l, r), x = b.select(o.iframe || "iframe[src], iframe[data-src]").first();
+                                                                                return [2, s.success({ type: "native", data: g, headers: { Referer: a ? r : k + "/" } })];
+                                                                            b = n.parse(f, r), x = b.select(o.iframe || "iframe[src], iframe[data-src]").first();
                                                                             if (!(x && a < 2)) return [3, 6];
-                                                                            m = d.fix(x.attr("src") || x.attr("data-src"));
-                                                                            if (!m) return [3, 6];
-                                                                            return [4, v.track(m, a + 1)];
+                                                                            p = d.fix(x.attr("src") || x.attr("data-src"));
+                                                                            if (!p) return [3, 6];
+                                                                            return [4, v.track(p, a + 1)];
                                                                         case 5: return [2, _b.sent()];
-                                                                        case 6: return [2, c.success({ type: "webview", data: r })];
+                                                                        case 6: return [2, s.success({ type: "webview", data: r })];
                                                                     }
                                                                 }); });
                                                             } };
@@ -5126,13 +5162,13 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
     }, chap: function (t, e) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
-                return [2, (function (u, i, n, c, h, p, w, S, E, D, N, q, I, U, W, Z, ne) {
+                return [2, (function (u, i, n, s, h, m, y, S, E, D, _, N, I, U, W, Z, ne) {
                         return __awaiter(this, void 0, void 0, function () {
-                            var R;
+                            var H;
                             return __generator(this, function (_b) {
                                 switch (_b.label) {
                                     case 0:
-                                        R = e("DOMAIN");
+                                        H = e("DOMAIN");
                                         return [4, (function () {
                                                 return __awaiter(this, void 0, void 0, function () {
                                                     function G(r) {
@@ -5147,51 +5183,51 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                     return __generator(this, function (_b) {
                                                         k = "https://luvevalandn2.co";
                                                         try {
-                                                            R && (k = String(R).replace(/\/+$/, ""));
+                                                            H && (k = String(H).replace(/\/+$/, ""));
                                                         }
                                                         catch (r) { }
                                                         o = { tabs: { "Truyện mới": "/danh-sach/moi-dang[?page={p}]", "Hot tuần": "/danh-sach/truyen-hot-tuan[?page={p}]", "Xem nhiều": "/danh-sach/truyen-nhieu-nguoi-xem[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", ch_list: "td.list-chapter__name a", item: ".book-vertical__item, tr.book__list-item", title: ".book__lg-title a || td.book__list-name a || img@alt", link: "a@href", cover: "img@img", pageSize: 10, d_title: ".breadcrumb__container a.breadcrumb__item:last-child || h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .book__detail-image img@img", d_desc: "#home", d_genres: ".book__detail-text a[href*='/the-loai/']", content: "#chapter-content", c_title: "h1 || h2" }, d = { img: function (r) { if (!r)
-                                                                return ""; for (var a = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], s = 0; s < a.length; s++) {
-                                                                var l = r.attr(a[s]);
-                                                                if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
-                                                                    return d.fix(l.trim());
-                                                            } var f = r.attr("data-srcset") || r.attr("srcset"); return f ? d.fix(f.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? k + r : k + "/" + r) : ""; }, text: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l; return __generator(this, function (_b) {
+                                                                return ""; for (var a = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < a.length; c++) {
+                                                                var f = r.attr(a[c]);
+                                                                if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
+                                                                    return d.fix(f.trim());
+                                                            } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? d.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? k + r : k + "/" + r) : ""; }, text: function (r, a) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            s = 0;
+                                                                            c = 0;
                                                                             _b.label = 1;
                                                                         case 1:
-                                                                            if (!(s < a.length)) return [3, 4];
-                                                                            return [4, r.select(a[s]).text()];
+                                                                            if (!(c < a.length)) return [3, 4];
+                                                                            return [4, r.select(a[c]).text()];
                                                                         case 2:
-                                                                            l = _b.sent();
-                                                                            if (l)
-                                                                                return [2, l.trim()];
+                                                                            f = _b.sent();
+                                                                            if (f)
+                                                                                return [2, f.trim()];
                                                                             _b.label = 3;
                                                                         case 3:
-                                                                            s++;
+                                                                            c++;
                                                                             return [3, 1];
                                                                         case 4: return [2, ""];
                                                                     }
                                                                 }); });
                                                             }, get: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, _b; return __generator(this, function (_c) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, _b; return __generator(this, function (_c) {
                                                                     switch (_c.label) {
                                                                         case 0:
                                                                             a = a || {};
-                                                                            s = { Referer: k + "/" };
+                                                                            c = { Referer: k + "/" };
                                                                             if (a.headers)
-                                                                                for (l in a.headers)
-                                                                                    s[l] = a.headers[l];
-                                                                            return [4, u(r, { method: a.method, headers: s, body: a.body })];
+                                                                                for (f in a.headers)
+                                                                                    c[f] = a.headers[f];
+                                                                            return [4, u(r, { method: a.method, headers: c, body: a.body })];
                                                                         case 1:
-                                                                            f = _c.sent(), g = 0;
+                                                                            l = _c.sent(), g = 0;
                                                                             _c.label = 2;
                                                                         case 2:
-                                                                            _b = f && f.status === 429 && g < 3;
+                                                                            _b = l && l.status === 429 && g < 3;
                                                                             if (!_b) return [3, 4];
-                                                                            return [4, d.cf(f)];
+                                                                            return [4, d.cf(l)];
                                                                         case 3:
                                                                             _b = !(_c.sent());
                                                                             _c.label = 4;
@@ -5200,14 +5236,14 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             return [4, E(1500 * (g + 1))];
                                                                         case 5:
                                                                             _c.sent();
-                                                                            return [4, u(r, { method: a.method, headers: s, body: a.body })];
+                                                                            return [4, u(r, { method: a.method, headers: c, body: a.body })];
                                                                         case 6:
-                                                                            f = _c.sent();
+                                                                            l = _c.sent();
                                                                             _c.label = 7;
                                                                         case 7:
                                                                             g++;
                                                                             return [3, 2];
-                                                                        case 8: return [2, f];
+                                                                        case 8: return [2, l];
                                                                     }
                                                                 }); });
                                                             }, cf: function (r) {
@@ -5233,28 +5269,28 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     }
                                                                 }); });
                                                             }, html: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
                                                                             return [4, d.get(r, a)];
                                                                         case 1: return [4, _c.apply(_b, [_d.sent(), r])];
                                                                         case 2:
-                                                                            s = _d.sent();
-                                                                            return [4, s.html(a && a.charset)];
+                                                                            c = _d.sent();
+                                                                            return [4, c.html(a && a.charset)];
                                                                         case 3: return [2, _d.sent()];
                                                                     }
                                                                 }); });
                                                             }, json: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
                                                                             return [4, d.get(r, a)];
                                                                         case 1: return [4, _c.apply(_b, [_d.sent(), r])];
                                                                         case 2:
-                                                                            s = _d.sent();
-                                                                            return [4, s.json()];
+                                                                            c = _d.sent();
+                                                                            return [4, c.json()];
                                                                         case 3: return [2, _d.sent()];
                                                                     }
                                                                 }); });
@@ -5270,77 +5306,77 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     });
                                                                 });
                                                             }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, v = { pick: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, b, x, m, y, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, b, x, p, w, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             if (!a || !r)
                                                                                 return [2, ""];
-                                                                            s = String(a).split(" || "), l = 0;
+                                                                            c = String(a).split(" || "), f = 0;
                                                                             _d.label = 1;
                                                                         case 1:
-                                                                            if (!(l < s.length)) return [3, 9];
-                                                                            f = s[l], g = "text", b = f.lastIndexOf("@");
-                                                                            b > 0 && !/\[[^\]]*@/.test(f.slice(b)) && (g = f.slice(b + 1), f = f.slice(0, b));
-                                                                            x = f === ":self" ? null : r.select(f), m = f === ":self" ? r : x.size() ? x.first() : null;
-                                                                            if (!m) return [3, 8];
+                                                                            if (!(f < c.length)) return [3, 9];
+                                                                            l = c[f], g = "text", b = l.lastIndexOf("@");
+                                                                            b > 0 && !/\[[^\]]*@/.test(l.slice(b)) && (g = l.slice(b + 1), l = l.slice(0, b));
+                                                                            x = l === ":self" ? null : r.select(l), p = l === ":self" ? r : x.size() ? x.first() : null;
+                                                                            if (!p) return [3, 8];
                                                                             if (!(g === "text")) return [3, 3];
-                                                                            return [4, m.text()];
+                                                                            return [4, p.text()];
                                                                         case 2:
                                                                             _b = _d.sent();
                                                                             return [3, 7];
                                                                         case 3:
                                                                             if (!(g === "html")) return [3, 5];
-                                                                            return [4, m.html()];
+                                                                            return [4, p.html()];
                                                                         case 4:
                                                                             _c = _d.sent();
                                                                             return [3, 6];
                                                                         case 5:
-                                                                            _c = g === "img" ? d.img(m.is("img") ? m : m.select("img").first()) : g === "own" ? m.ownText() : m.attr(g);
+                                                                            _c = g === "img" ? d.img(p.is("img") ? p : p.select("img").first()) : g === "own" ? p.ownText() : p.attr(g);
                                                                             _d.label = 6;
                                                                         case 6:
                                                                             _b = _c;
                                                                             _d.label = 7;
                                                                         case 7:
-                                                                            y = _b;
-                                                                            if (y)
-                                                                                return [2, String(y).trim()];
+                                                                            w = _b;
+                                                                            if (w)
+                                                                                return [2, String(w).trim()];
                                                                             _d.label = 8;
                                                                         case 8:
-                                                                            l++;
+                                                                            f++;
                                                                             return [3, 1];
                                                                         case 9: return [2, ""];
                                                                     }
                                                                 }); });
-                                                            }, url: function (r, a, s) { var l = d.page(a), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (g, b) { return l > 1 ? b : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(s || "")).replace(/\{base\}/g, k), d.fix(f); }, items: function (r) {
+                                                            }, url: function (r, a, c) { var f = d.page(a), l = String(r); return l = l.replace(/\[([^\]]*)\]/g, function (g, b) { return f > 1 ? b : ""; }), l = l.replace(/\{p\}/g, String(f)).replace(/\{p0\}/g, String(f - 1)).replace(/\{q\}/g, d.enc(c || "")).replace(/\{base\}/g, k), d.fix(l); }, items: function (r, a) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, s, l, f, g, b, x, _b, _c, _d;
+                                                                    var c, f, l, g, b, x, p, w, _b, _c, _d;
                                                                     var _f;
                                                                     return __generator(this, function (_g) {
                                                                         switch (_g.label) {
                                                                             case 0:
-                                                                                a = r.select(o.item), s = [], l = {}, f = 0;
+                                                                                c = function (A) { return a && o[a + A] || o[A]; }, f = r.select(c("item")), l = [], g = {}, b = 0;
                                                                                 _g.label = 1;
                                                                             case 1:
-                                                                                if (!(f < a.size())) return [3, 9];
-                                                                                return [4, a.get(f)];
+                                                                                if (!(b < f.size())) return [3, 9];
+                                                                                return [4, f.get(b)];
                                                                             case 2:
-                                                                                g = _g.sent();
-                                                                                return [4, v.pick(g, o.link || "a@href")];
-                                                                            case 3:
-                                                                                b = _g.sent();
-                                                                                if (!!(!b || l[b] || /^javascript|#$/.test(b))) return [3, 8];
-                                                                                return [4, v.pick(g, o.title || "h3 || h2 || a@title || img@alt")];
-                                                                            case 4:
                                                                                 x = _g.sent();
-                                                                                _b = x;
+                                                                                return [4, v.pick(x, c("link") || "a@href")];
+                                                                            case 3:
+                                                                                p = _g.sent();
+                                                                                if (!!(!p || g[p] || /^javascript|#$/.test(p))) return [3, 8];
+                                                                                return [4, v.pick(x, c("title") || "h3 || h2 || a@title || img@alt")];
+                                                                            case 4:
+                                                                                w = _g.sent();
+                                                                                _b = w;
                                                                                 if (!_b) return [3, 7];
-                                                                                l[b] = 1;
-                                                                                _d = (_c = s).push;
-                                                                                _f = { name: x, link: d.fix(b) };
-                                                                                return [4, v.pick(g, o.cover || "img@img")];
+                                                                                g[p] = 1;
+                                                                                _d = (_c = l).push;
+                                                                                _f = { name: w, link: d.fix(p) };
+                                                                                return [4, v.pick(x, c("cover") || "img@img")];
                                                                             case 5:
                                                                                 _f.cover = _g.sent();
-                                                                                return [4, v.pick(g, o.desc || "")];
+                                                                                return [4, v.pick(x, c("desc") || "")];
                                                                             case 6:
                                                                                 _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = k, _f)]));
                                                                                 _g.label = 7;
@@ -5348,43 +5384,52 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _b;
                                                                                 _g.label = 8;
                                                                             case 8:
-                                                                                f++;
+                                                                                b++;
                                                                                 return [3, 1];
-                                                                            case 9: return [2, s];
+                                                                            case 9: return [2, l];
                                                                         }
                                                                     });
                                                                 });
-                                                            }, listPage: function (r, a, s) {
-                                                                return __awaiter(this, void 0, void 0, function () { var l, f, g; return __generator(this, function (_b) {
+                                                            }, listPage: function (r, a, c) {
+                                                                return __awaiter(this, void 0, void 0, function () { var f, l, g; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
-                                                                        case 0: return [4, d.html(v.url(r, a, s), o.req)];
+                                                                        case 0: return [4, d.html(v.url(r, a, c), o.req)];
                                                                         case 1:
-                                                                            l = _b.sent();
-                                                                            return [4, v.items(l)];
+                                                                            f = _b.sent();
+                                                                            return [4, v.items(f, c ? "s_" : "")];
                                                                         case 2:
-                                                                            f = _b.sent(), g = o.next ? l.select(o.next).size() > 0 : f.length >= (o.pageSize || 10);
-                                                                            return [2, c.success(f, d.next(g && f.length > 0, a))];
+                                                                            l = _b.sent(), g = o.next ? f.select(o.next).size() > 0 : l.length >= (o.pageSize || 10);
+                                                                            return [2, s.success(l, d.next(g && l.length > 0, a))];
                                                                     }
                                                                 }); });
                                                             }, browse: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            s = o.tabs && o.tabs[r] || r;
-                                                                            return [4, v.listPage(s, a, "")];
+                                                                            c = o.tabs && o.tabs[r] || r;
+                                                                            return [4, v.listPage(c, a, "")];
                                                                         case 1: return [2, _b.sent()];
                                                                     }
                                                                 }); });
                                                             }, search: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (!d.isUrl(r)) return [3, 2];
-                                                                            s = d.fix(r);
-                                                                            return [4, v.listPage(s + (s.indexOf("?") > 0 ? "&" : "?") + (o.pageParam || "page") + "={p}", a, "")];
+                                                                            c = d.fix(r);
+                                                                            return [4, v.listPage(c + (c.indexOf("?") > 0 ? "&" : "?") + (o.pageParam || "page") + "={p}", a, "")];
                                                                         case 1: return [2, _b.sent()];
-                                                                        case 2: return [4, v.listPage(o.search, a, r)];
-                                                                        case 3: return [2, _b.sent()];
+                                                                        case 2:
+                                                                            if (!o.search_post) return [3, 5];
+                                                                            return [4, d.html(v.url(o.search_post.url, a, r), { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: String(o.search_post.body).replace(/\{q\}/g, d.enc(r)) })];
+                                                                        case 3:
+                                                                            f = _b.sent();
+                                                                            return [4, v.items(f, "s_")];
+                                                                        case 4:
+                                                                            l = _b.sent();
+                                                                            return [2, s.success(l, null)];
+                                                                        case 5: return [4, v.listPage(o.search, a, r)];
+                                                                        case 6: return [2, _b.sent()];
                                                                     }
                                                                 }); });
                                                             }, genre: function () {
@@ -5392,31 +5437,31 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (!o.genre)
-                                                                                return [2, c.success([])];
+                                                                                return [2, s.success([])];
                                                                             return [4, d.html(d.fix(o.genrePage || "/"))];
                                                                         case 1:
                                                                             r = _b.sent();
-                                                                            return [4, z(r.select(o.genre), function (s) {
+                                                                            return [4, z(r.select(o.genre), function (c) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
                                                                                             switch (_c.label) {
                                                                                                 case 0:
                                                                                                     _b = {};
-                                                                                                    return [4, s.text()];
-                                                                                                case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(s.attr("href")), _b.script = "search.js", _b)];
+                                                                                                    return [4, c.text()];
+                                                                                                case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(c.attr("href")), _b.script = "search.js", _b)];
                                                                                             }
                                                                                         });
                                                                                     });
                                                                                 })];
                                                                         case 2:
                                                                             a = _b.sent();
-                                                                            return [2, c.success(a.filter(function (s) { return s.title; }))];
+                                                                            return [2, s.success(a.filter(function (c) { return c.title; }))];
                                                                     }
                                                                 }); });
                                                             }, detail: function (r) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, s, l, _b, _c, _d, _f, _g;
+                                                                    var a, c, f, _b, _c, _d, _f, _g;
                                                                     var _h;
                                                                     return __generator(this, function (_j) {
                                                                         switch (_j.label) {
@@ -5424,15 +5469,15 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             case 1:
                                                                                 a = _j.sent();
                                                                                 if (!o.d_genres) return [3, 3];
-                                                                                return [4, z(a.select(o.d_genres), function (f) {
+                                                                                return [4, z(a.select(o.d_genres), function (l) {
                                                                                         return __awaiter(this, void 0, void 0, function () {
                                                                                             var _b;
                                                                                             return __generator(this, function (_c) {
                                                                                                 switch (_c.label) {
                                                                                                     case 0:
                                                                                                         _b = {};
-                                                                                                        return [4, f.text()];
-                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(f.attr("href")), _b.script = "search.js", _b)];
+                                                                                                        return [4, l.text()];
+                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(l.attr("href")), _b.script = "search.js", _b)];
                                                                                                 }
                                                                                             });
                                                                                         });
@@ -5444,11 +5489,11 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _b = [];
                                                                                 _j.label = 4;
                                                                             case 4:
-                                                                                s = _b;
+                                                                                c = _b;
                                                                                 return [4, v.pick(a, o.d_status)];
                                                                             case 5:
-                                                                                l = _j.sent();
-                                                                                _d = (_c = c).success;
+                                                                                f = _j.sent();
+                                                                                _d = (_c = s).success;
                                                                                 _h = {};
                                                                                 return [4, v.pick(a, o.d_title || "h1")];
                                                                             case 6:
@@ -5461,13 +5506,13 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             case 8:
                                                                                 _h.author = _j.sent();
                                                                                 return [4, v.pick(a, (o.d_desc || "meta[name=description]@content").replace(/$/, ""))];
-                                                                            case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = l ? "Tình trạng: " + l : "", _h.ongoing = d.ongoing(l), _h.genres = s, _h.host = k, _h)])];
+                                                                            case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = f ? "Tình trạng: " + f : "", _h.ongoing = d.ongoing(f), _h.genres = c, _h.host = k, _h)])];
                                                                         }
                                                                     });
                                                                 });
                                                             }, toc: function (r) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, s, l, f, g, _b, b, x, m, y, A, _c, _d, _f, _g, L, M, _h;
+                                                                    var a, c, f, l, g, _b, b, x, p, w, A, _c, _d, _f, _g, L, M, _h;
                                                                     var _j;
                                                                     return __generator(this, function (_k) {
                                                                         switch (_k.label) {
@@ -5477,20 +5522,20 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             case 1: return [2, _k.sent()];
                                                                             case 2:
                                                                                 if (o.single)
-                                                                                    return [2, c.success([{ name: o.single === !0 ? "Xem / Đọc" : o.single, url: r, host: k }])];
-                                                                                a = [r], s = [], l = {};
+                                                                                    return [2, s.success([{ name: o.single === !0 ? "Xem / Đọc" : o.single, url: r, host: k }])];
+                                                                                a = [r], c = [], f = {};
                                                                                 return [4, d.html(o.ch_rewrite ? r.replace(new RegExp(o.ch_rewrite[0]), o.ch_rewrite[1]) : r, o.req)];
                                                                             case 3:
-                                                                                f = _k.sent();
+                                                                                l = _k.sent();
                                                                                 if (!o.ch_url) return [3, 7];
-                                                                                return [4, v.pick(f, o.ch_url)];
+                                                                                return [4, v.pick(l, o.ch_url)];
                                                                             case 4:
                                                                                 g = _k.sent();
                                                                                 _b = g;
                                                                                 if (!_b) return [3, 6];
                                                                                 return [4, d.html(d.fix(g), o.req)];
                                                                             case 5:
-                                                                                _b = (f = _k.sent());
+                                                                                _b = (l = _k.sent());
                                                                                 _k.label = 6;
                                                                             case 6:
                                                                                 _b;
@@ -5500,38 +5545,38 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _k.label = 8;
                                                                             case 8:
                                                                                 if (!(b < (o.ch_maxPages || 60))) return [3, 22];
-                                                                                x = f.select(o.ch_list), m = 0;
+                                                                                x = l.select(o.ch_list), p = 0;
                                                                                 _k.label = 9;
                                                                             case 9:
-                                                                                if (!(m < x.size())) return [3, 17];
-                                                                                return [4, x.get(m)];
+                                                                                if (!(p < x.size())) return [3, 17];
+                                                                                return [4, x.get(p)];
                                                                             case 10:
-                                                                                y = _k.sent(), A = y.attr("href") || y.attr("data-href");
-                                                                                _c = !A || A === "#" || l[A];
+                                                                                w = _k.sent(), A = o.ch_attr ? w.attr(o.ch_attr) : w.attr("href") || w.attr("data-href");
+                                                                                _c = !A || A === "#" || f[A];
                                                                                 if (_c) return [3, 15];
-                                                                                l[A] = 1;
-                                                                                _f = (_d = s).push;
+                                                                                f[A] = 1;
+                                                                                _f = (_d = c).push;
                                                                                 _j = {};
                                                                                 if (!o.ch_name) return [3, 12];
-                                                                                return [4, v.pick(y, o.ch_name)];
+                                                                                return [4, v.pick(w, o.ch_name)];
                                                                             case 11:
                                                                                 _g = _k.sent();
                                                                                 return [3, 14];
-                                                                            case 12: return [4, y.text()];
+                                                                            case 12: return [4, w.text()];
                                                                             case 13:
                                                                                 _g = _k.sent();
                                                                                 _k.label = 14;
                                                                             case 14:
-                                                                                _c = (_f.apply(_d, [(_j.name = (_g) || y.attr("title"), _j.url = d.fix(A), _j.host = k, _j)]));
+                                                                                _c = (_f.apply(_d, [(_j.name = (_g) || w.attr("title"), _j.url = d.fix(A), _j.host = k, _j)]));
                                                                                 _k.label = 15;
                                                                             case 15:
                                                                                 _c;
                                                                                 _k.label = 16;
                                                                             case 16:
-                                                                                m++;
+                                                                                p++;
                                                                                 return [3, 9];
                                                                             case 17:
-                                                                                L = o.ch_next ? f.select(o.ch_next).first() : null;
+                                                                                L = o.ch_next ? l.select(o.ch_next).first() : null;
                                                                                 if (!L || !L.attr("href"))
                                                                                     return [3, 22];
                                                                                 M = d.fix(L.attr("href"));
@@ -5548,24 +5593,24 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _h;
                                                                                 return [4, d.html(M, o.req)];
                                                                             case 20:
-                                                                                f = _k.sent();
+                                                                                l = _k.sent();
                                                                                 _k.label = 21;
                                                                             case 21:
                                                                                 b++;
                                                                                 return [3, 8];
-                                                                            case 22: return [2, (o.ch_reverse && s.reverse(), c.success(s))];
+                                                                            case 22: return [2, (o.ch_reverse && c.reverse(), !c.length && o.ch_fallback_single && c.push({ name: o.ch_fallback_single === !0 ? "Xem phim" : o.ch_fallback_single, url: r, host: k }), s.success(c))];
                                                                         }
                                                                     });
                                                                 });
                                                             }, pages: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s, l, f, g, b, x, m, _b, _c, y, A; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c, f, l, g, b, x, p, _b, _c, w, A; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
-                                                                            a = [], s = [r], l = r, f = 0;
+                                                                            a = [], c = [r], f = r, l = 0;
                                                                             _d.label = 1;
                                                                         case 1:
-                                                                            if (!(f < (o.pages_max || 40))) return [3, 8];
-                                                                            return [4, d.html(l, o.req)];
+                                                                            if (!(l < (o.pages_max || 40))) return [3, 8];
+                                                                            return [4, d.html(f, o.req)];
                                                                         case 2:
                                                                             g = _d.sent(), b = g.select(o.pages || ".page-chapter img, .reading-content img, .chapter-content img"), x = 0;
                                                                             _d.label = 3;
@@ -5574,8 +5619,8 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             _c = (_b = d).img;
                                                                             return [4, b.get(x)];
                                                                         case 4:
-                                                                            m = _c.apply(_b, [_d.sent()]);
-                                                                            m && a.indexOf(m) < 0 && a.push(m);
+                                                                            p = _c.apply(_b, [_d.sent()]);
+                                                                            p && a.indexOf(p) < 0 && a.push(p);
                                                                             _d.label = 5;
                                                                         case 5:
                                                                             x++;
@@ -5583,22 +5628,22 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                         case 6:
                                                                             if (!o.pages_next)
                                                                                 return [3, 8];
-                                                                            y = g.select(o.pages_next).first();
-                                                                            if (!y)
+                                                                            w = g.select(o.pages_next).first();
+                                                                            if (!w)
                                                                                 return [3, 8];
-                                                                            A = d.fix(y.attr("href"));
-                                                                            if (!A || s.indexOf(A) >= 0)
+                                                                            A = d.fix(w.attr("href"));
+                                                                            if (!A || c.indexOf(A) >= 0)
                                                                                 return [3, 8];
-                                                                            s.push(A), l = A;
+                                                                            c.push(A), f = A;
                                                                             _d.label = 7;
                                                                         case 7:
-                                                                            f++;
+                                                                            l++;
                                                                             return [3, 1];
-                                                                        case 8: return [2, c.success(a)];
+                                                                        case 8: return [2, s.success(a)];
                                                                     }
                                                                 }); });
                                                             }, text: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s, _b, _c, l, f, g, _d, _f, _g, b, x, _h, _j, _k, _l, _m, _o; return __generator(this, function (_p) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c, _b, _c, f, l, g, _d, _f, _g, b, x, _h, _j, _k, _l, _m, _o; return __generator(this, function (_p) {
                                                                     switch (_p.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
@@ -5608,25 +5653,25 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             a = _p.sent();
                                                                             return [4, a.text()];
                                                                         case 3:
-                                                                            s = (_p.sent()) || "";
+                                                                            c = (_p.sent()) || "";
                                                                             if (!o.content_rsc) return [3, 5];
-                                                                            l = v.rscText(s), f = o.c_locked && new RegExp(o.c_locked, "i").test(s), g = f ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
-                                                                            if (!(l || f)) return [3, 5];
-                                                                            _f = (_d = c).success;
-                                                                            _g = [v.toParas(l) + g];
-                                                                            return [4, v.pick(n.parse(s, r), o.c_title || "h1 || title")];
+                                                                            f = v.rscText(c), l = o.c_locked && new RegExp(o.c_locked, "i").test(c), g = l ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
+                                                                            if (!(f || l)) return [3, 5];
+                                                                            _f = (_d = s).success;
+                                                                            _g = [v.toParas(f) + g];
+                                                                            return [4, v.pick(n.parse(c, r), o.c_title || "h1 || title")];
                                                                         case 4: return [2, _f.apply(_d, _g.concat([_p.sent()]))];
                                                                         case 5:
-                                                                            b = n.parse(s, r), x = b.select(o.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            b = n.parse(c, r), x = b.select(o.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
                                                                             if (!!x) return [3, 7];
-                                                                            if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(s.slice(0, 2e4)))
+                                                                            if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(c.slice(0, 2e4)))
                                                                                 throw new Error("CLOUDFLARE: trang " + k + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
-                                                                            _j = (_h = c).error;
+                                                                            _j = (_h = s).error;
                                                                             _k = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                             return [4, v.pick(b, "title")];
-                                                                        case 6: return [2, _j.apply(_h, [_k + ((_p.sent()) || "?").slice(0, 60) + '" (' + a.status + ", " + s.length + " ký tự)" + (s.length < 400 ? ": " + s.replace(/\s+/g, " ").slice(0, 200) : "")])];
+                                                                        case 6: return [2, _j.apply(_h, [_k + ((_p.sent()) || "?").slice(0, 60) + '" (' + a.status + ", " + c.length + " ký tự)" + (c.length < 400 ? ": " + c.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                                         case 7:
-                                                                            _m = (_l = c).success;
+                                                                            _m = (_l = s).success;
                                                                             return [4, d.cleanContent(x)];
                                                                         case 8:
                                                                             _o = [_p.sent()];
@@ -5635,25 +5680,25 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     }
                                                                 }); });
                                                             }, rscAction: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, b, x, m, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, b, x, p, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
-                                                                            for (s = [], f = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g; l = f.exec(r);)
-                                                                                s.indexOf(l[0]) < 0 && s.push(l[0]);
+                                                                            for (c = [], l = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g; f = l.exec(r);)
+                                                                                c.indexOf(f[0]) < 0 && c.push(f[0]);
                                                                             g = new RegExp('"([0-9a-f]{40,44})"[^"]{0,200}?"' + a + '"'), b = 0;
                                                                             _d.label = 1;
                                                                         case 1:
-                                                                            if (!(b < s.length && b < 60)) return [3, 5];
-                                                                            return [4, d.get(k + s[b])];
+                                                                            if (!(b < c.length && b < 60)) return [3, 5];
+                                                                            return [4, d.get(k + c[b])];
                                                                         case 2:
                                                                             x = _d.sent();
                                                                             if (!!(!x || !x.ok)) return [3, 4];
                                                                             _c = (_b = g).exec;
                                                                             return [4, x.text()];
                                                                         case 3:
-                                                                            m = _c.apply(_b, [(_d.sent()) || ""]);
-                                                                            if (m)
-                                                                                return [2, m[1]];
+                                                                            p = _c.apply(_b, [(_d.sent()) || ""]);
+                                                                            if (p)
+                                                                                return [2, p[1]];
                                                                             _d.label = 4;
                                                                         case 4:
                                                                             b++;
@@ -5662,19 +5707,19 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     }
                                                                 }); });
                                                             }, rscArray: function (r) {
-                                                                for (var a = String(r || "").split("\n"), s = 0; s < a.length; s++) {
-                                                                    var l = /^[0-9a-f]+:(\[.*)$/.exec(a[s]);
-                                                                    if (l)
+                                                                for (var a = String(r || "").split("\n"), c = 0; c < a.length; c++) {
+                                                                    var f = /^[0-9a-f]+:(\[.*)$/.exec(a[c]);
+                                                                    if (f)
                                                                         try {
-                                                                            var f = JSON.parse(l[1]);
-                                                                            if (f && f.length)
-                                                                                return f;
+                                                                            var l = JSON.parse(f[1]);
+                                                                            if (l && l.length)
+                                                                                return l;
                                                                         }
                                                                         catch (g) { }
                                                                 }
                                                                 return null;
                                                             }, actionToc: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s, l, _b, _c, f, g, b, _d, x, _f, m; return __generator(this, function (_g) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c, f, _b, _c, l, g, b, _d, x, _f, p; return __generator(this, function (_g) {
                                                                     switch (_g.label) {
                                                                         case 0:
                                                                             a = o.ch_action;
@@ -5683,13 +5728,13 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                         case 1: return [4, _c.apply(_b, [_g.sent(), r])];
                                                                         case 2: return [4, (_g.sent()).text()];
                                                                         case 3:
-                                                                            s = (_g.sent()) || "", l = new RegExp(a.arg).exec(s);
-                                                                            if (!l)
-                                                                                return [2, c.error("Không tìm thấy mã truyện trên trang " + r)];
-                                                                            f = JSON.stringify([l[1]]), g = function (y) {
+                                                                            c = (_g.sent()) || "", f = new RegExp(a.arg).exec(c);
+                                                                            if (!f)
+                                                                                return [2, s.error("Không tìm thấy mã truyện trên trang " + r)];
+                                                                            l = JSON.stringify([f[1]]), g = function (w) {
                                                                                 return __awaiter(this, void 0, void 0, function () { var A, _b, _c, _d; return __generator(this, function (_f) {
                                                                                     switch (_f.label) {
-                                                                                        case 0: return [4, d.get(r, { method: "POST", headers: { "Next-Action": y, Accept: "text/x-component", "Content-Type": "text/plain;charset=UTF-8" }, body: f })];
+                                                                                        case 0: return [4, d.get(r, { method: "POST", headers: { "Next-Action": w, Accept: "text/x-component", "Content-Type": "text/plain;charset=UTF-8" }, body: l })];
                                                                                         case 1:
                                                                                             A = _f.sent();
                                                                                             if (!(A && A.ok)) return [3, 3];
@@ -5716,7 +5761,7 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                         case 6:
                                                                             b = _d;
                                                                             if (!!b) return [3, 10];
-                                                                            return [4, v.rscAction(s, a.name)];
+                                                                            return [4, v.rscAction(c, a.name)];
                                                                         case 7:
                                                                             x = _g.sent();
                                                                             _f = x && x !== a.id;
@@ -5730,82 +5775,82 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             _g.label = 10;
                                                                         case 10:
                                                                             if (!b)
-                                                                                return [2, c.error('Không lấy được danh sách chương (Server Action "' + a.name + '")')];
-                                                                            m = r.replace(/[?#].*$/, "").replace(/\/+$/, "");
-                                                                            return [2, c.success(b.map(function (y) { return { name: String(y[a.title || "label"] || "") + (a.lock && y[a.lock] ? " 🔒" : ""), url: m + "/" + y[a.slug || "slugId"], host: k }; }))];
+                                                                                return [2, s.error('Không lấy được danh sách chương (Server Action "' + a.name + '")')];
+                                                                            p = r.replace(/[?#].*$/, "").replace(/\/+$/, "");
+                                                                            return [2, s.success(b.map(function (w) { return { name: String(w[a.title || "label"] || "") + (a.lock && w[a.lock] ? " 🔒" : ""), url: p + "/" + w[a.slug || "slugId"], host: k }; }))];
                                                                     }
                                                                 }); });
-                                                            }, rscText: function (r) { for (var a = "", s, l = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g; s = l.exec(r);)
+                                                            }, rscText: function (r) { for (var a = "", c, f = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g; c = f.exec(r);)
                                                                 try {
-                                                                    a += JSON.parse(s[1]);
+                                                                    a += JSON.parse(c[1]);
                                                                 }
-                                                                catch (M) { } for (var f = "", g = /([0-9a-f]+):T([0-9a-f]+),/g, b; b = g.exec(a);) {
-                                                                for (var x = parseInt(b[2], 16), m = g.lastIndex, y = 0; m < a.length && y < x;) {
-                                                                    var A = a.charCodeAt(m);
-                                                                    A < 128 ? y += 1 : A < 2048 ? y += 2 : A >= 55296 && A <= 56319 ? (y += 4, m++) : y += 3, m++;
+                                                                catch (M) { } for (var l = "", g = /([0-9a-f]+):T([0-9a-f]+),/g, b; b = g.exec(a);) {
+                                                                for (var x = parseInt(b[2], 16), p = g.lastIndex, w = 0; p < a.length && w < x;) {
+                                                                    var A = a.charCodeAt(p);
+                                                                    A < 128 ? w += 1 : A < 2048 ? w += 2 : A >= 55296 && A <= 56319 ? (w += 4, p++) : w += 3, p++;
                                                                 }
-                                                                var L = a.slice(g.lastIndex, m);
-                                                                L.length > f.length && (f = L), g.lastIndex = m;
-                                                            } return f; }, toParas: function (r) { return /<p[\s>]|<br\s*\/?>/i.test(r) ? r : r.split(/\n+/).map(function (a) { return a = a.trim(), a ? "<p>" + a.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</p>" : ""; }).join(""); }, servers: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s; return __generator(this, function (_b) {
+                                                                var L = a.slice(g.lastIndex, p);
+                                                                L.length > l.length && (l = L), g.lastIndex = p;
+                                                            } return l; }, toParas: function (r) { return /<p[\s>]|<br\s*\/?>/i.test(r) ? r : r.split(/\n+/).map(function (a) { return a = a.trim(), a ? "<p>" + a.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</p>" : ""; }).join(""); }, servers: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (!o.servers)
-                                                                                return [2, c.success([{ title: "Server", data: r }])];
+                                                                                return [2, s.success([{ title: "Server", data: r }])];
                                                                             return [4, d.html(r, o.req)];
                                                                         case 1:
                                                                             a = _b.sent();
-                                                                            return [4, z(a.select(o.servers), function (l) {
+                                                                            return [4, z(a.select(o.servers), function (f) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
-                                                                                        var f;
+                                                                                        var l;
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
                                                                                             switch (_c.label) {
-                                                                                                case 0: return [4, v.pick(l, o.server_data || ":self@data-link || :self@data-src || :self@href")];
+                                                                                                case 0: return [4, v.pick(f, o.server_data || ":self@data-link || :self@data-src || :self@href")];
                                                                                                 case 1:
-                                                                                                    f = _c.sent();
+                                                                                                    l = _c.sent();
                                                                                                     _b = {};
-                                                                                                    return [4, l.text()];
-                                                                                                case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(f), _b)];
+                                                                                                    return [4, f.text()];
+                                                                                                case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(l), _b)];
                                                                                             }
                                                                                         });
                                                                                     });
                                                                                 })];
                                                                         case 2:
-                                                                            s = (_b.sent()).filter(function (l) { return l.data; });
-                                                                            return [2, c.success(s.length ? s : [{ title: "Server", data: r }])];
+                                                                            c = (_b.sent()).filter(function (f) { return f.data; });
+                                                                            return [2, s.success(c.length ? c : [{ title: "Server", data: r }])];
                                                                     }
                                                                 }); });
                                                             }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var a = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return a ? a[0] : ""; }, track: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, b, x, m; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, b, x, p; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (a = a || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
-                                                                                return [2, c.success({ type: "native", data: r, headers: { Referer: k + "/" } })];
+                                                                                return [2, s.success({ type: "native", data: r, headers: { Referer: k + "/" } })];
                                                                             return [4, d.get(r)];
                                                                         case 1:
-                                                                            s = _b.sent();
-                                                                            return [4, s.text()];
+                                                                            c = _b.sent();
+                                                                            return [4, c.text()];
                                                                         case 2:
-                                                                            l = _b.sent();
-                                                                            if (!(o.video && !a)) return [3, 4];
-                                                                            return [4, v.pick(n.parse(l, r), o.video)];
-                                                                        case 3:
                                                                             f = _b.sent();
-                                                                            if (f)
-                                                                                return [2, c.success({ type: "native", data: d.fix(f), headers: { Referer: k + "/" } })];
+                                                                            if (!(o.video && !a)) return [3, 4];
+                                                                            return [4, v.pick(n.parse(f, r), o.video)];
+                                                                        case 3:
+                                                                            l = _b.sent();
+                                                                            if (l)
+                                                                                return [2, s.success({ type: "native", data: d.fix(l), headers: { Referer: k + "/" } })];
                                                                             _b.label = 4;
                                                                         case 4:
-                                                                            g = v.sniff(l);
+                                                                            g = v.sniff(f);
                                                                             if (g)
-                                                                                return [2, c.success({ type: "native", data: g, headers: { Referer: a ? r : k + "/" } })];
-                                                                            b = n.parse(l, r), x = b.select(o.iframe || "iframe[src], iframe[data-src]").first();
+                                                                                return [2, s.success({ type: "native", data: g, headers: { Referer: a ? r : k + "/" } })];
+                                                                            b = n.parse(f, r), x = b.select(o.iframe || "iframe[src], iframe[data-src]").first();
                                                                             if (!(x && a < 2)) return [3, 6];
-                                                                            m = d.fix(x.attr("src") || x.attr("data-src"));
-                                                                            if (!m) return [3, 6];
-                                                                            return [4, v.track(m, a + 1)];
+                                                                            p = d.fix(x.attr("src") || x.attr("data-src"));
+                                                                            if (!p) return [3, 6];
+                                                                            return [4, v.track(p, a + 1)];
                                                                         case 5: return [2, _b.sent()];
-                                                                        case 6: return [2, c.success({ type: "webview", data: r })];
+                                                                        case 6: return [2, s.success({ type: "webview", data: r })];
                                                                     }
                                                                 }); });
                                                             } };
@@ -5823,13 +5868,13 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
     }, browse: function (t, e) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
-                return [2, (function (u, i, n, c, h, p, w, S, E, D, N, q, I, U, W, Z, ne) {
+                return [2, (function (u, i, n, s, h, m, y, S, E, D, _, N, I, U, W, Z, ne) {
                         return __awaiter(this, void 0, void 0, function () {
-                            var R;
+                            var H;
                             return __generator(this, function (_b) {
                                 switch (_b.label) {
                                     case 0:
-                                        R = e("DOMAIN");
+                                        H = e("DOMAIN");
                                         return [4, (function () {
                                                 return __awaiter(this, void 0, void 0, function () {
                                                     function G(r, a) {
@@ -5844,51 +5889,51 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                     return __generator(this, function (_b) {
                                                         k = "https://luvevalandn2.co";
                                                         try {
-                                                            R && (k = String(R).replace(/\/+$/, ""));
+                                                            H && (k = String(H).replace(/\/+$/, ""));
                                                         }
                                                         catch (r) { }
                                                         o = { tabs: { "Truyện mới": "/danh-sach/moi-dang[?page={p}]", "Hot tuần": "/danh-sach/truyen-hot-tuan[?page={p}]", "Xem nhiều": "/danh-sach/truyen-nhieu-nguoi-xem[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", ch_list: "td.list-chapter__name a", item: ".book-vertical__item, tr.book__list-item", title: ".book__lg-title a || td.book__list-name a || img@alt", link: "a@href", cover: "img@img", pageSize: 10, d_title: ".breadcrumb__container a.breadcrumb__item:last-child || h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .book__detail-image img@img", d_desc: "#home", d_genres: ".book__detail-text a[href*='/the-loai/']", content: "#chapter-content", c_title: "h1 || h2" }, d = { img: function (r) { if (!r)
-                                                                return ""; for (var a = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], s = 0; s < a.length; s++) {
-                                                                var l = r.attr(a[s]);
-                                                                if (l && l.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(l))
-                                                                    return d.fix(l.trim());
-                                                            } var f = r.attr("data-srcset") || r.attr("srcset"); return f ? d.fix(f.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? k + r : k + "/" + r) : ""; }, text: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l; return __generator(this, function (_b) {
+                                                                return ""; for (var a = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], c = 0; c < a.length; c++) {
+                                                                var f = r.attr(a[c]);
+                                                                if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
+                                                                    return d.fix(f.trim());
+                                                            } var l = r.attr("data-srcset") || r.attr("srcset"); return l ? d.fix(l.split(",").pop().trim().split(" ")[0]) : ""; }, fix: function (r) { return r ? (r = String(r).trim(), r.indexOf("//") === 0 ? "https:" + r : r.indexOf("http") === 0 ? r : r.charAt(0) === "/" ? k + r : k + "/" + r) : ""; }, text: function (r, a) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            s = 0;
+                                                                            c = 0;
                                                                             _b.label = 1;
                                                                         case 1:
-                                                                            if (!(s < a.length)) return [3, 4];
-                                                                            return [4, r.select(a[s]).text()];
+                                                                            if (!(c < a.length)) return [3, 4];
+                                                                            return [4, r.select(a[c]).text()];
                                                                         case 2:
-                                                                            l = _b.sent();
-                                                                            if (l)
-                                                                                return [2, l.trim()];
+                                                                            f = _b.sent();
+                                                                            if (f)
+                                                                                return [2, f.trim()];
                                                                             _b.label = 3;
                                                                         case 3:
-                                                                            s++;
+                                                                            c++;
                                                                             return [3, 1];
                                                                         case 4: return [2, ""];
                                                                     }
                                                                 }); });
                                                             }, get: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, _b; return __generator(this, function (_c) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, _b; return __generator(this, function (_c) {
                                                                     switch (_c.label) {
                                                                         case 0:
                                                                             a = a || {};
-                                                                            s = { Referer: k + "/" };
+                                                                            c = { Referer: k + "/" };
                                                                             if (a.headers)
-                                                                                for (l in a.headers)
-                                                                                    s[l] = a.headers[l];
-                                                                            return [4, u(r, { method: a.method, headers: s, body: a.body })];
+                                                                                for (f in a.headers)
+                                                                                    c[f] = a.headers[f];
+                                                                            return [4, u(r, { method: a.method, headers: c, body: a.body })];
                                                                         case 1:
-                                                                            f = _c.sent(), g = 0;
+                                                                            l = _c.sent(), g = 0;
                                                                             _c.label = 2;
                                                                         case 2:
-                                                                            _b = f && f.status === 429 && g < 3;
+                                                                            _b = l && l.status === 429 && g < 3;
                                                                             if (!_b) return [3, 4];
-                                                                            return [4, d.cf(f)];
+                                                                            return [4, d.cf(l)];
                                                                         case 3:
                                                                             _b = !(_c.sent());
                                                                             _c.label = 4;
@@ -5897,14 +5942,14 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             return [4, E(1500 * (g + 1))];
                                                                         case 5:
                                                                             _c.sent();
-                                                                            return [4, u(r, { method: a.method, headers: s, body: a.body })];
+                                                                            return [4, u(r, { method: a.method, headers: c, body: a.body })];
                                                                         case 6:
-                                                                            f = _c.sent();
+                                                                            l = _c.sent();
                                                                             _c.label = 7;
                                                                         case 7:
                                                                             g++;
                                                                             return [3, 2];
-                                                                        case 8: return [2, f];
+                                                                        case 8: return [2, l];
                                                                     }
                                                                 }); });
                                                             }, cf: function (r) {
@@ -5930,28 +5975,28 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     }
                                                                 }); });
                                                             }, html: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
                                                                             return [4, d.get(r, a)];
                                                                         case 1: return [4, _c.apply(_b, [_d.sent(), r])];
                                                                         case 2:
-                                                                            s = _d.sent();
-                                                                            return [4, s.html(a && a.charset)];
+                                                                            c = _d.sent();
+                                                                            return [4, c.html(a && a.charset)];
                                                                         case 3: return [2, _d.sent()];
                                                                     }
                                                                 }); });
                                                             }, json: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
                                                                             return [4, d.get(r, a)];
                                                                         case 1: return [4, _c.apply(_b, [_d.sent(), r])];
                                                                         case 2:
-                                                                            s = _d.sent();
-                                                                            return [4, s.json()];
+                                                                            c = _d.sent();
+                                                                            return [4, c.json()];
                                                                         case 3: return [2, _d.sent()];
                                                                     }
                                                                 }); });
@@ -5967,77 +6012,77 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     });
                                                                 });
                                                             }, ongoing: function (r) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(r || ""); } }, v = { pick: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, b, x, m, y, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, b, x, p, w, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             if (!a || !r)
                                                                                 return [2, ""];
-                                                                            s = String(a).split(" || "), l = 0;
+                                                                            c = String(a).split(" || "), f = 0;
                                                                             _d.label = 1;
                                                                         case 1:
-                                                                            if (!(l < s.length)) return [3, 9];
-                                                                            f = s[l], g = "text", b = f.lastIndexOf("@");
-                                                                            b > 0 && !/\[[^\]]*@/.test(f.slice(b)) && (g = f.slice(b + 1), f = f.slice(0, b));
-                                                                            x = f === ":self" ? null : r.select(f), m = f === ":self" ? r : x.size() ? x.first() : null;
-                                                                            if (!m) return [3, 8];
+                                                                            if (!(f < c.length)) return [3, 9];
+                                                                            l = c[f], g = "text", b = l.lastIndexOf("@");
+                                                                            b > 0 && !/\[[^\]]*@/.test(l.slice(b)) && (g = l.slice(b + 1), l = l.slice(0, b));
+                                                                            x = l === ":self" ? null : r.select(l), p = l === ":self" ? r : x.size() ? x.first() : null;
+                                                                            if (!p) return [3, 8];
                                                                             if (!(g === "text")) return [3, 3];
-                                                                            return [4, m.text()];
+                                                                            return [4, p.text()];
                                                                         case 2:
                                                                             _b = _d.sent();
                                                                             return [3, 7];
                                                                         case 3:
                                                                             if (!(g === "html")) return [3, 5];
-                                                                            return [4, m.html()];
+                                                                            return [4, p.html()];
                                                                         case 4:
                                                                             _c = _d.sent();
                                                                             return [3, 6];
                                                                         case 5:
-                                                                            _c = g === "img" ? d.img(m.is("img") ? m : m.select("img").first()) : g === "own" ? m.ownText() : m.attr(g);
+                                                                            _c = g === "img" ? d.img(p.is("img") ? p : p.select("img").first()) : g === "own" ? p.ownText() : p.attr(g);
                                                                             _d.label = 6;
                                                                         case 6:
                                                                             _b = _c;
                                                                             _d.label = 7;
                                                                         case 7:
-                                                                            y = _b;
-                                                                            if (y)
-                                                                                return [2, String(y).trim()];
+                                                                            w = _b;
+                                                                            if (w)
+                                                                                return [2, String(w).trim()];
                                                                             _d.label = 8;
                                                                         case 8:
-                                                                            l++;
+                                                                            f++;
                                                                             return [3, 1];
                                                                         case 9: return [2, ""];
                                                                     }
                                                                 }); });
-                                                            }, url: function (r, a, s) { var l = d.page(a), f = String(r); return f = f.replace(/\[([^\]]*)\]/g, function (g, b) { return l > 1 ? b : ""; }), f = f.replace(/\{p\}/g, String(l)).replace(/\{p0\}/g, String(l - 1)).replace(/\{q\}/g, d.enc(s || "")).replace(/\{base\}/g, k), d.fix(f); }, items: function (r) {
+                                                            }, url: function (r, a, c) { var f = d.page(a), l = String(r); return l = l.replace(/\[([^\]]*)\]/g, function (g, b) { return f > 1 ? b : ""; }), l = l.replace(/\{p\}/g, String(f)).replace(/\{p0\}/g, String(f - 1)).replace(/\{q\}/g, d.enc(c || "")).replace(/\{base\}/g, k), d.fix(l); }, items: function (r, a) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, s, l, f, g, b, x, _b, _c, _d;
+                                                                    var c, f, l, g, b, x, p, w, _b, _c, _d;
                                                                     var _f;
                                                                     return __generator(this, function (_g) {
                                                                         switch (_g.label) {
                                                                             case 0:
-                                                                                a = r.select(o.item), s = [], l = {}, f = 0;
+                                                                                c = function (A) { return a && o[a + A] || o[A]; }, f = r.select(c("item")), l = [], g = {}, b = 0;
                                                                                 _g.label = 1;
                                                                             case 1:
-                                                                                if (!(f < a.size())) return [3, 9];
-                                                                                return [4, a.get(f)];
+                                                                                if (!(b < f.size())) return [3, 9];
+                                                                                return [4, f.get(b)];
                                                                             case 2:
-                                                                                g = _g.sent();
-                                                                                return [4, v.pick(g, o.link || "a@href")];
-                                                                            case 3:
-                                                                                b = _g.sent();
-                                                                                if (!!(!b || l[b] || /^javascript|#$/.test(b))) return [3, 8];
-                                                                                return [4, v.pick(g, o.title || "h3 || h2 || a@title || img@alt")];
-                                                                            case 4:
                                                                                 x = _g.sent();
-                                                                                _b = x;
+                                                                                return [4, v.pick(x, c("link") || "a@href")];
+                                                                            case 3:
+                                                                                p = _g.sent();
+                                                                                if (!!(!p || g[p] || /^javascript|#$/.test(p))) return [3, 8];
+                                                                                return [4, v.pick(x, c("title") || "h3 || h2 || a@title || img@alt")];
+                                                                            case 4:
+                                                                                w = _g.sent();
+                                                                                _b = w;
                                                                                 if (!_b) return [3, 7];
-                                                                                l[b] = 1;
-                                                                                _d = (_c = s).push;
-                                                                                _f = { name: x, link: d.fix(b) };
-                                                                                return [4, v.pick(g, o.cover || "img@img")];
+                                                                                g[p] = 1;
+                                                                                _d = (_c = l).push;
+                                                                                _f = { name: w, link: d.fix(p) };
+                                                                                return [4, v.pick(x, c("cover") || "img@img")];
                                                                             case 5:
                                                                                 _f.cover = _g.sent();
-                                                                                return [4, v.pick(g, o.desc || "")];
+                                                                                return [4, v.pick(x, c("desc") || "")];
                                                                             case 6:
                                                                                 _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = k, _f)]));
                                                                                 _g.label = 7;
@@ -6045,43 +6090,52 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _b;
                                                                                 _g.label = 8;
                                                                             case 8:
-                                                                                f++;
+                                                                                b++;
                                                                                 return [3, 1];
-                                                                            case 9: return [2, s];
+                                                                            case 9: return [2, l];
                                                                         }
                                                                     });
                                                                 });
-                                                            }, listPage: function (r, a, s) {
-                                                                return __awaiter(this, void 0, void 0, function () { var l, f, g; return __generator(this, function (_b) {
+                                                            }, listPage: function (r, a, c) {
+                                                                return __awaiter(this, void 0, void 0, function () { var f, l, g; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
-                                                                        case 0: return [4, d.html(v.url(r, a, s), o.req)];
+                                                                        case 0: return [4, d.html(v.url(r, a, c), o.req)];
                                                                         case 1:
-                                                                            l = _b.sent();
-                                                                            return [4, v.items(l)];
+                                                                            f = _b.sent();
+                                                                            return [4, v.items(f, c ? "s_" : "")];
                                                                         case 2:
-                                                                            f = _b.sent(), g = o.next ? l.select(o.next).size() > 0 : f.length >= (o.pageSize || 10);
-                                                                            return [2, c.success(f, d.next(g && f.length > 0, a))];
+                                                                            l = _b.sent(), g = o.next ? f.select(o.next).size() > 0 : l.length >= (o.pageSize || 10);
+                                                                            return [2, s.success(l, d.next(g && l.length > 0, a))];
                                                                     }
                                                                 }); });
                                                             }, browse: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            s = o.tabs && o.tabs[r] || r;
-                                                                            return [4, v.listPage(s, a, "")];
+                                                                            c = o.tabs && o.tabs[r] || r;
+                                                                            return [4, v.listPage(c, a, "")];
                                                                         case 1: return [2, _b.sent()];
                                                                     }
                                                                 }); });
                                                             }, search: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (!d.isUrl(r)) return [3, 2];
-                                                                            s = d.fix(r);
-                                                                            return [4, v.listPage(s + (s.indexOf("?") > 0 ? "&" : "?") + (o.pageParam || "page") + "={p}", a, "")];
+                                                                            c = d.fix(r);
+                                                                            return [4, v.listPage(c + (c.indexOf("?") > 0 ? "&" : "?") + (o.pageParam || "page") + "={p}", a, "")];
                                                                         case 1: return [2, _b.sent()];
-                                                                        case 2: return [4, v.listPage(o.search, a, r)];
-                                                                        case 3: return [2, _b.sent()];
+                                                                        case 2:
+                                                                            if (!o.search_post) return [3, 5];
+                                                                            return [4, d.html(v.url(o.search_post.url, a, r), { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: String(o.search_post.body).replace(/\{q\}/g, d.enc(r)) })];
+                                                                        case 3:
+                                                                            f = _b.sent();
+                                                                            return [4, v.items(f, "s_")];
+                                                                        case 4:
+                                                                            l = _b.sent();
+                                                                            return [2, s.success(l, null)];
+                                                                        case 5: return [4, v.listPage(o.search, a, r)];
+                                                                        case 6: return [2, _b.sent()];
                                                                     }
                                                                 }); });
                                                             }, genre: function () {
@@ -6089,31 +6143,31 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (!o.genre)
-                                                                                return [2, c.success([])];
+                                                                                return [2, s.success([])];
                                                                             return [4, d.html(d.fix(o.genrePage || "/"))];
                                                                         case 1:
                                                                             r = _b.sent();
-                                                                            return [4, z(r.select(o.genre), function (s) {
+                                                                            return [4, z(r.select(o.genre), function (c) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
                                                                                             switch (_c.label) {
                                                                                                 case 0:
                                                                                                     _b = {};
-                                                                                                    return [4, s.text()];
-                                                                                                case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(s.attr("href")), _b.script = "search.js", _b)];
+                                                                                                    return [4, c.text()];
+                                                                                                case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(c.attr("href")), _b.script = "search.js", _b)];
                                                                                             }
                                                                                         });
                                                                                     });
                                                                                 })];
                                                                         case 2:
                                                                             a = _b.sent();
-                                                                            return [2, c.success(a.filter(function (s) { return s.title; }))];
+                                                                            return [2, s.success(a.filter(function (c) { return c.title; }))];
                                                                     }
                                                                 }); });
                                                             }, detail: function (r) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, s, l, _b, _c, _d, _f, _g;
+                                                                    var a, c, f, _b, _c, _d, _f, _g;
                                                                     var _h;
                                                                     return __generator(this, function (_j) {
                                                                         switch (_j.label) {
@@ -6121,15 +6175,15 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             case 1:
                                                                                 a = _j.sent();
                                                                                 if (!o.d_genres) return [3, 3];
-                                                                                return [4, z(a.select(o.d_genres), function (f) {
+                                                                                return [4, z(a.select(o.d_genres), function (l) {
                                                                                         return __awaiter(this, void 0, void 0, function () {
                                                                                             var _b;
                                                                                             return __generator(this, function (_c) {
                                                                                                 switch (_c.label) {
                                                                                                     case 0:
                                                                                                         _b = {};
-                                                                                                        return [4, f.text()];
-                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(f.attr("href")), _b.script = "search.js", _b)];
+                                                                                                        return [4, l.text()];
+                                                                                                    case 1: return [2, (_b.title = _c.sent(), _b.input = d.fix(l.attr("href")), _b.script = "search.js", _b)];
                                                                                                 }
                                                                                             });
                                                                                         });
@@ -6141,11 +6195,11 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _b = [];
                                                                                 _j.label = 4;
                                                                             case 4:
-                                                                                s = _b;
+                                                                                c = _b;
                                                                                 return [4, v.pick(a, o.d_status)];
                                                                             case 5:
-                                                                                l = _j.sent();
-                                                                                _d = (_c = c).success;
+                                                                                f = _j.sent();
+                                                                                _d = (_c = s).success;
                                                                                 _h = {};
                                                                                 return [4, v.pick(a, o.d_title || "h1")];
                                                                             case 6:
@@ -6158,13 +6212,13 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             case 8:
                                                                                 _h.author = _j.sent();
                                                                                 return [4, v.pick(a, (o.d_desc || "meta[name=description]@content").replace(/$/, ""))];
-                                                                            case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = l ? "Tình trạng: " + l : "", _h.ongoing = d.ongoing(l), _h.genres = s, _h.host = k, _h)])];
+                                                                            case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = f ? "Tình trạng: " + f : "", _h.ongoing = d.ongoing(f), _h.genres = c, _h.host = k, _h)])];
                                                                         }
                                                                     });
                                                                 });
                                                             }, toc: function (r) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, s, l, f, g, _b, b, x, m, y, A, _c, _d, _f, _g, L, M, _h;
+                                                                    var a, c, f, l, g, _b, b, x, p, w, A, _c, _d, _f, _g, L, M, _h;
                                                                     var _j;
                                                                     return __generator(this, function (_k) {
                                                                         switch (_k.label) {
@@ -6174,20 +6228,20 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             case 1: return [2, _k.sent()];
                                                                             case 2:
                                                                                 if (o.single)
-                                                                                    return [2, c.success([{ name: o.single === !0 ? "Xem / Đọc" : o.single, url: r, host: k }])];
-                                                                                a = [r], s = [], l = {};
+                                                                                    return [2, s.success([{ name: o.single === !0 ? "Xem / Đọc" : o.single, url: r, host: k }])];
+                                                                                a = [r], c = [], f = {};
                                                                                 return [4, d.html(o.ch_rewrite ? r.replace(new RegExp(o.ch_rewrite[0]), o.ch_rewrite[1]) : r, o.req)];
                                                                             case 3:
-                                                                                f = _k.sent();
+                                                                                l = _k.sent();
                                                                                 if (!o.ch_url) return [3, 7];
-                                                                                return [4, v.pick(f, o.ch_url)];
+                                                                                return [4, v.pick(l, o.ch_url)];
                                                                             case 4:
                                                                                 g = _k.sent();
                                                                                 _b = g;
                                                                                 if (!_b) return [3, 6];
                                                                                 return [4, d.html(d.fix(g), o.req)];
                                                                             case 5:
-                                                                                _b = (f = _k.sent());
+                                                                                _b = (l = _k.sent());
                                                                                 _k.label = 6;
                                                                             case 6:
                                                                                 _b;
@@ -6197,38 +6251,38 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _k.label = 8;
                                                                             case 8:
                                                                                 if (!(b < (o.ch_maxPages || 60))) return [3, 22];
-                                                                                x = f.select(o.ch_list), m = 0;
+                                                                                x = l.select(o.ch_list), p = 0;
                                                                                 _k.label = 9;
                                                                             case 9:
-                                                                                if (!(m < x.size())) return [3, 17];
-                                                                                return [4, x.get(m)];
+                                                                                if (!(p < x.size())) return [3, 17];
+                                                                                return [4, x.get(p)];
                                                                             case 10:
-                                                                                y = _k.sent(), A = y.attr("href") || y.attr("data-href");
-                                                                                _c = !A || A === "#" || l[A];
+                                                                                w = _k.sent(), A = o.ch_attr ? w.attr(o.ch_attr) : w.attr("href") || w.attr("data-href");
+                                                                                _c = !A || A === "#" || f[A];
                                                                                 if (_c) return [3, 15];
-                                                                                l[A] = 1;
-                                                                                _f = (_d = s).push;
+                                                                                f[A] = 1;
+                                                                                _f = (_d = c).push;
                                                                                 _j = {};
                                                                                 if (!o.ch_name) return [3, 12];
-                                                                                return [4, v.pick(y, o.ch_name)];
+                                                                                return [4, v.pick(w, o.ch_name)];
                                                                             case 11:
                                                                                 _g = _k.sent();
                                                                                 return [3, 14];
-                                                                            case 12: return [4, y.text()];
+                                                                            case 12: return [4, w.text()];
                                                                             case 13:
                                                                                 _g = _k.sent();
                                                                                 _k.label = 14;
                                                                             case 14:
-                                                                                _c = (_f.apply(_d, [(_j.name = (_g) || y.attr("title"), _j.url = d.fix(A), _j.host = k, _j)]));
+                                                                                _c = (_f.apply(_d, [(_j.name = (_g) || w.attr("title"), _j.url = d.fix(A), _j.host = k, _j)]));
                                                                                 _k.label = 15;
                                                                             case 15:
                                                                                 _c;
                                                                                 _k.label = 16;
                                                                             case 16:
-                                                                                m++;
+                                                                                p++;
                                                                                 return [3, 9];
                                                                             case 17:
-                                                                                L = o.ch_next ? f.select(o.ch_next).first() : null;
+                                                                                L = o.ch_next ? l.select(o.ch_next).first() : null;
                                                                                 if (!L || !L.attr("href"))
                                                                                     return [3, 22];
                                                                                 M = d.fix(L.attr("href"));
@@ -6245,24 +6299,24 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                                 _h;
                                                                                 return [4, d.html(M, o.req)];
                                                                             case 20:
-                                                                                f = _k.sent();
+                                                                                l = _k.sent();
                                                                                 _k.label = 21;
                                                                             case 21:
                                                                                 b++;
                                                                                 return [3, 8];
-                                                                            case 22: return [2, (o.ch_reverse && s.reverse(), c.success(s))];
+                                                                            case 22: return [2, (o.ch_reverse && c.reverse(), !c.length && o.ch_fallback_single && c.push({ name: o.ch_fallback_single === !0 ? "Xem phim" : o.ch_fallback_single, url: r, host: k }), s.success(c))];
                                                                         }
                                                                     });
                                                                 });
                                                             }, pages: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s, l, f, g, b, x, m, _b, _c, y, A; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c, f, l, g, b, x, p, _b, _c, w, A; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
-                                                                            a = [], s = [r], l = r, f = 0;
+                                                                            a = [], c = [r], f = r, l = 0;
                                                                             _d.label = 1;
                                                                         case 1:
-                                                                            if (!(f < (o.pages_max || 40))) return [3, 8];
-                                                                            return [4, d.html(l, o.req)];
+                                                                            if (!(l < (o.pages_max || 40))) return [3, 8];
+                                                                            return [4, d.html(f, o.req)];
                                                                         case 2:
                                                                             g = _d.sent(), b = g.select(o.pages || ".page-chapter img, .reading-content img, .chapter-content img"), x = 0;
                                                                             _d.label = 3;
@@ -6271,8 +6325,8 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             _c = (_b = d).img;
                                                                             return [4, b.get(x)];
                                                                         case 4:
-                                                                            m = _c.apply(_b, [_d.sent()]);
-                                                                            m && a.indexOf(m) < 0 && a.push(m);
+                                                                            p = _c.apply(_b, [_d.sent()]);
+                                                                            p && a.indexOf(p) < 0 && a.push(p);
                                                                             _d.label = 5;
                                                                         case 5:
                                                                             x++;
@@ -6280,22 +6334,22 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                         case 6:
                                                                             if (!o.pages_next)
                                                                                 return [3, 8];
-                                                                            y = g.select(o.pages_next).first();
-                                                                            if (!y)
+                                                                            w = g.select(o.pages_next).first();
+                                                                            if (!w)
                                                                                 return [3, 8];
-                                                                            A = d.fix(y.attr("href"));
-                                                                            if (!A || s.indexOf(A) >= 0)
+                                                                            A = d.fix(w.attr("href"));
+                                                                            if (!A || c.indexOf(A) >= 0)
                                                                                 return [3, 8];
-                                                                            s.push(A), l = A;
+                                                                            c.push(A), f = A;
                                                                             _d.label = 7;
                                                                         case 7:
-                                                                            f++;
+                                                                            l++;
                                                                             return [3, 1];
-                                                                        case 8: return [2, c.success(a)];
+                                                                        case 8: return [2, s.success(a)];
                                                                     }
                                                                 }); });
                                                             }, text: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s, _b, _c, l, f, g, _d, _f, _g, b, x, _h, _j, _k, _l, _m, _o; return __generator(this, function (_p) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c, _b, _c, f, l, g, _d, _f, _g, b, x, _h, _j, _k, _l, _m, _o; return __generator(this, function (_p) {
                                                                     switch (_p.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
@@ -6305,25 +6359,25 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             a = _p.sent();
                                                                             return [4, a.text()];
                                                                         case 3:
-                                                                            s = (_p.sent()) || "";
+                                                                            c = (_p.sent()) || "";
                                                                             if (!o.content_rsc) return [3, 5];
-                                                                            l = v.rscText(s), f = o.c_locked && new RegExp(o.c_locked, "i").test(s), g = f ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
-                                                                            if (!(l || f)) return [3, 5];
-                                                                            _f = (_d = c).success;
-                                                                            _g = [v.toParas(l) + g];
-                                                                            return [4, v.pick(n.parse(s, r), o.c_title || "h1 || title")];
+                                                                            f = v.rscText(c), l = o.c_locked && new RegExp(o.c_locked, "i").test(c), g = l ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
+                                                                            if (!(f || l)) return [3, 5];
+                                                                            _f = (_d = s).success;
+                                                                            _g = [v.toParas(f) + g];
+                                                                            return [4, v.pick(n.parse(c, r), o.c_title || "h1 || title")];
                                                                         case 4: return [2, _f.apply(_d, _g.concat([_p.sent()]))];
                                                                         case 5:
-                                                                            b = n.parse(s, r), x = b.select(o.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            b = n.parse(c, r), x = b.select(o.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
                                                                             if (!!x) return [3, 7];
-                                                                            if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(s.slice(0, 2e4)))
+                                                                            if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(c.slice(0, 2e4)))
                                                                                 throw new Error("CLOUDFLARE: trang " + k + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
-                                                                            _j = (_h = c).error;
+                                                                            _j = (_h = s).error;
                                                                             _k = 'Không tìm thấy nội dung — trang nhận được: "';
                                                                             return [4, v.pick(b, "title")];
-                                                                        case 6: return [2, _j.apply(_h, [_k + ((_p.sent()) || "?").slice(0, 60) + '" (' + a.status + ", " + s.length + " ký tự)" + (s.length < 400 ? ": " + s.replace(/\s+/g, " ").slice(0, 200) : "")])];
+                                                                        case 6: return [2, _j.apply(_h, [_k + ((_p.sent()) || "?").slice(0, 60) + '" (' + a.status + ", " + c.length + " ký tự)" + (c.length < 400 ? ": " + c.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                                         case 7:
-                                                                            _m = (_l = c).success;
+                                                                            _m = (_l = s).success;
                                                                             return [4, d.cleanContent(x)];
                                                                         case 8:
                                                                             _o = [_p.sent()];
@@ -6332,25 +6386,25 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     }
                                                                 }); });
                                                             }, rscAction: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, b, x, m, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, b, x, p, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
-                                                                            for (s = [], f = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g; l = f.exec(r);)
-                                                                                s.indexOf(l[0]) < 0 && s.push(l[0]);
+                                                                            for (c = [], l = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g; f = l.exec(r);)
+                                                                                c.indexOf(f[0]) < 0 && c.push(f[0]);
                                                                             g = new RegExp('"([0-9a-f]{40,44})"[^"]{0,200}?"' + a + '"'), b = 0;
                                                                             _d.label = 1;
                                                                         case 1:
-                                                                            if (!(b < s.length && b < 60)) return [3, 5];
-                                                                            return [4, d.get(k + s[b])];
+                                                                            if (!(b < c.length && b < 60)) return [3, 5];
+                                                                            return [4, d.get(k + c[b])];
                                                                         case 2:
                                                                             x = _d.sent();
                                                                             if (!!(!x || !x.ok)) return [3, 4];
                                                                             _c = (_b = g).exec;
                                                                             return [4, x.text()];
                                                                         case 3:
-                                                                            m = _c.apply(_b, [(_d.sent()) || ""]);
-                                                                            if (m)
-                                                                                return [2, m[1]];
+                                                                            p = _c.apply(_b, [(_d.sent()) || ""]);
+                                                                            if (p)
+                                                                                return [2, p[1]];
                                                                             _d.label = 4;
                                                                         case 4:
                                                                             b++;
@@ -6359,19 +6413,19 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                     }
                                                                 }); });
                                                             }, rscArray: function (r) {
-                                                                for (var a = String(r || "").split("\n"), s = 0; s < a.length; s++) {
-                                                                    var l = /^[0-9a-f]+:(\[.*)$/.exec(a[s]);
-                                                                    if (l)
+                                                                for (var a = String(r || "").split("\n"), c = 0; c < a.length; c++) {
+                                                                    var f = /^[0-9a-f]+:(\[.*)$/.exec(a[c]);
+                                                                    if (f)
                                                                         try {
-                                                                            var f = JSON.parse(l[1]);
-                                                                            if (f && f.length)
-                                                                                return f;
+                                                                            var l = JSON.parse(f[1]);
+                                                                            if (l && l.length)
+                                                                                return l;
                                                                         }
                                                                         catch (g) { }
                                                                 }
                                                                 return null;
                                                             }, actionToc: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s, l, _b, _c, f, g, b, _d, x, _f, m; return __generator(this, function (_g) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c, f, _b, _c, l, g, b, _d, x, _f, p; return __generator(this, function (_g) {
                                                                     switch (_g.label) {
                                                                         case 0:
                                                                             a = o.ch_action;
@@ -6380,13 +6434,13 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                         case 1: return [4, _c.apply(_b, [_g.sent(), r])];
                                                                         case 2: return [4, (_g.sent()).text()];
                                                                         case 3:
-                                                                            s = (_g.sent()) || "", l = new RegExp(a.arg).exec(s);
-                                                                            if (!l)
-                                                                                return [2, c.error("Không tìm thấy mã truyện trên trang " + r)];
-                                                                            f = JSON.stringify([l[1]]), g = function (y) {
+                                                                            c = (_g.sent()) || "", f = new RegExp(a.arg).exec(c);
+                                                                            if (!f)
+                                                                                return [2, s.error("Không tìm thấy mã truyện trên trang " + r)];
+                                                                            l = JSON.stringify([f[1]]), g = function (w) {
                                                                                 return __awaiter(this, void 0, void 0, function () { var A, _b, _c, _d; return __generator(this, function (_f) {
                                                                                     switch (_f.label) {
-                                                                                        case 0: return [4, d.get(r, { method: "POST", headers: { "Next-Action": y, Accept: "text/x-component", "Content-Type": "text/plain;charset=UTF-8" }, body: f })];
+                                                                                        case 0: return [4, d.get(r, { method: "POST", headers: { "Next-Action": w, Accept: "text/x-component", "Content-Type": "text/plain;charset=UTF-8" }, body: l })];
                                                                                         case 1:
                                                                                             A = _f.sent();
                                                                                             if (!(A && A.ok)) return [3, 3];
@@ -6413,7 +6467,7 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                         case 6:
                                                                             b = _d;
                                                                             if (!!b) return [3, 10];
-                                                                            return [4, v.rscAction(s, a.name)];
+                                                                            return [4, v.rscAction(c, a.name)];
                                                                         case 7:
                                                                             x = _g.sent();
                                                                             _f = x && x !== a.id;
@@ -6427,82 +6481,82 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
                                                                             _g.label = 10;
                                                                         case 10:
                                                                             if (!b)
-                                                                                return [2, c.error('Không lấy được danh sách chương (Server Action "' + a.name + '")')];
-                                                                            m = r.replace(/[?#].*$/, "").replace(/\/+$/, "");
-                                                                            return [2, c.success(b.map(function (y) { return { name: String(y[a.title || "label"] || "") + (a.lock && y[a.lock] ? " 🔒" : ""), url: m + "/" + y[a.slug || "slugId"], host: k }; }))];
+                                                                                return [2, s.error('Không lấy được danh sách chương (Server Action "' + a.name + '")')];
+                                                                            p = r.replace(/[?#].*$/, "").replace(/\/+$/, "");
+                                                                            return [2, s.success(b.map(function (w) { return { name: String(w[a.title || "label"] || "") + (a.lock && w[a.lock] ? " 🔒" : ""), url: p + "/" + w[a.slug || "slugId"], host: k }; }))];
                                                                     }
                                                                 }); });
-                                                            }, rscText: function (r) { for (var a = "", s, l = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g; s = l.exec(r);)
+                                                            }, rscText: function (r) { for (var a = "", c, f = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g; c = f.exec(r);)
                                                                 try {
-                                                                    a += JSON.parse(s[1]);
+                                                                    a += JSON.parse(c[1]);
                                                                 }
-                                                                catch (M) { } for (var f = "", g = /([0-9a-f]+):T([0-9a-f]+),/g, b; b = g.exec(a);) {
-                                                                for (var x = parseInt(b[2], 16), m = g.lastIndex, y = 0; m < a.length && y < x;) {
-                                                                    var A = a.charCodeAt(m);
-                                                                    A < 128 ? y += 1 : A < 2048 ? y += 2 : A >= 55296 && A <= 56319 ? (y += 4, m++) : y += 3, m++;
+                                                                catch (M) { } for (var l = "", g = /([0-9a-f]+):T([0-9a-f]+),/g, b; b = g.exec(a);) {
+                                                                for (var x = parseInt(b[2], 16), p = g.lastIndex, w = 0; p < a.length && w < x;) {
+                                                                    var A = a.charCodeAt(p);
+                                                                    A < 128 ? w += 1 : A < 2048 ? w += 2 : A >= 55296 && A <= 56319 ? (w += 4, p++) : w += 3, p++;
                                                                 }
-                                                                var L = a.slice(g.lastIndex, m);
-                                                                L.length > f.length && (f = L), g.lastIndex = m;
-                                                            } return f; }, toParas: function (r) { return /<p[\s>]|<br\s*\/?>/i.test(r) ? r : r.split(/\n+/).map(function (a) { return a = a.trim(), a ? "<p>" + a.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</p>" : ""; }).join(""); }, servers: function (r) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, s; return __generator(this, function (_b) {
+                                                                var L = a.slice(g.lastIndex, p);
+                                                                L.length > l.length && (l = L), g.lastIndex = p;
+                                                            } return l; }, toParas: function (r) { return /<p[\s>]|<br\s*\/?>/i.test(r) ? r : r.split(/\n+/).map(function (a) { return a = a.trim(), a ? "<p>" + a.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</p>" : ""; }).join(""); }, servers: function (r) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, c; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (!o.servers)
-                                                                                return [2, c.success([{ title: "Server", data: r }])];
+                                                                                return [2, s.success([{ title: "Server", data: r }])];
                                                                             return [4, d.html(r, o.req)];
                                                                         case 1:
                                                                             a = _b.sent();
-                                                                            return [4, z(a.select(o.servers), function (l) {
+                                                                            return [4, z(a.select(o.servers), function (f) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
-                                                                                        var f;
+                                                                                        var l;
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
                                                                                             switch (_c.label) {
-                                                                                                case 0: return [4, v.pick(l, o.server_data || ":self@data-link || :self@data-src || :self@href")];
+                                                                                                case 0: return [4, v.pick(f, o.server_data || ":self@data-link || :self@data-src || :self@href")];
                                                                                                 case 1:
-                                                                                                    f = _c.sent();
+                                                                                                    l = _c.sent();
                                                                                                     _b = {};
-                                                                                                    return [4, l.text()];
-                                                                                                case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(f), _b)];
+                                                                                                    return [4, f.text()];
+                                                                                                case 2: return [2, (_b.title = (_c.sent()) || "Server", _b.data = d.fix(l), _b)];
                                                                                             }
                                                                                         });
                                                                                     });
                                                                                 })];
                                                                         case 2:
-                                                                            s = (_b.sent()).filter(function (l) { return l.data; });
-                                                                            return [2, c.success(s.length ? s : [{ title: "Server", data: r }])];
+                                                                            c = (_b.sent()).filter(function (f) { return f.data; });
+                                                                            return [2, s.success(c.length ? c : [{ title: "Server", data: r }])];
                                                                     }
                                                                 }); });
                                                             }, sniff: function (r) { r = String(r || "").replace(/\\\//g, "/"); var a = r.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || r.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return a ? a[0] : ""; }, track: function (r, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var s, l, f, g, b, x, m; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var c, f, l, g, b, x, p; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (a = a || 0, /\.(m3u8|mp4)(\?|$)/i.test(r))
-                                                                                return [2, c.success({ type: "native", data: r, headers: { Referer: k + "/" } })];
+                                                                                return [2, s.success({ type: "native", data: r, headers: { Referer: k + "/" } })];
                                                                             return [4, d.get(r)];
                                                                         case 1:
-                                                                            s = _b.sent();
-                                                                            return [4, s.text()];
+                                                                            c = _b.sent();
+                                                                            return [4, c.text()];
                                                                         case 2:
-                                                                            l = _b.sent();
-                                                                            if (!(o.video && !a)) return [3, 4];
-                                                                            return [4, v.pick(n.parse(l, r), o.video)];
-                                                                        case 3:
                                                                             f = _b.sent();
-                                                                            if (f)
-                                                                                return [2, c.success({ type: "native", data: d.fix(f), headers: { Referer: k + "/" } })];
+                                                                            if (!(o.video && !a)) return [3, 4];
+                                                                            return [4, v.pick(n.parse(f, r), o.video)];
+                                                                        case 3:
+                                                                            l = _b.sent();
+                                                                            if (l)
+                                                                                return [2, s.success({ type: "native", data: d.fix(l), headers: { Referer: k + "/" } })];
                                                                             _b.label = 4;
                                                                         case 4:
-                                                                            g = v.sniff(l);
+                                                                            g = v.sniff(f);
                                                                             if (g)
-                                                                                return [2, c.success({ type: "native", data: g, headers: { Referer: a ? r : k + "/" } })];
-                                                                            b = n.parse(l, r), x = b.select(o.iframe || "iframe[src], iframe[data-src]").first();
+                                                                                return [2, s.success({ type: "native", data: g, headers: { Referer: a ? r : k + "/" } })];
+                                                                            b = n.parse(f, r), x = b.select(o.iframe || "iframe[src], iframe[data-src]").first();
                                                                             if (!(x && a < 2)) return [3, 6];
-                                                                            m = d.fix(x.attr("src") || x.attr("data-src"));
-                                                                            if (!m) return [3, 6];
-                                                                            return [4, v.track(m, a + 1)];
+                                                                            p = d.fix(x.attr("src") || x.attr("data-src"));
+                                                                            if (!p) return [3, 6];
+                                                                            return [4, v.track(p, a + 1)];
                                                                         case 5: return [2, _b.sent()];
-                                                                        case 6: return [2, c.success({ type: "webview", data: r })];
+                                                                        case 6: return [2, s.success({ type: "webview", data: r })];
                                                                     }
                                                                 }); });
                                                             } };
@@ -6518,7 +6572,7 @@ var fe = { id: "luvevaland", name: "Luvevaland", source: "https://luvevalandn2.c
             });
         });
     } };
-function Vr(t) { return new qt({ meta: fe, scripts: Fr, host: t }); }
+function Vr(t) { return new Nt({ meta: le, scripts: Fr, host: t }); }
 var xi = require("@libs/fetch").fetchApi, Ze = null;
 try {
     Ze = require("@libs/storage");
@@ -6526,10 +6580,10 @@ try {
 catch (t) {
     Ze = null;
 }
-var Nu = {}, _t = Ze && Ze.storage ? Ze.storage : { get: function (t) { return Nu[t]; }, set: function (t, e) { Nu[t] = e; }, delete: function (t) { delete Nu[t]; } }, qu = (function () {
+var _u = {}, qt = Ze && Ze.storage ? Ze.storage : { get: function (t) { return _u[t]; }, set: function (t, e) { _u[t] = e; }, delete: function (t) { delete _u[t]; } }, Nu = (function () {
     function class_2() {
         var _this = this;
-        this.id = fe.lnId, this.name = fe.name, this.icon = fe.lnIcon, this.site = fe.source, this.version = fe.lnVersion, this.filters = void 0, this.webStorageUtilized = !1, this.engine = Vr({ name: "LNReader", request: function (e) { return __awaiter(_this, void 0, void 0, function () {
+        this.id = le.lnId, this.name = le.name, this.icon = le.lnIcon, this.site = le.source, this.version = le.lnVersion, this.filters = void 0, this.webStorageUtilized = !1, this.engine = Vr({ name: "LNReader", request: function (e) { return __awaiter(_this, void 0, void 0, function () {
                 var u, i, n;
                 var _b;
                 return __generator(this, function (_c) {
@@ -6541,15 +6595,15 @@ var Nu = {}, _t = Ze && Ze.storage ? Ze.storage : { get: function (t) { return N
                         case 1:
                             i = _c.sent(), n = {};
                             try {
-                                i.headers.forEach(function (c, h) { n[h] = c; });
+                                i.headers.forEach(function (s, h) { n[h] = s; });
                             }
-                            catch (c) { }
+                            catch (s) { }
                             _b = { status: i.status, url: i.url || e.url, headers: n };
                             return [4, i.text()];
                         case 2: return [2, (_b.text = _c.sent(), _b)];
                     }
                 });
-            }); }, storageGet: function (e) { var u = _t.get("vb_" + e); return u == null ? null : String(u); }, storageSet: function (e, u) { u == null ? _t.delete && _t.delete("vb_" + e) : _t.set("vb_" + e, String(u)); }, config: function (e) { return null; }, log: function (e) { return console.log(e); } });
+            }); }, storageGet: function (e) { var u = qt.get("vb_" + e); return u == null ? null : String(u); }, storageSet: function (e, u) { u == null ? qt.delete && qt.delete("vb_" + e) : qt.set("vb_" + e, String(u)); }, config: function (e) { return null; }, log: function (e) { return console.log(e); } });
     }
     class_2.prototype.popularNovels = function (e, u) {
         return __awaiter(this, void 0, void 0, function () { var _b; return __generator(this, function (_c) {
@@ -6585,7 +6639,7 @@ var Nu = {}, _t = Ze && Ze.storage ? Ze.storage : { get: function (t) { return N
                     return [4, this.engine.chapters(e)];
                 case 2:
                     i = _b.sent();
-                    return [2, { path: e, name: u.name || "Untitled", cover: u.cover, summary: u.description, author: u.author, status: u.ongoing ? "Ongoing" : "Completed", genres: u.genres.join(","), chapters: i.map(function (n, c) { return ({ name: n.name, path: n.url, chapterNumber: c + 1 }); }) }];
+                    return [2, { path: e, name: u.name || "Untitled", cover: u.cover, summary: u.description, author: u.author, status: u.ongoing ? "Ongoing" : "Completed", genres: u.genres.join(","), chapters: i.map(function (n, s) { return ({ name: n.name, path: n.url, chapterNumber: s + 1 }); }) }];
             }
         }); });
     };
@@ -6597,8 +6651,8 @@ var Nu = {}, _t = Ze && Ze.storage ? Ze.storage : { get: function (t) { return N
             }
         }); });
     };
-    class_2.prototype.resolveUrl = function (e, u) { return /^https?:/i.test(e) ? e : fe.source.replace(/\/+$/, "") + "/" + String(e).replace(/^\/+/, ""); };
+    class_2.prototype.resolveUrl = function (e, u) { return /^https?:/i.test(e) ? e : le.source.replace(/\/+$/, "") + "/" + String(e).replace(/^\/+/, ""); };
     return class_2;
-}()), vi = new qu;
+}()), vi = new Nu;
 
 if (typeof exports === "object" && exports && module.exports !== exports && module.exports && module.exports.default) exports.default = module.exports.default;

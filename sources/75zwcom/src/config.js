@@ -4,6 +4,13 @@ var G = {
  "tabs": {
   "Mới cập nhật": "/[?page={p}]"
  },
- "search": "/tim-kiem?keyword={q}[&page={p}]",
- "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+ "search": "/?q={q}",
+ "ch_list": "ul.vlist a",
+ "item": "ul.vlist > li",
+ "link": "a@href",
+ "title": "[class*=name]",
+ "d_title": "h1 || meta[property=og:title]@content",
+ "d_cover": "meta[property=og:image]@content || img@img",
+ "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+ "content": "div.content"
 };

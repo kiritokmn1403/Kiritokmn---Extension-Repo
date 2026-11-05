@@ -5,11 +5,13 @@ var G = {
   "Mới cập nhật": "/[page/{p}/]"
  },
  "search": "/?s={q}[&page={p}]",
- "item": ".comment-meta",
- "title": "a@title || img@alt || a@title || img@alt",
+ "item": "figure.wp-block-gallery.has-nested-images > figure.wp-block-image.size-large",
+ "title": "img@alt",
  "link": "a@href",
  "d_title": "h1 || meta[property=og:title]@content",
- "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
- "d_desc": "meta[name=description]@content",
- "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+ "d_cover": "meta[property=og:image]@content || img@img",
+ "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+ "ch_list": "#page a",
+ "cover": "img@img",
+ "content": "div.entry-content"
 };

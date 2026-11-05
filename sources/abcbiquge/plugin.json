@@ -2,11 +2,11 @@
   "metadata": {
     "name": "笔趣阁-abcbiquge",
     "author": "Kiritokmn",
-    "version": 1,
-    "source": "http://m.abcbiquge.com",
+    "version": 2,
+    "source": "https://m.bqg6.xyz",
     "description": "笔趣阁-abcbiquge — Kiritokmn Extension Repo",
     "locale": "zh-CN",
-    "regexp": "m\\.abcbiquge\\.com",
+    "regexp": "m\\.bqg6\\.xyz",
     "type": "novel",
     "nsfw": false
   },
@@ -21,12 +21,13 @@
     "DOMAIN": {
       "title": "Tên miền",
       "subtitle": "Đổi khi trang đổi tên miền",
-      "default": "http://m.abcbiquge.com",
+      "default": "https://m.bqg6.xyz",
       "values": [
+        "https://m.bqg6.xyz",
         "http://m.abcbiquge.com"
       ],
-      "mode": "input",
-      "format": "text"
+      "mode": "select",
+      "format": "single"
     }
   }
 }

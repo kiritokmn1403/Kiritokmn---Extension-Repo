@@ -1,4 +1,4 @@
-var BASE_URL = "https://www.ciyuanji.com";
+var BASE_URL = "https://m.ciyuanji.com";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
@@ -10,15 +10,15 @@ var G = {
   "仙侠": "/l_c_105_0_0_0_{p}.html"
  },
  "search": "/search/{q}_{p}.html",
- "ch_list": "a[class*=book_detail_item]",
- "item": "section[class*=book_card]",
- "title": "img@alt",
- "link": "a@href",
+ "ch_list": "div.bookDetails_btns__3z8Fx a",
+ "item": "li.index_block__1xPQX > a.MuiTypography-root.MuiLink-root",
+ "title": "h3",
+ "link": ":self@href",
  "cover": "img@img",
  "pageSize": 10,
- "d_title": "[class*=book_detail_title] || [class*=book_detail] img@alt",
- "d_cover": "[class*=book_detail] img@img",
- "d_desc": "meta[name=description]@content",
- "content": "[class*=chapter_article]",
+ "d_title": "meta[property=og:title]@content || title",
+ "d_cover": "meta[property=og:image]@content || img@img",
+ "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+ "content": "article.chapter_article__avlFR",
  "c_title": "h1"
 };

@@ -115,22 +115,24 @@ var X = {
     u = u.replace(/\{p\}/g, String(n)).replace(/\{p0\}/g, String(n - 1)).replace(/\{q\}/g, C.enc(q || '')).replace(/\{base\}/g, BASE_URL);
     return C.fix(u);
   },
-  items: function (doc) {
-    var els = doc.select(G.item), out = [], seen = {};
+  // `s` = 's_' when parsing a search result page whose cards differ from the list pages (G.s_item, G.s_title, ...)
+  items: function (doc, s) {
+    var k = function (n) { return (s && G[s + n]) || G[n]; };
+    var els = doc.select(k('item')), out = [], seen = {};
     for (var i = 0; i < els.size(); i++) {
       var e = els.get(i);
-      var link = X.pick(e, G.link || 'a@href');
+      var link = X.pick(e, k('link') || 'a@href');
       if (!link || seen[link] || /^javascript|#$/.test(link)) continue;
-      var name = X.pick(e, G.title || 'h3 || h2 || a@title || img@alt');
+      var name = X.pick(e, k('title') || 'h3 || h2 || a@title || img@alt');
       if (!name) continue;
       seen[link] = 1;
-      out.push({ name: name, link: C.fix(link), cover: X.pick(e, G.cover || 'img@img'), description: X.pick(e, G.desc || ''), host: BASE_URL });
+      out.push({ name: name, link: C.fix(link), cover: X.pick(e, k('cover') || 'img@img'), description: X.pick(e, k('desc') || ''), host: BASE_URL });
     }
     return out;
   },
   listPage: function (pat, p, q) {
     var doc = C.html(X.url(pat, p, q), G.req);
-    var items = X.items(doc);
+    var items = X.items(doc, q ? 's_' : '');
     var more = G.next ? doc.select(G.next).size() > 0 : items.length >= (G.pageSize || 10);
     return Response.success(items, C.next(more && items.length > 0, p));
   },
@@ -140,6 +142,12 @@ var X = {
   },
   search: function (key, p) {
     if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
+    if (G.search_post) {
+      // POST search form: { url, body } — body uses {q}; results are parsed like any list page
+      var doc = C.html(X.url(G.search_post.url, p, key), { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: String(G.search_post.body).replace(/\{q\}/g, C.enc(key)) });
+      var items = X.items(doc, 's_');
+      return Response.success(items, null);
+    }
     return X.listPage(G.search, p, key);
   },
   genre: function () {
@@ -167,7 +175,7 @@ var X = {
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
-        var a = els.get(i); var href = a.attr('href') || a.attr('data-href');
+        var a = els.get(i); var href = G.ch_attr ? a.attr(G.ch_attr) : (a.attr('href') || a.attr('data-href'));
         if (!href || href === '#' || seen[href]) continue;
         seen[href] = 1; list.push({ name: (G.ch_name ? X.pick(a, G.ch_name) : a.text()) || a.attr('title'), url: C.fix(href), host: BASE_URL });
       }
@@ -178,6 +186,8 @@ var X = {
       pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
+    // A movie page without an episode list is itself the one episode
+    if (!list.length && G.ch_fallback_single) list.push({ name: G.ch_fallback_single === true ? 'Xem phim' : G.ch_fallback_single, url: url, host: BASE_URL });
     return Response.success(list);
   },
   pages: function (url) {
@@ -418,22 +428,24 @@ var X = {
     u = u.replace(/\{p\}/g, String(n)).replace(/\{p0\}/g, String(n - 1)).replace(/\{q\}/g, C.enc(q || '')).replace(/\{base\}/g, BASE_URL);
     return C.fix(u);
   },
-  items: function (doc) {
-    var els = doc.select(G.item), out = [], seen = {};
+  // `s` = 's_' when parsing a search result page whose cards differ from the list pages (G.s_item, G.s_title, ...)
+  items: function (doc, s) {
+    var k = function (n) { return (s && G[s + n]) || G[n]; };
+    var els = doc.select(k('item')), out = [], seen = {};
     for (var i = 0; i < els.size(); i++) {
       var e = els.get(i);
-      var link = X.pick(e, G.link || 'a@href');
+      var link = X.pick(e, k('link') || 'a@href');
       if (!link || seen[link] || /^javascript|#$/.test(link)) continue;
-      var name = X.pick(e, G.title || 'h3 || h2 || a@title || img@alt');
+      var name = X.pick(e, k('title') || 'h3 || h2 || a@title || img@alt');
       if (!name) continue;
       seen[link] = 1;
-      out.push({ name: name, link: C.fix(link), cover: X.pick(e, G.cover || 'img@img'), description: X.pick(e, G.desc || ''), host: BASE_URL });
+      out.push({ name: name, link: C.fix(link), cover: X.pick(e, k('cover') || 'img@img'), description: X.pick(e, k('desc') || ''), host: BASE_URL });
     }
     return out;
   },
   listPage: function (pat, p, q) {
     var doc = C.html(X.url(pat, p, q), G.req);
-    var items = X.items(doc);
+    var items = X.items(doc, q ? 's_' : '');
     var more = G.next ? doc.select(G.next).size() > 0 : items.length >= (G.pageSize || 10);
     return Response.success(items, C.next(more && items.length > 0, p));
   },
@@ -443,6 +455,12 @@ var X = {
   },
   search: function (key, p) {
     if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
+    if (G.search_post) {
+      // POST search form: { url, body } — body uses {q}; results are parsed like any list page
+      var doc = C.html(X.url(G.search_post.url, p, key), { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: String(G.search_post.body).replace(/\{q\}/g, C.enc(key)) });
+      var items = X.items(doc, 's_');
+      return Response.success(items, null);
+    }
     return X.listPage(G.search, p, key);
   },
   genre: function () {
@@ -470,7 +488,7 @@ var X = {
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
-        var a = els.get(i); var href = a.attr('href') || a.attr('data-href');
+        var a = els.get(i); var href = G.ch_attr ? a.attr(G.ch_attr) : (a.attr('href') || a.attr('data-href'));
         if (!href || href === '#' || seen[href]) continue;
         seen[href] = 1; list.push({ name: (G.ch_name ? X.pick(a, G.ch_name) : a.text()) || a.attr('title'), url: C.fix(href), host: BASE_URL });
       }
@@ -481,6 +499,8 @@ var X = {
       pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
+    // A movie page without an episode list is itself the one episode
+    if (!list.length && G.ch_fallback_single) list.push({ name: G.ch_fallback_single === true ? 'Xem phim' : G.ch_fallback_single, url: url, host: BASE_URL });
     return Response.success(list);
   },
   pages: function (url) {
@@ -721,22 +741,24 @@ var X = {
     u = u.replace(/\{p\}/g, String(n)).replace(/\{p0\}/g, String(n - 1)).replace(/\{q\}/g, C.enc(q || '')).replace(/\{base\}/g, BASE_URL);
     return C.fix(u);
   },
-  items: function (doc) {
-    var els = doc.select(G.item), out = [], seen = {};
+  // `s` = 's_' when parsing a search result page whose cards differ from the list pages (G.s_item, G.s_title, ...)
+  items: function (doc, s) {
+    var k = function (n) { return (s && G[s + n]) || G[n]; };
+    var els = doc.select(k('item')), out = [], seen = {};
     for (var i = 0; i < els.size(); i++) {
       var e = els.get(i);
-      var link = X.pick(e, G.link || 'a@href');
+      var link = X.pick(e, k('link') || 'a@href');
       if (!link || seen[link] || /^javascript|#$/.test(link)) continue;
-      var name = X.pick(e, G.title || 'h3 || h2 || a@title || img@alt');
+      var name = X.pick(e, k('title') || 'h3 || h2 || a@title || img@alt');
       if (!name) continue;
       seen[link] = 1;
-      out.push({ name: name, link: C.fix(link), cover: X.pick(e, G.cover || 'img@img'), description: X.pick(e, G.desc || ''), host: BASE_URL });
+      out.push({ name: name, link: C.fix(link), cover: X.pick(e, k('cover') || 'img@img'), description: X.pick(e, k('desc') || ''), host: BASE_URL });
     }
     return out;
   },
   listPage: function (pat, p, q) {
     var doc = C.html(X.url(pat, p, q), G.req);
-    var items = X.items(doc);
+    var items = X.items(doc, q ? 's_' : '');
     var more = G.next ? doc.select(G.next).size() > 0 : items.length >= (G.pageSize || 10);
     return Response.success(items, C.next(more && items.length > 0, p));
   },
@@ -746,6 +768,12 @@ var X = {
   },
   search: function (key, p) {
     if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
+    if (G.search_post) {
+      // POST search form: { url, body } — body uses {q}; results are parsed like any list page
+      var doc = C.html(X.url(G.search_post.url, p, key), { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: String(G.search_post.body).replace(/\{q\}/g, C.enc(key)) });
+      var items = X.items(doc, 's_');
+      return Response.success(items, null);
+    }
     return X.listPage(G.search, p, key);
   },
   genre: function () {
@@ -773,7 +801,7 @@ var X = {
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
-        var a = els.get(i); var href = a.attr('href') || a.attr('data-href');
+        var a = els.get(i); var href = G.ch_attr ? a.attr(G.ch_attr) : (a.attr('href') || a.attr('data-href'));
         if (!href || href === '#' || seen[href]) continue;
         seen[href] = 1; list.push({ name: (G.ch_name ? X.pick(a, G.ch_name) : a.text()) || a.attr('title'), url: C.fix(href), host: BASE_URL });
       }
@@ -784,6 +812,8 @@ var X = {
       pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
+    // A movie page without an episode list is itself the one episode
+    if (!list.length && G.ch_fallback_single) list.push({ name: G.ch_fallback_single === true ? 'Xem phim' : G.ch_fallback_single, url: url, host: BASE_URL });
     return Response.success(list);
   },
   pages: function (url) {
@@ -1024,22 +1054,24 @@ var X = {
     u = u.replace(/\{p\}/g, String(n)).replace(/\{p0\}/g, String(n - 1)).replace(/\{q\}/g, C.enc(q || '')).replace(/\{base\}/g, BASE_URL);
     return C.fix(u);
   },
-  items: function (doc) {
-    var els = doc.select(G.item), out = [], seen = {};
+  // `s` = 's_' when parsing a search result page whose cards differ from the list pages (G.s_item, G.s_title, ...)
+  items: function (doc, s) {
+    var k = function (n) { return (s && G[s + n]) || G[n]; };
+    var els = doc.select(k('item')), out = [], seen = {};
     for (var i = 0; i < els.size(); i++) {
       var e = els.get(i);
-      var link = X.pick(e, G.link || 'a@href');
+      var link = X.pick(e, k('link') || 'a@href');
       if (!link || seen[link] || /^javascript|#$/.test(link)) continue;
-      var name = X.pick(e, G.title || 'h3 || h2 || a@title || img@alt');
+      var name = X.pick(e, k('title') || 'h3 || h2 || a@title || img@alt');
       if (!name) continue;
       seen[link] = 1;
-      out.push({ name: name, link: C.fix(link), cover: X.pick(e, G.cover || 'img@img'), description: X.pick(e, G.desc || ''), host: BASE_URL });
+      out.push({ name: name, link: C.fix(link), cover: X.pick(e, k('cover') || 'img@img'), description: X.pick(e, k('desc') || ''), host: BASE_URL });
     }
     return out;
   },
   listPage: function (pat, p, q) {
     var doc = C.html(X.url(pat, p, q), G.req);
-    var items = X.items(doc);
+    var items = X.items(doc, q ? 's_' : '');
     var more = G.next ? doc.select(G.next).size() > 0 : items.length >= (G.pageSize || 10);
     return Response.success(items, C.next(more && items.length > 0, p));
   },
@@ -1049,6 +1081,12 @@ var X = {
   },
   search: function (key, p) {
     if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
+    if (G.search_post) {
+      // POST search form: { url, body } — body uses {q}; results are parsed like any list page
+      var doc = C.html(X.url(G.search_post.url, p, key), { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: String(G.search_post.body).replace(/\{q\}/g, C.enc(key)) });
+      var items = X.items(doc, 's_');
+      return Response.success(items, null);
+    }
     return X.listPage(G.search, p, key);
   },
   genre: function () {
@@ -1076,7 +1114,7 @@ var X = {
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
-        var a = els.get(i); var href = a.attr('href') || a.attr('data-href');
+        var a = els.get(i); var href = G.ch_attr ? a.attr(G.ch_attr) : (a.attr('href') || a.attr('data-href'));
         if (!href || href === '#' || seen[href]) continue;
         seen[href] = 1; list.push({ name: (G.ch_name ? X.pick(a, G.ch_name) : a.text()) || a.attr('title'), url: C.fix(href), host: BASE_URL });
       }
@@ -1087,6 +1125,8 @@ var X = {
       pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
+    // A movie page without an episode list is itself the one episode
+    if (!list.length && G.ch_fallback_single) list.push({ name: G.ch_fallback_single === true ? 'Xem phim' : G.ch_fallback_single, url: url, host: BASE_URL });
     return Response.success(list);
   },
   pages: function (url) {
@@ -1327,22 +1367,24 @@ var X = {
     u = u.replace(/\{p\}/g, String(n)).replace(/\{p0\}/g, String(n - 1)).replace(/\{q\}/g, C.enc(q || '')).replace(/\{base\}/g, BASE_URL);
     return C.fix(u);
   },
-  items: function (doc) {
-    var els = doc.select(G.item), out = [], seen = {};
+  // `s` = 's_' when parsing a search result page whose cards differ from the list pages (G.s_item, G.s_title, ...)
+  items: function (doc, s) {
+    var k = function (n) { return (s && G[s + n]) || G[n]; };
+    var els = doc.select(k('item')), out = [], seen = {};
     for (var i = 0; i < els.size(); i++) {
       var e = els.get(i);
-      var link = X.pick(e, G.link || 'a@href');
+      var link = X.pick(e, k('link') || 'a@href');
       if (!link || seen[link] || /^javascript|#$/.test(link)) continue;
-      var name = X.pick(e, G.title || 'h3 || h2 || a@title || img@alt');
+      var name = X.pick(e, k('title') || 'h3 || h2 || a@title || img@alt');
       if (!name) continue;
       seen[link] = 1;
-      out.push({ name: name, link: C.fix(link), cover: X.pick(e, G.cover || 'img@img'), description: X.pick(e, G.desc || ''), host: BASE_URL });
+      out.push({ name: name, link: C.fix(link), cover: X.pick(e, k('cover') || 'img@img'), description: X.pick(e, k('desc') || ''), host: BASE_URL });
     }
     return out;
   },
   listPage: function (pat, p, q) {
     var doc = C.html(X.url(pat, p, q), G.req);
-    var items = X.items(doc);
+    var items = X.items(doc, q ? 's_' : '');
     var more = G.next ? doc.select(G.next).size() > 0 : items.length >= (G.pageSize || 10);
     return Response.success(items, C.next(more && items.length > 0, p));
   },
@@ -1352,6 +1394,12 @@ var X = {
   },
   search: function (key, p) {
     if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
+    if (G.search_post) {
+      // POST search form: { url, body } — body uses {q}; results are parsed like any list page
+      var doc = C.html(X.url(G.search_post.url, p, key), { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: String(G.search_post.body).replace(/\{q\}/g, C.enc(key)) });
+      var items = X.items(doc, 's_');
+      return Response.success(items, null);
+    }
     return X.listPage(G.search, p, key);
   },
   genre: function () {
@@ -1379,7 +1427,7 @@ var X = {
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
-        var a = els.get(i); var href = a.attr('href') || a.attr('data-href');
+        var a = els.get(i); var href = G.ch_attr ? a.attr(G.ch_attr) : (a.attr('href') || a.attr('data-href'));
         if (!href || href === '#' || seen[href]) continue;
         seen[href] = 1; list.push({ name: (G.ch_name ? X.pick(a, G.ch_name) : a.text()) || a.attr('title'), url: C.fix(href), host: BASE_URL });
       }
@@ -1390,6 +1438,8 @@ var X = {
       pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
+    // A movie page without an episode list is itself the one episode
+    if (!list.length && G.ch_fallback_single) list.push({ name: G.ch_fallback_single === true ? 'Xem phim' : G.ch_fallback_single, url: url, host: BASE_URL });
     return Response.success(list);
   },
   pages: function (url) {
@@ -1630,22 +1680,24 @@ var X = {
     u = u.replace(/\{p\}/g, String(n)).replace(/\{p0\}/g, String(n - 1)).replace(/\{q\}/g, C.enc(q || '')).replace(/\{base\}/g, BASE_URL);
     return C.fix(u);
   },
-  items: function (doc) {
-    var els = doc.select(G.item), out = [], seen = {};
+  // `s` = 's_' when parsing a search result page whose cards differ from the list pages (G.s_item, G.s_title, ...)
+  items: function (doc, s) {
+    var k = function (n) { return (s && G[s + n]) || G[n]; };
+    var els = doc.select(k('item')), out = [], seen = {};
     for (var i = 0; i < els.size(); i++) {
       var e = els.get(i);
-      var link = X.pick(e, G.link || 'a@href');
+      var link = X.pick(e, k('link') || 'a@href');
       if (!link || seen[link] || /^javascript|#$/.test(link)) continue;
-      var name = X.pick(e, G.title || 'h3 || h2 || a@title || img@alt');
+      var name = X.pick(e, k('title') || 'h3 || h2 || a@title || img@alt');
       if (!name) continue;
       seen[link] = 1;
-      out.push({ name: name, link: C.fix(link), cover: X.pick(e, G.cover || 'img@img'), description: X.pick(e, G.desc || ''), host: BASE_URL });
+      out.push({ name: name, link: C.fix(link), cover: X.pick(e, k('cover') || 'img@img'), description: X.pick(e, k('desc') || ''), host: BASE_URL });
     }
     return out;
   },
   listPage: function (pat, p, q) {
     var doc = C.html(X.url(pat, p, q), G.req);
-    var items = X.items(doc);
+    var items = X.items(doc, q ? 's_' : '');
     var more = G.next ? doc.select(G.next).size() > 0 : items.length >= (G.pageSize || 10);
     return Response.success(items, C.next(more && items.length > 0, p));
   },
@@ -1655,6 +1707,12 @@ var X = {
   },
   search: function (key, p) {
     if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
+    if (G.search_post) {
+      // POST search form: { url, body } — body uses {q}; results are parsed like any list page
+      var doc = C.html(X.url(G.search_post.url, p, key), { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: String(G.search_post.body).replace(/\{q\}/g, C.enc(key)) });
+      var items = X.items(doc, 's_');
+      return Response.success(items, null);
+    }
     return X.listPage(G.search, p, key);
   },
   genre: function () {
@@ -1682,7 +1740,7 @@ var X = {
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
-        var a = els.get(i); var href = a.attr('href') || a.attr('data-href');
+        var a = els.get(i); var href = G.ch_attr ? a.attr(G.ch_attr) : (a.attr('href') || a.attr('data-href'));
         if (!href || href === '#' || seen[href]) continue;
         seen[href] = 1; list.push({ name: (G.ch_name ? X.pick(a, G.ch_name) : a.text()) || a.attr('title'), url: C.fix(href), host: BASE_URL });
       }
@@ -1693,6 +1751,8 @@ var X = {
       pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
     }
     if (G.ch_reverse) list.reverse();
+    // A movie page without an episode list is itself the one episode
+    if (!list.length && G.ch_fallback_single) list.push({ name: G.ch_fallback_single === true ? 'Xem phim' : G.ch_fallback_single, url: url, host: BASE_URL });
     return Response.success(list);
   },
   pages: function (url) {

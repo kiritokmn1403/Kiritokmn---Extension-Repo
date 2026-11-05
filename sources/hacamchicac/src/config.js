@@ -5,11 +5,13 @@ var G = {
   "Mới cập nhật": "/[page/{p}/]"
  },
  "search": "/?username={q}[&page={p}]",
- "item": ".uk-overflow-hidden",
- "title": "a@title || img@alt || a@title || img@alt",
+ "item": "div.uk-panel.uk-position-relative > div.uk-overflow-hidden.uk-border-rounded",
+ "title": "img@alt",
  "link": "a@href",
- "ch_list": "div.uk-margin-top a",
+ "ch_list": "div.recent-comment-content.uk-background-muted a",
  "d_title": "h1 || meta[property=og:title]@content",
- "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
- "d_desc": "meta[name=description]@content"
+ "d_cover": "meta[property=og:image]@content || img@img",
+ "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+ "cover": "img@img",
+ "pages": "div.uk-overflow-hidden.uk-border-rounded img"
 };

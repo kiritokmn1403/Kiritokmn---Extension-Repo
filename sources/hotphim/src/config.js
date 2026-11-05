@@ -5,11 +5,12 @@ var G = {
   "Mới cập nhật": "/[page/{p}/]"
  },
  "search": "/[page/{p}/]?s={q}",
- "item": ".swiper-slide",
- "title": "h3 a || a@title || img@alt",
- "link": "a@href",
- "ch_list": "#tabpane-suggestion a",
+ "item": "div.sw-item > a.v-thumbnail",
+ "title": "img@alt",
+ "link": ":self@href",
+ "ch_list": "div.de-eps.is-grid a",
  "d_title": "h1 || meta[property=og:title]@content",
- "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
- "d_desc": "meta[name=description]@content"
+ "d_cover": "meta[property=og:image]@content || img@img",
+ "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+ "cover": "img@img"
 };

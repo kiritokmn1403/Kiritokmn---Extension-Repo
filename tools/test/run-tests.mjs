@@ -39,7 +39,10 @@ async function testOne(id) {
 }
 const out = []; let i = 0;
 await Promise.all(Array.from({ length: CONC }, async () => { while (i < ids.length) out.push(await testOne(ids[i++])); }));
-out.sort((a, b) => a.id.localeCompare(b.id));
-fs.writeFileSync(path.join(ROOT, 'test-results.json'), JSON.stringify({ date: new Date().toISOString(), total: out.length, pass: out.filter(r => r.pass).length, results: out }, null, 1));
+// --only runs update their entries in the existing results instead of replacing the whole file
+let all = out;
+if (only) { try { const prev = JSON.parse(fs.readFileSync(path.join(ROOT, 'test-results.json'), 'utf8')).results || []; const mine = new Set(out.map(r => r.id)); all = prev.filter(r => !mine.has(r.id)).concat(out); } catch { } }
+all.sort((a, b) => a.id.localeCompare(b.id));
+fs.writeFileSync(path.join(ROOT, 'test-results.json'), JSON.stringify({ date: new Date().toISOString(), total: all.length, pass: all.filter(r => r.pass).length, results: all }, null, 1));
 console.log(`PASS ${out.filter(r => r.pass).length}/${out.length}`);
 process.exit(0); // background requests of timed-out steps must not keep the process alive

@@ -5,8 +5,12 @@ var G = {
   "Mới cập nhật": "/[?page={p}]"
  },
  "search": "/tim-kiem?keyword={q}[&page={p}]",
- "ch_list": "#centerm a",
- "d_title": "h1 || meta[property=og:title]@content",
- "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
- "d_desc": "meta[name=description]@content"
+ "ch_list": "ul.navlist a",
+ "d_title": "meta[property=og:title]@content || title",
+ "d_cover": "meta[property=og:image]@content || img@img",
+ "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+ "item": "table.hide > tr",
+ "link": "a@href",
+ "title": "a",
+ "content": "div.main.m_foot"
 };

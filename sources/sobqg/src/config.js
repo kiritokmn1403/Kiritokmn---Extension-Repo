@@ -5,11 +5,13 @@ var G = {
   "Mới cập nhật": "/[?page={p}]"
  },
  "search": "/tim-kiem?keyword={q}[&page={p}]",
- "item": ".g_col_2",
- "title": "h3 || a@title || img@alt",
+ "item": "ul.g_row.hom-rec > li.g_col_2.mb20",
+ "title": "h3",
  "link": "a@href",
  "d_title": "h1 || meta[property=og:title]@content",
- "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
- "d_desc": "meta[name=description]@content",
- "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+ "d_cover": "meta[property=og:image]@content || img@img",
+ "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+ "ch_list": "div.g_browse_panel.g_browse_sub a",
+ "cover": "img@img",
+ "content": "div.g_col_9"
 };

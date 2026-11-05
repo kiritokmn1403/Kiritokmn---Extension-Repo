@@ -1,4 +1,6 @@
 load('config.js');
-load('lib_common.js');
-load('lib_generic.js');
-function execute(key, page) { return X.search(key, page); }
+function execute(key, page) {
+  var j = api("/search?q=" + encodeURIComponent(key || ""));
+  var list = (j.items || []).map(function (x) { return story(x.story || x); });
+  return Response.success(list, null);
+}

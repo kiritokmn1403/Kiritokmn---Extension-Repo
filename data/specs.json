@@ -105,14 +105,16 @@
     "Mới cập nhật": "/[page/{p}/]"
    },
    "search": "/[page/{p}/]?s={q}",
-   "item": ".swiper-slide",
-   "title": "h3 a || a@title || img@alt",
-   "link": "a@href",
-   "ch_list": "#tabpane-suggestion a",
+   "item": "div.sw-item > a.v-thumbnail",
+   "title": "img@alt",
+   "link": ":self@href",
+   "ch_list": "div.de-eps.is-grid a",
    "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content"
-  }
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "cover": "img@img"
+  },
+  "version": 2
  },
  "avsubanimevietsub": {
   "base": "https://animevietsub.sale",
@@ -164,11 +166,14 @@
    "item": ".movie-poster",
    "title": "a@title || img@alt || a@title || img@alt",
    "link": "a@href",
-   "ch_list": "#col-842605008 a",
+   "ch_list": "div.episodes-grid a",
    "d_title": "h1 || meta[property=og:title]@content",
    "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content"
-  }
+   "d_desc": "meta[name=description]@content",
+   "ch_reverse": true,
+   "ch_fallback_single": true
+  },
+  "version": 2
  },
  "nextphim": {
   "base": "https://nextphim.net",
@@ -436,15 +441,17 @@
    "tabs": {
     "Mới cập nhật": "/[?page={p}]"
    },
-   "search": "/tim-kiem?q={q}[&page={p}]",
-   "item": ".h-item",
-   "title": "h4 a || a@title || img@alt",
-   "link": "a@href",
+   "search": "/tim-kiem?q={q}",
+   "item": "div.grid-3x2 > div.h-item",
+   "title": "h4 a",
+   "link": "[class*=title] a@href",
    "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.hl-tags a",
+   "cover": "img@img"
+  },
+  "version": 2
  },
  "phimmoihd": {
   "base": "https://phimmoihd.online",
@@ -474,9 +481,17 @@
    "tabs": {
     "Mới cập nhật": "/[?page={p}]"
    },
-   "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "search": "/search?q={q}",
+   "ch_list": "ul.sub-menu a",
+   "item": "div.row-flex > article.phimitem",
+   "link": "a@href",
+   "title": "h3",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content"
+  },
+  "version": 2
  },
  "dailymotion": {
   "base": "https://www.dailymotion.com",
@@ -603,11 +618,16 @@
     "Mới cập nhật": "/[?page={p}]"
    },
    "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "div.m-container-uiyzC2 a",
+   "ch_list": "div.pc-actors-xnd4C2.m-actors-sBQbhN a",
    "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content"
-  }
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "item": "div.m-card-rail-ZAMiX2.m-card-rail-mask-right-nAETKt > a.m-card-vMOsDf",
+   "link": ":self@href",
+   "title": "[class*=title]",
+   "cover": "img@img"
+  },
+  "version": 2
  },
  "iqiyi": {
   "base": "https://www.iq.com",
@@ -640,15 +660,18 @@
    "tabs": {
     "Mới cập nhật": "/[?page={p}]"
    },
-   "search": "/search?k={q}[&page={p}]",
-   "item": ".swiper-slide",
-   "title": "[class*=title] a || a@title || img@alt",
-   "link": "a@href",
-   "ch_list": "#tabpane-suggestion a",
+   "search": "/search?k={q}",
+   "item": "div.sw-item > a.v-thumbnail",
+   "title": "img@alt",
+   "link": ":self@href",
+   "ch_list": "div.de-eps a",
    "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content"
-  }
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "cover": "img@img",
+   "ch_url": "a[href*=\"/xem-phim/\"]@href"
+  },
+  "version": 3
  },
  "mgtv": {
   "base": "https://glb.m.mgtv.com",
@@ -687,14 +710,18 @@
     "Mới cập nhật": "/[page/{p}/]"
    },
    "search": "/?s={q}[&page={p}]",
-   "item": ".card__cover",
-   "title": "a@title || img@alt || a@title || img@alt",
-   "link": "a@href",
+   "item": "div.row--grid > div.col-6.col-sm-4",
+   "title": "h3 a",
+   "link": "h3 a@href",
    "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "button[data-url]",
+   "cover": "img@img",
+   "ch_attr": "data-url",
+   "ch_fallback_single": true
+  },
+  "version": 3
  },
  "phim4k": {
   "base": "https://phim4k.xyz",
@@ -944,15 +971,18 @@
    "tabs": {
     "Mới cập nhật": "/[?page={p}]"
    },
-   "search": "/?f_search={q}[&page={p}]",
-   "item": ".gldown",
-   "title": "a@title || img@alt || a@title || img@alt",
-   "link": "a@href",
+   "search": "/?f_cats=0&f_search={q}",
+   "item": "table.itg.gltc > tr",
+   "title": "[class*=name] a",
+   "link": "[class*=name] a@href",
    "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "#gd5 a",
+   "cover": "img@img",
+   "pages": "p.g2.gsp img"
+  },
+  "version": 2
  },
  "goctruyentranh": {
   "base": "https://goctruyentranhvui41.com",
@@ -967,14 +997,17 @@
     "Mới cập nhật": "/[?page={p}]"
    },
    "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "item": ".relative",
-   "title": "a@title || img@alt || a@title || img@alt",
-   "link": "a@href",
-   "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "item": "div.card.ele-2 > a.card-block.card-flat",
+   "title": "img@alt",
+   "link": ":self@href",
+   "d_title": "meta[property=og:title]@content || title",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.col-md-6.col-lg-4 a",
+   "cover": "img@img",
+   "pages": "a.logo img"
+  },
+  "version": 2
  },
  "hentaivn": {
   "tpl": "ref",
@@ -994,14 +1027,17 @@
     "Mới cập nhật": "/[page/{p}/]"
    },
    "search": "/?username={q}[&page={p}]",
-   "item": ".uk-overflow-hidden",
-   "title": "a@title || img@alt || a@title || img@alt",
+   "item": "div.uk-panel.uk-position-relative > div.uk-overflow-hidden.uk-border-rounded",
+   "title": "img@alt",
    "link": "a@href",
-   "ch_list": "div.uk-margin-top a",
+   "ch_list": "div.recent-comment-content.uk-background-muted a",
    "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content"
-  }
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "cover": "img@img",
+   "pages": "div.uk-overflow-hidden.uk-border-rounded img"
+  },
+  "version": 2
  },
  "jellycomics": {
   "base": "https://jellycomics.online",
@@ -1081,14 +1117,16 @@
     "Mới cập nhật": "/[?page={p}]"
    },
    "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "item": ".pl-4",
-   "title": "h4 || a@title || img@alt",
+   "item": "ul.min-w-0.translate-x-px > li",
+   "title": "a",
    "link": "a@href",
    "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.grid-cols-2 a",
+   "pages": "a.flex-1.min-w-0 img"
+  },
+  "version": 2
  },
  "misskon": {
   "base": "https://misskon.com",
@@ -1166,15 +1204,17 @@
     "Mới cập nhật": "/[?page={p}]"
    },
    "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "item": ".comic-item",
-   "title": "h3 || a@title || img@alt",
+   "item": "div.comic-grid.normal > div.comic-item",
+   "title": "h3",
    "link": "a@href",
-   "ch_list": "div.bodyL a",
+   "ch_list": "div.episode-cover a",
    "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content",
-   "pages": ".content-type-manga img"
-  }
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "pages": "div.content-type-manga img",
+   "cover": "img@img"
+  },
+  "version": 2
  },
  "nettruyen18": {
   "base": "https://nettruyen18.com",
@@ -1194,7 +1234,23 @@
   "status": 200,
   "auto": true,
   "tpl": "generic",
-  "preset": "nettruyen"
+  "preset": "nettruyen",
+  "G": {
+   "item": "div.button-container > a.button-secondary",
+   "link": ":self@href",
+   "title": ":self",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "ul.comic-item a",
+   "pages": "div.page-chapter img",
+   "search": "/tim-truyen?keyword={q}",
+   "s_item": "div.item > figure > div.image",
+   "s_title": "a@title",
+   "s_link": "a@href",
+   "s_cover": "img@img"
+  },
+  "version": 3
  },
  "nettruyenz": {
   "base": "https://nettruyenz.com",
@@ -1233,15 +1289,22 @@
    "tabs": {
     "Mới cập nhật": "/[page/{p}/]"
    },
-   "search": "/?s={q}[&page={p}]",
-   "item": ".tgt-card",
-   "title": "[class*=title] || a@title || img@alt",
-   "link": "a@href",
-   "ch_list": "section.tgt-section a",
+   "search": "/search/{q}",
+   "item": "div.tgt-card > a.tgt-card-thumb",
+   "title": "img@alt",
+   "link": ":self@href",
+   "ch_list": "#chapter-list a",
    "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content"
-  }
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "cover": "img@img",
+   "pages": "div.tgt-reader-pages img",
+   "s_item": "div.wp-block-group.alignfull > h2.wp-block-post-title.has-x-large-font-size",
+   "s_title": "a",
+   "s_link": "a@href",
+   "s_cover": ""
+  },
+  "version": 3
  },
  "truyengg": {
   "base": "https://truyenggvn.com",
@@ -1310,8 +1373,9 @@
   }
  },
  "vinahentai": {
-  "base": "https://vinahentai.bond",
+  "base": "https://vinahentai.bio",
   "domains": [
+   "https://vinahentai.bio",
    "https://vinahentai.bond"
   ],
   "status": 0,
@@ -1321,9 +1385,21 @@
    "tabs": {
     "Mới cập nhật": "/[?page={p}]"
    },
-   "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "search": "/tim-kiem?q={q}",
+   "ch_list": "div.flex-wrap.justify-center a",
+   "item": "div.-mx-2.grid-cols-2 > div > a.group.bg-bgc-layer1",
+   "link": ":self@href",
+   "title": ":self",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "pages": "div.inset-0 img",
+   "s_item": "div.space-y-3.transition-opacity > a.group.border-bd-default",
+   "s_title": "h2",
+   "s_link": ":self@href",
+   "s_cover": "img@img"
+  },
+  "version": 3
  },
  "webtoonscan": {
   "base": "https://webtoonscan.com",
@@ -1506,9 +1582,17 @@
    "tabs": {
     "Mới cập nhật": "/[?page={p}]"
    },
-   "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "search": "/?q={q}",
+   "ch_list": "ul.vlist a",
+   "item": "ul.vlist > li",
+   "link": "a@href",
+   "title": "[class*=name]",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "content": "div.content"
+  },
+  "version": 3
  },
  "8book": {
   "base": "https://www.8book.com",
@@ -1646,8 +1730,9 @@
   "origin": "vbook-extensions"
  },
  "ciyuanji": {
-  "base": "https://www.ciyuanji.com",
+  "base": "https://m.ciyuanji.com",
   "domains": [
+   "https://m.ciyuanji.com",
    "https://www.ciyuanji.com"
   ],
   "status": 403,
@@ -1663,19 +1748,19 @@
     "仙侠": "/l_c_105_0_0_0_{p}.html"
    },
    "search": "/search/{q}_{p}.html",
-   "ch_list": "a[class*=book_detail_item]",
-   "item": "section[class*=book_card]",
-   "title": "img@alt",
-   "link": "a@href",
+   "ch_list": "div.bookDetails_btns__3z8Fx a",
+   "item": "li.index_block__1xPQX > a.MuiTypography-root.MuiLink-root",
+   "title": "h3",
+   "link": ":self@href",
    "cover": "img@img",
    "pageSize": 10,
-   "d_title": "[class*=book_detail_title] || [class*=book_detail] img@alt",
-   "d_cover": "[class*=book_detail] img@img",
-   "d_desc": "meta[name=description]@content",
-   "content": "[class*=chapter_article]",
+   "d_title": "meta[property=og:title]@content || title",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "content": "article.chapter_article__avlFR",
    "c_title": "h1"
   },
-  "version": 3
+  "version": 4
  },
  "czbooksrepoduongden": {
   "base": "https://czbooks.net",
@@ -1725,7 +1810,7 @@
    "tabs": {
     "Mới cập nhật": "/[?page={p}]"
    },
-   "search": "/tim-kiem?keyword={q}[&page={p}]",
+   "search": "/modules/article/search.php?searchkey={q}",
    "item": ".item",
    "title": "a@title || img@alt || a@title || img@alt",
    "link": "a@href",
@@ -1733,8 +1818,13 @@
    "d_title": "h1 || meta[property=og:title]@content",
    "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
    "d_desc": "meta[name=description]@content",
-   "content": "#content, .con, .content"
-  }
+   "content": "#content, .con, .content",
+   "s_item": "div.container > div.item",
+   "s_title": "img@alt",
+   "s_link": "a@href",
+   "s_cover": "img@img"
+  },
+  "version": 2
  },
  "douban": {
   "base": "https://read.douban.com",
@@ -1798,20 +1888,10 @@
   }
  },
  "gioitruyen": {
+  "tpl": "custom",
   "base": "https://gioitruyen.com",
-  "domains": [
-   "https://gioitruyen.com"
-  ],
-  "status": 200,
-  "auto": true,
-  "tpl": "generic",
-  "G": {
-   "tabs": {
-    "Mới cập nhật": "/[?page={p}]"
-   },
-   "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+  "version": 2,
+  "note": "JSON API /api/v1 (client-rendered site)"
  },
  "gongzicp": {
   "base": "https://www.gongzicp.com",
@@ -1921,11 +2001,16 @@
     "Mới cập nhật": "/[?page={p}]"
    },
    "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "item": ".img",
-   "title": "a@title || img@alt || a@title || img@alt",
+   "item": "div.sosuo > ul > li.selected",
+   "title": "a",
    "link": "a@href",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "ch_list": "div.saixuan a",
+   "d_title": "meta[property=og:title]@content || title",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "content": "div.main"
+  },
+  "version": 2
  },
  "ixdzs8": {
   "base": "https://ixdzs8.com",
@@ -1963,11 +2048,16 @@
     "Mới cập nhật": "/[?page={p}]"
    },
    "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "div.b3right a",
+   "ch_list": "#examine_num a",
    "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content"
-  }
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "item": "div.div2 > div.concent_list",
+   "link": "h2 a@href",
+   "title": "h2 a",
+   "content": "div"
+  },
+  "version": 2
  },
  "jjwxcrepoduongden": {
   "base": "https://www.jjwxc.net",
@@ -1982,11 +2072,16 @@
     "Mới cập nhật": "/[?page={p}]"
    },
    "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "div.b3right a",
+   "ch_list": "#examine_num a",
    "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content"
-  }
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "item": "div.div2 > div.concent_list",
+   "link": "h2 a@href",
+   "title": "h2 a",
+   "content": "div"
+  },
+  "version": 2
  },
  "kakuyomu": {
   "base": "https://kakuyomu.jp",
@@ -2056,8 +2151,9 @@
   "origin": "hienpro00123/vbook_MeoU"
  },
  "lofter": {
-  "base": "https://www.sudugu.org",
+  "base": "https://www.suduguu.com",
   "domains": [
+   "https://www.suduguu.com",
    "https://www.sudugu.org"
   ],
   "status": 0,
@@ -2068,8 +2164,16 @@
     "Mới cập nhật": "/[?page={p}]"
    },
    "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "ch_list": "div.itemtxt a",
+   "item": "#gmenu > ul > li",
+   "link": "a@href",
+   "title": "a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "content": "div.con"
+  },
+  "version": 2
  },
  "lohi": {
   "base": "https://lohi2.com",
@@ -2149,14 +2253,17 @@
     "Mới cập nhật": "/[page/{p}/]"
    },
    "search": "/?s={q}[&page={p}]",
-   "item": ".comment-meta",
-   "title": "a@title || img@alt || a@title || img@alt",
+   "item": "figure.wp-block-gallery.has-nested-images > figure.wp-block-image.size-large",
+   "title": "img@alt",
    "link": "a@href",
    "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "#page a",
+   "cover": "img@img",
+   "content": "div.entry-content"
+  },
+  "version": 2
  },
  "mattreadingtranslations": {
   "base": "https://mattreadingtranslations.com",
@@ -2217,8 +2324,17 @@
     "Mới cập nhật": "/[?page={p}]"
    },
    "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "ch_list": "div.chapter-item a",
+   "item": "div.uk-panel.uk-position-relative > div.uk-overflow-hidden.uk-border-rounded",
+   "link": "a@href",
+   "title": "img@alt",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "content": "div.mtl-ticker-content"
+  },
+  "version": 2
  },
  "monkeyd": {
   "base": "https://monkeydd.com",
@@ -2254,9 +2370,17 @@
    "tabs": {
     "Mới cập nhật": "/[?page={p}]"
    },
-   "search": "/?email={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "search": "/search?q={q}",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]",
+   "item": "div.ranking-panel > a.ranking-item",
+   "link": ":self@href",
+   "title": "[class*=title]",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content"
+  },
+  "version": 2
  },
  "mtc": {
   "tpl": "ref",
@@ -2425,15 +2549,22 @@
    "tabs": {
     "Mới cập nhật": "/[?page={p}]"
    },
-   "search": "/search?keyword={q}[&page={p}]",
-   "item": ".home-release-title-cell",
-   "title": "[class*=title] a || a@title || img@alt",
-   "link": "a@href",
-   "ch_list": "div.csstransforms3d a",
+   "search": "/search?keyword={q}",
+   "item": "ul.home-release-list.fwn-latest-list > li > div.home-release-title-cell",
+   "title": "[class*=title] a",
+   "link": "[class*=title] a@href",
+   "ch_list": "#idData a",
    "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content"
-  }
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "cover": "img@img",
+   "content": "#chapter-content",
+   "s_item": "div.ul-list1.ul-list1-2 > div.li-row",
+   "s_title": "h3 a",
+   "s_link": "h3 a@href",
+   "s_cover": "img@img"
+  },
+  "version": 3
  },
  "novelpiaglobal": {
   "base": "https://global.novelpia.com",
@@ -2448,14 +2579,16 @@
     "Mới cập nhật": "/[?page={p}]"
    },
    "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "item": ".min-w-0",
-   "title": "a@title || img@alt || a@title || img@alt",
+   "item": "div.section-line > span.more",
+   "title": "a",
    "link": "a@href",
-   "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "d_title": "meta[property=og:title]@content || title",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.nv-cover a",
+   "content": "#synopsis"
+  },
+  "version": 2
  },
  "piaotianapp": {
   "base": "https://www.piaotianapp.com",
@@ -2536,9 +2669,21 @@
    "tabs": {
     "Mới cập nhật": "/[?page={p}]"
    },
-   "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "search": "/index.php?c=book&a=search&keywords={q}",
+   "ch_list": "div.tool_button a",
+   "item": "ul.list > li",
+   "link": "a@href",
+   "title": "a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "content": "div.description",
+   "s_item": "div.box > div > div.list2",
+   "s_title": "h3 a",
+   "s_link": "h3 a@href",
+   "s_cover": "img@img"
+  },
+  "version": 3
  },
  "quanwenyuedu": {
   "base": "https://www.quanwenyuedu.io",
@@ -2580,11 +2725,16 @@
     "Mới cập nhật": "/[?page={p}]"
    },
    "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "#sright a",
+   "ch_list": "div.clist a",
    "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content"
-  }
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "item": "div.info > a.story",
+   "link": ":self@href",
+   "title": ":self",
+   "content": "div.content.noselect"
+  },
+  "version": 2
  },
  "sitruyencv": {
   "base": "https://sitruyencv.com",
@@ -2634,11 +2784,16 @@
     "Mới cập nhật": "/[?page={p}]"
    },
    "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "item": ".swiper-slide",
-   "title": "a@title || img@alt || a@title || img@alt",
+   "item": "section.f-list.f-new > div.f",
+   "title": "a",
    "link": "a@href",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "ch_list": "div.author-info a",
+   "d_title": "meta[property=og:title]@content || title",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "content": "div.title"
+  },
+  "version": 2
  },
  "stvappvi": {
   "base": "https://sangtacviet.com",
@@ -2663,8 +2818,9 @@
   }
  },
  "sudugu": {
-  "base": "https://www.sudugu.org",
+  "base": "https://www.suduguu.com",
   "domains": [
+   "https://www.suduguu.com",
    "https://www.sudugu.org"
   ],
   "status": 0,
@@ -2675,8 +2831,16 @@
     "Mới cập nhật": "/[?page={p}]"
    },
    "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "ch_list": "div.itemtxt a",
+   "item": "#gmenu > ul > li",
+   "link": "a@href",
+   "title": "a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "content": "div.con"
+  },
+  "version": 2
  },
  "sweetastes": {
   "base": "https://baby0world.com",
@@ -2784,14 +2948,17 @@
     "Mới cập nhật": "/[?page={p}]"
    },
    "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "item": ".story-thumb",
-   "title": "a@title || img@alt || a@title || img@alt",
+   "item": "div.media.m-b-30 > div.media-left.m-r-15",
+   "title": "a@title",
    "link": "a@href",
-   "ch_list": "#main a",
+   "ch_list": "div.chapters a",
    "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content"
-  }
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "cover": "img@img",
+   "content": "article"
+  },
+  "version": 2
  },
  "tiemtruyenchu": {
   "tpl": "ref",
@@ -2830,11 +2997,16 @@
     "Mới cập nhật": "/[?page={p}]"
    },
    "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "div.bg-[var(--bg-surface)] a",
+   "ch_list": "div.grid-cols-1 a",
    "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content"
-  }
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "item": "div.min-w-0 > a.text-sm.font-semibold",
+   "link": ":self@href",
+   "title": ":self@title",
+   "content": "article.reader-content.prose"
+  },
+  "version": 2
  },
  "truyencvio": {
   "base": "https://truyencv.io",
@@ -2849,14 +3021,16 @@
     "Mới cập nhật": "/[page/{p}/]"
    },
    "search": "/?username={q}[&page={p}]",
-   "item": ".grid-item",
-   "title": "h4 || a@title || img@alt",
-   "link": "a@href",
+   "item": "li.blog-item > a.blog-title",
+   "title": ":self",
+   "link": ":self@href",
    "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "#menu-chinh a",
+   "content": "div.uk-article-content.uk-margin"
+  },
+  "version": 2
  },
  "truyendichai": {
   "tpl": "ref",
@@ -2910,8 +3084,9 @@
   "origin": "Ivan1hai/ext"
  },
  "truyenzhihutonghop": {
-  "base": "https://www.truyendexuat.com",
+  "base": "https://truyendexuat.com",
   "domains": [
+   "https://truyendexuat.com",
    "https://www.truyendexuat.com"
   ],
   "status": 0,
@@ -2922,8 +3097,17 @@
     "Mới cập nhật": "/[?page={p}]"
    },
    "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "ch_list": "#chapterGrid a",
+   "item": "ul.ranking-list > li.ranking-item",
+   "link": "a@href",
+   "title": "[class*=title]",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "content": "div.uk-width-1-1.reading"
+  },
+  "version": 2
  },
  "truyencv": {
   "tpl": "ref",
@@ -2998,8 +3182,16 @@
     "Mới cập nhật": "/[?page={p}]"
    },
    "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "ch_list": "div.support-article a",
+   "item": "div.post-feed-item__info > div.post-title--inline",
+   "link": "h3 a@href",
+   "title": "h3 a",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "content": "div.md-contents"
+  },
+  "version": 2
  },
  "vivutruyencom": {
   "tpl": "ref",
@@ -3046,9 +3238,18 @@
    "tabs": {
     "Mới cập nhật": "/[?page={p}]"
    },
-   "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "search": "/?q={q}",
+   "ch_list": "ol.divide-y.divide-zinc-100 a",
+   "item": "ul.grid-cols-1 > li.rounded-xl.border",
+   "link": "h3 a@href",
+   "title": "h3 a",
+   "cover": "img@img",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "content": "article.doc-noidung"
+  },
+  "version": 2
  },
  "webtruyendich": {
   "tpl": "ref",
@@ -3197,8 +3398,16 @@
     "Mới cập nhật": "/[?page={p}]"
    },
    "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "ch_list": "#list a",
+   "item": "ul > li > span.s2",
+   "link": "a@href",
+   "title": "a@title",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "content": "#booktxt"
+  },
+  "version": 2
  },
  "sobqg": {
   "base": "https://www.sobqg.com",
@@ -3213,18 +3422,22 @@
     "Mới cập nhật": "/[?page={p}]"
    },
    "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "item": ".g_col_2",
-   "title": "h3 || a@title || img@alt",
+   "item": "ul.g_row.hom-rec > li.g_col_2.mb20",
+   "title": "h3",
    "link": "a@href",
    "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "ch_list": "div.g_browse_panel.g_browse_sub a",
+   "cover": "img@img",
+   "content": "div.g_col_9"
+  },
+  "version": 2
  },
  "abcbiquge": {
-  "base": "http://m.abcbiquge.com",
+  "base": "https://m.bqg6.xyz",
   "domains": [
+   "https://m.bqg6.xyz",
    "http://m.abcbiquge.com"
   ],
   "status": 0,
@@ -3234,9 +3447,16 @@
    "tabs": {
     "Mới cập nhật": "/[?page={p}]"
    },
-   "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-  }
+   "search": "/?searchkey={q}",
+   "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]",
+   "item": "ul > li > a.blue",
+   "link": ":self@href",
+   "title": ":self",
+   "d_title": "h1 || meta[property=og:title]@content",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content"
+  },
+  "version": 2
  },
  "piaotia": {
   "base": "https://www.piaotia.com",
@@ -3251,10 +3471,15 @@
     "Mới cập nhật": "/[?page={p}]"
    },
    "search": "/tim-kiem?keyword={q}[&page={p}]",
-   "ch_list": "#centerm a",
-   "d_title": "h1 || meta[property=og:title]@content",
-   "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
-   "d_desc": "meta[name=description]@content"
-  }
+   "ch_list": "ul.navlist a",
+   "d_title": "meta[property=og:title]@content || title",
+   "d_cover": "meta[property=og:image]@content || img@img",
+   "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+   "item": "table.hide > tr",
+   "link": "a@href",
+   "title": "a",
+   "content": "div.main.m_foot"
+  },
+  "version": 2
  }
 }

@@ -2,8 +2,8 @@
   "metadata": {
     "name": "Truyện Zhihu Tổng Hợp",
     "author": "Kiritokmn",
-    "version": 1,
-    "source": "https://www.truyendexuat.com",
+    "version": 2,
+    "source": "https://truyendexuat.com",
     "description": "Truyện Zhihu Tổng Hợp — Kiritokmn Extension Repo",
     "locale": "vi",
     "regexp": "truyendexuat\\.com",
@@ -21,12 +21,13 @@
     "DOMAIN": {
       "title": "Tên miền",
       "subtitle": "Đổi khi trang đổi tên miền",
-      "default": "https://www.truyendexuat.com",
+      "default": "https://truyendexuat.com",
       "values": [
+        "https://truyendexuat.com",
         "https://www.truyendexuat.com"
       ],
-      "mode": "input",
-      "format": "text"
+      "mode": "select",
+      "format": "single"
     }
   }
 }

@@ -2,11 +2,11 @@
   "metadata": {
     "name": "VinaHentai",
     "author": "Kiritokmn",
-    "version": 1,
-    "source": "https://vinahentai.bond",
+    "version": 3,
+    "source": "https://vinahentai.bio",
     "description": "VinaHentai — Kiritokmn Extension Repo",
     "locale": "vi",
-    "regexp": "vinahentai\\.bond",
+    "regexp": "vinahentai\\.bio",
     "type": "comic",
     "nsfw": false
   },
@@ -21,12 +21,13 @@
     "DOMAIN": {
       "title": "Tên miền",
       "subtitle": "Đổi khi trang đổi tên miền",
-      "default": "https://vinahentai.bond",
+      "default": "https://vinahentai.bio",
       "values": [
+        "https://vinahentai.bio",
         "https://vinahentai.bond"
       ],
-      "mode": "input",
-      "format": "text"
+      "mode": "select",
+      "format": "single"
     }
   }
 }

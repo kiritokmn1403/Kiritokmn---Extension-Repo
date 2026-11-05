@@ -4,12 +4,14 @@ var G = {
  "tabs": {
   "Mới cập nhật": "/[?page={p}]"
  },
- "search": "/?f_search={q}[&page={p}]",
- "item": ".gldown",
- "title": "a@title || img@alt || a@title || img@alt",
- "link": "a@href",
+ "search": "/?f_cats=0&f_search={q}",
+ "item": "table.itg.gltc > tr",
+ "title": "[class*=name] a",
+ "link": "[class*=name] a@href",
  "d_title": "h1 || meta[property=og:title]@content",
- "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
- "d_desc": "meta[name=description]@content",
- "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
+ "d_cover": "meta[property=og:image]@content || img@img",
+ "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+ "ch_list": "#gd5 a",
+ "cover": "img@img",
+ "pages": "p.g2.gsp img"
 };

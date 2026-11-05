@@ -2,9 +2,9 @@
   "metadata": {
     "name": "Giới Truyện",
     "author": "Kiritokmn",
-    "version": 1,
+    "version": 2,
     "source": "https://gioitruyen.com",
-    "description": "Giới Truyện — Kiritokmn Extension Repo",
+    "description": "Giới Truyện (JSON API) — Kiritokmn Extension Repo",
     "locale": "vi",
     "regexp": "gioitruyen\\.com",
     "type": "novel",

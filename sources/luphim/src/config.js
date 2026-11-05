@@ -4,12 +4,14 @@ var G = {
  "tabs": {
   "Mới cập nhật": "/[?page={p}]"
  },
- "search": "/search?k={q}[&page={p}]",
- "item": ".swiper-slide",
- "title": "[class*=title] a || a@title || img@alt",
- "link": "a@href",
- "ch_list": "#tabpane-suggestion a",
+ "search": "/search?k={q}",
+ "item": "div.sw-item > a.v-thumbnail",
+ "title": "img@alt",
+ "link": ":self@href",
+ "ch_list": "div.de-eps a",
  "d_title": "h1 || meta[property=og:title]@content",
- "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
- "d_desc": "meta[name=description]@content"
+ "d_cover": "meta[property=og:image]@content || img@img",
+ "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
+ "cover": "img@img",
+ "ch_url": "a[href*=\"/xem-phim/\"]@href"
 };
