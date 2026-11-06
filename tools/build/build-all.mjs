@@ -228,6 +228,8 @@ if (!ONLY) for (const [k, list] of Object.entries(androidAssets)) {
 if (!ONLY) {
   fs.writeFileSync(path.join(OUT, 'plugin.json'), JSON.stringify({ metadata: { author: 'Kiritokmn', description: `Kiritokmn Extension Repo v${VERSION}` }, data: vbookIndex }, null, 1));
   fs.writeFileSync(path.join(OUT, 'index.json'), JSON.stringify(mgIndex));
+  // YomiHub 0.5.3: website extensions moved out of the YomiHub app
+  { const { buildYomihubSources } = await import('./yomihub-sources.mjs'); const r = buildYomihubSources(ROOT, BASE); console.log(`yomihub: ${r.added} sources, replaced ${r.dropped.length} vBook-converted entries`); }
   fs.writeFileSync(path.join(OUT, 'plugins.min.json'), JSON.stringify(lnIndex));
   fs.writeFileSync(path.join(OUT, 'aniyomi', 'sources.json'), JSON.stringify(aniSources, null, 1));
 }

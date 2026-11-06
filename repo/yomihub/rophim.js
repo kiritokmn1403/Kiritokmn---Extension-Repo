@@ -1,0 +1,346 @@
+const mangayomiSources = [{"name":"RoPhim","lang":"vi","id":920260002,"baseUrl":"https://www.rophimhd.com","apiUrl":"","iconUrl":"https://www.rophimhd.com/images/favicon.ico","typeSource":"single","itemType":1,"isNsfw":false,"version":"0.5.3","dateFormat":"","dateFormatLocale":"","pkgPath":"repo/yomihub/rophim.js"}];
+// ---- YomiHub shared helpers (prepended to every bundled extension) ----
+const YH_UA = "Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36";
+function yhPref(key, def) {
+  try {
+    const v = new SharedPreferences().get(key);
+    return (v === undefined || v === null || v === "") ? def : v;
+  } catch (e) { return def; }
+}
+// Every bundled extension exposes its domain in its own settings ("Tên miền").
+function yhBase(ext) {
+  let d = yhPref("yh_domain", ext.source.baseUrl);
+  d = ("" + d).trim();
+  if (!/^https?:\/\//i.test(d)) d = "https://" + d;
+  return d.replace(/\/+$/, "");
+}
+function yhAbs(base, u) {
+  if (!u) return "";
+  u = ("" + u).trim();
+  if (u.startsWith("//")) return "https:" + u;
+  if (/^https?:\/\//i.test(u)) return u;
+  return base.replace(/\/+$/, "") + (u.startsWith("/") ? "" : "/") + u;
+}
+function yhText(s) { return (s || "").replace(/\s+/g, " ").trim(); }
+function yhDomainPref(def, extra) {
+  return {
+    key: "yh_domain",
+    editTextPreference: {
+      title: "Tên miền",
+      summary: "Đổi khi trang web chuyển sang địa chỉ mới" + (extra ? " – " + extra : ""),
+      value: def,
+      dialogTitle: "Tên miền",
+      dialogMessage: "Ví dụ: " + def,
+      text: def,
+    },
+  };
+}
+function yhSelect(key, label, opts) {
+  return {
+    type_name: "SelectFilter", type: key, name: label, state: 0,
+    values: opts.map((o) => ({ type_name: "SelectOption", name: o[0], value: o[1] })),
+  };
+}
+function yhGroup(key, label, opts, checkedValues) {
+  checkedValues = checkedValues || [];
+  return {
+    type_name: "GroupFilter", type: key, name: label,
+    state: opts.map((o) => ({ type_name: "CheckBox", type: key, name: o[0], value: o[1], state: checkedValues.includes(o[1]) })),
+  };
+}
+function yhHeader(label) { return { type_name: "HeaderFilter", name: label }; }
+function yhText_(key, label) { return { type_name: "TextFilter", type: key, name: label, state: "" }; }
+// Reads the value of a filter by its key from the list the app passes to search().
+function yhF(filters, key) {
+  if (!filters) return null;
+  for (const f of filters) {
+    if (f.type !== key) continue;
+    if (f.type_name === "SelectFilter") return f.values[f.state] ? f.values[f.state].value : "";
+    if (f.type_name === "TextFilter") return f.state || "";
+    if (f.type_name === "GroupFilter") return f.state.filter((c) => c.state === true).map((c) => c.value);
+  }
+  return null;
+}
+function yhStatus(t) {
+  try {
+    if (t === null || t === undefined) return 5;
+    if (typeof t === "number") {
+      if (t >= 0 && t <= 5) return Math.floor(t);
+      t = String(t);
+    } else if (typeof t === "object") {
+      t = String(t.name || t.status || t.title || t.label || "");
+    } else {
+      t = String(t);
+    }
+    t = (t || "").toLowerCase();
+    if (/hoàn|complete|full|finished|đã kết thúc/.test(t)) return 1;
+    if (/tạm ngưng|hiatus|drop/.test(t)) return 2;
+    if (/đang|ongoing|airing|updating|cập nhật/.test(t)) return 0;
+    return 5;
+  } catch (e) {
+    return 5;
+  }
+}
+// 0.2.0: tiny per-extension cookie jar (sites whose AJAX API needs the
+// session cookies of the page that issued the token).
+function yhJarGet(key) {
+  try { return new SharedPreferences().getString(key, "") || ""; } catch (e) { return ""; }
+}
+function yhJarMerge(key, res, base) {
+  let raw = (res && res.headers && (res.headers["set-cookie"] || res.headers["Set-Cookie"])) || "";
+  if (Array.isArray(raw)) raw = raw.join(", ");
+  const jar = {};
+  for (const part of (base !== undefined ? base : yhJarGet(key)).split(";")) {
+    const i = part.indexOf("=");
+    if (i > 0) jar[part.slice(0, i).trim()] = part.slice(i + 1).trim();
+  }
+  const re = /(?:^|,\s*)([A-Za-z0-9_\-]+)=([^;,]*)/g;
+  let m;
+  while ((m = re.exec(raw)) !== null) {
+    if (/^(expires|path|domain|max-age|samesite|secure|httponly)$/i.test(m[1])) continue;
+    jar[m[1]] = m[2];
+  }
+  const out = Object.keys(jar).map((k) => k + "=" + jar[k]).join("; ");
+  try { new SharedPreferences().setString(key, out); } catch (e) {}
+  return out;
+}
+// Unescape a JSON-ish string fragment taken out of HTML ("\/", "\u00a0").
+function yhJsonStr(s) {
+  try { return JSON.parse('"' + s + '"'); } catch (e) { return (s || "").replace(/\\\//g, "/"); }
+}
+// ---- YomiHub 0.3.6 helpers ----
+// Next.js App Router pages carry their data as "flight" chunks:
+// self.__next_f.push([1,"…"]). Returns them joined as one plain string.
+function yhFlight(html) {
+  let out = "";
+  const re = /self\.__next_f\.push\(\[1,"((?:[^"\\]|\\.)*)"\]\)/g;
+  let m;
+  while ((m = re.exec(html || "")) !== null) {
+    try { out += JSON.parse('"' + m[1] + '"'); } catch (e) {}
+  }
+  return out;
+}
+// Parses the JSON object/array that follows `"key":` in [text] (first match
+// whose value parses, optionally the first one accepted by [accept]).
+function yhJsonAt(text, key, accept) {
+  const k = '"' + key + '":';
+  let i = (text || "").indexOf(k);
+  while (i >= 0) {
+    const j = i + k.length;
+    const open = text[j];
+    if (open === "{" || open === "[") {
+      let depth = 0, inStr = false, esc = false;
+      for (let p = j; p < text.length; p++) {
+        const c = text[p];
+        if (inStr) { if (esc) esc = false; else if (c === "\\") esc = true; else if (c === '"') inStr = false; continue; }
+        if (c === '"') inStr = true;
+        else if (c === "{" || c === "[") depth++;
+        else if (c === "}" || c === "]") {
+          depth--;
+          if (depth === 0) {
+            try { const v = JSON.parse(text.slice(j, p + 1)); if (!accept || accept(v)) return v; } catch (e) {}
+            break;
+          }
+        }
+      }
+    }
+    i = text.indexOf(k, i + 1);
+  }
+  return null;
+}
+// Episode number of a label ("Tập 01", "tap-1", "01", "Full" → 0).
+function yhEpNo(s) {
+  s = ("" + (s || "")).toLowerCase();
+  if (/full|trọn bộ|tron-bo/.test(s)) return 0;
+  const m = s.match(/(\d+(?:\.\d+)?)/);
+  return m ? parseFloat(m[1]) : -1;
+}
+// KKPhim / OPhim (phimapi.com, ophim1.com): the catalogue most Vietnamese
+// film sites are built on. Used as a direct-HLS source next to the site's
+// own player. Returns [{server, items:[{name, slug, m3u8, embed}]}] or [].
+async function yhKK(client, slug) {
+  if (!slug) return [];
+  for (const api of ["https://phimapi.com/phim/", "https://ophim1.com/phim/"]) {
+    try {
+      const r = await client.get(api + slug, { "User-Agent": YH_UA, "Accept": "application/json" });
+      const b = (r.body || "").trim();
+      if (!b.startsWith("{")) continue;
+      const d = JSON.parse(b);
+      const eps = d.episodes || (d.data && d.data.item && d.data.item.episodes) || [];
+      if (!eps.length) continue;
+      return eps.map((g) => ({
+        server: g.server_name || "Server",
+        items: (g.server_data || []).map((e) => ({ name: e.name || "", slug: e.slug || "", m3u8: e.link_m3u8 || "", embed: e.link_embed || "" })),
+      }));
+    } catch (e) {}
+  }
+  return [];
+}
+// Direct HLS videos for episode [epLabel] of KKPhim film [slug].
+async function yhKKVideos(client, slug, epLabel, referer) {
+  const out = [];
+  const want = yhEpNo(epLabel);
+  for (const g of await yhKK(client, slug)) {
+    let it = g.items.find((e) => yhEpNo(e.name) === want || yhEpNo(e.slug) === want);
+    if (!it && g.items.length === 1) it = g.items[0];
+    if (it && it.m3u8) out.push({ url: it.m3u8, originalUrl: it.m3u8, quality: "KKPhim · " + g.server, headers: { "User-Agent": YH_UA, "Referer": referer || "https://phimapi.com/" } });
+  }
+  return out;
+}
+// The m3u8 inside "https://player.phimapi.com/player/?url=…"-style links.
+function yhInnerM3u8(u) {
+  const m = ("" + (u || "")).match(/[?&](?:url|link|src|file)=([^&]+\.m3u8[^&]*)/i);
+  if (!m) return "";
+  try { return decodeURIComponent(m[1]); } catch (e) { return m[1]; }
+}
+// ---- end helpers ----
+
+// RoPhim (rophimhd.com) – phim Việt sub / thuyết minh. Dữ liệu lấy từ API phimapi.com
+// mà chính trang RoPhim dùng. Bundled with YomiHub.
+const RP_TYPES = [["Tất cả",""],["Phim bộ","phim-bo"],["Phim lẻ","phim-le"],["TV Shows","tv-shows"],["Hoạt hình","hoat-hinh"],["Phim Vietsub","phim-vietsub"],["Phim thuyết minh","phim-thuyet-minh"],["Phim lồng tiếng","phim-long-tieng"]];
+const RP_GENRES = [["Tất cả",""],["Hành Động","hanh-dong"],["Miền Tây","mien-tay"],["Trẻ Em","tre-em"],["Lịch Sử","lich-su"],["Cổ Trang","co-trang"],["Chiến Tranh","chien-tranh"],["Viễn Tưởng","vien-tuong"],["Kinh Dị","kinh-di"],["Tài Liệu","tai-lieu"],["Bí Ẩn","bi-an"],["Phim 18+","phim-18"],["Tình Cảm","tinh-cam"],["Tâm Lý","tam-ly"],["Thể Thao","the-thao"],["Phiêu Lưu","phieu-luu"],["Âm Nhạc","am-nhac"],["Gia Đình","gia-dinh"],["Học Đường","hoc-duong"],["Hài Hước","hai-huoc"],["Võ Thuật","vo-thuat"],["Khoa Học","khoa-hoc"],["Thần Thoại","than-thoai"],["Chính Kịch","chinh-kich"],["Kinh Điển","kinh-dien"]];
+const RP_COUNTRIES = [["Tất cả",""],["Việt Nam","viet-nam"],["Trung Quốc","trung-quoc"],["Hàn Quốc","han-quoc"],["Nhật Bản","nhat-ban"],["Thái Lan","thai-lan"],["Âu Mỹ","au-my"],["Đài Loan","dai-loan"],["Hồng Kông","hong-kong"],["Ấn Độ","an-do"],["Anh","anh"],["Pháp","phap"],["Canada","canada"],["Đức","duc"],["Tây Ban Nha","tay-ban-nha"],["Thổ Nhĩ Kỳ","tho-nhi-ky"],["Hà Lan","ha-lan"],["Indonesia","indonesia"],["Nga","nga"],["Mexico","mexico"],["Ba Lan","ba-lan"],["Úc","uc"],["Thụy Điển","thuy-dien"],["Malaysia","malaysia"],["Brazil","brazil"],["Philippines","philippines"],["Bồ Đào Nha","bo-dao-nha"],["Ý","y"],["Đan Mạch","dan-mach"],["UAE","uae"],["Na Uy","na-uy"],["Thụy Sĩ","thuy-si"],["Châu Phi","chau-phi"],["Nam Phi","nam-phi"],["Ukraina","ukraina"],["Ả Rập Xê Út","a-rap-xe-ut"],["Quốc Gia Khác","quoc-gia-khac"]];
+const RP_SORT = [["Mới cập nhật","modified.time"],["Năm phát hành","year"],["Mới thêm","_id"]];
+const RP_LANG = [["Tất cả",""],["Vietsub","vietsub"],["Thuyết minh","thuyet-minh"],["Lồng tiếng","long-tieng"]];
+const RP_YEARS = [["Tất cả",""]].concat(Array.from({ length: 40 }, (_, i) => { const y = "" + (new Date().getFullYear() - i); return [y, y]; }));
+
+class DefaultExtension extends MProvider {
+  constructor() { super(); this.client = new Client(); }
+  get supportsLatest() { return true; }
+  api() {
+    let a = ("" + yhPref("yh_api", "https://phimapi.com")).replace(/\/+$/, "");
+    if (/phimapi\.co(\/m)?\/?$/i.test(a) || !a) a = "https://phimapi.com";
+    return a;
+  }
+  cdn() { return ("" + yhPref("yh_cdn", "https://phimimg.com")).replace(/\/+$/, ""); }
+  getHeaders(url) { return { "User-Agent": YH_UA, "Referer": yhBase(this) + "/" }; }
+  async json(url) {
+    let lastErr = null;
+    const path = url.replace(/^https?:\/\/[^/]+/, "");
+    const mirrors = [this.api(), "https://phimapi.com", "https://ophim1.com"];
+    const tried = {};
+    for (const m of mirrors) {
+      if (tried[m]) continue;
+      tried[m] = 1;
+      const target = m + path;
+      try {
+        const r = await this.client.get(target, this.getHeaders(target));
+        if (r.statusCode < 400 && r.body && (r.body.trim().startsWith("{") || r.body.trim().startsWith("["))) {
+          return JSON.parse(r.body);
+        }
+        lastErr = new Error("HTTP " + r.statusCode + " – " + target);
+      } catch (e) { lastErr = e; }
+    }
+    throw lastErr || new Error("RoPhim: không tải được dữ liệu");
+  }
+  img(u) { return !u ? "" : (/^https?:/i.test(u) ? u : this.cdn() + "/" + u.replace(/^\/+/, "")); }
+  toList(items) {
+    return (items || []).map((m) => ({
+      name: m.name + (m.episode_current ? ` (${m.episode_current})` : ""),
+      imageUrl: this.img(m.poster_url || m.thumb_url),
+      link: m.slug,
+    }));
+  }
+  page(d) {
+    const data = d.data || d;
+    const p = (data.params && data.params.pagination) || data.pagination || {};
+    return { list: this.toList(data.items), hasNextPage: (p.currentPage || 1) < (p.totalPages || 1) };
+  }
+  async getPopular(page) {
+    return this.page(await this.json(`${this.api()}/v1/api/danh-sach/phim-bo?page=${page}&limit=24&sort_field=year&sort_type=desc`));
+  }
+  async getLatestUpdates(page) {
+    return this.page(await this.json(`${this.api()}/danh-sach/phim-moi-cap-nhat?page=${page}`));
+  }
+  async search(query, page, filters) {
+    const sortField = yhF(filters, "sort") || "modified.time";
+    const common = `page=${page}&limit=24&sort_field=${sortField}&sort_type=desc`;
+    const lang = yhF(filters, "lang") || "";
+    const extra = lang ? `&sort_lang=${lang}` : "";
+    if (query && query.trim()) {
+      return this.page(await this.json(`${this.api()}/v1/api/tim-kiem?keyword=${encodeURIComponent(query.trim())}&${common}${extra}`));
+    }
+    const type = yhF(filters, "type") || "";
+    const genre = yhF(filters, "genre") || "";
+    const country = yhF(filters, "country") || "";
+    const year = yhF(filters, "year") || "";
+    const q = `${common}${extra}${genre ? "&category=" + genre : ""}${country ? "&country=" + country : ""}${year ? "&year=" + year : ""}`;
+    let path;
+    if (type) path = `/v1/api/danh-sach/${type}`;
+    else if (genre) path = `/v1/api/the-loai/${genre}`;
+    else if (country) path = `/v1/api/quoc-gia/${country}`;
+    else if (year) path = `/v1/api/nam/${year}`;
+    else return this.getLatestUpdates(page);
+    return this.page(await this.json(`${this.api()}${path}?${q}`));
+  }
+  async getDetail(url) {
+    const slug = url.replace(/^.*\/phim\//, "").replace(/[/?#].*$/, "");
+    const d = await this.json(`${this.api()}/phim/${slug}`);
+    const m = d.movie || {};
+    const eps = new Map();
+    for (const sv of d.episodes || []) {
+      for (const e of sv.server_data || []) {
+        if (!e.link_m3u8 && !e.link_embed) continue;
+        const key = e.slug || e.name;
+        if (!eps.has(key)) eps.set(key, e.name);
+      }
+    }
+    const episodes = [...eps.entries()].map(([k, n]) => ({
+      name: /^\d+$/.test(n) ? "Tập " + n : n,
+      url: slug + "|" + k,
+      _n: parseFloat(((n || "").match(/\d+(?:\.\d+)?/) || [])[0]),
+    }));
+    if (episodes.every((e) => !isNaN(e._n))) episodes.sort((a, b) => b._n - a._n);
+    else episodes.reverse();
+    episodes.forEach((e) => delete e._n);
+    const info = [
+      m.origin_name ? "Tên gốc: " + m.origin_name : "",
+      m.year ? "Năm: " + m.year : "",
+      m.time ? "Thời lượng: " + m.time : "",
+      m.quality ? "Chất lượng: " + m.quality + (m.lang ? " • " + m.lang : "") : "",
+      (m.country || []).length ? "Quốc gia: " + m.country.map((c) => c.name).join(", ") : "",
+      (m.actor || []).filter((a) => a && a !== "Đang cập nhật").length ? "Diễn viên: " + m.actor.join(", ") : "",
+    ].filter(Boolean).join("\n");
+    return {
+      name: m.name,
+      imageUrl: this.img(m.poster_url || m.thumb_url),
+      description: yhText((m.content || "").replace(/<[^>]+>/g, " ")) + (info ? "\n\n" + info : ""),
+      author: (m.director || []).filter((x) => x && x !== "Đang cập nhật").join(", "),
+      genre: (m.category || []).map((c) => c.name),
+      status: m.status === "completed" ? 1 : (m.status === "ongoing" ? 0 : 5),
+      link: `${yhBase(this)}/phim/${slug}`,
+      episodes,
+    };
+  }
+  async getVideoList(url) {
+    const [slug, key] = url.split("|");
+    const d = await this.json(`${this.api()}/phim/${slug}`);
+    const videos = [];
+    for (const sv of d.episodes || []) {
+      for (const e of sv.server_data || []) {
+        if ((e.slug || e.name) !== key || !e.link_m3u8) continue;
+        videos.push({ url: e.link_m3u8, originalUrl: e.link_m3u8, quality: sv.server_name || "HLS", headers: this.getHeaders(e.link_m3u8) });
+      }
+    }
+    return videos;
+  }
+  getFilterList() {
+    return [
+      yhHeader("Bộ lọc dùng khi ô tìm kiếm trống (trừ Sắp xếp và Ngôn ngữ)"),
+      yhSelect("type", "Danh sách", RP_TYPES),
+      yhSelect("genre", "Thể loại", RP_GENRES),
+      yhSelect("country", "Quốc gia", RP_COUNTRIES),
+      yhSelect("year", "Năm", RP_YEARS),
+      yhSelect("sort", "Sắp xếp", RP_SORT),
+      yhSelect("lang", "Ngôn ngữ", RP_LANG),
+    ];
+  }
+  getSourcePreferences() {
+    return [
+      yhDomainPref("https://www.rophimhd.com"),
+      { key: "yh_api", editTextPreference: { title: "Máy chủ dữ liệu (API)", summary: "Mặc định https://phimapi.com", value: "https://phimapi.com", dialogTitle: "API", dialogMessage: "", text: "https://phimapi.com" } },
+      { key: "yh_cdn", editTextPreference: { title: "Máy chủ ảnh", summary: "Mặc định https://phimimg.com", value: "https://phimimg.com", dialogTitle: "Ảnh", dialogMessage: "", text: "https://phimimg.com" } },
+    ];
+  }
+}
+

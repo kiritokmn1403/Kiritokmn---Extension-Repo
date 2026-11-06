@@ -64,6 +64,7 @@ tachiyomi://add-repo?url=${RAW}/index.min.json
 mangayomi://add-repo?repo_name=Kiritokmn&manga_url=${RAW}/index.json&anime_url=${RAW}/index.json&novel_url=${RAW}/index.json
 \`\`\`
 
+${yhSection()}
 ## Tải về (Releases v${VERSION})
 
 | Tệp |
@@ -93,5 +94,18 @@ Build: \`npm run build\` · Kiểm thử: \`npm test\` · APK: \`android/build_a
 
 Một số nguồn tái sử dụng tiện ích vBook mã nguồn mở của cộng đồng (ghi công tác giả gốc trong \`plugin.json\`). Giấy phép: GPL-3.0.
 `;
+
+// YomiHub 0.5.3: website extensions moved out of the YomiHub app (sources-yomihub/)
+function yhSection() {
+  const mp = path.join(ROOT, 'sources-yomihub/meta.json');
+  if (!fs.existsSync(mp)) return '';
+  const m = JSON.parse(fs.readFileSync(mp, 'utf8'));
+  const T = { 0: 'Truyện tranh', 1: 'Phim & Điện ảnh', 2: 'Tiểu thuyết' };
+  let t = `## Tiện ích YomiHub (${m.sources.length}) — chuyển từ bản tích hợp sẵn trong YomiHub ${m.version}\n\n`;
+  t += 'Từ YomiHub 0.5.3, các tiện ích website này **không còn tích hợp trong ứng dụng** mà nằm trong kho này (`repo/yomihub/`, định dạng Mangayomi JS). YomiHub 0.5.3 tự thêm kho vào cả 3 mục; tiện ích đã cài giữ nguyên id nên nhận cập nhật từ kho. Mangayomi cũng cài được (cùng `index.json`).\n\n';
+  t += '| # | Tiện ích | Mục | Trang | Ngôn ngữ | 18+ | Mã nguồn |\n|---|---|---|---|---|---|---|\n';
+  m.sources.forEach((s, i) => { t += `| ${i + 1} | ${s.name} | ${T[s.itemType]} | ${s.baseUrl} | ${s.lang} | ${s.nsfw ? '🔞' : ''} | [${s.asset}](repo/yomihub/${s.asset}) |\n`; });
+  return t + '\n';
+}
 fs.writeFileSync(path.join(ROOT, 'README.md'), md);
 console.log('README written', md.length);

@@ -27,12 +27,47 @@ tachiyomi://add-repo?url=https://raw.githubusercontent.com/kiritokmn1403/Kiritok
 mangayomi://add-repo?repo_name=Kiritokmn&manga_url=https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/index.json&anime_url=https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/index.json&novel_url=https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/index.json
 ```
 
+## Tiện ích YomiHub (29) — chuyển từ bản tích hợp sẵn trong YomiHub 0.5.3
+
+Từ YomiHub 0.5.3, các tiện ích website này **không còn tích hợp trong ứng dụng** mà nằm trong kho này (`repo/yomihub/`, định dạng Mangayomi JS). YomiHub 0.5.3 tự thêm kho vào cả 3 mục; tiện ích đã cài giữ nguyên id nên nhận cập nhật từ kho. Mangayomi cũng cài được (cùng `index.json`).
+
+| # | Tiện ích | Mục | Trang | Ngôn ngữ | 18+ | Mã nguồn |
+|---|---|---|---|---|---|---|
+| 1 | Hako (Light Novel) | Tiểu thuyết | https://ln.hako.vn | vi |  | [hako.js](repo/yomihub/hako.js) |
+| 2 | Sonako (Light Novel) | Tiểu thuyết | https://sonako.fandom.com | vi |  | [sonako.js](repo/yomihub/sonako.js) |
+| 3 | AnimeVN | Phim & Điện ảnh | https://animevn.net | vi |  | [animevn.js](repo/yomihub/animevn.js) |
+| 4 | AVSub – AnimeVietsub | Phim & Điện ảnh | https://animevietsub.news | vi |  | [avsub.js](repo/yomihub/avsub.js) |
+| 5 | RoPhim | Phim & Điện ảnh | https://www.rophimhd.com | vi |  | [rophim.js](repo/yomihub/rophim.js) |
+| 6 | HotPhim | Phim & Điện ảnh | https://hotphim.org | vi |  | [hotphim.js](repo/yomihub/hotphim.js) |
+| 7 | Anime47 | Phim & Điện ảnh | https://anime47.best | vi |  | [anime47.js](repo/yomihub/anime47.js) |
+| 8 | VTVgo – Truyền hình | Phim & Điện ảnh | https://vtvgo.vn | vi |  | [vtvgo.js](repo/yomihub/vtvgo.js) |
+| 9 | YouTube (NewPipe · Pure Tuber) | Phim & Điện ảnh | https://www.youtube.com | all |  | [youtube.js](repo/yomihub/youtube.js) |
+| 10 | Pornhub (18+) | Phim & Điện ảnh | https://www.pornhub.com | all | 🔞 | [pornhub.js](repo/yomihub/pornhub.js) |
+| 11 | FikFap (18+) | Phim & Điện ảnh | https://fikfap.com | all | 🔞 | [fikfap.js](repo/yomihub/fikfap.js) |
+| 12 | HihiSex (18+) | Phim & Điện ảnh | https://hihisex.men | vi | 🔞 | [hihisex.js](repo/yomihub/hihisex.js) |
+| 13 | Tik.Porn (18+) | Phim & Điện ảnh | https://tik.porn | all | 🔞 | [tikporn.js](repo/yomihub/tikporn.js) |
+| 14 | Kwiky (18+) | Phim & Điện ảnh | https://kwiky.com | all | 🔞 | [kwiky.js](repo/yomihub/kwiky.js) |
+| 15 | xFree (18+) | Phim & Điện ảnh | https://www.xfree.com | all | 🔞 | [xfree.js](repo/yomihub/xfree.js) |
+| 16 | FapReel (18+) | Phim & Điện ảnh | https://fapreel.com | all | 🔞 | [fapreel.js](repo/yomihub/fapreel.js) |
+| 17 | SexVietTop (18+) | Phim & Điện ảnh | https://top1sexvn.com | vi | 🔞 | [sexviettop.js](repo/yomihub/sexviettop.js) |
+| 18 | HayChill | Phim & Điện ảnh | https://phimhaychill.org | vi |  | [haychill.js](repo/yomihub/haychill.js) |
+| 19 | XemPhimGi | Phim & Điện ảnh | https://xemphimgi.com | vi |  | [xemphimgi.js](repo/yomihub/xemphimgi.js) |
+| 20 | NextPhim | Phim & Điện ảnh | https://nextphim.net | vi |  | [nextphim.js](repo/yomihub/nextphim.js) |
+| 21 | Vfilm | Phim & Điện ảnh | http://vfilm.vn | vi |  | [vfilm.js](repo/yomihub/vfilm.js) |
+| 22 | CBHentai (18+) | Truyện tranh | https://hentaicube.xyz | vi | 🔞 | [cbhentai.js](repo/yomihub/cbhentai.js) |
+| 23 | Dâm Cô Nương (18+) | Truyện tranh | https://damconuong.pet | vi | 🔞 | [damconuong.js](repo/yomihub/damconuong.js) |
+| 24 | SayHentai (18+) | Truyện tranh | https://sayhentai.cx | vi | 🔞 | [sayhentai.js](repo/yomihub/sayhentai.js) |
+| 25 | Xôi Lạc TV | Phim & Điện ảnh | https://xoilacxxi.cc | vi |  | [xoilac.js](repo/yomihub/xoilac.js) |
+| 26 | Phimmoi | Phim & Điện ảnh | https://phimmoii.mom | vi |  | [phimmoi.js](repo/yomihub/phimmoi.js) |
+| 27 | MotPhim | Phim & Điện ảnh | https://motphimc.my | vi |  | [motphim.js](repo/yomihub/motphim.js) |
+| 28 | HiHiPhim | Phim & Điện ảnh | https://hihiphim.com | vi |  | [hihiphim.js](repo/yomihub/hihiphim.js) |
+| 29 | PhimMoiHD | Phim & Điện ảnh | https://phimmoihd.online | vi |  | [phimmoihd.js](repo/yomihub/phimmoihd.js) |
+
+
 ## Tải về (Releases v0.0.1)
 
 | Tệp |
 |---|
-| [index.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/index.json) |
-| [index.min.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/index.min.json) |
 | [Kiritokmn-Extension-0.0.1-anime-nsfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/Kiritokmn-Extension-0.0.1-anime-nsfw.apk) |
 | [Kiritokmn-Extension-0.0.1-anime-sfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/Kiritokmn-Extension-0.0.1-anime-sfw.apk) |
 | [Kiritokmn-Extension-0.0.1-lnreader-ireader.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/Kiritokmn-Extension-0.0.1-lnreader-ireader.zip) |
@@ -40,6 +75,8 @@ mangayomi://add-repo?repo_name=Kiritokmn&manga_url=https://raw.githubusercontent
 | [Kiritokmn-Extension-0.0.1-manga-sfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/Kiritokmn-Extension-0.0.1-manga-sfw.apk) |
 | [Kiritokmn-Extension-0.0.1-mangayomi-yomihub.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/Kiritokmn-Extension-0.0.1-mangayomi-yomihub.zip) |
 | [Kiritokmn-Extension-0.0.1-vbook-leechtext.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/Kiritokmn-Extension-0.0.1-vbook-leechtext.zip) |
+| [index.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/index.json) |
+| [index.min.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/index.min.json) |
 | [plugin.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/plugin.json) |
 | [plugins.min.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/plugins.min.json) |
 
