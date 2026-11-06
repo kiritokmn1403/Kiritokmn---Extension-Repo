@@ -234,3 +234,16 @@ Bản phát hành lúc 14:34 (commit `f4d7c73`): **57/196** nguồn đạt kiể
 
 - Kiểm thử lượt này (11 nguồn): **07br, mottruyen, navyteamnovel** chuyển sang đạt; hacamchicac vẫn đạt với template mới.
 - Chưa làm được: **moetruyen** ảnh chương bị xáo/ẩn bằng script (`data-imgx-page-index`), **8book** nội dung chương nạp bằng JS trên tên miền ngụy trang, **tutien.pro** bắt đăng nhập mới xem truyện, **po18sm** tìm kiếm cần mã hoá GBK, **metruyencv/mtc/truyencv** tên miền `metruyencv.xyz` không truy cập được, **anime47/lohi** là ứng dụng JS dùng API riêng.
+
+
+### 06/11/2026 — Nhận tiện ích website từ YomiHub 0.5.3 (sheet "YomiHub Update" mục 2)
+
+Thực hiện: Claude (phiên Cowork liên kết máy `kiritokmn-lap`).
+
+| # | Việc | Chi tiết |
+|---|---|---|
+| 54 | Yêu cầu | Đưa bộ cài các tiện ích trong sheet *Website Extension* của YomiHub vào kho này và gỡ bản tích hợp trong ứng dụng. |
+| 55 | `sources-yomihub/` | Chép 29 tệp từ `overlay/assets/yomihub_extensions/` của YomiHub + `_common.js`; `meta.json` sinh từ `builtin_extensions.dart` (id, tên, loại, ngôn ngữ, 18+, biểu tượng, ghi chú). |
+| 56 | `tools/build/yomihub-sources.mjs` | Ghi `repo/yomihub/<tệp>` = `const mangayomiSources=[…]` + `_common.js` + mã tiện ích; thêm vào `repo/index.json` với **cùng id** (920260001…) và `version` 0.5.3; bỏ mục vBook→Mangayomi trùng (loại + tên miền). `build-all.mjs` gọi công cụ này sau khi ghi `index.json`. |
+| 57 | Kiểm tra | `node --check` 29/29 tệp đạt; `index.json` 205 mục (29 YomiHub). Trên Galaxy Note 9 (YomiHub 0.5.3): kho tự được thêm, 29 tiện ích đã cài hiện "Kiritokmn Extension Repo" + "Đang chờ cập nhật"; cập nhật HotPhim, Anime47 thành công; HotPhim tải danh sách Phổ biến, mở phim và phát được. |
+| 58 | Sửa sau kiểm thử | Ghi chú `(YomiHub 0.5.3 – Kiritokmn Extension Repo)` hiện thành dải chữ chạy trên màn nguồn → chỉ giữ ghi chú gốc của tiện ích. |

@@ -2,6 +2,13 @@
 
 Bản đầu tiên: dựng lại toàn bộ repo (trước đó chỉ có README/LICENSE).
 
+
+## Cập nhật 06/11/2026 — nhận 29 tiện ích website từ YomiHub 0.5.3
+- Thêm thư mục `sources-yomihub/` (mã nguồn tiện ích YomiHub định dạng Mangayomi JS + `_common.js` + `meta.json`) và đầu ra `repo/yomihub/<tên>.js` (tự chứa).
+- `repo/index.json` có thêm 29 tiện ích (Hako, Sonako, AnimeVN, AVSub, RoPhim, HotPhim, Anime47, VTVgo, YouTube, Pornhub 18+, FikFap 18+, HihiSex 18+, Tik.Porn 18+, Kwiky 18+, xFree 18+, FapReel 18+, SexVietTop 18+, HayChill, XemPhimGi, NextPhim, Vfilm, CBHentai 18+, Dâm Cô Nương 18+, SayHentai 18+, Xôi Lạc TV, Phimmoi, MotPhim, HiHiPhim, PhimMoiHD), **giữ nguyên id** 920260001… của bản tích hợp cũ → bản đã cài trong YomiHub nhận cập nhật từ kho (phiên bản 0.5.3).
+- 20 mục Mangayomi chuyển đổi từ vBook trùng trang web được bỏ khỏi `index.json` (vẫn còn ở định dạng vBook / LNReader / Aniyomi).
+- Công cụ: `tools/build/yomihub-sources.mjs` (chạy tự động cuối `build-all.mjs`); README có bảng "Tiện ích YomiHub".
+
 ## Tính năng mới
 - **Một kho, một thư mục gốc cho 8 ứng dụng**: Aniyomi, Nekoyomi, Mangayomi, YomiHub, LNReader, IReader, vBook, LeechText (`repo/`).
 - **196 nguồn** từ sheet *Extension Repo Main*: 44 Phim & Video, 36 Truyện tranh, 116 Tiểu thuyết; gắn cờ 18+ (22 nguồn) theo chuẩn từng ứng dụng.

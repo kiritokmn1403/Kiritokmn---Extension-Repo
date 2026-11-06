@@ -32,7 +32,7 @@ export function buildYomihubSources(root, base) {
     fs.writeFileSync(path.join(OUT, s.asset), code);
     entries.push({ ...m, hasCloudflare: false, sourceCodeUrl: `${base}/repo/yomihub/${s.asset}`, isManga: s.itemType === 0,
       isFullData: false, appMinVerReq: '0.5.0', additionalParams: '', sourceCodeLanguage: 1,
-      notes: (s.notes ? s.notes + ' ' : '') + `(YomiHub ${meta.version} – Kiritokmn Extension Repo)` });
+      notes: s.notes || '' });  // the note is shown as a banner on the source screen: keep it empty when there is nothing to say
   }
   const idxPath = path.join(root, 'repo', 'index.json');
   let idx = JSON.parse(fs.readFileSync(idxPath, 'utf8'));
