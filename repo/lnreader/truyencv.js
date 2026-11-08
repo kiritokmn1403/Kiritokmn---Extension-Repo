@@ -447,11 +447,11 @@ var Kt = new Set(["input", "option", "optgroup", "select", "button", "datalist",
     oe.prototype.onclosetag = function (t, a) { var n, s, o, f, h, p, b, v; this.endIndex = a; var k = this.getSlice(t, a); if (this.lowerCaseTagNames && (k = k.toLowerCase()), this.htmlMode && (or.has(k) || lr.has(k)) && this.foreignContext.shift(), this.isVoidElement(k))
         this.htmlMode && k === "br" && ((f = (o = this.cbs).onopentagname) === null || f === void 0 || f.call(o, "br"), (p = (h = this.cbs).onopentag) === null || p === void 0 || p.call(h, "br", {}, !0), (v = (b = this.cbs).onclosetag) === null || v === void 0 || v.call(b, "br", !1));
     else {
-        var T = this.stack.indexOf(k);
-        if (T !== -1)
-            for (var A = 0; A <= T; A++) {
+        var S = this.stack.indexOf(k);
+        if (S !== -1)
+            for (var A = 0; A <= S; A++) {
                 var L = this.stack.shift();
-                (s = (n = this.cbs).onclosetag) === null || s === void 0 || s.call(n, L, A !== T);
+                (s = (n = this.cbs).onclosetag) === null || s === void 0 || s.call(n, L, A !== S);
             }
         else
             this.htmlMode && k === "p" && (this.emitOpenTag("p"), this.closeCurrentTag(!0));
@@ -472,7 +472,7 @@ var Kt = new Set(["input", "option", "optgroup", "select", "button", "datalist",
         this.cbs.onprocessinginstruction("?".concat(s), "?".concat(n));
     } this.startIndex = a + 1; };
     oe.prototype.oncomment = function (t, a, n) { var s, o, f, h; this.endIndex = a, (o = (s = this.cbs).oncomment) === null || o === void 0 || o.call(s, this.getSlice(t, a - n)), (h = (f = this.cbs).oncommentend) === null || h === void 0 || h.call(f), this.startIndex = a + 1; };
-    oe.prototype.oncdata = function (t, a, n) { var s, o, f, h, p, b, v, k, T, A; this.endIndex = a; var L = this.getSlice(t, a - n); !this.htmlMode || this.options.recognizeCDATA ? ((o = (s = this.cbs).oncdatastart) === null || o === void 0 || o.call(s), (h = (f = this.cbs).ontext) === null || h === void 0 || h.call(f, L), (b = (p = this.cbs).oncdataend) === null || b === void 0 || b.call(p)) : ((k = (v = this.cbs).oncomment) === null || k === void 0 || k.call(v, "[CDATA[".concat(L, "]]")), (A = (T = this.cbs).oncommentend) === null || A === void 0 || A.call(T)), this.startIndex = a + 1; };
+    oe.prototype.oncdata = function (t, a, n) { var s, o, f, h, p, b, v, k, S, A; this.endIndex = a; var L = this.getSlice(t, a - n); !this.htmlMode || this.options.recognizeCDATA ? ((o = (s = this.cbs).oncdatastart) === null || o === void 0 || o.call(s), (h = (f = this.cbs).ontext) === null || h === void 0 || h.call(f, L), (b = (p = this.cbs).oncdataend) === null || b === void 0 || b.call(p)) : ((k = (v = this.cbs).oncomment) === null || k === void 0 || k.call(v, "[CDATA[".concat(L, "]]")), (A = (S = this.cbs).oncommentend) === null || A === void 0 || A.call(S)), this.startIndex = a + 1; };
     oe.prototype.onend = function () { var t, a; if (this.cbs.onclosetag) {
         this.endIndex = this.startIndex;
         for (var n = 0; n < this.stack.length; n++)
@@ -759,11 +759,11 @@ function Su(e, t) {
     if (t === void 0) { t = {}; }
     var a = "length" in e ? e : [e], n = "";
     for (var s = 0; s < a.length; s++)
-        n += Fa(a[s], t);
+        n += Ma(a[s], t);
     return n;
 }
 var re = Su;
-function Fa(e, t) { switch (e.type) {
+function Ma(e, t) { switch (e.type) {
     case su: return Su(e.children, t);
     case gu:
     case ou: return Va(e);
@@ -774,8 +774,8 @@ function Fa(e, t) { switch (e.type) {
     case hu: return Ia(e, t);
     case cu: return Ga(e, t);
 } }
-var Ma = new Set(["mi", "mo", "mn", "ms", "mtext", "annotation-xml", "foreignObject", "desc", "title"]), _a = new Set(["svg", "math"]);
-function Ia(e, t) { var a; t.xmlMode === "foreign" && (e.name = (a = vr.get(e.name)) !== null && a !== void 0 ? a : e.name, e.parent && Ma.has(e.parent.name) && (t = Vt(wt({}, t), { xmlMode: !1 }))), !t.xmlMode && _a.has(e.name) && (t = Vt(wt({}, t), { xmlMode: "foreign" })); var n = "<".concat(e.name), s = Ha(e.attribs, t); return s && (n += " ".concat(s)), e.children.length === 0 && (t.xmlMode ? t.selfClosingTags !== !1 : t.selfClosingTags && Sr.has(e.name)) ? (t.xmlMode || (n += " "), n += "/>") : (n += ">", e.children.length > 0 && (n += Su(e.children, t)), (t.xmlMode || !Sr.has(e.name)) && (n += "</".concat(e.name, ">"))), n; }
+var Fa = new Set(["mi", "mo", "mn", "ms", "mtext", "annotation-xml", "foreignObject", "desc", "title"]), _a = new Set(["svg", "math"]);
+function Ia(e, t) { var a; t.xmlMode === "foreign" && (e.name = (a = vr.get(e.name)) !== null && a !== void 0 ? a : e.name, e.parent && Fa.has(e.parent.name) && (t = Vt(wt({}, t), { xmlMode: !1 }))), !t.xmlMode && _a.has(e.name) && (t = Vt(wt({}, t), { xmlMode: "foreign" })); var n = "<".concat(e.name), s = Ha(e.attribs, t); return s && (n += " ".concat(s)), e.children.length === 0 && (t.xmlMode ? t.selfClosingTags !== !1 : t.selfClosingTags && Sr.has(e.name)) ? (t.xmlMode || (n += " "), n += "/>") : (n += ">", e.children.length > 0 && (n += Su(e.children, t)), (t.xmlMode || !Sr.has(e.name)) && (n += "</".concat(e.name, ">"))), n; }
 function Va(e) { return "<".concat(e.data, ">"); }
 function Ga(e, t) { var a; var n = e.data || ""; return ((a = t.encodeEntities) !== null && a !== void 0 ? a : t.decodeEntities) !== !1 && !(!t.xmlMode && e.parent && Pa.has(e.parent.name)) && (n = t.xmlMode || t.encodeEntities !== "utf8" ? me(n) : Oe(n)), n; }
 function ja(e) { return "<![CDATA[".concat(e.children[0].data, "]]>"); }
@@ -944,9 +944,9 @@ function Nr(e, t) { var a = [], n = []; if (e === t)
     f++; if (f === 0)
     return yt.DISCONNECTED; var h = a[f - 1], p = h.children, b = a[f], v = n[f]; return p.indexOf(b) > p.indexOf(v) ? h === t ? yt.FOLLOWING | yt.CONTAINED_BY : yt.FOLLOWING : h === e ? yt.PRECEDING | yt.CONTAINS : yt.PRECEDING; }
 function ku(e) { return e = e.filter(function (t, a, n) { return !n.includes(t, a + 1); }), e.sort(function (t, a) { var n = Nr(t, a); return n & yt.PRECEDING ? -1 : n & yt.FOLLOWING ? 1 : 0; }), e; }
-function Lu(e) { var t = Fe(pn, e); return t ? t.name === "feed" ? ln(t) : fn(t) : null; }
-function ln(e) { var t; var a = e.children, n = { type: "atom", items: jt("entry", a).map(function (f) { var h; var p = f.children, b = { media: kr(p) }; lt(b, "id", "id", p), lt(b, "title", "title", p); var v = (h = Fe("link", p)) === null || h === void 0 ? void 0 : h.attribs.href; v && (b.link = v); var k = Rt("summary", p) || Rt("content", p); k && (b.description = k); var T = Rt("updated", p); return T && (b.pubDate = new Date(T)), b; }) }; lt(n, "id", "id", a), lt(n, "title", "title", a); var s = (t = Fe("link", a)) === null || t === void 0 ? void 0 : t.attribs.href; s && (n.link = s), lt(n, "description", "subtitle", a); var o = Rt("updated", a); return o && (n.updated = new Date(o)), lt(n, "author", "email", a, !0), n; }
-function fn(e) { var t, a; var n = (a = (t = Fe("channel", e.children)) === null || t === void 0 ? void 0 : t.children) !== null && a !== void 0 ? a : [], s = { type: e.name.substr(0, 3), id: "", items: jt("item", e.children).map(function (f) { var h = f.children, p = { media: kr(h) }; lt(p, "id", "guid", h), lt(p, "title", "title", h), lt(p, "link", "link", h), lt(p, "description", "description", h); var b = Rt("pubDate", h) || Rt("dc:date", h); return b && (p.pubDate = new Date(b)), p; }) }; lt(s, "title", "title", n), lt(s, "link", "link", n), lt(s, "description", "description", n); var o = Rt("lastBuildDate", n); return o && (s.updated = new Date(o)), lt(s, "author", "managingEditor", n, !0), s; }
+function Lu(e) { var t = Me(pn, e); return t ? t.name === "feed" ? ln(t) : fn(t) : null; }
+function ln(e) { var t; var a = e.children, n = { type: "atom", items: jt("entry", a).map(function (f) { var h; var p = f.children, b = { media: kr(p) }; lt(b, "id", "id", p), lt(b, "title", "title", p); var v = (h = Me("link", p)) === null || h === void 0 ? void 0 : h.attribs.href; v && (b.link = v); var k = Rt("summary", p) || Rt("content", p); k && (b.description = k); var S = Rt("updated", p); return S && (b.pubDate = new Date(S)), b; }) }; lt(n, "id", "id", a), lt(n, "title", "title", a); var s = (t = Me("link", a)) === null || t === void 0 ? void 0 : t.attribs.href; s && (n.link = s), lt(n, "description", "subtitle", a); var o = Rt("updated", a); return o && (n.updated = new Date(o)), lt(n, "author", "email", a, !0), n; }
+function fn(e) { var t, a; var n = (a = (t = Me("channel", e.children)) === null || t === void 0 ? void 0 : t.children) !== null && a !== void 0 ? a : [], s = { type: e.name.substr(0, 3), id: "", items: jt("item", e.children).map(function (f) { var h = f.children, p = { media: kr(h) }; lt(p, "id", "guid", h), lt(p, "title", "title", h), lt(p, "link", "link", h), lt(p, "description", "description", h); var b = Rt("pubDate", h) || Rt("dc:date", h); return b && (p.pubDate = new Date(b)), p; }) }; lt(s, "title", "title", n), lt(s, "link", "link", n), lt(s, "description", "description", n); var o = Rt("lastBuildDate", n); return o && (s.updated = new Date(o)), lt(s, "author", "managingEditor", n, !0), s; }
 var dn = ["url", "type", "lang"], hn = ["fileSize", "bitrate", "framerate", "samplingrate", "channels", "duration", "height", "width"];
 function kr(e) { return jt("media:content", e).map(function (t) {
     var e_4, _b, e_5, _c;
@@ -979,7 +979,7 @@ function kr(e) { return jt("media:content", e).map(function (t) {
     }
     return a.expression && (n.expression = a.expression), n;
 }); }
-function Fe(e, t) { return jt(e, t, !0, 1)[0]; }
+function Me(e, t) { return jt(e, t, !0, 1)[0]; }
 function Rt(e, t, a) {
     if (a === void 0) { a = !1; }
     return Ut(jt(e, t, a, 1)).trim();
@@ -1012,20 +1012,20 @@ function qu(e) { return e === 39 || e === 34; }
 function Or(e) { return e === 32 || e === 9 || e === 10 || e === 12 || e === 13; }
 function Pt(e) { var t = [], a = Dr(t, "".concat(e), 0); if (a < e.length)
     throw new Error("Unmatched selector: ".concat(e.slice(a))); return t; }
-function Dr(e, t, a) { var n = []; function s(T) { var A = t.slice(a + T).match(qr); if (!A)
-    throw new Error("Expected name, found ".concat(t.slice(a))); var _b = __read(A, 1), L = _b[0]; return a += T + L.length, xe(L); } function o(T) { for (a += T; a < t.length && Or(t.charCodeAt(a));)
-    a++; } function f() { a += 1; var T = a, A = 1; for (; A > 0 && a < t.length; a++)
+function Dr(e, t, a) { var n = []; function s(S) { var A = t.slice(a + S).match(qr); if (!A)
+    throw new Error("Expected name, found ".concat(t.slice(a))); var _b = __read(A, 1), L = _b[0]; return a += S + L.length, xe(L); } function o(S) { for (a += S; a < t.length && Or(t.charCodeAt(a));)
+    a++; } function f() { a += 1; var S = a, A = 1; for (; A > 0 && a < t.length; a++)
     t.charCodeAt(a) === 40 && !h(a) ? A++ : t.charCodeAt(a) === 41 && !h(a) && A--; if (A)
-    throw new Error("Parenthesis not matched"); return xe(t.slice(T, a - 1)); } function h(T) { var A = 0; for (; t.charCodeAt(--T) === 92;)
+    throw new Error("Parenthesis not matched"); return xe(t.slice(S, a - 1)); } function h(S) { var A = 0; for (; t.charCodeAt(--S) === 92;)
     A++; return (A & 1) === 1; } function p() { if (n.length > 0 && zt(n[n.length - 1]))
-    throw new Error("Did not expect successive traversals."); } function b(T) { if (n.length > 0 && n[n.length - 1].type === C.Descendant) {
-    n[n.length - 1].type = T;
+    throw new Error("Did not expect successive traversals."); } function b(S) { if (n.length > 0 && n[n.length - 1].type === C.Descendant) {
+    n[n.length - 1].type = S;
     return;
-} p(), n.push({ type: T }); } function v(T, A) { n.push({ type: C.Attribute, name: T, action: A, value: s(1), namespace: null, ignoreCase: "quirks" }); } function k() { if (n.length && n[n.length - 1].type === C.Descendant && n.pop(), n.length === 0)
+} p(), n.push({ type: S }); } function v(S, A) { n.push({ type: C.Attribute, name: S, action: A, value: s(1), namespace: null, ignoreCase: "quirks" }); } function k() { if (n.length && n[n.length - 1].type === C.Descendant && n.pop(), n.length === 0)
     throw new Error("Empty sub-selector"); e.push(n); } if (o(0), t.length === a)
     return a; t: for (; a < t.length;) {
-    var T = t.charCodeAt(a);
-    switch (T) {
+    var S = t.charCodeAt(a);
+    switch (S) {
         case 32:
         case 9:
         case 10:
@@ -1134,9 +1134,9 @@ function Dr(e, t, a) { var n = []; function s(T) { var A = t.slice(a + T).match(
                 break;
             }
             var A = null, L = void 0;
-            if (T === 42)
+            if (S === 42)
                 a += 1, L = "*";
-            else if (T === 124) {
+            else if (S === 124) {
                 if (L = "", t.charCodeAt(a + 1) === 124) {
                     b(C.ColumnCombinator), o(2);
                     break;
@@ -1178,12 +1178,12 @@ var Hr = { equals: function (e, t, a) { var n = a.adapter, s = t.name, o = t.val
         var f_1 = new RegExp(Br(o), "i");
         return function (p) { var b = n.getAttributeValue(p, s); return b != null && b.length >= o.length && f_1.test(b) && e(p); };
     } return function (f) { var h; return !!(!((h = n.getAttributeValue(f, s)) === null || h === void 0) && h.includes(o)) && e(f); }; }, not: function (e, t, a) { var n = a.adapter, s = t.name, o = t.value; return o === "" ? function (f) { return !!n.getAttributeValue(f, s) && e(f); } : $t(t, a) ? (o = o.toLowerCase(), function (f) { var h = n.getAttributeValue(f, s); return (h == null || h.length !== o.length || h.toLowerCase() !== o) && e(f); }) : function (f) { return n.getAttributeValue(f, s) !== o && e(f); }; } };
-var Tn = new Set([9, 10, 12, 13, 32]), Fr = 48, An = 57;
-function Mr(e) { if (e = e.trim().toLowerCase(), e === "even")
+var Tn = new Set([9, 10, 12, 13, 32]), Mr = 48, An = 57;
+function Fr(e) { if (e = e.trim().toLowerCase(), e === "even")
     return [2, 0]; if (e === "odd")
     return [2, 1]; var t = 0, a = 0, n = o(), s = f(); if (t < e.length && e.charAt(t) === "n" && (t++, a = n * (s != null ? s : 1), h(), t < e.length ? (n = o(), h(), s = f()) : n = s = 0), s === null || t < e.length)
-    throw new Error("n-th rule couldn't be parsed ('".concat(e, "')")); return [a, n * s]; function o() { return e.charAt(t) === "-" ? (t++, -1) : (e.charAt(t) === "+" && t++, 1); } function f() { var p = t, b = 0; for (; t < e.length && e.charCodeAt(t) >= Fr && e.charCodeAt(t) <= An;)
-    b = b * 10 + (e.charCodeAt(t) - Fr), t++; return t === p ? null : b; } function h() { for (; t < e.length && Tn.has(e.charCodeAt(t));)
+    throw new Error("n-th rule couldn't be parsed ('".concat(e, "')")); return [a, n * s]; function o() { return e.charAt(t) === "-" ? (t++, -1) : (e.charAt(t) === "+" && t++, 1); } function f() { var p = t, b = 0; for (; t < e.length && e.charCodeAt(t) >= Mr && e.charCodeAt(t) <= An;)
+    b = b * 10 + (e.charCodeAt(t) - Mr), t++; return t === p ? null : b; } function h() { for (; t < e.length && Tn.has(e.charCodeAt(t));)
     t++; } }
 var Du = Gt(Bt(), 1);
 function _r(e) { var t = e[0], a = e[1] - 1; if (a < 0 && t <= 0)
@@ -1191,9 +1191,9 @@ function _r(e) { var t = e[0], a = e[1] - 1; if (a < 0 && t <= 0)
     return function (o) { return o <= a; }; if (t === 0)
     return function (o) { return o === a; }; if (t === 1)
     return a < 0 ? Du.default.trueFunc : function (o) { return o >= a; }; var n = Math.abs(t), s = (a % n + n) % n; return t > 1 ? function (o) { return o >= a && o % n === s; } : function (o) { return o <= a && o % n === s; }; }
-function ne(e) { return _r(Mr(e)); }
+function ne(e) { return _r(Fr(e)); }
 var ft = Gt(Bt(), 1);
-function Me(e, t) { return function (a) { var n = t.getParent(a); return n != null && t.isTag(n) && e(a); }; }
+function Fe(e, t) { return function (a) { var n = t.getParent(a); return n != null && t.isTag(n) && e(a); }; }
 var ie = { contains: function (e, t, _b) {
         var a = _b.adapter;
         return function (s) { return e(s) && a.getText(s).includes(t); };
@@ -1204,17 +1204,17 @@ var ie = { contains: function (e, t, _b) {
     }, "nth-child": function (e, t, _b) {
         var a = _b.adapter, n = _b.equals;
         var s = ne(t);
-        return s === ft.default.falseFunc ? ft.default.falseFunc : s === ft.default.trueFunc ? Me(e, a) : function (f) { var h = a.getSiblings(f), p = 0; for (var b = 0; b < h.length && !n(f, h[b]); b++)
+        return s === ft.default.falseFunc ? ft.default.falseFunc : s === ft.default.trueFunc ? Fe(e, a) : function (f) { var h = a.getSiblings(f), p = 0; for (var b = 0; b < h.length && !n(f, h[b]); b++)
             a.isTag(h[b]) && p++; return s(p) && e(f); };
     }, "nth-last-child": function (e, t, _b) {
         var a = _b.adapter, n = _b.equals;
         var s = ne(t);
-        return s === ft.default.falseFunc ? ft.default.falseFunc : s === ft.default.trueFunc ? Me(e, a) : function (f) { var h = a.getSiblings(f), p = 0; for (var b = h.length - 1; b >= 0 && !n(f, h[b]); b--)
+        return s === ft.default.falseFunc ? ft.default.falseFunc : s === ft.default.trueFunc ? Fe(e, a) : function (f) { var h = a.getSiblings(f), p = 0; for (var b = h.length - 1; b >= 0 && !n(f, h[b]); b--)
             a.isTag(h[b]) && p++; return s(p) && e(f); };
     }, "nth-of-type": function (e, t, _b) {
         var a = _b.adapter, n = _b.equals;
         var s = ne(t);
-        return s === ft.default.falseFunc ? ft.default.falseFunc : s === ft.default.trueFunc ? Me(e, a) : function (f) { var h = a.getSiblings(f), p = 0; for (var b = 0; b < h.length; b++) {
+        return s === ft.default.falseFunc ? ft.default.falseFunc : s === ft.default.trueFunc ? Fe(e, a) : function (f) { var h = a.getSiblings(f), p = 0; for (var b = 0; b < h.length; b++) {
             var v = h[b];
             if (n(f, v))
                 break;
@@ -1223,7 +1223,7 @@ var ie = { contains: function (e, t, _b) {
     }, "nth-last-of-type": function (e, t, _b) {
         var a = _b.adapter, n = _b.equals;
         var s = ne(t);
-        return s === ft.default.falseFunc ? ft.default.falseFunc : s === ft.default.trueFunc ? Me(e, a) : function (f) { var h = a.getSiblings(f), p = 0; for (var b = h.length - 1; b >= 0; b--) {
+        return s === ft.default.falseFunc ? ft.default.falseFunc : s === ft.default.trueFunc ? Fe(e, a) : function (f) { var h = a.getSiblings(f), p = 0; for (var b = h.length - 1; b >= 0; b--) {
             var v = h[b];
             if (n(f, v))
                 break;
@@ -1296,15 +1296,15 @@ else if (e.length === n)
 var _e = { "any-link": ":is(a, area, link)[href]", link: ":any-link:not(:visited)", disabled: ":is(\n        :is(button, input, select, textarea, optgroup, option)[disabled],\n        optgroup[disabled] > option,\n        fieldset[disabled]:not(fieldset[disabled] legend:first-of-type *)\n    )", enabled: ":not(:disabled)", checked: ":is(:is(input[type=radio], input[type=checkbox])[checked], option:selected)", required: ":is(input, select, textarea)[required]", optional: ":is(input, select, textarea):not([required])", selected: "option:is([selected], select:not([multiple]):not(:has(> option[selected])) > :first-of-type)", checkbox: "[type=checkbox]", file: "[type=file]", password: "[type=password]", radio: "[type=radio]", reset: "[type=reset]", image: "[type=image]", submit: "[type=submit]", parent: ":not(:empty)", header: ":is(h1, h2, h3, h4, h5, h6)", button: ":is(button, input[type=button])", input: ":is(input, textarea, select, button)", text: "input:is(:not([type!='']), [type=text])" };
 var vt = Gt(Bt(), 1);
 var Hu = {};
-function Fu(e, t) { return e === vt.default.falseFunc ? vt.default.falseFunc : function (a) { return t.isTag(a) && e(a); }; }
-function Mu(e, t) { var a = t.getSiblings(e); if (a.length <= 1)
+function Mu(e, t) { return e === vt.default.falseFunc ? vt.default.falseFunc : function (a) { return t.isTag(a) && e(a); }; }
+function Fu(e, t) { var a = t.getSiblings(e); if (a.length <= 1)
     return []; var n = a.indexOf(e); return n < 0 || n === a.length - 1 ? [] : a.slice(n + 1).filter(t.isTag); }
 function Bu(e) { return { xmlMode: !!e.xmlMode, lowerCaseAttributeNames: !!e.lowerCaseAttributeNames, lowerCaseTags: !!e.lowerCaseTags, quirksMode: !!e.quirksMode, cacheResults: !!e.cacheResults, pseudos: e.pseudos, adapter: e.adapter, equals: e.equals }; }
 var Pu = function (e, t, a, n, s) { var o = s(t, Bu(a), n); return o === vt.default.trueFunc ? e : o === vt.default.falseFunc ? vt.default.falseFunc : function (f) { return o(f) && e(f); }; }, Ie = { is: Pu, matches: Pu, where: Pu, not: function (e, t, a, n, s) { var o = s(t, Bu(a), n); return o === vt.default.falseFunc ? e : o === vt.default.trueFunc ? vt.default.falseFunc : function (f) { return !o(f) && e(f); }; }, has: function (e, t, a, n, s) { var o = a.adapter, f = Bu(a); f.relativeSelector = !0; var h = t.some(function (v) { return v.some(ye); }) ? [Hu] : void 0, p = s(t, f, h); if (p === vt.default.falseFunc)
-        return vt.default.falseFunc; var b = Fu(p, o); if (h && p !== vt.default.trueFunc) {
+        return vt.default.falseFunc; var b = Mu(p, o); if (h && p !== vt.default.trueFunc) {
         var _b = p.shouldTestNextSiblings, v_1 = _b === void 0 ? !1 : _b;
         return function (k) { if (!e(k))
-            return !1; h[0] = k; var T = o.getChildren(k), A = v_1 ? __spreadArray(__spreadArray([], __read(T), false), __read(Mu(k, o)), false) : T; return o.existsOne(b, A); };
+            return !1; h[0] = k; var S = o.getChildren(k), A = v_1 ? __spreadArray(__spreadArray([], __read(S), false), __read(Fu(k, o)), false) : S; return o.existsOne(b, A); };
     } return function (v) { return e(v) && o.existsOne(b, o.getChildren(v)); }; } };
 function Ir(e, t, a, n, s) { var o; var f = t.name, h = t.data; if (Array.isArray(h)) {
     if (!(f in Ie))
@@ -1364,10 +1364,10 @@ function Vr(e, t, a, n, s) { var o = a.adapter, f = a.equals; switch (t.type) {
             return !0;
     } return !1; };
     case C.Adjacent: return o.prevElementSibling ? function (p) { var b = o.prevElementSibling(p); return b != null && e(b); } : function (p) { var b = o.getSiblings(p), v; for (var k = 0; k < b.length; k++) {
-        var T = b[k];
-        if (f(p, T))
+        var S = b[k];
+        if (f(p, S))
             break;
-        o.isTag(T) && (v = T);
+        o.isTag(S) && (v = S);
     } return !!v && e(v); };
     case C.Universal: {
         if (t.namespace != null && t.namespace !== "*")
@@ -1375,7 +1375,7 @@ function Vr(e, t, a, n, s) { var o = a.adapter, f = a.equals; switch (t.type) {
         return e;
     }
 } }
-function Gr(e, t, a) { var n = Ve(e, t, a); return Fu(n, t.adapter); }
+function Gr(e, t, a) { var n = Ve(e, t, a); return Mu(n, t.adapter); }
 function Ve(e, t, a) { var n = typeof e == "string" ? Pt(e) : e; return Ge(n, t, a); }
 function jr(e) { return e.type === C.Pseudo && (e.name === "scope" || Array.isArray(e.data) && e.data.some(function (t) { return t.some(jr); })); }
 var Cn = { type: C.Descendant }, En = { type: "_flexibleDescendant" }, Nn = { type: C.Pseudo, name: "scope", data: null };
@@ -1421,7 +1421,7 @@ function ze(e, t, a) {
     return a && (e = Dn(e, t)), Array.isArray(e) ? t.removeSubsets(e) : t.getChildren(e);
 }
 function Dn(e, t) { var a = Array.isArray(e) ? e.slice(0) : [e], n = a.length; for (var s = 0; s < n; s++) {
-    var o = Mu(a[s], t);
+    var o = Fu(a[s], t);
     a.push.apply(a, __spreadArray([], __read(o), false));
 } return a; }
 var rs = Qr(function (e, t, a) { return e === Iu.default.falseFunc || !t || t.length === 0 ? [] : a.adapter.findAll(e, t); }), as = Qr(function (e, t, a) { return e === Iu.default.falseFunc || !t || t.length === 0 ? null : a.adapter.findOne(e, t); });
@@ -1481,11 +1481,11 @@ function Hn(e, t, a, n) { var s = typeof a == "string" ? parseInt(a, 10) : NaN; 
     case "even": return t.filter(function (o, f) { return f % 2 === 0; });
     case "odd": return t.filter(function (o, f) { return f % 2 === 1; });
     case "not": {
-        var o_1 = new Set(Fn(a, t, n));
+        var o_1 = new Set(Mn(a, t, n));
         return t.filter(function (f) { return !o_1.has(f); });
     }
 } }
-function Fn(e, t, a) { if (t.length === 0)
+function Mn(e, t, a) { if (t.length === 0)
     return []; var _b = __read($e(e), 2), n = _b[0], s = _b[1], o; if (n.length) {
     var f = ju(t, n, a);
     if (s.length === 0)
@@ -1518,16 +1518,16 @@ function $u(e, t, a, n) {
     return s.length && f.push(Gu(t, s, a, n)), f.length === 0 ? [] : f.length === 1 ? f[0] : ku(f.reduce(function (h, p) { return __spreadArray(__spreadArray([], __read(h), false), __read(p), false); }));
 }
 function We(e, t, a, n, s) { var o = t.findIndex(se), f = t.slice(0, o), h = t[o], p = t.length - 1 === o ? s : 1 / 0, b = Wr(h.name, h.data, p); if (b === 0)
-    return []; var k = (f.length === 0 && !Array.isArray(e) ? Ue(e).filter(P) : f.length === 0 ? (Array.isArray(e) ? e : [e]).filter(P) : n || f.some(zt) ? Gu(e, [f], a, b) : ju(e, [f], a)).slice(0, b), T = Hn(h.name, k, h.data, a); if (T.length === 0 || t.length === o + 1)
-    return T; var A = t.slice(o + 1), L = A.some(zt); if (L) {
+    return []; var k = (f.length === 0 && !Array.isArray(e) ? Ue(e).filter(P) : f.length === 0 ? (Array.isArray(e) ? e : [e]).filter(P) : n || f.some(zt) ? Gu(e, [f], a, b) : ju(e, [f], a)).slice(0, b), S = Hn(h.name, k, h.data, a); if (S.length === 0 || t.length === o + 1)
+    return S; var A = t.slice(o + 1), L = A.some(zt); if (L) {
     if (zt(A[0])) {
         var D = A[0].type;
-        (D === C.Sibling || D === C.Adjacent) && (T = ze(T, At, !0)), A.unshift(Rn);
+        (D === C.Sibling || D === C.Adjacent) && (S = ze(S, At, !0)), A.unshift(Rn);
     }
-    a = Vt(wt({}, a), { relativeSelector: !1, rootFunc: function (D) { return T.includes(D); } });
+    a = Vt(wt({}, a), { relativeSelector: !1, rootFunc: function (D) { return S.includes(D); } });
 }
 else
-    a.rootFunc && a.rootFunc !== Qe.trueFunc && (a = Vt(wt({}, a), { rootFunc: Qe.trueFunc })); return A.some(se) ? We(T, A, a, !1, s) : L ? Gu(T, [A], a, s) : ju(T, [A], a); }
+    a.rootFunc && a.rootFunc !== Qe.trueFunc && (a = Vt(wt({}, a), { rootFunc: Qe.trueFunc })); return A.some(se) ? We(S, A, a, !1, s) : L ? Gu(S, [A], a, s) : ju(S, [A], a); }
 function Gu(e, t, a, n) { var s = je(t, a, e); return Zr(e, s, n); }
 function Zr(e, t, a) {
     if (a === void 0) { a = 1 / 0; }
@@ -1562,7 +1562,7 @@ function Yr(e) { if (typeof btoa == "function")
     var n = e.charCodeAt(a), s = e.charCodeAt(a + 1), o = e.charCodeAt(a + 2), f = n << 16 | (s || 0) << 8 | (o || 0);
     t += Xe[f >> 18 & 63] + Xe[f >> 12 & 63] + (a + 1 < e.length ? Xe[f >> 6 & 63] : "=") + (a + 2 < e.length ? Xe[f & 63] : "=");
 } return t; }
-var Mn = function (e, t, a) { return $u(e, t, a); }, ra = function (e, t, a) { return $u(e, t, a, 1)[0] || null; }, aa = /[\s ]+/g, ta = new Set(["p", "div", "br", "li", "tr", "h1", "h2", "h3", "h4", "h5", "h6", "ul", "ol", "table", "section", "article", "header", "footer", "blockquote", "pre", "dd", "dt", "hr"]), _n = { containsOwn: function (e, t) { return Xu(e).toLowerCase().includes(String(t).toLowerCase()); }, matches: function (e, t) { return ea(t).test(Wu(e)); }, matchesOwn: function (e, t) { return ea(t).test(Xu(e)); }, containsData: function (e, t) { return Ut(e).includes(t); }, "contains-ci": function (e, t) { return Wu(e).toLowerCase().includes(String(t).toLowerCase()); } };
+var Fn = function (e, t, a) { return $u(e, t, a); }, ra = function (e, t, a) { return $u(e, t, a, 1)[0] || null; }, aa = /[\s ]+/g, ta = new Set(["p", "div", "br", "li", "tr", "h1", "h2", "h3", "h4", "h5", "h6", "ul", "ol", "table", "section", "article", "header", "footer", "blockquote", "pre", "dd", "dt", "hr"]), _n = { containsOwn: function (e, t) { return Xu(e).toLowerCase().includes(String(t).toLowerCase()); }, matches: function (e, t) { return ea(t).test(Wu(e)); }, matchesOwn: function (e, t) { return ea(t).test(Xu(e)); }, containsData: function (e, t) { return Ut(e).includes(t); }, "contains-ci": function (e, t) { return Wu(e).toLowerCase().includes(String(t).toLowerCase()); } };
 function ea(e) { try {
     return new RegExp(e);
 }
@@ -1623,7 +1623,7 @@ var Qt = (function () {
         enumerable: false,
         configurable: true
     });
-    e.prototype.select = function (t) { return Ct.of(Mn(Ke(t), this.node, Ze), this.doc); };
+    e.prototype.select = function (t) { return Ct.of(Fn(Ke(t), this.node, Ze), this.doc); };
     e.prototype.selectFirst = function (t) { var a = ra(Ke(t), this.node, Ze); return a ? new e(a, this.doc) : null; };
     e.prototype.is = function (t) { return zu(this.node, Ke(t), Ze); };
     e.prototype.text = function () { return Wu(this.node); };
@@ -1915,7 +1915,7 @@ function Gn(e) {
     return t;
 }
 function oa(e, t) { var a = function (f) { return ({ getItem: function (h) { var p = e.storageGet(f + h); return p == null ? null : p; }, setItem: function (h, p) { return e.storageSet(f + h, p == null ? null : String(p)); }, removeItem: function (h) { return e.storageSet(f + h, null); }, clear: function () { return e.storageClear && e.storageClear(f); } }); }, n = "__cookie__", s = {}; s.Response = { success: function (f, h) { return ({ code: 0, data: f === void 0 ? null : f, data2: h === void 0 ? null : h }); }, error: function (f) { return ({ code: 1, data: f == null ? "" : String(f) }); } }, s.fetch = function (h, p) {
-    return __awaiter(this, void 0, void 0, function () { var b, D, v, k, T, D, A, L, D_1; return __generator(this, function (_b) {
+    return __awaiter(this, void 0, void 0, function () { var b, D, v, k, S, D, A, L, D_1; return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 p = p || {};
@@ -1929,15 +1929,15 @@ function oa(e, t) { var a = function (f) { return ({ getItem: function (h) { var
                 }
                 v = Object.assign({ "User-Agent": Se }, Gn(p.headers)), k = e.storageGet(n);
                 k && !Object.keys(v).some(function (D) { return D.toLowerCase() === "cookie"; }) && (v.Cookie = k);
-                T = p.body;
-                if (T != null && typeof T == "object") {
+                S = p.body;
+                if (S != null && typeof S == "object") {
                     D = Object.keys(v).find(function (it) { return it.toLowerCase() === "content-type"; });
-                    D && /json/i.test(v[D]) ? T = JSON.stringify(T) : (T = Object.entries(T).map(function (_b) {
+                    D && /json/i.test(v[D]) ? S = JSON.stringify(S) : (S = Object.entries(S).map(function (_b) {
                         var _c = __read(_b, 2), it = _c[0], ct = _c[1];
                         return encodeURIComponent(it) + "=" + encodeURIComponent(ct);
                     }).join("&"), D || (v["Content-Type"] = "application/x-www-form-urlencoded"));
                 }
-                A = { url: b, method: (p.method || (T != null ? "POST" : "GET")).toUpperCase(), headers: v, body: T, timeout: p.timeout };
+                A = { url: b, method: (p.method || (S != null ? "POST" : "GET")).toUpperCase(), headers: v, body: S, timeout: p.timeout };
                 _b.label = 1;
             case 1:
                 _b.trys.push([1, 3, , 4]);
@@ -1952,7 +1952,16 @@ function oa(e, t) { var a = function (f) { return ({ getItem: function (h) { var
             case 4: return [2, new Ku(L, A)];
         }
     }); });
-}, s.Http = { get: function (f) { return ca(s, "GET", f); }, post: function (f) { return ca(s, "POST", f); } }, s.Html = { parse: function (f, h) { return Ye(f, h || ""); }, clean: function (f, h) { return ia(f, h); } }, s.localStorage = a("ls:"), s.cacheStorage = a("cs:"), s.localConfig = { getItem: function (f) { return e.config(f); } }, s.localCookie = { setCookie: function (f) { e.storageSet(n, String(f).split(";")[0]); }, getCookie: function () { return e.storageGet(n) || ""; } }, s.sleep = function (f) { return new Promise(function (h) { return typeof setTimeout == "function" ? setTimeout(h, Math.min(Number(f) || 0, 1e4)) : h(); }); }; var o = function () {
+}, s.Http = { get: function (f) { return ca(s, "GET", f); }, post: function (f) { return ca(s, "POST", f); } }, s.Html = { parse: function (f, h) { return Ye(f, h || ""); }, clean: function (f, h) { return ia(f, h); } }, s.localStorage = a("ls:"), s.cacheStorage = a("cs:"), s.resumeStorage = { get: function (f) { try {
+        var h = e.storageGet("resume:" + f);
+        return h && parseFloat(h) || 0;
+    }
+    catch (p) {
+        return 0;
+    } }, set: function (f, h) { try {
+        e.storageSet("resume:" + f, String(Math.max(0, h || 0)));
+    }
+    catch (p) { } } }, s.localConfig = { getItem: function (f) { return e.config(f); } }, s.localCookie = { setCookie: function (f) { e.storageSet(n, String(f).split(";")[0]); }, getCookie: function () { return e.storageGet(n) || ""; } }, s.sleep = function (f) { return new Promise(function (h) { return typeof setTimeout == "function" ? setTimeout(h, Math.min(Number(f) || 0, 1e4)) : h(); }); }; var o = function () {
     var f = [];
     for (var _i = 0; _i < arguments.length; _i++) {
         f[_i] = arguments[_i];
@@ -2001,13 +2010,13 @@ function Wt(e, t) { if (!t)
 catch (a) {
     return t;
 } }
-var F = function (e) { return e == null ? "" : String(e); }, jn = function (e) { return e.filter(function (t, a) { return t && e.indexOf(t) === a; }); }, tu = (function () {
+var M = function (e) { return e == null ? "" : String(e); }, jn = function (e) { return e.filter(function (t, a) { return t && e.indexOf(t) === a; }); }, tu = (function () {
     function class_1(t) {
         var a = t.meta, n = t.scripts, s = t.host;
         this.meta = a, this.host = s, this.env = t.env || oa(s, a), this.scripts = n, this.cache = {}, this.tokens = {};
     }
     Object.defineProperty(class_1.prototype, "base", {
-        get: function () { return F(this.host.config("DOMAIN") || this.meta.source).replace(/\/+$/, ""); },
+        get: function () { return M(this.host.config("DOMAIN") || this.meta.source).replace(/\/+$/, ""); },
         enumerable: false,
         configurable: true
     });
@@ -2032,19 +2041,19 @@ var F = function (e) { return e == null ? "" : String(e); }, jn = function (e) {
                         o = _b.sent();
                         if (typeof o != "function")
                             throw new Error(t + ": execute() not defined");
-                        return [4, o.apply(void 0, __spreadArray([], __read(a.map(F)), false))];
+                        return [4, o.apply(void 0, __spreadArray([], __read(a.map(M)), false))];
                     case 2:
                         f = _b.sent();
                         if (!f)
                             throw new Error(t + ": empty result");
                         if (f.code !== 0)
-                            throw new Error(t + ": " + F(f.data || "error"));
+                            throw new Error(t + ": " + M(f.data || "error"));
                         return [2, f];
                 }
             });
         });
     };
-    class_1.prototype.scriptFile = function (t) { return F(t).replace(/\.js$/, ""); };
+    class_1.prototype.scriptFile = function (t) { return M(t).replace(/\.js$/, ""); };
     class_1.prototype.tabs = function () {
         return __awaiter(this, void 0, void 0, function () { var t, _b, a_1, a_2; return __generator(this, function (_c) {
             switch (_c.label) {
@@ -2098,9 +2107,9 @@ var F = function (e) { return e == null ? "" : String(e); }, jn = function (e) {
                             return [2, { items: [], hasNext: !1 }];
                         return [4, this.run(t, a, o)];
                     case 1:
-                        f = _b.sent(), h = F(f.data2);
+                        f = _b.sent(), h = M(f.data2);
                         h && (this.tokens[s + "|" + (n + 1)] = h);
-                        p = (f.data || []).filter(Boolean).map(function (b) { return ({ name: F(b.name).trim(), link: Wt(b.host || _this.base + "/", b.link), cover: Wt(b.host || _this.base + "/", b.cover), description: F(b.description), tag: F(b.tag) }); }).filter(function (b) { return b.name && b.link; });
+                        p = (f.data || []).filter(Boolean).map(function (b) { return ({ name: M(b.name).trim(), link: Wt(b.host || _this.base + "/", b.link), cover: Wt(b.host || _this.base + "/", b.cover), description: M(b.description), tag: M(b.tag) }); }).filter(function (b) { return b.name && b.link; });
                         return [2, { items: p, hasNext: !!h && p.length > 0 }];
                 }
             });
@@ -2112,7 +2121,7 @@ var F = function (e) { return e == null ? "" : String(e); }, jn = function (e) {
                 case 0: return [4, this.tabs()];
                 case 1:
                     a = _b.sent();
-                    return [2, a[0] ? this.list(this.scriptFile(a[0].script), F(a[0].input), t) : this.search("", t)];
+                    return [2, a[0] ? this.list(this.scriptFile(a[0].script), M(a[0].input), t) : this.search("", t)];
             }
         }); });
     };
@@ -2122,7 +2131,7 @@ var F = function (e) { return e == null ? "" : String(e); }, jn = function (e) {
                 case 0: return [4, this.tabs()];
                 case 1:
                     a = _b.sent(), n = a[1] || a[0];
-                    return [2, n ? this.list(this.scriptFile(n.script), F(n.input), t) : this.search("", t)];
+                    return [2, n ? this.list(this.scriptFile(n.script), M(n.input), t) : this.search("", t)];
             }
         }); });
     };
@@ -2137,7 +2146,7 @@ var F = function (e) { return e == null ? "" : String(e); }, jn = function (e) {
                 case 0: return [4, this.run("detail", t)];
                 case 1:
                     a = (_b.sent()).data || {}, n = [].concat(a.genres || [], a.tags || []).map(function (s) { return typeof s == "string" ? s : s && s.title; }).filter(Boolean);
-                    return [2, { name: F(a.name).trim(), cover: Wt(a.host || this.base + "/", a.cover), author: F(a.author).trim(), description: la(F(a.description)), detail: la(F(a.detail)), ongoing: a.ongoing !== !1 && a.ongoing !== "false", genres: jn(n.map(function (s) { return String(s).trim(); })), url: t, format: F(a.format) }];
+                    return [2, { name: M(a.name).trim(), cover: Wt(a.host || this.base + "/", a.cover), author: M(a.author).trim(), description: la(M(a.description)), detail: la(M(a.detail)), ongoing: a.ongoing !== !1 && a.ongoing !== "false", genres: jn(n.map(function (s) { return String(s).trim(); })), url: t, format: M(a.format) }];
             }
         }); });
     };
@@ -2163,7 +2172,7 @@ var F = function (e) { return e == null ? "" : String(e); }, jn = function (e) {
                         if (!!n_1_1.done) return [3, 6];
                         s = n_1_1.value;
                         _c = (_b = a).concat;
-                        return [4, this.run("toc", F(s))];
+                        return [4, this.run("toc", M(s))];
                     case 4:
                         a = _c.apply(_b, [(_g.sent()).data || []]);
                         _g.label = 5;
@@ -2192,7 +2201,7 @@ var F = function (e) { return e == null ? "" : String(e); }, jn = function (e) {
                     case 12:
                         _d;
                         _g.label = 13;
-                    case 13: return [2, a.filter(function (n) { return n && n.url && n.type !== "section"; }).map(function (n, s) { return ({ name: F(n.name).trim() || "#" + (s + 1), url: Wt(n.host || _this.base + "/", n.url), pay: !!(n.pay || n.lock) }); })];
+                    case 13: return [2, a.filter(function (n) { return n && n.url && n.type !== "section"; }).map(function (n, s) { return ({ name: M(n.name).trim() || "#" + (s + 1), url: Wt(n.host || _this.base + "/", n.url), pay: !!(n.pay || n.lock) }); })];
                 }
             });
         });
@@ -2237,13 +2246,13 @@ var F = function (e) { return e == null ? "" : String(e); }, jn = function (e) {
                 case 0: return [4, this.run("chap", t)];
                 case 1:
                     a = _b.sent();
-                    return [2, { html: F(a.data), title: F(a.data2) }];
+                    return [2, { html: M(a.data), title: M(a.data2) }];
             }
         }); });
     };
     class_1.prototype.videos = function (t) {
         return __awaiter(this, void 0, void 0, function () {
-            var a, s, n, a_3, a_3_1, s, o, f, f_2, f_2_1, h, o_2, e_23_1;
+            var a, o, n, s, a_3, a_3_1, o, f, h, h_4, h_4_1, p, b, v, k, f_2, e_23_1;
             var e_23, _b, e_24, _c;
             var _this = this;
             return __generator(this, function (_d) {
@@ -2253,11 +2262,11 @@ var F = function (e) { return e == null ? "" : String(e); }, jn = function (e) {
                         if (!this.has("chap")) return [3, 2];
                         return [4, this.run("chap", t)];
                     case 1:
-                        s = (_d.sent()).data;
-                        Array.isArray(s) && s.length && (a = s.map(function (o) { return typeof o == "string" ? { title: "Server", data: o } : { title: F(o.title || o.name || "Server"), data: F(o.data || o.url || o.link) }; }));
+                        o = (_d.sent()).data;
+                        Array.isArray(o) && o.length && (a = o.map(function (f) { return typeof f == "string" ? { title: "Server", data: f } : { title: M(f.title || f.name || "Server"), data: M(f.data || f.url || f.link) }; }));
                         _d.label = 2;
                     case 2:
-                        n = [];
+                        n = this.env && this.env.resumeStorage ? this.env.resumeStorage.get(t) : 0, s = [];
                         _d.label = 3;
                     case 3:
                         _d.trys.push([3, 10, 11, 12]);
@@ -2265,30 +2274,33 @@ var F = function (e) { return e == null ? "" : String(e); }, jn = function (e) {
                         _d.label = 4;
                     case 4:
                         if (!!a_3_1.done) return [3, 9];
-                        s = a_3_1.value;
+                        o = a_3_1.value;
                         _d.label = 5;
                     case 5:
                         _d.trys.push([5, 7, , 8]);
-                        return [4, this.run("track", s.data)];
+                        return [4, this.run("track", o.data)];
                     case 6:
-                        o = (_d.sent()).data || {}, f = Array.isArray(o) ? o : [o];
+                        f = (_d.sent()).data || {}, h = Array.isArray(f) ? f : [f];
                         try {
-                            for (f_2 = (e_24 = void 0, __values(f)), f_2_1 = f_2.next(); !f_2_1.done; f_2_1 = f_2.next()) {
-                                h = f_2_1.value;
-                                !h || !h.data || h.type !== "webview" && n.push({ url: Wt(h.host || this.base + "/", h.data), quality: s.title + (h.quality ? " " + h.quality : ""), headers: h.headers || { Referer: this.base + "/" }, subtitles: (h.subtitles || (h.subtitle ? [{ data: h.subtitle, label: "Sub" }] : [])).map(function (p) { return ({ file: Wt(_this.base + "/", p.data || p.file), label: F(p.label || p.language || "Sub") }); }), mimeType: F(h.mimeType) });
+                            for (h_4 = (e_24 = void 0, __values(h)), h_4_1 = h_4.next(); !h_4_1.done; h_4_1 = h_4.next()) {
+                                p = h_4_1.value;
+                                if (!p || !p.data || p.type === "webview")
+                                    continue;
+                                b = Wt(p.host || this.base + "/", p.data), v = n > 0 && !p.data.includes("#t=") && !p.data.includes("&t=") ? (p.data.includes("#") ? "&" : "#") + "t=" + Math.floor(n) : "", k = n > 0 ? " [Tiếp tục " + Math.floor(n / 60) + ":" + ("0" + Math.floor(n % 60)).slice(-2) + "]" : "";
+                                s.push({ url: b + v, rawUrl: b, resumeSec: n, quality: o.title + (p.quality ? " " + p.quality : "") + k, headers: p.headers || { Referer: this.base + "/" }, subtitles: (p.subtitles || (p.subtitle ? [{ data: p.subtitle, label: "Sub" }] : [])).map(function (S) { return ({ file: Wt(_this.base + "/", S.data || S.file), label: M(S.label || S.language || "Sub") }); }), mimeType: M(p.mimeType) });
                             }
                         }
                         catch (e_24_1) { e_24 = { error: e_24_1 }; }
                         finally {
                             try {
-                                if (f_2_1 && !f_2_1.done && (_c = f_2.return)) _c.call(f_2);
+                                if (h_4_1 && !h_4_1.done && (_c = h_4.return)) _c.call(h_4);
                             }
                             finally { if (e_24) throw e_24.error; }
                         }
                         return [3, 8];
                     case 7:
-                        o_2 = _d.sent();
-                        this.host.log && this.host.log("track " + s.title + ": " + o_2.message);
+                        f_2 = _d.sent();
+                        this.host.log && this.host.log("track " + o.title + ": " + f_2.message);
                         return [3, 8];
                     case 8:
                         a_3_1 = a_3.next();
@@ -2304,7 +2316,7 @@ var F = function (e) { return e == null ? "" : String(e); }, jn = function (e) {
                         }
                         finally { if (e_23) throw e_23.error; }
                         return [7];
-                    case 12: return [2, n];
+                    case 12: return [2, s];
                 }
             });
         });
@@ -2314,9 +2326,9 @@ var F = function (e) { return e == null ? "" : String(e); }, jn = function (e) {
 function la(e) {
     return String(e).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.xyz", type: "novel", locale: "vi", nsfw: !1, version: 2, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.truyencv", lnIcon: "", lnVersion: "1.2.2" }, fa = { book: function (e, t) {
+var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.xyz", type: "novel", locale: "vi", nsfw: !1, version: 2, config: {}, configDefaults: {}, itemType: 2, short: !1, shorts: !1, lnId: "kiritokmn.truyencv", lnIcon: "", lnVersion: "1.3.2" }, fa = { book: function (e, t) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (a, n, s, o, f, h, p, b, v, k, T, A, L, D, it, ct, St) {
+            return [2, (function (a, n, s, o, f, h, p, b, v, k, S, A, L, D, it, ct, St) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0: return [4, (function () {
@@ -2325,7 +2337,7 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
                                     }
                                     catch (u) {
                                         return r || "";
-                                    } } function S(r) { return Array.isArray(r) ? r[0] : r; } function j(r) { var u = {}; try {
+                                    } } function T(r) { return Array.isArray(r) ? r[0] : r; } function j(r) { var u = {}; try {
                                         var i = (r || "").split("?")[1] || "";
                                         if (!i)
                                             return u;
@@ -2340,16 +2352,16 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
                                             return;
                                         }
                                         u.push(encodeURIComponent(i) + "=" + encodeURIComponent(String(c)));
-                                    } }), u.join("&")) : ""; } function R(r) { var u = w(r || "").match(/\/truyen\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function M(r) { var u = w(r || "").match(/\/truyen\/[^\/?#]+\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function dt(r) { var u = w(r || "").match(/\/the-loai\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function I(r) { return m((r || "").replace(/-/g, " ")); } function z(r) { var u = m(r).toLowerCase(); return u ? u.indexOf("hoàn thành") === -1 && u.indexOf("hoan thanh") === -1 && u.indexOf("hoan-thanh") === -1 && u.indexOf("/trang-thai/hoan-thanh/") === -1 && u.indexOf("full") === -1 && u.indexOf(" end") === -1 && u.indexOf("đã hoàn thành") === -1 : !0; } function rt(r, u) { var i = w(r || x), c = j(i), l = { s: S(c.s), post_type: S(c.post_type) || "wp-manga" }, d = dt(i); return l.s === void 0 && (l.s = ""), d && (l["genre[]"] = d), c.hasOwnProperty("genre[]") && (l["genre[]"] = c["genre[]"]), c.hasOwnProperty("status[0]") && (l["status[0]"] = c["status[0]"]), c.hasOwnProperty("m_orderby") && (l.m_orderby = c.m_orderby), c.hasOwnProperty("author") && (l.author = c.author), c.hasOwnProperty("release") && (l.release = c.release), c.hasOwnProperty("adult") && (l.adult = c.adult), /\/trang-thai\/hoan-thanh\/?$/i.test(i) && (l["status[0]"] = "end"), !l.s && !l["genre[]"] && !l["status[0]"] && !l.m_orderby && (l.m_orderby = "latest"), u && (l.paged = String(u)), x + "/?" + q(l); } function Ht(r) { return x + "/?" + q({ s: "", post_type: "wp-manga", "genre[]": r }); } function ht(r, u) { return { title: m(r), input: rt(u, 1), script: "book.js" }; } function pt(r) { if (!r)
-                                        return ""; var u = r.attr("src"); return (!u || u.indexOf("data:image") === 0) && (u = r.attr("data-src") || r.attr("data-lazy-src") || r.attr("data-original") || u), H(u); } function $(r, u, i) { var c = R(r), l = c ? x + "/truyen/" + c + "/" : w(r), d = {}; u && (d.manga_id = u), i && (i.title && (d.title = i.title), i.cover && (d.cover = i.cover), i.statusText && (d.status = i.statusText), i.latestChapterSlug && (d.latest = i.latestChapterSlug)); var g = q(d); return g ? l + "?" + g : l; } function Ft(r, u, i) { var c = typeof r == "string" ? _(r) : r, l = c.slug || R(i), d = l && u ? x + "/truyen/" + l + "/" + u + "/" : w(i), g = {}; c.mangaId && (g.manga_id = c.mangaId), c.title && (g.title = c.title), c.cover && (g.cover = c.cover), c.statusText && (g.status = c.statusText), u && (g.chapter = u); var E = q(g); return E ? d + "?" + E : d; } function _(r) { var u = w(r || ""), i = j(u); return { url: u, slug: R(u), mangaId: m(S(i.manga_id) || ""), title: m(S(i.title) || ""), cover: S(i.cover) || "", statusText: m(S(i.status) || ""), latestChapterSlug: m(S(i.latest) || ""), chapterSlug: m(S(i.chapter) || M(u)) }; } function Q(r) { var u = r.select(".post-title a, h3 a").first(); if (!u)
-                                        return null; var i = r.select(".except-summary").first(), c = r.select(".latest-chap a, .font-meta.chapter a, .chapter-item a, .list-chapter a").first(), l = m(u.text()), d = w(u.attr("href")), g = r.select(".trangthai, .summary-content, .mg_status").first(), E = g ? g.select("a").last() : null, X = m((E ? E.attr("href") + " " : "") + (g ? g.text() : "")), J = []; r.select(".genres-content-search a, .genres-content a").forEach(function (Z) { var K = m(Z.text()), Y = Z.attr("href"); !K || !Y || J.push(ht(K, Y)); }); var O = { title: l, rawLink: d, slug: R(d), mangaId: m(i ? i.attr("data-manga-id") : ""), cover: pt(r.select("img").first()), descriptionHtml: i && i.html() || "", descriptionText: m(i ? i.text() : ""), statusText: X, ongoing: z(X), genres: J, latestChapterSlug: m(c ? M(c.attr("href")) || c.attr("value") : ""), latestChapterName: m(c ? c.text() : ""), latestChapterUrl: c ? w(c.attr("href")) : "", host: x }; return O.link = $(O.rawLink, O.mangaId, O), O; } function st(r) { var u = []; return r.select(".row.c-tabs-item__content").forEach(function (i) { var c = Q(i); c && u.push(c); }), u.length === 0 && r.select(".page-item-detail").forEach(function (i) { var c = Q(i); c && u.push(c); }), u; } function qt(r) { return { name: r.title, link: r.link, cover: r.cover, author: "N/A", description: r.descriptionText, host: x }; } function Ot(r) { var u = r.select("#madara_goto_page").first(); if (!u)
+                                    } }), u.join("&")) : ""; } function R(r) { var u = w(r || "").match(/\/truyen\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function F(r) { var u = w(r || "").match(/\/truyen\/[^\/?#]+\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function dt(r) { var u = w(r || "").match(/\/the-loai\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function I(r) { return m((r || "").replace(/-/g, " ")); } function z(r) { var u = m(r).toLowerCase(); return u ? u.indexOf("hoàn thành") === -1 && u.indexOf("hoan thanh") === -1 && u.indexOf("hoan-thanh") === -1 && u.indexOf("/trang-thai/hoan-thanh/") === -1 && u.indexOf("full") === -1 && u.indexOf(" end") === -1 && u.indexOf("đã hoàn thành") === -1 : !0; } function rt(r, u) { var i = w(r || x), c = j(i), l = { s: T(c.s), post_type: T(c.post_type) || "wp-manga" }, d = dt(i); return l.s === void 0 && (l.s = ""), d && (l["genre[]"] = d), c.hasOwnProperty("genre[]") && (l["genre[]"] = c["genre[]"]), c.hasOwnProperty("status[0]") && (l["status[0]"] = c["status[0]"]), c.hasOwnProperty("m_orderby") && (l.m_orderby = c.m_orderby), c.hasOwnProperty("author") && (l.author = c.author), c.hasOwnProperty("release") && (l.release = c.release), c.hasOwnProperty("adult") && (l.adult = c.adult), /\/trang-thai\/hoan-thanh\/?$/i.test(i) && (l["status[0]"] = "end"), !l.s && !l["genre[]"] && !l["status[0]"] && !l.m_orderby && (l.m_orderby = "latest"), u && (l.paged = String(u)), x + "/?" + q(l); } function Ht(r) { return x + "/?" + q({ s: "", post_type: "wp-manga", "genre[]": r }); } function ht(r, u) { return { title: m(r), input: rt(u, 1), script: "book.js" }; } function pt(r) { if (!r)
+                                        return ""; var u = r.attr("src"); return (!u || u.indexOf("data:image") === 0) && (u = r.attr("data-src") || r.attr("data-lazy-src") || r.attr("data-original") || u), H(u); } function $(r, u, i) { var c = R(r), l = c ? x + "/truyen/" + c + "/" : w(r), d = {}; u && (d.manga_id = u), i && (i.title && (d.title = i.title), i.cover && (d.cover = i.cover), i.statusText && (d.status = i.statusText), i.latestChapterSlug && (d.latest = i.latestChapterSlug)); var g = q(d); return g ? l + "?" + g : l; } function Mt(r, u, i) { var c = typeof r == "string" ? _(r) : r, l = c.slug || R(i), d = l && u ? x + "/truyen/" + l + "/" + u + "/" : w(i), g = {}; c.mangaId && (g.manga_id = c.mangaId), c.title && (g.title = c.title), c.cover && (g.cover = c.cover), c.statusText && (g.status = c.statusText), u && (g.chapter = u); var E = q(g); return E ? d + "?" + E : d; } function _(r) { var u = w(r || ""), i = j(u); return { url: u, slug: R(u), mangaId: m(T(i.manga_id) || ""), title: m(T(i.title) || ""), cover: T(i.cover) || "", statusText: m(T(i.status) || ""), latestChapterSlug: m(T(i.latest) || ""), chapterSlug: m(T(i.chapter) || F(u)) }; } function Q(r) { var u = r.select(".post-title a, h3 a").first(); if (!u)
+                                        return null; var i = r.select(".except-summary").first(), c = r.select(".latest-chap a, .font-meta.chapter a, .chapter-item a, .list-chapter a").first(), l = m(u.text()), d = w(u.attr("href")), g = r.select(".trangthai, .summary-content, .mg_status").first(), E = g ? g.select("a").last() : null, X = m((E ? E.attr("href") + " " : "") + (g ? g.text() : "")), J = []; r.select(".genres-content-search a, .genres-content a").forEach(function (Z) { var K = m(Z.text()), Y = Z.attr("href"); !K || !Y || J.push(ht(K, Y)); }); var O = { title: l, rawLink: d, slug: R(d), mangaId: m(i ? i.attr("data-manga-id") : ""), cover: pt(r.select("img").first()), descriptionHtml: i && i.html() || "", descriptionText: m(i ? i.text() : ""), statusText: X, ongoing: z(X), genres: J, latestChapterSlug: m(c ? F(c.attr("href")) || c.attr("value") : ""), latestChapterName: m(c ? c.text() : ""), latestChapterUrl: c ? w(c.attr("href")) : "", host: x }; return O.link = $(O.rawLink, O.mangaId, O), O; } function st(r) { var u = []; return r.select(".row.c-tabs-item__content").forEach(function (i) { var c = Q(i); c && u.push(c); }), u.length === 0 && r.select(".page-item-detail").forEach(function (i) { var c = Q(i); c && u.push(c); }), u; } function qt(r) { return { name: r.title, link: r.link, cover: r.cover, author: "N/A", description: r.descriptionText, host: x }; } function Ot(r) { var u = r.select("#madara_goto_page").first(); if (!u)
                                         return ""; var i = parseInt(u.attr("placeholder") || "1", 10), c = parseInt(u.attr("max") || "0", 10); return !isNaN(i) && !isNaN(c) && i < c ? String(i + 1) : ""; } function gt(r, u) { var i; for (i = 0; i < r.length; i++)
                                         if (u.mangaId && r[i].mangaId === u.mangaId)
                                             return r[i]; for (i = 0; i < r.length; i++)
                                         if (u.slug && r[i].slug === u.slug)
                                             return r[i]; for (i = 0; i < r.length; i++)
                                         if (u.title && m(r[i].title).toLowerCase() === m(u.title).toLowerCase())
-                                            return r[i]; return r.length ? r[0] : null; } function bt(r, u) { var i = { url: r.url, slug: u && u.slug ? u.slug : r.slug, mangaId: u && u.mangaId ? u.mangaId : r.mangaId, title: u && u.title ? u.title : r.title || I(r.slug), cover: u && u.cover ? u.cover : r.cover, statusText: u && u.statusText ? u.statusText : r.statusText, descriptionHtml: u && u.descriptionHtml ? u.descriptionHtml : "", descriptionText: u && u.descriptionText ? u.descriptionText : "", ongoing: u ? u.ongoing : z(r.statusText), genres: u && u.genres ? u.genres : [], latestChapterSlug: u && u.latestChapterSlug ? u.latestChapterSlug : r.latestChapterSlug, latestChapterName: u && u.latestChapterName ? u.latestChapterName : "", latestChapterUrl: u && u.latestChapterUrl ? u.latestChapterUrl : "", host: x }; return i.link = $(u && u.rawLink ? u.rawLink : r.url, i.mangaId, i), i; } function Mt(r) {
+                                            return r[i]; return r.length ? r[0] : null; } function bt(r, u) { var i = { url: r.url, slug: u && u.slug ? u.slug : r.slug, mangaId: u && u.mangaId ? u.mangaId : r.mangaId, title: u && u.title ? u.title : r.title || I(r.slug), cover: u && u.cover ? u.cover : r.cover, statusText: u && u.statusText ? u.statusText : r.statusText, descriptionHtml: u && u.descriptionHtml ? u.descriptionHtml : "", descriptionText: u && u.descriptionText ? u.descriptionText : "", ongoing: u ? u.ongoing : z(r.statusText), genres: u && u.genres ? u.genres : [], latestChapterSlug: u && u.latestChapterSlug ? u.latestChapterSlug : r.latestChapterSlug, latestChapterName: u && u.latestChapterName ? u.latestChapterName : "", latestChapterUrl: u && u.latestChapterUrl ? u.latestChapterUrl : "", host: x }; return i.link = $(u && u.rawLink ? u.rawLink : r.url, i.mangaId, i), i; } function Ft(r) {
                                         return __awaiter(this, void 0, void 0, function () { var u, i, c, l; return __generator(this, function (_b) {
                                             switch (_b.label) {
                                                 case 0:
@@ -2412,7 +2424,7 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
         }); });
     }, detail: function (e, t) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (a, n, s, o, f, h, p, b, v, k, T, A, L, D, it, ct, St) {
+            return [2, (function (a, n, s, o, f, h, p, b, v, k, S, A, L, D, it, ct, St) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0: return [4, (function () {
@@ -2421,7 +2433,7 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
                                     }
                                     catch (u) {
                                         return r || "";
-                                    } } function S(r) { return Array.isArray(r) ? r[0] : r; } function j(r) { var u = {}; try {
+                                    } } function T(r) { return Array.isArray(r) ? r[0] : r; } function j(r) { var u = {}; try {
                                         var i = (r || "").split("?")[1] || "";
                                         if (!i)
                                             return u;
@@ -2436,16 +2448,16 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
                                             return;
                                         }
                                         u.push(encodeURIComponent(i) + "=" + encodeURIComponent(String(c)));
-                                    } }), u.join("&")) : ""; } function R(r) { var u = w(r || "").match(/\/truyen\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function M(r) { var u = w(r || "").match(/\/truyen\/[^\/?#]+\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function dt(r) { var u = w(r || "").match(/\/the-loai\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function I(r) { return m((r || "").replace(/-/g, " ")); } function z(r) { var u = m(r).toLowerCase(); return u ? u.indexOf("hoàn thành") === -1 && u.indexOf("hoan thanh") === -1 && u.indexOf("hoan-thanh") === -1 && u.indexOf("/trang-thai/hoan-thanh/") === -1 && u.indexOf("full") === -1 && u.indexOf(" end") === -1 && u.indexOf("đã hoàn thành") === -1 : !0; } function rt(r, u) { var i = w(r || x), c = j(i), l = { s: S(c.s), post_type: S(c.post_type) || "wp-manga" }, d = dt(i); return l.s === void 0 && (l.s = ""), d && (l["genre[]"] = d), c.hasOwnProperty("genre[]") && (l["genre[]"] = c["genre[]"]), c.hasOwnProperty("status[0]") && (l["status[0]"] = c["status[0]"]), c.hasOwnProperty("m_orderby") && (l.m_orderby = c.m_orderby), c.hasOwnProperty("author") && (l.author = c.author), c.hasOwnProperty("release") && (l.release = c.release), c.hasOwnProperty("adult") && (l.adult = c.adult), /\/trang-thai\/hoan-thanh\/?$/i.test(i) && (l["status[0]"] = "end"), !l.s && !l["genre[]"] && !l["status[0]"] && !l.m_orderby && (l.m_orderby = "latest"), u && (l.paged = String(u)), x + "/?" + q(l); } function Ht(r) { return x + "/?" + q({ s: "", post_type: "wp-manga", "genre[]": r }); } function ht(r, u) { return { title: m(r), input: rt(u, 1), script: "book.js" }; } function pt(r) { if (!r)
-                                        return ""; var u = r.attr("src"); return (!u || u.indexOf("data:image") === 0) && (u = r.attr("data-src") || r.attr("data-lazy-src") || r.attr("data-original") || u), H(u); } function $(r, u, i) { var c = R(r), l = c ? x + "/truyen/" + c + "/" : w(r), d = {}; u && (d.manga_id = u), i && (i.title && (d.title = i.title), i.cover && (d.cover = i.cover), i.statusText && (d.status = i.statusText), i.latestChapterSlug && (d.latest = i.latestChapterSlug)); var g = q(d); return g ? l + "?" + g : l; } function Ft(r, u, i) { var c = typeof r == "string" ? _(r) : r, l = c.slug || R(i), d = l && u ? x + "/truyen/" + l + "/" + u + "/" : w(i), g = {}; c.mangaId && (g.manga_id = c.mangaId), c.title && (g.title = c.title), c.cover && (g.cover = c.cover), c.statusText && (g.status = c.statusText), u && (g.chapter = u); var E = q(g); return E ? d + "?" + E : d; } function _(r) { var u = w(r || ""), i = j(u); return { url: u, slug: R(u), mangaId: m(S(i.manga_id) || ""), title: m(S(i.title) || ""), cover: S(i.cover) || "", statusText: m(S(i.status) || ""), latestChapterSlug: m(S(i.latest) || ""), chapterSlug: m(S(i.chapter) || M(u)) }; } function Q(r) { var u = r.select(".post-title a, h3 a").first(); if (!u)
-                                        return null; var i = r.select(".except-summary").first(), c = r.select(".latest-chap a, .font-meta.chapter a, .chapter-item a, .list-chapter a").first(), l = m(u.text()), d = w(u.attr("href")), g = r.select(".trangthai, .summary-content, .mg_status").first(), E = g ? g.select("a").last() : null, X = m((E ? E.attr("href") + " " : "") + (g ? g.text() : "")), J = []; r.select(".genres-content-search a, .genres-content a").forEach(function (Z) { var K = m(Z.text()), Y = Z.attr("href"); !K || !Y || J.push(ht(K, Y)); }); var O = { title: l, rawLink: d, slug: R(d), mangaId: m(i ? i.attr("data-manga-id") : ""), cover: pt(r.select("img").first()), descriptionHtml: i && i.html() || "", descriptionText: m(i ? i.text() : ""), statusText: X, ongoing: z(X), genres: J, latestChapterSlug: m(c ? M(c.attr("href")) || c.attr("value") : ""), latestChapterName: m(c ? c.text() : ""), latestChapterUrl: c ? w(c.attr("href")) : "", host: x }; return O.link = $(O.rawLink, O.mangaId, O), O; } function st(r) { var u = []; return r.select(".row.c-tabs-item__content").forEach(function (i) { var c = Q(i); c && u.push(c); }), u.length === 0 && r.select(".page-item-detail").forEach(function (i) { var c = Q(i); c && u.push(c); }), u; } function qt(r) { return { name: r.title, link: r.link, cover: r.cover, author: "N/A", description: r.descriptionText, host: x }; } function Ot(r) { var u = r.select("#madara_goto_page").first(); if (!u)
+                                    } }), u.join("&")) : ""; } function R(r) { var u = w(r || "").match(/\/truyen\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function F(r) { var u = w(r || "").match(/\/truyen\/[^\/?#]+\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function dt(r) { var u = w(r || "").match(/\/the-loai\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function I(r) { return m((r || "").replace(/-/g, " ")); } function z(r) { var u = m(r).toLowerCase(); return u ? u.indexOf("hoàn thành") === -1 && u.indexOf("hoan thanh") === -1 && u.indexOf("hoan-thanh") === -1 && u.indexOf("/trang-thai/hoan-thanh/") === -1 && u.indexOf("full") === -1 && u.indexOf(" end") === -1 && u.indexOf("đã hoàn thành") === -1 : !0; } function rt(r, u) { var i = w(r || x), c = j(i), l = { s: T(c.s), post_type: T(c.post_type) || "wp-manga" }, d = dt(i); return l.s === void 0 && (l.s = ""), d && (l["genre[]"] = d), c.hasOwnProperty("genre[]") && (l["genre[]"] = c["genre[]"]), c.hasOwnProperty("status[0]") && (l["status[0]"] = c["status[0]"]), c.hasOwnProperty("m_orderby") && (l.m_orderby = c.m_orderby), c.hasOwnProperty("author") && (l.author = c.author), c.hasOwnProperty("release") && (l.release = c.release), c.hasOwnProperty("adult") && (l.adult = c.adult), /\/trang-thai\/hoan-thanh\/?$/i.test(i) && (l["status[0]"] = "end"), !l.s && !l["genre[]"] && !l["status[0]"] && !l.m_orderby && (l.m_orderby = "latest"), u && (l.paged = String(u)), x + "/?" + q(l); } function Ht(r) { return x + "/?" + q({ s: "", post_type: "wp-manga", "genre[]": r }); } function ht(r, u) { return { title: m(r), input: rt(u, 1), script: "book.js" }; } function pt(r) { if (!r)
+                                        return ""; var u = r.attr("src"); return (!u || u.indexOf("data:image") === 0) && (u = r.attr("data-src") || r.attr("data-lazy-src") || r.attr("data-original") || u), H(u); } function $(r, u, i) { var c = R(r), l = c ? x + "/truyen/" + c + "/" : w(r), d = {}; u && (d.manga_id = u), i && (i.title && (d.title = i.title), i.cover && (d.cover = i.cover), i.statusText && (d.status = i.statusText), i.latestChapterSlug && (d.latest = i.latestChapterSlug)); var g = q(d); return g ? l + "?" + g : l; } function Mt(r, u, i) { var c = typeof r == "string" ? _(r) : r, l = c.slug || R(i), d = l && u ? x + "/truyen/" + l + "/" + u + "/" : w(i), g = {}; c.mangaId && (g.manga_id = c.mangaId), c.title && (g.title = c.title), c.cover && (g.cover = c.cover), c.statusText && (g.status = c.statusText), u && (g.chapter = u); var E = q(g); return E ? d + "?" + E : d; } function _(r) { var u = w(r || ""), i = j(u); return { url: u, slug: R(u), mangaId: m(T(i.manga_id) || ""), title: m(T(i.title) || ""), cover: T(i.cover) || "", statusText: m(T(i.status) || ""), latestChapterSlug: m(T(i.latest) || ""), chapterSlug: m(T(i.chapter) || F(u)) }; } function Q(r) { var u = r.select(".post-title a, h3 a").first(); if (!u)
+                                        return null; var i = r.select(".except-summary").first(), c = r.select(".latest-chap a, .font-meta.chapter a, .chapter-item a, .list-chapter a").first(), l = m(u.text()), d = w(u.attr("href")), g = r.select(".trangthai, .summary-content, .mg_status").first(), E = g ? g.select("a").last() : null, X = m((E ? E.attr("href") + " " : "") + (g ? g.text() : "")), J = []; r.select(".genres-content-search a, .genres-content a").forEach(function (Z) { var K = m(Z.text()), Y = Z.attr("href"); !K || !Y || J.push(ht(K, Y)); }); var O = { title: l, rawLink: d, slug: R(d), mangaId: m(i ? i.attr("data-manga-id") : ""), cover: pt(r.select("img").first()), descriptionHtml: i && i.html() || "", descriptionText: m(i ? i.text() : ""), statusText: X, ongoing: z(X), genres: J, latestChapterSlug: m(c ? F(c.attr("href")) || c.attr("value") : ""), latestChapterName: m(c ? c.text() : ""), latestChapterUrl: c ? w(c.attr("href")) : "", host: x }; return O.link = $(O.rawLink, O.mangaId, O), O; } function st(r) { var u = []; return r.select(".row.c-tabs-item__content").forEach(function (i) { var c = Q(i); c && u.push(c); }), u.length === 0 && r.select(".page-item-detail").forEach(function (i) { var c = Q(i); c && u.push(c); }), u; } function qt(r) { return { name: r.title, link: r.link, cover: r.cover, author: "N/A", description: r.descriptionText, host: x }; } function Ot(r) { var u = r.select("#madara_goto_page").first(); if (!u)
                                         return ""; var i = parseInt(u.attr("placeholder") || "1", 10), c = parseInt(u.attr("max") || "0", 10); return !isNaN(i) && !isNaN(c) && i < c ? String(i + 1) : ""; } function gt(r, u) { var i; for (i = 0; i < r.length; i++)
                                         if (u.mangaId && r[i].mangaId === u.mangaId)
                                             return r[i]; for (i = 0; i < r.length; i++)
                                         if (u.slug && r[i].slug === u.slug)
                                             return r[i]; for (i = 0; i < r.length; i++)
                                         if (u.title && m(r[i].title).toLowerCase() === m(u.title).toLowerCase())
-                                            return r[i]; return r.length ? r[0] : null; } function bt(r, u) { var i = { url: r.url, slug: u && u.slug ? u.slug : r.slug, mangaId: u && u.mangaId ? u.mangaId : r.mangaId, title: u && u.title ? u.title : r.title || I(r.slug), cover: u && u.cover ? u.cover : r.cover, statusText: u && u.statusText ? u.statusText : r.statusText, descriptionHtml: u && u.descriptionHtml ? u.descriptionHtml : "", descriptionText: u && u.descriptionText ? u.descriptionText : "", ongoing: u ? u.ongoing : z(r.statusText), genres: u && u.genres ? u.genres : [], latestChapterSlug: u && u.latestChapterSlug ? u.latestChapterSlug : r.latestChapterSlug, latestChapterName: u && u.latestChapterName ? u.latestChapterName : "", latestChapterUrl: u && u.latestChapterUrl ? u.latestChapterUrl : "", host: x }; return i.link = $(u && u.rawLink ? u.rawLink : r.url, i.mangaId, i), i; } function Mt(r) {
+                                            return r[i]; return r.length ? r[0] : null; } function bt(r, u) { var i = { url: r.url, slug: u && u.slug ? u.slug : r.slug, mangaId: u && u.mangaId ? u.mangaId : r.mangaId, title: u && u.title ? u.title : r.title || I(r.slug), cover: u && u.cover ? u.cover : r.cover, statusText: u && u.statusText ? u.statusText : r.statusText, descriptionHtml: u && u.descriptionHtml ? u.descriptionHtml : "", descriptionText: u && u.descriptionText ? u.descriptionText : "", ongoing: u ? u.ongoing : z(r.statusText), genres: u && u.genres ? u.genres : [], latestChapterSlug: u && u.latestChapterSlug ? u.latestChapterSlug : r.latestChapterSlug, latestChapterName: u && u.latestChapterName ? u.latestChapterName : "", latestChapterUrl: u && u.latestChapterUrl ? u.latestChapterUrl : "", host: x }; return i.link = $(u && u.rawLink ? u.rawLink : r.url, i.mangaId, i), i; } function Ft(r) {
                                         return __awaiter(this, void 0, void 0, function () { var u, i, c, l; return __generator(this, function (_b) {
                                             switch (_b.label) {
                                                 case 0:
@@ -2480,7 +2492,7 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
                                     } function ot(r) { return r ? typeof r == "string" ? r : r.data && typeof r.data == "string" ? r.data : r.data && r.data.content ? r.data.content : r.data && r.data.data && r.data.data.content ? r.data.data.content : r.content ? r.content : "" : ""; } function It(r) { return (r || "").replace(/<!--[\s\S]*?-->/g, "").replace(/<script[\s\S]*?<\/script>/gi, "").replace(/<style[\s\S]*?<\/style>/gi, "").trim(); } function W(r) {
                                         return __awaiter(this, void 0, void 0, function () { var u; return __generator(this, function (_b) {
                                             switch (_b.label) {
-                                                case 0: return [4, Mt(r)];
+                                                case 0: return [4, Ft(r)];
                                                 case 1:
                                                     u = _b.sent();
                                                     return [2, o.success({ name: u.title || I(u.slug), cover: u.cover || "", host: x, author: "N/A", description: u.descriptionHtml || u.descriptionText || "", ongoing: u.ongoing !== !1, genres: u.genres || [] })];
@@ -2503,7 +2515,7 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
         }); });
     }, toc: function (e, t) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (a, n, s, o, f, h, p, b, v, k, T, A, L, D, it, ct, St) {
+            return [2, (function (a, n, s, o, f, h, p, b, v, k, S, A, L, D, it, ct, St) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0: return [4, (function () {
@@ -2512,7 +2524,7 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
                                     }
                                     catch (u) {
                                         return r || "";
-                                    } } function S(r) { return Array.isArray(r) ? r[0] : r; } function j(r) { var u = {}; try {
+                                    } } function T(r) { return Array.isArray(r) ? r[0] : r; } function j(r) { var u = {}; try {
                                         var i = (r || "").split("?")[1] || "";
                                         if (!i)
                                             return u;
@@ -2527,16 +2539,16 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
                                             return;
                                         }
                                         u.push(encodeURIComponent(i) + "=" + encodeURIComponent(String(c)));
-                                    } }), u.join("&")) : ""; } function R(r) { var u = w(r || "").match(/\/truyen\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function M(r) { var u = w(r || "").match(/\/truyen\/[^\/?#]+\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function dt(r) { var u = w(r || "").match(/\/the-loai\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function I(r) { return m((r || "").replace(/-/g, " ")); } function z(r) { var u = m(r).toLowerCase(); return u ? u.indexOf("hoàn thành") === -1 && u.indexOf("hoan thanh") === -1 && u.indexOf("hoan-thanh") === -1 && u.indexOf("/trang-thai/hoan-thanh/") === -1 && u.indexOf("full") === -1 && u.indexOf(" end") === -1 && u.indexOf("đã hoàn thành") === -1 : !0; } function rt(r, u) { var i = w(r || x), c = j(i), l = { s: S(c.s), post_type: S(c.post_type) || "wp-manga" }, d = dt(i); return l.s === void 0 && (l.s = ""), d && (l["genre[]"] = d), c.hasOwnProperty("genre[]") && (l["genre[]"] = c["genre[]"]), c.hasOwnProperty("status[0]") && (l["status[0]"] = c["status[0]"]), c.hasOwnProperty("m_orderby") && (l.m_orderby = c.m_orderby), c.hasOwnProperty("author") && (l.author = c.author), c.hasOwnProperty("release") && (l.release = c.release), c.hasOwnProperty("adult") && (l.adult = c.adult), /\/trang-thai\/hoan-thanh\/?$/i.test(i) && (l["status[0]"] = "end"), !l.s && !l["genre[]"] && !l["status[0]"] && !l.m_orderby && (l.m_orderby = "latest"), u && (l.paged = String(u)), x + "/?" + q(l); } function Ht(r) { return x + "/?" + q({ s: "", post_type: "wp-manga", "genre[]": r }); } function ht(r, u) { return { title: m(r), input: rt(u, 1), script: "book.js" }; } function pt(r) { if (!r)
-                                        return ""; var u = r.attr("src"); return (!u || u.indexOf("data:image") === 0) && (u = r.attr("data-src") || r.attr("data-lazy-src") || r.attr("data-original") || u), H(u); } function $(r, u, i) { var c = R(r), l = c ? x + "/truyen/" + c + "/" : w(r), d = {}; u && (d.manga_id = u), i && (i.title && (d.title = i.title), i.cover && (d.cover = i.cover), i.statusText && (d.status = i.statusText), i.latestChapterSlug && (d.latest = i.latestChapterSlug)); var g = q(d); return g ? l + "?" + g : l; } function Ft(r, u, i) { var c = typeof r == "string" ? _(r) : r, l = c.slug || R(i), d = l && u ? x + "/truyen/" + l + "/" + u + "/" : w(i), g = {}; c.mangaId && (g.manga_id = c.mangaId), c.title && (g.title = c.title), c.cover && (g.cover = c.cover), c.statusText && (g.status = c.statusText), u && (g.chapter = u); var E = q(g); return E ? d + "?" + E : d; } function _(r) { var u = w(r || ""), i = j(u); return { url: u, slug: R(u), mangaId: m(S(i.manga_id) || ""), title: m(S(i.title) || ""), cover: S(i.cover) || "", statusText: m(S(i.status) || ""), latestChapterSlug: m(S(i.latest) || ""), chapterSlug: m(S(i.chapter) || M(u)) }; } function Q(r) { var u = r.select(".post-title a, h3 a").first(); if (!u)
-                                        return null; var i = r.select(".except-summary").first(), c = r.select(".latest-chap a, .font-meta.chapter a, .chapter-item a, .list-chapter a").first(), l = m(u.text()), d = w(u.attr("href")), g = r.select(".trangthai, .summary-content, .mg_status").first(), E = g ? g.select("a").last() : null, X = m((E ? E.attr("href") + " " : "") + (g ? g.text() : "")), J = []; r.select(".genres-content-search a, .genres-content a").forEach(function (Z) { var K = m(Z.text()), Y = Z.attr("href"); !K || !Y || J.push(ht(K, Y)); }); var O = { title: l, rawLink: d, slug: R(d), mangaId: m(i ? i.attr("data-manga-id") : ""), cover: pt(r.select("img").first()), descriptionHtml: i && i.html() || "", descriptionText: m(i ? i.text() : ""), statusText: X, ongoing: z(X), genres: J, latestChapterSlug: m(c ? M(c.attr("href")) || c.attr("value") : ""), latestChapterName: m(c ? c.text() : ""), latestChapterUrl: c ? w(c.attr("href")) : "", host: x }; return O.link = $(O.rawLink, O.mangaId, O), O; } function st(r) { var u = []; return r.select(".row.c-tabs-item__content").forEach(function (i) { var c = Q(i); c && u.push(c); }), u.length === 0 && r.select(".page-item-detail").forEach(function (i) { var c = Q(i); c && u.push(c); }), u; } function qt(r) { return { name: r.title, link: r.link, cover: r.cover, author: "N/A", description: r.descriptionText, host: x }; } function Ot(r) { var u = r.select("#madara_goto_page").first(); if (!u)
+                                    } }), u.join("&")) : ""; } function R(r) { var u = w(r || "").match(/\/truyen\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function F(r) { var u = w(r || "").match(/\/truyen\/[^\/?#]+\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function dt(r) { var u = w(r || "").match(/\/the-loai\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function I(r) { return m((r || "").replace(/-/g, " ")); } function z(r) { var u = m(r).toLowerCase(); return u ? u.indexOf("hoàn thành") === -1 && u.indexOf("hoan thanh") === -1 && u.indexOf("hoan-thanh") === -1 && u.indexOf("/trang-thai/hoan-thanh/") === -1 && u.indexOf("full") === -1 && u.indexOf(" end") === -1 && u.indexOf("đã hoàn thành") === -1 : !0; } function rt(r, u) { var i = w(r || x), c = j(i), l = { s: T(c.s), post_type: T(c.post_type) || "wp-manga" }, d = dt(i); return l.s === void 0 && (l.s = ""), d && (l["genre[]"] = d), c.hasOwnProperty("genre[]") && (l["genre[]"] = c["genre[]"]), c.hasOwnProperty("status[0]") && (l["status[0]"] = c["status[0]"]), c.hasOwnProperty("m_orderby") && (l.m_orderby = c.m_orderby), c.hasOwnProperty("author") && (l.author = c.author), c.hasOwnProperty("release") && (l.release = c.release), c.hasOwnProperty("adult") && (l.adult = c.adult), /\/trang-thai\/hoan-thanh\/?$/i.test(i) && (l["status[0]"] = "end"), !l.s && !l["genre[]"] && !l["status[0]"] && !l.m_orderby && (l.m_orderby = "latest"), u && (l.paged = String(u)), x + "/?" + q(l); } function Ht(r) { return x + "/?" + q({ s: "", post_type: "wp-manga", "genre[]": r }); } function ht(r, u) { return { title: m(r), input: rt(u, 1), script: "book.js" }; } function pt(r) { if (!r)
+                                        return ""; var u = r.attr("src"); return (!u || u.indexOf("data:image") === 0) && (u = r.attr("data-src") || r.attr("data-lazy-src") || r.attr("data-original") || u), H(u); } function $(r, u, i) { var c = R(r), l = c ? x + "/truyen/" + c + "/" : w(r), d = {}; u && (d.manga_id = u), i && (i.title && (d.title = i.title), i.cover && (d.cover = i.cover), i.statusText && (d.status = i.statusText), i.latestChapterSlug && (d.latest = i.latestChapterSlug)); var g = q(d); return g ? l + "?" + g : l; } function Mt(r, u, i) { var c = typeof r == "string" ? _(r) : r, l = c.slug || R(i), d = l && u ? x + "/truyen/" + l + "/" + u + "/" : w(i), g = {}; c.mangaId && (g.manga_id = c.mangaId), c.title && (g.title = c.title), c.cover && (g.cover = c.cover), c.statusText && (g.status = c.statusText), u && (g.chapter = u); var E = q(g); return E ? d + "?" + E : d; } function _(r) { var u = w(r || ""), i = j(u); return { url: u, slug: R(u), mangaId: m(T(i.manga_id) || ""), title: m(T(i.title) || ""), cover: T(i.cover) || "", statusText: m(T(i.status) || ""), latestChapterSlug: m(T(i.latest) || ""), chapterSlug: m(T(i.chapter) || F(u)) }; } function Q(r) { var u = r.select(".post-title a, h3 a").first(); if (!u)
+                                        return null; var i = r.select(".except-summary").first(), c = r.select(".latest-chap a, .font-meta.chapter a, .chapter-item a, .list-chapter a").first(), l = m(u.text()), d = w(u.attr("href")), g = r.select(".trangthai, .summary-content, .mg_status").first(), E = g ? g.select("a").last() : null, X = m((E ? E.attr("href") + " " : "") + (g ? g.text() : "")), J = []; r.select(".genres-content-search a, .genres-content a").forEach(function (Z) { var K = m(Z.text()), Y = Z.attr("href"); !K || !Y || J.push(ht(K, Y)); }); var O = { title: l, rawLink: d, slug: R(d), mangaId: m(i ? i.attr("data-manga-id") : ""), cover: pt(r.select("img").first()), descriptionHtml: i && i.html() || "", descriptionText: m(i ? i.text() : ""), statusText: X, ongoing: z(X), genres: J, latestChapterSlug: m(c ? F(c.attr("href")) || c.attr("value") : ""), latestChapterName: m(c ? c.text() : ""), latestChapterUrl: c ? w(c.attr("href")) : "", host: x }; return O.link = $(O.rawLink, O.mangaId, O), O; } function st(r) { var u = []; return r.select(".row.c-tabs-item__content").forEach(function (i) { var c = Q(i); c && u.push(c); }), u.length === 0 && r.select(".page-item-detail").forEach(function (i) { var c = Q(i); c && u.push(c); }), u; } function qt(r) { return { name: r.title, link: r.link, cover: r.cover, author: "N/A", description: r.descriptionText, host: x }; } function Ot(r) { var u = r.select("#madara_goto_page").first(); if (!u)
                                         return ""; var i = parseInt(u.attr("placeholder") || "1", 10), c = parseInt(u.attr("max") || "0", 10); return !isNaN(i) && !isNaN(c) && i < c ? String(i + 1) : ""; } function gt(r, u) { var i; for (i = 0; i < r.length; i++)
                                         if (u.mangaId && r[i].mangaId === u.mangaId)
                                             return r[i]; for (i = 0; i < r.length; i++)
                                         if (u.slug && r[i].slug === u.slug)
                                             return r[i]; for (i = 0; i < r.length; i++)
                                         if (u.title && m(r[i].title).toLowerCase() === m(u.title).toLowerCase())
-                                            return r[i]; return r.length ? r[0] : null; } function bt(r, u) { var i = { url: r.url, slug: u && u.slug ? u.slug : r.slug, mangaId: u && u.mangaId ? u.mangaId : r.mangaId, title: u && u.title ? u.title : r.title || I(r.slug), cover: u && u.cover ? u.cover : r.cover, statusText: u && u.statusText ? u.statusText : r.statusText, descriptionHtml: u && u.descriptionHtml ? u.descriptionHtml : "", descriptionText: u && u.descriptionText ? u.descriptionText : "", ongoing: u ? u.ongoing : z(r.statusText), genres: u && u.genres ? u.genres : [], latestChapterSlug: u && u.latestChapterSlug ? u.latestChapterSlug : r.latestChapterSlug, latestChapterName: u && u.latestChapterName ? u.latestChapterName : "", latestChapterUrl: u && u.latestChapterUrl ? u.latestChapterUrl : "", host: x }; return i.link = $(u && u.rawLink ? u.rawLink : r.url, i.mangaId, i), i; } function Mt(r) {
+                                            return r[i]; return r.length ? r[0] : null; } function bt(r, u) { var i = { url: r.url, slug: u && u.slug ? u.slug : r.slug, mangaId: u && u.mangaId ? u.mangaId : r.mangaId, title: u && u.title ? u.title : r.title || I(r.slug), cover: u && u.cover ? u.cover : r.cover, statusText: u && u.statusText ? u.statusText : r.statusText, descriptionHtml: u && u.descriptionHtml ? u.descriptionHtml : "", descriptionText: u && u.descriptionText ? u.descriptionText : "", ongoing: u ? u.ongoing : z(r.statusText), genres: u && u.genres ? u.genres : [], latestChapterSlug: u && u.latestChapterSlug ? u.latestChapterSlug : r.latestChapterSlug, latestChapterName: u && u.latestChapterName ? u.latestChapterName : "", latestChapterUrl: u && u.latestChapterUrl ? u.latestChapterUrl : "", host: x }; return i.link = $(u && u.rawLink ? u.rawLink : r.url, i.mangaId, i), i; } function Ft(r) {
                                         return __awaiter(this, void 0, void 0, function () { var u, i, c, l; return __generator(this, function (_b) {
                                             switch (_b.label) {
                                                 case 0:
@@ -2588,7 +2600,7 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
                                                     if (!c || !c.ok)
                                                         return [2, o.success([])];
                                                     l = s.parse(c.text()), d = [];
-                                                    return [2, (l.select("option").forEach(function (g) { var E = m(g.attr("value") || M(g.attr("data-redirect"))); E && d.push({ name: m(g.text()), url: Ft(u, E, g.attr("data-redirect")), host: x }); }), d.reverse(), o.success(d))];
+                                                    return [2, (l.select("option").forEach(function (g) { var E = m(g.attr("value") || F(g.attr("data-redirect"))); E && d.push({ name: m(g.text()), url: Mt(u, E, g.attr("data-redirect")), host: x }); }), d.reverse(), o.success(d))];
                                             }
                                         }); });
                                     } var x, tt; return __generator(this, function (_b) {
@@ -2608,7 +2620,7 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
         }); });
     }, chap: function (e, t) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (a, n, s, o, f, h, p, b, v, k, T, A, L, D, it, ct, St) {
+            return [2, (function (a, n, s, o, f, h, p, b, v, k, S, A, L, D, it, ct, St) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0: return [4, (function () {
@@ -2617,7 +2629,7 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
                                     }
                                     catch (u) {
                                         return r || "";
-                                    } } function S(r) { return Array.isArray(r) ? r[0] : r; } function j(r) { var u = {}; try {
+                                    } } function T(r) { return Array.isArray(r) ? r[0] : r; } function j(r) { var u = {}; try {
                                         var i = (r || "").split("?")[1] || "";
                                         if (!i)
                                             return u;
@@ -2632,16 +2644,16 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
                                             return;
                                         }
                                         u.push(encodeURIComponent(i) + "=" + encodeURIComponent(String(c)));
-                                    } }), u.join("&")) : ""; } function R(r) { var u = w(r || "").match(/\/truyen\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function M(r) { var u = w(r || "").match(/\/truyen\/[^\/?#]+\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function dt(r) { var u = w(r || "").match(/\/the-loai\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function I(r) { return m((r || "").replace(/-/g, " ")); } function z(r) { var u = m(r).toLowerCase(); return u ? u.indexOf("hoàn thành") === -1 && u.indexOf("hoan thanh") === -1 && u.indexOf("hoan-thanh") === -1 && u.indexOf("/trang-thai/hoan-thanh/") === -1 && u.indexOf("full") === -1 && u.indexOf(" end") === -1 && u.indexOf("đã hoàn thành") === -1 : !0; } function rt(r, u) { var i = w(r || x), c = j(i), l = { s: S(c.s), post_type: S(c.post_type) || "wp-manga" }, d = dt(i); return l.s === void 0 && (l.s = ""), d && (l["genre[]"] = d), c.hasOwnProperty("genre[]") && (l["genre[]"] = c["genre[]"]), c.hasOwnProperty("status[0]") && (l["status[0]"] = c["status[0]"]), c.hasOwnProperty("m_orderby") && (l.m_orderby = c.m_orderby), c.hasOwnProperty("author") && (l.author = c.author), c.hasOwnProperty("release") && (l.release = c.release), c.hasOwnProperty("adult") && (l.adult = c.adult), /\/trang-thai\/hoan-thanh\/?$/i.test(i) && (l["status[0]"] = "end"), !l.s && !l["genre[]"] && !l["status[0]"] && !l.m_orderby && (l.m_orderby = "latest"), u && (l.paged = String(u)), x + "/?" + q(l); } function Ht(r) { return x + "/?" + q({ s: "", post_type: "wp-manga", "genre[]": r }); } function ht(r, u) { return { title: m(r), input: rt(u, 1), script: "book.js" }; } function pt(r) { if (!r)
-                                        return ""; var u = r.attr("src"); return (!u || u.indexOf("data:image") === 0) && (u = r.attr("data-src") || r.attr("data-lazy-src") || r.attr("data-original") || u), H(u); } function $(r, u, i) { var c = R(r), l = c ? x + "/truyen/" + c + "/" : w(r), d = {}; u && (d.manga_id = u), i && (i.title && (d.title = i.title), i.cover && (d.cover = i.cover), i.statusText && (d.status = i.statusText), i.latestChapterSlug && (d.latest = i.latestChapterSlug)); var g = q(d); return g ? l + "?" + g : l; } function Ft(r, u, i) { var c = typeof r == "string" ? _(r) : r, l = c.slug || R(i), d = l && u ? x + "/truyen/" + l + "/" + u + "/" : w(i), g = {}; c.mangaId && (g.manga_id = c.mangaId), c.title && (g.title = c.title), c.cover && (g.cover = c.cover), c.statusText && (g.status = c.statusText), u && (g.chapter = u); var E = q(g); return E ? d + "?" + E : d; } function _(r) { var u = w(r || ""), i = j(u); return { url: u, slug: R(u), mangaId: m(S(i.manga_id) || ""), title: m(S(i.title) || ""), cover: S(i.cover) || "", statusText: m(S(i.status) || ""), latestChapterSlug: m(S(i.latest) || ""), chapterSlug: m(S(i.chapter) || M(u)) }; } function Q(r) { var u = r.select(".post-title a, h3 a").first(); if (!u)
-                                        return null; var i = r.select(".except-summary").first(), c = r.select(".latest-chap a, .font-meta.chapter a, .chapter-item a, .list-chapter a").first(), l = m(u.text()), d = w(u.attr("href")), g = r.select(".trangthai, .summary-content, .mg_status").first(), E = g ? g.select("a").last() : null, X = m((E ? E.attr("href") + " " : "") + (g ? g.text() : "")), J = []; r.select(".genres-content-search a, .genres-content a").forEach(function (Z) { var K = m(Z.text()), Y = Z.attr("href"); !K || !Y || J.push(ht(K, Y)); }); var O = { title: l, rawLink: d, slug: R(d), mangaId: m(i ? i.attr("data-manga-id") : ""), cover: pt(r.select("img").first()), descriptionHtml: i && i.html() || "", descriptionText: m(i ? i.text() : ""), statusText: X, ongoing: z(X), genres: J, latestChapterSlug: m(c ? M(c.attr("href")) || c.attr("value") : ""), latestChapterName: m(c ? c.text() : ""), latestChapterUrl: c ? w(c.attr("href")) : "", host: x }; return O.link = $(O.rawLink, O.mangaId, O), O; } function st(r) { var u = []; return r.select(".row.c-tabs-item__content").forEach(function (i) { var c = Q(i); c && u.push(c); }), u.length === 0 && r.select(".page-item-detail").forEach(function (i) { var c = Q(i); c && u.push(c); }), u; } function qt(r) { return { name: r.title, link: r.link, cover: r.cover, author: "N/A", description: r.descriptionText, host: x }; } function Ot(r) { var u = r.select("#madara_goto_page").first(); if (!u)
+                                    } }), u.join("&")) : ""; } function R(r) { var u = w(r || "").match(/\/truyen\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function F(r) { var u = w(r || "").match(/\/truyen\/[^\/?#]+\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function dt(r) { var u = w(r || "").match(/\/the-loai\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function I(r) { return m((r || "").replace(/-/g, " ")); } function z(r) { var u = m(r).toLowerCase(); return u ? u.indexOf("hoàn thành") === -1 && u.indexOf("hoan thanh") === -1 && u.indexOf("hoan-thanh") === -1 && u.indexOf("/trang-thai/hoan-thanh/") === -1 && u.indexOf("full") === -1 && u.indexOf(" end") === -1 && u.indexOf("đã hoàn thành") === -1 : !0; } function rt(r, u) { var i = w(r || x), c = j(i), l = { s: T(c.s), post_type: T(c.post_type) || "wp-manga" }, d = dt(i); return l.s === void 0 && (l.s = ""), d && (l["genre[]"] = d), c.hasOwnProperty("genre[]") && (l["genre[]"] = c["genre[]"]), c.hasOwnProperty("status[0]") && (l["status[0]"] = c["status[0]"]), c.hasOwnProperty("m_orderby") && (l.m_orderby = c.m_orderby), c.hasOwnProperty("author") && (l.author = c.author), c.hasOwnProperty("release") && (l.release = c.release), c.hasOwnProperty("adult") && (l.adult = c.adult), /\/trang-thai\/hoan-thanh\/?$/i.test(i) && (l["status[0]"] = "end"), !l.s && !l["genre[]"] && !l["status[0]"] && !l.m_orderby && (l.m_orderby = "latest"), u && (l.paged = String(u)), x + "/?" + q(l); } function Ht(r) { return x + "/?" + q({ s: "", post_type: "wp-manga", "genre[]": r }); } function ht(r, u) { return { title: m(r), input: rt(u, 1), script: "book.js" }; } function pt(r) { if (!r)
+                                        return ""; var u = r.attr("src"); return (!u || u.indexOf("data:image") === 0) && (u = r.attr("data-src") || r.attr("data-lazy-src") || r.attr("data-original") || u), H(u); } function $(r, u, i) { var c = R(r), l = c ? x + "/truyen/" + c + "/" : w(r), d = {}; u && (d.manga_id = u), i && (i.title && (d.title = i.title), i.cover && (d.cover = i.cover), i.statusText && (d.status = i.statusText), i.latestChapterSlug && (d.latest = i.latestChapterSlug)); var g = q(d); return g ? l + "?" + g : l; } function Mt(r, u, i) { var c = typeof r == "string" ? _(r) : r, l = c.slug || R(i), d = l && u ? x + "/truyen/" + l + "/" + u + "/" : w(i), g = {}; c.mangaId && (g.manga_id = c.mangaId), c.title && (g.title = c.title), c.cover && (g.cover = c.cover), c.statusText && (g.status = c.statusText), u && (g.chapter = u); var E = q(g); return E ? d + "?" + E : d; } function _(r) { var u = w(r || ""), i = j(u); return { url: u, slug: R(u), mangaId: m(T(i.manga_id) || ""), title: m(T(i.title) || ""), cover: T(i.cover) || "", statusText: m(T(i.status) || ""), latestChapterSlug: m(T(i.latest) || ""), chapterSlug: m(T(i.chapter) || F(u)) }; } function Q(r) { var u = r.select(".post-title a, h3 a").first(); if (!u)
+                                        return null; var i = r.select(".except-summary").first(), c = r.select(".latest-chap a, .font-meta.chapter a, .chapter-item a, .list-chapter a").first(), l = m(u.text()), d = w(u.attr("href")), g = r.select(".trangthai, .summary-content, .mg_status").first(), E = g ? g.select("a").last() : null, X = m((E ? E.attr("href") + " " : "") + (g ? g.text() : "")), J = []; r.select(".genres-content-search a, .genres-content a").forEach(function (Z) { var K = m(Z.text()), Y = Z.attr("href"); !K || !Y || J.push(ht(K, Y)); }); var O = { title: l, rawLink: d, slug: R(d), mangaId: m(i ? i.attr("data-manga-id") : ""), cover: pt(r.select("img").first()), descriptionHtml: i && i.html() || "", descriptionText: m(i ? i.text() : ""), statusText: X, ongoing: z(X), genres: J, latestChapterSlug: m(c ? F(c.attr("href")) || c.attr("value") : ""), latestChapterName: m(c ? c.text() : ""), latestChapterUrl: c ? w(c.attr("href")) : "", host: x }; return O.link = $(O.rawLink, O.mangaId, O), O; } function st(r) { var u = []; return r.select(".row.c-tabs-item__content").forEach(function (i) { var c = Q(i); c && u.push(c); }), u.length === 0 && r.select(".page-item-detail").forEach(function (i) { var c = Q(i); c && u.push(c); }), u; } function qt(r) { return { name: r.title, link: r.link, cover: r.cover, author: "N/A", description: r.descriptionText, host: x }; } function Ot(r) { var u = r.select("#madara_goto_page").first(); if (!u)
                                         return ""; var i = parseInt(u.attr("placeholder") || "1", 10), c = parseInt(u.attr("max") || "0", 10); return !isNaN(i) && !isNaN(c) && i < c ? String(i + 1) : ""; } function gt(r, u) { var i; for (i = 0; i < r.length; i++)
                                         if (u.mangaId && r[i].mangaId === u.mangaId)
                                             return r[i]; for (i = 0; i < r.length; i++)
                                         if (u.slug && r[i].slug === u.slug)
                                             return r[i]; for (i = 0; i < r.length; i++)
                                         if (u.title && m(r[i].title).toLowerCase() === m(u.title).toLowerCase())
-                                            return r[i]; return r.length ? r[0] : null; } function bt(r, u) { var i = { url: r.url, slug: u && u.slug ? u.slug : r.slug, mangaId: u && u.mangaId ? u.mangaId : r.mangaId, title: u && u.title ? u.title : r.title || I(r.slug), cover: u && u.cover ? u.cover : r.cover, statusText: u && u.statusText ? u.statusText : r.statusText, descriptionHtml: u && u.descriptionHtml ? u.descriptionHtml : "", descriptionText: u && u.descriptionText ? u.descriptionText : "", ongoing: u ? u.ongoing : z(r.statusText), genres: u && u.genres ? u.genres : [], latestChapterSlug: u && u.latestChapterSlug ? u.latestChapterSlug : r.latestChapterSlug, latestChapterName: u && u.latestChapterName ? u.latestChapterName : "", latestChapterUrl: u && u.latestChapterUrl ? u.latestChapterUrl : "", host: x }; return i.link = $(u && u.rawLink ? u.rawLink : r.url, i.mangaId, i), i; } function Mt(r) {
+                                            return r[i]; return r.length ? r[0] : null; } function bt(r, u) { var i = { url: r.url, slug: u && u.slug ? u.slug : r.slug, mangaId: u && u.mangaId ? u.mangaId : r.mangaId, title: u && u.title ? u.title : r.title || I(r.slug), cover: u && u.cover ? u.cover : r.cover, statusText: u && u.statusText ? u.statusText : r.statusText, descriptionHtml: u && u.descriptionHtml ? u.descriptionHtml : "", descriptionText: u && u.descriptionText ? u.descriptionText : "", ongoing: u ? u.ongoing : z(r.statusText), genres: u && u.genres ? u.genres : [], latestChapterSlug: u && u.latestChapterSlug ? u.latestChapterSlug : r.latestChapterSlug, latestChapterName: u && u.latestChapterName ? u.latestChapterName : "", latestChapterUrl: u && u.latestChapterUrl ? u.latestChapterUrl : "", host: x }; return i.link = $(u && u.rawLink ? u.rawLink : r.url, i.mangaId, i), i; } function Ft(r) {
                                         return __awaiter(this, void 0, void 0, function () { var u, i, c, l; return __generator(this, function (_b) {
                                             switch (_b.label) {
                                                 case 0:
@@ -2677,7 +2689,7 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
                                         return __awaiter(this, void 0, void 0, function () { var u, i, c, l, d, g, E; return __generator(this, function (_b) {
                                             switch (_b.label) {
                                                 case 0:
-                                                    u = _(r), i = u.chapterSlug || M(r);
+                                                    u = _(r), i = u.chapterSlug || F(r);
                                                     if (!u.mangaId || !i)
                                                         return [2, null];
                                                     return [4, a(tt + "?" + q({ postID: u.mangaId, chapter: i, "truyen-paged": 1, style: "paged", action: "chapter_navigate_page" }), { headers: { accept: "application/json, text/javascript, */*; q=0.01", "x-requested-with": "XMLHttpRequest" } })];
@@ -2711,7 +2723,7 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
         }); });
     }, home: function (e, t) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (a, n, s, o, f, h, p, b, v, k, T, A, L, D, it, ct, St) {
+            return [2, (function (a, n, s, o, f, h, p, b, v, k, S, A, L, D, it, ct, St) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0: return [4, (function () {
@@ -2720,7 +2732,7 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
                                     }
                                     catch (u) {
                                         return r || "";
-                                    } } function S(r) { return Array.isArray(r) ? r[0] : r; } function j(r) { var u = {}; try {
+                                    } } function T(r) { return Array.isArray(r) ? r[0] : r; } function j(r) { var u = {}; try {
                                         var i = (r || "").split("?")[1] || "";
                                         if (!i)
                                             return u;
@@ -2735,16 +2747,16 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
                                             return;
                                         }
                                         u.push(encodeURIComponent(i) + "=" + encodeURIComponent(String(c)));
-                                    } }), u.join("&")) : ""; } function R(r) { var u = w(r || "").match(/\/truyen\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function M(r) { var u = w(r || "").match(/\/truyen\/[^\/?#]+\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function dt(r) { var u = w(r || "").match(/\/the-loai\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function I(r) { return m((r || "").replace(/-/g, " ")); } function z(r) { var u = m(r).toLowerCase(); return u ? u.indexOf("hoàn thành") === -1 && u.indexOf("hoan thanh") === -1 && u.indexOf("hoan-thanh") === -1 && u.indexOf("/trang-thai/hoan-thanh/") === -1 && u.indexOf("full") === -1 && u.indexOf(" end") === -1 && u.indexOf("đã hoàn thành") === -1 : !0; } function rt(r, u) { var i = w(r || x), c = j(i), l = { s: S(c.s), post_type: S(c.post_type) || "wp-manga" }, d = dt(i); return l.s === void 0 && (l.s = ""), d && (l["genre[]"] = d), c.hasOwnProperty("genre[]") && (l["genre[]"] = c["genre[]"]), c.hasOwnProperty("status[0]") && (l["status[0]"] = c["status[0]"]), c.hasOwnProperty("m_orderby") && (l.m_orderby = c.m_orderby), c.hasOwnProperty("author") && (l.author = c.author), c.hasOwnProperty("release") && (l.release = c.release), c.hasOwnProperty("adult") && (l.adult = c.adult), /\/trang-thai\/hoan-thanh\/?$/i.test(i) && (l["status[0]"] = "end"), !l.s && !l["genre[]"] && !l["status[0]"] && !l.m_orderby && (l.m_orderby = "latest"), u && (l.paged = String(u)), x + "/?" + q(l); } function Ht(r) { return x + "/?" + q({ s: "", post_type: "wp-manga", "genre[]": r }); } function ht(r, u) { return { title: m(r), input: rt(u, 1), script: "book.js" }; } function pt(r) { if (!r)
-                                        return ""; var u = r.attr("src"); return (!u || u.indexOf("data:image") === 0) && (u = r.attr("data-src") || r.attr("data-lazy-src") || r.attr("data-original") || u), H(u); } function $(r, u, i) { var c = R(r), l = c ? x + "/truyen/" + c + "/" : w(r), d = {}; u && (d.manga_id = u), i && (i.title && (d.title = i.title), i.cover && (d.cover = i.cover), i.statusText && (d.status = i.statusText), i.latestChapterSlug && (d.latest = i.latestChapterSlug)); var g = q(d); return g ? l + "?" + g : l; } function Ft(r, u, i) { var c = typeof r == "string" ? _(r) : r, l = c.slug || R(i), d = l && u ? x + "/truyen/" + l + "/" + u + "/" : w(i), g = {}; c.mangaId && (g.manga_id = c.mangaId), c.title && (g.title = c.title), c.cover && (g.cover = c.cover), c.statusText && (g.status = c.statusText), u && (g.chapter = u); var E = q(g); return E ? d + "?" + E : d; } function _(r) { var u = w(r || ""), i = j(u); return { url: u, slug: R(u), mangaId: m(S(i.manga_id) || ""), title: m(S(i.title) || ""), cover: S(i.cover) || "", statusText: m(S(i.status) || ""), latestChapterSlug: m(S(i.latest) || ""), chapterSlug: m(S(i.chapter) || M(u)) }; } function Q(r) { var u = r.select(".post-title a, h3 a").first(); if (!u)
-                                        return null; var i = r.select(".except-summary").first(), c = r.select(".latest-chap a, .font-meta.chapter a, .chapter-item a, .list-chapter a").first(), l = m(u.text()), d = w(u.attr("href")), g = r.select(".trangthai, .summary-content, .mg_status").first(), E = g ? g.select("a").last() : null, X = m((E ? E.attr("href") + " " : "") + (g ? g.text() : "")), J = []; r.select(".genres-content-search a, .genres-content a").forEach(function (Z) { var K = m(Z.text()), Y = Z.attr("href"); !K || !Y || J.push(ht(K, Y)); }); var O = { title: l, rawLink: d, slug: R(d), mangaId: m(i ? i.attr("data-manga-id") : ""), cover: pt(r.select("img").first()), descriptionHtml: i && i.html() || "", descriptionText: m(i ? i.text() : ""), statusText: X, ongoing: z(X), genres: J, latestChapterSlug: m(c ? M(c.attr("href")) || c.attr("value") : ""), latestChapterName: m(c ? c.text() : ""), latestChapterUrl: c ? w(c.attr("href")) : "", host: x }; return O.link = $(O.rawLink, O.mangaId, O), O; } function st(r) { var u = []; return r.select(".row.c-tabs-item__content").forEach(function (i) { var c = Q(i); c && u.push(c); }), u.length === 0 && r.select(".page-item-detail").forEach(function (i) { var c = Q(i); c && u.push(c); }), u; } function qt(r) { return { name: r.title, link: r.link, cover: r.cover, author: "N/A", description: r.descriptionText, host: x }; } function Ot(r) { var u = r.select("#madara_goto_page").first(); if (!u)
+                                    } }), u.join("&")) : ""; } function R(r) { var u = w(r || "").match(/\/truyen\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function F(r) { var u = w(r || "").match(/\/truyen\/[^\/?#]+\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function dt(r) { var u = w(r || "").match(/\/the-loai\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function I(r) { return m((r || "").replace(/-/g, " ")); } function z(r) { var u = m(r).toLowerCase(); return u ? u.indexOf("hoàn thành") === -1 && u.indexOf("hoan thanh") === -1 && u.indexOf("hoan-thanh") === -1 && u.indexOf("/trang-thai/hoan-thanh/") === -1 && u.indexOf("full") === -1 && u.indexOf(" end") === -1 && u.indexOf("đã hoàn thành") === -1 : !0; } function rt(r, u) { var i = w(r || x), c = j(i), l = { s: T(c.s), post_type: T(c.post_type) || "wp-manga" }, d = dt(i); return l.s === void 0 && (l.s = ""), d && (l["genre[]"] = d), c.hasOwnProperty("genre[]") && (l["genre[]"] = c["genre[]"]), c.hasOwnProperty("status[0]") && (l["status[0]"] = c["status[0]"]), c.hasOwnProperty("m_orderby") && (l.m_orderby = c.m_orderby), c.hasOwnProperty("author") && (l.author = c.author), c.hasOwnProperty("release") && (l.release = c.release), c.hasOwnProperty("adult") && (l.adult = c.adult), /\/trang-thai\/hoan-thanh\/?$/i.test(i) && (l["status[0]"] = "end"), !l.s && !l["genre[]"] && !l["status[0]"] && !l.m_orderby && (l.m_orderby = "latest"), u && (l.paged = String(u)), x + "/?" + q(l); } function Ht(r) { return x + "/?" + q({ s: "", post_type: "wp-manga", "genre[]": r }); } function ht(r, u) { return { title: m(r), input: rt(u, 1), script: "book.js" }; } function pt(r) { if (!r)
+                                        return ""; var u = r.attr("src"); return (!u || u.indexOf("data:image") === 0) && (u = r.attr("data-src") || r.attr("data-lazy-src") || r.attr("data-original") || u), H(u); } function $(r, u, i) { var c = R(r), l = c ? x + "/truyen/" + c + "/" : w(r), d = {}; u && (d.manga_id = u), i && (i.title && (d.title = i.title), i.cover && (d.cover = i.cover), i.statusText && (d.status = i.statusText), i.latestChapterSlug && (d.latest = i.latestChapterSlug)); var g = q(d); return g ? l + "?" + g : l; } function Mt(r, u, i) { var c = typeof r == "string" ? _(r) : r, l = c.slug || R(i), d = l && u ? x + "/truyen/" + l + "/" + u + "/" : w(i), g = {}; c.mangaId && (g.manga_id = c.mangaId), c.title && (g.title = c.title), c.cover && (g.cover = c.cover), c.statusText && (g.status = c.statusText), u && (g.chapter = u); var E = q(g); return E ? d + "?" + E : d; } function _(r) { var u = w(r || ""), i = j(u); return { url: u, slug: R(u), mangaId: m(T(i.manga_id) || ""), title: m(T(i.title) || ""), cover: T(i.cover) || "", statusText: m(T(i.status) || ""), latestChapterSlug: m(T(i.latest) || ""), chapterSlug: m(T(i.chapter) || F(u)) }; } function Q(r) { var u = r.select(".post-title a, h3 a").first(); if (!u)
+                                        return null; var i = r.select(".except-summary").first(), c = r.select(".latest-chap a, .font-meta.chapter a, .chapter-item a, .list-chapter a").first(), l = m(u.text()), d = w(u.attr("href")), g = r.select(".trangthai, .summary-content, .mg_status").first(), E = g ? g.select("a").last() : null, X = m((E ? E.attr("href") + " " : "") + (g ? g.text() : "")), J = []; r.select(".genres-content-search a, .genres-content a").forEach(function (Z) { var K = m(Z.text()), Y = Z.attr("href"); !K || !Y || J.push(ht(K, Y)); }); var O = { title: l, rawLink: d, slug: R(d), mangaId: m(i ? i.attr("data-manga-id") : ""), cover: pt(r.select("img").first()), descriptionHtml: i && i.html() || "", descriptionText: m(i ? i.text() : ""), statusText: X, ongoing: z(X), genres: J, latestChapterSlug: m(c ? F(c.attr("href")) || c.attr("value") : ""), latestChapterName: m(c ? c.text() : ""), latestChapterUrl: c ? w(c.attr("href")) : "", host: x }; return O.link = $(O.rawLink, O.mangaId, O), O; } function st(r) { var u = []; return r.select(".row.c-tabs-item__content").forEach(function (i) { var c = Q(i); c && u.push(c); }), u.length === 0 && r.select(".page-item-detail").forEach(function (i) { var c = Q(i); c && u.push(c); }), u; } function qt(r) { return { name: r.title, link: r.link, cover: r.cover, author: "N/A", description: r.descriptionText, host: x }; } function Ot(r) { var u = r.select("#madara_goto_page").first(); if (!u)
                                         return ""; var i = parseInt(u.attr("placeholder") || "1", 10), c = parseInt(u.attr("max") || "0", 10); return !isNaN(i) && !isNaN(c) && i < c ? String(i + 1) : ""; } function gt(r, u) { var i; for (i = 0; i < r.length; i++)
                                         if (u.mangaId && r[i].mangaId === u.mangaId)
                                             return r[i]; for (i = 0; i < r.length; i++)
                                         if (u.slug && r[i].slug === u.slug)
                                             return r[i]; for (i = 0; i < r.length; i++)
                                         if (u.title && m(r[i].title).toLowerCase() === m(u.title).toLowerCase())
-                                            return r[i]; return r.length ? r[0] : null; } function bt(r, u) { var i = { url: r.url, slug: u && u.slug ? u.slug : r.slug, mangaId: u && u.mangaId ? u.mangaId : r.mangaId, title: u && u.title ? u.title : r.title || I(r.slug), cover: u && u.cover ? u.cover : r.cover, statusText: u && u.statusText ? u.statusText : r.statusText, descriptionHtml: u && u.descriptionHtml ? u.descriptionHtml : "", descriptionText: u && u.descriptionText ? u.descriptionText : "", ongoing: u ? u.ongoing : z(r.statusText), genres: u && u.genres ? u.genres : [], latestChapterSlug: u && u.latestChapterSlug ? u.latestChapterSlug : r.latestChapterSlug, latestChapterName: u && u.latestChapterName ? u.latestChapterName : "", latestChapterUrl: u && u.latestChapterUrl ? u.latestChapterUrl : "", host: x }; return i.link = $(u && u.rawLink ? u.rawLink : r.url, i.mangaId, i), i; } function Mt(r) {
+                                            return r[i]; return r.length ? r[0] : null; } function bt(r, u) { var i = { url: r.url, slug: u && u.slug ? u.slug : r.slug, mangaId: u && u.mangaId ? u.mangaId : r.mangaId, title: u && u.title ? u.title : r.title || I(r.slug), cover: u && u.cover ? u.cover : r.cover, statusText: u && u.statusText ? u.statusText : r.statusText, descriptionHtml: u && u.descriptionHtml ? u.descriptionHtml : "", descriptionText: u && u.descriptionText ? u.descriptionText : "", ongoing: u ? u.ongoing : z(r.statusText), genres: u && u.genres ? u.genres : [], latestChapterSlug: u && u.latestChapterSlug ? u.latestChapterSlug : r.latestChapterSlug, latestChapterName: u && u.latestChapterName ? u.latestChapterName : "", latestChapterUrl: u && u.latestChapterUrl ? u.latestChapterUrl : "", host: x }; return i.link = $(u && u.rawLink ? u.rawLink : r.url, i.mangaId, i), i; } function Ft(r) {
                                         return __awaiter(this, void 0, void 0, function () { var u, i, c, l; return __generator(this, function (_b) {
                                             switch (_b.label) {
                                                 case 0:
@@ -2797,7 +2809,7 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
         }); });
     }, genre: function (e, t) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (a, n, s, o, f, h, p, b, v, k, T, A, L, D, it, ct, St) {
+            return [2, (function (a, n, s, o, f, h, p, b, v, k, S, A, L, D, it, ct, St) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0: return [4, (function () {
@@ -2806,7 +2818,7 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
                                     }
                                     catch (u) {
                                         return r || "";
-                                    } } function S(r) { return Array.isArray(r) ? r[0] : r; } function j(r) { var u = {}; try {
+                                    } } function T(r) { return Array.isArray(r) ? r[0] : r; } function j(r) { var u = {}; try {
                                         var i = (r || "").split("?")[1] || "";
                                         if (!i)
                                             return u;
@@ -2821,16 +2833,16 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
                                             return;
                                         }
                                         u.push(encodeURIComponent(i) + "=" + encodeURIComponent(String(c)));
-                                    } }), u.join("&")) : ""; } function R(r) { var u = w(r || "").match(/\/truyen\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function M(r) { var u = w(r || "").match(/\/truyen\/[^\/?#]+\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function dt(r) { var u = w(r || "").match(/\/the-loai\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function I(r) { return m((r || "").replace(/-/g, " ")); } function z(r) { var u = m(r).toLowerCase(); return u ? u.indexOf("hoàn thành") === -1 && u.indexOf("hoan thanh") === -1 && u.indexOf("hoan-thanh") === -1 && u.indexOf("/trang-thai/hoan-thanh/") === -1 && u.indexOf("full") === -1 && u.indexOf(" end") === -1 && u.indexOf("đã hoàn thành") === -1 : !0; } function rt(r, u) { var i = w(r || x), c = j(i), l = { s: S(c.s), post_type: S(c.post_type) || "wp-manga" }, d = dt(i); return l.s === void 0 && (l.s = ""), d && (l["genre[]"] = d), c.hasOwnProperty("genre[]") && (l["genre[]"] = c["genre[]"]), c.hasOwnProperty("status[0]") && (l["status[0]"] = c["status[0]"]), c.hasOwnProperty("m_orderby") && (l.m_orderby = c.m_orderby), c.hasOwnProperty("author") && (l.author = c.author), c.hasOwnProperty("release") && (l.release = c.release), c.hasOwnProperty("adult") && (l.adult = c.adult), /\/trang-thai\/hoan-thanh\/?$/i.test(i) && (l["status[0]"] = "end"), !l.s && !l["genre[]"] && !l["status[0]"] && !l.m_orderby && (l.m_orderby = "latest"), u && (l.paged = String(u)), x + "/?" + q(l); } function Ht(r) { return x + "/?" + q({ s: "", post_type: "wp-manga", "genre[]": r }); } function ht(r, u) { return { title: m(r), input: rt(u, 1), script: "book.js" }; } function pt(r) { if (!r)
-                                        return ""; var u = r.attr("src"); return (!u || u.indexOf("data:image") === 0) && (u = r.attr("data-src") || r.attr("data-lazy-src") || r.attr("data-original") || u), H(u); } function $(r, u, i) { var c = R(r), l = c ? x + "/truyen/" + c + "/" : w(r), d = {}; u && (d.manga_id = u), i && (i.title && (d.title = i.title), i.cover && (d.cover = i.cover), i.statusText && (d.status = i.statusText), i.latestChapterSlug && (d.latest = i.latestChapterSlug)); var g = q(d); return g ? l + "?" + g : l; } function Ft(r, u, i) { var c = typeof r == "string" ? _(r) : r, l = c.slug || R(i), d = l && u ? x + "/truyen/" + l + "/" + u + "/" : w(i), g = {}; c.mangaId && (g.manga_id = c.mangaId), c.title && (g.title = c.title), c.cover && (g.cover = c.cover), c.statusText && (g.status = c.statusText), u && (g.chapter = u); var E = q(g); return E ? d + "?" + E : d; } function _(r) { var u = w(r || ""), i = j(u); return { url: u, slug: R(u), mangaId: m(S(i.manga_id) || ""), title: m(S(i.title) || ""), cover: S(i.cover) || "", statusText: m(S(i.status) || ""), latestChapterSlug: m(S(i.latest) || ""), chapterSlug: m(S(i.chapter) || M(u)) }; } function Q(r) { var u = r.select(".post-title a, h3 a").first(); if (!u)
-                                        return null; var i = r.select(".except-summary").first(), c = r.select(".latest-chap a, .font-meta.chapter a, .chapter-item a, .list-chapter a").first(), l = m(u.text()), d = w(u.attr("href")), g = r.select(".trangthai, .summary-content, .mg_status").first(), E = g ? g.select("a").last() : null, X = m((E ? E.attr("href") + " " : "") + (g ? g.text() : "")), J = []; r.select(".genres-content-search a, .genres-content a").forEach(function (Z) { var K = m(Z.text()), Y = Z.attr("href"); !K || !Y || J.push(ht(K, Y)); }); var O = { title: l, rawLink: d, slug: R(d), mangaId: m(i ? i.attr("data-manga-id") : ""), cover: pt(r.select("img").first()), descriptionHtml: i && i.html() || "", descriptionText: m(i ? i.text() : ""), statusText: X, ongoing: z(X), genres: J, latestChapterSlug: m(c ? M(c.attr("href")) || c.attr("value") : ""), latestChapterName: m(c ? c.text() : ""), latestChapterUrl: c ? w(c.attr("href")) : "", host: x }; return O.link = $(O.rawLink, O.mangaId, O), O; } function st(r) { var u = []; return r.select(".row.c-tabs-item__content").forEach(function (i) { var c = Q(i); c && u.push(c); }), u.length === 0 && r.select(".page-item-detail").forEach(function (i) { var c = Q(i); c && u.push(c); }), u; } function qt(r) { return { name: r.title, link: r.link, cover: r.cover, author: "N/A", description: r.descriptionText, host: x }; } function Ot(r) { var u = r.select("#madara_goto_page").first(); if (!u)
+                                    } }), u.join("&")) : ""; } function R(r) { var u = w(r || "").match(/\/truyen\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function F(r) { var u = w(r || "").match(/\/truyen\/[^\/?#]+\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function dt(r) { var u = w(r || "").match(/\/the-loai\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function I(r) { return m((r || "").replace(/-/g, " ")); } function z(r) { var u = m(r).toLowerCase(); return u ? u.indexOf("hoàn thành") === -1 && u.indexOf("hoan thanh") === -1 && u.indexOf("hoan-thanh") === -1 && u.indexOf("/trang-thai/hoan-thanh/") === -1 && u.indexOf("full") === -1 && u.indexOf(" end") === -1 && u.indexOf("đã hoàn thành") === -1 : !0; } function rt(r, u) { var i = w(r || x), c = j(i), l = { s: T(c.s), post_type: T(c.post_type) || "wp-manga" }, d = dt(i); return l.s === void 0 && (l.s = ""), d && (l["genre[]"] = d), c.hasOwnProperty("genre[]") && (l["genre[]"] = c["genre[]"]), c.hasOwnProperty("status[0]") && (l["status[0]"] = c["status[0]"]), c.hasOwnProperty("m_orderby") && (l.m_orderby = c.m_orderby), c.hasOwnProperty("author") && (l.author = c.author), c.hasOwnProperty("release") && (l.release = c.release), c.hasOwnProperty("adult") && (l.adult = c.adult), /\/trang-thai\/hoan-thanh\/?$/i.test(i) && (l["status[0]"] = "end"), !l.s && !l["genre[]"] && !l["status[0]"] && !l.m_orderby && (l.m_orderby = "latest"), u && (l.paged = String(u)), x + "/?" + q(l); } function Ht(r) { return x + "/?" + q({ s: "", post_type: "wp-manga", "genre[]": r }); } function ht(r, u) { return { title: m(r), input: rt(u, 1), script: "book.js" }; } function pt(r) { if (!r)
+                                        return ""; var u = r.attr("src"); return (!u || u.indexOf("data:image") === 0) && (u = r.attr("data-src") || r.attr("data-lazy-src") || r.attr("data-original") || u), H(u); } function $(r, u, i) { var c = R(r), l = c ? x + "/truyen/" + c + "/" : w(r), d = {}; u && (d.manga_id = u), i && (i.title && (d.title = i.title), i.cover && (d.cover = i.cover), i.statusText && (d.status = i.statusText), i.latestChapterSlug && (d.latest = i.latestChapterSlug)); var g = q(d); return g ? l + "?" + g : l; } function Mt(r, u, i) { var c = typeof r == "string" ? _(r) : r, l = c.slug || R(i), d = l && u ? x + "/truyen/" + l + "/" + u + "/" : w(i), g = {}; c.mangaId && (g.manga_id = c.mangaId), c.title && (g.title = c.title), c.cover && (g.cover = c.cover), c.statusText && (g.status = c.statusText), u && (g.chapter = u); var E = q(g); return E ? d + "?" + E : d; } function _(r) { var u = w(r || ""), i = j(u); return { url: u, slug: R(u), mangaId: m(T(i.manga_id) || ""), title: m(T(i.title) || ""), cover: T(i.cover) || "", statusText: m(T(i.status) || ""), latestChapterSlug: m(T(i.latest) || ""), chapterSlug: m(T(i.chapter) || F(u)) }; } function Q(r) { var u = r.select(".post-title a, h3 a").first(); if (!u)
+                                        return null; var i = r.select(".except-summary").first(), c = r.select(".latest-chap a, .font-meta.chapter a, .chapter-item a, .list-chapter a").first(), l = m(u.text()), d = w(u.attr("href")), g = r.select(".trangthai, .summary-content, .mg_status").first(), E = g ? g.select("a").last() : null, X = m((E ? E.attr("href") + " " : "") + (g ? g.text() : "")), J = []; r.select(".genres-content-search a, .genres-content a").forEach(function (Z) { var K = m(Z.text()), Y = Z.attr("href"); !K || !Y || J.push(ht(K, Y)); }); var O = { title: l, rawLink: d, slug: R(d), mangaId: m(i ? i.attr("data-manga-id") : ""), cover: pt(r.select("img").first()), descriptionHtml: i && i.html() || "", descriptionText: m(i ? i.text() : ""), statusText: X, ongoing: z(X), genres: J, latestChapterSlug: m(c ? F(c.attr("href")) || c.attr("value") : ""), latestChapterName: m(c ? c.text() : ""), latestChapterUrl: c ? w(c.attr("href")) : "", host: x }; return O.link = $(O.rawLink, O.mangaId, O), O; } function st(r) { var u = []; return r.select(".row.c-tabs-item__content").forEach(function (i) { var c = Q(i); c && u.push(c); }), u.length === 0 && r.select(".page-item-detail").forEach(function (i) { var c = Q(i); c && u.push(c); }), u; } function qt(r) { return { name: r.title, link: r.link, cover: r.cover, author: "N/A", description: r.descriptionText, host: x }; } function Ot(r) { var u = r.select("#madara_goto_page").first(); if (!u)
                                         return ""; var i = parseInt(u.attr("placeholder") || "1", 10), c = parseInt(u.attr("max") || "0", 10); return !isNaN(i) && !isNaN(c) && i < c ? String(i + 1) : ""; } function gt(r, u) { var i; for (i = 0; i < r.length; i++)
                                         if (u.mangaId && r[i].mangaId === u.mangaId)
                                             return r[i]; for (i = 0; i < r.length; i++)
                                         if (u.slug && r[i].slug === u.slug)
                                             return r[i]; for (i = 0; i < r.length; i++)
                                         if (u.title && m(r[i].title).toLowerCase() === m(u.title).toLowerCase())
-                                            return r[i]; return r.length ? r[0] : null; } function bt(r, u) { var i = { url: r.url, slug: u && u.slug ? u.slug : r.slug, mangaId: u && u.mangaId ? u.mangaId : r.mangaId, title: u && u.title ? u.title : r.title || I(r.slug), cover: u && u.cover ? u.cover : r.cover, statusText: u && u.statusText ? u.statusText : r.statusText, descriptionHtml: u && u.descriptionHtml ? u.descriptionHtml : "", descriptionText: u && u.descriptionText ? u.descriptionText : "", ongoing: u ? u.ongoing : z(r.statusText), genres: u && u.genres ? u.genres : [], latestChapterSlug: u && u.latestChapterSlug ? u.latestChapterSlug : r.latestChapterSlug, latestChapterName: u && u.latestChapterName ? u.latestChapterName : "", latestChapterUrl: u && u.latestChapterUrl ? u.latestChapterUrl : "", host: x }; return i.link = $(u && u.rawLink ? u.rawLink : r.url, i.mangaId, i), i; } function Mt(r) {
+                                            return r[i]; return r.length ? r[0] : null; } function bt(r, u) { var i = { url: r.url, slug: u && u.slug ? u.slug : r.slug, mangaId: u && u.mangaId ? u.mangaId : r.mangaId, title: u && u.title ? u.title : r.title || I(r.slug), cover: u && u.cover ? u.cover : r.cover, statusText: u && u.statusText ? u.statusText : r.statusText, descriptionHtml: u && u.descriptionHtml ? u.descriptionHtml : "", descriptionText: u && u.descriptionText ? u.descriptionText : "", ongoing: u ? u.ongoing : z(r.statusText), genres: u && u.genres ? u.genres : [], latestChapterSlug: u && u.latestChapterSlug ? u.latestChapterSlug : r.latestChapterSlug, latestChapterName: u && u.latestChapterName ? u.latestChapterName : "", latestChapterUrl: u && u.latestChapterUrl ? u.latestChapterUrl : "", host: x }; return i.link = $(u && u.rawLink ? u.rawLink : r.url, i.mangaId, i), i; } function Ft(r) {
                                         return __awaiter(this, void 0, void 0, function () { var u, i, c, l; return __generator(this, function (_b) {
                                             switch (_b.label) {
                                                 case 0:
@@ -2891,7 +2903,7 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
         }); });
     }, search: function (e, t) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (a, n, s, o, f, h, p, b, v, k, T, A, L, D, it, ct, St) {
+            return [2, (function (a, n, s, o, f, h, p, b, v, k, S, A, L, D, it, ct, St) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0: return [4, (function () {
@@ -2900,7 +2912,7 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
                                     }
                                     catch (u) {
                                         return r || "";
-                                    } } function S(r) { return Array.isArray(r) ? r[0] : r; } function j(r) { var u = {}; try {
+                                    } } function T(r) { return Array.isArray(r) ? r[0] : r; } function j(r) { var u = {}; try {
                                         var i = (r || "").split("?")[1] || "";
                                         if (!i)
                                             return u;
@@ -2915,16 +2927,16 @@ var Lt = { id: "truyencv", name: "Mê Truyện CV", source: "https://metruyencv.
                                             return;
                                         }
                                         u.push(encodeURIComponent(i) + "=" + encodeURIComponent(String(c)));
-                                    } }), u.join("&")) : ""; } function R(r) { var u = w(r || "").match(/\/truyen\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function M(r) { var u = w(r || "").match(/\/truyen\/[^\/?#]+\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function dt(r) { var u = w(r || "").match(/\/the-loai\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function I(r) { return m((r || "").replace(/-/g, " ")); } function z(r) { var u = m(r).toLowerCase(); return u ? u.indexOf("hoàn thành") === -1 && u.indexOf("hoan thanh") === -1 && u.indexOf("hoan-thanh") === -1 && u.indexOf("/trang-thai/hoan-thanh/") === -1 && u.indexOf("full") === -1 && u.indexOf(" end") === -1 && u.indexOf("đã hoàn thành") === -1 : !0; } function rt(r, u) { var i = w(r || x), c = j(i), l = { s: S(c.s), post_type: S(c.post_type) || "wp-manga" }, d = dt(i); return l.s === void 0 && (l.s = ""), d && (l["genre[]"] = d), c.hasOwnProperty("genre[]") && (l["genre[]"] = c["genre[]"]), c.hasOwnProperty("status[0]") && (l["status[0]"] = c["status[0]"]), c.hasOwnProperty("m_orderby") && (l.m_orderby = c.m_orderby), c.hasOwnProperty("author") && (l.author = c.author), c.hasOwnProperty("release") && (l.release = c.release), c.hasOwnProperty("adult") && (l.adult = c.adult), /\/trang-thai\/hoan-thanh\/?$/i.test(i) && (l["status[0]"] = "end"), !l.s && !l["genre[]"] && !l["status[0]"] && !l.m_orderby && (l.m_orderby = "latest"), u && (l.paged = String(u)), x + "/?" + q(l); } function Ht(r) { return x + "/?" + q({ s: "", post_type: "wp-manga", "genre[]": r }); } function ht(r, u) { return { title: m(r), input: rt(u, 1), script: "book.js" }; } function pt(r) { if (!r)
-                                        return ""; var u = r.attr("src"); return (!u || u.indexOf("data:image") === 0) && (u = r.attr("data-src") || r.attr("data-lazy-src") || r.attr("data-original") || u), H(u); } function $(r, u, i) { var c = R(r), l = c ? x + "/truyen/" + c + "/" : w(r), d = {}; u && (d.manga_id = u), i && (i.title && (d.title = i.title), i.cover && (d.cover = i.cover), i.statusText && (d.status = i.statusText), i.latestChapterSlug && (d.latest = i.latestChapterSlug)); var g = q(d); return g ? l + "?" + g : l; } function Ft(r, u, i) { var c = typeof r == "string" ? _(r) : r, l = c.slug || R(i), d = l && u ? x + "/truyen/" + l + "/" + u + "/" : w(i), g = {}; c.mangaId && (g.manga_id = c.mangaId), c.title && (g.title = c.title), c.cover && (g.cover = c.cover), c.statusText && (g.status = c.statusText), u && (g.chapter = u); var E = q(g); return E ? d + "?" + E : d; } function _(r) { var u = w(r || ""), i = j(u); return { url: u, slug: R(u), mangaId: m(S(i.manga_id) || ""), title: m(S(i.title) || ""), cover: S(i.cover) || "", statusText: m(S(i.status) || ""), latestChapterSlug: m(S(i.latest) || ""), chapterSlug: m(S(i.chapter) || M(u)) }; } function Q(r) { var u = r.select(".post-title a, h3 a").first(); if (!u)
-                                        return null; var i = r.select(".except-summary").first(), c = r.select(".latest-chap a, .font-meta.chapter a, .chapter-item a, .list-chapter a").first(), l = m(u.text()), d = w(u.attr("href")), g = r.select(".trangthai, .summary-content, .mg_status").first(), E = g ? g.select("a").last() : null, X = m((E ? E.attr("href") + " " : "") + (g ? g.text() : "")), J = []; r.select(".genres-content-search a, .genres-content a").forEach(function (Z) { var K = m(Z.text()), Y = Z.attr("href"); !K || !Y || J.push(ht(K, Y)); }); var O = { title: l, rawLink: d, slug: R(d), mangaId: m(i ? i.attr("data-manga-id") : ""), cover: pt(r.select("img").first()), descriptionHtml: i && i.html() || "", descriptionText: m(i ? i.text() : ""), statusText: X, ongoing: z(X), genres: J, latestChapterSlug: m(c ? M(c.attr("href")) || c.attr("value") : ""), latestChapterName: m(c ? c.text() : ""), latestChapterUrl: c ? w(c.attr("href")) : "", host: x }; return O.link = $(O.rawLink, O.mangaId, O), O; } function st(r) { var u = []; return r.select(".row.c-tabs-item__content").forEach(function (i) { var c = Q(i); c && u.push(c); }), u.length === 0 && r.select(".page-item-detail").forEach(function (i) { var c = Q(i); c && u.push(c); }), u; } function qt(r) { return { name: r.title, link: r.link, cover: r.cover, author: "N/A", description: r.descriptionText, host: x }; } function Ot(r) { var u = r.select("#madara_goto_page").first(); if (!u)
+                                    } }), u.join("&")) : ""; } function R(r) { var u = w(r || "").match(/\/truyen\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function F(r) { var u = w(r || "").match(/\/truyen\/[^\/?#]+\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function dt(r) { var u = w(r || "").match(/\/the-loai\/([^\/?#]+)(?:\/|$)/i); return u ? u[1] : ""; } function I(r) { return m((r || "").replace(/-/g, " ")); } function z(r) { var u = m(r).toLowerCase(); return u ? u.indexOf("hoàn thành") === -1 && u.indexOf("hoan thanh") === -1 && u.indexOf("hoan-thanh") === -1 && u.indexOf("/trang-thai/hoan-thanh/") === -1 && u.indexOf("full") === -1 && u.indexOf(" end") === -1 && u.indexOf("đã hoàn thành") === -1 : !0; } function rt(r, u) { var i = w(r || x), c = j(i), l = { s: T(c.s), post_type: T(c.post_type) || "wp-manga" }, d = dt(i); return l.s === void 0 && (l.s = ""), d && (l["genre[]"] = d), c.hasOwnProperty("genre[]") && (l["genre[]"] = c["genre[]"]), c.hasOwnProperty("status[0]") && (l["status[0]"] = c["status[0]"]), c.hasOwnProperty("m_orderby") && (l.m_orderby = c.m_orderby), c.hasOwnProperty("author") && (l.author = c.author), c.hasOwnProperty("release") && (l.release = c.release), c.hasOwnProperty("adult") && (l.adult = c.adult), /\/trang-thai\/hoan-thanh\/?$/i.test(i) && (l["status[0]"] = "end"), !l.s && !l["genre[]"] && !l["status[0]"] && !l.m_orderby && (l.m_orderby = "latest"), u && (l.paged = String(u)), x + "/?" + q(l); } function Ht(r) { return x + "/?" + q({ s: "", post_type: "wp-manga", "genre[]": r }); } function ht(r, u) { return { title: m(r), input: rt(u, 1), script: "book.js" }; } function pt(r) { if (!r)
+                                        return ""; var u = r.attr("src"); return (!u || u.indexOf("data:image") === 0) && (u = r.attr("data-src") || r.attr("data-lazy-src") || r.attr("data-original") || u), H(u); } function $(r, u, i) { var c = R(r), l = c ? x + "/truyen/" + c + "/" : w(r), d = {}; u && (d.manga_id = u), i && (i.title && (d.title = i.title), i.cover && (d.cover = i.cover), i.statusText && (d.status = i.statusText), i.latestChapterSlug && (d.latest = i.latestChapterSlug)); var g = q(d); return g ? l + "?" + g : l; } function Mt(r, u, i) { var c = typeof r == "string" ? _(r) : r, l = c.slug || R(i), d = l && u ? x + "/truyen/" + l + "/" + u + "/" : w(i), g = {}; c.mangaId && (g.manga_id = c.mangaId), c.title && (g.title = c.title), c.cover && (g.cover = c.cover), c.statusText && (g.status = c.statusText), u && (g.chapter = u); var E = q(g); return E ? d + "?" + E : d; } function _(r) { var u = w(r || ""), i = j(u); return { url: u, slug: R(u), mangaId: m(T(i.manga_id) || ""), title: m(T(i.title) || ""), cover: T(i.cover) || "", statusText: m(T(i.status) || ""), latestChapterSlug: m(T(i.latest) || ""), chapterSlug: m(T(i.chapter) || F(u)) }; } function Q(r) { var u = r.select(".post-title a, h3 a").first(); if (!u)
+                                        return null; var i = r.select(".except-summary").first(), c = r.select(".latest-chap a, .font-meta.chapter a, .chapter-item a, .list-chapter a").first(), l = m(u.text()), d = w(u.attr("href")), g = r.select(".trangthai, .summary-content, .mg_status").first(), E = g ? g.select("a").last() : null, X = m((E ? E.attr("href") + " " : "") + (g ? g.text() : "")), J = []; r.select(".genres-content-search a, .genres-content a").forEach(function (Z) { var K = m(Z.text()), Y = Z.attr("href"); !K || !Y || J.push(ht(K, Y)); }); var O = { title: l, rawLink: d, slug: R(d), mangaId: m(i ? i.attr("data-manga-id") : ""), cover: pt(r.select("img").first()), descriptionHtml: i && i.html() || "", descriptionText: m(i ? i.text() : ""), statusText: X, ongoing: z(X), genres: J, latestChapterSlug: m(c ? F(c.attr("href")) || c.attr("value") : ""), latestChapterName: m(c ? c.text() : ""), latestChapterUrl: c ? w(c.attr("href")) : "", host: x }; return O.link = $(O.rawLink, O.mangaId, O), O; } function st(r) { var u = []; return r.select(".row.c-tabs-item__content").forEach(function (i) { var c = Q(i); c && u.push(c); }), u.length === 0 && r.select(".page-item-detail").forEach(function (i) { var c = Q(i); c && u.push(c); }), u; } function qt(r) { return { name: r.title, link: r.link, cover: r.cover, author: "N/A", description: r.descriptionText, host: x }; } function Ot(r) { var u = r.select("#madara_goto_page").first(); if (!u)
                                         return ""; var i = parseInt(u.attr("placeholder") || "1", 10), c = parseInt(u.attr("max") || "0", 10); return !isNaN(i) && !isNaN(c) && i < c ? String(i + 1) : ""; } function gt(r, u) { var i; for (i = 0; i < r.length; i++)
                                         if (u.mangaId && r[i].mangaId === u.mangaId)
                                             return r[i]; for (i = 0; i < r.length; i++)
                                         if (u.slug && r[i].slug === u.slug)
                                             return r[i]; for (i = 0; i < r.length; i++)
                                         if (u.title && m(r[i].title).toLowerCase() === m(u.title).toLowerCase())
-                                            return r[i]; return r.length ? r[0] : null; } function bt(r, u) { var i = { url: r.url, slug: u && u.slug ? u.slug : r.slug, mangaId: u && u.mangaId ? u.mangaId : r.mangaId, title: u && u.title ? u.title : r.title || I(r.slug), cover: u && u.cover ? u.cover : r.cover, statusText: u && u.statusText ? u.statusText : r.statusText, descriptionHtml: u && u.descriptionHtml ? u.descriptionHtml : "", descriptionText: u && u.descriptionText ? u.descriptionText : "", ongoing: u ? u.ongoing : z(r.statusText), genres: u && u.genres ? u.genres : [], latestChapterSlug: u && u.latestChapterSlug ? u.latestChapterSlug : r.latestChapterSlug, latestChapterName: u && u.latestChapterName ? u.latestChapterName : "", latestChapterUrl: u && u.latestChapterUrl ? u.latestChapterUrl : "", host: x }; return i.link = $(u && u.rawLink ? u.rawLink : r.url, i.mangaId, i), i; } function Mt(r) {
+                                            return r[i]; return r.length ? r[0] : null; } function bt(r, u) { var i = { url: r.url, slug: u && u.slug ? u.slug : r.slug, mangaId: u && u.mangaId ? u.mangaId : r.mangaId, title: u && u.title ? u.title : r.title || I(r.slug), cover: u && u.cover ? u.cover : r.cover, statusText: u && u.statusText ? u.statusText : r.statusText, descriptionHtml: u && u.descriptionHtml ? u.descriptionHtml : "", descriptionText: u && u.descriptionText ? u.descriptionText : "", ongoing: u ? u.ongoing : z(r.statusText), genres: u && u.genres ? u.genres : [], latestChapterSlug: u && u.latestChapterSlug ? u.latestChapterSlug : r.latestChapterSlug, latestChapterName: u && u.latestChapterName ? u.latestChapterName : "", latestChapterUrl: u && u.latestChapterUrl ? u.latestChapterUrl : "", host: x }; return i.link = $(u && u.rawLink ? u.rawLink : r.url, i.mangaId, i), i; } function Ft(r) {
                                         return __awaiter(this, void 0, void 0, function () { var u, i, c, l; return __generator(this, function (_b) {
                                             switch (_b.label) {
                                                 case 0:

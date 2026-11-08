@@ -32,7 +32,7 @@ $plat = Get-ChildItem (Join-Path $env:ANDROID_HOME 'platforms') -Directory -Erro
 $bt = Get-ChildItem (Join-Path $env:ANDROID_HOME 'build-tools') -Directory -ErrorAction SilentlyContinue | Where-Object { $_.Name -match '^\d+\.\d+\.\d+$' } | Sort-Object { [version]$_.Name } -Descending | Select-Object -First 1 -ExpandProperty Name
 L "installed platforms: $((Get-ChildItem (Join-Path $env:ANDROID_HOME 'platforms') -Directory).Name -join ',') build-tools: $((Get-ChildItem (Join-Path $env:ANDROID_HOME 'build-tools') -Directory).Name -join ',') -> using android-$plat / $bt"
 Push-Location $Here
-$code = 1
+$code = 2
 & .\gradlew.bat --no-daemon --stacktrace "-PextVersionCode=$code" "-PcompileSdkOverride=$plat" "-PbuildToolsOverride=$bt" :anime:assembleSfwRelease :anime:assembleNsfwRelease :manga:assembleSfwRelease :manga:assembleNsfwRelease 2>&1 | Out-File -FilePath (Join-Path $Here 'gradle.log') -Encoding utf8
 L "gradle exit $LASTEXITCODE"
 Pop-Location

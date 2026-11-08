@@ -1952,7 +1952,16 @@ function O0(u, e) { var t = function (i) { return ({ getItem: function (s) { var
             case 4: return [2, new At(w, p)];
         }
     }); });
-}, n.Http = { get: function (i) { return M0(n, "GET", i); }, post: function (i) { return M0(n, "POST", i); } }, n.Html = { parse: function (i, s) { return Ee(i, s || ""); }, clean: function (i, s) { return I0(i, s); } }, n.localStorage = t("ls:"), n.cacheStorage = t("cs:"), n.localConfig = { getItem: function (i) { return u.config(i); } }, n.localCookie = { setCookie: function (i) { u.storageSet(r, String(i).split(";")[0]); }, getCookie: function () { return u.storageGet(r) || ""; } }, n.sleep = function (i) { return new Promise(function (s) { return typeof setTimeout == "function" ? setTimeout(s, Math.min(Number(i) || 0, 1e4)) : s(); }); }; var a = function () {
+}, n.Http = { get: function (i) { return M0(n, "GET", i); }, post: function (i) { return M0(n, "POST", i); } }, n.Html = { parse: function (i, s) { return Ee(i, s || ""); }, clean: function (i, s) { return I0(i, s); } }, n.localStorage = t("ls:"), n.cacheStorage = t("cs:"), n.resumeStorage = { get: function (i) { try {
+        var s = u.storageGet("resume:" + i);
+        return s && parseFloat(s) || 0;
+    }
+    catch (o) {
+        return 0;
+    } }, set: function (i, s) { try {
+        u.storageSet("resume:" + i, String(Math.max(0, s || 0)));
+    }
+    catch (o) { } } }, n.localConfig = { getItem: function (i) { return u.config(i); } }, n.localCookie = { setCookie: function (i) { u.storageSet(r, String(i).split(";")[0]); }, getCookie: function () { return u.storageGet(r) || ""; } }, n.sleep = function (i) { return new Promise(function (s) { return typeof setTimeout == "function" ? setTimeout(s, Math.min(Number(i) || 0, 1e4)) : s(); }); }; var a = function () {
     var i = [];
     for (var _i = 0; _i < arguments.length; _i++) {
         i[_i] = arguments[_i];
@@ -2243,7 +2252,7 @@ var L = function (u) { return u == null ? "" : String(u); }, gn = function (u) {
     };
     class_1.prototype.videos = function (e) {
         return __awaiter(this, void 0, void 0, function () {
-            var t, n, r, t_3, t_3_1, n, a, i, i_2, i_2_1, s, a_2, e_21_1;
+            var t, a, r, n, t_3, t_3_1, a, i, s, s_4, s_4_1, o, l, d, y, i_2, e_21_1;
             var e_21, _a, e_22, _b;
             var _this = this;
             return __generator(this, function (_c) {
@@ -2253,11 +2262,11 @@ var L = function (u) { return u == null ? "" : String(u); }, gn = function (u) {
                         if (!this.has("chap")) return [3, 2];
                         return [4, this.run("chap", e)];
                     case 1:
-                        n = (_c.sent()).data;
-                        Array.isArray(n) && n.length && (t = n.map(function (a) { return typeof a == "string" ? { title: "Server", data: a } : { title: L(a.title || a.name || "Server"), data: L(a.data || a.url || a.link) }; }));
+                        a = (_c.sent()).data;
+                        Array.isArray(a) && a.length && (t = a.map(function (i) { return typeof i == "string" ? { title: "Server", data: i } : { title: L(i.title || i.name || "Server"), data: L(i.data || i.url || i.link) }; }));
                         _c.label = 2;
                     case 2:
-                        r = [];
+                        r = this.env && this.env.resumeStorage ? this.env.resumeStorage.get(e) : 0, n = [];
                         _c.label = 3;
                     case 3:
                         _c.trys.push([3, 10, 11, 12]);
@@ -2265,30 +2274,33 @@ var L = function (u) { return u == null ? "" : String(u); }, gn = function (u) {
                         _c.label = 4;
                     case 4:
                         if (!!t_3_1.done) return [3, 9];
-                        n = t_3_1.value;
+                        a = t_3_1.value;
                         _c.label = 5;
                     case 5:
                         _c.trys.push([5, 7, , 8]);
-                        return [4, this.run("track", n.data)];
+                        return [4, this.run("track", a.data)];
                     case 6:
-                        a = (_c.sent()).data || {}, i = Array.isArray(a) ? a : [a];
+                        i = (_c.sent()).data || {}, s = Array.isArray(i) ? i : [i];
                         try {
-                            for (i_2 = (e_22 = void 0, __values(i)), i_2_1 = i_2.next(); !i_2_1.done; i_2_1 = i_2.next()) {
-                                s = i_2_1.value;
-                                !s || !s.data || s.type !== "webview" && r.push({ url: xu(s.host || this.base + "/", s.data), quality: n.title + (s.quality ? " " + s.quality : ""), headers: s.headers || { Referer: this.base + "/" }, subtitles: (s.subtitles || (s.subtitle ? [{ data: s.subtitle, label: "Sub" }] : [])).map(function (o) { return ({ file: xu(_this.base + "/", o.data || o.file), label: L(o.label || o.language || "Sub") }); }), mimeType: L(s.mimeType) });
+                            for (s_4 = (e_22 = void 0, __values(s)), s_4_1 = s_4.next(); !s_4_1.done; s_4_1 = s_4.next()) {
+                                o = s_4_1.value;
+                                if (!o || !o.data || o.type === "webview")
+                                    continue;
+                                l = xu(o.host || this.base + "/", o.data), d = r > 0 && !o.data.includes("#t=") && !o.data.includes("&t=") ? (o.data.includes("#") ? "&" : "#") + "t=" + Math.floor(r) : "", y = r > 0 ? " [Tiếp tục " + Math.floor(r / 60) + ":" + ("0" + Math.floor(r % 60)).slice(-2) + "]" : "";
+                                n.push({ url: l + d, rawUrl: l, resumeSec: r, quality: a.title + (o.quality ? " " + o.quality : "") + y, headers: o.headers || { Referer: this.base + "/" }, subtitles: (o.subtitles || (o.subtitle ? [{ data: o.subtitle, label: "Sub" }] : [])).map(function (b) { return ({ file: xu(_this.base + "/", b.data || b.file), label: L(b.label || b.language || "Sub") }); }), mimeType: L(o.mimeType) });
                             }
                         }
                         catch (e_22_1) { e_22 = { error: e_22_1 }; }
                         finally {
                             try {
-                                if (i_2_1 && !i_2_1.done && (_b = i_2.return)) _b.call(i_2);
+                                if (s_4_1 && !s_4_1.done && (_b = s_4.return)) _b.call(s_4);
                             }
                             finally { if (e_22) throw e_22.error; }
                         }
                         return [3, 8];
                     case 7:
-                        a_2 = _c.sent();
-                        this.host.log && this.host.log("track " + n.title + ": " + a_2.message);
+                        i_2 = _c.sent();
+                        this.host.log && this.host.log("track " + a.title + ": " + i_2.message);
                         return [3, 8];
                     case 8:
                         t_3_1 = t_3.next();
@@ -2304,7 +2316,7 @@ var L = function (u) { return u == null ? "" : String(u); }, gn = function (u) {
                         }
                         finally { if (e_21) throw e_21.error; }
                         return [7];
-                    case 12: return [2, r];
+                    case 12: return [2, n];
                 }
             });
         });
@@ -2314,7 +2326,7 @@ var L = function (u) { return u == null ? "" : String(u); }, gn = function (u) {
 function B0(u) {
     return String(u).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var iu = { id: "banlong", name: "Bàn Long", source: "https://blhvip.vn", type: "novel", locale: "vi", nsfw: !1, version: 8, config: { DOMAIN: { title: "Domain", default: "https://blhvip.vn", mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://blhvip.vn" }, itemType: 2, lnId: "kiritokmn.banlong", lnIcon: "", lnVersion: "1.2.8" }, R0 = { home: function (u, e) {
+var iu = { id: "banlong", name: "Bàn Long", source: "https://blhvip.vn", type: "novel", locale: "vi", nsfw: !1, version: 8, config: { DOMAIN: { title: "Domain", default: "https://blhvip.vn", mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://blhvip.vn" }, itemType: 2, short: !1, shorts: !1, lnId: "kiritokmn.banlong", lnIcon: "", lnVersion: "1.3.8" }, R0 = { home: function (u, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
             return [2, (function (t, r, n, a, i, s, o, l, d, y, b, p, w, S, P, V, Q) {
                     return __awaiter(this, void 0, void 0, function () { var v; return __generator(this, function (_a) {

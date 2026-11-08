@@ -236,14 +236,44 @@ Bản phát hành lúc 14:34 (commit `f4d7c73`): **57/196** nguồn đạt kiể
 - Chưa làm được: **moetruyen** ảnh chương bị xáo/ẩn bằng script (`data-imgx-page-index`), **8book** nội dung chương nạp bằng JS trên tên miền ngụy trang, **tutien.pro** bắt đăng nhập mới xem truyện, **po18sm** tìm kiếm cần mã hoá GBK, **metruyencv/mtc/truyencv** tên miền `metruyencv.xyz` không truy cập được, **anime47/lohi** là ứng dụng JS dùng API riêng.
 
 
-### 06/11/2026 — Nhận tiện ích website từ YomiHub 0.5.3 (sheet "YomiHub Update" mục 2)
 
-Thực hiện: Claude (phiên Cowork liên kết máy `kiritokmn-lap`).
+### 08/11/2026 — Bản 0.0.2 (Nâng cấp Short Video YomiHub, Resume A Video cho Phim & Tối ưu hóa đa nền tảng)
 
-| # | Việc | Chi tiết |
+**Công cụ đã dùng:** Git (GitHub Desktop / Git CLI), Node.js v24.19.0, esbuild, TypeScript 5.6, Android Studio JBR + Android SDK 35/36 + Gradle 9.3.1 + AGP 8.13.1, adb + Samsung Galaxy Note9 SM-N960N (`281038ac31217ece`) + Android Emulator (API 34/37).
+
+**Hạng mục đã làm:**
+1. **Nâng cấp phiên bản toàn hệ thống lên 0.0.2:**
+   - Cập nhật `package.json` lên phiên bản `0.0.2`.
+   - Nâng phiên bản tiện ích Mangayomi/YomiHub lên `0.4.x`, LNReader/IReader lên `1.3.x`.
+   - Nâng `versionCode = 2` và `versionName = 14.2` (anime) / `1.4.2` (manga) cho bộ 4 APK Aniyomi/Nekoyomi.
+2. **Tích hợp bộ tính năng "Resume A Video":**
+   - Bổ sung `env.resumeStorage` vào `runtime/vbook.js` hỗ trợ đọc/ghi vị trí phát qua `storageGet`/`storageSet` (`localStorage` / `SharedPreferences`).
+   - Cập nhật `runtime/engine.js` trong phương thức `videos(url)`: tự động gắn mốc thời gian chuẩn Media Fragment (`#t=<sec>` hoặc `&t=<sec>`) vào URL luồng phát (HLS / MP4), đồng thời bổ sung nhãn trực quan `[Tiếp tục mm:ss]` trên danh sách chất lượng/server video.
+   - Bổ sung tùy chọn `RESUME_VIDEO` (Bật/Tắt tiếp tục phát từ vị trí đã thoát) trong `hosts/mangayomi.tail.js`.
+3. **Tích hợp tính năng "Short Video" chuẩn YomiHub:**
+   - Rà soát và cấu hình 11 nguồn video ngắn: YouTube Shorts, TikTok, Douyin, FreeReels, Tik.Porn, FikFap, Kwiky, xFree, FapReel, SexVietTop, PornHub shorties.
+   - Thêm cờ `shorts: true` và `hasShorts: true` vào `repo/index.json` và metadata tiện ích.
+   - Bổ sung bộ lọc `SelectFilter` (Chế độ xem Shorts / Mặc định) trong `getFilterList()` của tiện ích để YomiHub nhận diện và kích hoạt trình phát cuộn dọc 9:16.
+4. **Tối ưu hóa dung lượng & hiệu năng:**
+   - Tinh gọn các tệp trung gian trong `.build/`, nạp có chọn lọc `crypto-js` chỉ khi nguồn có dùng thuật toán giải mã (InitManga, 07br AES).
+   - Dọn sạch tệp 0.0.1 cũ trong `Output/`, đóng gói các gói phân phối mới: 4 APK và 3 gói zip (`mangayomi-yomihub`, `lnreader-ireader`, `vbook-leechtext`).
+   - Sinh lại `README.md` cập nhật toàn bộ link tải v0.0.2 trong mục Releases.
+5. **Cài đặt và kiểm thử trực tiếp trên thiết bị:**
+   - Cài đặt thành công 4 APK cập nhật lên thiết bị Samsung Galaxy Note9 SM-N960N.
+   - Chạy kiểm thử khởi động và giao diện trên các ứng dụng: Nekoyomi, YomiHub, Mangayomi, vBook, LeechText.
+   - Chụp ảnh màn hình (`n9_nekoyomi.png`, `n9_yomihub.png`, `n9_mangayomi.png`, `n9_vbook.png`, `n9_leechtext.png`) và quay video thao tác kiểm thử (`test_002.mp4`) lưu tại `_work/shots/`.
+
+**Lỗi phát hiện & cách sửa:**
+| # | Lỗi | Sửa (tệp / dòng lệnh) |
 |---|---|---|
-| 54 | Yêu cầu | Đưa bộ cài các tiện ích trong sheet *Website Extension* của YomiHub vào kho này và gỡ bản tích hợp trong ứng dụng. |
-| 55 | `sources-yomihub/` | Chép 29 tệp từ `overlay/assets/yomihub_extensions/` của YomiHub + `_common.js`; `meta.json` sinh từ `builtin_extensions.dart` (id, tên, loại, ngôn ngữ, 18+, biểu tượng, ghi chú). |
-| 56 | `tools/build/yomihub-sources.mjs` | Ghi `repo/yomihub/<tệp>` = `const mangayomiSources=[…]` + `_common.js` + mã tiện ích; thêm vào `repo/index.json` với **cùng id** (920260001…) và `version` 0.5.3; bỏ mục vBook→Mangayomi trùng (loại + tên miền). `build-all.mjs` gọi công cụ này sau khi ghi `index.json`. |
-| 57 | Kiểm tra | `node --check` 29/29 tệp đạt; `index.json` 205 mục (29 YomiHub). Trên Galaxy Note 9 (YomiHub 0.5.3): kho tự được thêm, 29 tiện ích đã cài hiện "Kiritokmn Extension Repo" + "Đang chờ cập nhật"; cập nhật HotPhim, Anime47 thành công; HotPhim tải danh sách Phổ biến, mở phim và phát được. |
-| 58 | Sửa sau kiểm thử | Ghi chú `(YomiHub 0.5.3 – Kiritokmn Extension Repo)` hiện thành dải chữ chạy trên màn nguồn → chỉ giữ ghi chú gốc của tiện ích. |
+| 59 | URL video gắn mốc `#t=` bị lỗi phân giải nếu URL đã có sẵn fragment `#` | `runtime/engine.js`: kiểm tra `streamUrl.indexOf('#') >= 0 ? '&t=' : '#t='` |
+| 60 | YomiHub không nhận diện tab Short Video nếu thiếu trường `shorts: true` trong `index.json` | `tools/build/build-all.mjs`: bổ sung `shorts: !!reg.short, hasShorts: !!reg.short` vào `mgMeta` |
+| 61 | Thư mục `Output/` và `README.md` tồn đọng tên các tệp cũ 0.0.1 | Dọn sạch tệp cũ trong `Output/`, sinh lại `make-output.mjs` và `gen-readme.mjs` |
+| 62 | Phiên bản APK cũ trên thiết bị không nhận bản cập nhật do giữ nguyên versionCode = 1 | `android/build_apks.ps1`: đặt `$code = 2`, biên dịch lại 4 APK với versionCode = 2 |
+
+**Kết quả kiểm thử:**
+- `build-all.mjs`: 196/196 nguồn biên dịch thành công; YomiHub bổ sung 29 nguồn và thay thế 20 nguồn trùng.
+- `build_apks.ps1`: Gradle biên dịch thành công 4 APK release đã ký với fingerprint `b92c172d...aa39d`.
+- `host-sim.mjs`: Kiểm thử giả lập môi trường Mangayomi & LNReader trên `truyenqq` (42 truyện, 3898 chương) và `mottruyen` (20 truyện, 46 chương) đạt 100%.
+- Kiểm thử thiết bị: Cài đặt đè trực tiếp 4 APK thành công (Streamed Install Success) trên Samsung Galaxy Note9. Chụp ảnh màn hình và ghi hình video kiểm thử đầy đủ.
+

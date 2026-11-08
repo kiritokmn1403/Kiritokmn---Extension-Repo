@@ -1952,7 +1952,16 @@ function K0(e, u) { var t = function (a) { return ({ getItem: function (s) { var
             case 4: return [2, new Mt(y, p)];
         }
     }); });
-}, i.Http = { get: function (a) { return W0(i, "GET", a); }, post: function (a) { return W0(i, "POST", a); } }, i.Html = { parse: function (a, s) { return Ru(a, s || ""); }, clean: function (a, s) { return j0(a, s); } }, i.localStorage = t("ls:"), i.cacheStorage = t("cs:"), i.localConfig = { getItem: function (a) { return e.config(a); } }, i.localCookie = { setCookie: function (a) { e.storageSet(r, String(a).split(";")[0]); }, getCookie: function () { return e.storageGet(r) || ""; } }, i.sleep = function (a) { return new Promise(function (s) { return typeof setTimeout == "function" ? setTimeout(s, Math.min(Number(a) || 0, 1e4)) : s(); }); }; var n = function () {
+}, i.Http = { get: function (a) { return W0(i, "GET", a); }, post: function (a) { return W0(i, "POST", a); } }, i.Html = { parse: function (a, s) { return Ru(a, s || ""); }, clean: function (a, s) { return j0(a, s); } }, i.localStorage = t("ls:"), i.cacheStorage = t("cs:"), i.resumeStorage = { get: function (a) { try {
+        var s = e.storageGet("resume:" + a);
+        return s && parseFloat(s) || 0;
+    }
+    catch (c) {
+        return 0;
+    } }, set: function (a, s) { try {
+        e.storageSet("resume:" + a, String(Math.max(0, s || 0)));
+    }
+    catch (c) { } } }, i.localConfig = { getItem: function (a) { return e.config(a); } }, i.localCookie = { setCookie: function (a) { e.storageSet(r, String(a).split(";")[0]); }, getCookie: function () { return e.storageGet(r) || ""; } }, i.sleep = function (a) { return new Promise(function (s) { return typeof setTimeout == "function" ? setTimeout(s, Math.min(Number(a) || 0, 1e4)) : s(); }); }; var n = function () {
     var a = [];
     for (var _i = 0; _i < arguments.length; _i++) {
         a[_i] = arguments[_i];
@@ -2243,7 +2252,7 @@ var U = function (e) { return e == null ? "" : String(e); }, Ni = function (e) {
     };
     class_1.prototype.videos = function (u) {
         return __awaiter(this, void 0, void 0, function () {
-            var t, i, r, t_3, t_3_1, i, n, a, a_2, a_2_1, s, n_2, e_23_1;
+            var t, n, r, i, t_3, t_3_1, n, a, s, s_4, s_4_1, c, o, d, x, a_2, e_23_1;
             var e_23, _a, e_24, _b;
             var _this = this;
             return __generator(this, function (_c) {
@@ -2253,11 +2262,11 @@ var U = function (e) { return e == null ? "" : String(e); }, Ni = function (e) {
                         if (!this.has("chap")) return [3, 2];
                         return [4, this.run("chap", u)];
                     case 1:
-                        i = (_c.sent()).data;
-                        Array.isArray(i) && i.length && (t = i.map(function (n) { return typeof n == "string" ? { title: "Server", data: n } : { title: U(n.title || n.name || "Server"), data: U(n.data || n.url || n.link) }; }));
+                        n = (_c.sent()).data;
+                        Array.isArray(n) && n.length && (t = n.map(function (a) { return typeof a == "string" ? { title: "Server", data: a } : { title: U(a.title || a.name || "Server"), data: U(a.data || a.url || a.link) }; }));
                         _c.label = 2;
                     case 2:
-                        r = [];
+                        r = this.env && this.env.resumeStorage ? this.env.resumeStorage.get(u) : 0, i = [];
                         _c.label = 3;
                     case 3:
                         _c.trys.push([3, 10, 11, 12]);
@@ -2265,30 +2274,33 @@ var U = function (e) { return e == null ? "" : String(e); }, Ni = function (e) {
                         _c.label = 4;
                     case 4:
                         if (!!t_3_1.done) return [3, 9];
-                        i = t_3_1.value;
+                        n = t_3_1.value;
                         _c.label = 5;
                     case 5:
                         _c.trys.push([5, 7, , 8]);
-                        return [4, this.run("track", i.data)];
+                        return [4, this.run("track", n.data)];
                     case 6:
-                        n = (_c.sent()).data || {}, a = Array.isArray(n) ? n : [n];
+                        a = (_c.sent()).data || {}, s = Array.isArray(a) ? a : [a];
                         try {
-                            for (a_2 = (e_24 = void 0, __values(a)), a_2_1 = a_2.next(); !a_2_1.done; a_2_1 = a_2.next()) {
-                                s = a_2_1.value;
-                                !s || !s.data || s.type !== "webview" && r.push({ url: Le(s.host || this.base + "/", s.data), quality: i.title + (s.quality ? " " + s.quality : ""), headers: s.headers || { Referer: this.base + "/" }, subtitles: (s.subtitles || (s.subtitle ? [{ data: s.subtitle, label: "Sub" }] : [])).map(function (c) { return ({ file: Le(_this.base + "/", c.data || c.file), label: U(c.label || c.language || "Sub") }); }), mimeType: U(s.mimeType) });
+                            for (s_4 = (e_24 = void 0, __values(s)), s_4_1 = s_4.next(); !s_4_1.done; s_4_1 = s_4.next()) {
+                                c = s_4_1.value;
+                                if (!c || !c.data || c.type === "webview")
+                                    continue;
+                                o = Le(c.host || this.base + "/", c.data), d = r > 0 && !c.data.includes("#t=") && !c.data.includes("&t=") ? (c.data.includes("#") ? "&" : "#") + "t=" + Math.floor(r) : "", x = r > 0 ? " [Tiếp tục " + Math.floor(r / 60) + ":" + ("0" + Math.floor(r % 60)).slice(-2) + "]" : "";
+                                i.push({ url: o + d, rawUrl: o, resumeSec: r, quality: n.title + (c.quality ? " " + c.quality : "") + x, headers: c.headers || { Referer: this.base + "/" }, subtitles: (c.subtitles || (c.subtitle ? [{ data: c.subtitle, label: "Sub" }] : [])).map(function (b) { return ({ file: Le(_this.base + "/", b.data || b.file), label: U(b.label || b.language || "Sub") }); }), mimeType: U(c.mimeType) });
                             }
                         }
                         catch (e_24_1) { e_24 = { error: e_24_1 }; }
                         finally {
                             try {
-                                if (a_2_1 && !a_2_1.done && (_b = a_2.return)) _b.call(a_2);
+                                if (s_4_1 && !s_4_1.done && (_b = s_4.return)) _b.call(s_4);
                             }
                             finally { if (e_24) throw e_24.error; }
                         }
                         return [3, 8];
                     case 7:
-                        n_2 = _c.sent();
-                        this.host.log && this.host.log("track " + i.title + ": " + n_2.message);
+                        a_2 = _c.sent();
+                        this.host.log && this.host.log("track " + n.title + ": " + a_2.message);
                         return [3, 8];
                     case 8:
                         t_3_1 = t_3.next();
@@ -2304,7 +2316,7 @@ var U = function (e) { return e == null ? "" : String(e); }, Ni = function (e) {
                         }
                         finally { if (e_23) throw e_23.error; }
                         return [7];
-                    case 12: return [2, r];
+                    case 12: return [2, i];
                 }
             });
         });
@@ -2314,7 +2326,7 @@ var U = function (e) { return e == null ? "" : String(e); }, Ni = function (e) {
 function $0(e) {
     return String(e).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var xe = { id: "69shurepoduongden", name: "69shuba", source: "https://www.69shuba.com", type: "novel", locale: "zh-CN", nsfw: !1, version: 2, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.69shurepoduongden", lnIcon: "", lnVersion: "1.2.2" }, Q0 = { home: function (e, u) {
+var xe = { id: "69shurepoduongden", name: "69shuba", source: "https://www.69shuba.com", type: "novel", locale: "zh-CN", nsfw: !1, version: 2, config: {}, configDefaults: {}, itemType: 2, short: !1, shorts: !1, lnId: "kiritokmn.69shurepoduongden", lnIcon: "", lnVersion: "1.3.2" }, Q0 = { home: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
             return [2, (function (t, r, i, n, a, s, c, o, d, x, b, p, y, w, K, J, oe) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {

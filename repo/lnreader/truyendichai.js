@@ -217,19 +217,19 @@ function zt(e) { var u = "", t = new Oe(e, function (r) { return u += Me(r); });
         break;
     }
     a = o + b, o = b === 0 ? a + 1 : a;
-} var h = u + n.slice(a); return u = "", h; }; }
+} var d = u + n.slice(a); return u = "", d; }; }
 function d0(e, u, t, r) { var n = (u & Se.BRANCH_LENGTH) >> 7, i = u & Se.JUMP_TABLE; if (n === 0)
     return i !== 0 && r === i ? t : -1; if (i) {
-    var h = r - i;
-    return h < 0 || h >= n ? -1 : e[t + h] - 1;
+    var d = r - i;
+    return d < 0 || d >= n ? -1 : e[t + d] - 1;
 } var a = t, o = a + n - 1; for (; a <= o;) {
-    var h = a + o >>> 1, b = e[h];
+    var d = a + o >>> 1, b = e[d];
     if (b < r)
-        a = h + 1;
+        a = d + 1;
     else if (b > r)
-        o = h - 1;
+        o = d - 1;
     else
-        return e[h + n];
+        return e[d + n];
 } return -1; }
 var Vn = zt(ou), Gn = zt(lu);
 var N;
@@ -430,8 +430,8 @@ var _ = { Cdata: new Uint8Array([67, 68, 65, 84, 65, 91]), CdataEnd: new Uint8Ar
 var He = new Set(["input", "option", "optgroup", "select", "button", "datalist", "textarea"]), R = new Set(["p"]), $t = new Set(["thead", "tbody"]), Wt = new Set(["dd", "dt"]), Kt = new Set(["rt", "rp"]), b0 = new Map([["tr", new Set(["tr", "th", "td"])], ["th", new Set(["th"])], ["td", new Set(["thead", "th", "td"])], ["body", new Set(["head", "link", "script"])], ["li", new Set(["li"])], ["p", R], ["h1", R], ["h2", R], ["h3", R], ["h4", R], ["h5", R], ["h6", R], ["select", He], ["input", He], ["output", He], ["button", He], ["datalist", He], ["textarea", He], ["option", new Set(["option"])], ["optgroup", new Set(["optgroup", "option"])], ["dd", Wt], ["dt", Wt], ["address", R], ["article", R], ["aside", R], ["blockquote", R], ["details", R], ["div", R], ["dl", R], ["fieldset", R], ["figcaption", R], ["figure", R], ["footer", R], ["form", R], ["header", R], ["hr", R], ["main", R], ["nav", R], ["ol", R], ["pre", R], ["section", R], ["table", R], ["ul", R], ["rt", Kt], ["rp", Kt], ["tbody", $t], ["tfoot", $t]]), p0 = new Set(["area", "base", "basefont", "br", "col", "command", "embed", "frame", "hr", "img", "input", "isindex", "keygen", "link", "meta", "param", "source", "track", "wbr"]), Qt = new Set(["math", "svg"]), Zt = new Set(["mi", "mo", "mn", "ms", "mtext", "annotation-xml", "foreignobject", "desc", "title"]), g0 = /\s|\//, Qe = (function () {
     function Qe(u, t) {
         if (t === void 0) { t = {}; }
-        var r, n, i, a, o, h;
-        this.options = t, this.startIndex = 0, this.endIndex = 0, this.openTagStart = 0, this.tagname = "", this.attribname = "", this.attribvalue = "", this.attribs = null, this.stack = [], this.buffers = [], this.bufferOffset = 0, this.writeIndex = 0, this.ended = !1, this.cbs = u != null ? u : {}, this.htmlMode = !this.options.xmlMode, this.lowerCaseTagNames = (r = t.lowerCaseTags) !== null && r !== void 0 ? r : this.htmlMode, this.lowerCaseAttributeNames = (n = t.lowerCaseAttributeNames) !== null && n !== void 0 ? n : this.htmlMode, this.recognizeSelfClosing = (i = t.recognizeSelfClosing) !== null && i !== void 0 ? i : !this.htmlMode, this.tokenizer = new ((a = t.Tokenizer) !== null && a !== void 0 ? a : Be)(this.options, this), this.foreignContext = [!this.htmlMode], (h = (o = this.cbs).onparserinit) === null || h === void 0 || h.call(o, this);
+        var r, n, i, a, o, d;
+        this.options = t, this.startIndex = 0, this.endIndex = 0, this.openTagStart = 0, this.tagname = "", this.attribname = "", this.attribvalue = "", this.attribs = null, this.stack = [], this.buffers = [], this.bufferOffset = 0, this.writeIndex = 0, this.ended = !1, this.cbs = u != null ? u : {}, this.htmlMode = !this.options.xmlMode, this.lowerCaseTagNames = (r = t.lowerCaseTags) !== null && r !== void 0 ? r : this.htmlMode, this.lowerCaseAttributeNames = (n = t.lowerCaseAttributeNames) !== null && n !== void 0 ? n : this.htmlMode, this.recognizeSelfClosing = (i = t.recognizeSelfClosing) !== null && i !== void 0 ? i : !this.htmlMode, this.tokenizer = new ((a = t.Tokenizer) !== null && a !== void 0 ? a : Be)(this.options, this), this.foreignContext = [!this.htmlMode], (d = (o = this.cbs).onparserinit) === null || d === void 0 || d.call(o, this);
     }
     Qe.prototype.ontext = function (u, t) { var r, n; var i = this.getSlice(u, t); this.endIndex = t - 1, (n = (r = this.cbs).ontext) === null || n === void 0 || n.call(r, i), this.startIndex = t; };
     Qe.prototype.ontextentity = function (u, t) { var r, n; this.endIndex = t - 1, (n = (r = this.cbs).ontext) === null || n === void 0 || n.call(r, Me(u)), this.startIndex = t; };
@@ -444,17 +444,17 @@ var He = new Set(["input", "option", "optgroup", "select", "button", "datalist",
         } this.isVoidElement(u) || (this.stack.unshift(u), this.htmlMode && (Qt.has(u) ? this.foreignContext.unshift(!0) : Zt.has(u) && this.foreignContext.unshift(!1))), (i = (n = this.cbs).onopentagname) === null || i === void 0 || i.call(n, u), this.cbs.onopentag && (this.attribs = {}); };
     Qe.prototype.endOpenTag = function (u) { var t, r; this.startIndex = this.openTagStart, this.attribs && ((r = (t = this.cbs).onopentag) === null || r === void 0 || r.call(t, this.tagname, this.attribs, u), this.attribs = null), this.cbs.onclosetag && this.isVoidElement(this.tagname) && this.cbs.onclosetag(this.tagname, !0), this.tagname = ""; };
     Qe.prototype.onopentagend = function (u) { this.endIndex = u, this.endOpenTag(!1), this.startIndex = u + 1; };
-    Qe.prototype.onclosetag = function (u, t) { var r, n, i, a, o, h, b, v; this.endIndex = t; var D = this.getSlice(u, t); if (this.lowerCaseTagNames && (D = D.toLowerCase()), this.htmlMode && (Qt.has(D) || Zt.has(D)) && this.foreignContext.shift(), this.isVoidElement(D))
-        this.htmlMode && D === "br" && ((a = (i = this.cbs).onopentagname) === null || a === void 0 || a.call(i, "br"), (h = (o = this.cbs).onopentag) === null || h === void 0 || h.call(o, "br", {}, !0), (v = (b = this.cbs).onclosetag) === null || v === void 0 || v.call(b, "br", !1));
+    Qe.prototype.onclosetag = function (u, t) { var r, n, i, a, o, d, b, v; this.endIndex = t; var C = this.getSlice(u, t); if (this.lowerCaseTagNames && (C = C.toLowerCase()), this.htmlMode && (Qt.has(C) || Zt.has(C)) && this.foreignContext.shift(), this.isVoidElement(C))
+        this.htmlMode && C === "br" && ((a = (i = this.cbs).onopentagname) === null || a === void 0 || a.call(i, "br"), (d = (o = this.cbs).onopentag) === null || d === void 0 || d.call(o, "br", {}, !0), (v = (b = this.cbs).onclosetag) === null || v === void 0 || v.call(b, "br", !1));
     else {
-        var A = this.stack.indexOf(D);
+        var A = this.stack.indexOf(C);
         if (A !== -1)
             for (var E = 0; E <= A; E++) {
                 var q = this.stack.shift();
                 (n = (r = this.cbs).onclosetag) === null || n === void 0 || n.call(r, q, E !== A);
             }
         else
-            this.htmlMode && D === "p" && (this.emitOpenTag("p"), this.closeCurrentTag(!0));
+            this.htmlMode && C === "p" && (this.emitOpenTag("p"), this.closeCurrentTag(!0));
     } this.startIndex = t + 1; };
     Qe.prototype.onselfclosingtag = function (u) { this.endIndex = u, this.recognizeSelfClosing || this.foreignContext[0] ? (this.closeCurrentTag(!1), this.startIndex = u + 1) : this.onopentagend(u); };
     Qe.prototype.closeCurrentTag = function (u) { var t, r; var n = this.tagname; this.endOpenTag(u), this.stack[0] === n && ((r = (t = this.cbs).onclosetag) === null || r === void 0 || r.call(t, n, !u), this.stack.shift()); };
@@ -472,7 +472,7 @@ var He = new Set(["input", "option", "optgroup", "select", "button", "datalist",
         this.cbs.onprocessinginstruction("?".concat(n), "?".concat(r));
     } this.startIndex = t + 1; };
     Qe.prototype.oncomment = function (u, t, r) { var n, i, a, o; this.endIndex = t, (i = (n = this.cbs).oncomment) === null || i === void 0 || i.call(n, this.getSlice(u, t - r)), (o = (a = this.cbs).oncommentend) === null || o === void 0 || o.call(a), this.startIndex = t + 1; };
-    Qe.prototype.oncdata = function (u, t, r) { var n, i, a, o, h, b, v, D, A, E; this.endIndex = t; var q = this.getSlice(u, t - r); !this.htmlMode || this.options.recognizeCDATA ? ((i = (n = this.cbs).oncdatastart) === null || i === void 0 || i.call(n), (o = (a = this.cbs).ontext) === null || o === void 0 || o.call(a, q), (b = (h = this.cbs).oncdataend) === null || b === void 0 || b.call(h)) : ((D = (v = this.cbs).oncomment) === null || D === void 0 || D.call(v, "[CDATA[".concat(q, "]]")), (E = (A = this.cbs).oncommentend) === null || E === void 0 || E.call(A)), this.startIndex = t + 1; };
+    Qe.prototype.oncdata = function (u, t, r) { var n, i, a, o, d, b, v, C, A, E; this.endIndex = t; var q = this.getSlice(u, t - r); !this.htmlMode || this.options.recognizeCDATA ? ((i = (n = this.cbs).oncdatastart) === null || i === void 0 || i.call(n), (o = (a = this.cbs).ontext) === null || o === void 0 || o.call(a, q), (b = (d = this.cbs).oncdataend) === null || b === void 0 || b.call(d)) : ((C = (v = this.cbs).oncomment) === null || C === void 0 || C.call(v, "[CDATA[".concat(q, "]]")), (E = (A = this.cbs).oncommentend) === null || E === void 0 || E.call(A)), this.startIndex = t + 1; };
     Qe.prototype.onend = function () { var u, t; if (this.cbs.onclosetag) {
         this.endIndex = this.startIndex;
         for (var r = 0; r < this.stack.length; r++)
@@ -942,11 +942,11 @@ function dr(e, u) { var t = [], r = []; if (e === u)
     t.unshift(n), n = n.parent; for (n = te(u) ? u : u.parent; n;)
     r.unshift(n), n = n.parent; var i = Math.min(t.length, r.length), a = 0; for (; a < i && t[a] === r[a];)
     a++; if (a === 0)
-    return le.DISCONNECTED; var o = t[a - 1], h = o.children, b = t[a], v = r[a]; return h.indexOf(b) > h.indexOf(v) ? o === u ? le.FOLLOWING | le.CONTAINED_BY : le.FOLLOWING : o === e ? le.PRECEDING | le.CONTAINS : le.PRECEDING; }
+    return le.DISCONNECTED; var o = t[a - 1], d = o.children, b = t[a], v = r[a]; return d.indexOf(b) > d.indexOf(v) ? o === u ? le.FOLLOWING | le.CONTAINED_BY : le.FOLLOWING : o === e ? le.PRECEDING | le.CONTAINS : le.PRECEDING; }
 function ht(e) { return e = e.filter(function (u, t, r) { return !r.includes(u, t + 1); }), e.sort(function (u, t) { var r = dr(u, t); return r & le.PRECEDING ? -1 : r & le.FOLLOWING ? 1 : 0; }), e; }
 function bt(e) { var u = Au(Y0, e); return u ? u.name === "feed" ? Q0(u) : Z0(u) : null; }
-function Q0(e) { var u; var t = e.children, r = { type: "atom", items: Ce("entry", t).map(function (a) { var o; var h = a.children, b = { media: hr(h) }; ie(b, "id", "id", h), ie(b, "title", "title", h); var v = (o = Au("link", h)) === null || o === void 0 ? void 0 : o.attribs.href; v && (b.link = v); var D = Ae("summary", h) || Ae("content", h); D && (b.description = D); var A = Ae("updated", h); return A && (b.pubDate = new Date(A)), b; }) }; ie(r, "id", "id", t), ie(r, "title", "title", t); var n = (u = Au("link", t)) === null || u === void 0 ? void 0 : u.attribs.href; n && (r.link = n), ie(r, "description", "subtitle", t); var i = Ae("updated", t); return i && (r.updated = new Date(i)), ie(r, "author", "email", t, !0), r; }
-function Z0(e) { var u, t; var r = (t = (u = Au("channel", e.children)) === null || u === void 0 ? void 0 : u.children) !== null && t !== void 0 ? t : [], n = { type: e.name.substr(0, 3), id: "", items: Ce("item", e.children).map(function (a) { var o = a.children, h = { media: hr(o) }; ie(h, "id", "guid", o), ie(h, "title", "title", o), ie(h, "link", "link", o), ie(h, "description", "description", o); var b = Ae("pubDate", o) || Ae("dc:date", o); return b && (h.pubDate = new Date(b)), h; }) }; ie(n, "title", "title", r), ie(n, "link", "link", r), ie(n, "description", "description", r); var i = Ae("lastBuildDate", r); return i && (n.updated = new Date(i)), ie(n, "author", "managingEditor", r, !0), n; }
+function Q0(e) { var u; var t = e.children, r = { type: "atom", items: Ce("entry", t).map(function (a) { var o; var d = a.children, b = { media: hr(d) }; ie(b, "id", "id", d), ie(b, "title", "title", d); var v = (o = Au("link", d)) === null || o === void 0 ? void 0 : o.attribs.href; v && (b.link = v); var C = Ae("summary", d) || Ae("content", d); C && (b.description = C); var A = Ae("updated", d); return A && (b.pubDate = new Date(A)), b; }) }; ie(r, "id", "id", t), ie(r, "title", "title", t); var n = (u = Au("link", t)) === null || u === void 0 ? void 0 : u.attribs.href; n && (r.link = n), ie(r, "description", "subtitle", t); var i = Ae("updated", t); return i && (r.updated = new Date(i)), ie(r, "author", "email", t, !0), r; }
+function Z0(e) { var u, t; var r = (t = (u = Au("channel", e.children)) === null || u === void 0 ? void 0 : u.children) !== null && t !== void 0 ? t : [], n = { type: e.name.substr(0, 3), id: "", items: Ce("item", e.children).map(function (a) { var o = a.children, d = { media: hr(o) }; ie(d, "id", "guid", o), ie(d, "title", "title", o), ie(d, "link", "link", o), ie(d, "description", "description", o); var b = Ae("pubDate", o) || Ae("dc:date", o); return b && (d.pubDate = new Date(b)), d; }) }; ie(n, "title", "title", r), ie(n, "link", "link", r), ie(n, "description", "description", r); var i = Ae("lastBuildDate", r); return i && (n.updated = new Date(i)), ie(n, "author", "managingEditor", r, !0), n; }
 var X0 = ["url", "type", "lang"], J0 = ["fileSize", "bitrate", "framerate", "samplingrate", "channels", "duration", "height", "width"];
 function hr(e) { return Ce("media:content", e).map(function (u) {
     var e_4, _a, e_5, _b;
@@ -1017,11 +1017,11 @@ function mr(e, u, t) { var r = []; function n(A) { var E = u.slice(t + A).match(
     t++; } function a() { t += 1; var A = t, E = 1; for (; E > 0 && t < u.length; t++)
     u.charCodeAt(t) === 40 && !o(t) ? E++ : u.charCodeAt(t) === 41 && !o(t) && E--; if (E)
     throw new Error("Parenthesis not matched"); return ru(u.slice(A, t - 1)); } function o(A) { var E = 0; for (; u.charCodeAt(--A) === 92;)
-    E++; return (E & 1) === 1; } function h() { if (r.length > 0 && De(r[r.length - 1]))
+    E++; return (E & 1) === 1; } function d() { if (r.length > 0 && De(r[r.length - 1]))
     throw new Error("Did not expect successive traversals."); } function b(A) { if (r.length > 0 && r[r.length - 1].type === T.Descendant) {
     r[r.length - 1].type = A;
     return;
-} h(), r.push({ type: A }); } function v(A, E) { r.push({ type: T.Attribute, name: A, action: E, value: n(1), namespace: null, ignoreCase: "quirks" }); } function D() { if (r.length && r[r.length - 1].type === T.Descendant && r.pop(), r.length === 0)
+} d(), r.push({ type: A }); } function v(A, E) { r.push({ type: T.Attribute, name: A, action: E, value: n(1), namespace: null, ignoreCase: "quirks" }); } function C() { if (r.length && r[r.length - 1].type === T.Descendant && r.pop(), r.length === 0)
     throw new Error("Empty sub-selector"); e.push(r); } if (i(0), u.length === t)
     return t; e: for (; t < u.length;) {
     var A = u.charCodeAt(t);
@@ -1031,7 +1031,7 @@ function mr(e, u, t) { var r = []; function n(A) { var E = u.slice(t + A).match(
         case 10:
         case 12:
         case 13: {
-            (r.length === 0 || r[0].type !== T.Descendant) && (h(), r.push({ type: T.Descendant })), i(1);
+            (r.length === 0 || r[0].type !== T.Descendant) && (d(), r.push({ type: T.Descendant })), i(1);
             break;
         }
         case 62: {
@@ -1073,12 +1073,12 @@ function mr(e, u, t) { var r = []; function n(A) { var E = u.slice(t + A).match(
             var ee = "", ce = null;
             if (M !== "exists") {
                 if (pt(u.charCodeAt(t))) {
-                    var L = u.charCodeAt(t), C = t + 1;
-                    for (; C < u.length && (u.charCodeAt(C) !== L || o(C));)
-                        C += 1;
-                    if (u.charCodeAt(C) !== L)
+                    var L = u.charCodeAt(t), D = t + 1;
+                    for (; D < u.length && (u.charCodeAt(D) !== L || o(D));)
+                        D += 1;
+                    if (u.charCodeAt(D) !== L)
                         throw new Error("Attribute value didn't end");
-                    ee = ru(u.slice(t + 1, C)), t = C + 1;
+                    ee = ru(u.slice(t + 1, D)), t = D + 1;
                 }
                 else {
                     var L = t;
@@ -1122,7 +1122,7 @@ function mr(e, u, t) { var r = []; function n(A) { var E = u.slice(t + A).match(
             break;
         }
         case 44: {
-            D(), r = [], i(1);
+            C(), r = [], i(1);
             break;
         }
         default: {
@@ -1149,7 +1149,7 @@ function mr(e, u, t) { var r = []; function n(A) { var E = u.slice(t + A).match(
             u.charCodeAt(t) === 124 && u.charCodeAt(t + 1) !== 124 && (E = q, u.charCodeAt(t + 1) === 42 ? (q = "*", t += 2) : q = n(1)), r.push(q === "*" ? { type: T.Universal, namespace: E } : { type: T.Tag, name: q, namespace: E });
         }
     }
-} return D(), t; }
+} return C(), t; }
 var kt = Ne(Te(), 1);
 var ye = Ne(Te(), 1);
 var yr = new Map([[T.Universal, 50], [T.Tag, 30], [T.Attribute, 1], [T.Pseudo, 0]]);
@@ -1168,22 +1168,22 @@ var iu = Ne(Te(), 1), an = /[-[\]{}()*+?.,\\^$|#\s]/g;
 function Sr(e) { return e.replace(an, "\\$&"); }
 var sn = new Set(["accept", "accept-charset", "align", "alink", "axis", "bgcolor", "charset", "checked", "clear", "codetype", "color", "compact", "declare", "defer", "dir", "direction", "disabled", "enctype", "face", "frame", "hreflang", "http-equiv", "lang", "language", "link", "media", "method", "multiple", "nohref", "noresize", "noshade", "nowrap", "readonly", "rel", "rev", "rules", "scope", "scrolling", "selected", "shape", "target", "text", "type", "valign", "valuetype", "vlink"]);
 function qe(e, u) { return typeof e.ignoreCase == "boolean" ? e.ignoreCase : e.ignoreCase === "quirks" ? !!u.quirksMode : !u.xmlMode && sn.has(e.name); }
-var wr = { equals: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value; return qe(u, t) ? (i = i.toLowerCase(), function (a) { var o = r.getAttributeValue(a, n); return o != null && o.length === i.length && o.toLowerCase() === i && e(a); }) : function (a) { return r.getAttributeValue(a, n) === i && e(a); }; }, hyphen: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value, a = i.length; return qe(u, t) ? (i = i.toLowerCase(), function (h) { var b = r.getAttributeValue(h, n); return b != null && (b.length === a || b.charAt(a) === "-") && b.substr(0, a).toLowerCase() === i && e(h); }) : function (h) { var b = r.getAttributeValue(h, n); return b != null && (b.length === a || b.charAt(a) === "-") && b.substr(0, a) === i && e(h); }; }, element: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value; if (/\s/.test(i))
-        return iu.default.falseFunc; var a = new RegExp("(?:^|\\s)".concat(Sr(i), "(?:$|\\s)"), qe(u, t) ? "i" : ""); return function (h) { var b = r.getAttributeValue(h, n); return b != null && b.length >= i.length && a.test(b) && e(h); }; }, exists: function (e, _a, _b) {
+var wr = { equals: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value; return qe(u, t) ? (i = i.toLowerCase(), function (a) { var o = r.getAttributeValue(a, n); return o != null && o.length === i.length && o.toLowerCase() === i && e(a); }) : function (a) { return r.getAttributeValue(a, n) === i && e(a); }; }, hyphen: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value, a = i.length; return qe(u, t) ? (i = i.toLowerCase(), function (d) { var b = r.getAttributeValue(d, n); return b != null && (b.length === a || b.charAt(a) === "-") && b.substr(0, a).toLowerCase() === i && e(d); }) : function (d) { var b = r.getAttributeValue(d, n); return b != null && (b.length === a || b.charAt(a) === "-") && b.substr(0, a) === i && e(d); }; }, element: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value; if (/\s/.test(i))
+        return iu.default.falseFunc; var a = new RegExp("(?:^|\\s)".concat(Sr(i), "(?:$|\\s)"), qe(u, t) ? "i" : ""); return function (d) { var b = r.getAttributeValue(d, n); return b != null && b.length >= i.length && a.test(b) && e(d); }; }, exists: function (e, _a, _b) {
         var u = _a.name;
         var t = _b.adapter;
         return function (r) { return t.hasAttrib(r, u) && e(r); };
-    }, start: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value, a = i.length; return a === 0 ? iu.default.falseFunc : qe(u, t) ? (i = i.toLowerCase(), function (o) { var h = r.getAttributeValue(o, n); return h != null && h.length >= a && h.substr(0, a).toLowerCase() === i && e(o); }) : function (o) { var h; return !!(!((h = r.getAttributeValue(o, n)) === null || h === void 0) && h.startsWith(i)) && e(o); }; }, end: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value, a = -i.length; return a === 0 ? iu.default.falseFunc : qe(u, t) ? (i = i.toLowerCase(), function (o) { var h; return ((h = r.getAttributeValue(o, n)) === null || h === void 0 ? void 0 : h.substr(a).toLowerCase()) === i && e(o); }) : function (o) { var h; return !!(!((h = r.getAttributeValue(o, n)) === null || h === void 0) && h.endsWith(i)) && e(o); }; }, any: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value; if (i === "")
+    }, start: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value, a = i.length; return a === 0 ? iu.default.falseFunc : qe(u, t) ? (i = i.toLowerCase(), function (o) { var d = r.getAttributeValue(o, n); return d != null && d.length >= a && d.substr(0, a).toLowerCase() === i && e(o); }) : function (o) { var d; return !!(!((d = r.getAttributeValue(o, n)) === null || d === void 0) && d.startsWith(i)) && e(o); }; }, end: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value, a = -i.length; return a === 0 ? iu.default.falseFunc : qe(u, t) ? (i = i.toLowerCase(), function (o) { var d; return ((d = r.getAttributeValue(o, n)) === null || d === void 0 ? void 0 : d.substr(a).toLowerCase()) === i && e(o); }) : function (o) { var d; return !!(!((d = r.getAttributeValue(o, n)) === null || d === void 0) && d.endsWith(i)) && e(o); }; }, any: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value; if (i === "")
         return iu.default.falseFunc; if (qe(u, t)) {
         var a_1 = new RegExp(Sr(i), "i");
-        return function (h) { var b = r.getAttributeValue(h, n); return b != null && b.length >= i.length && a_1.test(b) && e(h); };
+        return function (d) { var b = r.getAttributeValue(d, n); return b != null && b.length >= i.length && a_1.test(b) && e(d); };
     } return function (a) { var o; return !!(!((o = r.getAttributeValue(a, n)) === null || o === void 0) && o.includes(i)) && e(a); }; }, not: function (e, u, t) { var r = t.adapter, n = u.name, i = u.value; return i === "" ? function (a) { return !!r.getAttributeValue(a, n) && e(a); } : qe(u, t) ? (i = i.toLowerCase(), function (a) { var o = r.getAttributeValue(a, n); return (o == null || o.length !== i.length || o.toLowerCase() !== i) && e(a); }) : function (a) { return r.getAttributeValue(a, n) !== i && e(a); }; } };
 var cn = new Set([9, 10, 12, 13, 32]), Ar = 48, on = 57;
 function Er(e) { if (e = e.trim().toLowerCase(), e === "even")
     return [2, 0]; if (e === "odd")
     return [2, 1]; var u = 0, t = 0, r = i(), n = a(); if (u < e.length && e.charAt(u) === "n" && (u++, t = r * (n != null ? n : 1), o(), u < e.length ? (r = i(), o(), n = a()) : r = n = 0), n === null || u < e.length)
-    throw new Error("n-th rule couldn't be parsed ('".concat(e, "')")); return [t, r * n]; function i() { return e.charAt(u) === "-" ? (u++, -1) : (e.charAt(u) === "+" && u++, 1); } function a() { var h = u, b = 0; for (; u < e.length && e.charCodeAt(u) >= Ar && e.charCodeAt(u) <= on;)
-    b = b * 10 + (e.charCodeAt(u) - Ar), u++; return u === h ? null : b; } function o() { for (; u < e.length && cn.has(e.charCodeAt(u));)
+    throw new Error("n-th rule couldn't be parsed ('".concat(e, "')")); return [t, r * n]; function i() { return e.charAt(u) === "-" ? (u++, -1) : (e.charAt(u) === "+" && u++, 1); } function a() { var d = u, b = 0; for (; u < e.length && e.charCodeAt(u) >= Ar && e.charCodeAt(u) <= on;)
+    b = b * 10 + (e.charCodeAt(u) - Ar), u++; return u === d ? null : b; } function o() { for (; u < e.length && cn.has(e.charCodeAt(u));)
     u++; } }
 var mt = Ne(Te(), 1);
 function Tr(e) { var u = e[0], t = e[1] - 1; if (t < 0 && u <= 0)
@@ -1204,31 +1204,31 @@ var $e = { contains: function (e, u, _a) {
     }, "nth-child": function (e, u, _a) {
         var t = _a.adapter, r = _a.equals;
         var n = ze(u);
-        return n === ae.default.falseFunc ? ae.default.falseFunc : n === ae.default.trueFunc ? Eu(e, t) : function (a) { var o = t.getSiblings(a), h = 0; for (var b = 0; b < o.length && !r(a, o[b]); b++)
-            t.isTag(o[b]) && h++; return n(h) && e(a); };
+        return n === ae.default.falseFunc ? ae.default.falseFunc : n === ae.default.trueFunc ? Eu(e, t) : function (a) { var o = t.getSiblings(a), d = 0; for (var b = 0; b < o.length && !r(a, o[b]); b++)
+            t.isTag(o[b]) && d++; return n(d) && e(a); };
     }, "nth-last-child": function (e, u, _a) {
         var t = _a.adapter, r = _a.equals;
         var n = ze(u);
-        return n === ae.default.falseFunc ? ae.default.falseFunc : n === ae.default.trueFunc ? Eu(e, t) : function (a) { var o = t.getSiblings(a), h = 0; for (var b = o.length - 1; b >= 0 && !r(a, o[b]); b--)
-            t.isTag(o[b]) && h++; return n(h) && e(a); };
+        return n === ae.default.falseFunc ? ae.default.falseFunc : n === ae.default.trueFunc ? Eu(e, t) : function (a) { var o = t.getSiblings(a), d = 0; for (var b = o.length - 1; b >= 0 && !r(a, o[b]); b--)
+            t.isTag(o[b]) && d++; return n(d) && e(a); };
     }, "nth-of-type": function (e, u, _a) {
         var t = _a.adapter, r = _a.equals;
         var n = ze(u);
-        return n === ae.default.falseFunc ? ae.default.falseFunc : n === ae.default.trueFunc ? Eu(e, t) : function (a) { var o = t.getSiblings(a), h = 0; for (var b = 0; b < o.length; b++) {
+        return n === ae.default.falseFunc ? ae.default.falseFunc : n === ae.default.trueFunc ? Eu(e, t) : function (a) { var o = t.getSiblings(a), d = 0; for (var b = 0; b < o.length; b++) {
             var v = o[b];
             if (r(a, v))
                 break;
-            t.isTag(v) && t.getName(v) === t.getName(a) && h++;
-        } return n(h) && e(a); };
+            t.isTag(v) && t.getName(v) === t.getName(a) && d++;
+        } return n(d) && e(a); };
     }, "nth-last-of-type": function (e, u, _a) {
         var t = _a.adapter, r = _a.equals;
         var n = ze(u);
-        return n === ae.default.falseFunc ? ae.default.falseFunc : n === ae.default.trueFunc ? Eu(e, t) : function (a) { var o = t.getSiblings(a), h = 0; for (var b = o.length - 1; b >= 0; b--) {
+        return n === ae.default.falseFunc ? ae.default.falseFunc : n === ae.default.trueFunc ? Eu(e, t) : function (a) { var o = t.getSiblings(a), d = 0; for (var b = o.length - 1; b >= 0; b--) {
             var v = o[b];
             if (r(a, v))
                 break;
-            t.isTag(v) && t.getName(v) === t.getName(a) && h++;
-        } return n(h) && e(a); };
+            t.isTag(v) && t.getName(v) === t.getName(a) && d++;
+        } return n(d) && e(a); };
     }, root: function (e, u, _a) {
         var t = _a.adapter;
         return function (r) { var n = t.getParent(r); return (n == null || !t.isTag(n)) && e(r); };
@@ -1300,26 +1300,26 @@ function At(e, u) { return e === fe.default.falseFunc ? fe.default.falseFunc : f
 function Et(e, u) { var t = u.getSiblings(e); if (t.length <= 1)
     return []; var r = t.indexOf(e); return r < 0 || r === t.length - 1 ? [] : t.slice(r + 1).filter(u.isTag); }
 function St(e) { return { xmlMode: !!e.xmlMode, lowerCaseAttributeNames: !!e.lowerCaseAttributeNames, lowerCaseTags: !!e.lowerCaseTags, quirksMode: !!e.quirksMode, cacheResults: !!e.cacheResults, pseudos: e.pseudos, adapter: e.adapter, equals: e.equals }; }
-var vt = function (e, u, t, r, n) { var i = n(u, St(t), r); return i === fe.default.trueFunc ? e : i === fe.default.falseFunc ? fe.default.falseFunc : function (a) { return i(a) && e(a); }; }, ku = { is: vt, matches: vt, where: vt, not: function (e, u, t, r, n) { var i = n(u, St(t), r); return i === fe.default.falseFunc ? e : i === fe.default.trueFunc ? fe.default.falseFunc : function (a) { return !i(a) && e(a); }; }, has: function (e, u, t, r, n) { var i = t.adapter, a = St(t); a.relativeSelector = !0; var o = u.some(function (v) { return v.some(nu); }) ? [wt] : void 0, h = n(u, a, o); if (h === fe.default.falseFunc)
-        return fe.default.falseFunc; var b = At(h, i); if (o && h !== fe.default.trueFunc) {
-        var _a = h.shouldTestNextSiblings, v_1 = _a === void 0 ? !1 : _a;
-        return function (D) { if (!e(D))
-            return !1; o[0] = D; var A = i.getChildren(D), E = v_1 ? __spreadArray(__spreadArray([], __read(A), false), __read(Et(D, i)), false) : A; return i.existsOne(b, E); };
+var vt = function (e, u, t, r, n) { var i = n(u, St(t), r); return i === fe.default.trueFunc ? e : i === fe.default.falseFunc ? fe.default.falseFunc : function (a) { return i(a) && e(a); }; }, ku = { is: vt, matches: vt, where: vt, not: function (e, u, t, r, n) { var i = n(u, St(t), r); return i === fe.default.falseFunc ? e : i === fe.default.trueFunc ? fe.default.falseFunc : function (a) { return !i(a) && e(a); }; }, has: function (e, u, t, r, n) { var i = t.adapter, a = St(t); a.relativeSelector = !0; var o = u.some(function (v) { return v.some(nu); }) ? [wt] : void 0, d = n(u, a, o); if (d === fe.default.falseFunc)
+        return fe.default.falseFunc; var b = At(d, i); if (o && d !== fe.default.trueFunc) {
+        var _a = d.shouldTestNextSiblings, v_1 = _a === void 0 ? !1 : _a;
+        return function (C) { if (!e(C))
+            return !1; o[0] = C; var A = i.getChildren(C), E = v_1 ? __spreadArray(__spreadArray([], __read(A), false), __read(Et(C, i)), false) : A; return i.existsOne(b, E); };
     } return function (v) { return e(v) && i.existsOne(b, i.getChildren(v)); }; } };
 function kr(e, u, t, r, n) { var i; var a = u.name, o = u.data; if (Array.isArray(o)) {
     if (!(a in ku))
         throw new Error("Unknown pseudo-class :".concat(a, "(").concat(o, ")"));
     return ku[a](e, o, t, r, n);
-} var h = (i = t.pseudos) === null || i === void 0 ? void 0 : i[a], b = typeof h == "string" ? h : Tu[a]; if (typeof b == "string") {
+} var d = (i = t.pseudos) === null || i === void 0 ? void 0 : i[a], b = typeof d == "string" ? d : Tu[a]; if (typeof b == "string") {
     if (o != null)
         throw new Error("Pseudo ".concat(a, " doesn't have any arguments"));
     var v = Ee(b);
     return ku.is(e, v, t, r, n);
-} if (typeof h == "function")
-    return yt(h, a, o, 1), function (v) { return h(v, o) && e(v); }; if (a in $e)
+} if (typeof d == "function")
+    return yt(d, a, o, 1), function (v) { return d(v, o) && e(v); }; if (a in $e)
     return $e[a](e, o, t, r); if (a in au) {
     var v_2 = au[a];
-    return yt(v_2, a, o, 2), function (D) { return v_2(D, t, o) && e(D); };
+    return yt(v_2, a, o, 2), function (C) { return v_2(C, t, o) && e(C); };
 } throw new Error("Unknown pseudo-class :".concat(a)); }
 function Tt(e, u) { var t = u.getParent(e); return t && u.isTag(t) ? t : null; }
 function Nr(e, u, t, r, n) { var i = t.adapter, a = t.equals; switch (u.type) {
@@ -1350,22 +1350,22 @@ function Nr(e, u, t, r, n) { var i = t.adapter, a = t.equals; switch (u.type) {
                 o_2.add(v);
             } return !1; };
     }
-    case "_flexibleDescendant": return function (h) { var b = h; do
+    case "_flexibleDescendant": return function (d) { var b = d; do
         if (e(b))
             return !0;
     while (b = Tt(b, i)); return !1; };
-    case T.Parent: return function (h) { return i.getChildren(h).some(function (b) { return i.isTag(b) && e(b); }); };
-    case T.Child: return function (h) { var b = i.getParent(h); return b != null && i.isTag(b) && e(b); };
-    case T.Sibling: return function (h) { var b = i.getSiblings(h); for (var v = 0; v < b.length; v++) {
-        var D = b[v];
-        if (a(h, D))
+    case T.Parent: return function (d) { return i.getChildren(d).some(function (b) { return i.isTag(b) && e(b); }); };
+    case T.Child: return function (d) { var b = i.getParent(d); return b != null && i.isTag(b) && e(b); };
+    case T.Sibling: return function (d) { var b = i.getSiblings(d); for (var v = 0; v < b.length; v++) {
+        var C = b[v];
+        if (a(d, C))
             break;
-        if (i.isTag(D) && e(D))
+        if (i.isTag(C) && e(C))
             return !0;
     } return !1; };
-    case T.Adjacent: return i.prevElementSibling ? function (h) { var b = i.prevElementSibling(h); return b != null && e(b); } : function (h) { var b = i.getSiblings(h), v; for (var D = 0; D < b.length; D++) {
-        var A = b[D];
-        if (a(h, A))
+    case T.Adjacent: return i.prevElementSibling ? function (d) { var b = i.prevElementSibling(d); return b != null && e(b); } : function (d) { var b = i.getSiblings(d), v; for (var C = 0; C < b.length; C++) {
+        var A = b[C];
+        if (a(d, A))
             break;
         i.isTag(A) && (v = A);
     } return !!v && e(v); };
@@ -1404,11 +1404,11 @@ function hn(e, _a, t) {
 }
 function Cu(e, u, t) { var r; e.forEach(gt), t = (r = u.context) !== null && r !== void 0 ? r : t; var n = Array.isArray(t), i = t && (Array.isArray(t) ? t : [t]); if (u.relativeSelector !== !1)
     hn(e, u, i);
-else if (e.some(function (h) { return h.length > 0 && nu(h[0]); }))
-    throw new Error("Relative selectors are not allowed when the `relativeSelector` option is disabled"); var a = !1, o = e.map(function (h) { if (h.length >= 2) {
-    var _a = __read(h, 2), b = _a[0], v = _a[1];
-    b.type !== T.Pseudo || b.name !== "scope" || (n && v.type === T.Descendant ? h[1] = fn : (v.type === T.Adjacent || v.type === T.Sibling) && (a = !0));
-} return bn(h, u, i); }).reduce(pn, ye.default.falseFunc); return o.shouldTestNextSiblings = a, o; }
+else if (e.some(function (d) { return d.length > 0 && nu(d[0]); }))
+    throw new Error("Relative selectors are not allowed when the `relativeSelector` option is disabled"); var a = !1, o = e.map(function (d) { if (d.length >= 2) {
+    var _a = __read(d, 2), b = _a[0], v = _a[1];
+    b.type !== T.Pseudo || b.name !== "scope" || (n && v.type === T.Descendant ? d[1] = fn : (v.type === T.Adjacent || v.type === T.Sibling) && (a = !0));
+} return bn(d, u, i); }).reduce(pn, ye.default.falseFunc); return o.shouldTestNextSiblings = a, o; }
 function bn(e, u, t) { var r; return e.reduce(function (n, i) { return n === ye.default.falseFunc ? ye.default.falseFunc : Nr(n, i, u, t, Cu); }, (r = u.rootFunc) !== null && r !== void 0 ? r : ye.default.trueFunc); }
 function pn(e, u) { return u === ye.default.falseFunc || e === ye.default.trueFunc ? e : e === ye.default.falseFunc || u === ye.default.trueFunc ? u : function (r) { return e(r) || u(r); }; }
 var qr = function (e, u) { return e === u; }, gn = { adapter: be, equals: qr };
@@ -1515,10 +1515,10 @@ function It(e, u, t, r) {
     if (typeof e == "function")
         return Br(u, e);
     var _a = __read(Iu(Ee(e)), 2), n = _a[0], i = _a[1], a = i.map(function (o) { return Uu(u, o, t, !0, r); });
-    return n.length && a.push(Ct(u, n, t, r)), a.length === 0 ? [] : a.length === 1 ? a[0] : ht(a.reduce(function (o, h) { return __spreadArray(__spreadArray([], __read(o), false), __read(h), false); }));
+    return n.length && a.push(Ct(u, n, t, r)), a.length === 0 ? [] : a.length === 1 ? a[0] : ht(a.reduce(function (o, d) { return __spreadArray(__spreadArray([], __read(o), false), __read(d), false); }));
 }
-function Uu(e, u, t, r, n) { var i = u.findIndex(We), a = u.slice(0, i), o = u[i], h = u.length - 1 === i ? n : 1 / 0, b = Ur(o.name, o.data, h); if (b === 0)
-    return []; var D = (a.length === 0 && !Array.isArray(e) ? xu(e).filter(H) : a.length === 0 ? (Array.isArray(e) ? e : [e]).filter(H) : r || a.some(De) ? Ct(e, [a], t, b) : Dt(e, [a], t)).slice(0, b), A = wn(o.name, D, o.data, t); if (A.length === 0 || u.length === i + 1)
+function Uu(e, u, t, r, n) { var i = u.findIndex(We), a = u.slice(0, i), o = u[i], d = u.length - 1 === i ? n : 1 / 0, b = Ur(o.name, o.data, d); if (b === 0)
+    return []; var C = (a.length === 0 && !Array.isArray(e) ? xu(e).filter(H) : a.length === 0 ? (Array.isArray(e) ? e : [e]).filter(H) : r || a.some(De) ? Ct(e, [a], t, b) : Dt(e, [a], t)).slice(0, b), A = wn(o.name, C, o.data, t); if (A.length === 0 || u.length === i + 1)
     return A; var E = u.slice(i + 1), q = E.some(De); if (q) {
     if (De(E[0])) {
         var M = E[0].type;
@@ -1829,8 +1829,8 @@ function $r(e, u) { var t = new Set((u || ["p", "br", "b", "i", "em", "strong", 
                 var o = (a.children || []).slice();
                 try {
                     for (var o_3 = (e_20 = void 0, __values(o)), o_3_1 = o_3.next(); !o_3_1.done; o_3_1 = o_3.next()) {
-                        var h = o_3_1.value;
-                        ft(a, h);
+                        var d = o_3_1.value;
+                        ft(a, d);
                     }
                 }
                 catch (e_20_1) { e_20 = { error: e_20_1 }; }
@@ -1914,22 +1914,22 @@ function Cn(e) {
     }
     return u;
 }
-function Qr(e, u) { var t = function (a) { return ({ getItem: function (o) { var h = e.storageGet(a + o); return h == null ? null : h; }, setItem: function (o, h) { return e.storageSet(a + o, h == null ? null : String(h)); }, removeItem: function (o) { return e.storageSet(a + o, null); }, clear: function () { return e.storageClear && e.storageClear(a); } }); }, r = "__cookie__", n = {}; n.Response = { success: function (a, o) { return ({ code: 0, data: a === void 0 ? null : a, data2: o === void 0 ? null : o }); }, error: function (a) { return ({ code: 1, data: a == null ? "" : String(a) }); } }, n.fetch = function (o, h) {
-    return __awaiter(this, void 0, void 0, function () { var b, M, v, D, A, M, E, q, M_1; return __generator(this, function (_a) {
+function Qr(e, u) { var t = function (a) { return ({ getItem: function (o) { var d = e.storageGet(a + o); return d == null ? null : d; }, setItem: function (o, d) { return e.storageSet(a + o, d == null ? null : String(d)); }, removeItem: function (o) { return e.storageSet(a + o, null); }, clear: function () { return e.storageClear && e.storageClear(a); } }); }, r = "__cookie__", n = {}; n.Response = { success: function (a, o) { return ({ code: 0, data: a === void 0 ? null : a, data2: o === void 0 ? null : o }); }, error: function (a) { return ({ code: 1, data: a == null ? "" : String(a) }); } }, n.fetch = function (o, d) {
+    return __awaiter(this, void 0, void 0, function () { var b, M, v, C, A, M, E, q, M_1; return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                h = h || {};
+                d = d || {};
                 b = String(o);
-                if (h.queries) {
-                    M = Object.entries(h.queries).map(function (_a) {
+                if (d.queries) {
+                    M = Object.entries(d.queries).map(function (_a) {
                         var _b = __read(_a, 2), J = _b[0], ee = _b[1];
                         return encodeURIComponent(J) + "=" + encodeURIComponent(ee);
                     }).join("&");
                     M && (b += (b.includes("?") ? "&" : "?") + M);
                 }
-                v = Object.assign({ "User-Agent": su }, Cn(h.headers)), D = e.storageGet(r);
-                D && !Object.keys(v).some(function (M) { return M.toLowerCase() === "cookie"; }) && (v.Cookie = D);
-                A = h.body;
+                v = Object.assign({ "User-Agent": su }, Cn(d.headers)), C = e.storageGet(r);
+                C && !Object.keys(v).some(function (M) { return M.toLowerCase() === "cookie"; }) && (v.Cookie = C);
+                A = d.body;
                 if (A != null && typeof A == "object") {
                     M = Object.keys(v).find(function (J) { return J.toLowerCase() === "content-type"; });
                     M && /json/i.test(v[M]) ? A = JSON.stringify(A) : (A = Object.entries(A).map(function (_a) {
@@ -1937,7 +1937,7 @@ function Qr(e, u) { var t = function (a) { return ({ getItem: function (o) { var
                         return encodeURIComponent(J) + "=" + encodeURIComponent(ee);
                     }).join("&"), M || (v["Content-Type"] = "application/x-www-form-urlencoded"));
                 }
-                E = { url: b, method: (h.method || (A != null ? "POST" : "GET")).toUpperCase(), headers: v, body: A, timeout: h.timeout };
+                E = { url: b, method: (d.method || (A != null ? "POST" : "GET")).toUpperCase(), headers: v, body: A, timeout: d.timeout };
                 _a.label = 1;
             case 1:
                 _a.trys.push([1, 3, , 4]);
@@ -1952,7 +1952,16 @@ function Qr(e, u) { var t = function (a) { return ({ getItem: function (o) { var
             case 4: return [2, new Ht(q, E)];
         }
     }); });
-}, n.Http = { get: function (a) { return Kr(n, "GET", a); }, post: function (a) { return Kr(n, "POST", a); } }, n.Html = { parse: function (a, o) { return Ru(a, o || ""); }, clean: function (a, o) { return $r(a, o); } }, n.localStorage = t("ls:"), n.cacheStorage = t("cs:"), n.localConfig = { getItem: function (a) { return e.config(a); } }, n.localCookie = { setCookie: function (a) { e.storageSet(r, String(a).split(";")[0]); }, getCookie: function () { return e.storageGet(r) || ""; } }, n.sleep = function (a) { return new Promise(function (o) { return typeof setTimeout == "function" ? setTimeout(o, Math.min(Number(a) || 0, 1e4)) : o(); }); }; var i = function () {
+}, n.Http = { get: function (a) { return Kr(n, "GET", a); }, post: function (a) { return Kr(n, "POST", a); } }, n.Html = { parse: function (a, o) { return Ru(a, o || ""); }, clean: function (a, o) { return $r(a, o); } }, n.localStorage = t("ls:"), n.cacheStorage = t("cs:"), n.resumeStorage = { get: function (a) { try {
+        var o = e.storageGet("resume:" + a);
+        return o && parseFloat(o) || 0;
+    }
+    catch (d) {
+        return 0;
+    } }, set: function (a, o) { try {
+        e.storageSet("resume:" + a, String(Math.max(0, o || 0)));
+    }
+    catch (d) { } } }, n.localConfig = { getItem: function (a) { return e.config(a); } }, n.localCookie = { setCookie: function (a) { e.storageSet(r, String(a).split(";")[0]); }, getCookie: function () { return e.storageGet(r) || ""; } }, n.sleep = function (a) { return new Promise(function (o) { return typeof setTimeout == "function" ? setTimeout(o, Math.min(Number(a) || 0, 1e4)) : o(); }); }; var i = function () {
     var a = [];
     for (var _i = 0; _i < arguments.length; _i++) {
         a[_i] = arguments[_i];
@@ -2026,7 +2035,7 @@ var j = function (e) { return e == null ? "" : String(e); }, Dn = function (e) {
                         r = this.scripts[u];
                         if (!r)
                             throw new Error("script " + u + " missing");
-                        n = function (o) { var h = _this.host.config(o); return h == null ? (_this.meta.configDefaults || {})[o] : h; };
+                        n = function (o) { var d = _this.host.config(o); return d == null ? (_this.meta.configDefaults || {})[o] : d; };
                         return [4, r(this.env, n)];
                     case 1:
                         i = _a.sent();
@@ -2086,7 +2095,7 @@ var j = function (e) { return e == null ? "" : String(e); }, Dn = function (e) {
     };
     class_1.prototype.list = function (u, t, r) {
         return __awaiter(this, void 0, void 0, function () {
-            var n, i, a, o, h;
+            var n, i, a, o, d;
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -2100,8 +2109,8 @@ var j = function (e) { return e == null ? "" : String(e); }, Dn = function (e) {
                     case 1:
                         a = _a.sent(), o = j(a.data2);
                         o && (this.tokens[n + "|" + (r + 1)] = o);
-                        h = (a.data || []).filter(Boolean).map(function (b) { return ({ name: j(b.name).trim(), link: Le(b.host || _this.base + "/", b.link), cover: Le(b.host || _this.base + "/", b.cover), description: j(b.description), tag: j(b.tag) }); }).filter(function (b) { return b.name && b.link; });
-                        return [2, { items: h, hasNext: !!o && h.length > 0 }];
+                        d = (a.data || []).filter(Boolean).map(function (b) { return ({ name: j(b.name).trim(), link: Le(b.host || _this.base + "/", b.link), cover: Le(b.host || _this.base + "/", b.cover), description: j(b.description), tag: j(b.tag) }); }).filter(function (b) { return b.name && b.link; });
+                        return [2, { items: d, hasNext: !!o && d.length > 0 }];
                 }
             });
         });
@@ -2243,7 +2252,7 @@ var j = function (e) { return e == null ? "" : String(e); }, Dn = function (e) {
     };
     class_1.prototype.videos = function (u) {
         return __awaiter(this, void 0, void 0, function () {
-            var t, n, r, t_3, t_3_1, n, i, a, a_2, a_2_1, o, i_2, e_23_1;
+            var t, i, r, n, t_3, t_3_1, i, a, o, o_4, o_4_1, d, b, v, C, a_2, e_23_1;
             var e_23, _a, e_24, _b;
             var _this = this;
             return __generator(this, function (_c) {
@@ -2253,11 +2262,11 @@ var j = function (e) { return e == null ? "" : String(e); }, Dn = function (e) {
                         if (!this.has("chap")) return [3, 2];
                         return [4, this.run("chap", u)];
                     case 1:
-                        n = (_c.sent()).data;
-                        Array.isArray(n) && n.length && (t = n.map(function (i) { return typeof i == "string" ? { title: "Server", data: i } : { title: j(i.title || i.name || "Server"), data: j(i.data || i.url || i.link) }; }));
+                        i = (_c.sent()).data;
+                        Array.isArray(i) && i.length && (t = i.map(function (a) { return typeof a == "string" ? { title: "Server", data: a } : { title: j(a.title || a.name || "Server"), data: j(a.data || a.url || a.link) }; }));
                         _c.label = 2;
                     case 2:
-                        r = [];
+                        r = this.env && this.env.resumeStorage ? this.env.resumeStorage.get(u) : 0, n = [];
                         _c.label = 3;
                     case 3:
                         _c.trys.push([3, 10, 11, 12]);
@@ -2265,30 +2274,33 @@ var j = function (e) { return e == null ? "" : String(e); }, Dn = function (e) {
                         _c.label = 4;
                     case 4:
                         if (!!t_3_1.done) return [3, 9];
-                        n = t_3_1.value;
+                        i = t_3_1.value;
                         _c.label = 5;
                     case 5:
                         _c.trys.push([5, 7, , 8]);
-                        return [4, this.run("track", n.data)];
+                        return [4, this.run("track", i.data)];
                     case 6:
-                        i = (_c.sent()).data || {}, a = Array.isArray(i) ? i : [i];
+                        a = (_c.sent()).data || {}, o = Array.isArray(a) ? a : [a];
                         try {
-                            for (a_2 = (e_24 = void 0, __values(a)), a_2_1 = a_2.next(); !a_2_1.done; a_2_1 = a_2.next()) {
-                                o = a_2_1.value;
-                                !o || !o.data || o.type !== "webview" && r.push({ url: Le(o.host || this.base + "/", o.data), quality: n.title + (o.quality ? " " + o.quality : ""), headers: o.headers || { Referer: this.base + "/" }, subtitles: (o.subtitles || (o.subtitle ? [{ data: o.subtitle, label: "Sub" }] : [])).map(function (h) { return ({ file: Le(_this.base + "/", h.data || h.file), label: j(h.label || h.language || "Sub") }); }), mimeType: j(o.mimeType) });
+                            for (o_4 = (e_24 = void 0, __values(o)), o_4_1 = o_4.next(); !o_4_1.done; o_4_1 = o_4.next()) {
+                                d = o_4_1.value;
+                                if (!d || !d.data || d.type === "webview")
+                                    continue;
+                                b = Le(d.host || this.base + "/", d.data), v = r > 0 && !d.data.includes("#t=") && !d.data.includes("&t=") ? (d.data.includes("#") ? "&" : "#") + "t=" + Math.floor(r) : "", C = r > 0 ? " [Tiếp tục " + Math.floor(r / 60) + ":" + ("0" + Math.floor(r % 60)).slice(-2) + "]" : "";
+                                n.push({ url: b + v, rawUrl: b, resumeSec: r, quality: i.title + (d.quality ? " " + d.quality : "") + C, headers: d.headers || { Referer: this.base + "/" }, subtitles: (d.subtitles || (d.subtitle ? [{ data: d.subtitle, label: "Sub" }] : [])).map(function (A) { return ({ file: Le(_this.base + "/", A.data || A.file), label: j(A.label || A.language || "Sub") }); }), mimeType: j(d.mimeType) });
                             }
                         }
                         catch (e_24_1) { e_24 = { error: e_24_1 }; }
                         finally {
                             try {
-                                if (a_2_1 && !a_2_1.done && (_b = a_2.return)) _b.call(a_2);
+                                if (o_4_1 && !o_4_1.done && (_b = o_4.return)) _b.call(o_4);
                             }
                             finally { if (e_24) throw e_24.error; }
                         }
                         return [3, 8];
                     case 7:
-                        i_2 = _c.sent();
-                        this.host.log && this.host.log("track " + n.title + ": " + i_2.message);
+                        a_2 = _c.sent();
+                        this.host.log && this.host.log("track " + i.title + ": " + a_2.message);
                         return [3, 8];
                     case 8:
                         t_3_1 = t_3.next();
@@ -2304,7 +2316,7 @@ var j = function (e) { return e == null ? "" : String(e); }, Dn = function (e) {
                         }
                         finally { if (e_23) throw e_23.error; }
                         return [7];
-                    case 12: return [2, r];
+                    case 12: return [2, n];
                 }
             });
         });
@@ -2314,9 +2326,9 @@ var j = function (e) { return e == null ? "" : String(e); }, Dn = function (e) {
 function Zr(e) {
     return String(e).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var ve = { id: "truyendichai", name: "TruyenDich.AI", source: "https://truyendich.store", type: "novel", locale: "vi", nsfw: !1, version: 5, config: { DOMAIN: { title: "Domain", default: "https://truyendich.store", mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://truyendich.store" }, itemType: 2, lnId: "kiritokmn.truyendichai", lnIcon: "", lnVersion: "1.2.5" }, Xr = { home: function (e, u) {
+var ve = { id: "truyendichai", name: "TruyenDich.AI", source: "https://truyendich.store", type: "novel", locale: "vi", nsfw: !1, version: 5, config: { DOMAIN: { title: "Domain", default: "https://truyendich.store", mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://truyendich.store" }, itemType: 2, short: !1, shorts: !1, lnId: "kiritokmn.truyendichai", lnIcon: "", lnVersion: "1.3.5" }, Xr = { home: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, n, i, a, o, h, b, v, D, A, E, q, M, J, ee, ce) {
+            return [2, (function (t, r, n, i, a, o, d, b, v, C, A, E, q, M, J, ee, ce) {
                     return __awaiter(this, void 0, void 0, function () { var F; return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0:
@@ -2337,26 +2349,26 @@ var ve = { id: "truyendichai", name: "TruyenDich.AI", source: "https://truyendic
         }); });
     }, genre: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, n, i, a, o, h, b, v, D, A, E, q, M, J, ee, ce) {
+            return [2, (function (t, r, n, i, a, o, d, b, v, C, A, E, q, M, J, ee, ce) {
                     return __awaiter(this, void 0, void 0, function () { var F; return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0:
                                 F = u("DOMAIN");
                                 return [4, (function () {
-                                        return __awaiter(this, void 0, void 0, function () { function L(s) { return s == null ? "" : String(s).trim(); } function C(s) { return L(s).replace(/\s+/g, " "); } function I(s) { return L(s).replace(/^\/+|\/+$/g, ""); } function V(s) { return s = L(s), !s || (s = s.replace(/^[a-z]+:\/\/[^/]+/i, ""), s = s.replace(/[?#].*$/, ""), !s) ? "" : (s.charAt(0) !== "/" && (s = "/" + s), s.length > 1 && (s = s.replace(/\/+$/, "")), s); } function G(s) { return s = C(s).toLowerCase(), s === "ai" ? "ai" : s === "convert" || s === "cv" ? "convert" : "base"; } function ue(s) { return s = G(s), s === "ai" ? "Dịch AI" : s === "convert" ? "Convert" : "Bản Dịch"; } function z(s) { var g = V(s); if (!g || g.indexOf("/doc-truyen/") !== 0)
+                                        return __awaiter(this, void 0, void 0, function () { function L(s) { return s == null ? "" : String(s).trim(); } function D(s) { return L(s).replace(/\s+/g, " "); } function I(s) { return L(s).replace(/^\/+|\/+$/g, ""); } function V(s) { return s = L(s), !s || (s = s.replace(/^[a-z]+:\/\/[^/]+/i, ""), s = s.replace(/[?#].*$/, ""), !s) ? "" : (s.charAt(0) !== "/" && (s = "/" + s), s.length > 1 && (s = s.replace(/\/+$/, "")), s); } function G(s) { return s = D(s).toLowerCase(), s === "ai" ? "ai" : s === "convert" || s === "cv" ? "convert" : "base"; } function ue(s) { return s = G(s), s === "ai" ? "Dịch AI" : s === "convert" ? "Convert" : "Bản Dịch"; } function z(s) { var g = V(s); if (!g || g.indexOf("/doc-truyen/") !== 0)
                                             return null; var l = g.substring(12).split("/").filter(Boolean), f = "base"; l[0] === "ai" ? (f = "ai", l.shift()) : l[0] === "cv" && (f = "convert", l.shift()); var c = I(l.shift()); if (!c)
                                             return null; var p = { edition: f, slug: c, kind: "detail", pageNo: 1, chapterSegment: "" }; return l.length === 0 ? p : /^trang-\d+$/.test(l[0]) ? (p.kind = "page", p.pageNo = parseInt(l[0].replace("trang-", ""), 10) || 1, p) : (p.kind = "chapter", p.chapterSegment = I(l.join("/")), p); } function W(s) { if (!s || !s.slug)
                                             return ""; var g = "/doc-truyen", l = G(s.edition); if (l === "ai" && (g += "/ai"), l === "convert" && (g += "/cv"), g += "/" + I(s.slug), s.kind === "page") {
                                             var f = parseInt(s.pageNo, 10) || 1;
                                             return f > 1 && (g += "/trang-" + f), g;
                                         } return s.kind === "chapter" && s.chapterSegment && (g += "/" + I(s.chapterSegment)), g; } function P(s) { return s ? W({ edition: s.edition, slug: s.slug, kind: "detail" }) : ""; } function Y(s) { return s = L(s), s ? /^https?:\/\//i.test(s) ? s : U + V(s) : ""; } function re(s, g) { var l = [], f = {}, c = g && g.slug ? I(g.slug) : ""; return s.select("div:has(> div > span:contains(Phiên bản)) a[href^=/doc-truyen/]").forEach(function (p) { var m = z(p.attr("href")); if (!(!m || m.kind !== "detail") && !(c && m.slug !== c)) {
-                                            var y = P(m), w = C(p.text()) || ue(m.edition), k = f[y];
+                                            var y = P(m), w = D(p.text()) || ue(m.edition), k = f[y];
                                             if (k != null) {
                                                 w.length > l[k].title.length && (l[k].title = w);
                                                 return;
                                             }
                                             f[y] = l.length, l.push({ title: w, route: m, key: y });
-                                        } }), l; } function ge(s, g) { var l = [], f = P(g); return re(s, g).forEach(function (c) { !c || c.key === f || l.push(c); }), l; } function S(s, g) { return { title: s, input: "category:" + g, script: "gen.js" }; } function d() {
+                                        } }), l; } function ge(s, g) { var l = [], f = P(g); return re(s, g).forEach(function (c) { !c || c.key === f || l.push(c); }), l; } function S(s, g) { return { title: s, input: "category:" + g, script: "gen.js" }; } function h() {
                                             return __awaiter(this, void 0, void 0, function () { var s, g, l, f; return __generator(this, function (_a) {
                                                 switch (_a.label) {
                                                     case 0: return [4, t(U + "/the-loai")];
@@ -2364,7 +2376,7 @@ var ve = { id: "truyendichai", name: "TruyenDich.AI", source: "https://truyendic
                                                         s = _a.sent();
                                                         if (s.ok) {
                                                             g = s.html(), l = [], f = {};
-                                                            if (g.select("a[href^=/the-loai/]").forEach(function (c) { var p = V(c.attr("href")), m = p.match(/^\/the-loai\/([^/?#]+)/), y = C(c.text()); !m || !y || f[m[1]] || (f[m[1]] = !0, l.push(S(y, m[1]))); }), l.length > 0)
+                                                            if (g.select("a[href^=/the-loai/]").forEach(function (c) { var p = V(c.attr("href")), m = p.match(/^\/the-loai\/([^/?#]+)/), y = D(c.text()); !m || !y || f[m[1]] || (f[m[1]] = !0, l.push(S(y, m[1]))); }), l.length > 0)
                                                                 return [2, i.success(l)];
                                                         }
                                                         return [2, i.success(K.map(function (c) { return S(c[0], c[1]); }))];
@@ -2377,7 +2389,7 @@ var ve = { id: "truyendichai", name: "TruyenDich.AI", source: "https://truyendic
                                             }
                                             catch (s) { }
                                             K = [["Tiên Hiệp", "tien-hiep"], ["Kiếm Hiệp", "kiem-hiep"], ["Ngôn Tình", "ngon-tinh"], ["Đô Thị", "do-thi"], ["Huyền Huyễn", "huyen-huyen"], ["Võng Du", "vong-du"], ["Khoa Huyễn", "khoa-huyen"], ["Hệ Thống", "he-thong"], ["Dị Giới", "di-gioi"], ["Lịch Sử", "lich-su"], ["Quân Sự", "quan-su"], ["Trinh Thám", "trinh-tham"], ["Thám Hiểm", "tham-hiem"], ["Linh Dị", "linh-di"], ["Mạt Thế", "mat-the"], ["Xuyên Nhanh", "xuyen-nhanh"], ["Nữ Cường", "nu-cuong"], ["Cung Đấu", "cung-dau"], ["Đam Mỹ", "dam-my"], ["Bách Hợp", "bach-hop"]];
-                                            return [2, typeof d == "function" ? d : void 0];
+                                            return [2, typeof h == "function" ? h : void 0];
                                         }); });
                                     })()];
                             case 1: return [2, _a.sent()];
@@ -2387,26 +2399,26 @@ var ve = { id: "truyendichai", name: "TruyenDich.AI", source: "https://truyendic
         }); });
     }, detail: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, n, i, a, o, h, b, v, D, A, E, q, M, J, ee, ce) {
+            return [2, (function (t, r, n, i, a, o, d, b, v, C, A, E, q, M, J, ee, ce) {
                     return __awaiter(this, void 0, void 0, function () { var F; return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0:
                                 F = u("DOMAIN");
                                 return [4, (function () {
-                                        return __awaiter(this, void 0, void 0, function () { function L(c) { return c == null ? "" : String(c).trim(); } function C(c) { return L(c).replace(/\s+/g, " "); } function I(c) { return L(c).replace(/^\/+|\/+$/g, ""); } function V(c) { return c = L(c), !c || (c = c.replace(/^[a-z]+:\/\/[^/]+/i, ""), c = c.replace(/[?#].*$/, ""), !c) ? "" : (c.charAt(0) !== "/" && (c = "/" + c), c.length > 1 && (c = c.replace(/\/+$/, "")), c); } function G(c) { return c = C(c).toLowerCase(), c === "ai" ? "ai" : c === "convert" || c === "cv" ? "convert" : "base"; } function ue(c) { return c = G(c), c === "ai" ? "Dịch AI" : c === "convert" ? "Convert" : "Bản Dịch"; } function z(c) { var p = V(c); if (!p || p.indexOf("/doc-truyen/") !== 0)
+                                        return __awaiter(this, void 0, void 0, function () { function L(c) { return c == null ? "" : String(c).trim(); } function D(c) { return L(c).replace(/\s+/g, " "); } function I(c) { return L(c).replace(/^\/+|\/+$/g, ""); } function V(c) { return c = L(c), !c || (c = c.replace(/^[a-z]+:\/\/[^/]+/i, ""), c = c.replace(/[?#].*$/, ""), !c) ? "" : (c.charAt(0) !== "/" && (c = "/" + c), c.length > 1 && (c = c.replace(/\/+$/, "")), c); } function G(c) { return c = D(c).toLowerCase(), c === "ai" ? "ai" : c === "convert" || c === "cv" ? "convert" : "base"; } function ue(c) { return c = G(c), c === "ai" ? "Dịch AI" : c === "convert" ? "Convert" : "Bản Dịch"; } function z(c) { var p = V(c); if (!p || p.indexOf("/doc-truyen/") !== 0)
                                             return null; var m = p.substring(12).split("/").filter(Boolean), y = "base"; m[0] === "ai" ? (y = "ai", m.shift()) : m[0] === "cv" && (y = "convert", m.shift()); var w = I(m.shift()); if (!w)
                                             return null; var k = { edition: y, slug: w, kind: "detail", pageNo: 1, chapterSegment: "" }; return m.length === 0 ? k : /^trang-\d+$/.test(m[0]) ? (k.kind = "page", k.pageNo = parseInt(m[0].replace("trang-", ""), 10) || 1, k) : (k.kind = "chapter", k.chapterSegment = I(m.join("/")), k); } function W(c) { if (!c || !c.slug)
                                             return ""; var p = "/doc-truyen", m = G(c.edition); if (m === "ai" && (p += "/ai"), m === "convert" && (p += "/cv"), p += "/" + I(c.slug), c.kind === "page") {
                                             var y = parseInt(c.pageNo, 10) || 1;
                                             return y > 1 && (p += "/trang-" + y), p;
                                         } return c.kind === "chapter" && c.chapterSegment && (p += "/" + I(c.chapterSegment)), p; } function P(c) { return c ? W({ edition: c.edition, slug: c.slug, kind: "detail" }) : ""; } function Y(c) { return c = L(c), c ? /^https?:\/\//i.test(c) ? c : U + V(c) : ""; } function re(c, p) { var m = [], y = {}, w = p && p.slug ? I(p.slug) : ""; return c.select("div:has(> div > span:contains(Phiên bản)) a[href^=/doc-truyen/]").forEach(function (k) { var B = z(k.attr("href")); if (!(!B || B.kind !== "detail") && !(w && B.slug !== w)) {
-                                            var Q = P(B), ne = C(k.text()) || ue(B.edition), Ue = y[Q];
+                                            var Q = P(B), ne = D(k.text()) || ue(B.edition), Ue = y[Q];
                                             if (Ue != null) {
                                                 ne.length > m[Ue].title.length && (m[Ue].title = ne);
                                                 return;
                                             }
                                             y[Q] = m.length, m.push({ title: ne, route: B, key: Q });
-                                        } }), m; } function ge(c, p) { var m = [], y = P(p); return re(c, p).forEach(function (w) { !w || w.key === y || m.push(w); }), m; } function K(c) { return c ? C(c.text()) : ""; } function S(c) { return c ? c.html() : ""; } function d(c, p) { var m = c.select("div:has(> div > span:contains(" + p + ")) > p").first(); return m ? C(m.text()) : ""; } function s(c) { var p = [], m = {}; return c.select("a[href^=/the-loai/]").forEach(function (y) { var w = V(y.attr("href")), k = w.match(/^\/the-loai\/([^/?#]+)/), B = C(y.text()); !k || !B || m[k[1]] || (m[k[1]] = !0, p.push({ title: B, input: "category:" + k[1], script: "gen.js" })); }), p; } function g(c, p) { return ge(c, p).length === 0 ? [] : [{ title: "Các bản dịch khác", input: P(p), script: "edition.js" }]; } function l(c, p, m, y, w, k) { var B = ["Tên truyện: " + p, "Tác giả: " + (m || "Không rõ")]; return y && B.push("Số chương: " + y), w && B.push("Cập nhật: " + w), k && B.push("Trạng thái: " + k), B.push("Phiên bản: " + ue(c.edition)), B.join("<br>"); } function f(c) {
+                                        } }), m; } function ge(c, p) { var m = [], y = P(p); return re(c, p).forEach(function (w) { !w || w.key === y || m.push(w); }), m; } function K(c) { return c ? D(c.text()) : ""; } function S(c) { return c ? c.html() : ""; } function h(c, p) { var m = c.select("div:has(> div > span:contains(" + p + ")) > p").first(); return m ? D(m.text()) : ""; } function s(c) { var p = [], m = {}; return c.select("a[href^=/the-loai/]").forEach(function (y) { var w = V(y.attr("href")), k = w.match(/^\/the-loai\/([^/?#]+)/), B = D(y.text()); !k || !B || m[k[1]] || (m[k[1]] = !0, p.push({ title: B, input: "category:" + k[1], script: "gen.js" })); }), p; } function g(c, p) { return ge(c, p).length === 0 ? [] : [{ title: "Các bản dịch khác", input: P(p), script: "edition.js" }]; } function l(c, p, m, y, w, k) { var B = ["Tên truyện: " + p, "Tác giả: " + (m || "Không rõ")]; return y && B.push("Số chương: " + y), w && B.push("Cập nhật: " + w), k && B.push("Trạng thái: " + k), B.push("Phiên bản: " + ue(c.edition)), B.join("<br>"); } function f(c) {
                                             return __awaiter(this, void 0, void 0, function () { var p, m, y, w, k, B, Q, ne, Ue; return __generator(this, function (_a) {
                                                 switch (_a.label) {
                                                     case 0:
@@ -2419,7 +2431,7 @@ var ve = { id: "truyendichai", name: "TruyenDich.AI", source: "https://truyendic
                                                         y = _a.sent();
                                                         if (!y.ok)
                                                             return [2, i.error("HTTP " + y.status)];
-                                                        w = y.html(), k = d(w, "Số chương"), B = d(w, "Cập nhật"), Q = d(w, "Trạng thái"), ne = K(w.select("main header h1").first()), Ue = d(w, "Tác giả");
+                                                        w = y.html(), k = h(w, "Số chương"), B = h(w, "Cập nhật"), Q = h(w, "Trạng thái"), ne = K(w.select("main header h1").first()), Ue = h(w, "Tác giả");
                                                         return [2, i.success({ name: ne, cover: Y(w.select("main header img").attr("src")), host: U, author: Ue, description: S(w.select("section .prose").first()), detail: l(p, ne, Ue, k, B, Q), url: Y(m), type: "novel", format: "novel", ongoing: Q.indexOf("Đang ra") >= 0, nsfw: !1, locale: "vi_VN", tags: s(w), genres: [], suggests: g(w, p), reviews: [], comments: [] })];
                                                 }
                                             }); });
@@ -2439,40 +2451,40 @@ var ve = { id: "truyendichai", name: "TruyenDich.AI", source: "https://truyendic
         }); });
     }, search: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, n, i, a, o, h, b, v, D, A, E, q, M, J, ee, ce) {
+            return [2, (function (t, r, n, i, a, o, d, b, v, C, A, E, q, M, J, ee, ce) {
                     return __awaiter(this, void 0, void 0, function () { var F; return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0:
                                 F = u("DOMAIN");
                                 return [4, (function () {
-                                        return __awaiter(this, void 0, void 0, function () { function L(d) { return d == null ? "" : String(d).trim(); } function C(d) { return L(d).replace(/\s+/g, " "); } function I(d) { return L(d).replace(/^\/+|\/+$/g, ""); } function V(d) { return d = L(d), !d || (d = d.replace(/^[a-z]+:\/\/[^/]+/i, ""), d = d.replace(/[?#].*$/, ""), !d) ? "" : (d.charAt(0) !== "/" && (d = "/" + d), d.length > 1 && (d = d.replace(/\/+$/, "")), d); } function G(d) { return d = C(d).toLowerCase(), d === "ai" ? "ai" : d === "convert" || d === "cv" ? "convert" : "base"; } function ue(d) { return d = G(d), d === "ai" ? "Dịch AI" : d === "convert" ? "Convert" : "Bản Dịch"; } function z(d) { var s = V(d); if (!s || s.indexOf("/doc-truyen/") !== 0)
+                                        return __awaiter(this, void 0, void 0, function () { function L(h) { return h == null ? "" : String(h).trim(); } function D(h) { return L(h).replace(/\s+/g, " "); } function I(h) { return L(h).replace(/^\/+|\/+$/g, ""); } function V(h) { return h = L(h), !h || (h = h.replace(/^[a-z]+:\/\/[^/]+/i, ""), h = h.replace(/[?#].*$/, ""), !h) ? "" : (h.charAt(0) !== "/" && (h = "/" + h), h.length > 1 && (h = h.replace(/\/+$/, "")), h); } function G(h) { return h = D(h).toLowerCase(), h === "ai" ? "ai" : h === "convert" || h === "cv" ? "convert" : "base"; } function ue(h) { return h = G(h), h === "ai" ? "Dịch AI" : h === "convert" ? "Convert" : "Bản Dịch"; } function z(h) { var s = V(h); if (!s || s.indexOf("/doc-truyen/") !== 0)
                                             return null; var g = s.substring(12).split("/").filter(Boolean), l = "base"; g[0] === "ai" ? (l = "ai", g.shift()) : g[0] === "cv" && (l = "convert", g.shift()); var f = I(g.shift()); if (!f)
-                                            return null; var c = { edition: l, slug: f, kind: "detail", pageNo: 1, chapterSegment: "" }; return g.length === 0 ? c : /^trang-\d+$/.test(g[0]) ? (c.kind = "page", c.pageNo = parseInt(g[0].replace("trang-", ""), 10) || 1, c) : (c.kind = "chapter", c.chapterSegment = I(g.join("/")), c); } function W(d) { if (!d || !d.slug)
-                                            return ""; var s = "/doc-truyen", g = G(d.edition); if (g === "ai" && (s += "/ai"), g === "convert" && (s += "/cv"), s += "/" + I(d.slug), d.kind === "page") {
-                                            var l = parseInt(d.pageNo, 10) || 1;
+                                            return null; var c = { edition: l, slug: f, kind: "detail", pageNo: 1, chapterSegment: "" }; return g.length === 0 ? c : /^trang-\d+$/.test(g[0]) ? (c.kind = "page", c.pageNo = parseInt(g[0].replace("trang-", ""), 10) || 1, c) : (c.kind = "chapter", c.chapterSegment = I(g.join("/")), c); } function W(h) { if (!h || !h.slug)
+                                            return ""; var s = "/doc-truyen", g = G(h.edition); if (g === "ai" && (s += "/ai"), g === "convert" && (s += "/cv"), s += "/" + I(h.slug), h.kind === "page") {
+                                            var l = parseInt(h.pageNo, 10) || 1;
                                             return l > 1 && (s += "/trang-" + l), s;
-                                        } return d.kind === "chapter" && d.chapterSegment && (s += "/" + I(d.chapterSegment)), s; } function P(d) { return d ? W({ edition: d.edition, slug: d.slug, kind: "detail" }) : ""; } function Y(d) { return d = L(d), d ? /^https?:\/\//i.test(d) ? d : U + V(d) : ""; } function re(d, s) { var g = [], l = {}, f = s && s.slug ? I(s.slug) : ""; return d.select("div:has(> div > span:contains(Phiên bản)) a[href^=/doc-truyen/]").forEach(function (c) { var p = z(c.attr("href")); if (!(!p || p.kind !== "detail") && !(f && p.slug !== f)) {
-                                            var m = P(p), y = C(c.text()) || ue(p.edition), w = l[m];
+                                        } return h.kind === "chapter" && h.chapterSegment && (s += "/" + I(h.chapterSegment)), s; } function P(h) { return h ? W({ edition: h.edition, slug: h.slug, kind: "detail" }) : ""; } function Y(h) { return h = L(h), h ? /^https?:\/\//i.test(h) ? h : U + V(h) : ""; } function re(h, s) { var g = [], l = {}, f = s && s.slug ? I(s.slug) : ""; return h.select("div:has(> div > span:contains(Phiên bản)) a[href^=/doc-truyen/]").forEach(function (c) { var p = z(c.attr("href")); if (!(!p || p.kind !== "detail") && !(f && p.slug !== f)) {
+                                            var m = P(p), y = D(c.text()) || ue(p.edition), w = l[m];
                                             if (w != null) {
                                                 y.length > g[w].title.length && (g[w].title = y);
                                                 return;
                                             }
                                             l[m] = g.length, g.push({ title: y, route: p, key: m });
-                                        } }), g; } function ge(d, s) { var g = [], l = P(s); return re(d, s).forEach(function (f) { !f || f.key === l || g.push(f); }), g; } function K(d) { var s = d.select("div:has(> span:contains(Chương))").last(); return s ? C(s.text()) : ""; } function S(d, s) {
+                                        } }), g; } function ge(h, s) { var g = [], l = P(s); return re(h, s).forEach(function (f) { !f || f.key === l || g.push(f); }), g; } function K(h) { var s = h.select("div:has(> span:contains(Chương))").last(); return s ? D(s.text()) : ""; } function S(h, s) {
                                             return __awaiter(this, void 0, void 0, function () { var g, l, f, c, p, m, y; return __generator(this, function (_a) {
                                                 switch (_a.label) {
                                                     case 0:
-                                                        if (d = L(d), !d)
+                                                        if (h = L(h), !h)
                                                             return [2, i.success([])];
                                                         g = parseInt(s || "1", 10);
                                                         (!g || g < 1) && (g = 1);
-                                                        return [4, t(U + "/tim-kiem?q=" + encodeURIComponent(d) + "&page=" + g)];
+                                                        return [4, t(U + "/tim-kiem?q=" + encodeURIComponent(h) + "&page=" + g)];
                                                     case 1:
                                                         l = _a.sent();
                                                         if (!l.ok)
                                                             return [2, i.error("HTTP " + l.status)];
                                                         f = l.html(), c = f.select("main a:contains(Trang sau)").attr("href"), p = c.match(/[?&]page=(\d+)/), m = p ? p[1] : "", y = [];
-                                                        return [2, (f.select("main a.group[href^=/doc-truyen/]").forEach(function (w) { var k = C(w.select("h3").text()), B = V(w.attr("href")); !k || !B || y.push({ name: k, link: B, host: U, cover: Y(w.select("img").attr("src")), description: K(w) }); }), i.success(y, m))];
+                                                        return [2, (f.select("main a.group[href^=/doc-truyen/]").forEach(function (w) { var k = D(w.select("h3").text()), B = V(w.attr("href")); !k || !B || y.push({ name: k, link: B, host: U, cover: Y(w.select("img").attr("src")), description: K(w) }); }), i.success(y, m))];
                                                 }
                                             }); });
                                         } var U; return __generator(this, function (_a) {
@@ -2480,7 +2492,7 @@ var ve = { id: "truyendichai", name: "TruyenDich.AI", source: "https://truyendic
                                             try {
                                                 F && (U = F);
                                             }
-                                            catch (d) { }
+                                            catch (h) { }
                                             return [2, typeof S == "function" ? S : void 0];
                                         }); });
                                     })()];
@@ -2491,31 +2503,31 @@ var ve = { id: "truyendichai", name: "TruyenDich.AI", source: "https://truyendic
         }); });
     }, page: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, n, i, a, o, h, b, v, D, A, E, q, M, J, ee, ce) {
+            return [2, (function (t, r, n, i, a, o, d, b, v, C, A, E, q, M, J, ee, ce) {
                     return __awaiter(this, void 0, void 0, function () { var F; return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0:
                                 F = u("DOMAIN");
                                 return [4, (function () {
-                                        return __awaiter(this, void 0, void 0, function () { function L(f) { return f == null ? "" : String(f).trim(); } function C(f) { return L(f).replace(/\s+/g, " "); } function I(f) { return L(f).replace(/^\/+|\/+$/g, ""); } function V(f) { return f = L(f), !f || (f = f.replace(/^[a-z]+:\/\/[^/]+/i, ""), f = f.replace(/[?#].*$/, ""), !f) ? "" : (f.charAt(0) !== "/" && (f = "/" + f), f.length > 1 && (f = f.replace(/\/+$/, "")), f); } function G(f) { return f = C(f).toLowerCase(), f === "ai" ? "ai" : f === "convert" || f === "cv" ? "convert" : "base"; } function ue(f) { return f = G(f), f === "ai" ? "Dịch AI" : f === "convert" ? "Convert" : "Bản Dịch"; } function z(f) { var c = V(f); if (!c || c.indexOf("/doc-truyen/") !== 0)
+                                        return __awaiter(this, void 0, void 0, function () { function L(f) { return f == null ? "" : String(f).trim(); } function D(f) { return L(f).replace(/\s+/g, " "); } function I(f) { return L(f).replace(/^\/+|\/+$/g, ""); } function V(f) { return f = L(f), !f || (f = f.replace(/^[a-z]+:\/\/[^/]+/i, ""), f = f.replace(/[?#].*$/, ""), !f) ? "" : (f.charAt(0) !== "/" && (f = "/" + f), f.length > 1 && (f = f.replace(/\/+$/, "")), f); } function G(f) { return f = D(f).toLowerCase(), f === "ai" ? "ai" : f === "convert" || f === "cv" ? "convert" : "base"; } function ue(f) { return f = G(f), f === "ai" ? "Dịch AI" : f === "convert" ? "Convert" : "Bản Dịch"; } function z(f) { var c = V(f); if (!c || c.indexOf("/doc-truyen/") !== 0)
                                             return null; var p = c.substring(12).split("/").filter(Boolean), m = "base"; p[0] === "ai" ? (m = "ai", p.shift()) : p[0] === "cv" && (m = "convert", p.shift()); var y = I(p.shift()); if (!y)
                                             return null; var w = { edition: m, slug: y, kind: "detail", pageNo: 1, chapterSegment: "" }; return p.length === 0 ? w : /^trang-\d+$/.test(p[0]) ? (w.kind = "page", w.pageNo = parseInt(p[0].replace("trang-", ""), 10) || 1, w) : (w.kind = "chapter", w.chapterSegment = I(p.join("/")), w); } function W(f) { if (!f || !f.slug)
                                             return ""; var c = "/doc-truyen", p = G(f.edition); if (p === "ai" && (c += "/ai"), p === "convert" && (c += "/cv"), c += "/" + I(f.slug), f.kind === "page") {
                                             var m = parseInt(f.pageNo, 10) || 1;
                                             return m > 1 && (c += "/trang-" + m), c;
                                         } return f.kind === "chapter" && f.chapterSegment && (c += "/" + I(f.chapterSegment)), c; } function P(f) { return f ? W({ edition: f.edition, slug: f.slug, kind: "detail" }) : ""; } function Y(f) { return f = L(f), f ? /^https?:\/\//i.test(f) ? f : U + V(f) : ""; } function re(f, c) { var p = [], m = {}, y = c && c.slug ? I(c.slug) : ""; return f.select("div:has(> div > span:contains(Phiên bản)) a[href^=/doc-truyen/]").forEach(function (w) { var k = z(w.attr("href")); if (!(!k || k.kind !== "detail") && !(y && k.slug !== y)) {
-                                            var B = P(k), Q = C(w.text()) || ue(k.edition), ne = m[B];
+                                            var B = P(k), Q = D(w.text()) || ue(k.edition), ne = m[B];
                                             if (ne != null) {
                                                 Q.length > p[ne].title.length && (p[ne].title = Q);
                                                 return;
                                             }
                                             m[B] = p.length, p.push({ title: Q, route: k, key: B });
-                                        } }), p; } function ge(f, c) { var p = [], m = P(c); return re(f, c).forEach(function (y) { !y || y.key === m || p.push(y); }), p; } function K(f) { var c = C(f).replace(/[^0-9]/g, ""); return c ? parseInt(c, 10) : 0; } function S(f) { return f.select("section:has(h2:contains(Danh sách chương))").first(); } function d(f) { if (!f)
-                                            return 0; var c = 0, p = C(f.text()).match(/(\d[\d\.,]*)\s*Chương/i); p && (c = K(p[1])); var m = 0; return f.select("button").forEach(function (y) { var w = C(y.text()).match(/(\d[\d\.,]*)\s*-\s*(\d[\d\.,]*)/); if (w) {
+                                        } }), p; } function ge(f, c) { var p = [], m = P(c); return re(f, c).forEach(function (y) { !y || y.key === m || p.push(y); }), p; } function K(f) { var c = D(f).replace(/[^0-9]/g, ""); return c ? parseInt(c, 10) : 0; } function S(f) { return f.select("section:has(h2:contains(Danh sách chương))").first(); } function h(f) { if (!f)
+                                            return 0; var c = 0, p = D(f.text()).match(/(\d[\d\.,]*)\s*Chương/i); p && (c = K(p[1])); var m = 0; return f.select("button").forEach(function (y) { var w = D(y.text()).match(/(\d[\d\.,]*)\s*-\s*(\d[\d\.,]*)/); if (w) {
                                             var k = K(w[2]);
                                             k > m && (m = k);
                                         } }), Math.max(c, m); } function s(f) { if (!f)
-                                            return 50; var c = f.select("a[href*=/chuong-]").size(); return c > 0 ? c : 50; } function g(f) { var c = S(f), p = d(c); if (!p)
+                                            return 50; var c = f.select("a[href*=/chuong-]").size(); return c > 0 ? c : 50; } function g(f) { var c = S(f), p = h(c); if (!p)
                                             return 1; var m = s(c), y = Math.ceil(p / m); return y > 0 ? y : 1; } function l(f) {
                                             return __awaiter(this, void 0, void 0, function () { var c, p, m, y, w, k; return __generator(this, function (_a) {
                                                 switch (_a.label) {
@@ -2550,32 +2562,32 @@ var ve = { id: "truyendichai", name: "TruyenDich.AI", source: "https://truyendic
         }); });
     }, toc: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, n, i, a, o, h, b, v, D, A, E, q, M, J, ee, ce) {
+            return [2, (function (t, r, n, i, a, o, d, b, v, C, A, E, q, M, J, ee, ce) {
                     return __awaiter(this, void 0, void 0, function () { var F; return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0:
                                 F = u("DOMAIN");
                                 return [4, (function () {
-                                        return __awaiter(this, void 0, void 0, function () { function L(d) { return d == null ? "" : String(d).trim(); } function C(d) { return L(d).replace(/\s+/g, " "); } function I(d) { return L(d).replace(/^\/+|\/+$/g, ""); } function V(d) { return d = L(d), !d || (d = d.replace(/^[a-z]+:\/\/[^/]+/i, ""), d = d.replace(/[?#].*$/, ""), !d) ? "" : (d.charAt(0) !== "/" && (d = "/" + d), d.length > 1 && (d = d.replace(/\/+$/, "")), d); } function G(d) { return d = C(d).toLowerCase(), d === "ai" ? "ai" : d === "convert" || d === "cv" ? "convert" : "base"; } function ue(d) { return d = G(d), d === "ai" ? "Dịch AI" : d === "convert" ? "Convert" : "Bản Dịch"; } function z(d) { var s = V(d); if (!s || s.indexOf("/doc-truyen/") !== 0)
+                                        return __awaiter(this, void 0, void 0, function () { function L(h) { return h == null ? "" : String(h).trim(); } function D(h) { return L(h).replace(/\s+/g, " "); } function I(h) { return L(h).replace(/^\/+|\/+$/g, ""); } function V(h) { return h = L(h), !h || (h = h.replace(/^[a-z]+:\/\/[^/]+/i, ""), h = h.replace(/[?#].*$/, ""), !h) ? "" : (h.charAt(0) !== "/" && (h = "/" + h), h.length > 1 && (h = h.replace(/\/+$/, "")), h); } function G(h) { return h = D(h).toLowerCase(), h === "ai" ? "ai" : h === "convert" || h === "cv" ? "convert" : "base"; } function ue(h) { return h = G(h), h === "ai" ? "Dịch AI" : h === "convert" ? "Convert" : "Bản Dịch"; } function z(h) { var s = V(h); if (!s || s.indexOf("/doc-truyen/") !== 0)
                                             return null; var g = s.substring(12).split("/").filter(Boolean), l = "base"; g[0] === "ai" ? (l = "ai", g.shift()) : g[0] === "cv" && (l = "convert", g.shift()); var f = I(g.shift()); if (!f)
-                                            return null; var c = { edition: l, slug: f, kind: "detail", pageNo: 1, chapterSegment: "" }; return g.length === 0 ? c : /^trang-\d+$/.test(g[0]) ? (c.kind = "page", c.pageNo = parseInt(g[0].replace("trang-", ""), 10) || 1, c) : (c.kind = "chapter", c.chapterSegment = I(g.join("/")), c); } function W(d) { if (!d || !d.slug)
-                                            return ""; var s = "/doc-truyen", g = G(d.edition); if (g === "ai" && (s += "/ai"), g === "convert" && (s += "/cv"), s += "/" + I(d.slug), d.kind === "page") {
-                                            var l = parseInt(d.pageNo, 10) || 1;
+                                            return null; var c = { edition: l, slug: f, kind: "detail", pageNo: 1, chapterSegment: "" }; return g.length === 0 ? c : /^trang-\d+$/.test(g[0]) ? (c.kind = "page", c.pageNo = parseInt(g[0].replace("trang-", ""), 10) || 1, c) : (c.kind = "chapter", c.chapterSegment = I(g.join("/")), c); } function W(h) { if (!h || !h.slug)
+                                            return ""; var s = "/doc-truyen", g = G(h.edition); if (g === "ai" && (s += "/ai"), g === "convert" && (s += "/cv"), s += "/" + I(h.slug), h.kind === "page") {
+                                            var l = parseInt(h.pageNo, 10) || 1;
                                             return l > 1 && (s += "/trang-" + l), s;
-                                        } return d.kind === "chapter" && d.chapterSegment && (s += "/" + I(d.chapterSegment)), s; } function P(d) { return d ? W({ edition: d.edition, slug: d.slug, kind: "detail" }) : ""; } function Y(d) { return d = L(d), d ? /^https?:\/\//i.test(d) ? d : U + V(d) : ""; } function re(d, s) { var g = [], l = {}, f = s && s.slug ? I(s.slug) : ""; return d.select("div:has(> div > span:contains(Phiên bản)) a[href^=/doc-truyen/]").forEach(function (c) { var p = z(c.attr("href")); if (!(!p || p.kind !== "detail") && !(f && p.slug !== f)) {
-                                            var m = P(p), y = C(c.text()) || ue(p.edition), w = l[m];
+                                        } return h.kind === "chapter" && h.chapterSegment && (s += "/" + I(h.chapterSegment)), s; } function P(h) { return h ? W({ edition: h.edition, slug: h.slug, kind: "detail" }) : ""; } function Y(h) { return h = L(h), h ? /^https?:\/\//i.test(h) ? h : U + V(h) : ""; } function re(h, s) { var g = [], l = {}, f = s && s.slug ? I(s.slug) : ""; return h.select("div:has(> div > span:contains(Phiên bản)) a[href^=/doc-truyen/]").forEach(function (c) { var p = z(c.attr("href")); if (!(!p || p.kind !== "detail") && !(f && p.slug !== f)) {
+                                            var m = P(p), y = D(c.text()) || ue(p.edition), w = l[m];
                                             if (w != null) {
                                                 y.length > g[w].title.length && (g[w].title = y);
                                                 return;
                                             }
                                             l[m] = g.length, g.push({ title: y, route: p, key: m });
-                                        } }), g; } function ge(d, s) { var g = [], l = P(s); return re(d, s).forEach(function (f) { !f || f.key === l || g.push(f); }), g; } function K(d) { var s = d.select("span"); if (!s || s.size() === 0)
-                                            return C(d.text()); var g = C(s.first().text()); if (!g)
-                                            return C(d.text()); var l = C(s.last().text()); return !l || l === g ? g : l.indexOf(g) === 0 ? l : g + " " + l; } function S(d) {
+                                        } }), g; } function ge(h, s) { var g = [], l = P(s); return re(h, s).forEach(function (f) { !f || f.key === l || g.push(f); }), g; } function K(h) { var s = h.select("span"); if (!s || s.size() === 0)
+                                            return D(h.text()); var g = D(s.first().text()); if (!g)
+                                            return D(h.text()); var l = D(s.last().text()); return !l || l === g ? g : l.indexOf(g) === 0 ? l : g + " " + l; } function S(h) {
                                             return __awaiter(this, void 0, void 0, function () { var s, g, l, f, c, p, m; return __generator(this, function (_a) {
                                                 switch (_a.label) {
                                                     case 0:
-                                                        s = z(d);
+                                                        s = z(h);
                                                         if (!s)
                                                             return [2, i.error("URL truyện không hợp lệ.")];
                                                         g = W({ edition: s.edition, slug: s.slug, kind: s.kind === "page" ? "page" : "detail", pageNo: s.pageNo || 1 });
@@ -2593,7 +2605,7 @@ var ve = { id: "truyendichai", name: "TruyenDich.AI", source: "https://truyendic
                                             try {
                                                 F && (U = F);
                                             }
-                                            catch (d) { }
+                                            catch (h) { }
                                             return [2, typeof S == "function" ? S : void 0];
                                         }); });
                                     })()];
@@ -2604,33 +2616,33 @@ var ve = { id: "truyendichai", name: "TruyenDich.AI", source: "https://truyendic
         }); });
     }, chap: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, n, i, a, o, h, b, v, D, A, E, q, M, J, ee, ce) {
+            return [2, (function (t, r, n, i, a, o, d, b, v, C, A, E, q, M, J, ee, ce) {
                     return __awaiter(this, void 0, void 0, function () { var F; return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0:
                                 F = u("DOMAIN");
                                 return [4, (function () {
-                                        return __awaiter(this, void 0, void 0, function () { function L(S) { return S == null ? "" : String(S).trim(); } function C(S) { return L(S).replace(/\s+/g, " "); } function I(S) { return L(S).replace(/^\/+|\/+$/g, ""); } function V(S) { return S = L(S), !S || (S = S.replace(/^[a-z]+:\/\/[^/]+/i, ""), S = S.replace(/[?#].*$/, ""), !S) ? "" : (S.charAt(0) !== "/" && (S = "/" + S), S.length > 1 && (S = S.replace(/\/+$/, "")), S); } function G(S) { return S = C(S).toLowerCase(), S === "ai" ? "ai" : S === "convert" || S === "cv" ? "convert" : "base"; } function ue(S) { return S = G(S), S === "ai" ? "Dịch AI" : S === "convert" ? "Convert" : "Bản Dịch"; } function z(S) { var d = V(S); if (!d || d.indexOf("/doc-truyen/") !== 0)
-                                            return null; var s = d.substring(12).split("/").filter(Boolean), g = "base"; s[0] === "ai" ? (g = "ai", s.shift()) : s[0] === "cv" && (g = "convert", s.shift()); var l = I(s.shift()); if (!l)
+                                        return __awaiter(this, void 0, void 0, function () { function L(S) { return S == null ? "" : String(S).trim(); } function D(S) { return L(S).replace(/\s+/g, " "); } function I(S) { return L(S).replace(/^\/+|\/+$/g, ""); } function V(S) { return S = L(S), !S || (S = S.replace(/^[a-z]+:\/\/[^/]+/i, ""), S = S.replace(/[?#].*$/, ""), !S) ? "" : (S.charAt(0) !== "/" && (S = "/" + S), S.length > 1 && (S = S.replace(/\/+$/, "")), S); } function G(S) { return S = D(S).toLowerCase(), S === "ai" ? "ai" : S === "convert" || S === "cv" ? "convert" : "base"; } function ue(S) { return S = G(S), S === "ai" ? "Dịch AI" : S === "convert" ? "Convert" : "Bản Dịch"; } function z(S) { var h = V(S); if (!h || h.indexOf("/doc-truyen/") !== 0)
+                                            return null; var s = h.substring(12).split("/").filter(Boolean), g = "base"; s[0] === "ai" ? (g = "ai", s.shift()) : s[0] === "cv" && (g = "convert", s.shift()); var l = I(s.shift()); if (!l)
                                             return null; var f = { edition: g, slug: l, kind: "detail", pageNo: 1, chapterSegment: "" }; return s.length === 0 ? f : /^trang-\d+$/.test(s[0]) ? (f.kind = "page", f.pageNo = parseInt(s[0].replace("trang-", ""), 10) || 1, f) : (f.kind = "chapter", f.chapterSegment = I(s.join("/")), f); } function W(S) { if (!S || !S.slug)
-                                            return ""; var d = "/doc-truyen", s = G(S.edition); if (s === "ai" && (d += "/ai"), s === "convert" && (d += "/cv"), d += "/" + I(S.slug), S.kind === "page") {
+                                            return ""; var h = "/doc-truyen", s = G(S.edition); if (s === "ai" && (h += "/ai"), s === "convert" && (h += "/cv"), h += "/" + I(S.slug), S.kind === "page") {
                                             var g = parseInt(S.pageNo, 10) || 1;
-                                            return g > 1 && (d += "/trang-" + g), d;
-                                        } return S.kind === "chapter" && S.chapterSegment && (d += "/" + I(S.chapterSegment)), d; } function P(S) { return S ? W({ edition: S.edition, slug: S.slug, kind: "detail" }) : ""; } function Y(S) { return S = L(S), S ? /^https?:\/\//i.test(S) ? S : U + V(S) : ""; } function re(S, d) { var s = [], g = {}, l = d && d.slug ? I(d.slug) : ""; return S.select("div:has(> div > span:contains(Phiên bản)) a[href^=/doc-truyen/]").forEach(function (f) { var c = z(f.attr("href")); if (!(!c || c.kind !== "detail") && !(l && c.slug !== l)) {
-                                            var p = P(c), m = C(f.text()) || ue(c.edition), y = g[p];
+                                            return g > 1 && (h += "/trang-" + g), h;
+                                        } return S.kind === "chapter" && S.chapterSegment && (h += "/" + I(S.chapterSegment)), h; } function P(S) { return S ? W({ edition: S.edition, slug: S.slug, kind: "detail" }) : ""; } function Y(S) { return S = L(S), S ? /^https?:\/\//i.test(S) ? S : U + V(S) : ""; } function re(S, h) { var s = [], g = {}, l = h && h.slug ? I(h.slug) : ""; return S.select("div:has(> div > span:contains(Phiên bản)) a[href^=/doc-truyen/]").forEach(function (f) { var c = z(f.attr("href")); if (!(!c || c.kind !== "detail") && !(l && c.slug !== l)) {
+                                            var p = P(c), m = D(f.text()) || ue(c.edition), y = g[p];
                                             if (y != null) {
                                                 m.length > s[y].title.length && (s[y].title = m);
                                                 return;
                                             }
                                             g[p] = s.length, s.push({ title: m, route: c, key: p });
-                                        } }), s; } function ge(S, d) { var s = [], g = P(d); return re(S, d).forEach(function (l) { !l || l.key === g || s.push(l); }), s; } function K(S) {
-                                            return __awaiter(this, void 0, void 0, function () { var d, s, g, l, f; return __generator(this, function (_a) {
+                                        } }), s; } function ge(S, h) { var s = [], g = P(h); return re(S, h).forEach(function (l) { !l || l.key === g || s.push(l); }), s; } function K(S) {
+                                            return __awaiter(this, void 0, void 0, function () { var h, s, g, l, f; return __generator(this, function (_a) {
                                                 switch (_a.label) {
                                                     case 0:
-                                                        d = z(S);
-                                                        if (!d)
+                                                        h = z(S);
+                                                        if (!h)
                                                             return [2, i.error("URL chương không hợp lệ.")];
-                                                        return [4, t(Y(W(d)))];
+                                                        return [4, t(Y(W(h)))];
                                                     case 1:
                                                         s = _a.sent();
                                                         if (!s.ok)
@@ -2640,7 +2652,7 @@ var ve = { id: "truyendichai", name: "TruyenDich.AI", source: "https://truyendic
                                                             return [2, i.error("Không tìm thấy nội dung chương.")];
                                                         l.select("script,style,button,nav").remove();
                                                         f = l.select("div").first();
-                                                        return [2, i.success(f ? f.html() : l.html(), C(g.select("main h1").first().text()))];
+                                                        return [2, i.success(f ? f.html() : l.html(), D(g.select("main h1").first().text()))];
                                                 }
                                             }); });
                                         } var U; return __generator(this, function (_a) {
@@ -2659,26 +2671,26 @@ var ve = { id: "truyendichai", name: "TruyenDich.AI", source: "https://truyendic
         }); });
     }, edition: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, n, i, a, o, h, b, v, D, A, E, q, M, J, ee, ce) {
+            return [2, (function (t, r, n, i, a, o, d, b, v, C, A, E, q, M, J, ee, ce) {
                     return __awaiter(this, void 0, void 0, function () { var F; return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0:
                                 F = u("DOMAIN");
                                 return [4, (function () {
-                                        return __awaiter(this, void 0, void 0, function () { function L(s) { return s == null ? "" : String(s).trim(); } function C(s) { return L(s).replace(/\s+/g, " "); } function I(s) { return L(s).replace(/^\/+|\/+$/g, ""); } function V(s) { return s = L(s), !s || (s = s.replace(/^[a-z]+:\/\/[^/]+/i, ""), s = s.replace(/[?#].*$/, ""), !s) ? "" : (s.charAt(0) !== "/" && (s = "/" + s), s.length > 1 && (s = s.replace(/\/+$/, "")), s); } function G(s) { return s = C(s).toLowerCase(), s === "ai" ? "ai" : s === "convert" || s === "cv" ? "convert" : "base"; } function ue(s) { return s = G(s), s === "ai" ? "Dịch AI" : s === "convert" ? "Convert" : "Bản Dịch"; } function z(s) { var g = V(s); if (!g || g.indexOf("/doc-truyen/") !== 0)
+                                        return __awaiter(this, void 0, void 0, function () { function L(s) { return s == null ? "" : String(s).trim(); } function D(s) { return L(s).replace(/\s+/g, " "); } function I(s) { return L(s).replace(/^\/+|\/+$/g, ""); } function V(s) { return s = L(s), !s || (s = s.replace(/^[a-z]+:\/\/[^/]+/i, ""), s = s.replace(/[?#].*$/, ""), !s) ? "" : (s.charAt(0) !== "/" && (s = "/" + s), s.length > 1 && (s = s.replace(/\/+$/, "")), s); } function G(s) { return s = D(s).toLowerCase(), s === "ai" ? "ai" : s === "convert" || s === "cv" ? "convert" : "base"; } function ue(s) { return s = G(s), s === "ai" ? "Dịch AI" : s === "convert" ? "Convert" : "Bản Dịch"; } function z(s) { var g = V(s); if (!g || g.indexOf("/doc-truyen/") !== 0)
                                             return null; var l = g.substring(12).split("/").filter(Boolean), f = "base"; l[0] === "ai" ? (f = "ai", l.shift()) : l[0] === "cv" && (f = "convert", l.shift()); var c = I(l.shift()); if (!c)
                                             return null; var p = { edition: f, slug: c, kind: "detail", pageNo: 1, chapterSegment: "" }; return l.length === 0 ? p : /^trang-\d+$/.test(l[0]) ? (p.kind = "page", p.pageNo = parseInt(l[0].replace("trang-", ""), 10) || 1, p) : (p.kind = "chapter", p.chapterSegment = I(l.join("/")), p); } function W(s) { if (!s || !s.slug)
                                             return ""; var g = "/doc-truyen", l = G(s.edition); if (l === "ai" && (g += "/ai"), l === "convert" && (g += "/cv"), g += "/" + I(s.slug), s.kind === "page") {
                                             var f = parseInt(s.pageNo, 10) || 1;
                                             return f > 1 && (g += "/trang-" + f), g;
                                         } return s.kind === "chapter" && s.chapterSegment && (g += "/" + I(s.chapterSegment)), g; } function P(s) { return s ? W({ edition: s.edition, slug: s.slug, kind: "detail" }) : ""; } function Y(s) { return s = L(s), s ? /^https?:\/\//i.test(s) ? s : U + V(s) : ""; } function re(s, g) { var l = [], f = {}, c = g && g.slug ? I(g.slug) : ""; return s.select("div:has(> div > span:contains(Phiên bản)) a[href^=/doc-truyen/]").forEach(function (p) { var m = z(p.attr("href")); if (!(!m || m.kind !== "detail") && !(c && m.slug !== c)) {
-                                            var y = P(m), w = C(p.text()) || ue(m.edition), k = f[y];
+                                            var y = P(m), w = D(p.text()) || ue(m.edition), k = f[y];
                                             if (k != null) {
                                                 w.length > l[k].title.length && (l[k].title = w);
                                                 return;
                                             }
                                             f[y] = l.length, l.push({ title: w, route: m, key: y });
-                                        } }), l; } function ge(s, g) { var l = [], f = P(g); return re(s, g).forEach(function (c) { !c || c.key === f || l.push(c); }), l; } function K(s) { return s ? C(s.text()) : ""; } function S(s, g) { var l = K(s.select("main header h1").first()), f = Y(s.select("main header img").attr("src")), c = []; return ge(s, g).forEach(function (p) { c.push({ name: l ? l + " - " + p.title : p.title, link: p.key, host: U, cover: f, description: "Phiên bản: " + p.title }); }), c; } function d(s) {
+                                        } }), l; } function ge(s, g) { var l = [], f = P(g); return re(s, g).forEach(function (c) { !c || c.key === f || l.push(c); }), l; } function K(s) { return s ? D(s.text()) : ""; } function S(s, g) { var l = K(s.select("main header h1").first()), f = Y(s.select("main header img").attr("src")), c = []; return ge(s, g).forEach(function (p) { c.push({ name: l ? l + " - " + p.title : p.title, link: p.key, host: U, cover: f, description: "Phiên bản: " + p.title }); }), c; } function h(s) {
                                             return __awaiter(this, void 0, void 0, function () { var g, l; return __generator(this, function (_a) {
                                                 switch (_a.label) {
                                                     case 0:
@@ -2697,7 +2709,7 @@ var ve = { id: "truyendichai", name: "TruyenDich.AI", source: "https://truyendic
                                                 F && (U = F);
                                             }
                                             catch (s) { }
-                                            return [2, typeof d == "function" ? d : void 0];
+                                            return [2, typeof h == "function" ? h : void 0];
                                         }); });
                                     })()];
                             case 1: return [2, _a.sent()];
@@ -2707,30 +2719,30 @@ var ve = { id: "truyendichai", name: "TruyenDich.AI", source: "https://truyendic
         }); });
     }, gen: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, n, i, a, o, h, b, v, D, A, E, q, M, J, ee, ce) {
+            return [2, (function (t, r, n, i, a, o, d, b, v, C, A, E, q, M, J, ee, ce) {
                     return __awaiter(this, void 0, void 0, function () { var F; return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0:
                                 F = u("DOMAIN");
                                 return [4, (function () {
-                                        return __awaiter(this, void 0, void 0, function () { function L(l) { return l == null ? "" : String(l).trim(); } function C(l) { return L(l).replace(/\s+/g, " "); } function I(l) { return L(l).replace(/^\/+|\/+$/g, ""); } function V(l) { return l = L(l), !l || (l = l.replace(/^[a-z]+:\/\/[^/]+/i, ""), l = l.replace(/[?#].*$/, ""), !l) ? "" : (l.charAt(0) !== "/" && (l = "/" + l), l.length > 1 && (l = l.replace(/\/+$/, "")), l); } function G(l) { return l = C(l).toLowerCase(), l === "ai" ? "ai" : l === "convert" || l === "cv" ? "convert" : "base"; } function ue(l) { return l = G(l), l === "ai" ? "Dịch AI" : l === "convert" ? "Convert" : "Bản Dịch"; } function z(l) { var f = V(l); if (!f || f.indexOf("/doc-truyen/") !== 0)
+                                        return __awaiter(this, void 0, void 0, function () { function L(l) { return l == null ? "" : String(l).trim(); } function D(l) { return L(l).replace(/\s+/g, " "); } function I(l) { return L(l).replace(/^\/+|\/+$/g, ""); } function V(l) { return l = L(l), !l || (l = l.replace(/^[a-z]+:\/\/[^/]+/i, ""), l = l.replace(/[?#].*$/, ""), !l) ? "" : (l.charAt(0) !== "/" && (l = "/" + l), l.length > 1 && (l = l.replace(/\/+$/, "")), l); } function G(l) { return l = D(l).toLowerCase(), l === "ai" ? "ai" : l === "convert" || l === "cv" ? "convert" : "base"; } function ue(l) { return l = G(l), l === "ai" ? "Dịch AI" : l === "convert" ? "Convert" : "Bản Dịch"; } function z(l) { var f = V(l); if (!f || f.indexOf("/doc-truyen/") !== 0)
                                             return null; var c = f.substring(12).split("/").filter(Boolean), p = "base"; c[0] === "ai" ? (p = "ai", c.shift()) : c[0] === "cv" && (p = "convert", c.shift()); var m = I(c.shift()); if (!m)
                                             return null; var y = { edition: p, slug: m, kind: "detail", pageNo: 1, chapterSegment: "" }; return c.length === 0 ? y : /^trang-\d+$/.test(c[0]) ? (y.kind = "page", y.pageNo = parseInt(c[0].replace("trang-", ""), 10) || 1, y) : (y.kind = "chapter", y.chapterSegment = I(c.join("/")), y); } function W(l) { if (!l || !l.slug)
                                             return ""; var f = "/doc-truyen", c = G(l.edition); if (c === "ai" && (f += "/ai"), c === "convert" && (f += "/cv"), f += "/" + I(l.slug), l.kind === "page") {
                                             var p = parseInt(l.pageNo, 10) || 1;
                                             return p > 1 && (f += "/trang-" + p), f;
                                         } return l.kind === "chapter" && l.chapterSegment && (f += "/" + I(l.chapterSegment)), f; } function P(l) { return l ? W({ edition: l.edition, slug: l.slug, kind: "detail" }) : ""; } function Y(l) { return l = L(l), l ? /^https?:\/\//i.test(l) ? l : U + V(l) : ""; } function re(l, f) { var c = [], p = {}, m = f && f.slug ? I(f.slug) : ""; return l.select("div:has(> div > span:contains(Phiên bản)) a[href^=/doc-truyen/]").forEach(function (y) { var w = z(y.attr("href")); if (!(!w || w.kind !== "detail") && !(m && w.slug !== m)) {
-                                            var k = P(w), B = C(y.text()) || ue(w.edition), Q = p[k];
+                                            var k = P(w), B = D(y.text()) || ue(w.edition), Q = p[k];
                                             if (Q != null) {
                                                 B.length > c[Q].title.length && (c[Q].title = B);
                                                 return;
                                             }
                                             p[k] = c.length, c.push({ title: B, route: w, key: k });
-                                        } }), c; } function ge(l, f) { var c = [], p = P(f); return re(l, f).forEach(function (m) { !m || m.key === p || c.push(m); }), c; } function S(l, f) { return l.indexOf("list:") === 0 ? U + "/api/lists/" + l.replace("list:", "") + "?page=" + f + "&size=" + K : l.indexOf("category:") === 0 ? U + "/api/categories/" + l.replace("category:", "") + "?page=" + f + "&size=" + K : ""; } function d(l) { var f = []; return l.author && f.push(C(l.author)), l.latest_chapter_number && f.push("Chương " + l.latest_chapter_number), l.status === "completed" && f.push("Full"), l.status === "ongoing" && f.push("Đang ra"), f.join(" | "); } function s(l) { return { name: C(l.title), link: W({ edition: "base", slug: l.slug, kind: "detail" }), host: U, cover: Y(l.image_url), description: d(l) }; } function g(l, f) {
+                                        } }), c; } function ge(l, f) { var c = [], p = P(f); return re(l, f).forEach(function (m) { !m || m.key === p || c.push(m); }), c; } function S(l, f) { return l.indexOf("list:") === 0 ? U + "/api/lists/" + l.replace("list:", "") + "?page=" + f + "&size=" + K : l.indexOf("category:") === 0 ? U + "/api/categories/" + l.replace("category:", "") + "?page=" + f + "&size=" + K : ""; } function h(l) { var f = []; return l.author && f.push(D(l.author)), l.latest_chapter_number && f.push("Chương " + l.latest_chapter_number), l.status === "completed" && f.push("Full"), l.status === "ongoing" && f.push("Đang ra"), f.join(" | "); } function s(l) { return { name: D(l.title), link: W({ edition: "base", slug: l.slug, kind: "detail" }), host: U, cover: Y(l.image_url), description: h(l) }; } function g(l, f) {
                                             return __awaiter(this, void 0, void 0, function () { var c, p, m, y, w, k, B, Q; return __generator(this, function (_a) {
                                                 switch (_a.label) {
                                                     case 0:
-                                                        l = C(l);
+                                                        l = D(l);
                                                         c = parseInt(f || "1", 10);
                                                         (!c || c < 1) && (c = 1);
                                                         p = S(l, c);

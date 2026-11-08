@@ -6,7 +6,8 @@
   "baseUrl": "https://anime47.best",
   "type": "video",
   "nsfw": false,
-  "sourceId": 780775032
+  "sourceId": 780775032,
+  "short": false
  },
  {
   "id": "animevnnet",
@@ -15,7 +16,8 @@
   "baseUrl": "https://animevn.net",
   "type": "video",
   "nsfw": false,
-  "sourceId": 1527072694
+  "sourceId": 1527072694,
+  "short": false
  },
  {
   "id": "avsubanimevietsub",
@@ -24,7 +26,8 @@
   "baseUrl": "https://animevietsub.sale",
   "type": "video",
   "nsfw": false,
-  "sourceId": 513314104
+  "sourceId": 513314104,
+  "short": false
  },
  {
   "id": "bilibili",
@@ -33,7 +36,8 @@
   "baseUrl": "https://www.bilibili.tv",
   "type": "video",
   "nsfw": false,
-  "sourceId": 948389851
+  "sourceId": 948389851,
+  "short": false
  },
  {
   "id": "blbattu",
@@ -42,7 +46,8 @@
   "baseUrl": "https://blbattu.com",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 1487368103
+  "sourceId": 1487368103,
+  "short": false
  },
  {
   "id": "blvietsub",
@@ -51,7 +56,8 @@
   "baseUrl": "https://www.blvietsub.vip",
   "type": "video",
   "nsfw": false,
-  "sourceId": 490751682
+  "sourceId": 490751682,
+  "short": false
  },
  {
   "id": "cbhentai",
@@ -60,7 +66,8 @@
   "baseUrl": "https://hentaicube.xyz",
   "type": "comic",
   "nsfw": true,
-  "sourceId": 1580482674
+  "sourceId": 1580482674,
+  "short": false
  },
  {
   "id": "cbunucomic",
@@ -69,7 +76,8 @@
   "baseUrl": "https://cucbongunu.com",
   "type": "comic",
   "nsfw": true,
-  "sourceId": 123796528
+  "sourceId": 123796528,
+  "short": false
  },
  {
   "id": "cosplaytele",
@@ -78,7 +86,8 @@
   "baseUrl": "https://cosplaytele.com",
   "type": "comic",
   "nsfw": true,
-  "sourceId": 780546796
+  "sourceId": 780546796,
+  "short": false
  },
  {
   "id": "dailymotion",
@@ -87,7 +96,8 @@
   "baseUrl": "https://www.dailymotion.com",
   "type": "video",
   "nsfw": false,
-  "sourceId": 440543255
+  "sourceId": 440543255,
+  "short": false
  },
  {
   "id": "damconuong",
@@ -96,7 +106,8 @@
   "baseUrl": "https://damconuong.name",
   "type": "comic",
   "nsfw": true,
-  "sourceId": 178663909
+  "sourceId": 178663909,
+  "short": false
  },
  {
   "id": "destinteam",
@@ -105,7 +116,8 @@
   "baseUrl": "https://destinteam.xyz",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 764595440
+  "sourceId": 764595440,
+  "short": false
  },
  {
   "id": "doctruyentranhbl",
@@ -114,7 +126,8 @@
   "baseUrl": "https://truyentranhbl.com",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 1323373370
+  "sourceId": 1323373370,
+  "short": false
  },
  {
   "id": "douyin",
@@ -123,7 +136,8 @@
   "baseUrl": "https://www.douyin.com",
   "type": "video",
   "nsfw": false,
-  "sourceId": 200694529
+  "sourceId": 200694529,
+  "short": true
  },
  {
   "id": "dualeotruyen",
@@ -132,7 +146,8 @@
   "baseUrl": "https://dualeotruyenbet.com",
   "type": "comic",
   "nsfw": true,
-  "sourceId": 1548181525
+  "sourceId": 1548181525,
+  "short": false
  },
  {
   "id": "ehentai",
@@ -141,7 +156,8 @@
   "baseUrl": "https://e-hentai.org",
   "type": "comic",
   "nsfw": true,
-  "sourceId": 1567453988
+  "sourceId": 1567453988,
+  "short": false
  },
  {
   "id": "fapreel",
@@ -150,7 +166,8 @@
   "baseUrl": "https://fapreel.com",
   "type": "video",
   "nsfw": true,
-  "sourceId": 1629049543
+  "sourceId": 1629049543,
+  "short": true
  },
  {
   "id": "fikfap",
@@ -159,7 +176,8 @@
   "baseUrl": "https://fikfap.com",
   "type": "video",
   "nsfw": true,
-  "sourceId": 1189313281
+  "sourceId": 1189313281,
+  "short": true
  },
  {
   "id": "freereels",
@@ -168,7 +186,8 @@
   "baseUrl": "https://free-reels.com",
   "type": "video",
   "nsfw": false,
-  "sourceId": 2073926051
+  "sourceId": 2073926051,
+  "short": true
  },
  {
   "id": "goctruyentranh",
@@ -177,7 +196,8 @@
   "baseUrl": "https://goctruyentranhvui41.com",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 433674138
+  "sourceId": 433674138,
+  "short": false
  },
  {
   "id": "guphim",
@@ -186,7 +206,8 @@
   "baseUrl": "https://guphimz.com",
   "type": "video",
   "nsfw": false,
-  "sourceId": 598979130
+  "sourceId": 598979130,
+  "short": false
  },
  {
   "id": "hacamchicac",
@@ -195,7 +216,8 @@
   "baseUrl": "https://haccbl.xyz",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 144909108
+  "sourceId": 144909108,
+  "short": false
  },
  {
   "id": "haychill",
@@ -204,7 +226,8 @@
   "baseUrl": "https://phimhaychill.org",
   "type": "video",
   "nsfw": false,
-  "sourceId": 272962811
+  "sourceId": 272962811,
+  "short": false
  },
  {
   "id": "hentaivietsubcom",
@@ -213,7 +236,8 @@
   "baseUrl": "https://hentaivietsub.com",
   "type": "video",
   "nsfw": true,
-  "sourceId": 2088721693
+  "sourceId": 2088721693,
+  "short": false
  },
  {
   "id": "hentaivn",
@@ -222,7 +246,8 @@
   "baseUrl": "https://hentaihvn.tv",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 1484689734
+  "sourceId": 1484689734,
+  "short": false
  },
  {
   "id": "hhpanda",
@@ -231,7 +256,8 @@
   "baseUrl": "https://hhpanda.st",
   "type": "video",
   "nsfw": false,
-  "sourceId": 1350604402
+  "sourceId": 1350604402,
+  "short": false
  },
  {
   "id": "hhtqhayvip",
@@ -240,7 +266,8 @@
   "baseUrl": "https://hhtqhay.vip",
   "type": "video",
   "nsfw": false,
-  "sourceId": 369387596
+  "sourceId": 369387596,
+  "short": false
  },
  {
   "id": "hihiphim",
@@ -249,7 +276,8 @@
   "baseUrl": "https://hihiphim.com",
   "type": "video",
   "nsfw": false,
-  "sourceId": 1937000442
+  "sourceId": 1937000442,
+  "short": false
  },
  {
   "id": "hongqua",
@@ -258,7 +286,8 @@
   "baseUrl": "https://hongguoduanju.com",
   "type": "video",
   "nsfw": false,
-  "sourceId": 1801338919
+  "sourceId": 1801338919,
+  "short": false
  },
  {
   "id": "hotphim",
@@ -267,7 +296,8 @@
   "baseUrl": "https://hotphim.org",
   "type": "video",
   "nsfw": false,
-  "sourceId": 814750280
+  "sourceId": 814750280,
+  "short": false
  },
  {
   "id": "iqiyi",
@@ -276,7 +306,8 @@
   "baseUrl": "https://www.iq.com",
   "type": "video",
   "nsfw": false,
-  "sourceId": 151140179
+  "sourceId": 151140179,
+  "short": false
  },
  {
   "id": "jellycomics",
@@ -285,7 +316,8 @@
   "baseUrl": "https://jellycomics.online",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 694480705
+  "sourceId": 694480705,
+  "short": false
  },
  {
   "id": "julycomic",
@@ -294,7 +326,8 @@
   "baseUrl": "https://julycomics.site",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 1334296365
+  "sourceId": 1334296365,
+  "short": false
  },
  {
   "id": "kwiky",
@@ -303,7 +336,8 @@
   "baseUrl": "https://kwiky.com",
   "type": "video",
   "nsfw": true,
-  "sourceId": 957373704
+  "sourceId": 957373704,
+  "short": true
  },
  {
   "id": "luottruyen",
@@ -312,7 +346,8 @@
   "baseUrl": "https://luottruyen7.com",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 857592572
+  "sourceId": 857592572,
+  "short": false
  },
  {
   "id": "luphim",
@@ -321,7 +356,8 @@
   "baseUrl": "https://luphim.com",
   "type": "video",
   "nsfw": false,
-  "sourceId": 675400803
+  "sourceId": 675400803,
+  "short": false
  },
  {
   "id": "mangadex",
@@ -330,7 +366,8 @@
   "baseUrl": "https://mangadex.org",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 881304093
+  "sourceId": 881304093,
+  "short": false
  },
  {
   "id": "manhwabuddy",
@@ -339,7 +376,8 @@
   "baseUrl": "https://manhwabuddy.com",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 1056832606
+  "sourceId": 1056832606,
+  "short": false
  },
  {
   "id": "mgtv",
@@ -348,7 +386,8 @@
   "baseUrl": "https://glb.m.mgtv.com",
   "type": "video",
   "nsfw": false,
-  "sourceId": 1641455956
+  "sourceId": 1641455956,
+  "short": false
  },
  {
   "id": "mimimoe",
@@ -357,7 +396,8 @@
   "baseUrl": "https://mimihentai.moe",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 512017899
+  "sourceId": 512017899,
+  "short": false
  },
  {
   "id": "misskon",
@@ -366,7 +406,8 @@
   "baseUrl": "https://misskon.com",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 937496508
+  "sourceId": 937496508,
+  "short": false
  },
  {
   "id": "moetruyen",
@@ -375,7 +416,8 @@
   "baseUrl": "https://truyen.moe",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 1908677364
+  "sourceId": 1908677364,
+  "short": false
  },
  {
   "id": "motphim",
@@ -384,7 +426,8 @@
   "baseUrl": "https://motphimc.my",
   "type": "video",
   "nsfw": false,
-  "sourceId": 1123614177
+  "sourceId": 1123614177,
+  "short": false
  },
  {
   "id": "myreadingmanga",
@@ -393,7 +436,8 @@
   "baseUrl": "https://myreadingmanga.info",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 1068463358
+  "sourceId": 1068463358,
+  "short": false
  },
  {
   "id": "navyteamcomic",
@@ -402,7 +446,8 @@
   "baseUrl": "https://navyteams.com",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 167984159
+  "sourceId": 167984159,
+  "short": false
  },
  {
   "id": "nettruyen18",
@@ -411,7 +456,8 @@
   "baseUrl": "https://nettruyen18.com",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 822700156
+  "sourceId": 822700156,
+  "short": false
  },
  {
   "id": "nettruyenviet",
@@ -420,7 +466,8 @@
   "baseUrl": "https://nettruyenviet10.com",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 806710346
+  "sourceId": 806710346,
+  "short": false
  },
  {
   "id": "nettruyenz",
@@ -429,7 +476,8 @@
   "baseUrl": "https://nettruyenz.com",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 735450128
+  "sourceId": 735450128,
+  "short": false
  },
  {
   "id": "nextphim",
@@ -438,7 +486,8 @@
   "baseUrl": "https://nextphim.net",
   "type": "video",
   "nsfw": false,
-  "sourceId": 867552912
+  "sourceId": 867552912,
+  "short": false
  },
  {
   "id": "nguonc",
@@ -447,7 +496,8 @@
   "baseUrl": "https://phim.nguonc.com",
   "type": "video",
   "nsfw": false,
-  "sourceId": 1557924559
+  "sourceId": 1557924559,
+  "short": false
  },
  {
   "id": "phim4k",
@@ -456,7 +506,8 @@
   "baseUrl": "https://phim4k.xyz",
   "type": "video",
   "nsfw": false,
-  "sourceId": 1390062832
+  "sourceId": 1390062832,
+  "short": false
  },
  {
   "id": "phimmoi",
@@ -465,7 +516,8 @@
   "baseUrl": "https://messiahelartista.com",
   "type": "video",
   "nsfw": false,
-  "sourceId": 1001551078
+  "sourceId": 1001551078,
+  "short": false
  },
  {
   "id": "phimmoihd",
@@ -474,7 +526,8 @@
   "baseUrl": "https://phimmoihd.online",
   "type": "video",
   "nsfw": false,
-  "sourceId": 1348774956
+  "sourceId": 1348774956,
+  "short": false
  },
  {
   "id": "phimnhua",
@@ -483,7 +536,8 @@
   "baseUrl": "https://phimnhua.online",
   "type": "video",
   "nsfw": false,
-  "sourceId": 1938158196
+  "sourceId": 1938158196,
+  "short": false
  },
  {
   "id": "phimtv",
@@ -492,7 +546,8 @@
   "baseUrl": "https://phimtv.my",
   "type": "video",
   "nsfw": false,
-  "sourceId": 1628167011
+  "sourceId": 1628167011,
+  "short": false
  },
  {
   "id": "pornhub",
@@ -501,7 +556,8 @@
   "baseUrl": "https://www.pornhub.com",
   "type": "video",
   "nsfw": true,
-  "sourceId": 1255718966
+  "sourceId": 1255718966,
+  "short": true
  },
  {
   "id": "roadsteam",
@@ -510,7 +566,8 @@
   "baseUrl": "https://roadsteami.net",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 343353709
+  "sourceId": 343353709,
+  "short": false
  },
  {
   "id": "rophim",
@@ -519,7 +576,8 @@
   "baseUrl": "https://www.rophim.soy",
   "type": "video",
   "nsfw": false,
-  "sourceId": 583423809
+  "sourceId": 583423809,
+  "short": false
  },
  {
   "id": "sayhentai",
@@ -528,7 +586,8 @@
   "baseUrl": "https://sayhentai.cx",
   "type": "comic",
   "nsfw": true,
-  "sourceId": 492867322
+  "sourceId": 492867322,
+  "short": false
  },
  {
   "id": "sexviettop",
@@ -537,7 +596,8 @@
   "baseUrl": "https://top1sexvn.com",
   "type": "video",
   "nsfw": true,
-  "sourceId": 2025759030
+  "sourceId": 2025759030,
+  "short": true
  },
  {
   "id": "showbox",
@@ -546,7 +606,8 @@
   "baseUrl": "https://pixnet.cc",
   "type": "video",
   "nsfw": false,
-  "sourceId": 660522367
+  "sourceId": 660522367,
+  "short": false
  },
  {
   "id": "thegioitruyen",
@@ -555,7 +616,8 @@
   "baseUrl": "https://thegioitruyen.vn",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 493894600
+  "sourceId": 493894600,
+  "short": false
  },
  {
   "id": "tikporn",
@@ -564,7 +626,8 @@
   "baseUrl": "https://tik.porn",
   "type": "video",
   "nsfw": true,
-  "sourceId": 855719270
+  "sourceId": 855719270,
+  "short": true
  },
  {
   "id": "tiktok",
@@ -573,7 +636,8 @@
   "baseUrl": "https://www.tiktok.com",
   "type": "video",
   "nsfw": false,
-  "sourceId": 389058404
+  "sourceId": 389058404,
+  "short": true
  },
  {
   "id": "truyengg",
@@ -582,7 +646,8 @@
   "baseUrl": "https://truyenggvn.com",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 1324960807
+  "sourceId": 1324960807,
+  "short": false
  },
  {
   "id": "truyenqq",
@@ -591,7 +656,8 @@
   "baseUrl": "https://truyenqqko.com",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 1174800879
+  "sourceId": 1174800879,
+  "short": false
  },
  {
   "id": "truyenqqc",
@@ -600,7 +666,8 @@
   "baseUrl": "https://truyenqq.com.vn",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 1038497603
+  "sourceId": 1038497603,
+  "short": false
  },
  {
   "id": "truyentranhdammyy",
@@ -609,7 +676,8 @@
   "baseUrl": "https://truyentranhdammyy.site",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 894955118
+  "sourceId": 894955118,
+  "short": false
  },
  {
   "id": "tvkh",
@@ -618,7 +686,8 @@
   "baseUrl": "https://bananacoo.com",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 1578784027
+  "sourceId": 1578784027,
+  "short": false
  },
  {
   "id": "twitch",
@@ -627,7 +696,8 @@
   "baseUrl": "https://m.twitch.tv",
   "type": "video",
   "nsfw": false,
-  "sourceId": 860964554
+  "sourceId": 860964554,
+  "short": false
  },
  {
   "id": "ungtycomics",
@@ -636,7 +706,8 @@
   "baseUrl": "https://ungtycomicseo.com/",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 377587904
+  "sourceId": 377587904,
+  "short": false
  },
  {
   "id": "vfilm",
@@ -645,7 +716,8 @@
   "baseUrl": "http://vfilm.vn",
   "type": "video",
   "nsfw": false,
-  "sourceId": 1856540070
+  "sourceId": 1856540070,
+  "short": false
  },
  {
   "id": "vinahentai",
@@ -654,7 +726,8 @@
   "baseUrl": "https://vinahentai.bio",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 923234510
+  "sourceId": 923234510,
+  "short": false
  },
  {
   "id": "vtvgo",
@@ -663,7 +736,8 @@
   "baseUrl": "https://cache.vtvgo.vn",
   "type": "video",
   "nsfw": false,
-  "sourceId": 318684011
+  "sourceId": 318684011,
+  "short": false
  },
  {
   "id": "watchhentainet",
@@ -672,7 +746,8 @@
   "baseUrl": "https://watchhentai.net",
   "type": "video",
   "nsfw": true,
-  "sourceId": 113933994
+  "sourceId": 113933994,
+  "short": false
  },
  {
   "id": "webtoonscan",
@@ -681,7 +756,8 @@
   "baseUrl": "https://webtoonscan.com",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 269387873
+  "sourceId": 269387873,
+  "short": false
  },
  {
   "id": "weebcentral",
@@ -690,7 +766,8 @@
   "baseUrl": "https://weebcentral.com",
   "type": "comic",
   "nsfw": false,
-  "sourceId": 1706827870
+  "sourceId": 1706827870,
+  "short": false
  },
  {
   "id": "xemphimgi",
@@ -699,7 +776,8 @@
   "baseUrl": "https://xemphimgi.com",
   "type": "video",
   "nsfw": false,
-  "sourceId": 794722254
+  "sourceId": 794722254,
+  "short": false
  },
  {
   "id": "xfree",
@@ -708,7 +786,8 @@
   "baseUrl": "https://www.xfree.com",
   "type": "video",
   "nsfw": true,
-  "sourceId": 841357653
+  "sourceId": 841357653,
+  "short": true
  },
  {
   "id": "xoilac",
@@ -717,7 +796,8 @@
   "baseUrl": "https://xoilac32.org",
   "type": "video",
   "nsfw": false,
-  "sourceId": 767844963
+  "sourceId": 767844963,
+  "short": false
  },
  {
   "id": "youtube",
@@ -726,6 +806,7 @@
   "baseUrl": "https://m.youtube.com",
   "type": "video",
   "nsfw": false,
-  "sourceId": 1215186726
+  "sourceId": 1215186726,
+  "short": true
  }
 ]

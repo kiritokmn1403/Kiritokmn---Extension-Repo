@@ -40,16 +40,57 @@ class DefaultExtension extends MProvider {
   }
   async getPageList(url) { const h = this.__imgHeaders(url); return (await this.__eng().pages(url)).map(p => ({ url: p, headers: h })); }
   async getVideoList(url) {
-    return (await this.__eng().videos(url)).map(v => ({ url: v.url, originalUrl: v.url, quality: v.quality, headers: v.headers, subtitles: v.subtitles, audios: [] }));
+    const list = await this.__eng().videos(url);
+    let resumeEnabled = true;
+    try { resumeEnabled = this.prefs.get('RESUME_VIDEO') !== false; } catch (e) {}
+    return list.map(v => {
+      const playUrl = (resumeEnabled && v.url) ? v.url : (v.rawUrl || v.url);
+      return {
+        url: playUrl,
+        originalUrl: v.rawUrl || v.url,
+        quality: v.quality,
+        headers: v.headers,
+        subtitles: v.subtitles,
+        audios: []
+      };
+    });
   }
   async getHtmlContent(name, url) { const c = await this.__eng().content(url); return c.html; }
   async cleanHtmlContent(html) { return html; }
-  getFilterList() { return []; }
+  getFilterList() {
+    const m = __VB.META;
+    if (m.itemType === 1 && (m.short || m.shorts)) {
+      return [{
+        type_name: "SelectFilter",
+        type: "feed",
+        name: "Chế độ xem",
+        state: 0,
+        values: [
+          { type_name: "SelectOption", name: "Shorts (Video ngắn)", value: "shorts" },
+          { type_name: "SelectOption", name: "Mặc định", value: "" }
+        ]
+      }];
+    }
+    return [];
+  }
   getSourcePreferences() {
     const m = __VB.META, c = (m.config || {}).DOMAIN;
-    if (c && Array.isArray(c.values) && c.values.length > 1) {
-      return [{ key: 'DOMAIN', listPreference: { title: 'Tên miền / Domain', summary: '%s', valueIndex: 0, entries: c.values, entryValues: c.values } }];
+    const prefs = [];
+    if (m.itemType === 1) {
+      prefs.push({
+        key: 'RESUME_VIDEO',
+        switchPreferenceCompat: {
+          title: 'Nhớ vị trí phát (Resume A Video)',
+          summary: 'Tự động tiếp tục phát từ vị trí đã thoát',
+          value: true
+        }
+      });
     }
-    return [{ key: 'DOMAIN', editTextPreference: { title: 'Tên miền / Domain', summary: m.source, value: m.source, dialogTitle: 'Domain', dialogMessage: 'Đổi khi trang đổi tên miền (VD: https://example.com)' } }];
+    if (c && Array.isArray(c.values) && c.values.length > 1) {
+      prefs.push({ key: 'DOMAIN', listPreference: { title: 'Tên miền / Domain', summary: '%s', valueIndex: 0, entries: c.values, entryValues: c.values } });
+    } else {
+      prefs.push({ key: 'DOMAIN', editTextPreference: { title: 'Tên miền / Domain', summary: m.source, value: m.source, dialogTitle: 'Domain', dialogMessage: 'Đổi khi trang đổi tên miền (VD: https://example.com)' } });
+    }
+    return prefs;
   }
 }

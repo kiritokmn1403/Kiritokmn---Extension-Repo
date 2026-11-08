@@ -103,6 +103,17 @@ export function createEnv(host, meta) {
   env.Html = { parse: (s, base) => parseHtml(s, base || ''), clean: (s, tags) => cleanHtml(s, tags) };
   env.localStorage = store('ls:');
   env.cacheStorage = store('cs:');
+  env.resumeStorage = {
+    get: function(k) {
+      try {
+        var v = host.storageGet('resume:' + k);
+        return v ? parseFloat(v) || 0 : 0;
+      } catch (e) { return 0; }
+    },
+    set: function(k, s) {
+      try { host.storageSet('resume:' + k, String(Math.max(0, s || 0))); } catch (e) {}
+    }
+  };
   env.localConfig = { getItem: k => host.config(k) };
   env.localCookie = {
     setCookie: c => { host.storageSet(cookieKey, String(c).split(';')[0]); },

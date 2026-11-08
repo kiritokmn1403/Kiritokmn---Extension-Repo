@@ -189,11 +189,11 @@ var qe = (function () {
     else if (this.decodeMode === ue.Strict)
         return 0; return this.emitCodePoint(Pt(this.result), this.consumed), this.errors && (e !== K.SEMI && this.errors.missingSemicolonAfterCharacterReference(), this.errors.validateNumericCharacterReference(this.result)), this.consumed; };
     qe.prototype.stateNamedEntity = function (e, r) { var c = this.decodeTree, o = c[this.treeIndex], f = (o & ge.VALUE_LENGTH) >> 14; for (; r < e.length; r++, this.excess++) {
-        var m = e.charCodeAt(r);
-        if (this.treeIndex = na(c, o, this.treeIndex + Math.max(1, f), m), this.treeIndex < 0)
-            return this.result === 0 || this.decodeMode === ue.Attribute && (f === 0 || aa(m)) ? 0 : this.emitNotTerminatedNamedEntity();
+        var b = e.charCodeAt(r);
+        if (this.treeIndex = na(c, o, this.treeIndex + Math.max(1, f), b), this.treeIndex < 0)
+            return this.result === 0 || this.decodeMode === ue.Attribute && (f === 0 || aa(b)) ? 0 : this.emitNotTerminatedNamedEntity();
         if (o = c[this.treeIndex], f = (o & ge.VALUE_LENGTH) >> 14, f !== 0) {
-            if (m === K.SEMI)
+            if (b === K.SEMI)
                 return this.emitNamedEntityData(this.treeIndex, f, this.consumed + this.excess);
             this.decodeMode !== ue.Strict && (this.result = this.treeIndex, this.consumed += this.excess, this.excess = 0);
         }
@@ -209,23 +209,23 @@ var qe = (function () {
     } };
     return qe;
 }());
-function Mu(t) { var e = "", r = new qe(t, function (c) { return e += Ce(c); }); return function (o, f) { var m = 0, w = 0; for (; (w = o.indexOf("&", w)) >= 0;) {
-    e += o.slice(m, w), r.startEntity(f);
+function Mu(t) { var e = "", r = new qe(t, function (c) { return e += Ce(c); }); return function (o, f) { var b = 0, w = 0; for (; (w = o.indexOf("&", w)) >= 0;) {
+    e += o.slice(b, w), r.startEntity(f);
     var A = r.write(o, w + 1);
     if (A < 0) {
-        m = w + r.end();
+        b = w + r.end();
         break;
     }
-    m = w + A, w = A === 0 ? m + 1 : m;
-} var y = e + o.slice(m); return e = "", y; }; }
+    b = w + A, w = A === 0 ? b + 1 : b;
+} var y = e + o.slice(b); return e = "", y; }; }
 function na(t, e, r, c) { var o = (e & ge.BRANCH_LENGTH) >> 7, f = e & ge.JUMP_TABLE; if (o === 0)
     return f !== 0 && c === f ? r : -1; if (f) {
     var y = c - f;
     return y < 0 || y >= o ? -1 : t[r + y] - 1;
-} var m = r, w = m + o - 1; for (; m <= w;) {
-    var y = m + w >>> 1, A = t[y];
+} var b = r, w = b + o - 1; for (; b <= w;) {
+    var y = b + w >>> 1, A = t[y];
     if (A < c)
-        m = y + 1;
+        b = y + 1;
     else if (A > c)
         w = y - 1;
     else
@@ -430,28 +430,28 @@ var X = { Cdata: new Uint8Array([67, 68, 65, 84, 65, 91]), CdataEnd: new Uint8Ar
 var Ne = new Set(["input", "option", "optgroup", "select", "button", "datalist", "textarea"]), j = new Set(["p"]), Bu = new Set(["thead", "tbody"]), ju = new Set(["dd", "dt"]), Fu = new Set(["rt", "rp"]), ca = new Map([["tr", new Set(["tr", "th", "td"])], ["th", new Set(["th"])], ["td", new Set(["thead", "th", "td"])], ["body", new Set(["head", "link", "script"])], ["li", new Set(["li"])], ["p", j], ["h1", j], ["h2", j], ["h3", j], ["h4", j], ["h5", j], ["h6", j], ["select", Ne], ["input", Ne], ["output", Ne], ["button", Ne], ["datalist", Ne], ["textarea", Ne], ["option", new Set(["option"])], ["optgroup", new Set(["optgroup", "option"])], ["dd", ju], ["dt", ju], ["address", j], ["article", j], ["aside", j], ["blockquote", j], ["details", j], ["div", j], ["dl", j], ["fieldset", j], ["figcaption", j], ["figure", j], ["footer", j], ["form", j], ["header", j], ["hr", j], ["main", j], ["nav", j], ["ol", j], ["pre", j], ["section", j], ["table", j], ["ul", j], ["rt", Fu], ["rp", Fu], ["tbody", Bu], ["tfoot", Bu]]), sa = new Set(["area", "base", "basefont", "br", "col", "command", "embed", "frame", "hr", "img", "input", "isindex", "keygen", "link", "meta", "param", "source", "track", "wbr"]), Vu = new Set(["math", "svg"]), zu = new Set(["mi", "mo", "mn", "ms", "mtext", "annotation-xml", "foreignobject", "desc", "title"]), oa = /\s|\//, Ve = (function () {
     function Ve(e, r) {
         if (r === void 0) { r = {}; }
-        var c, o, f, m, w, y;
-        this.options = r, this.startIndex = 0, this.endIndex = 0, this.openTagStart = 0, this.tagname = "", this.attribname = "", this.attribvalue = "", this.attribs = null, this.stack = [], this.buffers = [], this.bufferOffset = 0, this.writeIndex = 0, this.ended = !1, this.cbs = e != null ? e : {}, this.htmlMode = !this.options.xmlMode, this.lowerCaseTagNames = (c = r.lowerCaseTags) !== null && c !== void 0 ? c : this.htmlMode, this.lowerCaseAttributeNames = (o = r.lowerCaseAttributeNames) !== null && o !== void 0 ? o : this.htmlMode, this.recognizeSelfClosing = (f = r.recognizeSelfClosing) !== null && f !== void 0 ? f : !this.htmlMode, this.tokenizer = new ((m = r.Tokenizer) !== null && m !== void 0 ? m : _e)(this.options, this), this.foreignContext = [!this.htmlMode], (y = (w = this.cbs).onparserinit) === null || y === void 0 || y.call(w, this);
+        var c, o, f, b, w, y;
+        this.options = r, this.startIndex = 0, this.endIndex = 0, this.openTagStart = 0, this.tagname = "", this.attribname = "", this.attribvalue = "", this.attribs = null, this.stack = [], this.buffers = [], this.bufferOffset = 0, this.writeIndex = 0, this.ended = !1, this.cbs = e != null ? e : {}, this.htmlMode = !this.options.xmlMode, this.lowerCaseTagNames = (c = r.lowerCaseTags) !== null && c !== void 0 ? c : this.htmlMode, this.lowerCaseAttributeNames = (o = r.lowerCaseAttributeNames) !== null && o !== void 0 ? o : this.htmlMode, this.recognizeSelfClosing = (f = r.recognizeSelfClosing) !== null && f !== void 0 ? f : !this.htmlMode, this.tokenizer = new ((b = r.Tokenizer) !== null && b !== void 0 ? b : _e)(this.options, this), this.foreignContext = [!this.htmlMode], (y = (w = this.cbs).onparserinit) === null || y === void 0 || y.call(w, this);
     }
     Ve.prototype.ontext = function (e, r) { var c, o; var f = this.getSlice(e, r); this.endIndex = r - 1, (o = (c = this.cbs).ontext) === null || o === void 0 || o.call(c, f), this.startIndex = r; };
     Ve.prototype.ontextentity = function (e, r) { var c, o; this.endIndex = r - 1, (o = (c = this.cbs).ontext) === null || o === void 0 || o.call(c, Ce(e)), this.startIndex = r; };
     Ve.prototype.isVoidElement = function (e) { return this.htmlMode && sa.has(e); };
     Ve.prototype.onopentagname = function (e, r) { this.endIndex = r; var c = this.getSlice(e, r); this.lowerCaseTagNames && (c = c.toLowerCase()), this.emitOpenTag(c); };
-    Ve.prototype.emitOpenTag = function (e) { var r, c, o, f; this.openTagStart = this.startIndex, this.tagname = e; var m = this.htmlMode && ca.get(e); if (m)
-        for (; this.stack.length > 0 && m.has(this.stack[0]);) {
+    Ve.prototype.emitOpenTag = function (e) { var r, c, o, f; this.openTagStart = this.startIndex, this.tagname = e; var b = this.htmlMode && ca.get(e); if (b)
+        for (; this.stack.length > 0 && b.has(this.stack[0]);) {
             var w = this.stack.shift();
             (c = (r = this.cbs).onclosetag) === null || c === void 0 || c.call(r, w, !0);
         } this.isVoidElement(e) || (this.stack.unshift(e), this.htmlMode && (Vu.has(e) ? this.foreignContext.unshift(!0) : zu.has(e) && this.foreignContext.unshift(!1))), (f = (o = this.cbs).onopentagname) === null || f === void 0 || f.call(o, e), this.cbs.onopentag && (this.attribs = {}); };
     Ve.prototype.endOpenTag = function (e) { var r, c; this.startIndex = this.openTagStart, this.attribs && ((c = (r = this.cbs).onopentag) === null || c === void 0 || c.call(r, this.tagname, this.attribs, e), this.attribs = null), this.cbs.onclosetag && this.isVoidElement(this.tagname) && this.cbs.onclosetag(this.tagname, !0), this.tagname = ""; };
     Ve.prototype.onopentagend = function (e) { this.endIndex = e, this.endOpenTag(!1), this.startIndex = e + 1; };
-    Ve.prototype.onclosetag = function (e, r) { var c, o, f, m, w, y, A, T; this.endIndex = r; var L = this.getSlice(e, r); if (this.lowerCaseTagNames && (L = L.toLowerCase()), this.htmlMode && (Vu.has(L) || zu.has(L)) && this.foreignContext.shift(), this.isVoidElement(L))
-        this.htmlMode && L === "br" && ((m = (f = this.cbs).onopentagname) === null || m === void 0 || m.call(f, "br"), (y = (w = this.cbs).onopentag) === null || y === void 0 || y.call(w, "br", {}, !0), (T = (A = this.cbs).onclosetag) === null || T === void 0 || T.call(A, "br", !1));
+    Ve.prototype.onclosetag = function (e, r) { var c, o, f, b, w, y, A, T; this.endIndex = r; var L = this.getSlice(e, r); if (this.lowerCaseTagNames && (L = L.toLowerCase()), this.htmlMode && (Vu.has(L) || zu.has(L)) && this.foreignContext.shift(), this.isVoidElement(L))
+        this.htmlMode && L === "br" && ((b = (f = this.cbs).onopentagname) === null || b === void 0 || b.call(f, "br"), (y = (w = this.cbs).onopentag) === null || y === void 0 || y.call(w, "br", {}, !0), (T = (A = this.cbs).onclosetag) === null || T === void 0 || T.call(A, "br", !1));
     else {
-        var _ = this.stack.indexOf(L);
-        if (_ !== -1)
-            for (var N = 0; N <= _; N++) {
+        var q = this.stack.indexOf(L);
+        if (q !== -1)
+            for (var N = 0; N <= q; N++) {
                 var O = this.stack.shift();
-                (o = (c = this.cbs).onclosetag) === null || o === void 0 || o.call(c, O, N !== _);
+                (o = (c = this.cbs).onclosetag) === null || o === void 0 || o.call(c, O, N !== q);
             }
         else
             this.htmlMode && L === "p" && (this.emitOpenTag("p"), this.closeCurrentTag(!0));
@@ -471,8 +471,8 @@ var Ne = new Set(["input", "option", "optgroup", "select", "button", "datalist",
         var o = this.getInstructionName(c);
         this.cbs.onprocessinginstruction("?".concat(o), "?".concat(c));
     } this.startIndex = r + 1; };
-    Ve.prototype.oncomment = function (e, r, c) { var o, f, m, w; this.endIndex = r, (f = (o = this.cbs).oncomment) === null || f === void 0 || f.call(o, this.getSlice(e, r - c)), (w = (m = this.cbs).oncommentend) === null || w === void 0 || w.call(m), this.startIndex = r + 1; };
-    Ve.prototype.oncdata = function (e, r, c) { var o, f, m, w, y, A, T, L, _, N; this.endIndex = r; var O = this.getSlice(e, r - c); !this.htmlMode || this.options.recognizeCDATA ? ((f = (o = this.cbs).oncdatastart) === null || f === void 0 || f.call(o), (w = (m = this.cbs).ontext) === null || w === void 0 || w.call(m, O), (A = (y = this.cbs).oncdataend) === null || A === void 0 || A.call(y)) : ((L = (T = this.cbs).oncomment) === null || L === void 0 || L.call(T, "[CDATA[".concat(O, "]]")), (N = (_ = this.cbs).oncommentend) === null || N === void 0 || N.call(_)), this.startIndex = r + 1; };
+    Ve.prototype.oncomment = function (e, r, c) { var o, f, b, w; this.endIndex = r, (f = (o = this.cbs).oncomment) === null || f === void 0 || f.call(o, this.getSlice(e, r - c)), (w = (b = this.cbs).oncommentend) === null || w === void 0 || w.call(b), this.startIndex = r + 1; };
+    Ve.prototype.oncdata = function (e, r, c) { var o, f, b, w, y, A, T, L, q, N; this.endIndex = r; var O = this.getSlice(e, r - c); !this.htmlMode || this.options.recognizeCDATA ? ((f = (o = this.cbs).oncdatastart) === null || f === void 0 || f.call(o), (w = (b = this.cbs).ontext) === null || w === void 0 || w.call(b, O), (A = (y = this.cbs).oncdataend) === null || A === void 0 || A.call(y)) : ((L = (T = this.cbs).oncomment) === null || L === void 0 || L.call(T, "[CDATA[".concat(O, "]]")), (N = (q = this.cbs).oncommentend) === null || N === void 0 || N.call(q)), this.startIndex = r + 1; };
     Ve.prototype.onend = function () { var e, r; if (this.cbs.onclosetag) {
         this.endIndex = this.startIndex;
         for (var c = 0; c < this.stack.length; c++)
@@ -739,11 +739,11 @@ function ct(t) { for (var e = 1; e < t.length; e++)
 var la = new Map(ct([[9, "&Tab;"], [0, "&NewLine;"], [22, "&excl;"], [0, "&quot;"], [0, "&num;"], [0, "&dollar;"], [0, "&percnt;"], [0, "&amp;"], [0, "&apos;"], [0, "&lpar;"], [0, "&rpar;"], [0, "&ast;"], [0, "&plus;"], [0, "&comma;"], [1, "&period;"], [0, "&sol;"], [10, "&colon;"], [0, "&semi;"], [0, { v: "&lt;", n: 8402, o: "&nvlt;" }], [0, { v: "&equals;", n: 8421, o: "&bne;" }], [0, { v: "&gt;", n: 8402, o: "&nvgt;" }], [0, "&quest;"], [0, "&commat;"], [26, "&lbrack;"], [0, "&bsol;"], [0, "&rbrack;"], [0, "&Hat;"], [0, "&lowbar;"], [0, "&DiacriticalGrave;"], [5, { n: 106, o: "&fjlig;" }], [20, "&lbrace;"], [0, "&verbar;"], [0, "&rbrace;"], [34, "&nbsp;"], [0, "&iexcl;"], [0, "&cent;"], [0, "&pound;"], [0, "&curren;"], [0, "&yen;"], [0, "&brvbar;"], [0, "&sect;"], [0, "&die;"], [0, "&copy;"], [0, "&ordf;"], [0, "&laquo;"], [0, "&not;"], [0, "&shy;"], [0, "&circledR;"], [0, "&macr;"], [0, "&deg;"], [0, "&PlusMinus;"], [0, "&sup2;"], [0, "&sup3;"], [0, "&acute;"], [0, "&micro;"], [0, "&para;"], [0, "&centerdot;"], [0, "&cedil;"], [0, "&sup1;"], [0, "&ordm;"], [0, "&raquo;"], [0, "&frac14;"], [0, "&frac12;"], [0, "&frac34;"], [0, "&iquest;"], [0, "&Agrave;"], [0, "&Aacute;"], [0, "&Acirc;"], [0, "&Atilde;"], [0, "&Auml;"], [0, "&angst;"], [0, "&AElig;"], [0, "&Ccedil;"], [0, "&Egrave;"], [0, "&Eacute;"], [0, "&Ecirc;"], [0, "&Euml;"], [0, "&Igrave;"], [0, "&Iacute;"], [0, "&Icirc;"], [0, "&Iuml;"], [0, "&ETH;"], [0, "&Ntilde;"], [0, "&Ograve;"], [0, "&Oacute;"], [0, "&Ocirc;"], [0, "&Otilde;"], [0, "&Ouml;"], [0, "&times;"], [0, "&Oslash;"], [0, "&Ugrave;"], [0, "&Uacute;"], [0, "&Ucirc;"], [0, "&Uuml;"], [0, "&Yacute;"], [0, "&THORN;"], [0, "&szlig;"], [0, "&agrave;"], [0, "&aacute;"], [0, "&acirc;"], [0, "&atilde;"], [0, "&auml;"], [0, "&aring;"], [0, "&aelig;"], [0, "&ccedil;"], [0, "&egrave;"], [0, "&eacute;"], [0, "&ecirc;"], [0, "&euml;"], [0, "&igrave;"], [0, "&iacute;"], [0, "&icirc;"], [0, "&iuml;"], [0, "&eth;"], [0, "&ntilde;"], [0, "&ograve;"], [0, "&oacute;"], [0, "&ocirc;"], [0, "&otilde;"], [0, "&ouml;"], [0, "&div;"], [0, "&oslash;"], [0, "&ugrave;"], [0, "&uacute;"], [0, "&ucirc;"], [0, "&uuml;"], [0, "&yacute;"], [0, "&thorn;"], [0, "&yuml;"], [0, "&Amacr;"], [0, "&amacr;"], [0, "&Abreve;"], [0, "&abreve;"], [0, "&Aogon;"], [0, "&aogon;"], [0, "&Cacute;"], [0, "&cacute;"], [0, "&Ccirc;"], [0, "&ccirc;"], [0, "&Cdot;"], [0, "&cdot;"], [0, "&Ccaron;"], [0, "&ccaron;"], [0, "&Dcaron;"], [0, "&dcaron;"], [0, "&Dstrok;"], [0, "&dstrok;"], [0, "&Emacr;"], [0, "&emacr;"], [2, "&Edot;"], [0, "&edot;"], [0, "&Eogon;"], [0, "&eogon;"], [0, "&Ecaron;"], [0, "&ecaron;"], [0, "&Gcirc;"], [0, "&gcirc;"], [0, "&Gbreve;"], [0, "&gbreve;"], [0, "&Gdot;"], [0, "&gdot;"], [0, "&Gcedil;"], [1, "&Hcirc;"], [0, "&hcirc;"], [0, "&Hstrok;"], [0, "&hstrok;"], [0, "&Itilde;"], [0, "&itilde;"], [0, "&Imacr;"], [0, "&imacr;"], [2, "&Iogon;"], [0, "&iogon;"], [0, "&Idot;"], [0, "&imath;"], [0, "&IJlig;"], [0, "&ijlig;"], [0, "&Jcirc;"], [0, "&jcirc;"], [0, "&Kcedil;"], [0, "&kcedil;"], [0, "&kgreen;"], [0, "&Lacute;"], [0, "&lacute;"], [0, "&Lcedil;"], [0, "&lcedil;"], [0, "&Lcaron;"], [0, "&lcaron;"], [0, "&Lmidot;"], [0, "&lmidot;"], [0, "&Lstrok;"], [0, "&lstrok;"], [0, "&Nacute;"], [0, "&nacute;"], [0, "&Ncedil;"], [0, "&ncedil;"], [0, "&Ncaron;"], [0, "&ncaron;"], [0, "&napos;"], [0, "&ENG;"], [0, "&eng;"], [0, "&Omacr;"], [0, "&omacr;"], [2, "&Odblac;"], [0, "&odblac;"], [0, "&OElig;"], [0, "&oelig;"], [0, "&Racute;"], [0, "&racute;"], [0, "&Rcedil;"], [0, "&rcedil;"], [0, "&Rcaron;"], [0, "&rcaron;"], [0, "&Sacute;"], [0, "&sacute;"], [0, "&Scirc;"], [0, "&scirc;"], [0, "&Scedil;"], [0, "&scedil;"], [0, "&Scaron;"], [0, "&scaron;"], [0, "&Tcedil;"], [0, "&tcedil;"], [0, "&Tcaron;"], [0, "&tcaron;"], [0, "&Tstrok;"], [0, "&tstrok;"], [0, "&Utilde;"], [0, "&utilde;"], [0, "&Umacr;"], [0, "&umacr;"], [0, "&Ubreve;"], [0, "&ubreve;"], [0, "&Uring;"], [0, "&uring;"], [0, "&Udblac;"], [0, "&udblac;"], [0, "&Uogon;"], [0, "&uogon;"], [0, "&Wcirc;"], [0, "&wcirc;"], [0, "&Ycirc;"], [0, "&ycirc;"], [0, "&Yuml;"], [0, "&Zacute;"], [0, "&zacute;"], [0, "&Zdot;"], [0, "&zdot;"], [0, "&Zcaron;"], [0, "&zcaron;"], [19, "&fnof;"], [34, "&imped;"], [63, "&gacute;"], [65, "&jmath;"], [142, "&circ;"], [0, "&caron;"], [16, "&breve;"], [0, "&DiacriticalDot;"], [0, "&ring;"], [0, "&ogon;"], [0, "&DiacriticalTilde;"], [0, "&dblac;"], [51, "&DownBreve;"], [127, "&Alpha;"], [0, "&Beta;"], [0, "&Gamma;"], [0, "&Delta;"], [0, "&Epsilon;"], [0, "&Zeta;"], [0, "&Eta;"], [0, "&Theta;"], [0, "&Iota;"], [0, "&Kappa;"], [0, "&Lambda;"], [0, "&Mu;"], [0, "&Nu;"], [0, "&Xi;"], [0, "&Omicron;"], [0, "&Pi;"], [0, "&Rho;"], [1, "&Sigma;"], [0, "&Tau;"], [0, "&Upsilon;"], [0, "&Phi;"], [0, "&Chi;"], [0, "&Psi;"], [0, "&ohm;"], [7, "&alpha;"], [0, "&beta;"], [0, "&gamma;"], [0, "&delta;"], [0, "&epsi;"], [0, "&zeta;"], [0, "&eta;"], [0, "&theta;"], [0, "&iota;"], [0, "&kappa;"], [0, "&lambda;"], [0, "&mu;"], [0, "&nu;"], [0, "&xi;"], [0, "&omicron;"], [0, "&pi;"], [0, "&rho;"], [0, "&sigmaf;"], [0, "&sigma;"], [0, "&tau;"], [0, "&upsi;"], [0, "&phi;"], [0, "&chi;"], [0, "&psi;"], [0, "&omega;"], [7, "&thetasym;"], [0, "&Upsi;"], [2, "&phiv;"], [0, "&piv;"], [5, "&Gammad;"], [0, "&digamma;"], [18, "&kappav;"], [0, "&rhov;"], [3, "&epsiv;"], [0, "&backepsilon;"], [10, "&IOcy;"], [0, "&DJcy;"], [0, "&GJcy;"], [0, "&Jukcy;"], [0, "&DScy;"], [0, "&Iukcy;"], [0, "&YIcy;"], [0, "&Jsercy;"], [0, "&LJcy;"], [0, "&NJcy;"], [0, "&TSHcy;"], [0, "&KJcy;"], [1, "&Ubrcy;"], [0, "&DZcy;"], [0, "&Acy;"], [0, "&Bcy;"], [0, "&Vcy;"], [0, "&Gcy;"], [0, "&Dcy;"], [0, "&IEcy;"], [0, "&ZHcy;"], [0, "&Zcy;"], [0, "&Icy;"], [0, "&Jcy;"], [0, "&Kcy;"], [0, "&Lcy;"], [0, "&Mcy;"], [0, "&Ncy;"], [0, "&Ocy;"], [0, "&Pcy;"], [0, "&Rcy;"], [0, "&Scy;"], [0, "&Tcy;"], [0, "&Ucy;"], [0, "&Fcy;"], [0, "&KHcy;"], [0, "&TScy;"], [0, "&CHcy;"], [0, "&SHcy;"], [0, "&SHCHcy;"], [0, "&HARDcy;"], [0, "&Ycy;"], [0, "&SOFTcy;"], [0, "&Ecy;"], [0, "&YUcy;"], [0, "&YAcy;"], [0, "&acy;"], [0, "&bcy;"], [0, "&vcy;"], [0, "&gcy;"], [0, "&dcy;"], [0, "&iecy;"], [0, "&zhcy;"], [0, "&zcy;"], [0, "&icy;"], [0, "&jcy;"], [0, "&kcy;"], [0, "&lcy;"], [0, "&mcy;"], [0, "&ncy;"], [0, "&ocy;"], [0, "&pcy;"], [0, "&rcy;"], [0, "&scy;"], [0, "&tcy;"], [0, "&ucy;"], [0, "&fcy;"], [0, "&khcy;"], [0, "&tscy;"], [0, "&chcy;"], [0, "&shcy;"], [0, "&shchcy;"], [0, "&hardcy;"], [0, "&ycy;"], [0, "&softcy;"], [0, "&ecy;"], [0, "&yucy;"], [0, "&yacy;"], [1, "&iocy;"], [0, "&djcy;"], [0, "&gjcy;"], [0, "&jukcy;"], [0, "&dscy;"], [0, "&iukcy;"], [0, "&yicy;"], [0, "&jsercy;"], [0, "&ljcy;"], [0, "&njcy;"], [0, "&tshcy;"], [0, "&kjcy;"], [1, "&ubrcy;"], [0, "&dzcy;"], [7074, "&ensp;"], [0, "&emsp;"], [0, "&emsp13;"], [0, "&emsp14;"], [1, "&numsp;"], [0, "&puncsp;"], [0, "&ThinSpace;"], [0, "&hairsp;"], [0, "&NegativeMediumSpace;"], [0, "&zwnj;"], [0, "&zwj;"], [0, "&lrm;"], [0, "&rlm;"], [0, "&dash;"], [2, "&ndash;"], [0, "&mdash;"], [0, "&horbar;"], [0, "&Verbar;"], [1, "&lsquo;"], [0, "&CloseCurlyQuote;"], [0, "&lsquor;"], [1, "&ldquo;"], [0, "&CloseCurlyDoubleQuote;"], [0, "&bdquo;"], [1, "&dagger;"], [0, "&Dagger;"], [0, "&bull;"], [2, "&nldr;"], [0, "&hellip;"], [9, "&permil;"], [0, "&pertenk;"], [0, "&prime;"], [0, "&Prime;"], [0, "&tprime;"], [0, "&backprime;"], [3, "&lsaquo;"], [0, "&rsaquo;"], [3, "&oline;"], [2, "&caret;"], [1, "&hybull;"], [0, "&frasl;"], [10, "&bsemi;"], [7, "&qprime;"], [7, { v: "&MediumSpace;", n: 8202, o: "&ThickSpace;" }], [0, "&NoBreak;"], [0, "&af;"], [0, "&InvisibleTimes;"], [0, "&ic;"], [72, "&euro;"], [46, "&tdot;"], [0, "&DotDot;"], [37, "&complexes;"], [2, "&incare;"], [4, "&gscr;"], [0, "&hamilt;"], [0, "&Hfr;"], [0, "&Hopf;"], [0, "&planckh;"], [0, "&hbar;"], [0, "&imagline;"], [0, "&Ifr;"], [0, "&lagran;"], [0, "&ell;"], [1, "&naturals;"], [0, "&numero;"], [0, "&copysr;"], [0, "&weierp;"], [0, "&Popf;"], [0, "&Qopf;"], [0, "&realine;"], [0, "&real;"], [0, "&reals;"], [0, "&rx;"], [3, "&trade;"], [1, "&integers;"], [2, "&mho;"], [0, "&zeetrf;"], [0, "&iiota;"], [2, "&bernou;"], [0, "&Cayleys;"], [1, "&escr;"], [0, "&Escr;"], [0, "&Fouriertrf;"], [1, "&Mellintrf;"], [0, "&order;"], [0, "&alefsym;"], [0, "&beth;"], [0, "&gimel;"], [0, "&daleth;"], [12, "&CapitalDifferentialD;"], [0, "&dd;"], [0, "&ee;"], [0, "&ii;"], [10, "&frac13;"], [0, "&frac23;"], [0, "&frac15;"], [0, "&frac25;"], [0, "&frac35;"], [0, "&frac45;"], [0, "&frac16;"], [0, "&frac56;"], [0, "&frac18;"], [0, "&frac38;"], [0, "&frac58;"], [0, "&frac78;"], [49, "&larr;"], [0, "&ShortUpArrow;"], [0, "&rarr;"], [0, "&darr;"], [0, "&harr;"], [0, "&updownarrow;"], [0, "&nwarr;"], [0, "&nearr;"], [0, "&LowerRightArrow;"], [0, "&LowerLeftArrow;"], [0, "&nlarr;"], [0, "&nrarr;"], [1, { v: "&rarrw;", n: 824, o: "&nrarrw;" }], [0, "&Larr;"], [0, "&Uarr;"], [0, "&Rarr;"], [0, "&Darr;"], [0, "&larrtl;"], [0, "&rarrtl;"], [0, "&LeftTeeArrow;"], [0, "&mapstoup;"], [0, "&map;"], [0, "&DownTeeArrow;"], [1, "&hookleftarrow;"], [0, "&hookrightarrow;"], [0, "&larrlp;"], [0, "&looparrowright;"], [0, "&harrw;"], [0, "&nharr;"], [1, "&lsh;"], [0, "&rsh;"], [0, "&ldsh;"], [0, "&rdsh;"], [1, "&crarr;"], [0, "&cularr;"], [0, "&curarr;"], [2, "&circlearrowleft;"], [0, "&circlearrowright;"], [0, "&leftharpoonup;"], [0, "&DownLeftVector;"], [0, "&RightUpVector;"], [0, "&LeftUpVector;"], [0, "&rharu;"], [0, "&DownRightVector;"], [0, "&dharr;"], [0, "&dharl;"], [0, "&RightArrowLeftArrow;"], [0, "&udarr;"], [0, "&LeftArrowRightArrow;"], [0, "&leftleftarrows;"], [0, "&upuparrows;"], [0, "&rightrightarrows;"], [0, "&ddarr;"], [0, "&leftrightharpoons;"], [0, "&Equilibrium;"], [0, "&nlArr;"], [0, "&nhArr;"], [0, "&nrArr;"], [0, "&DoubleLeftArrow;"], [0, "&DoubleUpArrow;"], [0, "&DoubleRightArrow;"], [0, "&dArr;"], [0, "&DoubleLeftRightArrow;"], [0, "&DoubleUpDownArrow;"], [0, "&nwArr;"], [0, "&neArr;"], [0, "&seArr;"], [0, "&swArr;"], [0, "&lAarr;"], [0, "&rAarr;"], [1, "&zigrarr;"], [6, "&larrb;"], [0, "&rarrb;"], [15, "&DownArrowUpArrow;"], [7, "&loarr;"], [0, "&roarr;"], [0, "&hoarr;"], [0, "&forall;"], [0, "&comp;"], [0, { v: "&part;", n: 824, o: "&npart;" }], [0, "&exist;"], [0, "&nexist;"], [0, "&empty;"], [1, "&Del;"], [0, "&Element;"], [0, "&NotElement;"], [1, "&ni;"], [0, "&notni;"], [2, "&prod;"], [0, "&coprod;"], [0, "&sum;"], [0, "&minus;"], [0, "&MinusPlus;"], [0, "&dotplus;"], [1, "&Backslash;"], [0, "&lowast;"], [0, "&compfn;"], [1, "&radic;"], [2, "&prop;"], [0, "&infin;"], [0, "&angrt;"], [0, { v: "&ang;", n: 8402, o: "&nang;" }], [0, "&angmsd;"], [0, "&angsph;"], [0, "&mid;"], [0, "&nmid;"], [0, "&DoubleVerticalBar;"], [0, "&NotDoubleVerticalBar;"], [0, "&and;"], [0, "&or;"], [0, { v: "&cap;", n: 65024, o: "&caps;" }], [0, { v: "&cup;", n: 65024, o: "&cups;" }], [0, "&int;"], [0, "&Int;"], [0, "&iiint;"], [0, "&conint;"], [0, "&Conint;"], [0, "&Cconint;"], [0, "&cwint;"], [0, "&ClockwiseContourIntegral;"], [0, "&awconint;"], [0, "&there4;"], [0, "&becaus;"], [0, "&ratio;"], [0, "&Colon;"], [0, "&dotminus;"], [1, "&mDDot;"], [0, "&homtht;"], [0, { v: "&sim;", n: 8402, o: "&nvsim;" }], [0, { v: "&backsim;", n: 817, o: "&race;" }], [0, { v: "&ac;", n: 819, o: "&acE;" }], [0, "&acd;"], [0, "&VerticalTilde;"], [0, "&NotTilde;"], [0, { v: "&eqsim;", n: 824, o: "&nesim;" }], [0, "&sime;"], [0, "&NotTildeEqual;"], [0, "&cong;"], [0, "&simne;"], [0, "&ncong;"], [0, "&ap;"], [0, "&nap;"], [0, "&ape;"], [0, { v: "&apid;", n: 824, o: "&napid;" }], [0, "&backcong;"], [0, { v: "&asympeq;", n: 8402, o: "&nvap;" }], [0, { v: "&bump;", n: 824, o: "&nbump;" }], [0, { v: "&bumpe;", n: 824, o: "&nbumpe;" }], [0, { v: "&doteq;", n: 824, o: "&nedot;" }], [0, "&doteqdot;"], [0, "&efDot;"], [0, "&erDot;"], [0, "&Assign;"], [0, "&ecolon;"], [0, "&ecir;"], [0, "&circeq;"], [1, "&wedgeq;"], [0, "&veeeq;"], [1, "&triangleq;"], [2, "&equest;"], [0, "&ne;"], [0, { v: "&Congruent;", n: 8421, o: "&bnequiv;" }], [0, "&nequiv;"], [1, { v: "&le;", n: 8402, o: "&nvle;" }], [0, { v: "&ge;", n: 8402, o: "&nvge;" }], [0, { v: "&lE;", n: 824, o: "&nlE;" }], [0, { v: "&gE;", n: 824, o: "&ngE;" }], [0, { v: "&lnE;", n: 65024, o: "&lvertneqq;" }], [0, { v: "&gnE;", n: 65024, o: "&gvertneqq;" }], [0, { v: "&ll;", n: new Map(ct([[824, "&nLtv;"], [7577, "&nLt;"]])) }], [0, { v: "&gg;", n: new Map(ct([[824, "&nGtv;"], [7577, "&nGt;"]])) }], [0, "&between;"], [0, "&NotCupCap;"], [0, "&nless;"], [0, "&ngt;"], [0, "&nle;"], [0, "&nge;"], [0, "&lesssim;"], [0, "&GreaterTilde;"], [0, "&nlsim;"], [0, "&ngsim;"], [0, "&LessGreater;"], [0, "&gl;"], [0, "&NotLessGreater;"], [0, "&NotGreaterLess;"], [0, "&pr;"], [0, "&sc;"], [0, "&prcue;"], [0, "&sccue;"], [0, "&PrecedesTilde;"], [0, { v: "&scsim;", n: 824, o: "&NotSucceedsTilde;" }], [0, "&NotPrecedes;"], [0, "&NotSucceeds;"], [0, { v: "&sub;", n: 8402, o: "&NotSubset;" }], [0, { v: "&sup;", n: 8402, o: "&NotSuperset;" }], [0, "&nsub;"], [0, "&nsup;"], [0, "&sube;"], [0, "&supe;"], [0, "&NotSubsetEqual;"], [0, "&NotSupersetEqual;"], [0, { v: "&subne;", n: 65024, o: "&varsubsetneq;" }], [0, { v: "&supne;", n: 65024, o: "&varsupsetneq;" }], [1, "&cupdot;"], [0, "&UnionPlus;"], [0, { v: "&sqsub;", n: 824, o: "&NotSquareSubset;" }], [0, { v: "&sqsup;", n: 824, o: "&NotSquareSuperset;" }], [0, "&sqsube;"], [0, "&sqsupe;"], [0, { v: "&sqcap;", n: 65024, o: "&sqcaps;" }], [0, { v: "&sqcup;", n: 65024, o: "&sqcups;" }], [0, "&CirclePlus;"], [0, "&CircleMinus;"], [0, "&CircleTimes;"], [0, "&osol;"], [0, "&CircleDot;"], [0, "&circledcirc;"], [0, "&circledast;"], [1, "&circleddash;"], [0, "&boxplus;"], [0, "&boxminus;"], [0, "&boxtimes;"], [0, "&dotsquare;"], [0, "&RightTee;"], [0, "&dashv;"], [0, "&DownTee;"], [0, "&bot;"], [1, "&models;"], [0, "&DoubleRightTee;"], [0, "&Vdash;"], [0, "&Vvdash;"], [0, "&VDash;"], [0, "&nvdash;"], [0, "&nvDash;"], [0, "&nVdash;"], [0, "&nVDash;"], [0, "&prurel;"], [1, "&LeftTriangle;"], [0, "&RightTriangle;"], [0, { v: "&LeftTriangleEqual;", n: 8402, o: "&nvltrie;" }], [0, { v: "&RightTriangleEqual;", n: 8402, o: "&nvrtrie;" }], [0, "&origof;"], [0, "&imof;"], [0, "&multimap;"], [0, "&hercon;"], [0, "&intcal;"], [0, "&veebar;"], [1, "&barvee;"], [0, "&angrtvb;"], [0, "&lrtri;"], [0, "&bigwedge;"], [0, "&bigvee;"], [0, "&bigcap;"], [0, "&bigcup;"], [0, "&diam;"], [0, "&sdot;"], [0, "&sstarf;"], [0, "&divideontimes;"], [0, "&bowtie;"], [0, "&ltimes;"], [0, "&rtimes;"], [0, "&leftthreetimes;"], [0, "&rightthreetimes;"], [0, "&backsimeq;"], [0, "&curlyvee;"], [0, "&curlywedge;"], [0, "&Sub;"], [0, "&Sup;"], [0, "&Cap;"], [0, "&Cup;"], [0, "&fork;"], [0, "&epar;"], [0, "&lessdot;"], [0, "&gtdot;"], [0, { v: "&Ll;", n: 824, o: "&nLl;" }], [0, { v: "&Gg;", n: 824, o: "&nGg;" }], [0, { v: "&leg;", n: 65024, o: "&lesg;" }], [0, { v: "&gel;", n: 65024, o: "&gesl;" }], [2, "&cuepr;"], [0, "&cuesc;"], [0, "&NotPrecedesSlantEqual;"], [0, "&NotSucceedsSlantEqual;"], [0, "&NotSquareSubsetEqual;"], [0, "&NotSquareSupersetEqual;"], [2, "&lnsim;"], [0, "&gnsim;"], [0, "&precnsim;"], [0, "&scnsim;"], [0, "&nltri;"], [0, "&NotRightTriangle;"], [0, "&nltrie;"], [0, "&NotRightTriangleEqual;"], [0, "&vellip;"], [0, "&ctdot;"], [0, "&utdot;"], [0, "&dtdot;"], [0, "&disin;"], [0, "&isinsv;"], [0, "&isins;"], [0, { v: "&isindot;", n: 824, o: "&notindot;" }], [0, "&notinvc;"], [0, "&notinvb;"], [1, { v: "&isinE;", n: 824, o: "&notinE;" }], [0, "&nisd;"], [0, "&xnis;"], [0, "&nis;"], [0, "&notnivc;"], [0, "&notnivb;"], [6, "&barwed;"], [0, "&Barwed;"], [1, "&lceil;"], [0, "&rceil;"], [0, "&LeftFloor;"], [0, "&rfloor;"], [0, "&drcrop;"], [0, "&dlcrop;"], [0, "&urcrop;"], [0, "&ulcrop;"], [0, "&bnot;"], [1, "&profline;"], [0, "&profsurf;"], [1, "&telrec;"], [0, "&target;"], [5, "&ulcorn;"], [0, "&urcorn;"], [0, "&dlcorn;"], [0, "&drcorn;"], [2, "&frown;"], [0, "&smile;"], [9, "&cylcty;"], [0, "&profalar;"], [7, "&topbot;"], [6, "&ovbar;"], [1, "&solbar;"], [60, "&angzarr;"], [51, "&lmoustache;"], [0, "&rmoustache;"], [2, "&OverBracket;"], [0, "&bbrk;"], [0, "&bbrktbrk;"], [37, "&OverParenthesis;"], [0, "&UnderParenthesis;"], [0, "&OverBrace;"], [0, "&UnderBrace;"], [2, "&trpezium;"], [4, "&elinters;"], [59, "&blank;"], [164, "&circledS;"], [55, "&boxh;"], [1, "&boxv;"], [9, "&boxdr;"], [3, "&boxdl;"], [3, "&boxur;"], [3, "&boxul;"], [3, "&boxvr;"], [7, "&boxvl;"], [7, "&boxhd;"], [7, "&boxhu;"], [7, "&boxvh;"], [19, "&boxH;"], [0, "&boxV;"], [0, "&boxdR;"], [0, "&boxDr;"], [0, "&boxDR;"], [0, "&boxdL;"], [0, "&boxDl;"], [0, "&boxDL;"], [0, "&boxuR;"], [0, "&boxUr;"], [0, "&boxUR;"], [0, "&boxuL;"], [0, "&boxUl;"], [0, "&boxUL;"], [0, "&boxvR;"], [0, "&boxVr;"], [0, "&boxVR;"], [0, "&boxvL;"], [0, "&boxVl;"], [0, "&boxVL;"], [0, "&boxHd;"], [0, "&boxhD;"], [0, "&boxHD;"], [0, "&boxHu;"], [0, "&boxhU;"], [0, "&boxHU;"], [0, "&boxvH;"], [0, "&boxVh;"], [0, "&boxVH;"], [19, "&uhblk;"], [3, "&lhblk;"], [3, "&block;"], [8, "&blk14;"], [0, "&blk12;"], [0, "&blk34;"], [13, "&square;"], [8, "&blacksquare;"], [0, "&EmptyVerySmallSquare;"], [1, "&rect;"], [0, "&marker;"], [2, "&fltns;"], [1, "&bigtriangleup;"], [0, "&blacktriangle;"], [0, "&triangle;"], [2, "&blacktriangleright;"], [0, "&rtri;"], [3, "&bigtriangledown;"], [0, "&blacktriangledown;"], [0, "&dtri;"], [2, "&blacktriangleleft;"], [0, "&ltri;"], [6, "&loz;"], [0, "&cir;"], [32, "&tridot;"], [2, "&bigcirc;"], [8, "&ultri;"], [0, "&urtri;"], [0, "&lltri;"], [0, "&EmptySmallSquare;"], [0, "&FilledSmallSquare;"], [8, "&bigstar;"], [0, "&star;"], [7, "&phone;"], [49, "&female;"], [1, "&male;"], [29, "&spades;"], [2, "&clubs;"], [1, "&hearts;"], [0, "&diamondsuit;"], [3, "&sung;"], [2, "&flat;"], [0, "&natural;"], [0, "&sharp;"], [163, "&check;"], [3, "&cross;"], [8, "&malt;"], [21, "&sext;"], [33, "&VerticalSeparator;"], [25, "&lbbrk;"], [0, "&rbbrk;"], [84, "&bsolhsub;"], [0, "&suphsol;"], [28, "&LeftDoubleBracket;"], [0, "&RightDoubleBracket;"], [0, "&lang;"], [0, "&rang;"], [0, "&Lang;"], [0, "&Rang;"], [0, "&loang;"], [0, "&roang;"], [7, "&longleftarrow;"], [0, "&longrightarrow;"], [0, "&longleftrightarrow;"], [0, "&DoubleLongLeftArrow;"], [0, "&DoubleLongRightArrow;"], [0, "&DoubleLongLeftRightArrow;"], [1, "&longmapsto;"], [2, "&dzigrarr;"], [258, "&nvlArr;"], [0, "&nvrArr;"], [0, "&nvHarr;"], [0, "&Map;"], [6, "&lbarr;"], [0, "&bkarow;"], [0, "&lBarr;"], [0, "&dbkarow;"], [0, "&drbkarow;"], [0, "&DDotrahd;"], [0, "&UpArrowBar;"], [0, "&DownArrowBar;"], [2, "&Rarrtl;"], [2, "&latail;"], [0, "&ratail;"], [0, "&lAtail;"], [0, "&rAtail;"], [0, "&larrfs;"], [0, "&rarrfs;"], [0, "&larrbfs;"], [0, "&rarrbfs;"], [2, "&nwarhk;"], [0, "&nearhk;"], [0, "&hksearow;"], [0, "&hkswarow;"], [0, "&nwnear;"], [0, "&nesear;"], [0, "&seswar;"], [0, "&swnwar;"], [8, { v: "&rarrc;", n: 824, o: "&nrarrc;" }], [1, "&cudarrr;"], [0, "&ldca;"], [0, "&rdca;"], [0, "&cudarrl;"], [0, "&larrpl;"], [2, "&curarrm;"], [0, "&cularrp;"], [7, "&rarrpl;"], [2, "&harrcir;"], [0, "&Uarrocir;"], [0, "&lurdshar;"], [0, "&ldrushar;"], [2, "&LeftRightVector;"], [0, "&RightUpDownVector;"], [0, "&DownLeftRightVector;"], [0, "&LeftUpDownVector;"], [0, "&LeftVectorBar;"], [0, "&RightVectorBar;"], [0, "&RightUpVectorBar;"], [0, "&RightDownVectorBar;"], [0, "&DownLeftVectorBar;"], [0, "&DownRightVectorBar;"], [0, "&LeftUpVectorBar;"], [0, "&LeftDownVectorBar;"], [0, "&LeftTeeVector;"], [0, "&RightTeeVector;"], [0, "&RightUpTeeVector;"], [0, "&RightDownTeeVector;"], [0, "&DownLeftTeeVector;"], [0, "&DownRightTeeVector;"], [0, "&LeftUpTeeVector;"], [0, "&LeftDownTeeVector;"], [0, "&lHar;"], [0, "&uHar;"], [0, "&rHar;"], [0, "&dHar;"], [0, "&luruhar;"], [0, "&ldrdhar;"], [0, "&ruluhar;"], [0, "&rdldhar;"], [0, "&lharul;"], [0, "&llhard;"], [0, "&rharul;"], [0, "&lrhard;"], [0, "&udhar;"], [0, "&duhar;"], [0, "&RoundImplies;"], [0, "&erarr;"], [0, "&simrarr;"], [0, "&larrsim;"], [0, "&rarrsim;"], [0, "&rarrap;"], [0, "&ltlarr;"], [1, "&gtrarr;"], [0, "&subrarr;"], [1, "&suplarr;"], [0, "&lfisht;"], [0, "&rfisht;"], [0, "&ufisht;"], [0, "&dfisht;"], [5, "&lopar;"], [0, "&ropar;"], [4, "&lbrke;"], [0, "&rbrke;"], [0, "&lbrkslu;"], [0, "&rbrksld;"], [0, "&lbrksld;"], [0, "&rbrkslu;"], [0, "&langd;"], [0, "&rangd;"], [0, "&lparlt;"], [0, "&rpargt;"], [0, "&gtlPar;"], [0, "&ltrPar;"], [3, "&vzigzag;"], [1, "&vangrt;"], [0, "&angrtvbd;"], [6, "&ange;"], [0, "&range;"], [0, "&dwangle;"], [0, "&uwangle;"], [0, "&angmsdaa;"], [0, "&angmsdab;"], [0, "&angmsdac;"], [0, "&angmsdad;"], [0, "&angmsdae;"], [0, "&angmsdaf;"], [0, "&angmsdag;"], [0, "&angmsdah;"], [0, "&bemptyv;"], [0, "&demptyv;"], [0, "&cemptyv;"], [0, "&raemptyv;"], [0, "&laemptyv;"], [0, "&ohbar;"], [0, "&omid;"], [0, "&opar;"], [1, "&operp;"], [1, "&olcross;"], [0, "&odsold;"], [1, "&olcir;"], [0, "&ofcir;"], [0, "&olt;"], [0, "&ogt;"], [0, "&cirscir;"], [0, "&cirE;"], [0, "&solb;"], [0, "&bsolb;"], [3, "&boxbox;"], [3, "&trisb;"], [0, "&rtriltri;"], [0, { v: "&LeftTriangleBar;", n: 824, o: "&NotLeftTriangleBar;" }], [0, { v: "&RightTriangleBar;", n: 824, o: "&NotRightTriangleBar;" }], [11, "&iinfin;"], [0, "&infintie;"], [0, "&nvinfin;"], [4, "&eparsl;"], [0, "&smeparsl;"], [0, "&eqvparsl;"], [5, "&blacklozenge;"], [8, "&RuleDelayed;"], [1, "&dsol;"], [9, "&bigodot;"], [0, "&bigoplus;"], [0, "&bigotimes;"], [1, "&biguplus;"], [1, "&bigsqcup;"], [5, "&iiiint;"], [0, "&fpartint;"], [2, "&cirfnint;"], [0, "&awint;"], [0, "&rppolint;"], [0, "&scpolint;"], [0, "&npolint;"], [0, "&pointint;"], [0, "&quatint;"], [0, "&intlarhk;"], [10, "&pluscir;"], [0, "&plusacir;"], [0, "&simplus;"], [0, "&plusdu;"], [0, "&plussim;"], [0, "&plustwo;"], [1, "&mcomma;"], [0, "&minusdu;"], [2, "&loplus;"], [0, "&roplus;"], [0, "&Cross;"], [0, "&timesd;"], [0, "&timesbar;"], [1, "&smashp;"], [0, "&lotimes;"], [0, "&rotimes;"], [0, "&otimesas;"], [0, "&Otimes;"], [0, "&odiv;"], [0, "&triplus;"], [0, "&triminus;"], [0, "&tritime;"], [0, "&intprod;"], [2, "&amalg;"], [0, "&capdot;"], [1, "&ncup;"], [0, "&ncap;"], [0, "&capand;"], [0, "&cupor;"], [0, "&cupcap;"], [0, "&capcup;"], [0, "&cupbrcap;"], [0, "&capbrcup;"], [0, "&cupcup;"], [0, "&capcap;"], [0, "&ccups;"], [0, "&ccaps;"], [2, "&ccupssm;"], [2, "&And;"], [0, "&Or;"], [0, "&andand;"], [0, "&oror;"], [0, "&orslope;"], [0, "&andslope;"], [1, "&andv;"], [0, "&orv;"], [0, "&andd;"], [0, "&ord;"], [1, "&wedbar;"], [6, "&sdote;"], [3, "&simdot;"], [2, { v: "&congdot;", n: 824, o: "&ncongdot;" }], [0, "&easter;"], [0, "&apacir;"], [0, { v: "&apE;", n: 824, o: "&napE;" }], [0, "&eplus;"], [0, "&pluse;"], [0, "&Esim;"], [0, "&Colone;"], [0, "&Equal;"], [1, "&ddotseq;"], [0, "&equivDD;"], [0, "&ltcir;"], [0, "&gtcir;"], [0, "&ltquest;"], [0, "&gtquest;"], [0, { v: "&leqslant;", n: 824, o: "&nleqslant;" }], [0, { v: "&geqslant;", n: 824, o: "&ngeqslant;" }], [0, "&lesdot;"], [0, "&gesdot;"], [0, "&lesdoto;"], [0, "&gesdoto;"], [0, "&lesdotor;"], [0, "&gesdotol;"], [0, "&lap;"], [0, "&gap;"], [0, "&lne;"], [0, "&gne;"], [0, "&lnap;"], [0, "&gnap;"], [0, "&lEg;"], [0, "&gEl;"], [0, "&lsime;"], [0, "&gsime;"], [0, "&lsimg;"], [0, "&gsiml;"], [0, "&lgE;"], [0, "&glE;"], [0, "&lesges;"], [0, "&gesles;"], [0, "&els;"], [0, "&egs;"], [0, "&elsdot;"], [0, "&egsdot;"], [0, "&el;"], [0, "&eg;"], [2, "&siml;"], [0, "&simg;"], [0, "&simlE;"], [0, "&simgE;"], [0, { v: "&LessLess;", n: 824, o: "&NotNestedLessLess;" }], [0, { v: "&GreaterGreater;", n: 824, o: "&NotNestedGreaterGreater;" }], [1, "&glj;"], [0, "&gla;"], [0, "&ltcc;"], [0, "&gtcc;"], [0, "&lescc;"], [0, "&gescc;"], [0, "&smt;"], [0, "&lat;"], [0, { v: "&smte;", n: 65024, o: "&smtes;" }], [0, { v: "&late;", n: 65024, o: "&lates;" }], [0, "&bumpE;"], [0, { v: "&PrecedesEqual;", n: 824, o: "&NotPrecedesEqual;" }], [0, { v: "&sce;", n: 824, o: "&NotSucceedsEqual;" }], [2, "&prE;"], [0, "&scE;"], [0, "&precneqq;"], [0, "&scnE;"], [0, "&prap;"], [0, "&scap;"], [0, "&precnapprox;"], [0, "&scnap;"], [0, "&Pr;"], [0, "&Sc;"], [0, "&subdot;"], [0, "&supdot;"], [0, "&subplus;"], [0, "&supplus;"], [0, "&submult;"], [0, "&supmult;"], [0, "&subedot;"], [0, "&supedot;"], [0, { v: "&subE;", n: 824, o: "&nsubE;" }], [0, { v: "&supE;", n: 824, o: "&nsupE;" }], [0, "&subsim;"], [0, "&supsim;"], [2, { v: "&subnE;", n: 65024, o: "&varsubsetneqq;" }], [0, { v: "&supnE;", n: 65024, o: "&varsupsetneqq;" }], [2, "&csub;"], [0, "&csup;"], [0, "&csube;"], [0, "&csupe;"], [0, "&subsup;"], [0, "&supsub;"], [0, "&subsub;"], [0, "&supsup;"], [0, "&suphsub;"], [0, "&supdsub;"], [0, "&forkv;"], [0, "&topfork;"], [0, "&mlcp;"], [8, "&Dashv;"], [1, "&Vdashl;"], [0, "&Barv;"], [0, "&vBar;"], [0, "&vBarv;"], [1, "&Vbar;"], [0, "&Not;"], [0, "&bNot;"], [0, "&rnmid;"], [0, "&cirmid;"], [0, "&midcir;"], [0, "&topcir;"], [0, "&nhpar;"], [0, "&parsim;"], [9, { v: "&parsl;", n: 8421, o: "&nparsl;" }], [44343, { n: new Map(ct([[56476, "&Ascr;"], [1, "&Cscr;"], [0, "&Dscr;"], [2, "&Gscr;"], [2, "&Jscr;"], [0, "&Kscr;"], [2, "&Nscr;"], [0, "&Oscr;"], [0, "&Pscr;"], [0, "&Qscr;"], [1, "&Sscr;"], [0, "&Tscr;"], [0, "&Uscr;"], [0, "&Vscr;"], [0, "&Wscr;"], [0, "&Xscr;"], [0, "&Yscr;"], [0, "&Zscr;"], [0, "&ascr;"], [0, "&bscr;"], [0, "&cscr;"], [0, "&dscr;"], [1, "&fscr;"], [1, "&hscr;"], [0, "&iscr;"], [0, "&jscr;"], [0, "&kscr;"], [0, "&lscr;"], [0, "&mscr;"], [0, "&nscr;"], [1, "&pscr;"], [0, "&qscr;"], [0, "&rscr;"], [0, "&sscr;"], [0, "&tscr;"], [0, "&uscr;"], [0, "&vscr;"], [0, "&wscr;"], [0, "&xscr;"], [0, "&yscr;"], [0, "&zscr;"], [52, "&Afr;"], [0, "&Bfr;"], [1, "&Dfr;"], [0, "&Efr;"], [0, "&Ffr;"], [0, "&Gfr;"], [2, "&Jfr;"], [0, "&Kfr;"], [0, "&Lfr;"], [0, "&Mfr;"], [0, "&Nfr;"], [0, "&Ofr;"], [0, "&Pfr;"], [0, "&Qfr;"], [1, "&Sfr;"], [0, "&Tfr;"], [0, "&Ufr;"], [0, "&Vfr;"], [0, "&Wfr;"], [0, "&Xfr;"], [0, "&Yfr;"], [1, "&afr;"], [0, "&bfr;"], [0, "&cfr;"], [0, "&dfr;"], [0, "&efr;"], [0, "&ffr;"], [0, "&gfr;"], [0, "&hfr;"], [0, "&ifr;"], [0, "&jfr;"], [0, "&kfr;"], [0, "&lfr;"], [0, "&mfr;"], [0, "&nfr;"], [0, "&ofr;"], [0, "&pfr;"], [0, "&qfr;"], [0, "&rfr;"], [0, "&sfr;"], [0, "&tfr;"], [0, "&ufr;"], [0, "&vfr;"], [0, "&wfr;"], [0, "&xfr;"], [0, "&yfr;"], [0, "&zfr;"], [0, "&Aopf;"], [0, "&Bopf;"], [1, "&Dopf;"], [0, "&Eopf;"], [0, "&Fopf;"], [0, "&Gopf;"], [1, "&Iopf;"], [0, "&Jopf;"], [0, "&Kopf;"], [0, "&Lopf;"], [0, "&Mopf;"], [1, "&Oopf;"], [3, "&Sopf;"], [0, "&Topf;"], [0, "&Uopf;"], [0, "&Vopf;"], [0, "&Wopf;"], [0, "&Xopf;"], [0, "&Yopf;"], [1, "&aopf;"], [0, "&bopf;"], [0, "&copf;"], [0, "&dopf;"], [0, "&eopf;"], [0, "&fopf;"], [0, "&gopf;"], [0, "&hopf;"], [0, "&iopf;"], [0, "&jopf;"], [0, "&kopf;"], [0, "&lopf;"], [0, "&mopf;"], [0, "&nopf;"], [0, "&oopf;"], [0, "&popf;"], [0, "&qopf;"], [0, "&ropf;"], [0, "&sopf;"], [0, "&topf;"], [0, "&uopf;"], [0, "&vopf;"], [0, "&wopf;"], [0, "&xopf;"], [0, "&yopf;"], [0, "&zopf;"]])) }], [8906, "&fflig;"], [0, "&filig;"], [0, "&fllig;"], [0, "&ffilig;"], [0, "&ffllig;"]]));
 var Xt = /["&'<>$\x80-\uFFFF]/g, Gu = new Map([[34, "&quot;"], [38, "&amp;"], [39, "&apos;"], [60, "&lt;"], [62, "&gt;"]]), $u = String.prototype.codePointAt != null ? function (t, e) { return t.codePointAt(e); } : function (t, e) { return (t.charCodeAt(e) & 64512) === 55296 ? (t.charCodeAt(e) - 55296) * 1024 + t.charCodeAt(e + 1) - 56320 + 65536 : t.charCodeAt(e); };
 function Ke(t) { var e = "", r = 0, c; for (; (c = Xt.exec(t)) !== null;) {
-    var o = c.index, f = t.charCodeAt(o), m = Gu.get(f);
-    m !== void 0 ? (e += t.substring(r, o) + m, r = o + 1) : (e += "".concat(t.substring(r, o), "&#x").concat($u(t, o).toString(16), ";"), r = Xt.lastIndex += +((f & 64512) === 55296));
+    var o = c.index, f = t.charCodeAt(o), b = Gu.get(f);
+    b !== void 0 ? (e += t.substring(r, o) + b, r = o + 1) : (e += "".concat(t.substring(r, o), "&#x").concat($u(t, o).toString(16), ";"), r = Xt.lastIndex += +((f & 64512) === 55296));
 } return e + t.substr(r); }
-function Zt(t, e) { return function (c) { var o, f = 0, m = ""; for (; o = t.exec(c);)
-    f !== o.index && (m += c.substring(f, o.index)), m += e.get(o[0].charCodeAt(0)), f = o.index + 1; return m + c.substring(f); }; }
+function Zt(t, e) { return function (c) { var o, f = 0, b = ""; for (; o = t.exec(c);)
+    f !== o.index && (b += c.substring(f, o.index)), b += e.get(o[0].charCodeAt(0)), f = o.index + 1; return b + c.substring(f); }; }
 var Ju = Zt(/[&<>'"]/g, Gu), st = Zt(/["&\u00A0]/g, new Map([[34, "&quot;"], [38, "&amp;"], [160, "&nbsp;"]])), ot = Zt(/[&<>\u00A0]/g, new Map([[38, "&amp;"], [60, "&lt;"], [62, "&gt;"], [160, "&nbsp;"]]));
 var Wu;
 (function (t) { t[t.XML = 0] = "XML", t[t.HTML = 1] = "HTML"; })(Wu || (Wu = {}));
@@ -753,7 +753,7 @@ var Qu = new Map(["altGlyph", "altGlyphDef", "altGlyphItem", "animateColor", "an
 var ha = new Set(["style", "script", "xmp", "iframe", "noembed", "noframes", "plaintext", "noscript"]);
 function pa(t) { return t.replace(/"/g, "&quot;"); }
 function ga(t, e) { var r; if (!t)
-    return; var c = ((r = e.encodeEntities) !== null && r !== void 0 ? r : e.decodeEntities) === !1 ? pa : e.xmlMode || e.encodeEntities !== "utf8" ? Ke : st; return Object.keys(t).map(function (o) { var f, m; var w = (f = t[o]) !== null && f !== void 0 ? f : ""; return e.xmlMode === "foreign" && (o = (m = Yu.get(o)) !== null && m !== void 0 ? m : o), !e.emptyAttrs && !e.xmlMode && w === "" ? o : "".concat(o, "=\"").concat(c(w), "\""); }).join(" "); }
+    return; var c = ((r = e.encodeEntities) !== null && r !== void 0 ? r : e.decodeEntities) === !1 ? pa : e.xmlMode || e.encodeEntities !== "utf8" ? Ke : st; return Object.keys(t).map(function (o) { var f, b; var w = (f = t[o]) !== null && f !== void 0 ? f : ""; return e.xmlMode === "foreign" && (o = (b = Yu.get(o)) !== null && b !== void 0 ? b : o), !e.emptyAttrs && !e.xmlMode && w === "" ? o : "".concat(o, "=\"").concat(c(w), "\""); }).join(" "); }
 var er = new Set(["area", "base", "basefont", "br", "col", "command", "embed", "frame", "hr", "img", "input", "isindex", "keygen", "link", "meta", "param", "source", "track", "wbr"]);
 function eu(t, e) {
     if (e === void 0) { e = {}; }
@@ -855,17 +855,17 @@ function Pe(t, e, r, c) {
     if (c === void 0) { c = 1 / 0; }
     return ht(t, Array.isArray(e) ? e : [e], r, c);
 }
-function ht(t, e, r, c) { var o = [], f = [Array.isArray(e) ? e : [e]], m = [0]; for (;;) {
-    if (m[0] >= f[0].length) {
-        if (m.length === 1)
+function ht(t, e, r, c) { var o = [], f = [Array.isArray(e) ? e : [e]], b = [0]; for (;;) {
+    if (b[0] >= f[0].length) {
+        if (b.length === 1)
             return o;
-        f.shift(), m.shift();
+        f.shift(), b.shift();
         continue;
     }
-    var w = f[0][m[0]++];
+    var w = f[0][b[0]++];
     if (t(w) && (o.push(w), --c <= 0))
         return o;
-    r && Z(w) && w.children.length > 0 && (m.unshift(0), f.unshift(w.children));
+    r && Z(w) && w.children.length > 0 && (b.unshift(0), f.unshift(w.children));
 } }
 function Ia(t, e) { return e.find(t); }
 function pt(t, e, r) {
@@ -876,9 +876,9 @@ function pt(t, e, r) {
         if (B(f) && t(f))
             return f;
         if (r && Z(f) && f.children.length > 0) {
-            var m = pt(t, f.children, !0);
-            if (m)
-                return m;
+            var b = pt(t, f.children, !0);
+            if (b)
+                return b;
         }
     }
     return null;
@@ -940,13 +940,13 @@ var ae;
 function nr(t, e) { var r = [], c = []; if (t === e)
     return 0; var o = Z(t) ? t : t.parent; for (; o;)
     r.unshift(o), o = o.parent; for (o = Z(e) ? e : e.parent; o;)
-    c.unshift(o), o = o.parent; var f = Math.min(r.length, c.length), m = 0; for (; m < f && r[m] === c[m];)
-    m++; if (m === 0)
-    return ae.DISCONNECTED; var w = r[m - 1], y = w.children, A = r[m], T = c[m]; return y.indexOf(A) > y.indexOf(T) ? w === e ? ae.FOLLOWING | ae.CONTAINED_BY : ae.FOLLOWING : w === t ? ae.PRECEDING | ae.CONTAINS : ae.PRECEDING; }
+    c.unshift(o), o = o.parent; var f = Math.min(r.length, c.length), b = 0; for (; b < f && r[b] === c[b];)
+    b++; if (b === 0)
+    return ae.DISCONNECTED; var w = r[b - 1], y = w.children, A = r[b], T = c[b]; return y.indexOf(A) > y.indexOf(T) ? w === e ? ae.FOLLOWING | ae.CONTAINED_BY : ae.FOLLOWING : w === t ? ae.PRECEDING | ae.CONTAINS : ae.PRECEDING; }
 function iu(t) { return t = t.filter(function (e, r, c) { return !c.includes(e, r + 1); }), t.sort(function (e, r) { var c = nr(e, r); return c & ae.PRECEDING ? -1 : c & ae.FOLLOWING ? 1 : 0; }), t; }
 function cu(t) { var e = bt(Ga, t); return e ? e.name === "feed" ? Va(e) : za(e) : null; }
-function Va(t) { var e; var r = t.children, c = { type: "atom", items: Se("entry", r).map(function (m) { var w; var y = m.children, A = { media: ir(y) }; ee(A, "id", "id", y), ee(A, "title", "title", y); var T = (w = bt("link", y)) === null || w === void 0 ? void 0 : w.attribs.href; T && (A.link = T); var L = me("summary", y) || me("content", y); L && (A.description = L); var _ = me("updated", y); return _ && (A.pubDate = new Date(_)), A; }) }; ee(c, "id", "id", r), ee(c, "title", "title", r); var o = (e = bt("link", r)) === null || e === void 0 ? void 0 : e.attribs.href; o && (c.link = o), ee(c, "description", "subtitle", r); var f = me("updated", r); return f && (c.updated = new Date(f)), ee(c, "author", "email", r, !0), c; }
-function za(t) { var e, r; var c = (r = (e = bt("channel", t.children)) === null || e === void 0 ? void 0 : e.children) !== null && r !== void 0 ? r : [], o = { type: t.name.substr(0, 3), id: "", items: Se("item", t.children).map(function (m) { var w = m.children, y = { media: ir(w) }; ee(y, "id", "guid", w), ee(y, "title", "title", w), ee(y, "link", "link", w), ee(y, "description", "description", w); var A = me("pubDate", w) || me("dc:date", w); return A && (y.pubDate = new Date(A)), y; }) }; ee(o, "title", "title", c), ee(o, "link", "link", c), ee(o, "description", "description", c); var f = me("lastBuildDate", c); return f && (o.updated = new Date(f)), ee(o, "author", "managingEditor", c, !0), o; }
+function Va(t) { var e; var r = t.children, c = { type: "atom", items: Se("entry", r).map(function (b) { var w; var y = b.children, A = { media: ir(y) }; ee(A, "id", "id", y), ee(A, "title", "title", y); var T = (w = bt("link", y)) === null || w === void 0 ? void 0 : w.attribs.href; T && (A.link = T); var L = me("summary", y) || me("content", y); L && (A.description = L); var q = me("updated", y); return q && (A.pubDate = new Date(q)), A; }) }; ee(c, "id", "id", r), ee(c, "title", "title", r); var o = (e = bt("link", r)) === null || e === void 0 ? void 0 : e.attribs.href; o && (c.link = o), ee(c, "description", "subtitle", r); var f = me("updated", r); return f && (c.updated = new Date(f)), ee(c, "author", "email", r, !0), c; }
+function za(t) { var e, r; var c = (r = (e = bt("channel", t.children)) === null || e === void 0 ? void 0 : e.children) !== null && r !== void 0 ? r : [], o = { type: t.name.substr(0, 3), id: "", items: Se("item", t.children).map(function (b) { var w = b.children, y = { media: ir(w) }; ee(y, "id", "guid", w), ee(y, "title", "title", w), ee(y, "link", "link", w), ee(y, "description", "description", w); var A = me("pubDate", w) || me("dc:date", w); return A && (y.pubDate = new Date(A)), y; }) }; ee(o, "title", "title", c), ee(o, "link", "link", c), ee(o, "description", "description", c); var f = me("lastBuildDate", c); return f && (o.updated = new Date(f)), ee(o, "author", "managingEditor", c, !0), o; }
 var Ha = ["url", "type", "lang"], Ra = ["fileSize", "bitrate", "framerate", "samplingrate", "channels", "duration", "height", "width"];
 function ir(t) { return Se("media:content", t).map(function (e) {
     var e_4, _b, e_5, _c;
@@ -1012,20 +1012,20 @@ function su(t) { return t === 39 || t === 34; }
 function or(t) { return t === 32 || t === 9 || t === 10 || t === 12 || t === 13; }
 function xe(t) { var e = [], r = fr(e, "".concat(t), 0); if (r < t.length)
     throw new Error("Unmatched selector: ".concat(t.slice(r))); return e; }
-function fr(t, e, r) { var c = []; function o(_) { var N = e.slice(r + _).match(sr); if (!N)
-    throw new Error("Expected name, found ".concat(e.slice(r))); var _b = __read(N, 1), O = _b[0]; return r += _ + O.length, Xe(O); } function f(_) { for (r += _; r < e.length && or(e.charCodeAt(r));)
-    r++; } function m() { r += 1; var _ = r, N = 1; for (; N > 0 && r < e.length; r++)
+function fr(t, e, r) { var c = []; function o(q) { var N = e.slice(r + q).match(sr); if (!N)
+    throw new Error("Expected name, found ".concat(e.slice(r))); var _b = __read(N, 1), O = _b[0]; return r += q + O.length, Xe(O); } function f(q) { for (r += q; r < e.length && or(e.charCodeAt(r));)
+    r++; } function b() { r += 1; var q = r, N = 1; for (; N > 0 && r < e.length; r++)
     e.charCodeAt(r) === 40 && !w(r) ? N++ : e.charCodeAt(r) === 41 && !w(r) && N--; if (N)
-    throw new Error("Parenthesis not matched"); return Xe(e.slice(_, r - 1)); } function w(_) { var N = 0; for (; e.charCodeAt(--_) === 92;)
+    throw new Error("Parenthesis not matched"); return Xe(e.slice(q, r - 1)); } function w(q) { var N = 0; for (; e.charCodeAt(--q) === 92;)
     N++; return (N & 1) === 1; } function y() { if (c.length > 0 && Ae(c[c.length - 1]))
-    throw new Error("Did not expect successive traversals."); } function A(_) { if (c.length > 0 && c[c.length - 1].type === D.Descendant) {
-    c[c.length - 1].type = _;
+    throw new Error("Did not expect successive traversals."); } function A(q) { if (c.length > 0 && c[c.length - 1].type === D.Descendant) {
+    c[c.length - 1].type = q;
     return;
-} y(), c.push({ type: _ }); } function T(_, N) { c.push({ type: D.Attribute, name: _, action: N, value: o(1), namespace: null, ignoreCase: "quirks" }); } function L() { if (c.length && c[c.length - 1].type === D.Descendant && c.pop(), c.length === 0)
+} y(), c.push({ type: q }); } function T(q, N) { c.push({ type: D.Attribute, name: q, action: N, value: o(1), namespace: null, ignoreCase: "quirks" }); } function L() { if (c.length && c[c.length - 1].type === D.Descendant && c.pop(), c.length === 0)
     throw new Error("Empty sub-selector"); t.push(c); } if (f(0), e.length === r)
     return r; e: for (; r < e.length;) {
-    var _ = e.charCodeAt(r);
-    switch (_) {
+    var q = e.charCodeAt(r);
+    switch (q) {
         case 32:
         case 9:
         case 10:
@@ -1099,7 +1099,7 @@ function fr(t, e, r) { var c = []; function o(_) { var N = e.slice(r + _).match(
         }
         case 58: {
             if (e.charCodeAt(r + 1) === 58) {
-                c.push({ type: D.PseudoElement, name: o(2).toLowerCase(), data: e.charCodeAt(r) === 40 ? m() : null });
+                c.push({ type: D.PseudoElement, name: o(2).toLowerCase(), data: e.charCodeAt(r) === 40 ? b() : null });
                 continue;
             }
             var N = o(1).toLowerCase(), O = null;
@@ -1112,7 +1112,7 @@ function fr(t, e, r) { var c = []; function o(_) { var N = e.slice(r + _).match(
                     r += 1;
                 }
                 else {
-                    if (O = m(), Ka.has(N)) {
+                    if (O = b(), Ka.has(N)) {
                         var U = O.charCodeAt(0);
                         U === O.charCodeAt(O.length - 1) && su(U) && (O = O.slice(1, -1));
                     }
@@ -1134,9 +1134,9 @@ function fr(t, e, r) { var c = []; function o(_) { var N = e.slice(r + _).match(
                 break;
             }
             var N = null, O = void 0;
-            if (_ === 42)
+            if (q === 42)
                 r += 1, O = "*";
-            else if (_ === 124) {
+            else if (q === 124) {
                 if (O = "", e.charCodeAt(r + 1) === 124) {
                     A(D.ColumnCombinator), f(2);
                     break;
@@ -1168,21 +1168,21 @@ var Qe = ye(ve(), 1), Qa = /[-[\]{}()*+?.,\\^$|#\s]/g;
 function pr(t) { return t.replace(Qa, "\\$&"); }
 var Ya = new Set(["accept", "accept-charset", "align", "alink", "axis", "bgcolor", "charset", "checked", "clear", "codetype", "color", "compact", "declare", "defer", "dir", "direction", "disabled", "enctype", "face", "frame", "hreflang", "http-equiv", "lang", "language", "link", "media", "method", "multiple", "nohref", "noresize", "noshade", "nowrap", "readonly", "rel", "rev", "rules", "scope", "scrolling", "selected", "shape", "target", "text", "type", "valign", "valuetype", "vlink"]);
 function ke(t, e) { return typeof t.ignoreCase == "boolean" ? t.ignoreCase : t.ignoreCase === "quirks" ? !!e.quirksMode : !e.xmlMode && Ya.has(t.name); }
-var gr = { equals: function (t, e, r) { var c = r.adapter, o = e.name, f = e.value; return ke(e, r) ? (f = f.toLowerCase(), function (m) { var w = c.getAttributeValue(m, o); return w != null && w.length === f.length && w.toLowerCase() === f && t(m); }) : function (m) { return c.getAttributeValue(m, o) === f && t(m); }; }, hyphen: function (t, e, r) { var c = r.adapter, o = e.name, f = e.value, m = f.length; return ke(e, r) ? (f = f.toLowerCase(), function (y) { var A = c.getAttributeValue(y, o); return A != null && (A.length === m || A.charAt(m) === "-") && A.substr(0, m).toLowerCase() === f && t(y); }) : function (y) { var A = c.getAttributeValue(y, o); return A != null && (A.length === m || A.charAt(m) === "-") && A.substr(0, m) === f && t(y); }; }, element: function (t, e, r) { var c = r.adapter, o = e.name, f = e.value; if (/\s/.test(f))
-        return Qe.default.falseFunc; var m = new RegExp("(?:^|\\s)".concat(pr(f), "(?:$|\\s)"), ke(e, r) ? "i" : ""); return function (y) { var A = c.getAttributeValue(y, o); return A != null && A.length >= f.length && m.test(A) && t(y); }; }, exists: function (t, _b, _c) {
+var gr = { equals: function (t, e, r) { var c = r.adapter, o = e.name, f = e.value; return ke(e, r) ? (f = f.toLowerCase(), function (b) { var w = c.getAttributeValue(b, o); return w != null && w.length === f.length && w.toLowerCase() === f && t(b); }) : function (b) { return c.getAttributeValue(b, o) === f && t(b); }; }, hyphen: function (t, e, r) { var c = r.adapter, o = e.name, f = e.value, b = f.length; return ke(e, r) ? (f = f.toLowerCase(), function (y) { var A = c.getAttributeValue(y, o); return A != null && (A.length === b || A.charAt(b) === "-") && A.substr(0, b).toLowerCase() === f && t(y); }) : function (y) { var A = c.getAttributeValue(y, o); return A != null && (A.length === b || A.charAt(b) === "-") && A.substr(0, b) === f && t(y); }; }, element: function (t, e, r) { var c = r.adapter, o = e.name, f = e.value; if (/\s/.test(f))
+        return Qe.default.falseFunc; var b = new RegExp("(?:^|\\s)".concat(pr(f), "(?:$|\\s)"), ke(e, r) ? "i" : ""); return function (y) { var A = c.getAttributeValue(y, o); return A != null && A.length >= f.length && b.test(A) && t(y); }; }, exists: function (t, _b, _c) {
         var e = _b.name;
         var r = _c.adapter;
         return function (c) { return r.hasAttrib(c, e) && t(c); };
-    }, start: function (t, e, r) { var c = r.adapter, o = e.name, f = e.value, m = f.length; return m === 0 ? Qe.default.falseFunc : ke(e, r) ? (f = f.toLowerCase(), function (w) { var y = c.getAttributeValue(w, o); return y != null && y.length >= m && y.substr(0, m).toLowerCase() === f && t(w); }) : function (w) { var y; return !!(!((y = c.getAttributeValue(w, o)) === null || y === void 0) && y.startsWith(f)) && t(w); }; }, end: function (t, e, r) { var c = r.adapter, o = e.name, f = e.value, m = -f.length; return m === 0 ? Qe.default.falseFunc : ke(e, r) ? (f = f.toLowerCase(), function (w) { var y; return ((y = c.getAttributeValue(w, o)) === null || y === void 0 ? void 0 : y.substr(m).toLowerCase()) === f && t(w); }) : function (w) { var y; return !!(!((y = c.getAttributeValue(w, o)) === null || y === void 0) && y.endsWith(f)) && t(w); }; }, any: function (t, e, r) { var c = r.adapter, o = e.name, f = e.value; if (f === "")
+    }, start: function (t, e, r) { var c = r.adapter, o = e.name, f = e.value, b = f.length; return b === 0 ? Qe.default.falseFunc : ke(e, r) ? (f = f.toLowerCase(), function (w) { var y = c.getAttributeValue(w, o); return y != null && y.length >= b && y.substr(0, b).toLowerCase() === f && t(w); }) : function (w) { var y; return !!(!((y = c.getAttributeValue(w, o)) === null || y === void 0) && y.startsWith(f)) && t(w); }; }, end: function (t, e, r) { var c = r.adapter, o = e.name, f = e.value, b = -f.length; return b === 0 ? Qe.default.falseFunc : ke(e, r) ? (f = f.toLowerCase(), function (w) { var y; return ((y = c.getAttributeValue(w, o)) === null || y === void 0 ? void 0 : y.substr(b).toLowerCase()) === f && t(w); }) : function (w) { var y; return !!(!((y = c.getAttributeValue(w, o)) === null || y === void 0) && y.endsWith(f)) && t(w); }; }, any: function (t, e, r) { var c = r.adapter, o = e.name, f = e.value; if (f === "")
         return Qe.default.falseFunc; if (ke(e, r)) {
-        var m_1 = new RegExp(pr(f), "i");
-        return function (y) { var A = c.getAttributeValue(y, o); return A != null && A.length >= f.length && m_1.test(A) && t(y); };
-    } return function (m) { var w; return !!(!((w = c.getAttributeValue(m, o)) === null || w === void 0) && w.includes(f)) && t(m); }; }, not: function (t, e, r) { var c = r.adapter, o = e.name, f = e.value; return f === "" ? function (m) { return !!c.getAttributeValue(m, o) && t(m); } : ke(e, r) ? (f = f.toLowerCase(), function (m) { var w = c.getAttributeValue(m, o); return (w == null || w.length !== f.length || w.toLowerCase() !== f) && t(m); }) : function (m) { return c.getAttributeValue(m, o) !== f && t(m); }; } };
+        var b_1 = new RegExp(pr(f), "i");
+        return function (y) { var A = c.getAttributeValue(y, o); return A != null && A.length >= f.length && b_1.test(A) && t(y); };
+    } return function (b) { var w; return !!(!((w = c.getAttributeValue(b, o)) === null || w === void 0) && w.includes(f)) && t(b); }; }, not: function (t, e, r) { var c = r.adapter, o = e.name, f = e.value; return f === "" ? function (b) { return !!c.getAttributeValue(b, o) && t(b); } : ke(e, r) ? (f = f.toLowerCase(), function (b) { var w = c.getAttributeValue(b, o); return (w == null || w.length !== f.length || w.toLowerCase() !== f) && t(b); }) : function (b) { return c.getAttributeValue(b, o) !== f && t(b); }; } };
 var en = new Set([9, 10, 12, 13, 32]), br = 48, tn = 57;
 function mr(t) { if (t = t.trim().toLowerCase(), t === "even")
     return [2, 0]; if (t === "odd")
-    return [2, 1]; var e = 0, r = 0, c = f(), o = m(); if (e < t.length && t.charAt(e) === "n" && (e++, r = c * (o != null ? o : 1), w(), e < t.length ? (c = f(), w(), o = m()) : c = o = 0), o === null || e < t.length)
-    throw new Error("n-th rule couldn't be parsed ('".concat(t, "')")); return [r, c * o]; function f() { return t.charAt(e) === "-" ? (e++, -1) : (t.charAt(e) === "+" && e++, 1); } function m() { var y = e, A = 0; for (; e < t.length && t.charCodeAt(e) >= br && t.charCodeAt(e) <= tn;)
+    return [2, 1]; var e = 0, r = 0, c = f(), o = b(); if (e < t.length && t.charAt(e) === "n" && (e++, r = c * (o != null ? o : 1), w(), e < t.length ? (c = f(), w(), o = b()) : c = o = 0), o === null || e < t.length)
+    throw new Error("n-th rule couldn't be parsed ('".concat(t, "')")); return [r, c * o]; function f() { return t.charAt(e) === "-" ? (e++, -1) : (t.charAt(e) === "+" && e++, 1); } function b() { var y = e, A = 0; for (; e < t.length && t.charCodeAt(e) >= br && t.charCodeAt(e) <= tn;)
     A = A * 10 + (t.charCodeAt(e) - br), e++; return e === y ? null : A; } function w() { for (; e < t.length && en.has(t.charCodeAt(e));)
     e++; } }
 var fu = ye(ve(), 1);
@@ -1204,31 +1204,31 @@ var Be = { contains: function (t, e, _b) {
     }, "nth-child": function (t, e, _b) {
         var r = _b.adapter, c = _b.equals;
         var o = Me(e);
-        return o === te.default.falseFunc ? te.default.falseFunc : o === te.default.trueFunc ? mt(t, r) : function (m) { var w = r.getSiblings(m), y = 0; for (var A = 0; A < w.length && !c(m, w[A]); A++)
-            r.isTag(w[A]) && y++; return o(y) && t(m); };
+        return o === te.default.falseFunc ? te.default.falseFunc : o === te.default.trueFunc ? mt(t, r) : function (b) { var w = r.getSiblings(b), y = 0; for (var A = 0; A < w.length && !c(b, w[A]); A++)
+            r.isTag(w[A]) && y++; return o(y) && t(b); };
     }, "nth-last-child": function (t, e, _b) {
         var r = _b.adapter, c = _b.equals;
         var o = Me(e);
-        return o === te.default.falseFunc ? te.default.falseFunc : o === te.default.trueFunc ? mt(t, r) : function (m) { var w = r.getSiblings(m), y = 0; for (var A = w.length - 1; A >= 0 && !c(m, w[A]); A--)
-            r.isTag(w[A]) && y++; return o(y) && t(m); };
+        return o === te.default.falseFunc ? te.default.falseFunc : o === te.default.trueFunc ? mt(t, r) : function (b) { var w = r.getSiblings(b), y = 0; for (var A = w.length - 1; A >= 0 && !c(b, w[A]); A--)
+            r.isTag(w[A]) && y++; return o(y) && t(b); };
     }, "nth-of-type": function (t, e, _b) {
         var r = _b.adapter, c = _b.equals;
         var o = Me(e);
-        return o === te.default.falseFunc ? te.default.falseFunc : o === te.default.trueFunc ? mt(t, r) : function (m) { var w = r.getSiblings(m), y = 0; for (var A = 0; A < w.length; A++) {
+        return o === te.default.falseFunc ? te.default.falseFunc : o === te.default.trueFunc ? mt(t, r) : function (b) { var w = r.getSiblings(b), y = 0; for (var A = 0; A < w.length; A++) {
             var T = w[A];
-            if (c(m, T))
+            if (c(b, T))
                 break;
-            r.isTag(T) && r.getName(T) === r.getName(m) && y++;
-        } return o(y) && t(m); };
+            r.isTag(T) && r.getName(T) === r.getName(b) && y++;
+        } return o(y) && t(b); };
     }, "nth-last-of-type": function (t, e, _b) {
         var r = _b.adapter, c = _b.equals;
         var o = Me(e);
-        return o === te.default.falseFunc ? te.default.falseFunc : o === te.default.trueFunc ? mt(t, r) : function (m) { var w = r.getSiblings(m), y = 0; for (var A = w.length - 1; A >= 0; A--) {
+        return o === te.default.falseFunc ? te.default.falseFunc : o === te.default.trueFunc ? mt(t, r) : function (b) { var w = r.getSiblings(b), y = 0; for (var A = w.length - 1; A >= 0; A--) {
             var T = w[A];
-            if (c(m, T))
+            if (c(b, T))
                 break;
-            r.isTag(T) && r.getName(T) === r.getName(m) && y++;
-        } return o(y) && t(m); };
+            r.isTag(T) && r.getName(T) === r.getName(b) && y++;
+        } return o(y) && t(b); };
     }, root: function (t, e, _b) {
         var r = _b.adapter;
         return function (c) { var o = r.getParent(c); return (o == null || !r.isTag(o)) && t(c); };
@@ -1261,10 +1261,10 @@ var Ye = { empty: function (t, _b) {
         var e = _b.adapter, r = _b.equals;
         var c = e.getSiblings(t), o = e.getName(t);
         for (var f = 0; f < c.length; f++) {
-            var m = c[f];
-            if (r(t, m))
+            var b = c[f];
+            if (r(t, b))
                 return !0;
-            if (e.isTag(m) && e.getName(m) === o)
+            if (e.isTag(b) && e.getName(b) === o)
                 break;
         }
         return !1;
@@ -1272,10 +1272,10 @@ var Ye = { empty: function (t, _b) {
         var e = _b.adapter, r = _b.equals;
         var c = e.getSiblings(t), o = e.getName(t);
         for (var f = c.length - 1; f >= 0; f--) {
-            var m = c[f];
-            if (r(t, m))
+            var b = c[f];
+            if (r(t, b))
                 return !0;
-            if (e.isTag(m) && e.getName(m) === o)
+            if (e.isTag(b) && e.getName(b) === o)
                 break;
         }
         return !1;
@@ -1300,29 +1300,29 @@ function bu(t, e) { return t === ne.default.falseFunc ? ne.default.falseFunc : f
 function mu(t, e) { var r = e.getSiblings(t); if (r.length <= 1)
     return []; var c = r.indexOf(t); return c < 0 || c === r.length - 1 ? [] : r.slice(c + 1).filter(e.isTag); }
 function pu(t) { return { xmlMode: !!t.xmlMode, lowerCaseAttributeNames: !!t.lowerCaseAttributeNames, lowerCaseTags: !!t.lowerCaseTags, quirksMode: !!t.quirksMode, cacheResults: !!t.cacheResults, pseudos: t.pseudos, adapter: t.adapter, equals: t.equals }; }
-var hu = function (t, e, r, c, o) { var f = o(e, pu(r), c); return f === ne.default.trueFunc ? t : f === ne.default.falseFunc ? ne.default.falseFunc : function (m) { return f(m) && t(m); }; }, vt = { is: hu, matches: hu, where: hu, not: function (t, e, r, c, o) { var f = o(e, pu(r), c); return f === ne.default.falseFunc ? t : f === ne.default.trueFunc ? ne.default.falseFunc : function (m) { return !f(m) && t(m); }; }, has: function (t, e, r, c, o) { var f = r.adapter, m = pu(r); m.relativeSelector = !0; var w = e.some(function (T) { return T.some(Ze); }) ? [gu] : void 0, y = o(e, m, w); if (y === ne.default.falseFunc)
+var hu = function (t, e, r, c, o) { var f = o(e, pu(r), c); return f === ne.default.trueFunc ? t : f === ne.default.falseFunc ? ne.default.falseFunc : function (b) { return f(b) && t(b); }; }, vt = { is: hu, matches: hu, where: hu, not: function (t, e, r, c, o) { var f = o(e, pu(r), c); return f === ne.default.falseFunc ? t : f === ne.default.trueFunc ? ne.default.falseFunc : function (b) { return !f(b) && t(b); }; }, has: function (t, e, r, c, o) { var f = r.adapter, b = pu(r); b.relativeSelector = !0; var w = e.some(function (T) { return T.some(Ze); }) ? [gu] : void 0, y = o(e, b, w); if (y === ne.default.falseFunc)
         return ne.default.falseFunc; var A = bu(y, f); if (w && y !== ne.default.trueFunc) {
         var _b = y.shouldTestNextSiblings, T_1 = _b === void 0 ? !1 : _b;
         return function (L) { if (!t(L))
-            return !1; w[0] = L; var _ = f.getChildren(L), N = T_1 ? __spreadArray(__spreadArray([], __read(_), false), __read(mu(L, f)), false) : _; return f.existsOne(A, N); };
+            return !1; w[0] = L; var q = f.getChildren(L), N = T_1 ? __spreadArray(__spreadArray([], __read(q), false), __read(mu(L, f)), false) : q; return f.existsOne(A, N); };
     } return function (T) { return t(T) && f.existsOne(A, f.getChildren(T)); }; } };
-function vr(t, e, r, c, o) { var f; var m = e.name, w = e.data; if (Array.isArray(w)) {
-    if (!(m in vt))
-        throw new Error("Unknown pseudo-class :".concat(m, "(").concat(w, ")"));
-    return vt[m](t, w, r, c, o);
-} var y = (f = r.pseudos) === null || f === void 0 ? void 0 : f[m], A = typeof y == "string" ? y : xt[m]; if (typeof A == "string") {
+function vr(t, e, r, c, o) { var f; var b = e.name, w = e.data; if (Array.isArray(w)) {
+    if (!(b in vt))
+        throw new Error("Unknown pseudo-class :".concat(b, "(").concat(w, ")"));
+    return vt[b](t, w, r, c, o);
+} var y = (f = r.pseudos) === null || f === void 0 ? void 0 : f[b], A = typeof y == "string" ? y : xt[b]; if (typeof A == "string") {
     if (w != null)
-        throw new Error("Pseudo ".concat(m, " doesn't have any arguments"));
+        throw new Error("Pseudo ".concat(b, " doesn't have any arguments"));
     var T = xe(A);
     return vt.is(t, T, r, c, o);
 } if (typeof y == "function")
-    return du(y, m, w, 1), function (T) { return y(T, w) && t(T); }; if (m in Be)
-    return Be[m](t, w, r, c); if (m in Ye) {
-    var T_2 = Ye[m];
-    return du(T_2, m, w, 2), function (L) { return T_2(L, r, w) && t(L); };
-} throw new Error("Unknown pseudo-class :".concat(m)); }
+    return du(y, b, w, 1), function (T) { return y(T, w) && t(T); }; if (b in Be)
+    return Be[b](t, w, r, c); if (b in Ye) {
+    var T_2 = Ye[b];
+    return du(T_2, b, w, 2), function (L) { return T_2(L, r, w) && t(L); };
+} throw new Error("Unknown pseudo-class :".concat(b)); }
 function xu(t, e) { var r = e.getParent(t); return r && e.isTag(r) ? r : null; }
-function wr(t, e, r, c, o) { var f = r.adapter, m = r.equals; switch (e.type) {
+function wr(t, e, r, c, o) { var f = r.adapter, b = r.equals; switch (e.type) {
     case D.PseudoElement: throw new Error("Pseudo-elements are not supported by css-select");
     case D.ColumnCombinator: throw new Error("Column combinators are not yet supported by css-select");
     case D.Attribute: {
@@ -1358,16 +1358,16 @@ function wr(t, e, r, c, o) { var f = r.adapter, m = r.equals; switch (e.type) {
     case D.Child: return function (y) { var A = f.getParent(y); return A != null && f.isTag(A) && t(A); };
     case D.Sibling: return function (y) { var A = f.getSiblings(y); for (var T = 0; T < A.length; T++) {
         var L = A[T];
-        if (m(y, L))
+        if (b(y, L))
             break;
         if (f.isTag(L) && t(L))
             return !0;
     } return !1; };
     case D.Adjacent: return f.prevElementSibling ? function (y) { var A = f.prevElementSibling(y); return A != null && t(A); } : function (y) { var A = f.getSiblings(y), T; for (var L = 0; L < A.length; L++) {
-        var _ = A[L];
-        if (m(y, _))
+        var q = A[L];
+        if (b(y, q))
             break;
-        f.isTag(_) && (T = _);
+        f.isTag(q) && (T = q);
     } return !!T && t(T); };
     case D.Universal: {
         if (e.namespace != null && e.namespace !== "*")
@@ -1405,17 +1405,17 @@ function nn(t, _b, r) {
 function yt(t, e, r) { var c; t.forEach(ou), r = (c = e.context) !== null && c !== void 0 ? c : r; var o = Array.isArray(r), f = r && (Array.isArray(r) ? r : [r]); if (e.relativeSelector !== !1)
     nn(t, e, f);
 else if (t.some(function (y) { return y.length > 0 && Ze(y[0]); }))
-    throw new Error("Relative selectors are not allowed when the `relativeSelector` option is disabled"); var m = !1, w = t.map(function (y) { if (y.length >= 2) {
+    throw new Error("Relative selectors are not allowed when the `relativeSelector` option is disabled"); var b = !1, w = t.map(function (y) { if (y.length >= 2) {
     var _b = __read(y, 2), A = _b[0], T = _b[1];
-    A.type !== D.Pseudo || A.name !== "scope" || (o && T.type === D.Descendant ? y[1] = rn : (T.type === D.Adjacent || T.type === D.Sibling) && (m = !0));
-} return cn(y, e, f); }).reduce(sn, he.default.falseFunc); return w.shouldTestNextSiblings = m, w; }
+    A.type !== D.Pseudo || A.name !== "scope" || (o && T.type === D.Descendant ? y[1] = rn : (T.type === D.Adjacent || T.type === D.Sibling) && (b = !0));
+} return cn(y, e, f); }).reduce(sn, he.default.falseFunc); return w.shouldTestNextSiblings = b, w; }
 function cn(t, e, r) { var c; return t.reduce(function (o, f) { return o === he.default.falseFunc ? he.default.falseFunc : wr(o, f, e, r, yt); }, (c = e.rootFunc) !== null && c !== void 0 ? c : he.default.trueFunc); }
 function sn(t, e) { return e === he.default.falseFunc || t === he.default.trueFunc ? t : t === he.default.falseFunc || e === he.default.trueFunc ? e : function (c) { return t(c) || e(c); }; }
 var Ar = function (t, e) { return t === e; }, on = { adapter: oe, equals: Ar };
 function kr(t) { var e, r, c, o; var f = t != null ? t : on; return (e = f.adapter) !== null && e !== void 0 || (f.adapter = oe), (r = f.equals) !== null && r !== void 0 || (f.equals = (o = (c = f.adapter) === null || c === void 0 ? void 0 : c.equals) !== null && o !== void 0 ? o : Ar), f; }
 function wu(t) { return function (r, c, o) { var f = kr(c); return t(r, f, o); }; }
 var L0 = wu(yr), O0 = wu(wt), St = wu(yt);
-function Er(t) { return function (r, c, o) { var f = kr(o); typeof r != "function" && (r = wt(r, f, c)); var m = At(c, f.adapter, r.shouldTestNextSiblings); return t(r, m, f); }; }
+function Er(t) { return function (r, c, o) { var f = kr(o); typeof r != "function" && (r = wt(r, f, c)); var b = At(c, f.adapter, r.shouldTestNextSiblings); return t(r, b, f); }; }
 function At(t, e, r) {
     if (r === void 0) { r = !1; }
     return r && (t = fn(t, e)), Array.isArray(t) ? e.removeSubsets(t) : e.getChildren(t);
@@ -1478,21 +1478,21 @@ function gn(t, e, r, c) { var o = typeof r == "string" ? parseInt(r, 10) : NaN; 
     case "nth":
     case "eq": return isFinite(o) && Math.abs(o) < e.length ? [o < 0 ? e[e.length + o] : e[o]] : [];
     case "gt": return isFinite(o) ? e.slice(o + 1) : [];
-    case "even": return e.filter(function (f, m) { return m % 2 === 0; });
-    case "odd": return e.filter(function (f, m) { return m % 2 === 1; });
+    case "even": return e.filter(function (f, b) { return b % 2 === 0; });
+    case "odd": return e.filter(function (f, b) { return b % 2 === 1; });
     case "not": {
         var f_1 = new Set(bn(r, e, c));
-        return e.filter(function (m) { return !f_1.has(m); });
+        return e.filter(function (b) { return !f_1.has(b); });
     }
 } }
 function bn(t, e, r) { if (e.length === 0)
     return []; var _b = __read(kt(t), 2), c = _b[0], o = _b[1], f; if (c.length) {
-    var m = Su(e, c, r);
+    var b = Su(e, c, r);
     if (o.length === 0)
-        return m;
-    m.length && (f = new Set(m));
-} for (var m = 0; m < o.length && (f == null ? void 0 : f.size) !== e.length; m++) {
-    var w = o[m];
+        return b;
+    b.length && (f = new Set(b));
+} for (var b = 0; b < o.length && (f == null ? void 0 : f.size) !== e.length; b++) {
+    var w = o[b];
     if ((f ? e.filter(function (T) { return B(T) && !f.has(T); }) : e).length === 0)
         break;
     var A = qr(w, e, r);
@@ -1500,11 +1500,11 @@ function bn(t, e, r) { if (e.length === 0)
         if (f)
             A.forEach(function (T) { return f.add(T); });
         else {
-            if (m === o.length - 1)
+            if (b === o.length - 1)
                 return A;
             f = new Set(A);
         }
-} return typeof f != "undefined" ? f.size === e.length ? e : e.filter(function (m) { return f.has(m); }) : []; }
+} return typeof f != "undefined" ? f.size === e.length ? e : e.filter(function (b) { return f.has(b); }) : []; }
 function qr(t, e, r) { var c; if (t.some(Ae)) {
     var o = (c = r.root) !== null && c !== void 0 ? c : Cr(e[0]), f = we(ie({}, r), { context: e, relativeSelector: !1 });
     return t.push(hn), Tt(o, t, f, !0, e.length);
@@ -1514,20 +1514,20 @@ function ku(t, e, r, c) {
     if (c === void 0) { c = 1 / 0; }
     if (typeof t == "function")
         return _r(e, t);
-    var _b = __read(kt(xe(t)), 2), o = _b[0], f = _b[1], m = f.map(function (w) { return Tt(e, w, r, !0, c); });
-    return o.length && m.push(yu(e, o, r, c)), m.length === 0 ? [] : m.length === 1 ? m[0] : iu(m.reduce(function (w, y) { return __spreadArray(__spreadArray([], __read(w), false), __read(y), false); }));
+    var _b = __read(kt(xe(t)), 2), o = _b[0], f = _b[1], b = f.map(function (w) { return Tt(e, w, r, !0, c); });
+    return o.length && b.push(yu(e, o, r, c)), b.length === 0 ? [] : b.length === 1 ? b[0] : iu(b.reduce(function (w, y) { return __spreadArray(__spreadArray([], __read(w), false), __read(y), false); }));
 }
-function Tt(t, e, r, c, o) { var f = e.findIndex(je), m = e.slice(0, f), w = e[f], y = e.length - 1 === f ? o : 1 / 0, A = Tr(w.name, w.data, y); if (A === 0)
-    return []; var L = (m.length === 0 && !Array.isArray(t) ? lt(t).filter(B) : m.length === 0 ? (Array.isArray(t) ? t : [t]).filter(B) : c || m.some(Ae) ? yu(t, [m], r, A) : Su(t, [m], r)).slice(0, A), _ = gn(w.name, L, w.data, r); if (_.length === 0 || e.length === f + 1)
-    return _; var N = e.slice(f + 1), O = N.some(Ae); if (O) {
+function Tt(t, e, r, c, o) { var f = e.findIndex(je), b = e.slice(0, f), w = e[f], y = e.length - 1 === f ? o : 1 / 0, A = Tr(w.name, w.data, y); if (A === 0)
+    return []; var L = (b.length === 0 && !Array.isArray(t) ? lt(t).filter(B) : b.length === 0 ? (Array.isArray(t) ? t : [t]).filter(B) : c || b.some(Ae) ? yu(t, [b], r, A) : Su(t, [b], r)).slice(0, A), q = gn(w.name, L, w.data, r); if (q.length === 0 || e.length === f + 1)
+    return q; var N = e.slice(f + 1), O = N.some(Ae); if (O) {
     if (Ae(N[0])) {
         var U = N[0].type;
-        (U === D.Sibling || U === D.Adjacent) && (_ = At(_, oe, !0)), N.unshift(dn);
+        (U === D.Sibling || U === D.Adjacent) && (q = At(q, oe, !0)), N.unshift(dn);
     }
-    r = we(ie({}, r), { relativeSelector: !1, rootFunc: function (U) { return _.includes(U); } });
+    r = we(ie({}, r), { relativeSelector: !1, rootFunc: function (U) { return q.includes(U); } });
 }
 else
-    r.rootFunc && r.rootFunc !== Et.trueFunc && (r = we(ie({}, r), { rootFunc: Et.trueFunc })); return N.some(je) ? Tt(_, N, r, !1, o) : O ? yu(_, [N], r, o) : Su(_, [N], r); }
+    r.rootFunc && r.rootFunc !== Et.trueFunc && (r = we(ie({}, r), { rootFunc: Et.trueFunc })); return N.some(je) ? Tt(q, N, r, !1, o) : O ? yu(q, [N], r, o) : Su(q, [N], r); }
 function yu(t, e, r, c) { var o = St(e, r, t); return _r(t, o, c); }
 function _r(t, e, r) {
     if (r === void 0) { r = 1 / 0; }
@@ -1543,10 +1543,10 @@ function Eu(t) { var e = [], r = t.split("/"); for (var c = 0; c < r.length; c++
 } return e.join("/"); }
 function qt(t, e) { e = e == null ? "" : String(e).trim(); var r = Nr(e); if (r.scheme || !t)
     return e; var c = Nr(String(t)); if (!c.scheme)
-    return e; var o = c.auth, f, m; if (r.auth !== void 0)
-    o = r.auth, f = Eu(r.path), m = r.query;
+    return e; var o = c.auth, f, b; if (r.auth !== void 0)
+    o = r.auth, f = Eu(r.path), b = r.query;
 else if (!r.path)
-    f = c.path, m = r.query !== void 0 ? r.query : c.query;
+    f = c.path, b = r.query !== void 0 ? r.query : c.query;
 else {
     if (r.path.charAt(0) === "/")
         f = Eu(r.path);
@@ -1554,13 +1554,13 @@ else {
         var w = o !== void 0 && !c.path ? "/" : c.path.slice(0, c.path.lastIndexOf("/") + 1);
         f = Eu(w + r.path);
     }
-    m = r.query;
-} return o !== void 0 && f.charAt(0) !== "/" && (f = "/" + f), c.scheme + ":" + (o !== void 0 ? "//" + o : "") + f + (m !== void 0 ? "?" + m : "") + (r.frag !== void 0 ? "#" + r.frag : ""); }
+    b = r.query;
+} return o !== void 0 && f.charAt(0) !== "/" && (f = "/" + f), c.scheme + ":" + (o !== void 0 ? "//" + o : "") + f + (b !== void 0 ? "?" + b : "") + (r.frag !== void 0 ? "#" + r.frag : ""); }
 var Ct = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 function Dr(t) { if (typeof btoa == "function")
     return btoa(t); var e = ""; for (var r = 0; r < t.length; r += 3) {
-    var c = t.charCodeAt(r), o = t.charCodeAt(r + 1), f = t.charCodeAt(r + 2), m = c << 16 | (o || 0) << 8 | (f || 0);
-    e += Ct[m >> 18 & 63] + Ct[m >> 12 & 63] + (r + 1 < t.length ? Ct[m >> 6 & 63] : "=") + (r + 2 < t.length ? Ct[m & 63] : "=");
+    var c = t.charCodeAt(r), o = t.charCodeAt(r + 1), f = t.charCodeAt(r + 2), b = c << 16 | (o || 0) << 8 | (f || 0);
+    e += Ct[b >> 18 & 63] + Ct[b >> 12 & 63] + (r + 1 < t.length ? Ct[b >> 6 & 63] : "=") + (r + 2 < t.length ? Ct[b & 63] : "=");
 } return e; }
 var mn = function (t, e, r) { return ku(t, e, r); }, Ur = function (t, e, r) { return ku(t, e, r, 1)[0] || null; }, Pr = /[\s ]+/g, Ir = new Set(["p", "div", "br", "li", "tr", "h1", "h2", "h3", "h4", "h5", "h6", "ul", "ol", "table", "section", "article", "header", "footer", "blockquote", "pre", "dd", "dt", "hr"]), xn = { containsOwn: function (t, e) { return Cu(t).toLowerCase().includes(String(e).toLowerCase()); }, matches: function (t, e) { return Lr(e).test(Tu(t)); }, matchesOwn: function (t, e) { return Lr(e).test(Cu(t)); }, containsData: function (t, e) { return be(t).includes(e); }, "contains-ci": function (t, e) { return Tu(t).toLowerCase().includes(String(e).toLowerCase()); } };
 function Lr(t) { try {
@@ -1820,17 +1820,17 @@ function Br(t, e) { var r = new Set((e || ["p", "br", "b", "i", "em", "strong", 
     var e_17, _b, e_18, _c;
     try {
         for (var _d = __values((f.children || []).slice()), _f = _d.next(); !_f.done; _f = _d.next()) {
-            var m = _f.value;
-            if (m.type === "script" || m.type === "style" || m.type === "comment") {
-                de(m);
+            var b = _f.value;
+            if (b.type === "script" || b.type === "style" || b.type === "comment") {
+                de(b);
                 continue;
             }
-            if (m.type === "tag" && (o(m), !r.has(m.name))) {
-                var w = (m.children || []).slice();
+            if (b.type === "tag" && (o(b), !r.has(b.name))) {
+                var w = (b.children || []).slice();
                 try {
                     for (var w_3 = (e_18 = void 0, __values(w)), w_3_1 = w_3.next(); !w_3_1.done; w_3_1 = w_3.next()) {
                         var y = w_3_1.value;
-                        au(m, y);
+                        au(b, y);
                     }
                 }
                 catch (e_18_1) { e_18 = { error: e_18_1 }; }
@@ -1840,7 +1840,7 @@ function Br(t, e) { var r = new Set((e || ["p", "br", "b", "i", "em", "strong", 
                     }
                     finally { if (e_18) throw e_18.error; }
                 }
-                de(m);
+                de(b);
             }
         }
     }
@@ -1914,8 +1914,8 @@ function yn(t) {
     }
     return e;
 }
-function Vr(t, e) { var r = function (m) { return ({ getItem: function (w) { var y = t.storageGet(m + w); return y == null ? null : y; }, setItem: function (w, y) { return t.storageSet(m + w, y == null ? null : String(y)); }, removeItem: function (w) { return t.storageSet(m + w, null); }, clear: function () { return t.storageClear && t.storageClear(m); } }); }, c = "__cookie__", o = {}; o.Response = { success: function (m, w) { return ({ code: 0, data: m === void 0 ? null : m, data2: w === void 0 ? null : w }); }, error: function (m) { return ({ code: 1, data: m == null ? "" : String(m) }); } }, o.fetch = function (w, y) {
-    return __awaiter(this, void 0, void 0, function () { var A, U, T, L, _, U, N, O, U_1; return __generator(this, function (_b) {
+function Vr(t, e) { var r = function (b) { return ({ getItem: function (w) { var y = t.storageGet(b + w); return y == null ? null : y; }, setItem: function (w, y) { return t.storageSet(b + w, y == null ? null : String(y)); }, removeItem: function (w) { return t.storageSet(b + w, null); }, clear: function () { return t.storageClear && t.storageClear(b); } }); }, c = "__cookie__", o = {}; o.Response = { success: function (b, w) { return ({ code: 0, data: b === void 0 ? null : b, data2: w === void 0 ? null : w }); }, error: function (b) { return ({ code: 1, data: b == null ? "" : String(b) }); } }, o.fetch = function (w, y) {
+    return __awaiter(this, void 0, void 0, function () { var A, U, T, L, q, U, N, O, U_1; return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 y = y || {};
@@ -1929,15 +1929,15 @@ function Vr(t, e) { var r = function (m) { return ({ getItem: function (w) { var
                 }
                 T = Object.assign({ "User-Agent": et }, yn(y.headers)), L = t.storageGet(c);
                 L && !Object.keys(T).some(function (U) { return U.toLowerCase() === "cookie"; }) && (T.Cookie = L);
-                _ = y.body;
-                if (_ != null && typeof _ == "object") {
+                q = y.body;
+                if (q != null && typeof q == "object") {
                     U = Object.keys(T).find(function (Q) { return Q.toLowerCase() === "content-type"; });
-                    U && /json/i.test(T[U]) ? _ = JSON.stringify(_) : (_ = Object.entries(_).map(function (_b) {
+                    U && /json/i.test(T[U]) ? q = JSON.stringify(q) : (q = Object.entries(q).map(function (_b) {
                         var _c = __read(_b, 2), Q = _c[0], Y = _c[1];
                         return encodeURIComponent(Q) + "=" + encodeURIComponent(Y);
                     }).join("&"), U || (T["Content-Type"] = "application/x-www-form-urlencoded"));
                 }
-                N = { url: A, method: (y.method || (_ != null ? "POST" : "GET")).toUpperCase(), headers: T, body: _, timeout: y.timeout };
+                N = { url: A, method: (y.method || (q != null ? "POST" : "GET")).toUpperCase(), headers: T, body: q, timeout: y.timeout };
                 _b.label = 1;
             case 1:
                 _b.trys.push([1, 3, , 4]);
@@ -1952,17 +1952,26 @@ function Vr(t, e) { var r = function (m) { return ({ getItem: function (w) { var
             case 4: return [2, new Nu(O, N)];
         }
     }); });
-}, o.Http = { get: function (m) { return Fr(o, "GET", m); }, post: function (m) { return Fr(o, "POST", m); } }, o.Html = { parse: function (m, w) { return Dt(m, w || ""); }, clean: function (m, w) { return Br(m, w); } }, o.localStorage = r("ls:"), o.cacheStorage = r("cs:"), o.localConfig = { getItem: function (m) { return t.config(m); } }, o.localCookie = { setCookie: function (m) { t.storageSet(c, String(m).split(";")[0]); }, getCookie: function () { return t.storageGet(c) || ""; } }, o.sleep = function (m) { return new Promise(function (w) { return typeof setTimeout == "function" ? setTimeout(w, Math.min(Number(m) || 0, 1e4)) : w(); }); }; var f = function () {
-    var m = [];
+}, o.Http = { get: function (b) { return Fr(o, "GET", b); }, post: function (b) { return Fr(o, "POST", b); } }, o.Html = { parse: function (b, w) { return Dt(b, w || ""); }, clean: function (b, w) { return Br(b, w); } }, o.localStorage = r("ls:"), o.cacheStorage = r("cs:"), o.resumeStorage = { get: function (b) { try {
+        var w = t.storageGet("resume:" + b);
+        return w && parseFloat(w) || 0;
+    }
+    catch (y) {
+        return 0;
+    } }, set: function (b, w) { try {
+        t.storageSet("resume:" + b, String(Math.max(0, w || 0)));
+    }
+    catch (y) { } } }, o.localConfig = { getItem: function (b) { return t.config(b); } }, o.localCookie = { setCookie: function (b) { t.storageSet(c, String(b).split(";")[0]); }, getCookie: function () { return t.storageGet(c) || ""; } }, o.sleep = function (b) { return new Promise(function (w) { return typeof setTimeout == "function" ? setTimeout(w, Math.min(Number(b) || 0, 1e4)) : w(); }); }; var f = function () {
+    var b = [];
     for (var _i = 0; _i < arguments.length; _i++) {
-        m[_i] = arguments[_i];
+        b[_i] = arguments[_i];
     }
     try {
-        t.log && t.log(m.map(function (w) { return typeof w == "string" ? w : JSON.stringify(w); }).join(" "));
+        t.log && t.log(b.map(function (w) { return typeof w == "string" ? w : JSON.stringify(w); }).join(" "));
     }
     catch (w) { }
 }; return o.Log = { log: f }, o.console = { log: f, error: f, warn: f, info: f }, o.Console = o.console, o.log = f, o.UserAgent = { system: function () { return et; }, chrome: function () { return et; }, android: function () { return et; }, ios: function () { return "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1"; } }, o.Engine = { newBrowser: function () { throw new Error("Headless browser is not available in this app (" + (t.name || "host") + ")"); } }, o.Graphics = { createCanvas: function () { throw new Error("Graphics API is not available in this app"); }, createImage: function () { throw new Error("Graphics API is not available in this app"); } }, o.Script = { execute: function () { throw new Error("Script.execute is not available"); } }, o.Elements = fe, o.Element = Ee, o.__meta = e, o; }
-function Fr(t, e, r) { var c = { method: e, url: r, headers: {}, body: void 0, queries: void 0 }, o = { headers: function (f) { return Object.assign(c.headers, f || {}), o; }, header: function (f, m) { return c.headers[f] = m, o; }, params: function (f) { return c.queries = f, o; }, queries: function (f) { return c.queries = f, o; }, body: function (f) { return c.body = f, o; }, html: function (f) {
+function Fr(t, e, r) { var c = { method: e, url: r, headers: {}, body: void 0, queries: void 0 }, o = { headers: function (f) { return Object.assign(c.headers, f || {}), o; }, header: function (f, b) { return c.headers[f] = b, o; }, params: function (f) { return c.queries = f, o; }, queries: function (f) { return c.queries = f, o; }, body: function (f) { return c.body = f, o; }, html: function (f) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0: return [4, t.fetch(c.url, c)];
@@ -2018,7 +2027,7 @@ var z = function (t) { return t == null ? "" : String(t); }, Sn = function (t) {
             r[_i - 1] = arguments[_i];
         }
         return __awaiter(this, void 0, void 0, function () {
-            var c, o, f, m;
+            var c, o, f, b;
             var _this = this;
             return __generator(this, function (_b) {
                 switch (_b.label) {
@@ -2034,12 +2043,12 @@ var z = function (t) { return t == null ? "" : String(t); }, Sn = function (t) {
                             throw new Error(e + ": execute() not defined");
                         return [4, f.apply(void 0, __spreadArray([], __read(r.map(z)), false))];
                     case 2:
-                        m = _b.sent();
-                        if (!m)
+                        b = _b.sent();
+                        if (!b)
                             throw new Error(e + ": empty result");
-                        if (m.code !== 0)
-                            throw new Error(e + ": " + z(m.data || "error"));
-                        return [2, m];
+                        if (b.code !== 0)
+                            throw new Error(e + ": " + z(b.data || "error"));
+                        return [2, b];
                 }
             });
         });
@@ -2086,7 +2095,7 @@ var z = function (t) { return t == null ? "" : String(t); }, Sn = function (t) {
     };
     class_1.prototype.list = function (e, r, c) {
         return __awaiter(this, void 0, void 0, function () {
-            var o, f, m, w, y;
+            var o, f, b, w, y;
             var _this = this;
             return __generator(this, function (_b) {
                 switch (_b.label) {
@@ -2098,9 +2107,9 @@ var z = function (t) { return t == null ? "" : String(t); }, Sn = function (t) {
                             return [2, { items: [], hasNext: !1 }];
                         return [4, this.run(e, r, f)];
                     case 1:
-                        m = _b.sent(), w = z(m.data2);
+                        b = _b.sent(), w = z(b.data2);
                         w && (this.tokens[o + "|" + (c + 1)] = w);
-                        y = (m.data || []).filter(Boolean).map(function (A) { return ({ name: z(A.name).trim(), link: Te(A.host || _this.base + "/", A.link), cover: Te(A.host || _this.base + "/", A.cover), description: z(A.description), tag: z(A.tag) }); }).filter(function (A) { return A.name && A.link; });
+                        y = (b.data || []).filter(Boolean).map(function (A) { return ({ name: z(A.name).trim(), link: Te(A.host || _this.base + "/", A.link), cover: Te(A.host || _this.base + "/", A.cover), description: z(A.description), tag: z(A.tag) }); }).filter(function (A) { return A.name && A.link; });
                         return [2, { items: y, hasNext: !!w && y.length > 0 }];
                 }
             });
@@ -2225,7 +2234,7 @@ var z = function (t) { return t == null ? "" : String(t); }, Sn = function (t) {
                         _b, typeof r == "string" && (r = r.split(/[\n,]+/));
                         c = function (f) { return !f || /^data:|loading|lazy|blank|placeholder|spacer|\/nocover|1x1\./i.test(String(f)); }, o = function (f) { if (typeof f == "string")
                             return f; if (!f)
-                            return ""; var m = f.link || f.url || f.data, w = Array.isArray(f.fallback) ? f.fallback.filter(Boolean) : []; return c(m) && w.length ? w[0] : m; };
+                            return ""; var b = f.link || f.url || f.data, w = Array.isArray(f.fallback) ? f.fallback.filter(Boolean) : []; return c(b) && w.length ? w[0] : b; };
                         return [2, (r || []).map(function (f) { return Te(_this.base + "/", o(f)); }).filter(Boolean)];
                 }
             });
@@ -2243,7 +2252,7 @@ var z = function (t) { return t == null ? "" : String(t); }, Sn = function (t) {
     };
     class_1.prototype.videos = function (e) {
         return __awaiter(this, void 0, void 0, function () {
-            var r, o, c, r_3, r_3_1, o, f, m, m_2, m_2_1, w, f_2, e_21_1;
+            var r, f, c, o, r_3, r_3_1, f, b, w, w_4, w_4_1, y, A, T, L, b_2, e_21_1;
             var e_21, _b, e_22, _c;
             var _this = this;
             return __generator(this, function (_d) {
@@ -2253,11 +2262,11 @@ var z = function (t) { return t == null ? "" : String(t); }, Sn = function (t) {
                         if (!this.has("chap")) return [3, 2];
                         return [4, this.run("chap", e)];
                     case 1:
-                        o = (_d.sent()).data;
-                        Array.isArray(o) && o.length && (r = o.map(function (f) { return typeof f == "string" ? { title: "Server", data: f } : { title: z(f.title || f.name || "Server"), data: z(f.data || f.url || f.link) }; }));
+                        f = (_d.sent()).data;
+                        Array.isArray(f) && f.length && (r = f.map(function (b) { return typeof b == "string" ? { title: "Server", data: b } : { title: z(b.title || b.name || "Server"), data: z(b.data || b.url || b.link) }; }));
                         _d.label = 2;
                     case 2:
-                        c = [];
+                        c = this.env && this.env.resumeStorage ? this.env.resumeStorage.get(e) : 0, o = [];
                         _d.label = 3;
                     case 3:
                         _d.trys.push([3, 10, 11, 12]);
@@ -2265,30 +2274,33 @@ var z = function (t) { return t == null ? "" : String(t); }, Sn = function (t) {
                         _d.label = 4;
                     case 4:
                         if (!!r_3_1.done) return [3, 9];
-                        o = r_3_1.value;
+                        f = r_3_1.value;
                         _d.label = 5;
                     case 5:
                         _d.trys.push([5, 7, , 8]);
-                        return [4, this.run("track", o.data)];
+                        return [4, this.run("track", f.data)];
                     case 6:
-                        f = (_d.sent()).data || {}, m = Array.isArray(f) ? f : [f];
+                        b = (_d.sent()).data || {}, w = Array.isArray(b) ? b : [b];
                         try {
-                            for (m_2 = (e_22 = void 0, __values(m)), m_2_1 = m_2.next(); !m_2_1.done; m_2_1 = m_2.next()) {
-                                w = m_2_1.value;
-                                !w || !w.data || w.type !== "webview" && c.push({ url: Te(w.host || this.base + "/", w.data), quality: o.title + (w.quality ? " " + w.quality : ""), headers: w.headers || { Referer: this.base + "/" }, subtitles: (w.subtitles || (w.subtitle ? [{ data: w.subtitle, label: "Sub" }] : [])).map(function (y) { return ({ file: Te(_this.base + "/", y.data || y.file), label: z(y.label || y.language || "Sub") }); }), mimeType: z(w.mimeType) });
+                            for (w_4 = (e_22 = void 0, __values(w)), w_4_1 = w_4.next(); !w_4_1.done; w_4_1 = w_4.next()) {
+                                y = w_4_1.value;
+                                if (!y || !y.data || y.type === "webview")
+                                    continue;
+                                A = Te(y.host || this.base + "/", y.data), T = c > 0 && !y.data.includes("#t=") && !y.data.includes("&t=") ? (y.data.includes("#") ? "&" : "#") + "t=" + Math.floor(c) : "", L = c > 0 ? " [Tiếp tục " + Math.floor(c / 60) + ":" + ("0" + Math.floor(c % 60)).slice(-2) + "]" : "";
+                                o.push({ url: A + T, rawUrl: A, resumeSec: c, quality: f.title + (y.quality ? " " + y.quality : "") + L, headers: y.headers || { Referer: this.base + "/" }, subtitles: (y.subtitles || (y.subtitle ? [{ data: y.subtitle, label: "Sub" }] : [])).map(function (q) { return ({ file: Te(_this.base + "/", q.data || q.file), label: z(q.label || q.language || "Sub") }); }), mimeType: z(y.mimeType) });
                             }
                         }
                         catch (e_22_1) { e_22 = { error: e_22_1 }; }
                         finally {
                             try {
-                                if (m_2_1 && !m_2_1.done && (_c = m_2.return)) _c.call(m_2);
+                                if (w_4_1 && !w_4_1.done && (_c = w_4.return)) _c.call(w_4);
                             }
                             finally { if (e_22) throw e_22.error; }
                         }
                         return [3, 8];
                     case 7:
-                        f_2 = _d.sent();
-                        this.host.log && this.host.log("track " + o.title + ": " + f_2.message);
+                        b_2 = _d.sent();
+                        this.host.log && this.host.log("track " + f.title + ": " + b_2.message);
                         return [3, 8];
                     case 8:
                         r_3_1 = r_3.next();
@@ -2304,7 +2316,7 @@ var z = function (t) { return t == null ? "" : String(t); }, Sn = function (t) {
                         }
                         finally { if (e_21) throw e_21.error; }
                         return [7];
-                    case 12: return [2, c];
+                    case 12: return [2, o];
                 }
             });
         });
@@ -2335,10 +2347,10 @@ function G(t, e) {
         }
     }); });
 }
-var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull.net", type: "novel", locale: "en", nsfw: !1, version: 2, config: { DOMAIN: { title: "Tên miền", subtitle: "Đổi khi trang đổi tên miền", default: "https://novelfull.net", values: ["https://novelfull.net"], mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://novelfull.net" }, itemType: 2, lnId: "kiritokmn.novelfullnet", lnIcon: "", lnVersion: "1.2.2" }, Hr = { home: function (t, e) {
+var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull.net", type: "novel", locale: "en", nsfw: !1, version: 2, config: { DOMAIN: { title: "Tên miền", subtitle: "Đổi khi trang đổi tên miền", default: "https://novelfull.net", values: ["https://novelfull.net"], mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://novelfull.net" }, itemType: 2, short: !1, shorts: !1, lnId: "kiritokmn.novelfullnet", lnIcon: "", lnVersion: "1.3.2" }, Hr = { home: function (t, e) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
-                return [2, (function (r, c, o, f, m, w, y, A, T, L, _, N, O, U, Q, Y, ce) {
+                return [2, (function (r, c, o, f, b, w, y, A, T, L, q, N, O, U, Q, Y, ce) {
                         return __awaiter(this, void 0, void 0, function () {
                             var H;
                             return __generator(this, function (_b) {
@@ -2482,7 +2494,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     });
                                                                 });
                                                             }, ongoing: function (u) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(u || ""); } }, x = { pick: function (u, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, b, g, v, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, m, g, v, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             if (!a || !u)
@@ -2493,7 +2505,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             if (!(s < n.length)) return [3, 9];
                                                                             l = n[s], h = "text", p = l.lastIndexOf("@");
                                                                             p > 0 && !/\[[^\]]*@/.test(l.slice(p)) && (h = l.slice(p + 1), l = l.slice(0, p));
-                                                                            b = l === ":self" ? null : u.select(l), g = l === ":self" ? u : b.size() ? b.first() : null;
+                                                                            m = l === ":self" ? null : u.select(l), g = l === ":self" ? u : m.size() ? m.first() : null;
                                                                             if (!g) return [3, 8];
                                                                             if (!(h === "text")) return [3, 3];
                                                                             return [4, g.text()];
@@ -2525,7 +2537,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 }); });
                                                             }, url: function (u, a, n) { var s = d.page(a), l = String(u); return l = l.replace(/\[([^\]]*)\]/g, function (h, p) { return s > 1 ? p : ""; }), l = l.replace(/\{p\}/g, String(s)).replace(/\{p0\}/g, String(s - 1)).replace(/\{q\}/g, d.enc(n || "")).replace(/\{base\}/g, k), d.fix(l); }, items: function (u, a) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var n, s, l, h, p, b, g, v, _b, _c, _d;
+                                                                    var n, s, l, h, p, m, g, v, _b, _c, _d;
                                                                     var _f;
                                                                     return __generator(this, function (_g) {
                                                                         switch (_g.label) {
@@ -2536,12 +2548,12 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 if (!(p < s.size())) return [3, 9];
                                                                                 return [4, s.get(p)];
                                                                             case 2:
-                                                                                b = _g.sent();
-                                                                                return [4, x.pick(b, n("link") || "a@href")];
+                                                                                m = _g.sent();
+                                                                                return [4, x.pick(m, n("link") || "a@href")];
                                                                             case 3:
                                                                                 g = _g.sent();
                                                                                 if (!!(!g || h[g] || /^javascript|#$/.test(g))) return [3, 8];
-                                                                                return [4, x.pick(b, n("title") || "h3 || h2 || a@title || img@alt")];
+                                                                                return [4, x.pick(m, n("title") || "h3 || h2 || a@title || img@alt")];
                                                                             case 4:
                                                                                 v = _g.sent();
                                                                                 _b = v;
@@ -2549,10 +2561,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 h[g] = 1;
                                                                                 _d = (_c = l).push;
                                                                                 _f = { name: v, link: d.fix(g) };
-                                                                                return [4, x.pick(b, n("cover") || "img@img")];
+                                                                                return [4, x.pick(m, n("cover") || "img@img")];
                                                                             case 5:
                                                                                 _f.cover = _g.sent();
-                                                                                return [4, x.pick(b, n("desc") || "")];
+                                                                                return [4, x.pick(m, n("desc") || "")];
                                                                             case 6:
                                                                                 _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = k, _f)]));
                                                                                 _g.label = 7;
@@ -2624,8 +2636,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                         case 1:
                                                                             s = _b.sent();
                                                                             u.list && u.list.split(".").forEach(function (p) { s = s && s[p]; });
-                                                                            l = function (p, b) { return String(b || "").indexOf("{") >= 0 ? String(b).replace(/\{(\w+)\}/g, function (g, v) { return p[v] == null ? "" : p[v]; }) : p[b] == null ? "" : String(p[b]); }, h = [];
-                                                                            return [2, ((s || []).forEach(function (p) { var b = l(p, u.title || "title"), g = l(p, u.link || "url"); b && g && h.push({ name: b, link: d.fix(g), cover: d.fix(l(p, u.cover || "cover")), description: u.desc ? l(p, u.desc) : "", host: k }); }), f.success(h, u.paged && h.length ? d.next(!0, n) : null))];
+                                                                            l = function (p, m) { return String(m || "").indexOf("{") >= 0 ? String(m).replace(/\{(\w+)\}/g, function (g, v) { return p[v] == null ? "" : p[v]; }) : p[m] == null ? "" : String(p[m]); }, h = [];
+                                                                            return [2, ((s || []).forEach(function (p) { var m = l(p, u.title || "title"), g = l(p, u.link || "url"); m && g && h.push({ name: m, link: d.fix(g), cover: d.fix(l(p, u.cover || "cover")), description: u.desc ? l(p, u.desc) : "", host: k }); }), f.success(h, u.paged && h.length ? d.next(!0, n) : null))];
                                                                     }
                                                                 }); });
                                                             }, genre: function () {
@@ -2708,7 +2720,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 });
                                                             }, toc: function (u) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, n, s, l, h, _b, p, b, g, v, S, _c, _d, _f, _g, C, q, _h;
+                                                                    var a, n, s, l, h, _b, p, m, g, v, S, _c, _d, _f, _g, C, _, _h;
                                                                     var _j;
                                                                     return __generator(this, function (_k) {
                                                                         switch (_k.label) {
@@ -2741,11 +2753,11 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 _k.label = 8;
                                                                             case 8:
                                                                                 if (!(p < (i.ch_maxPages || 60))) return [3, 22];
-                                                                                b = l.select(i.ch_list), g = 0;
+                                                                                m = l.select(i.ch_list), g = 0;
                                                                                 _k.label = 9;
                                                                             case 9:
-                                                                                if (!(g < b.size())) return [3, 17];
-                                                                                return [4, b.get(g)];
+                                                                                if (!(g < m.size())) return [3, 17];
+                                                                                return [4, m.get(g)];
                                                                             case 10:
                                                                                 v = _k.sent(), S = i.ch_attr ? v.attr(i.ch_attr) : v.attr("href") || v.attr("data-href");
                                                                                 _c = !S || S === "#" || s[S];
@@ -2775,10 +2787,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 C = i.ch_next ? l.select(i.ch_next).first() : null;
                                                                                 if (!C || !C.attr("href"))
                                                                                     return [3, 22];
-                                                                                q = d.fix(C.attr("href"));
-                                                                                if (a.indexOf(q) >= 0)
+                                                                                _ = d.fix(C.attr("href"));
+                                                                                if (a.indexOf(_) >= 0)
                                                                                     return [3, 22];
-                                                                                a.push(q);
+                                                                                a.push(_);
                                                                                 _h = i.ch_delay;
                                                                                 if (!_h) return [3, 19];
                                                                                 return [4, T(i.ch_delay)];
@@ -2787,7 +2799,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 _k.label = 19;
                                                                             case 19:
                                                                                 _h;
-                                                                                return [4, d.html(q, i.req)];
+                                                                                return [4, d.html(_, i.req)];
                                                                             case 20:
                                                                                 l = _k.sent();
                                                                                 _k.label = 21;
@@ -2799,7 +2811,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     });
                                                                 });
                                                             }, pages: function (u) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, l, h, p, b, g, _b, _c, v, S, C, q, _d, _f, _g, _h, F, V, _j, _k, J, M; return __generator(this, function (_l) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, l, h, p, m, g, _b, _c, v, S, C, _, _d, _f, _g, _h, F, V, _j, _k, J, M; return __generator(this, function (_l) {
                                                                     switch (_l.label) {
                                                                         case 0:
                                                                             a = [], n = [u], s = u, l = 0;
@@ -2814,8 +2826,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             p = _l.sent();
                                                                             return [4, p.text()];
                                                                         case 4:
-                                                                            b = (_l.sent()) || "", g = x.initManga(b);
-                                                                            h = o.parse(g ? '<div id="imc-dec">' + g + "</div>" : b, s);
+                                                                            m = (_l.sent()) || "", g = x.initManga(m);
+                                                                            h = o.parse(g ? '<div id="imc-dec">' + g + "</div>" : m, s);
                                                                             return [3, 7];
                                                                         case 5: return [4, d.html(s, i.req)];
                                                                         case 6:
@@ -2832,8 +2844,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             _h = (_g = CryptoJS.enc.Base64).parse;
                                                                             return [4, S.get(C)];
                                                                         case 9:
-                                                                            q = _f.apply(_d, [_h.apply(_g, [(_l.sent()).attr("data-enc")])]).split("").reverse().join("");
-                                                                            q && a.indexOf(q) < 0 && a.push(q);
+                                                                            _ = _f.apply(_d, [_h.apply(_g, [(_l.sent()).attr("data-enc")])]).split("").reverse().join("");
+                                                                            _ && a.indexOf(_) < 0 && a.push(_);
                                                                             _l.label = 10;
                                                                         case 10:
                                                                             C++;
@@ -2870,7 +2882,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     }
                                                                 }); });
                                                             }, text: function (u) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, n, _b, _c, s, l, h, _d, _f, _g, p, _h, _j, _k, b, g, _l, _m, _o, _p, _q, _s; return __generator(this, function (_v) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, n, _b, _c, s, l, h, _d, _f, _g, p, _h, _j, _k, m, g, _l, _m, _o, _p, _q, _s; return __generator(this, function (_v) {
                                                                     switch (_v.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
@@ -2899,20 +2911,20 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             return [4, x.pick(o.parse(n, u), i.c_title || "h1 || h2")];
                                                                         case 7: return [2, _j.apply(_h, _k.concat([_v.sent()]))];
                                                                         case 8:
-                                                                            b = o.parse(n, u), g = b.select(i.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            m = o.parse(n, u), g = m.select(i.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
                                                                             if (!!g) return [3, 10];
                                                                             if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(n.slice(0, 2e4)))
                                                                                 throw new Error("CLOUDFLARE: trang " + k + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
                                                                             _m = (_l = f).error;
                                                                             _o = 'Không tìm thấy nội dung — trang nhận được: "';
-                                                                            return [4, x.pick(b, "title")];
+                                                                            return [4, x.pick(m, "title")];
                                                                         case 9: return [2, _m.apply(_l, [_o + ((_v.sent()) || "?").slice(0, 60) + '" (' + a.status + ", " + n.length + " ký tự)" + (n.length < 400 ? ": " + n.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                                         case 10:
                                                                             _q = (_p = f).success;
                                                                             return [4, d.cleanContent(g)];
                                                                         case 11:
                                                                             _s = [_v.sent()];
-                                                                            return [4, x.pick(b, i.c_title || "h1 || h2")];
+                                                                            return [4, x.pick(m, i.c_title || "h1 || h2")];
                                                                         case 12: return [2, _q.apply(_p, _s.concat([_v.sent()]))];
                                                                     }
                                                                 }); });
@@ -2929,7 +2941,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                             catch (p) {
                                                                 return "";
                                                             } }, rscAction: function (u, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, b, g, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, m, g, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             for (n = [], l = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g; s = l.exec(u);)
@@ -2940,10 +2952,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             if (!(p < n.length && p < 60)) return [3, 5];
                                                                             return [4, d.get(k + n[p])];
                                                                         case 2:
-                                                                            b = _d.sent();
-                                                                            if (!!(!b || !b.ok)) return [3, 4];
+                                                                            m = _d.sent();
+                                                                            if (!!(!m || !m.ok)) return [3, 4];
                                                                             _c = (_b = h).exec;
-                                                                            return [4, b.text()];
+                                                                            return [4, m.text()];
                                                                         case 3:
                                                                             g = _c.apply(_b, [(_d.sent()) || ""]);
                                                                             if (g)
@@ -2968,7 +2980,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 }
                                                                 return null;
                                                             }, actionToc: function (u) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, _b, _c, l, h, p, _d, b, _f, g; return __generator(this, function (_g) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, _b, _c, l, h, p, _d, m, _f, g; return __generator(this, function (_g) {
                                                                     switch (_g.label) {
                                                                         case 0:
                                                                             a = i.ch_action;
@@ -3012,10 +3024,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             if (!!p) return [3, 10];
                                                                             return [4, x.rscAction(n, a.name)];
                                                                         case 7:
-                                                                            b = _g.sent();
-                                                                            _f = b && b !== a.id;
+                                                                            m = _g.sent();
+                                                                            _f = m && m !== a.id;
                                                                             if (!_f) return [3, 9];
-                                                                            return [4, h(b)];
+                                                                            return [4, h(m)];
                                                                         case 8:
                                                                             _f = (p = _g.sent());
                                                                             _g.label = 9;
@@ -3033,8 +3045,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 try {
                                                                     a += JSON.parse(n[1]);
                                                                 }
-                                                                catch (q) { } for (var l = "", h = /([0-9a-f]+):T([0-9a-f]+),/g, p; p = h.exec(a);) {
-                                                                for (var b = parseInt(p[2], 16), g = h.lastIndex, v = 0; g < a.length && v < b;) {
+                                                                catch (_) { } for (var l = "", h = /([0-9a-f]+):T([0-9a-f]+),/g, p; p = h.exec(a);) {
+                                                                for (var m = parseInt(p[2], 16), g = h.lastIndex, v = 0; g < a.length && v < m;) {
                                                                     var S = a.charCodeAt(g);
                                                                     S < 128 ? v += 1 : S < 2048 ? v += 2 : S >= 55296 && S <= 56319 ? (v += 4, g++) : v += 3, g++;
                                                                 }
@@ -3071,7 +3083,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     }
                                                                 }); });
                                                             }, sniff: function (u) { u = String(u || "").replace(/\\\//g, "/"); var a = u.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || u.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return a ? a[0] : ""; }, track: function (u, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, b, g; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, m, g; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (a = a || 0, /\.(m3u8|mp4)(\?|$)/i.test(u))
@@ -3093,9 +3105,9 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             h = x.sniff(s);
                                                                             if (h)
                                                                                 return [2, f.success({ type: "native", data: h, headers: { Referer: a ? u : k + "/" } })];
-                                                                            p = o.parse(s, u), b = p.select(i.iframe || "iframe[src], iframe[data-src]").first();
-                                                                            if (!(b && a < 2)) return [3, 6];
-                                                                            g = d.fix(b.attr("src") || b.attr("data-src"));
+                                                                            p = o.parse(s, u), m = p.select(i.iframe || "iframe[src], iframe[data-src]").first();
+                                                                            if (!(m && a < 2)) return [3, 6];
+                                                                            g = d.fix(m.attr("src") || m.attr("data-src"));
                                                                             if (!g) return [3, 6];
                                                                             return [4, x.track(g, a + 1)];
                                                                         case 5: return [2, _b.sent()];
@@ -3117,7 +3129,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
     }, search: function (t, e) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
-                return [2, (function (r, c, o, f, m, w, y, A, T, L, _, N, O, U, Q, Y, ce) {
+                return [2, (function (r, c, o, f, b, w, y, A, T, L, q, N, O, U, Q, Y, ce) {
                         return __awaiter(this, void 0, void 0, function () {
                             var H;
                             return __generator(this, function (_b) {
@@ -3261,7 +3273,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     });
                                                                 });
                                                             }, ongoing: function (u) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(u || ""); } }, x = { pick: function (u, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, b, g, v, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, m, g, v, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             if (!a || !u)
@@ -3272,7 +3284,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             if (!(s < n.length)) return [3, 9];
                                                                             l = n[s], h = "text", p = l.lastIndexOf("@");
                                                                             p > 0 && !/\[[^\]]*@/.test(l.slice(p)) && (h = l.slice(p + 1), l = l.slice(0, p));
-                                                                            b = l === ":self" ? null : u.select(l), g = l === ":self" ? u : b.size() ? b.first() : null;
+                                                                            m = l === ":self" ? null : u.select(l), g = l === ":self" ? u : m.size() ? m.first() : null;
                                                                             if (!g) return [3, 8];
                                                                             if (!(h === "text")) return [3, 3];
                                                                             return [4, g.text()];
@@ -3304,7 +3316,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 }); });
                                                             }, url: function (u, a, n) { var s = d.page(a), l = String(u); return l = l.replace(/\[([^\]]*)\]/g, function (h, p) { return s > 1 ? p : ""; }), l = l.replace(/\{p\}/g, String(s)).replace(/\{p0\}/g, String(s - 1)).replace(/\{q\}/g, d.enc(n || "")).replace(/\{base\}/g, k), d.fix(l); }, items: function (u, a) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var n, s, l, h, p, b, g, v, _b, _c, _d;
+                                                                    var n, s, l, h, p, m, g, v, _b, _c, _d;
                                                                     var _f;
                                                                     return __generator(this, function (_g) {
                                                                         switch (_g.label) {
@@ -3315,12 +3327,12 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 if (!(p < s.size())) return [3, 9];
                                                                                 return [4, s.get(p)];
                                                                             case 2:
-                                                                                b = _g.sent();
-                                                                                return [4, x.pick(b, n("link") || "a@href")];
+                                                                                m = _g.sent();
+                                                                                return [4, x.pick(m, n("link") || "a@href")];
                                                                             case 3:
                                                                                 g = _g.sent();
                                                                                 if (!!(!g || h[g] || /^javascript|#$/.test(g))) return [3, 8];
-                                                                                return [4, x.pick(b, n("title") || "h3 || h2 || a@title || img@alt")];
+                                                                                return [4, x.pick(m, n("title") || "h3 || h2 || a@title || img@alt")];
                                                                             case 4:
                                                                                 v = _g.sent();
                                                                                 _b = v;
@@ -3328,10 +3340,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 h[g] = 1;
                                                                                 _d = (_c = l).push;
                                                                                 _f = { name: v, link: d.fix(g) };
-                                                                                return [4, x.pick(b, n("cover") || "img@img")];
+                                                                                return [4, x.pick(m, n("cover") || "img@img")];
                                                                             case 5:
                                                                                 _f.cover = _g.sent();
-                                                                                return [4, x.pick(b, n("desc") || "")];
+                                                                                return [4, x.pick(m, n("desc") || "")];
                                                                             case 6:
                                                                                 _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = k, _f)]));
                                                                                 _g.label = 7;
@@ -3403,8 +3415,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                         case 1:
                                                                             s = _b.sent();
                                                                             u.list && u.list.split(".").forEach(function (p) { s = s && s[p]; });
-                                                                            l = function (p, b) { return String(b || "").indexOf("{") >= 0 ? String(b).replace(/\{(\w+)\}/g, function (g, v) { return p[v] == null ? "" : p[v]; }) : p[b] == null ? "" : String(p[b]); }, h = [];
-                                                                            return [2, ((s || []).forEach(function (p) { var b = l(p, u.title || "title"), g = l(p, u.link || "url"); b && g && h.push({ name: b, link: d.fix(g), cover: d.fix(l(p, u.cover || "cover")), description: u.desc ? l(p, u.desc) : "", host: k }); }), f.success(h, u.paged && h.length ? d.next(!0, n) : null))];
+                                                                            l = function (p, m) { return String(m || "").indexOf("{") >= 0 ? String(m).replace(/\{(\w+)\}/g, function (g, v) { return p[v] == null ? "" : p[v]; }) : p[m] == null ? "" : String(p[m]); }, h = [];
+                                                                            return [2, ((s || []).forEach(function (p) { var m = l(p, u.title || "title"), g = l(p, u.link || "url"); m && g && h.push({ name: m, link: d.fix(g), cover: d.fix(l(p, u.cover || "cover")), description: u.desc ? l(p, u.desc) : "", host: k }); }), f.success(h, u.paged && h.length ? d.next(!0, n) : null))];
                                                                     }
                                                                 }); });
                                                             }, genre: function () {
@@ -3487,7 +3499,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 });
                                                             }, toc: function (u) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, n, s, l, h, _b, p, b, g, v, S, _c, _d, _f, _g, C, q, _h;
+                                                                    var a, n, s, l, h, _b, p, m, g, v, S, _c, _d, _f, _g, C, _, _h;
                                                                     var _j;
                                                                     return __generator(this, function (_k) {
                                                                         switch (_k.label) {
@@ -3520,11 +3532,11 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 _k.label = 8;
                                                                             case 8:
                                                                                 if (!(p < (i.ch_maxPages || 60))) return [3, 22];
-                                                                                b = l.select(i.ch_list), g = 0;
+                                                                                m = l.select(i.ch_list), g = 0;
                                                                                 _k.label = 9;
                                                                             case 9:
-                                                                                if (!(g < b.size())) return [3, 17];
-                                                                                return [4, b.get(g)];
+                                                                                if (!(g < m.size())) return [3, 17];
+                                                                                return [4, m.get(g)];
                                                                             case 10:
                                                                                 v = _k.sent(), S = i.ch_attr ? v.attr(i.ch_attr) : v.attr("href") || v.attr("data-href");
                                                                                 _c = !S || S === "#" || s[S];
@@ -3554,10 +3566,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 C = i.ch_next ? l.select(i.ch_next).first() : null;
                                                                                 if (!C || !C.attr("href"))
                                                                                     return [3, 22];
-                                                                                q = d.fix(C.attr("href"));
-                                                                                if (a.indexOf(q) >= 0)
+                                                                                _ = d.fix(C.attr("href"));
+                                                                                if (a.indexOf(_) >= 0)
                                                                                     return [3, 22];
-                                                                                a.push(q);
+                                                                                a.push(_);
                                                                                 _h = i.ch_delay;
                                                                                 if (!_h) return [3, 19];
                                                                                 return [4, T(i.ch_delay)];
@@ -3566,7 +3578,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 _k.label = 19;
                                                                             case 19:
                                                                                 _h;
-                                                                                return [4, d.html(q, i.req)];
+                                                                                return [4, d.html(_, i.req)];
                                                                             case 20:
                                                                                 l = _k.sent();
                                                                                 _k.label = 21;
@@ -3578,7 +3590,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     });
                                                                 });
                                                             }, pages: function (u) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, l, h, p, b, g, _b, _c, v, S, C, q, _d, _f, _g, _h, F, V, _j, _k, J, M; return __generator(this, function (_l) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, l, h, p, m, g, _b, _c, v, S, C, _, _d, _f, _g, _h, F, V, _j, _k, J, M; return __generator(this, function (_l) {
                                                                     switch (_l.label) {
                                                                         case 0:
                                                                             a = [], n = [u], s = u, l = 0;
@@ -3593,8 +3605,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             p = _l.sent();
                                                                             return [4, p.text()];
                                                                         case 4:
-                                                                            b = (_l.sent()) || "", g = x.initManga(b);
-                                                                            h = o.parse(g ? '<div id="imc-dec">' + g + "</div>" : b, s);
+                                                                            m = (_l.sent()) || "", g = x.initManga(m);
+                                                                            h = o.parse(g ? '<div id="imc-dec">' + g + "</div>" : m, s);
                                                                             return [3, 7];
                                                                         case 5: return [4, d.html(s, i.req)];
                                                                         case 6:
@@ -3611,8 +3623,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             _h = (_g = CryptoJS.enc.Base64).parse;
                                                                             return [4, S.get(C)];
                                                                         case 9:
-                                                                            q = _f.apply(_d, [_h.apply(_g, [(_l.sent()).attr("data-enc")])]).split("").reverse().join("");
-                                                                            q && a.indexOf(q) < 0 && a.push(q);
+                                                                            _ = _f.apply(_d, [_h.apply(_g, [(_l.sent()).attr("data-enc")])]).split("").reverse().join("");
+                                                                            _ && a.indexOf(_) < 0 && a.push(_);
                                                                             _l.label = 10;
                                                                         case 10:
                                                                             C++;
@@ -3649,7 +3661,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     }
                                                                 }); });
                                                             }, text: function (u) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, n, _b, _c, s, l, h, _d, _f, _g, p, _h, _j, _k, b, g, _l, _m, _o, _p, _q, _s; return __generator(this, function (_v) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, n, _b, _c, s, l, h, _d, _f, _g, p, _h, _j, _k, m, g, _l, _m, _o, _p, _q, _s; return __generator(this, function (_v) {
                                                                     switch (_v.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
@@ -3678,20 +3690,20 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             return [4, x.pick(o.parse(n, u), i.c_title || "h1 || h2")];
                                                                         case 7: return [2, _j.apply(_h, _k.concat([_v.sent()]))];
                                                                         case 8:
-                                                                            b = o.parse(n, u), g = b.select(i.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            m = o.parse(n, u), g = m.select(i.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
                                                                             if (!!g) return [3, 10];
                                                                             if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(n.slice(0, 2e4)))
                                                                                 throw new Error("CLOUDFLARE: trang " + k + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
                                                                             _m = (_l = f).error;
                                                                             _o = 'Không tìm thấy nội dung — trang nhận được: "';
-                                                                            return [4, x.pick(b, "title")];
+                                                                            return [4, x.pick(m, "title")];
                                                                         case 9: return [2, _m.apply(_l, [_o + ((_v.sent()) || "?").slice(0, 60) + '" (' + a.status + ", " + n.length + " ký tự)" + (n.length < 400 ? ": " + n.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                                         case 10:
                                                                             _q = (_p = f).success;
                                                                             return [4, d.cleanContent(g)];
                                                                         case 11:
                                                                             _s = [_v.sent()];
-                                                                            return [4, x.pick(b, i.c_title || "h1 || h2")];
+                                                                            return [4, x.pick(m, i.c_title || "h1 || h2")];
                                                                         case 12: return [2, _q.apply(_p, _s.concat([_v.sent()]))];
                                                                     }
                                                                 }); });
@@ -3708,7 +3720,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                             catch (p) {
                                                                 return "";
                                                             } }, rscAction: function (u, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, b, g, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, m, g, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             for (n = [], l = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g; s = l.exec(u);)
@@ -3719,10 +3731,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             if (!(p < n.length && p < 60)) return [3, 5];
                                                                             return [4, d.get(k + n[p])];
                                                                         case 2:
-                                                                            b = _d.sent();
-                                                                            if (!!(!b || !b.ok)) return [3, 4];
+                                                                            m = _d.sent();
+                                                                            if (!!(!m || !m.ok)) return [3, 4];
                                                                             _c = (_b = h).exec;
-                                                                            return [4, b.text()];
+                                                                            return [4, m.text()];
                                                                         case 3:
                                                                             g = _c.apply(_b, [(_d.sent()) || ""]);
                                                                             if (g)
@@ -3747,7 +3759,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 }
                                                                 return null;
                                                             }, actionToc: function (u) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, _b, _c, l, h, p, _d, b, _f, g; return __generator(this, function (_g) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, _b, _c, l, h, p, _d, m, _f, g; return __generator(this, function (_g) {
                                                                     switch (_g.label) {
                                                                         case 0:
                                                                             a = i.ch_action;
@@ -3791,10 +3803,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             if (!!p) return [3, 10];
                                                                             return [4, x.rscAction(n, a.name)];
                                                                         case 7:
-                                                                            b = _g.sent();
-                                                                            _f = b && b !== a.id;
+                                                                            m = _g.sent();
+                                                                            _f = m && m !== a.id;
                                                                             if (!_f) return [3, 9];
-                                                                            return [4, h(b)];
+                                                                            return [4, h(m)];
                                                                         case 8:
                                                                             _f = (p = _g.sent());
                                                                             _g.label = 9;
@@ -3812,8 +3824,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 try {
                                                                     a += JSON.parse(n[1]);
                                                                 }
-                                                                catch (q) { } for (var l = "", h = /([0-9a-f]+):T([0-9a-f]+),/g, p; p = h.exec(a);) {
-                                                                for (var b = parseInt(p[2], 16), g = h.lastIndex, v = 0; g < a.length && v < b;) {
+                                                                catch (_) { } for (var l = "", h = /([0-9a-f]+):T([0-9a-f]+),/g, p; p = h.exec(a);) {
+                                                                for (var m = parseInt(p[2], 16), g = h.lastIndex, v = 0; g < a.length && v < m;) {
                                                                     var S = a.charCodeAt(g);
                                                                     S < 128 ? v += 1 : S < 2048 ? v += 2 : S >= 55296 && S <= 56319 ? (v += 4, g++) : v += 3, g++;
                                                                 }
@@ -3850,7 +3862,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     }
                                                                 }); });
                                                             }, sniff: function (u) { u = String(u || "").replace(/\\\//g, "/"); var a = u.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || u.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return a ? a[0] : ""; }, track: function (u, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, b, g; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, m, g; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (a = a || 0, /\.(m3u8|mp4)(\?|$)/i.test(u))
@@ -3872,9 +3884,9 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             h = x.sniff(s);
                                                                             if (h)
                                                                                 return [2, f.success({ type: "native", data: h, headers: { Referer: a ? u : k + "/" } })];
-                                                                            p = o.parse(s, u), b = p.select(i.iframe || "iframe[src], iframe[data-src]").first();
-                                                                            if (!(b && a < 2)) return [3, 6];
-                                                                            g = d.fix(b.attr("src") || b.attr("data-src"));
+                                                                            p = o.parse(s, u), m = p.select(i.iframe || "iframe[src], iframe[data-src]").first();
+                                                                            if (!(m && a < 2)) return [3, 6];
+                                                                            g = d.fix(m.attr("src") || m.attr("data-src"));
                                                                             if (!g) return [3, 6];
                                                                             return [4, x.track(g, a + 1)];
                                                                         case 5: return [2, _b.sent()];
@@ -3896,7 +3908,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
     }, detail: function (t, e) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
-                return [2, (function (r, c, o, f, m, w, y, A, T, L, _, N, O, U, Q, Y, ce) {
+                return [2, (function (r, c, o, f, b, w, y, A, T, L, q, N, O, U, Q, Y, ce) {
                         return __awaiter(this, void 0, void 0, function () {
                             var H;
                             return __generator(this, function (_b) {
@@ -4040,7 +4052,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     });
                                                                 });
                                                             }, ongoing: function (u) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(u || ""); } }, x = { pick: function (u, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, b, g, v, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, m, g, v, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             if (!a || !u)
@@ -4051,7 +4063,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             if (!(s < n.length)) return [3, 9];
                                                                             l = n[s], h = "text", p = l.lastIndexOf("@");
                                                                             p > 0 && !/\[[^\]]*@/.test(l.slice(p)) && (h = l.slice(p + 1), l = l.slice(0, p));
-                                                                            b = l === ":self" ? null : u.select(l), g = l === ":self" ? u : b.size() ? b.first() : null;
+                                                                            m = l === ":self" ? null : u.select(l), g = l === ":self" ? u : m.size() ? m.first() : null;
                                                                             if (!g) return [3, 8];
                                                                             if (!(h === "text")) return [3, 3];
                                                                             return [4, g.text()];
@@ -4083,7 +4095,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 }); });
                                                             }, url: function (u, a, n) { var s = d.page(a), l = String(u); return l = l.replace(/\[([^\]]*)\]/g, function (h, p) { return s > 1 ? p : ""; }), l = l.replace(/\{p\}/g, String(s)).replace(/\{p0\}/g, String(s - 1)).replace(/\{q\}/g, d.enc(n || "")).replace(/\{base\}/g, k), d.fix(l); }, items: function (u, a) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var n, s, l, h, p, b, g, v, _b, _c, _d;
+                                                                    var n, s, l, h, p, m, g, v, _b, _c, _d;
                                                                     var _f;
                                                                     return __generator(this, function (_g) {
                                                                         switch (_g.label) {
@@ -4094,12 +4106,12 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 if (!(p < s.size())) return [3, 9];
                                                                                 return [4, s.get(p)];
                                                                             case 2:
-                                                                                b = _g.sent();
-                                                                                return [4, x.pick(b, n("link") || "a@href")];
+                                                                                m = _g.sent();
+                                                                                return [4, x.pick(m, n("link") || "a@href")];
                                                                             case 3:
                                                                                 g = _g.sent();
                                                                                 if (!!(!g || h[g] || /^javascript|#$/.test(g))) return [3, 8];
-                                                                                return [4, x.pick(b, n("title") || "h3 || h2 || a@title || img@alt")];
+                                                                                return [4, x.pick(m, n("title") || "h3 || h2 || a@title || img@alt")];
                                                                             case 4:
                                                                                 v = _g.sent();
                                                                                 _b = v;
@@ -4107,10 +4119,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 h[g] = 1;
                                                                                 _d = (_c = l).push;
                                                                                 _f = { name: v, link: d.fix(g) };
-                                                                                return [4, x.pick(b, n("cover") || "img@img")];
+                                                                                return [4, x.pick(m, n("cover") || "img@img")];
                                                                             case 5:
                                                                                 _f.cover = _g.sent();
-                                                                                return [4, x.pick(b, n("desc") || "")];
+                                                                                return [4, x.pick(m, n("desc") || "")];
                                                                             case 6:
                                                                                 _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = k, _f)]));
                                                                                 _g.label = 7;
@@ -4182,8 +4194,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                         case 1:
                                                                             s = _b.sent();
                                                                             u.list && u.list.split(".").forEach(function (p) { s = s && s[p]; });
-                                                                            l = function (p, b) { return String(b || "").indexOf("{") >= 0 ? String(b).replace(/\{(\w+)\}/g, function (g, v) { return p[v] == null ? "" : p[v]; }) : p[b] == null ? "" : String(p[b]); }, h = [];
-                                                                            return [2, ((s || []).forEach(function (p) { var b = l(p, u.title || "title"), g = l(p, u.link || "url"); b && g && h.push({ name: b, link: d.fix(g), cover: d.fix(l(p, u.cover || "cover")), description: u.desc ? l(p, u.desc) : "", host: k }); }), f.success(h, u.paged && h.length ? d.next(!0, n) : null))];
+                                                                            l = function (p, m) { return String(m || "").indexOf("{") >= 0 ? String(m).replace(/\{(\w+)\}/g, function (g, v) { return p[v] == null ? "" : p[v]; }) : p[m] == null ? "" : String(p[m]); }, h = [];
+                                                                            return [2, ((s || []).forEach(function (p) { var m = l(p, u.title || "title"), g = l(p, u.link || "url"); m && g && h.push({ name: m, link: d.fix(g), cover: d.fix(l(p, u.cover || "cover")), description: u.desc ? l(p, u.desc) : "", host: k }); }), f.success(h, u.paged && h.length ? d.next(!0, n) : null))];
                                                                     }
                                                                 }); });
                                                             }, genre: function () {
@@ -4266,7 +4278,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 });
                                                             }, toc: function (u) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, n, s, l, h, _b, p, b, g, v, S, _c, _d, _f, _g, C, q, _h;
+                                                                    var a, n, s, l, h, _b, p, m, g, v, S, _c, _d, _f, _g, C, _, _h;
                                                                     var _j;
                                                                     return __generator(this, function (_k) {
                                                                         switch (_k.label) {
@@ -4299,11 +4311,11 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 _k.label = 8;
                                                                             case 8:
                                                                                 if (!(p < (i.ch_maxPages || 60))) return [3, 22];
-                                                                                b = l.select(i.ch_list), g = 0;
+                                                                                m = l.select(i.ch_list), g = 0;
                                                                                 _k.label = 9;
                                                                             case 9:
-                                                                                if (!(g < b.size())) return [3, 17];
-                                                                                return [4, b.get(g)];
+                                                                                if (!(g < m.size())) return [3, 17];
+                                                                                return [4, m.get(g)];
                                                                             case 10:
                                                                                 v = _k.sent(), S = i.ch_attr ? v.attr(i.ch_attr) : v.attr("href") || v.attr("data-href");
                                                                                 _c = !S || S === "#" || s[S];
@@ -4333,10 +4345,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 C = i.ch_next ? l.select(i.ch_next).first() : null;
                                                                                 if (!C || !C.attr("href"))
                                                                                     return [3, 22];
-                                                                                q = d.fix(C.attr("href"));
-                                                                                if (a.indexOf(q) >= 0)
+                                                                                _ = d.fix(C.attr("href"));
+                                                                                if (a.indexOf(_) >= 0)
                                                                                     return [3, 22];
-                                                                                a.push(q);
+                                                                                a.push(_);
                                                                                 _h = i.ch_delay;
                                                                                 if (!_h) return [3, 19];
                                                                                 return [4, T(i.ch_delay)];
@@ -4345,7 +4357,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 _k.label = 19;
                                                                             case 19:
                                                                                 _h;
-                                                                                return [4, d.html(q, i.req)];
+                                                                                return [4, d.html(_, i.req)];
                                                                             case 20:
                                                                                 l = _k.sent();
                                                                                 _k.label = 21;
@@ -4357,7 +4369,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     });
                                                                 });
                                                             }, pages: function (u) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, l, h, p, b, g, _b, _c, v, S, C, q, _d, _f, _g, _h, F, V, _j, _k, J, M; return __generator(this, function (_l) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, l, h, p, m, g, _b, _c, v, S, C, _, _d, _f, _g, _h, F, V, _j, _k, J, M; return __generator(this, function (_l) {
                                                                     switch (_l.label) {
                                                                         case 0:
                                                                             a = [], n = [u], s = u, l = 0;
@@ -4372,8 +4384,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             p = _l.sent();
                                                                             return [4, p.text()];
                                                                         case 4:
-                                                                            b = (_l.sent()) || "", g = x.initManga(b);
-                                                                            h = o.parse(g ? '<div id="imc-dec">' + g + "</div>" : b, s);
+                                                                            m = (_l.sent()) || "", g = x.initManga(m);
+                                                                            h = o.parse(g ? '<div id="imc-dec">' + g + "</div>" : m, s);
                                                                             return [3, 7];
                                                                         case 5: return [4, d.html(s, i.req)];
                                                                         case 6:
@@ -4390,8 +4402,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             _h = (_g = CryptoJS.enc.Base64).parse;
                                                                             return [4, S.get(C)];
                                                                         case 9:
-                                                                            q = _f.apply(_d, [_h.apply(_g, [(_l.sent()).attr("data-enc")])]).split("").reverse().join("");
-                                                                            q && a.indexOf(q) < 0 && a.push(q);
+                                                                            _ = _f.apply(_d, [_h.apply(_g, [(_l.sent()).attr("data-enc")])]).split("").reverse().join("");
+                                                                            _ && a.indexOf(_) < 0 && a.push(_);
                                                                             _l.label = 10;
                                                                         case 10:
                                                                             C++;
@@ -4428,7 +4440,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     }
                                                                 }); });
                                                             }, text: function (u) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, n, _b, _c, s, l, h, _d, _f, _g, p, _h, _j, _k, b, g, _l, _m, _o, _p, _q, _s; return __generator(this, function (_v) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, n, _b, _c, s, l, h, _d, _f, _g, p, _h, _j, _k, m, g, _l, _m, _o, _p, _q, _s; return __generator(this, function (_v) {
                                                                     switch (_v.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
@@ -4457,20 +4469,20 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             return [4, x.pick(o.parse(n, u), i.c_title || "h1 || h2")];
                                                                         case 7: return [2, _j.apply(_h, _k.concat([_v.sent()]))];
                                                                         case 8:
-                                                                            b = o.parse(n, u), g = b.select(i.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            m = o.parse(n, u), g = m.select(i.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
                                                                             if (!!g) return [3, 10];
                                                                             if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(n.slice(0, 2e4)))
                                                                                 throw new Error("CLOUDFLARE: trang " + k + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
                                                                             _m = (_l = f).error;
                                                                             _o = 'Không tìm thấy nội dung — trang nhận được: "';
-                                                                            return [4, x.pick(b, "title")];
+                                                                            return [4, x.pick(m, "title")];
                                                                         case 9: return [2, _m.apply(_l, [_o + ((_v.sent()) || "?").slice(0, 60) + '" (' + a.status + ", " + n.length + " ký tự)" + (n.length < 400 ? ": " + n.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                                         case 10:
                                                                             _q = (_p = f).success;
                                                                             return [4, d.cleanContent(g)];
                                                                         case 11:
                                                                             _s = [_v.sent()];
-                                                                            return [4, x.pick(b, i.c_title || "h1 || h2")];
+                                                                            return [4, x.pick(m, i.c_title || "h1 || h2")];
                                                                         case 12: return [2, _q.apply(_p, _s.concat([_v.sent()]))];
                                                                     }
                                                                 }); });
@@ -4487,7 +4499,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                             catch (p) {
                                                                 return "";
                                                             } }, rscAction: function (u, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, b, g, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, m, g, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             for (n = [], l = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g; s = l.exec(u);)
@@ -4498,10 +4510,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             if (!(p < n.length && p < 60)) return [3, 5];
                                                                             return [4, d.get(k + n[p])];
                                                                         case 2:
-                                                                            b = _d.sent();
-                                                                            if (!!(!b || !b.ok)) return [3, 4];
+                                                                            m = _d.sent();
+                                                                            if (!!(!m || !m.ok)) return [3, 4];
                                                                             _c = (_b = h).exec;
-                                                                            return [4, b.text()];
+                                                                            return [4, m.text()];
                                                                         case 3:
                                                                             g = _c.apply(_b, [(_d.sent()) || ""]);
                                                                             if (g)
@@ -4526,7 +4538,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 }
                                                                 return null;
                                                             }, actionToc: function (u) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, _b, _c, l, h, p, _d, b, _f, g; return __generator(this, function (_g) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, _b, _c, l, h, p, _d, m, _f, g; return __generator(this, function (_g) {
                                                                     switch (_g.label) {
                                                                         case 0:
                                                                             a = i.ch_action;
@@ -4570,10 +4582,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             if (!!p) return [3, 10];
                                                                             return [4, x.rscAction(n, a.name)];
                                                                         case 7:
-                                                                            b = _g.sent();
-                                                                            _f = b && b !== a.id;
+                                                                            m = _g.sent();
+                                                                            _f = m && m !== a.id;
                                                                             if (!_f) return [3, 9];
-                                                                            return [4, h(b)];
+                                                                            return [4, h(m)];
                                                                         case 8:
                                                                             _f = (p = _g.sent());
                                                                             _g.label = 9;
@@ -4591,8 +4603,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 try {
                                                                     a += JSON.parse(n[1]);
                                                                 }
-                                                                catch (q) { } for (var l = "", h = /([0-9a-f]+):T([0-9a-f]+),/g, p; p = h.exec(a);) {
-                                                                for (var b = parseInt(p[2], 16), g = h.lastIndex, v = 0; g < a.length && v < b;) {
+                                                                catch (_) { } for (var l = "", h = /([0-9a-f]+):T([0-9a-f]+),/g, p; p = h.exec(a);) {
+                                                                for (var m = parseInt(p[2], 16), g = h.lastIndex, v = 0; g < a.length && v < m;) {
                                                                     var S = a.charCodeAt(g);
                                                                     S < 128 ? v += 1 : S < 2048 ? v += 2 : S >= 55296 && S <= 56319 ? (v += 4, g++) : v += 3, g++;
                                                                 }
@@ -4629,7 +4641,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     }
                                                                 }); });
                                                             }, sniff: function (u) { u = String(u || "").replace(/\\\//g, "/"); var a = u.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || u.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return a ? a[0] : ""; }, track: function (u, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, b, g; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, m, g; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (a = a || 0, /\.(m3u8|mp4)(\?|$)/i.test(u))
@@ -4651,9 +4663,9 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             h = x.sniff(s);
                                                                             if (h)
                                                                                 return [2, f.success({ type: "native", data: h, headers: { Referer: a ? u : k + "/" } })];
-                                                                            p = o.parse(s, u), b = p.select(i.iframe || "iframe[src], iframe[data-src]").first();
-                                                                            if (!(b && a < 2)) return [3, 6];
-                                                                            g = d.fix(b.attr("src") || b.attr("data-src"));
+                                                                            p = o.parse(s, u), m = p.select(i.iframe || "iframe[src], iframe[data-src]").first();
+                                                                            if (!(m && a < 2)) return [3, 6];
+                                                                            g = d.fix(m.attr("src") || m.attr("data-src"));
                                                                             if (!g) return [3, 6];
                                                                             return [4, x.track(g, a + 1)];
                                                                         case 5: return [2, _b.sent()];
@@ -4675,7 +4687,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
     }, toc: function (t, e) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
-                return [2, (function (r, c, o, f, m, w, y, A, T, L, _, N, O, U, Q, Y, ce) {
+                return [2, (function (r, c, o, f, b, w, y, A, T, L, q, N, O, U, Q, Y, ce) {
                         return __awaiter(this, void 0, void 0, function () {
                             var H;
                             return __generator(this, function (_b) {
@@ -4819,7 +4831,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     });
                                                                 });
                                                             }, ongoing: function (u) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(u || ""); } }, x = { pick: function (u, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, b, g, v, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, m, g, v, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             if (!a || !u)
@@ -4830,7 +4842,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             if (!(s < n.length)) return [3, 9];
                                                                             l = n[s], h = "text", p = l.lastIndexOf("@");
                                                                             p > 0 && !/\[[^\]]*@/.test(l.slice(p)) && (h = l.slice(p + 1), l = l.slice(0, p));
-                                                                            b = l === ":self" ? null : u.select(l), g = l === ":self" ? u : b.size() ? b.first() : null;
+                                                                            m = l === ":self" ? null : u.select(l), g = l === ":self" ? u : m.size() ? m.first() : null;
                                                                             if (!g) return [3, 8];
                                                                             if (!(h === "text")) return [3, 3];
                                                                             return [4, g.text()];
@@ -4862,7 +4874,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 }); });
                                                             }, url: function (u, a, n) { var s = d.page(a), l = String(u); return l = l.replace(/\[([^\]]*)\]/g, function (h, p) { return s > 1 ? p : ""; }), l = l.replace(/\{p\}/g, String(s)).replace(/\{p0\}/g, String(s - 1)).replace(/\{q\}/g, d.enc(n || "")).replace(/\{base\}/g, k), d.fix(l); }, items: function (u, a) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var n, s, l, h, p, b, g, v, _b, _c, _d;
+                                                                    var n, s, l, h, p, m, g, v, _b, _c, _d;
                                                                     var _f;
                                                                     return __generator(this, function (_g) {
                                                                         switch (_g.label) {
@@ -4873,12 +4885,12 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 if (!(p < s.size())) return [3, 9];
                                                                                 return [4, s.get(p)];
                                                                             case 2:
-                                                                                b = _g.sent();
-                                                                                return [4, x.pick(b, n("link") || "a@href")];
+                                                                                m = _g.sent();
+                                                                                return [4, x.pick(m, n("link") || "a@href")];
                                                                             case 3:
                                                                                 g = _g.sent();
                                                                                 if (!!(!g || h[g] || /^javascript|#$/.test(g))) return [3, 8];
-                                                                                return [4, x.pick(b, n("title") || "h3 || h2 || a@title || img@alt")];
+                                                                                return [4, x.pick(m, n("title") || "h3 || h2 || a@title || img@alt")];
                                                                             case 4:
                                                                                 v = _g.sent();
                                                                                 _b = v;
@@ -4886,10 +4898,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 h[g] = 1;
                                                                                 _d = (_c = l).push;
                                                                                 _f = { name: v, link: d.fix(g) };
-                                                                                return [4, x.pick(b, n("cover") || "img@img")];
+                                                                                return [4, x.pick(m, n("cover") || "img@img")];
                                                                             case 5:
                                                                                 _f.cover = _g.sent();
-                                                                                return [4, x.pick(b, n("desc") || "")];
+                                                                                return [4, x.pick(m, n("desc") || "")];
                                                                             case 6:
                                                                                 _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = k, _f)]));
                                                                                 _g.label = 7;
@@ -4961,8 +4973,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                         case 1:
                                                                             s = _b.sent();
                                                                             u.list && u.list.split(".").forEach(function (p) { s = s && s[p]; });
-                                                                            l = function (p, b) { return String(b || "").indexOf("{") >= 0 ? String(b).replace(/\{(\w+)\}/g, function (g, v) { return p[v] == null ? "" : p[v]; }) : p[b] == null ? "" : String(p[b]); }, h = [];
-                                                                            return [2, ((s || []).forEach(function (p) { var b = l(p, u.title || "title"), g = l(p, u.link || "url"); b && g && h.push({ name: b, link: d.fix(g), cover: d.fix(l(p, u.cover || "cover")), description: u.desc ? l(p, u.desc) : "", host: k }); }), f.success(h, u.paged && h.length ? d.next(!0, n) : null))];
+                                                                            l = function (p, m) { return String(m || "").indexOf("{") >= 0 ? String(m).replace(/\{(\w+)\}/g, function (g, v) { return p[v] == null ? "" : p[v]; }) : p[m] == null ? "" : String(p[m]); }, h = [];
+                                                                            return [2, ((s || []).forEach(function (p) { var m = l(p, u.title || "title"), g = l(p, u.link || "url"); m && g && h.push({ name: m, link: d.fix(g), cover: d.fix(l(p, u.cover || "cover")), description: u.desc ? l(p, u.desc) : "", host: k }); }), f.success(h, u.paged && h.length ? d.next(!0, n) : null))];
                                                                     }
                                                                 }); });
                                                             }, genre: function () {
@@ -5045,7 +5057,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 });
                                                             }, toc: function (u) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, n, s, l, h, _b, p, b, g, v, S, _c, _d, _f, _g, C, q, _h;
+                                                                    var a, n, s, l, h, _b, p, m, g, v, S, _c, _d, _f, _g, C, _, _h;
                                                                     var _j;
                                                                     return __generator(this, function (_k) {
                                                                         switch (_k.label) {
@@ -5078,11 +5090,11 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 _k.label = 8;
                                                                             case 8:
                                                                                 if (!(p < (i.ch_maxPages || 60))) return [3, 22];
-                                                                                b = l.select(i.ch_list), g = 0;
+                                                                                m = l.select(i.ch_list), g = 0;
                                                                                 _k.label = 9;
                                                                             case 9:
-                                                                                if (!(g < b.size())) return [3, 17];
-                                                                                return [4, b.get(g)];
+                                                                                if (!(g < m.size())) return [3, 17];
+                                                                                return [4, m.get(g)];
                                                                             case 10:
                                                                                 v = _k.sent(), S = i.ch_attr ? v.attr(i.ch_attr) : v.attr("href") || v.attr("data-href");
                                                                                 _c = !S || S === "#" || s[S];
@@ -5112,10 +5124,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 C = i.ch_next ? l.select(i.ch_next).first() : null;
                                                                                 if (!C || !C.attr("href"))
                                                                                     return [3, 22];
-                                                                                q = d.fix(C.attr("href"));
-                                                                                if (a.indexOf(q) >= 0)
+                                                                                _ = d.fix(C.attr("href"));
+                                                                                if (a.indexOf(_) >= 0)
                                                                                     return [3, 22];
-                                                                                a.push(q);
+                                                                                a.push(_);
                                                                                 _h = i.ch_delay;
                                                                                 if (!_h) return [3, 19];
                                                                                 return [4, T(i.ch_delay)];
@@ -5124,7 +5136,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 _k.label = 19;
                                                                             case 19:
                                                                                 _h;
-                                                                                return [4, d.html(q, i.req)];
+                                                                                return [4, d.html(_, i.req)];
                                                                             case 20:
                                                                                 l = _k.sent();
                                                                                 _k.label = 21;
@@ -5136,7 +5148,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     });
                                                                 });
                                                             }, pages: function (u) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, l, h, p, b, g, _b, _c, v, S, C, q, _d, _f, _g, _h, F, V, _j, _k, J, M; return __generator(this, function (_l) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, l, h, p, m, g, _b, _c, v, S, C, _, _d, _f, _g, _h, F, V, _j, _k, J, M; return __generator(this, function (_l) {
                                                                     switch (_l.label) {
                                                                         case 0:
                                                                             a = [], n = [u], s = u, l = 0;
@@ -5151,8 +5163,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             p = _l.sent();
                                                                             return [4, p.text()];
                                                                         case 4:
-                                                                            b = (_l.sent()) || "", g = x.initManga(b);
-                                                                            h = o.parse(g ? '<div id="imc-dec">' + g + "</div>" : b, s);
+                                                                            m = (_l.sent()) || "", g = x.initManga(m);
+                                                                            h = o.parse(g ? '<div id="imc-dec">' + g + "</div>" : m, s);
                                                                             return [3, 7];
                                                                         case 5: return [4, d.html(s, i.req)];
                                                                         case 6:
@@ -5169,8 +5181,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             _h = (_g = CryptoJS.enc.Base64).parse;
                                                                             return [4, S.get(C)];
                                                                         case 9:
-                                                                            q = _f.apply(_d, [_h.apply(_g, [(_l.sent()).attr("data-enc")])]).split("").reverse().join("");
-                                                                            q && a.indexOf(q) < 0 && a.push(q);
+                                                                            _ = _f.apply(_d, [_h.apply(_g, [(_l.sent()).attr("data-enc")])]).split("").reverse().join("");
+                                                                            _ && a.indexOf(_) < 0 && a.push(_);
                                                                             _l.label = 10;
                                                                         case 10:
                                                                             C++;
@@ -5207,7 +5219,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     }
                                                                 }); });
                                                             }, text: function (u) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, n, _b, _c, s, l, h, _d, _f, _g, p, _h, _j, _k, b, g, _l, _m, _o, _p, _q, _s; return __generator(this, function (_v) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, n, _b, _c, s, l, h, _d, _f, _g, p, _h, _j, _k, m, g, _l, _m, _o, _p, _q, _s; return __generator(this, function (_v) {
                                                                     switch (_v.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
@@ -5236,20 +5248,20 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             return [4, x.pick(o.parse(n, u), i.c_title || "h1 || h2")];
                                                                         case 7: return [2, _j.apply(_h, _k.concat([_v.sent()]))];
                                                                         case 8:
-                                                                            b = o.parse(n, u), g = b.select(i.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            m = o.parse(n, u), g = m.select(i.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
                                                                             if (!!g) return [3, 10];
                                                                             if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(n.slice(0, 2e4)))
                                                                                 throw new Error("CLOUDFLARE: trang " + k + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
                                                                             _m = (_l = f).error;
                                                                             _o = 'Không tìm thấy nội dung — trang nhận được: "';
-                                                                            return [4, x.pick(b, "title")];
+                                                                            return [4, x.pick(m, "title")];
                                                                         case 9: return [2, _m.apply(_l, [_o + ((_v.sent()) || "?").slice(0, 60) + '" (' + a.status + ", " + n.length + " ký tự)" + (n.length < 400 ? ": " + n.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                                         case 10:
                                                                             _q = (_p = f).success;
                                                                             return [4, d.cleanContent(g)];
                                                                         case 11:
                                                                             _s = [_v.sent()];
-                                                                            return [4, x.pick(b, i.c_title || "h1 || h2")];
+                                                                            return [4, x.pick(m, i.c_title || "h1 || h2")];
                                                                         case 12: return [2, _q.apply(_p, _s.concat([_v.sent()]))];
                                                                     }
                                                                 }); });
@@ -5266,7 +5278,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                             catch (p) {
                                                                 return "";
                                                             } }, rscAction: function (u, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, b, g, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, m, g, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             for (n = [], l = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g; s = l.exec(u);)
@@ -5277,10 +5289,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             if (!(p < n.length && p < 60)) return [3, 5];
                                                                             return [4, d.get(k + n[p])];
                                                                         case 2:
-                                                                            b = _d.sent();
-                                                                            if (!!(!b || !b.ok)) return [3, 4];
+                                                                            m = _d.sent();
+                                                                            if (!!(!m || !m.ok)) return [3, 4];
                                                                             _c = (_b = h).exec;
-                                                                            return [4, b.text()];
+                                                                            return [4, m.text()];
                                                                         case 3:
                                                                             g = _c.apply(_b, [(_d.sent()) || ""]);
                                                                             if (g)
@@ -5305,7 +5317,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 }
                                                                 return null;
                                                             }, actionToc: function (u) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, _b, _c, l, h, p, _d, b, _f, g; return __generator(this, function (_g) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, _b, _c, l, h, p, _d, m, _f, g; return __generator(this, function (_g) {
                                                                     switch (_g.label) {
                                                                         case 0:
                                                                             a = i.ch_action;
@@ -5349,10 +5361,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             if (!!p) return [3, 10];
                                                                             return [4, x.rscAction(n, a.name)];
                                                                         case 7:
-                                                                            b = _g.sent();
-                                                                            _f = b && b !== a.id;
+                                                                            m = _g.sent();
+                                                                            _f = m && m !== a.id;
                                                                             if (!_f) return [3, 9];
-                                                                            return [4, h(b)];
+                                                                            return [4, h(m)];
                                                                         case 8:
                                                                             _f = (p = _g.sent());
                                                                             _g.label = 9;
@@ -5370,8 +5382,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 try {
                                                                     a += JSON.parse(n[1]);
                                                                 }
-                                                                catch (q) { } for (var l = "", h = /([0-9a-f]+):T([0-9a-f]+),/g, p; p = h.exec(a);) {
-                                                                for (var b = parseInt(p[2], 16), g = h.lastIndex, v = 0; g < a.length && v < b;) {
+                                                                catch (_) { } for (var l = "", h = /([0-9a-f]+):T([0-9a-f]+),/g, p; p = h.exec(a);) {
+                                                                for (var m = parseInt(p[2], 16), g = h.lastIndex, v = 0; g < a.length && v < m;) {
                                                                     var S = a.charCodeAt(g);
                                                                     S < 128 ? v += 1 : S < 2048 ? v += 2 : S >= 55296 && S <= 56319 ? (v += 4, g++) : v += 3, g++;
                                                                 }
@@ -5408,7 +5420,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     }
                                                                 }); });
                                                             }, sniff: function (u) { u = String(u || "").replace(/\\\//g, "/"); var a = u.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || u.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return a ? a[0] : ""; }, track: function (u, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, b, g; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, m, g; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (a = a || 0, /\.(m3u8|mp4)(\?|$)/i.test(u))
@@ -5430,9 +5442,9 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             h = x.sniff(s);
                                                                             if (h)
                                                                                 return [2, f.success({ type: "native", data: h, headers: { Referer: a ? u : k + "/" } })];
-                                                                            p = o.parse(s, u), b = p.select(i.iframe || "iframe[src], iframe[data-src]").first();
-                                                                            if (!(b && a < 2)) return [3, 6];
-                                                                            g = d.fix(b.attr("src") || b.attr("data-src"));
+                                                                            p = o.parse(s, u), m = p.select(i.iframe || "iframe[src], iframe[data-src]").first();
+                                                                            if (!(m && a < 2)) return [3, 6];
+                                                                            g = d.fix(m.attr("src") || m.attr("data-src"));
                                                                             if (!g) return [3, 6];
                                                                             return [4, x.track(g, a + 1)];
                                                                         case 5: return [2, _b.sent()];
@@ -5454,7 +5466,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
     }, genre: function (t, e) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
-                return [2, (function (r, c, o, f, m, w, y, A, T, L, _, N, O, U, Q, Y, ce) {
+                return [2, (function (r, c, o, f, b, w, y, A, T, L, q, N, O, U, Q, Y, ce) {
                         return __awaiter(this, void 0, void 0, function () {
                             var H;
                             return __generator(this, function (_b) {
@@ -5598,7 +5610,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     });
                                                                 });
                                                             }, ongoing: function (u) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(u || ""); } }, x = { pick: function (u, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, b, g, v, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, m, g, v, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             if (!a || !u)
@@ -5609,7 +5621,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             if (!(s < n.length)) return [3, 9];
                                                                             l = n[s], h = "text", p = l.lastIndexOf("@");
                                                                             p > 0 && !/\[[^\]]*@/.test(l.slice(p)) && (h = l.slice(p + 1), l = l.slice(0, p));
-                                                                            b = l === ":self" ? null : u.select(l), g = l === ":self" ? u : b.size() ? b.first() : null;
+                                                                            m = l === ":self" ? null : u.select(l), g = l === ":self" ? u : m.size() ? m.first() : null;
                                                                             if (!g) return [3, 8];
                                                                             if (!(h === "text")) return [3, 3];
                                                                             return [4, g.text()];
@@ -5641,7 +5653,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 }); });
                                                             }, url: function (u, a, n) { var s = d.page(a), l = String(u); return l = l.replace(/\[([^\]]*)\]/g, function (h, p) { return s > 1 ? p : ""; }), l = l.replace(/\{p\}/g, String(s)).replace(/\{p0\}/g, String(s - 1)).replace(/\{q\}/g, d.enc(n || "")).replace(/\{base\}/g, k), d.fix(l); }, items: function (u, a) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var n, s, l, h, p, b, g, v, _b, _c, _d;
+                                                                    var n, s, l, h, p, m, g, v, _b, _c, _d;
                                                                     var _f;
                                                                     return __generator(this, function (_g) {
                                                                         switch (_g.label) {
@@ -5652,12 +5664,12 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 if (!(p < s.size())) return [3, 9];
                                                                                 return [4, s.get(p)];
                                                                             case 2:
-                                                                                b = _g.sent();
-                                                                                return [4, x.pick(b, n("link") || "a@href")];
+                                                                                m = _g.sent();
+                                                                                return [4, x.pick(m, n("link") || "a@href")];
                                                                             case 3:
                                                                                 g = _g.sent();
                                                                                 if (!!(!g || h[g] || /^javascript|#$/.test(g))) return [3, 8];
-                                                                                return [4, x.pick(b, n("title") || "h3 || h2 || a@title || img@alt")];
+                                                                                return [4, x.pick(m, n("title") || "h3 || h2 || a@title || img@alt")];
                                                                             case 4:
                                                                                 v = _g.sent();
                                                                                 _b = v;
@@ -5665,10 +5677,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 h[g] = 1;
                                                                                 _d = (_c = l).push;
                                                                                 _f = { name: v, link: d.fix(g) };
-                                                                                return [4, x.pick(b, n("cover") || "img@img")];
+                                                                                return [4, x.pick(m, n("cover") || "img@img")];
                                                                             case 5:
                                                                                 _f.cover = _g.sent();
-                                                                                return [4, x.pick(b, n("desc") || "")];
+                                                                                return [4, x.pick(m, n("desc") || "")];
                                                                             case 6:
                                                                                 _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = k, _f)]));
                                                                                 _g.label = 7;
@@ -5740,8 +5752,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                         case 1:
                                                                             s = _b.sent();
                                                                             u.list && u.list.split(".").forEach(function (p) { s = s && s[p]; });
-                                                                            l = function (p, b) { return String(b || "").indexOf("{") >= 0 ? String(b).replace(/\{(\w+)\}/g, function (g, v) { return p[v] == null ? "" : p[v]; }) : p[b] == null ? "" : String(p[b]); }, h = [];
-                                                                            return [2, ((s || []).forEach(function (p) { var b = l(p, u.title || "title"), g = l(p, u.link || "url"); b && g && h.push({ name: b, link: d.fix(g), cover: d.fix(l(p, u.cover || "cover")), description: u.desc ? l(p, u.desc) : "", host: k }); }), f.success(h, u.paged && h.length ? d.next(!0, n) : null))];
+                                                                            l = function (p, m) { return String(m || "").indexOf("{") >= 0 ? String(m).replace(/\{(\w+)\}/g, function (g, v) { return p[v] == null ? "" : p[v]; }) : p[m] == null ? "" : String(p[m]); }, h = [];
+                                                                            return [2, ((s || []).forEach(function (p) { var m = l(p, u.title || "title"), g = l(p, u.link || "url"); m && g && h.push({ name: m, link: d.fix(g), cover: d.fix(l(p, u.cover || "cover")), description: u.desc ? l(p, u.desc) : "", host: k }); }), f.success(h, u.paged && h.length ? d.next(!0, n) : null))];
                                                                     }
                                                                 }); });
                                                             }, genre: function () {
@@ -5824,7 +5836,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 });
                                                             }, toc: function (u) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, n, s, l, h, _b, p, b, g, v, S, _c, _d, _f, _g, C, q, _h;
+                                                                    var a, n, s, l, h, _b, p, m, g, v, S, _c, _d, _f, _g, C, _, _h;
                                                                     var _j;
                                                                     return __generator(this, function (_k) {
                                                                         switch (_k.label) {
@@ -5857,11 +5869,11 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 _k.label = 8;
                                                                             case 8:
                                                                                 if (!(p < (i.ch_maxPages || 60))) return [3, 22];
-                                                                                b = l.select(i.ch_list), g = 0;
+                                                                                m = l.select(i.ch_list), g = 0;
                                                                                 _k.label = 9;
                                                                             case 9:
-                                                                                if (!(g < b.size())) return [3, 17];
-                                                                                return [4, b.get(g)];
+                                                                                if (!(g < m.size())) return [3, 17];
+                                                                                return [4, m.get(g)];
                                                                             case 10:
                                                                                 v = _k.sent(), S = i.ch_attr ? v.attr(i.ch_attr) : v.attr("href") || v.attr("data-href");
                                                                                 _c = !S || S === "#" || s[S];
@@ -5891,10 +5903,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 C = i.ch_next ? l.select(i.ch_next).first() : null;
                                                                                 if (!C || !C.attr("href"))
                                                                                     return [3, 22];
-                                                                                q = d.fix(C.attr("href"));
-                                                                                if (a.indexOf(q) >= 0)
+                                                                                _ = d.fix(C.attr("href"));
+                                                                                if (a.indexOf(_) >= 0)
                                                                                     return [3, 22];
-                                                                                a.push(q);
+                                                                                a.push(_);
                                                                                 _h = i.ch_delay;
                                                                                 if (!_h) return [3, 19];
                                                                                 return [4, T(i.ch_delay)];
@@ -5903,7 +5915,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 _k.label = 19;
                                                                             case 19:
                                                                                 _h;
-                                                                                return [4, d.html(q, i.req)];
+                                                                                return [4, d.html(_, i.req)];
                                                                             case 20:
                                                                                 l = _k.sent();
                                                                                 _k.label = 21;
@@ -5915,7 +5927,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     });
                                                                 });
                                                             }, pages: function (u) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, l, h, p, b, g, _b, _c, v, S, C, q, _d, _f, _g, _h, F, V, _j, _k, J, M; return __generator(this, function (_l) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, l, h, p, m, g, _b, _c, v, S, C, _, _d, _f, _g, _h, F, V, _j, _k, J, M; return __generator(this, function (_l) {
                                                                     switch (_l.label) {
                                                                         case 0:
                                                                             a = [], n = [u], s = u, l = 0;
@@ -5930,8 +5942,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             p = _l.sent();
                                                                             return [4, p.text()];
                                                                         case 4:
-                                                                            b = (_l.sent()) || "", g = x.initManga(b);
-                                                                            h = o.parse(g ? '<div id="imc-dec">' + g + "</div>" : b, s);
+                                                                            m = (_l.sent()) || "", g = x.initManga(m);
+                                                                            h = o.parse(g ? '<div id="imc-dec">' + g + "</div>" : m, s);
                                                                             return [3, 7];
                                                                         case 5: return [4, d.html(s, i.req)];
                                                                         case 6:
@@ -5948,8 +5960,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             _h = (_g = CryptoJS.enc.Base64).parse;
                                                                             return [4, S.get(C)];
                                                                         case 9:
-                                                                            q = _f.apply(_d, [_h.apply(_g, [(_l.sent()).attr("data-enc")])]).split("").reverse().join("");
-                                                                            q && a.indexOf(q) < 0 && a.push(q);
+                                                                            _ = _f.apply(_d, [_h.apply(_g, [(_l.sent()).attr("data-enc")])]).split("").reverse().join("");
+                                                                            _ && a.indexOf(_) < 0 && a.push(_);
                                                                             _l.label = 10;
                                                                         case 10:
                                                                             C++;
@@ -5986,7 +5998,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     }
                                                                 }); });
                                                             }, text: function (u) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, n, _b, _c, s, l, h, _d, _f, _g, p, _h, _j, _k, b, g, _l, _m, _o, _p, _q, _s; return __generator(this, function (_v) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, n, _b, _c, s, l, h, _d, _f, _g, p, _h, _j, _k, m, g, _l, _m, _o, _p, _q, _s; return __generator(this, function (_v) {
                                                                     switch (_v.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
@@ -6015,20 +6027,20 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             return [4, x.pick(o.parse(n, u), i.c_title || "h1 || h2")];
                                                                         case 7: return [2, _j.apply(_h, _k.concat([_v.sent()]))];
                                                                         case 8:
-                                                                            b = o.parse(n, u), g = b.select(i.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            m = o.parse(n, u), g = m.select(i.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
                                                                             if (!!g) return [3, 10];
                                                                             if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(n.slice(0, 2e4)))
                                                                                 throw new Error("CLOUDFLARE: trang " + k + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
                                                                             _m = (_l = f).error;
                                                                             _o = 'Không tìm thấy nội dung — trang nhận được: "';
-                                                                            return [4, x.pick(b, "title")];
+                                                                            return [4, x.pick(m, "title")];
                                                                         case 9: return [2, _m.apply(_l, [_o + ((_v.sent()) || "?").slice(0, 60) + '" (' + a.status + ", " + n.length + " ký tự)" + (n.length < 400 ? ": " + n.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                                         case 10:
                                                                             _q = (_p = f).success;
                                                                             return [4, d.cleanContent(g)];
                                                                         case 11:
                                                                             _s = [_v.sent()];
-                                                                            return [4, x.pick(b, i.c_title || "h1 || h2")];
+                                                                            return [4, x.pick(m, i.c_title || "h1 || h2")];
                                                                         case 12: return [2, _q.apply(_p, _s.concat([_v.sent()]))];
                                                                     }
                                                                 }); });
@@ -6045,7 +6057,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                             catch (p) {
                                                                 return "";
                                                             } }, rscAction: function (u, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, b, g, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, m, g, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             for (n = [], l = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g; s = l.exec(u);)
@@ -6056,10 +6068,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             if (!(p < n.length && p < 60)) return [3, 5];
                                                                             return [4, d.get(k + n[p])];
                                                                         case 2:
-                                                                            b = _d.sent();
-                                                                            if (!!(!b || !b.ok)) return [3, 4];
+                                                                            m = _d.sent();
+                                                                            if (!!(!m || !m.ok)) return [3, 4];
                                                                             _c = (_b = h).exec;
-                                                                            return [4, b.text()];
+                                                                            return [4, m.text()];
                                                                         case 3:
                                                                             g = _c.apply(_b, [(_d.sent()) || ""]);
                                                                             if (g)
@@ -6084,7 +6096,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 }
                                                                 return null;
                                                             }, actionToc: function (u) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, _b, _c, l, h, p, _d, b, _f, g; return __generator(this, function (_g) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, _b, _c, l, h, p, _d, m, _f, g; return __generator(this, function (_g) {
                                                                     switch (_g.label) {
                                                                         case 0:
                                                                             a = i.ch_action;
@@ -6128,10 +6140,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             if (!!p) return [3, 10];
                                                                             return [4, x.rscAction(n, a.name)];
                                                                         case 7:
-                                                                            b = _g.sent();
-                                                                            _f = b && b !== a.id;
+                                                                            m = _g.sent();
+                                                                            _f = m && m !== a.id;
                                                                             if (!_f) return [3, 9];
-                                                                            return [4, h(b)];
+                                                                            return [4, h(m)];
                                                                         case 8:
                                                                             _f = (p = _g.sent());
                                                                             _g.label = 9;
@@ -6149,8 +6161,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 try {
                                                                     a += JSON.parse(n[1]);
                                                                 }
-                                                                catch (q) { } for (var l = "", h = /([0-9a-f]+):T([0-9a-f]+),/g, p; p = h.exec(a);) {
-                                                                for (var b = parseInt(p[2], 16), g = h.lastIndex, v = 0; g < a.length && v < b;) {
+                                                                catch (_) { } for (var l = "", h = /([0-9a-f]+):T([0-9a-f]+),/g, p; p = h.exec(a);) {
+                                                                for (var m = parseInt(p[2], 16), g = h.lastIndex, v = 0; g < a.length && v < m;) {
                                                                     var S = a.charCodeAt(g);
                                                                     S < 128 ? v += 1 : S < 2048 ? v += 2 : S >= 55296 && S <= 56319 ? (v += 4, g++) : v += 3, g++;
                                                                 }
@@ -6187,7 +6199,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     }
                                                                 }); });
                                                             }, sniff: function (u) { u = String(u || "").replace(/\\\//g, "/"); var a = u.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || u.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return a ? a[0] : ""; }, track: function (u, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, b, g; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, m, g; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (a = a || 0, /\.(m3u8|mp4)(\?|$)/i.test(u))
@@ -6209,9 +6221,9 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             h = x.sniff(s);
                                                                             if (h)
                                                                                 return [2, f.success({ type: "native", data: h, headers: { Referer: a ? u : k + "/" } })];
-                                                                            p = o.parse(s, u), b = p.select(i.iframe || "iframe[src], iframe[data-src]").first();
-                                                                            if (!(b && a < 2)) return [3, 6];
-                                                                            g = d.fix(b.attr("src") || b.attr("data-src"));
+                                                                            p = o.parse(s, u), m = p.select(i.iframe || "iframe[src], iframe[data-src]").first();
+                                                                            if (!(m && a < 2)) return [3, 6];
+                                                                            g = d.fix(m.attr("src") || m.attr("data-src"));
                                                                             if (!g) return [3, 6];
                                                                             return [4, x.track(g, a + 1)];
                                                                         case 5: return [2, _b.sent()];
@@ -6233,7 +6245,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
     }, chap: function (t, e) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
-                return [2, (function (r, c, o, f, m, w, y, A, T, L, _, N, O, U, Q, Y, ce) {
+                return [2, (function (r, c, o, f, b, w, y, A, T, L, q, N, O, U, Q, Y, ce) {
                         return __awaiter(this, void 0, void 0, function () {
                             var H;
                             return __generator(this, function (_b) {
@@ -6377,7 +6389,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     });
                                                                 });
                                                             }, ongoing: function (u) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(u || ""); } }, x = { pick: function (u, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, b, g, v, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, m, g, v, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             if (!a || !u)
@@ -6388,7 +6400,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             if (!(s < n.length)) return [3, 9];
                                                                             l = n[s], h = "text", p = l.lastIndexOf("@");
                                                                             p > 0 && !/\[[^\]]*@/.test(l.slice(p)) && (h = l.slice(p + 1), l = l.slice(0, p));
-                                                                            b = l === ":self" ? null : u.select(l), g = l === ":self" ? u : b.size() ? b.first() : null;
+                                                                            m = l === ":self" ? null : u.select(l), g = l === ":self" ? u : m.size() ? m.first() : null;
                                                                             if (!g) return [3, 8];
                                                                             if (!(h === "text")) return [3, 3];
                                                                             return [4, g.text()];
@@ -6420,7 +6432,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 }); });
                                                             }, url: function (u, a, n) { var s = d.page(a), l = String(u); return l = l.replace(/\[([^\]]*)\]/g, function (h, p) { return s > 1 ? p : ""; }), l = l.replace(/\{p\}/g, String(s)).replace(/\{p0\}/g, String(s - 1)).replace(/\{q\}/g, d.enc(n || "")).replace(/\{base\}/g, k), d.fix(l); }, items: function (u, a) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var n, s, l, h, p, b, g, v, _b, _c, _d;
+                                                                    var n, s, l, h, p, m, g, v, _b, _c, _d;
                                                                     var _f;
                                                                     return __generator(this, function (_g) {
                                                                         switch (_g.label) {
@@ -6431,12 +6443,12 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 if (!(p < s.size())) return [3, 9];
                                                                                 return [4, s.get(p)];
                                                                             case 2:
-                                                                                b = _g.sent();
-                                                                                return [4, x.pick(b, n("link") || "a@href")];
+                                                                                m = _g.sent();
+                                                                                return [4, x.pick(m, n("link") || "a@href")];
                                                                             case 3:
                                                                                 g = _g.sent();
                                                                                 if (!!(!g || h[g] || /^javascript|#$/.test(g))) return [3, 8];
-                                                                                return [4, x.pick(b, n("title") || "h3 || h2 || a@title || img@alt")];
+                                                                                return [4, x.pick(m, n("title") || "h3 || h2 || a@title || img@alt")];
                                                                             case 4:
                                                                                 v = _g.sent();
                                                                                 _b = v;
@@ -6444,10 +6456,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 h[g] = 1;
                                                                                 _d = (_c = l).push;
                                                                                 _f = { name: v, link: d.fix(g) };
-                                                                                return [4, x.pick(b, n("cover") || "img@img")];
+                                                                                return [4, x.pick(m, n("cover") || "img@img")];
                                                                             case 5:
                                                                                 _f.cover = _g.sent();
-                                                                                return [4, x.pick(b, n("desc") || "")];
+                                                                                return [4, x.pick(m, n("desc") || "")];
                                                                             case 6:
                                                                                 _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = k, _f)]));
                                                                                 _g.label = 7;
@@ -6519,8 +6531,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                         case 1:
                                                                             s = _b.sent();
                                                                             u.list && u.list.split(".").forEach(function (p) { s = s && s[p]; });
-                                                                            l = function (p, b) { return String(b || "").indexOf("{") >= 0 ? String(b).replace(/\{(\w+)\}/g, function (g, v) { return p[v] == null ? "" : p[v]; }) : p[b] == null ? "" : String(p[b]); }, h = [];
-                                                                            return [2, ((s || []).forEach(function (p) { var b = l(p, u.title || "title"), g = l(p, u.link || "url"); b && g && h.push({ name: b, link: d.fix(g), cover: d.fix(l(p, u.cover || "cover")), description: u.desc ? l(p, u.desc) : "", host: k }); }), f.success(h, u.paged && h.length ? d.next(!0, n) : null))];
+                                                                            l = function (p, m) { return String(m || "").indexOf("{") >= 0 ? String(m).replace(/\{(\w+)\}/g, function (g, v) { return p[v] == null ? "" : p[v]; }) : p[m] == null ? "" : String(p[m]); }, h = [];
+                                                                            return [2, ((s || []).forEach(function (p) { var m = l(p, u.title || "title"), g = l(p, u.link || "url"); m && g && h.push({ name: m, link: d.fix(g), cover: d.fix(l(p, u.cover || "cover")), description: u.desc ? l(p, u.desc) : "", host: k }); }), f.success(h, u.paged && h.length ? d.next(!0, n) : null))];
                                                                     }
                                                                 }); });
                                                             }, genre: function () {
@@ -6603,7 +6615,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 });
                                                             }, toc: function (u) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, n, s, l, h, _b, p, b, g, v, S, _c, _d, _f, _g, C, q, _h;
+                                                                    var a, n, s, l, h, _b, p, m, g, v, S, _c, _d, _f, _g, C, _, _h;
                                                                     var _j;
                                                                     return __generator(this, function (_k) {
                                                                         switch (_k.label) {
@@ -6636,11 +6648,11 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 _k.label = 8;
                                                                             case 8:
                                                                                 if (!(p < (i.ch_maxPages || 60))) return [3, 22];
-                                                                                b = l.select(i.ch_list), g = 0;
+                                                                                m = l.select(i.ch_list), g = 0;
                                                                                 _k.label = 9;
                                                                             case 9:
-                                                                                if (!(g < b.size())) return [3, 17];
-                                                                                return [4, b.get(g)];
+                                                                                if (!(g < m.size())) return [3, 17];
+                                                                                return [4, m.get(g)];
                                                                             case 10:
                                                                                 v = _k.sent(), S = i.ch_attr ? v.attr(i.ch_attr) : v.attr("href") || v.attr("data-href");
                                                                                 _c = !S || S === "#" || s[S];
@@ -6670,10 +6682,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 C = i.ch_next ? l.select(i.ch_next).first() : null;
                                                                                 if (!C || !C.attr("href"))
                                                                                     return [3, 22];
-                                                                                q = d.fix(C.attr("href"));
-                                                                                if (a.indexOf(q) >= 0)
+                                                                                _ = d.fix(C.attr("href"));
+                                                                                if (a.indexOf(_) >= 0)
                                                                                     return [3, 22];
-                                                                                a.push(q);
+                                                                                a.push(_);
                                                                                 _h = i.ch_delay;
                                                                                 if (!_h) return [3, 19];
                                                                                 return [4, T(i.ch_delay)];
@@ -6682,7 +6694,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 _k.label = 19;
                                                                             case 19:
                                                                                 _h;
-                                                                                return [4, d.html(q, i.req)];
+                                                                                return [4, d.html(_, i.req)];
                                                                             case 20:
                                                                                 l = _k.sent();
                                                                                 _k.label = 21;
@@ -6694,7 +6706,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     });
                                                                 });
                                                             }, pages: function (u) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, l, h, p, b, g, _b, _c, v, S, C, q, _d, _f, _g, _h, F, V, _j, _k, J, M; return __generator(this, function (_l) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, l, h, p, m, g, _b, _c, v, S, C, _, _d, _f, _g, _h, F, V, _j, _k, J, M; return __generator(this, function (_l) {
                                                                     switch (_l.label) {
                                                                         case 0:
                                                                             a = [], n = [u], s = u, l = 0;
@@ -6709,8 +6721,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             p = _l.sent();
                                                                             return [4, p.text()];
                                                                         case 4:
-                                                                            b = (_l.sent()) || "", g = x.initManga(b);
-                                                                            h = o.parse(g ? '<div id="imc-dec">' + g + "</div>" : b, s);
+                                                                            m = (_l.sent()) || "", g = x.initManga(m);
+                                                                            h = o.parse(g ? '<div id="imc-dec">' + g + "</div>" : m, s);
                                                                             return [3, 7];
                                                                         case 5: return [4, d.html(s, i.req)];
                                                                         case 6:
@@ -6727,8 +6739,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             _h = (_g = CryptoJS.enc.Base64).parse;
                                                                             return [4, S.get(C)];
                                                                         case 9:
-                                                                            q = _f.apply(_d, [_h.apply(_g, [(_l.sent()).attr("data-enc")])]).split("").reverse().join("");
-                                                                            q && a.indexOf(q) < 0 && a.push(q);
+                                                                            _ = _f.apply(_d, [_h.apply(_g, [(_l.sent()).attr("data-enc")])]).split("").reverse().join("");
+                                                                            _ && a.indexOf(_) < 0 && a.push(_);
                                                                             _l.label = 10;
                                                                         case 10:
                                                                             C++;
@@ -6765,7 +6777,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     }
                                                                 }); });
                                                             }, text: function (u) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, n, _b, _c, s, l, h, _d, _f, _g, p, _h, _j, _k, b, g, _l, _m, _o, _p, _q, _s; return __generator(this, function (_v) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, n, _b, _c, s, l, h, _d, _f, _g, p, _h, _j, _k, m, g, _l, _m, _o, _p, _q, _s; return __generator(this, function (_v) {
                                                                     switch (_v.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
@@ -6794,20 +6806,20 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             return [4, x.pick(o.parse(n, u), i.c_title || "h1 || h2")];
                                                                         case 7: return [2, _j.apply(_h, _k.concat([_v.sent()]))];
                                                                         case 8:
-                                                                            b = o.parse(n, u), g = b.select(i.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            m = o.parse(n, u), g = m.select(i.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
                                                                             if (!!g) return [3, 10];
                                                                             if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(n.slice(0, 2e4)))
                                                                                 throw new Error("CLOUDFLARE: trang " + k + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
                                                                             _m = (_l = f).error;
                                                                             _o = 'Không tìm thấy nội dung — trang nhận được: "';
-                                                                            return [4, x.pick(b, "title")];
+                                                                            return [4, x.pick(m, "title")];
                                                                         case 9: return [2, _m.apply(_l, [_o + ((_v.sent()) || "?").slice(0, 60) + '" (' + a.status + ", " + n.length + " ký tự)" + (n.length < 400 ? ": " + n.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                                         case 10:
                                                                             _q = (_p = f).success;
                                                                             return [4, d.cleanContent(g)];
                                                                         case 11:
                                                                             _s = [_v.sent()];
-                                                                            return [4, x.pick(b, i.c_title || "h1 || h2")];
+                                                                            return [4, x.pick(m, i.c_title || "h1 || h2")];
                                                                         case 12: return [2, _q.apply(_p, _s.concat([_v.sent()]))];
                                                                     }
                                                                 }); });
@@ -6824,7 +6836,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                             catch (p) {
                                                                 return "";
                                                             } }, rscAction: function (u, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, b, g, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, m, g, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             for (n = [], l = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g; s = l.exec(u);)
@@ -6835,10 +6847,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             if (!(p < n.length && p < 60)) return [3, 5];
                                                                             return [4, d.get(k + n[p])];
                                                                         case 2:
-                                                                            b = _d.sent();
-                                                                            if (!!(!b || !b.ok)) return [3, 4];
+                                                                            m = _d.sent();
+                                                                            if (!!(!m || !m.ok)) return [3, 4];
                                                                             _c = (_b = h).exec;
-                                                                            return [4, b.text()];
+                                                                            return [4, m.text()];
                                                                         case 3:
                                                                             g = _c.apply(_b, [(_d.sent()) || ""]);
                                                                             if (g)
@@ -6863,7 +6875,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 }
                                                                 return null;
                                                             }, actionToc: function (u) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, _b, _c, l, h, p, _d, b, _f, g; return __generator(this, function (_g) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, _b, _c, l, h, p, _d, m, _f, g; return __generator(this, function (_g) {
                                                                     switch (_g.label) {
                                                                         case 0:
                                                                             a = i.ch_action;
@@ -6907,10 +6919,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             if (!!p) return [3, 10];
                                                                             return [4, x.rscAction(n, a.name)];
                                                                         case 7:
-                                                                            b = _g.sent();
-                                                                            _f = b && b !== a.id;
+                                                                            m = _g.sent();
+                                                                            _f = m && m !== a.id;
                                                                             if (!_f) return [3, 9];
-                                                                            return [4, h(b)];
+                                                                            return [4, h(m)];
                                                                         case 8:
                                                                             _f = (p = _g.sent());
                                                                             _g.label = 9;
@@ -6928,8 +6940,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 try {
                                                                     a += JSON.parse(n[1]);
                                                                 }
-                                                                catch (q) { } for (var l = "", h = /([0-9a-f]+):T([0-9a-f]+),/g, p; p = h.exec(a);) {
-                                                                for (var b = parseInt(p[2], 16), g = h.lastIndex, v = 0; g < a.length && v < b;) {
+                                                                catch (_) { } for (var l = "", h = /([0-9a-f]+):T([0-9a-f]+),/g, p; p = h.exec(a);) {
+                                                                for (var m = parseInt(p[2], 16), g = h.lastIndex, v = 0; g < a.length && v < m;) {
                                                                     var S = a.charCodeAt(g);
                                                                     S < 128 ? v += 1 : S < 2048 ? v += 2 : S >= 55296 && S <= 56319 ? (v += 4, g++) : v += 3, g++;
                                                                 }
@@ -6966,7 +6978,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     }
                                                                 }); });
                                                             }, sniff: function (u) { u = String(u || "").replace(/\\\//g, "/"); var a = u.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || u.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return a ? a[0] : ""; }, track: function (u, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, b, g; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, m, g; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (a = a || 0, /\.(m3u8|mp4)(\?|$)/i.test(u))
@@ -6988,9 +7000,9 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             h = x.sniff(s);
                                                                             if (h)
                                                                                 return [2, f.success({ type: "native", data: h, headers: { Referer: a ? u : k + "/" } })];
-                                                                            p = o.parse(s, u), b = p.select(i.iframe || "iframe[src], iframe[data-src]").first();
-                                                                            if (!(b && a < 2)) return [3, 6];
-                                                                            g = d.fix(b.attr("src") || b.attr("data-src"));
+                                                                            p = o.parse(s, u), m = p.select(i.iframe || "iframe[src], iframe[data-src]").first();
+                                                                            if (!(m && a < 2)) return [3, 6];
+                                                                            g = d.fix(m.attr("src") || m.attr("data-src"));
                                                                             if (!g) return [3, 6];
                                                                             return [4, x.track(g, a + 1)];
                                                                         case 5: return [2, _b.sent()];
@@ -7012,7 +7024,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
     }, browse: function (t, e) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
-                return [2, (function (r, c, o, f, m, w, y, A, T, L, _, N, O, U, Q, Y, ce) {
+                return [2, (function (r, c, o, f, b, w, y, A, T, L, q, N, O, U, Q, Y, ce) {
                         return __awaiter(this, void 0, void 0, function () {
                             var H;
                             return __generator(this, function (_b) {
@@ -7156,7 +7168,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     });
                                                                 });
                                                             }, ongoing: function (u) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(u || ""); } }, x = { pick: function (u, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, b, g, v, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, m, g, v, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             if (!a || !u)
@@ -7167,7 +7179,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             if (!(s < n.length)) return [3, 9];
                                                                             l = n[s], h = "text", p = l.lastIndexOf("@");
                                                                             p > 0 && !/\[[^\]]*@/.test(l.slice(p)) && (h = l.slice(p + 1), l = l.slice(0, p));
-                                                                            b = l === ":self" ? null : u.select(l), g = l === ":self" ? u : b.size() ? b.first() : null;
+                                                                            m = l === ":self" ? null : u.select(l), g = l === ":self" ? u : m.size() ? m.first() : null;
                                                                             if (!g) return [3, 8];
                                                                             if (!(h === "text")) return [3, 3];
                                                                             return [4, g.text()];
@@ -7199,7 +7211,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 }); });
                                                             }, url: function (u, a, n) { var s = d.page(a), l = String(u); return l = l.replace(/\[([^\]]*)\]/g, function (h, p) { return s > 1 ? p : ""; }), l = l.replace(/\{p\}/g, String(s)).replace(/\{p0\}/g, String(s - 1)).replace(/\{q\}/g, d.enc(n || "")).replace(/\{base\}/g, k), d.fix(l); }, items: function (u, a) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var n, s, l, h, p, b, g, v, _b, _c, _d;
+                                                                    var n, s, l, h, p, m, g, v, _b, _c, _d;
                                                                     var _f;
                                                                     return __generator(this, function (_g) {
                                                                         switch (_g.label) {
@@ -7210,12 +7222,12 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 if (!(p < s.size())) return [3, 9];
                                                                                 return [4, s.get(p)];
                                                                             case 2:
-                                                                                b = _g.sent();
-                                                                                return [4, x.pick(b, n("link") || "a@href")];
+                                                                                m = _g.sent();
+                                                                                return [4, x.pick(m, n("link") || "a@href")];
                                                                             case 3:
                                                                                 g = _g.sent();
                                                                                 if (!!(!g || h[g] || /^javascript|#$/.test(g))) return [3, 8];
-                                                                                return [4, x.pick(b, n("title") || "h3 || h2 || a@title || img@alt")];
+                                                                                return [4, x.pick(m, n("title") || "h3 || h2 || a@title || img@alt")];
                                                                             case 4:
                                                                                 v = _g.sent();
                                                                                 _b = v;
@@ -7223,10 +7235,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 h[g] = 1;
                                                                                 _d = (_c = l).push;
                                                                                 _f = { name: v, link: d.fix(g) };
-                                                                                return [4, x.pick(b, n("cover") || "img@img")];
+                                                                                return [4, x.pick(m, n("cover") || "img@img")];
                                                                             case 5:
                                                                                 _f.cover = _g.sent();
-                                                                                return [4, x.pick(b, n("desc") || "")];
+                                                                                return [4, x.pick(m, n("desc") || "")];
                                                                             case 6:
                                                                                 _b = (_d.apply(_c, [(_f.description = _g.sent(), _f.host = k, _f)]));
                                                                                 _g.label = 7;
@@ -7298,8 +7310,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                         case 1:
                                                                             s = _b.sent();
                                                                             u.list && u.list.split(".").forEach(function (p) { s = s && s[p]; });
-                                                                            l = function (p, b) { return String(b || "").indexOf("{") >= 0 ? String(b).replace(/\{(\w+)\}/g, function (g, v) { return p[v] == null ? "" : p[v]; }) : p[b] == null ? "" : String(p[b]); }, h = [];
-                                                                            return [2, ((s || []).forEach(function (p) { var b = l(p, u.title || "title"), g = l(p, u.link || "url"); b && g && h.push({ name: b, link: d.fix(g), cover: d.fix(l(p, u.cover || "cover")), description: u.desc ? l(p, u.desc) : "", host: k }); }), f.success(h, u.paged && h.length ? d.next(!0, n) : null))];
+                                                                            l = function (p, m) { return String(m || "").indexOf("{") >= 0 ? String(m).replace(/\{(\w+)\}/g, function (g, v) { return p[v] == null ? "" : p[v]; }) : p[m] == null ? "" : String(p[m]); }, h = [];
+                                                                            return [2, ((s || []).forEach(function (p) { var m = l(p, u.title || "title"), g = l(p, u.link || "url"); m && g && h.push({ name: m, link: d.fix(g), cover: d.fix(l(p, u.cover || "cover")), description: u.desc ? l(p, u.desc) : "", host: k }); }), f.success(h, u.paged && h.length ? d.next(!0, n) : null))];
                                                                     }
                                                                 }); });
                                                             }, genre: function () {
@@ -7382,7 +7394,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 });
                                                             }, toc: function (u) {
                                                                 return __awaiter(this, void 0, void 0, function () {
-                                                                    var a, n, s, l, h, _b, p, b, g, v, S, _c, _d, _f, _g, C, q, _h;
+                                                                    var a, n, s, l, h, _b, p, m, g, v, S, _c, _d, _f, _g, C, _, _h;
                                                                     var _j;
                                                                     return __generator(this, function (_k) {
                                                                         switch (_k.label) {
@@ -7415,11 +7427,11 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 _k.label = 8;
                                                                             case 8:
                                                                                 if (!(p < (i.ch_maxPages || 60))) return [3, 22];
-                                                                                b = l.select(i.ch_list), g = 0;
+                                                                                m = l.select(i.ch_list), g = 0;
                                                                                 _k.label = 9;
                                                                             case 9:
-                                                                                if (!(g < b.size())) return [3, 17];
-                                                                                return [4, b.get(g)];
+                                                                                if (!(g < m.size())) return [3, 17];
+                                                                                return [4, m.get(g)];
                                                                             case 10:
                                                                                 v = _k.sent(), S = i.ch_attr ? v.attr(i.ch_attr) : v.attr("href") || v.attr("data-href");
                                                                                 _c = !S || S === "#" || s[S];
@@ -7449,10 +7461,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 C = i.ch_next ? l.select(i.ch_next).first() : null;
                                                                                 if (!C || !C.attr("href"))
                                                                                     return [3, 22];
-                                                                                q = d.fix(C.attr("href"));
-                                                                                if (a.indexOf(q) >= 0)
+                                                                                _ = d.fix(C.attr("href"));
+                                                                                if (a.indexOf(_) >= 0)
                                                                                     return [3, 22];
-                                                                                a.push(q);
+                                                                                a.push(_);
                                                                                 _h = i.ch_delay;
                                                                                 if (!_h) return [3, 19];
                                                                                 return [4, T(i.ch_delay)];
@@ -7461,7 +7473,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                                 _k.label = 19;
                                                                             case 19:
                                                                                 _h;
-                                                                                return [4, d.html(q, i.req)];
+                                                                                return [4, d.html(_, i.req)];
                                                                             case 20:
                                                                                 l = _k.sent();
                                                                                 _k.label = 21;
@@ -7473,7 +7485,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     });
                                                                 });
                                                             }, pages: function (u) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, l, h, p, b, g, _b, _c, v, S, C, q, _d, _f, _g, _h, F, V, _j, _k, J, M; return __generator(this, function (_l) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, l, h, p, m, g, _b, _c, v, S, C, _, _d, _f, _g, _h, F, V, _j, _k, J, M; return __generator(this, function (_l) {
                                                                     switch (_l.label) {
                                                                         case 0:
                                                                             a = [], n = [u], s = u, l = 0;
@@ -7488,8 +7500,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             p = _l.sent();
                                                                             return [4, p.text()];
                                                                         case 4:
-                                                                            b = (_l.sent()) || "", g = x.initManga(b);
-                                                                            h = o.parse(g ? '<div id="imc-dec">' + g + "</div>" : b, s);
+                                                                            m = (_l.sent()) || "", g = x.initManga(m);
+                                                                            h = o.parse(g ? '<div id="imc-dec">' + g + "</div>" : m, s);
                                                                             return [3, 7];
                                                                         case 5: return [4, d.html(s, i.req)];
                                                                         case 6:
@@ -7506,8 +7518,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             _h = (_g = CryptoJS.enc.Base64).parse;
                                                                             return [4, S.get(C)];
                                                                         case 9:
-                                                                            q = _f.apply(_d, [_h.apply(_g, [(_l.sent()).attr("data-enc")])]).split("").reverse().join("");
-                                                                            q && a.indexOf(q) < 0 && a.push(q);
+                                                                            _ = _f.apply(_d, [_h.apply(_g, [(_l.sent()).attr("data-enc")])]).split("").reverse().join("");
+                                                                            _ && a.indexOf(_) < 0 && a.push(_);
                                                                             _l.label = 10;
                                                                         case 10:
                                                                             C++;
@@ -7544,7 +7556,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     }
                                                                 }); });
                                                             }, text: function (u) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, n, _b, _c, s, l, h, _d, _f, _g, p, _h, _j, _k, b, g, _l, _m, _o, _p, _q, _s; return __generator(this, function (_v) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, n, _b, _c, s, l, h, _d, _f, _g, p, _h, _j, _k, m, g, _l, _m, _o, _p, _q, _s; return __generator(this, function (_v) {
                                                                     switch (_v.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
@@ -7573,20 +7585,20 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             return [4, x.pick(o.parse(n, u), i.c_title || "h1 || h2")];
                                                                         case 7: return [2, _j.apply(_h, _k.concat([_v.sent()]))];
                                                                         case 8:
-                                                                            b = o.parse(n, u), g = b.select(i.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            m = o.parse(n, u), g = m.select(i.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
                                                                             if (!!g) return [3, 10];
                                                                             if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(n.slice(0, 2e4)))
                                                                                 throw new Error("CLOUDFLARE: trang " + k + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
                                                                             _m = (_l = f).error;
                                                                             _o = 'Không tìm thấy nội dung — trang nhận được: "';
-                                                                            return [4, x.pick(b, "title")];
+                                                                            return [4, x.pick(m, "title")];
                                                                         case 9: return [2, _m.apply(_l, [_o + ((_v.sent()) || "?").slice(0, 60) + '" (' + a.status + ", " + n.length + " ký tự)" + (n.length < 400 ? ": " + n.replace(/\s+/g, " ").slice(0, 200) : "")])];
                                                                         case 10:
                                                                             _q = (_p = f).success;
                                                                             return [4, d.cleanContent(g)];
                                                                         case 11:
                                                                             _s = [_v.sent()];
-                                                                            return [4, x.pick(b, i.c_title || "h1 || h2")];
+                                                                            return [4, x.pick(m, i.c_title || "h1 || h2")];
                                                                         case 12: return [2, _q.apply(_p, _s.concat([_v.sent()]))];
                                                                     }
                                                                 }); });
@@ -7603,7 +7615,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                             catch (p) {
                                                                 return "";
                                                             } }, rscAction: function (u, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, b, g, _b, _c; return __generator(this, function (_d) {
+                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, m, g, _b, _c; return __generator(this, function (_d) {
                                                                     switch (_d.label) {
                                                                         case 0:
                                                                             for (n = [], l = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g; s = l.exec(u);)
@@ -7614,10 +7626,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             if (!(p < n.length && p < 60)) return [3, 5];
                                                                             return [4, d.get(k + n[p])];
                                                                         case 2:
-                                                                            b = _d.sent();
-                                                                            if (!!(!b || !b.ok)) return [3, 4];
+                                                                            m = _d.sent();
+                                                                            if (!!(!m || !m.ok)) return [3, 4];
                                                                             _c = (_b = h).exec;
-                                                                            return [4, b.text()];
+                                                                            return [4, m.text()];
                                                                         case 3:
                                                                             g = _c.apply(_b, [(_d.sent()) || ""]);
                                                                             if (g)
@@ -7642,7 +7654,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 }
                                                                 return null;
                                                             }, actionToc: function (u) {
-                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, _b, _c, l, h, p, _d, b, _f, g; return __generator(this, function (_g) {
+                                                                return __awaiter(this, void 0, void 0, function () { var a, n, s, _b, _c, l, h, p, _d, m, _f, g; return __generator(this, function (_g) {
                                                                     switch (_g.label) {
                                                                         case 0:
                                                                             a = i.ch_action;
@@ -7686,10 +7698,10 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             if (!!p) return [3, 10];
                                                                             return [4, x.rscAction(n, a.name)];
                                                                         case 7:
-                                                                            b = _g.sent();
-                                                                            _f = b && b !== a.id;
+                                                                            m = _g.sent();
+                                                                            _f = m && m !== a.id;
                                                                             if (!_f) return [3, 9];
-                                                                            return [4, h(b)];
+                                                                            return [4, h(m)];
                                                                         case 8:
                                                                             _f = (p = _g.sent());
                                                                             _g.label = 9;
@@ -7707,8 +7719,8 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                 try {
                                                                     a += JSON.parse(n[1]);
                                                                 }
-                                                                catch (q) { } for (var l = "", h = /([0-9a-f]+):T([0-9a-f]+),/g, p; p = h.exec(a);) {
-                                                                for (var b = parseInt(p[2], 16), g = h.lastIndex, v = 0; g < a.length && v < b;) {
+                                                                catch (_) { } for (var l = "", h = /([0-9a-f]+):T([0-9a-f]+),/g, p; p = h.exec(a);) {
+                                                                for (var m = parseInt(p[2], 16), g = h.lastIndex, v = 0; g < a.length && v < m;) {
                                                                     var S = a.charCodeAt(g);
                                                                     S < 128 ? v += 1 : S < 2048 ? v += 2 : S >= 55296 && S <= 56319 ? (v += 4, g++) : v += 3, g++;
                                                                 }
@@ -7745,7 +7757,7 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                     }
                                                                 }); });
                                                             }, sniff: function (u) { u = String(u || "").replace(/\\\//g, "/"); var a = u.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || u.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i); return a ? a[0] : ""; }, track: function (u, a) {
-                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, b, g; return __generator(this, function (_b) {
+                                                                return __awaiter(this, void 0, void 0, function () { var n, s, l, h, p, m, g; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
                                                                             if (a = a || 0, /\.(m3u8|mp4)(\?|$)/i.test(u))
@@ -7767,9 +7779,9 @@ var pe = { id: "novelfullnet", name: "NovelFull.Net", source: "https://novelfull
                                                                             h = x.sniff(s);
                                                                             if (h)
                                                                                 return [2, f.success({ type: "native", data: h, headers: { Referer: a ? u : k + "/" } })];
-                                                                            p = o.parse(s, u), b = p.select(i.iframe || "iframe[src], iframe[data-src]").first();
-                                                                            if (!(b && a < 2)) return [3, 6];
-                                                                            g = d.fix(b.attr("src") || b.attr("data-src"));
+                                                                            p = o.parse(s, u), m = p.select(i.iframe || "iframe[src], iframe[data-src]").first();
+                                                                            if (!(m && a < 2)) return [3, 6];
+                                                                            g = d.fix(m.attr("src") || m.attr("data-src"));
                                                                             if (!g) return [3, 6];
                                                                             return [4, x.track(g, a + 1)];
                                                                         case 5: return [2, _b.sent()];
@@ -7812,7 +7824,7 @@ var Du = {}, Lt = tt && tt.storage ? tt.storage : { get: function (t) { return D
                         case 1:
                             c = _c.sent(), o = {};
                             try {
-                                c.headers.forEach(function (f, m) { o[m] = f; });
+                                c.headers.forEach(function (f, b) { o[b] = f; });
                             }
                             catch (f) { }
                             _b = { status: c.status, url: c.url || e.url, headers: o };

@@ -330,6 +330,7 @@ var VBookEngine = (function () {
             if (Array.isArray(d) && d.length)
                 servers = d.map(function (s) { return (typeof s === 'string' ? { title: 'Server', data: s } : { title: str(s.title || s.name || 'Server'), data: str(s.data || s.url || s.link) }); });
         }
+        var resumeSec = (this.env && this.env.resumeStorage) ? this.env.resumeStorage.get(url) : 0;
         var out = [];
         for (var _i = 0, servers_1 = servers; _i < servers_1.length; _i++) {
             var s = servers_1[_i];
@@ -342,8 +343,19 @@ var VBookEngine = (function () {
                         continue;
                     if (tr.type === 'webview')
                         continue;
+                    var streamUrl = abs(tr.host || this.base + '/', tr.data);
+                    var resumeFragment = (resumeSec > 0 && !tr.data.includes('#t=') && !tr.data.includes('&t='))
+                        ? (tr.data.includes('#') ? '&' : '#') + 't=' + Math.floor(resumeSec)
+                        : '';
+                    var resumeLabel = resumeSec > 0
+                        ? ' [Tiếp tục ' + Math.floor(resumeSec / 60) + ':' + ('0' + Math.floor(resumeSec % 60)).slice(-2) + ']'
+                        : '';
                     out.push({
-                        url: abs(tr.host || this.base + '/', tr.data), quality: s.title + (tr.quality ? ' ' + tr.quality : ''), headers: tr.headers || { Referer: this.base + '/' },
+                        url: streamUrl + resumeFragment,
+                        rawUrl: streamUrl,
+                        resumeSec: resumeSec,
+                        quality: s.title + (tr.quality ? ' ' + tr.quality : '') + resumeLabel,
+                        headers: tr.headers || { Referer: this.base + '/' },
                         subtitles: (tr.subtitles || (tr.subtitle ? [{ data: tr.subtitle, label: 'Sub' }] : [])).map(function (x) { return ({ file: abs(_this.base + '/', x.data || x.file), label: str(x.label || x.language || 'Sub') }); }),
                         mimeType: str(tr.mimeType),
                     });

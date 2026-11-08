@@ -1,6 +1,6 @@
 # Kiritokmn - Extension Repo
 
-**Phiên bản: 0.0.1** · Một kho tiện ích dùng chung cho **Aniyomi, Nekoyomi, Mangayomi, YomiHub, LNReader, IReader, vBook, LeechText và Aidoku** — 196 nguồn Phim, Truyện tranh, Tiểu thuyết (Tiếng Việt, Trung, Anh, Nhật).
+**Phiên bản: 0.0.2** · Một kho tiện ích dùng chung cho **Aniyomi, Nekoyomi, Mangayomi, YomiHub, LNReader, IReader, vBook, LeechText và Aidoku** — 196 nguồn Phim, Truyện tranh, Tiểu thuyết (Tiếng Việt, Trung, Anh, Nhật).
 
 Mỗi nguồn được viết **một lần** theo chuẩn vBook (JavaScript). Bộ build tự chuyển sang định dạng của từng ứng dụng:
 
@@ -64,23 +64,23 @@ Từ YomiHub 0.5.3, các tiện ích website này **không còn tích hợp tron
 | 29 | PhimMoiHD | Phim & Điện ảnh | https://phimmoihd.online | vi |  | [phimmoihd.js](repo/yomihub/phimmoihd.js) |
 
 
-## Tải về (Releases v0.0.1)
+## Tải về (Releases v0.0.2)
 
 | Tệp |
 |---|
-| [Kiritokmn-Extension-0.0.1-anime-nsfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/Kiritokmn-Extension-0.0.1-anime-nsfw.apk) |
-| [Kiritokmn-Extension-0.0.1-anime-sfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/Kiritokmn-Extension-0.0.1-anime-sfw.apk) |
-| [Kiritokmn-Extension-0.0.1-lnreader-ireader.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/Kiritokmn-Extension-0.0.1-lnreader-ireader.zip) |
-| [Kiritokmn-Extension-0.0.1-manga-nsfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/Kiritokmn-Extension-0.0.1-manga-nsfw.apk) |
-| [Kiritokmn-Extension-0.0.1-manga-sfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/Kiritokmn-Extension-0.0.1-manga-sfw.apk) |
-| [Kiritokmn-Extension-0.0.1-mangayomi-yomihub.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/Kiritokmn-Extension-0.0.1-mangayomi-yomihub.zip) |
-| [Kiritokmn-Extension-0.0.1-vbook-leechtext.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/Kiritokmn-Extension-0.0.1-vbook-leechtext.zip) |
-| [index.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/index.json) |
-| [index.min.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/index.min.json) |
-| [plugin.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/plugin.json) |
-| [plugins.min.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.1/plugins.min.json) |
+| [index.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.2/index.json) |
+| [index.min.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.2/index.min.json) |
+| [Kiritokmn-Extension-0.0.2-anime-nsfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.2/Kiritokmn-Extension-0.0.2-anime-nsfw.apk) |
+| [Kiritokmn-Extension-0.0.2-anime-sfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.2/Kiritokmn-Extension-0.0.2-anime-sfw.apk) |
+| [Kiritokmn-Extension-0.0.2-lnreader-ireader.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.2/Kiritokmn-Extension-0.0.2-lnreader-ireader.zip) |
+| [Kiritokmn-Extension-0.0.2-manga-nsfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.2/Kiritokmn-Extension-0.0.2-manga-nsfw.apk) |
+| [Kiritokmn-Extension-0.0.2-manga-sfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.2/Kiritokmn-Extension-0.0.2-manga-sfw.apk) |
+| [Kiritokmn-Extension-0.0.2-mangayomi-yomihub.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.2/Kiritokmn-Extension-0.0.2-mangayomi-yomihub.zip) |
+| [Kiritokmn-Extension-0.0.2-vbook-leechtext.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.2/Kiritokmn-Extension-0.0.2-vbook-leechtext.zip) |
+| [plugin.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.2/plugin.json) |
+| [plugins.min.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.2/plugins.min.json) |
 
-Trang phát hành: https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/tag/v0.0.1
+Trang phát hành: https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/tag/v0.0.2
 
 ## Trạng thái nguồn (kiểm thử tự động 2026-11-05: 65/196 chạy trọn chuỗi danh sách → chi tiết → mục lục → nội dung)
 

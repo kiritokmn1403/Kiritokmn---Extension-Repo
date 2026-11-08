@@ -87,7 +87,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
 };
 var e_1, _b;
 var m0 = Object.create;
-var Ke = Object.defineProperty, x0 = Object.defineProperties, y0 = Object.getOwnPropertyDescriptor, v0 = Object.getOwnPropertyDescriptors, w0 = Object.getOwnPropertyNames, ur = Object.getOwnPropertySymbols, S0 = Object.getPrototypeOf, ar = Object.prototype.hasOwnProperty, E0 = Object.prototype.propertyIsEnumerable;
+var Ke = Object.defineProperty, x0 = Object.defineProperties, y0 = Object.getOwnPropertyDescriptor, v0 = Object.getOwnPropertyDescriptors, S0 = Object.getOwnPropertyNames, ur = Object.getOwnPropertySymbols, w0 = Object.getPrototypeOf, ar = Object.prototype.hasOwnProperty, E0 = Object.prototype.propertyIsEnumerable;
 var rr = function (e, t, u) { return t in e ? Ke(e, t, { enumerable: !0, configurable: !0, writable: !0, value: u }) : e[t] = u; }, de = function (e, t) {
     var e_2, _b;
     for (var u in t || (t = {}))
@@ -116,7 +116,7 @@ var A0 = function (e, t) { return function () { return (t || e((t = { exports: {
             !ar.call(e, a) && a !== u && Ke(e, a, { get: function () { return t[a]; }, enumerable: !(r = y0(t, a)) || r.enumerable });
         };
         try {
-            for (var _c = __values(w0(t)), _d = _c.next(); !_d.done; _d = _c.next()) {
+            for (var _c = __values(S0(t)), _d = _c.next(); !_d.done; _d = _c.next()) {
                 var a = _d.value;
                 _loop_1(a);
             }
@@ -131,7 +131,7 @@ var A0 = function (e, t) { return function () { return (t || e((t = { exports: {
     }
     return e;
 };
-var Ne = function (e, t, u) { return (u = e != null ? m0(S0(e)) : {}, nr(t || !e || !e.__esModule ? Ke(u, "default", { value: e, enumerable: !0 }) : u, e)); }, T0 = function (e) { return nr(Ke({}, "__esModule", { value: !0 }), e); };
+var Ne = function (e, t, u) { return (u = e != null ? m0(w0(e)) : {}, nr(t || !e || !e.__esModule ? Ke(u, "default", { value: e, enumerable: !0 }) : u, e)); }, T0 = function (e) { return nr(Ke({}, "__esModule", { value: !0 }), e); };
 var Ae = A0(function (Ni, Ur) { Ur.exports = { trueFunc: function () { return !0; }, falseFunc: function () { return !1; } }; });
 var Xa = {};
 $t(Xa, { default: function () { return Qa; } });
@@ -211,25 +211,25 @@ var Oe = (function () {
 }());
 function ir(e) { var t = "", u = new Oe(e, function (r) { return t += De(r); }); return function (a, n) { var i = 0, c = 0; for (; (c = a.indexOf("&", c)) >= 0;) {
     t += a.slice(i, c), u.startEntity(n);
-    var b = u.write(a, c + 1);
-    if (b < 0) {
+    var h = u.write(a, c + 1);
+    if (h < 0) {
         i = c + u.end();
         break;
     }
-    i = c + b, c = b === 0 ? i + 1 : i;
-} var f = t + a.slice(i); return t = "", f; }; }
+    i = c + h, c = h === 0 ? i + 1 : i;
+} var l = t + a.slice(i); return t = "", l; }; }
 function I0(e, t, u, r) { var a = (t & ve.BRANCH_LENGTH) >> 7, n = t & ve.JUMP_TABLE; if (a === 0)
     return n !== 0 && r === n ? u : -1; if (n) {
-    var f = r - n;
-    return f < 0 || f >= a ? -1 : e[u + f] - 1;
+    var l = r - n;
+    return l < 0 || l >= a ? -1 : e[u + l] - 1;
 } var i = u, c = i + a - 1; for (; i <= c;) {
-    var f = i + c >>> 1, b = e[f];
-    if (b < r)
-        i = f + 1;
-    else if (b > r)
-        c = f - 1;
+    var l = i + c >>> 1, h = e[l];
+    if (h < r)
+        i = l + 1;
+    else if (h > r)
+        c = l - 1;
     else
-        return e[f + a];
+        return e[l + a];
 } return -1; }
 var nn = ir(lt), sn = ir(ft);
 var k;
@@ -430,8 +430,8 @@ var Z = { Cdata: new Uint8Array([67, 68, 65, 84, 65, 91]), CdataEnd: new Uint8Ar
 var Re = new Set(["input", "option", "optgroup", "select", "button", "datalist", "textarea"]), R = new Set(["p"]), sr = new Set(["thead", "tbody"]), cr = new Set(["dd", "dt"]), or = new Set(["rt", "rp"]), O0 = new Map([["tr", new Set(["tr", "th", "td"])], ["th", new Set(["th"])], ["td", new Set(["thead", "th", "td"])], ["body", new Set(["head", "link", "script"])], ["li", new Set(["li"])], ["p", R], ["h1", R], ["h2", R], ["h3", R], ["h4", R], ["h5", R], ["h6", R], ["select", Re], ["input", Re], ["output", Re], ["button", Re], ["datalist", Re], ["textarea", Re], ["option", new Set(["option"])], ["optgroup", new Set(["optgroup", "option"])], ["dd", cr], ["dt", cr], ["address", R], ["article", R], ["aside", R], ["blockquote", R], ["details", R], ["div", R], ["dl", R], ["fieldset", R], ["figcaption", R], ["figure", R], ["footer", R], ["form", R], ["header", R], ["hr", R], ["main", R], ["nav", R], ["ol", R], ["pre", R], ["section", R], ["table", R], ["ul", R], ["rt", or], ["rp", or], ["tbody", sr], ["tfoot", sr]]), U0 = new Set(["area", "base", "basefont", "br", "col", "command", "embed", "frame", "hr", "img", "input", "isindex", "keygen", "link", "meta", "param", "source", "track", "wbr"]), lr = new Set(["math", "svg"]), fr = new Set(["mi", "mo", "mn", "ms", "mtext", "annotation-xml", "foreignobject", "desc", "title"]), R0 = /\s|\//, _e = (function () {
     function _e(t, u) {
         if (u === void 0) { u = {}; }
-        var r, a, n, i, c, f;
-        this.options = u, this.startIndex = 0, this.endIndex = 0, this.openTagStart = 0, this.tagname = "", this.attribname = "", this.attribvalue = "", this.attribs = null, this.stack = [], this.buffers = [], this.bufferOffset = 0, this.writeIndex = 0, this.ended = !1, this.cbs = t != null ? t : {}, this.htmlMode = !this.options.xmlMode, this.lowerCaseTagNames = (r = u.lowerCaseTags) !== null && r !== void 0 ? r : this.htmlMode, this.lowerCaseAttributeNames = (a = u.lowerCaseAttributeNames) !== null && a !== void 0 ? a : this.htmlMode, this.recognizeSelfClosing = (n = u.recognizeSelfClosing) !== null && n !== void 0 ? n : !this.htmlMode, this.tokenizer = new ((i = u.Tokenizer) !== null && i !== void 0 ? i : Ue)(this.options, this), this.foreignContext = [!this.htmlMode], (f = (c = this.cbs).onparserinit) === null || f === void 0 || f.call(c, this);
+        var r, a, n, i, c, l;
+        this.options = u, this.startIndex = 0, this.endIndex = 0, this.openTagStart = 0, this.tagname = "", this.attribname = "", this.attribvalue = "", this.attribs = null, this.stack = [], this.buffers = [], this.bufferOffset = 0, this.writeIndex = 0, this.ended = !1, this.cbs = t != null ? t : {}, this.htmlMode = !this.options.xmlMode, this.lowerCaseTagNames = (r = u.lowerCaseTags) !== null && r !== void 0 ? r : this.htmlMode, this.lowerCaseAttributeNames = (a = u.lowerCaseAttributeNames) !== null && a !== void 0 ? a : this.htmlMode, this.recognizeSelfClosing = (n = u.recognizeSelfClosing) !== null && n !== void 0 ? n : !this.htmlMode, this.tokenizer = new ((i = u.Tokenizer) !== null && i !== void 0 ? i : Ue)(this.options, this), this.foreignContext = [!this.htmlMode], (l = (c = this.cbs).onparserinit) === null || l === void 0 || l.call(c, this);
     }
     _e.prototype.ontext = function (t, u) { var r, a; var n = this.getSlice(t, u); this.endIndex = u - 1, (a = (r = this.cbs).ontext) === null || a === void 0 || a.call(r, n), this.startIndex = u; };
     _e.prototype.ontextentity = function (t, u) { var r, a; this.endIndex = u - 1, (a = (r = this.cbs).ontext) === null || a === void 0 || a.call(r, De(t)), this.startIndex = u; };
@@ -444,17 +444,17 @@ var Re = new Set(["input", "option", "optgroup", "select", "button", "datalist",
         } this.isVoidElement(t) || (this.stack.unshift(t), this.htmlMode && (lr.has(t) ? this.foreignContext.unshift(!0) : fr.has(t) && this.foreignContext.unshift(!1))), (n = (a = this.cbs).onopentagname) === null || n === void 0 || n.call(a, t), this.cbs.onopentag && (this.attribs = {}); };
     _e.prototype.endOpenTag = function (t) { var u, r; this.startIndex = this.openTagStart, this.attribs && ((r = (u = this.cbs).onopentag) === null || r === void 0 || r.call(u, this.tagname, this.attribs, t), this.attribs = null), this.cbs.onclosetag && this.isVoidElement(this.tagname) && this.cbs.onclosetag(this.tagname, !0), this.tagname = ""; };
     _e.prototype.onopentagend = function (t) { this.endIndex = t, this.endOpenTag(!1), this.startIndex = t + 1; };
-    _e.prototype.onclosetag = function (t, u) { var r, a, n, i, c, f, b, w; this.endIndex = u; var L = this.getSlice(t, u); if (this.lowerCaseTagNames && (L = L.toLowerCase()), this.htmlMode && (lr.has(L) || fr.has(L)) && this.foreignContext.shift(), this.isVoidElement(L))
-        this.htmlMode && L === "br" && ((i = (n = this.cbs).onopentagname) === null || i === void 0 || i.call(n, "br"), (f = (c = this.cbs).onopentag) === null || f === void 0 || f.call(c, "br", {}, !0), (w = (b = this.cbs).onclosetag) === null || w === void 0 || w.call(b, "br", !1));
+    _e.prototype.onclosetag = function (t, u) { var r, a, n, i, c, l, h, v; this.endIndex = u; var C = this.getSlice(t, u); if (this.lowerCaseTagNames && (C = C.toLowerCase()), this.htmlMode && (lr.has(C) || fr.has(C)) && this.foreignContext.shift(), this.isVoidElement(C))
+        this.htmlMode && C === "br" && ((i = (n = this.cbs).onopentagname) === null || i === void 0 || i.call(n, "br"), (l = (c = this.cbs).onopentag) === null || l === void 0 || l.call(c, "br", {}, !0), (v = (h = this.cbs).onclosetag) === null || v === void 0 || v.call(h, "br", !1));
     else {
-        var A = this.stack.indexOf(L);
-        if (A !== -1)
-            for (var T = 0; T <= A; T++) {
+        var E = this.stack.indexOf(C);
+        if (E !== -1)
+            for (var T = 0; T <= E; T++) {
                 var I = this.stack.shift();
-                (a = (r = this.cbs).onclosetag) === null || a === void 0 || a.call(r, I, T !== A);
+                (a = (r = this.cbs).onclosetag) === null || a === void 0 || a.call(r, I, T !== E);
             }
         else
-            this.htmlMode && L === "p" && (this.emitOpenTag("p"), this.closeCurrentTag(!0));
+            this.htmlMode && C === "p" && (this.emitOpenTag("p"), this.closeCurrentTag(!0));
     } this.startIndex = u + 1; };
     _e.prototype.onselfclosingtag = function (t) { this.endIndex = t, this.recognizeSelfClosing || this.foreignContext[0] ? (this.closeCurrentTag(!1), this.startIndex = t + 1) : this.onopentagend(t); };
     _e.prototype.closeCurrentTag = function (t) { var u, r; var a = this.tagname; this.endOpenTag(t), this.stack[0] === a && ((r = (u = this.cbs).onclosetag) === null || r === void 0 || r.call(u, a, !t), this.stack.shift()); };
@@ -472,7 +472,7 @@ var Re = new Set(["input", "option", "optgroup", "select", "button", "datalist",
         this.cbs.onprocessinginstruction("?".concat(a), "?".concat(r));
     } this.startIndex = u + 1; };
     _e.prototype.oncomment = function (t, u, r) { var a, n, i, c; this.endIndex = u, (n = (a = this.cbs).oncomment) === null || n === void 0 || n.call(a, this.getSlice(t, u - r)), (c = (i = this.cbs).oncommentend) === null || c === void 0 || c.call(i), this.startIndex = u + 1; };
-    _e.prototype.oncdata = function (t, u, r) { var a, n, i, c, f, b, w, L, A, T; this.endIndex = u; var I = this.getSlice(t, u - r); !this.htmlMode || this.options.recognizeCDATA ? ((n = (a = this.cbs).oncdatastart) === null || n === void 0 || n.call(a), (c = (i = this.cbs).ontext) === null || c === void 0 || c.call(i, I), (b = (f = this.cbs).oncdataend) === null || b === void 0 || b.call(f)) : ((L = (w = this.cbs).oncomment) === null || L === void 0 || L.call(w, "[CDATA[".concat(I, "]]")), (T = (A = this.cbs).oncommentend) === null || T === void 0 || T.call(A)), this.startIndex = u + 1; };
+    _e.prototype.oncdata = function (t, u, r) { var a, n, i, c, l, h, v, C, E, T; this.endIndex = u; var I = this.getSlice(t, u - r); !this.htmlMode || this.options.recognizeCDATA ? ((n = (a = this.cbs).oncdatastart) === null || n === void 0 || n.call(a), (c = (i = this.cbs).ontext) === null || c === void 0 || c.call(i, I), (h = (l = this.cbs).oncdataend) === null || h === void 0 || h.call(l)) : ((C = (v = this.cbs).oncomment) === null || C === void 0 || C.call(v, "[CDATA[".concat(I, "]]")), (T = (E = this.cbs).oncommentend) === null || T === void 0 || T.call(E)), this.startIndex = u + 1; };
     _e.prototype.onend = function () { var t, u; if (this.cbs.onclosetag) {
         this.endIndex = this.startIndex;
         for (var r = 0; r < this.stack.length; r++)
@@ -733,7 +733,7 @@ var hr = { withStartIndices: !1, withEndIndices: !1, xmlMode: !1 }, Pe = (functi
     return Pe;
 }());
 var be = {};
-$t(be, { DocumentPosition: function () { return oe; }, append: function () { return ua; }, appendChild: function () { return ta; }, compareDocumentPosition: function () { return Cr; }, existsOne: function () { return Nr; }, filter: function () { return Ge; }, find: function () { return wt; }, findAll: function () { return na; }, findOne: function () { return St; }, findOneChild: function () { return aa; }, getAttributeValue: function () { return Z0; }, getChildren: function () { return yt; }, getElementById: function () { return oa; }, getElements: function () { return ca; }, getElementsByClassName: function () { return la; }, getElementsByTagName: function () { return ke; }, getElementsByTagType: function () { return fa; }, getFeed: function () { return wu; }, getInnerHTML: function () { return X0; }, getName: function () { return Y0; }, getOuterHTML: function () { return Ar; }, getParent: function () { return Tr; }, getSiblings: function () { return vt; }, getText: function () { return xt; }, hasAttrib: function () { return J0; }, hasChildren: function () { return Y; }, innerText: function () { return pu; }, isCDATA: function () { return Be; }, isComment: function () { return Ye; }, isDocument: function () { return ou; }, isTag: function () { return U; }, isText: function () { return he; }, nextElementSibling: function () { return gu; }, prepend: function () { return xu; }, prependChild: function () { return ra; }, prevElementSibling: function () { return mu; }, removeElement: function () { return me; }, removeSubsets: function () { return da; }, replaceElement: function () { return ea; }, testElement: function () { return sa; }, textContent: function () { return we; }, uniqueSort: function () { return vu; } });
+$t(be, { DocumentPosition: function () { return oe; }, append: function () { return ua; }, appendChild: function () { return ta; }, compareDocumentPosition: function () { return Cr; }, existsOne: function () { return Nr; }, filter: function () { return Ge; }, find: function () { return St; }, findAll: function () { return na; }, findOne: function () { return wt; }, findOneChild: function () { return aa; }, getAttributeValue: function () { return Z0; }, getChildren: function () { return yt; }, getElementById: function () { return oa; }, getElements: function () { return ca; }, getElementsByClassName: function () { return la; }, getElementsByTagName: function () { return ke; }, getElementsByTagType: function () { return fa; }, getFeed: function () { return Su; }, getInnerHTML: function () { return X0; }, getName: function () { return Y0; }, getOuterHTML: function () { return Ar; }, getParent: function () { return Tr; }, getSiblings: function () { return vt; }, getText: function () { return xt; }, hasAttrib: function () { return J0; }, hasChildren: function () { return Y; }, innerText: function () { return pu; }, isCDATA: function () { return Be; }, isComment: function () { return Ye; }, isDocument: function () { return ou; }, isTag: function () { return U; }, isText: function () { return he; }, nextElementSibling: function () { return gu; }, prepend: function () { return xu; }, prependChild: function () { return ra; }, prevElementSibling: function () { return mu; }, removeElement: function () { return me; }, removeSubsets: function () { return da; }, replaceElement: function () { return ea; }, testElement: function () { return sa; }, textContent: function () { return Se; }, uniqueSort: function () { return vu; } });
 function pt(e) { for (var t = 1; t < e.length; t++)
     e[t][0] += e[t - 1][0] + 1; return e; }
 var M0 = new Map(pt([[9, "&Tab;"], [0, "&NewLine;"], [22, "&excl;"], [0, "&quot;"], [0, "&num;"], [0, "&dollar;"], [0, "&percnt;"], [0, "&amp;"], [0, "&apos;"], [0, "&lpar;"], [0, "&rpar;"], [0, "&ast;"], [0, "&plus;"], [0, "&comma;"], [1, "&period;"], [0, "&sol;"], [10, "&colon;"], [0, "&semi;"], [0, { v: "&lt;", n: 8402, o: "&nvlt;" }], [0, { v: "&equals;", n: 8421, o: "&bne;" }], [0, { v: "&gt;", n: 8402, o: "&nvgt;" }], [0, "&quest;"], [0, "&commat;"], [26, "&lbrack;"], [0, "&bsol;"], [0, "&rbrack;"], [0, "&Hat;"], [0, "&lowbar;"], [0, "&DiacriticalGrave;"], [5, { n: 106, o: "&fjlig;" }], [20, "&lbrace;"], [0, "&verbar;"], [0, "&rbrace;"], [34, "&nbsp;"], [0, "&iexcl;"], [0, "&cent;"], [0, "&pound;"], [0, "&curren;"], [0, "&yen;"], [0, "&brvbar;"], [0, "&sect;"], [0, "&die;"], [0, "&copy;"], [0, "&ordf;"], [0, "&laquo;"], [0, "&not;"], [0, "&shy;"], [0, "&circledR;"], [0, "&macr;"], [0, "&deg;"], [0, "&PlusMinus;"], [0, "&sup2;"], [0, "&sup3;"], [0, "&acute;"], [0, "&micro;"], [0, "&para;"], [0, "&centerdot;"], [0, "&cedil;"], [0, "&sup1;"], [0, "&ordm;"], [0, "&raquo;"], [0, "&frac14;"], [0, "&frac12;"], [0, "&frac34;"], [0, "&iquest;"], [0, "&Agrave;"], [0, "&Aacute;"], [0, "&Acirc;"], [0, "&Atilde;"], [0, "&Auml;"], [0, "&angst;"], [0, "&AElig;"], [0, "&Ccedil;"], [0, "&Egrave;"], [0, "&Eacute;"], [0, "&Ecirc;"], [0, "&Euml;"], [0, "&Igrave;"], [0, "&Iacute;"], [0, "&Icirc;"], [0, "&Iuml;"], [0, "&ETH;"], [0, "&Ntilde;"], [0, "&Ograve;"], [0, "&Oacute;"], [0, "&Ocirc;"], [0, "&Otilde;"], [0, "&Ouml;"], [0, "&times;"], [0, "&Oslash;"], [0, "&Ugrave;"], [0, "&Uacute;"], [0, "&Ucirc;"], [0, "&Uuml;"], [0, "&Yacute;"], [0, "&THORN;"], [0, "&szlig;"], [0, "&agrave;"], [0, "&aacute;"], [0, "&acirc;"], [0, "&atilde;"], [0, "&auml;"], [0, "&aring;"], [0, "&aelig;"], [0, "&ccedil;"], [0, "&egrave;"], [0, "&eacute;"], [0, "&ecirc;"], [0, "&euml;"], [0, "&igrave;"], [0, "&iacute;"], [0, "&icirc;"], [0, "&iuml;"], [0, "&eth;"], [0, "&ntilde;"], [0, "&ograve;"], [0, "&oacute;"], [0, "&ocirc;"], [0, "&otilde;"], [0, "&ouml;"], [0, "&div;"], [0, "&oslash;"], [0, "&ugrave;"], [0, "&uacute;"], [0, "&ucirc;"], [0, "&uuml;"], [0, "&yacute;"], [0, "&thorn;"], [0, "&yuml;"], [0, "&Amacr;"], [0, "&amacr;"], [0, "&Abreve;"], [0, "&abreve;"], [0, "&Aogon;"], [0, "&aogon;"], [0, "&Cacute;"], [0, "&cacute;"], [0, "&Ccirc;"], [0, "&ccirc;"], [0, "&Cdot;"], [0, "&cdot;"], [0, "&Ccaron;"], [0, "&ccaron;"], [0, "&Dcaron;"], [0, "&dcaron;"], [0, "&Dstrok;"], [0, "&dstrok;"], [0, "&Emacr;"], [0, "&emacr;"], [2, "&Edot;"], [0, "&edot;"], [0, "&Eogon;"], [0, "&eogon;"], [0, "&Ecaron;"], [0, "&ecaron;"], [0, "&Gcirc;"], [0, "&gcirc;"], [0, "&Gbreve;"], [0, "&gbreve;"], [0, "&Gdot;"], [0, "&gdot;"], [0, "&Gcedil;"], [1, "&Hcirc;"], [0, "&hcirc;"], [0, "&Hstrok;"], [0, "&hstrok;"], [0, "&Itilde;"], [0, "&itilde;"], [0, "&Imacr;"], [0, "&imacr;"], [2, "&Iogon;"], [0, "&iogon;"], [0, "&Idot;"], [0, "&imath;"], [0, "&IJlig;"], [0, "&ijlig;"], [0, "&Jcirc;"], [0, "&jcirc;"], [0, "&Kcedil;"], [0, "&kcedil;"], [0, "&kgreen;"], [0, "&Lacute;"], [0, "&lacute;"], [0, "&Lcedil;"], [0, "&lcedil;"], [0, "&Lcaron;"], [0, "&lcaron;"], [0, "&Lmidot;"], [0, "&lmidot;"], [0, "&Lstrok;"], [0, "&lstrok;"], [0, "&Nacute;"], [0, "&nacute;"], [0, "&Ncedil;"], [0, "&ncedil;"], [0, "&Ncaron;"], [0, "&ncaron;"], [0, "&napos;"], [0, "&ENG;"], [0, "&eng;"], [0, "&Omacr;"], [0, "&omacr;"], [2, "&Odblac;"], [0, "&odblac;"], [0, "&OElig;"], [0, "&oelig;"], [0, "&Racute;"], [0, "&racute;"], [0, "&Rcedil;"], [0, "&rcedil;"], [0, "&Rcaron;"], [0, "&rcaron;"], [0, "&Sacute;"], [0, "&sacute;"], [0, "&Scirc;"], [0, "&scirc;"], [0, "&Scedil;"], [0, "&scedil;"], [0, "&Scaron;"], [0, "&scaron;"], [0, "&Tcedil;"], [0, "&tcedil;"], [0, "&Tcaron;"], [0, "&tcaron;"], [0, "&Tstrok;"], [0, "&tstrok;"], [0, "&Utilde;"], [0, "&utilde;"], [0, "&Umacr;"], [0, "&umacr;"], [0, "&Ubreve;"], [0, "&ubreve;"], [0, "&Uring;"], [0, "&uring;"], [0, "&Udblac;"], [0, "&udblac;"], [0, "&Uogon;"], [0, "&uogon;"], [0, "&Wcirc;"], [0, "&wcirc;"], [0, "&Ycirc;"], [0, "&ycirc;"], [0, "&Yuml;"], [0, "&Zacute;"], [0, "&zacute;"], [0, "&Zdot;"], [0, "&zdot;"], [0, "&Zcaron;"], [0, "&zcaron;"], [19, "&fnof;"], [34, "&imped;"], [63, "&gacute;"], [65, "&jmath;"], [142, "&circ;"], [0, "&caron;"], [16, "&breve;"], [0, "&DiacriticalDot;"], [0, "&ring;"], [0, "&ogon;"], [0, "&DiacriticalTilde;"], [0, "&dblac;"], [51, "&DownBreve;"], [127, "&Alpha;"], [0, "&Beta;"], [0, "&Gamma;"], [0, "&Delta;"], [0, "&Epsilon;"], [0, "&Zeta;"], [0, "&Eta;"], [0, "&Theta;"], [0, "&Iota;"], [0, "&Kappa;"], [0, "&Lambda;"], [0, "&Mu;"], [0, "&Nu;"], [0, "&Xi;"], [0, "&Omicron;"], [0, "&Pi;"], [0, "&Rho;"], [1, "&Sigma;"], [0, "&Tau;"], [0, "&Upsilon;"], [0, "&Phi;"], [0, "&Chi;"], [0, "&Psi;"], [0, "&ohm;"], [7, "&alpha;"], [0, "&beta;"], [0, "&gamma;"], [0, "&delta;"], [0, "&epsi;"], [0, "&zeta;"], [0, "&eta;"], [0, "&theta;"], [0, "&iota;"], [0, "&kappa;"], [0, "&lambda;"], [0, "&mu;"], [0, "&nu;"], [0, "&xi;"], [0, "&omicron;"], [0, "&pi;"], [0, "&rho;"], [0, "&sigmaf;"], [0, "&sigma;"], [0, "&tau;"], [0, "&upsi;"], [0, "&phi;"], [0, "&chi;"], [0, "&psi;"], [0, "&omega;"], [7, "&thetasym;"], [0, "&Upsi;"], [2, "&phiv;"], [0, "&piv;"], [5, "&Gammad;"], [0, "&digamma;"], [18, "&kappav;"], [0, "&rhov;"], [3, "&epsiv;"], [0, "&backepsilon;"], [10, "&IOcy;"], [0, "&DJcy;"], [0, "&GJcy;"], [0, "&Jukcy;"], [0, "&DScy;"], [0, "&Iukcy;"], [0, "&YIcy;"], [0, "&Jsercy;"], [0, "&LJcy;"], [0, "&NJcy;"], [0, "&TSHcy;"], [0, "&KJcy;"], [1, "&Ubrcy;"], [0, "&DZcy;"], [0, "&Acy;"], [0, "&Bcy;"], [0, "&Vcy;"], [0, "&Gcy;"], [0, "&Dcy;"], [0, "&IEcy;"], [0, "&ZHcy;"], [0, "&Zcy;"], [0, "&Icy;"], [0, "&Jcy;"], [0, "&Kcy;"], [0, "&Lcy;"], [0, "&Mcy;"], [0, "&Ncy;"], [0, "&Ocy;"], [0, "&Pcy;"], [0, "&Rcy;"], [0, "&Scy;"], [0, "&Tcy;"], [0, "&Ucy;"], [0, "&Fcy;"], [0, "&KHcy;"], [0, "&TScy;"], [0, "&CHcy;"], [0, "&SHcy;"], [0, "&SHCHcy;"], [0, "&HARDcy;"], [0, "&Ycy;"], [0, "&SOFTcy;"], [0, "&Ecy;"], [0, "&YUcy;"], [0, "&YAcy;"], [0, "&acy;"], [0, "&bcy;"], [0, "&vcy;"], [0, "&gcy;"], [0, "&dcy;"], [0, "&iecy;"], [0, "&zhcy;"], [0, "&zcy;"], [0, "&icy;"], [0, "&jcy;"], [0, "&kcy;"], [0, "&lcy;"], [0, "&mcy;"], [0, "&ncy;"], [0, "&ocy;"], [0, "&pcy;"], [0, "&rcy;"], [0, "&scy;"], [0, "&tcy;"], [0, "&ucy;"], [0, "&fcy;"], [0, "&khcy;"], [0, "&tscy;"], [0, "&chcy;"], [0, "&shcy;"], [0, "&shchcy;"], [0, "&hardcy;"], [0, "&ycy;"], [0, "&softcy;"], [0, "&ecy;"], [0, "&yucy;"], [0, "&yacy;"], [1, "&iocy;"], [0, "&djcy;"], [0, "&gjcy;"], [0, "&jukcy;"], [0, "&dscy;"], [0, "&iukcy;"], [0, "&yicy;"], [0, "&jsercy;"], [0, "&ljcy;"], [0, "&njcy;"], [0, "&tshcy;"], [0, "&kjcy;"], [1, "&ubrcy;"], [0, "&dzcy;"], [7074, "&ensp;"], [0, "&emsp;"], [0, "&emsp13;"], [0, "&emsp14;"], [1, "&numsp;"], [0, "&puncsp;"], [0, "&ThinSpace;"], [0, "&hairsp;"], [0, "&NegativeMediumSpace;"], [0, "&zwnj;"], [0, "&zwj;"], [0, "&lrm;"], [0, "&rlm;"], [0, "&dash;"], [2, "&ndash;"], [0, "&mdash;"], [0, "&horbar;"], [0, "&Verbar;"], [1, "&lsquo;"], [0, "&CloseCurlyQuote;"], [0, "&lsquor;"], [1, "&ldquo;"], [0, "&CloseCurlyDoubleQuote;"], [0, "&bdquo;"], [1, "&dagger;"], [0, "&Dagger;"], [0, "&bull;"], [2, "&nldr;"], [0, "&hellip;"], [9, "&permil;"], [0, "&pertenk;"], [0, "&prime;"], [0, "&Prime;"], [0, "&tprime;"], [0, "&backprime;"], [3, "&lsaquo;"], [0, "&rsaquo;"], [3, "&oline;"], [2, "&caret;"], [1, "&hybull;"], [0, "&frasl;"], [10, "&bsemi;"], [7, "&qprime;"], [7, { v: "&MediumSpace;", n: 8202, o: "&ThickSpace;" }], [0, "&NoBreak;"], [0, "&af;"], [0, "&InvisibleTimes;"], [0, "&ic;"], [72, "&euro;"], [46, "&tdot;"], [0, "&DotDot;"], [37, "&complexes;"], [2, "&incare;"], [4, "&gscr;"], [0, "&hamilt;"], [0, "&Hfr;"], [0, "&Hopf;"], [0, "&planckh;"], [0, "&hbar;"], [0, "&imagline;"], [0, "&Ifr;"], [0, "&lagran;"], [0, "&ell;"], [1, "&naturals;"], [0, "&numero;"], [0, "&copysr;"], [0, "&weierp;"], [0, "&Popf;"], [0, "&Qopf;"], [0, "&realine;"], [0, "&real;"], [0, "&reals;"], [0, "&rx;"], [3, "&trade;"], [1, "&integers;"], [2, "&mho;"], [0, "&zeetrf;"], [0, "&iiota;"], [2, "&bernou;"], [0, "&Cayleys;"], [1, "&escr;"], [0, "&Escr;"], [0, "&Fouriertrf;"], [1, "&Mellintrf;"], [0, "&order;"], [0, "&alefsym;"], [0, "&beth;"], [0, "&gimel;"], [0, "&daleth;"], [12, "&CapitalDifferentialD;"], [0, "&dd;"], [0, "&ee;"], [0, "&ii;"], [10, "&frac13;"], [0, "&frac23;"], [0, "&frac15;"], [0, "&frac25;"], [0, "&frac35;"], [0, "&frac45;"], [0, "&frac16;"], [0, "&frac56;"], [0, "&frac18;"], [0, "&frac38;"], [0, "&frac58;"], [0, "&frac78;"], [49, "&larr;"], [0, "&ShortUpArrow;"], [0, "&rarr;"], [0, "&darr;"], [0, "&harr;"], [0, "&updownarrow;"], [0, "&nwarr;"], [0, "&nearr;"], [0, "&LowerRightArrow;"], [0, "&LowerLeftArrow;"], [0, "&nlarr;"], [0, "&nrarr;"], [1, { v: "&rarrw;", n: 824, o: "&nrarrw;" }], [0, "&Larr;"], [0, "&Uarr;"], [0, "&Rarr;"], [0, "&Darr;"], [0, "&larrtl;"], [0, "&rarrtl;"], [0, "&LeftTeeArrow;"], [0, "&mapstoup;"], [0, "&map;"], [0, "&DownTeeArrow;"], [1, "&hookleftarrow;"], [0, "&hookrightarrow;"], [0, "&larrlp;"], [0, "&looparrowright;"], [0, "&harrw;"], [0, "&nharr;"], [1, "&lsh;"], [0, "&rsh;"], [0, "&ldsh;"], [0, "&rdsh;"], [1, "&crarr;"], [0, "&cularr;"], [0, "&curarr;"], [2, "&circlearrowleft;"], [0, "&circlearrowright;"], [0, "&leftharpoonup;"], [0, "&DownLeftVector;"], [0, "&RightUpVector;"], [0, "&LeftUpVector;"], [0, "&rharu;"], [0, "&DownRightVector;"], [0, "&dharr;"], [0, "&dharl;"], [0, "&RightArrowLeftArrow;"], [0, "&udarr;"], [0, "&LeftArrowRightArrow;"], [0, "&leftleftarrows;"], [0, "&upuparrows;"], [0, "&rightrightarrows;"], [0, "&ddarr;"], [0, "&leftrightharpoons;"], [0, "&Equilibrium;"], [0, "&nlArr;"], [0, "&nhArr;"], [0, "&nrArr;"], [0, "&DoubleLeftArrow;"], [0, "&DoubleUpArrow;"], [0, "&DoubleRightArrow;"], [0, "&dArr;"], [0, "&DoubleLeftRightArrow;"], [0, "&DoubleUpDownArrow;"], [0, "&nwArr;"], [0, "&neArr;"], [0, "&seArr;"], [0, "&swArr;"], [0, "&lAarr;"], [0, "&rAarr;"], [1, "&zigrarr;"], [6, "&larrb;"], [0, "&rarrb;"], [15, "&DownArrowUpArrow;"], [7, "&loarr;"], [0, "&roarr;"], [0, "&hoarr;"], [0, "&forall;"], [0, "&comp;"], [0, { v: "&part;", n: 824, o: "&npart;" }], [0, "&exist;"], [0, "&nexist;"], [0, "&empty;"], [1, "&Del;"], [0, "&Element;"], [0, "&NotElement;"], [1, "&ni;"], [0, "&notni;"], [2, "&prod;"], [0, "&coprod;"], [0, "&sum;"], [0, "&minus;"], [0, "&MinusPlus;"], [0, "&dotplus;"], [1, "&Backslash;"], [0, "&lowast;"], [0, "&compfn;"], [1, "&radic;"], [2, "&prop;"], [0, "&infin;"], [0, "&angrt;"], [0, { v: "&ang;", n: 8402, o: "&nang;" }], [0, "&angmsd;"], [0, "&angsph;"], [0, "&mid;"], [0, "&nmid;"], [0, "&DoubleVerticalBar;"], [0, "&NotDoubleVerticalBar;"], [0, "&and;"], [0, "&or;"], [0, { v: "&cap;", n: 65024, o: "&caps;" }], [0, { v: "&cup;", n: 65024, o: "&cups;" }], [0, "&int;"], [0, "&Int;"], [0, "&iiint;"], [0, "&conint;"], [0, "&Conint;"], [0, "&Cconint;"], [0, "&cwint;"], [0, "&ClockwiseContourIntegral;"], [0, "&awconint;"], [0, "&there4;"], [0, "&becaus;"], [0, "&ratio;"], [0, "&Colon;"], [0, "&dotminus;"], [1, "&mDDot;"], [0, "&homtht;"], [0, { v: "&sim;", n: 8402, o: "&nvsim;" }], [0, { v: "&backsim;", n: 817, o: "&race;" }], [0, { v: "&ac;", n: 819, o: "&acE;" }], [0, "&acd;"], [0, "&VerticalTilde;"], [0, "&NotTilde;"], [0, { v: "&eqsim;", n: 824, o: "&nesim;" }], [0, "&sime;"], [0, "&NotTildeEqual;"], [0, "&cong;"], [0, "&simne;"], [0, "&ncong;"], [0, "&ap;"], [0, "&nap;"], [0, "&ape;"], [0, { v: "&apid;", n: 824, o: "&napid;" }], [0, "&backcong;"], [0, { v: "&asympeq;", n: 8402, o: "&nvap;" }], [0, { v: "&bump;", n: 824, o: "&nbump;" }], [0, { v: "&bumpe;", n: 824, o: "&nbumpe;" }], [0, { v: "&doteq;", n: 824, o: "&nedot;" }], [0, "&doteqdot;"], [0, "&efDot;"], [0, "&erDot;"], [0, "&Assign;"], [0, "&ecolon;"], [0, "&ecir;"], [0, "&circeq;"], [1, "&wedgeq;"], [0, "&veeeq;"], [1, "&triangleq;"], [2, "&equest;"], [0, "&ne;"], [0, { v: "&Congruent;", n: 8421, o: "&bnequiv;" }], [0, "&nequiv;"], [1, { v: "&le;", n: 8402, o: "&nvle;" }], [0, { v: "&ge;", n: 8402, o: "&nvge;" }], [0, { v: "&lE;", n: 824, o: "&nlE;" }], [0, { v: "&gE;", n: 824, o: "&ngE;" }], [0, { v: "&lnE;", n: 65024, o: "&lvertneqq;" }], [0, { v: "&gnE;", n: 65024, o: "&gvertneqq;" }], [0, { v: "&ll;", n: new Map(pt([[824, "&nLtv;"], [7577, "&nLt;"]])) }], [0, { v: "&gg;", n: new Map(pt([[824, "&nGtv;"], [7577, "&nGt;"]])) }], [0, "&between;"], [0, "&NotCupCap;"], [0, "&nless;"], [0, "&ngt;"], [0, "&nle;"], [0, "&nge;"], [0, "&lesssim;"], [0, "&GreaterTilde;"], [0, "&nlsim;"], [0, "&ngsim;"], [0, "&LessGreater;"], [0, "&gl;"], [0, "&NotLessGreater;"], [0, "&NotGreaterLess;"], [0, "&pr;"], [0, "&sc;"], [0, "&prcue;"], [0, "&sccue;"], [0, "&PrecedesTilde;"], [0, { v: "&scsim;", n: 824, o: "&NotSucceedsTilde;" }], [0, "&NotPrecedes;"], [0, "&NotSucceeds;"], [0, { v: "&sub;", n: 8402, o: "&NotSubset;" }], [0, { v: "&sup;", n: 8402, o: "&NotSuperset;" }], [0, "&nsub;"], [0, "&nsup;"], [0, "&sube;"], [0, "&supe;"], [0, "&NotSubsetEqual;"], [0, "&NotSupersetEqual;"], [0, { v: "&subne;", n: 65024, o: "&varsubsetneq;" }], [0, { v: "&supne;", n: 65024, o: "&varsupsetneq;" }], [1, "&cupdot;"], [0, "&UnionPlus;"], [0, { v: "&sqsub;", n: 824, o: "&NotSquareSubset;" }], [0, { v: "&sqsup;", n: 824, o: "&NotSquareSuperset;" }], [0, "&sqsube;"], [0, "&sqsupe;"], [0, { v: "&sqcap;", n: 65024, o: "&sqcaps;" }], [0, { v: "&sqcup;", n: 65024, o: "&sqcups;" }], [0, "&CirclePlus;"], [0, "&CircleMinus;"], [0, "&CircleTimes;"], [0, "&osol;"], [0, "&CircleDot;"], [0, "&circledcirc;"], [0, "&circledast;"], [1, "&circleddash;"], [0, "&boxplus;"], [0, "&boxminus;"], [0, "&boxtimes;"], [0, "&dotsquare;"], [0, "&RightTee;"], [0, "&dashv;"], [0, "&DownTee;"], [0, "&bot;"], [1, "&models;"], [0, "&DoubleRightTee;"], [0, "&Vdash;"], [0, "&Vvdash;"], [0, "&VDash;"], [0, "&nvdash;"], [0, "&nvDash;"], [0, "&nVdash;"], [0, "&nVDash;"], [0, "&prurel;"], [1, "&LeftTriangle;"], [0, "&RightTriangle;"], [0, { v: "&LeftTriangleEqual;", n: 8402, o: "&nvltrie;" }], [0, { v: "&RightTriangleEqual;", n: 8402, o: "&nvrtrie;" }], [0, "&origof;"], [0, "&imof;"], [0, "&multimap;"], [0, "&hercon;"], [0, "&intcal;"], [0, "&veebar;"], [1, "&barvee;"], [0, "&angrtvb;"], [0, "&lrtri;"], [0, "&bigwedge;"], [0, "&bigvee;"], [0, "&bigcap;"], [0, "&bigcup;"], [0, "&diam;"], [0, "&sdot;"], [0, "&sstarf;"], [0, "&divideontimes;"], [0, "&bowtie;"], [0, "&ltimes;"], [0, "&rtimes;"], [0, "&leftthreetimes;"], [0, "&rightthreetimes;"], [0, "&backsimeq;"], [0, "&curlyvee;"], [0, "&curlywedge;"], [0, "&Sub;"], [0, "&Sup;"], [0, "&Cap;"], [0, "&Cup;"], [0, "&fork;"], [0, "&epar;"], [0, "&lessdot;"], [0, "&gtdot;"], [0, { v: "&Ll;", n: 824, o: "&nLl;" }], [0, { v: "&Gg;", n: 824, o: "&nGg;" }], [0, { v: "&leg;", n: 65024, o: "&lesg;" }], [0, { v: "&gel;", n: 65024, o: "&gesl;" }], [2, "&cuepr;"], [0, "&cuesc;"], [0, "&NotPrecedesSlantEqual;"], [0, "&NotSucceedsSlantEqual;"], [0, "&NotSquareSubsetEqual;"], [0, "&NotSquareSupersetEqual;"], [2, "&lnsim;"], [0, "&gnsim;"], [0, "&precnsim;"], [0, "&scnsim;"], [0, "&nltri;"], [0, "&NotRightTriangle;"], [0, "&nltrie;"], [0, "&NotRightTriangleEqual;"], [0, "&vellip;"], [0, "&ctdot;"], [0, "&utdot;"], [0, "&dtdot;"], [0, "&disin;"], [0, "&isinsv;"], [0, "&isins;"], [0, { v: "&isindot;", n: 824, o: "&notindot;" }], [0, "&notinvc;"], [0, "&notinvb;"], [1, { v: "&isinE;", n: 824, o: "&notinE;" }], [0, "&nisd;"], [0, "&xnis;"], [0, "&nis;"], [0, "&notnivc;"], [0, "&notnivb;"], [6, "&barwed;"], [0, "&Barwed;"], [1, "&lceil;"], [0, "&rceil;"], [0, "&LeftFloor;"], [0, "&rfloor;"], [0, "&drcrop;"], [0, "&dlcrop;"], [0, "&urcrop;"], [0, "&ulcrop;"], [0, "&bnot;"], [1, "&profline;"], [0, "&profsurf;"], [1, "&telrec;"], [0, "&target;"], [5, "&ulcorn;"], [0, "&urcorn;"], [0, "&dlcorn;"], [0, "&drcorn;"], [2, "&frown;"], [0, "&smile;"], [9, "&cylcty;"], [0, "&profalar;"], [7, "&topbot;"], [6, "&ovbar;"], [1, "&solbar;"], [60, "&angzarr;"], [51, "&lmoustache;"], [0, "&rmoustache;"], [2, "&OverBracket;"], [0, "&bbrk;"], [0, "&bbrktbrk;"], [37, "&OverParenthesis;"], [0, "&UnderParenthesis;"], [0, "&OverBrace;"], [0, "&UnderBrace;"], [2, "&trpezium;"], [4, "&elinters;"], [59, "&blank;"], [164, "&circledS;"], [55, "&boxh;"], [1, "&boxv;"], [9, "&boxdr;"], [3, "&boxdl;"], [3, "&boxur;"], [3, "&boxul;"], [3, "&boxvr;"], [7, "&boxvl;"], [7, "&boxhd;"], [7, "&boxhu;"], [7, "&boxvh;"], [19, "&boxH;"], [0, "&boxV;"], [0, "&boxdR;"], [0, "&boxDr;"], [0, "&boxDR;"], [0, "&boxdL;"], [0, "&boxDl;"], [0, "&boxDL;"], [0, "&boxuR;"], [0, "&boxUr;"], [0, "&boxUR;"], [0, "&boxuL;"], [0, "&boxUl;"], [0, "&boxUL;"], [0, "&boxvR;"], [0, "&boxVr;"], [0, "&boxVR;"], [0, "&boxvL;"], [0, "&boxVl;"], [0, "&boxVL;"], [0, "&boxHd;"], [0, "&boxhD;"], [0, "&boxHD;"], [0, "&boxHu;"], [0, "&boxhU;"], [0, "&boxHU;"], [0, "&boxvH;"], [0, "&boxVh;"], [0, "&boxVH;"], [19, "&uhblk;"], [3, "&lhblk;"], [3, "&block;"], [8, "&blk14;"], [0, "&blk12;"], [0, "&blk34;"], [13, "&square;"], [8, "&blacksquare;"], [0, "&EmptyVerySmallSquare;"], [1, "&rect;"], [0, "&marker;"], [2, "&fltns;"], [1, "&bigtriangleup;"], [0, "&blacktriangle;"], [0, "&triangle;"], [2, "&blacktriangleright;"], [0, "&rtri;"], [3, "&bigtriangledown;"], [0, "&blacktriangledown;"], [0, "&dtri;"], [2, "&blacktriangleleft;"], [0, "&ltri;"], [6, "&loz;"], [0, "&cir;"], [32, "&tridot;"], [2, "&bigcirc;"], [8, "&ultri;"], [0, "&urtri;"], [0, "&lltri;"], [0, "&EmptySmallSquare;"], [0, "&FilledSmallSquare;"], [8, "&bigstar;"], [0, "&star;"], [7, "&phone;"], [49, "&female;"], [1, "&male;"], [29, "&spades;"], [2, "&clubs;"], [1, "&hearts;"], [0, "&diamondsuit;"], [3, "&sung;"], [2, "&flat;"], [0, "&natural;"], [0, "&sharp;"], [163, "&check;"], [3, "&cross;"], [8, "&malt;"], [21, "&sext;"], [33, "&VerticalSeparator;"], [25, "&lbbrk;"], [0, "&rbbrk;"], [84, "&bsolhsub;"], [0, "&suphsol;"], [28, "&LeftDoubleBracket;"], [0, "&RightDoubleBracket;"], [0, "&lang;"], [0, "&rang;"], [0, "&Lang;"], [0, "&Rang;"], [0, "&loang;"], [0, "&roang;"], [7, "&longleftarrow;"], [0, "&longrightarrow;"], [0, "&longleftrightarrow;"], [0, "&DoubleLongLeftArrow;"], [0, "&DoubleLongRightArrow;"], [0, "&DoubleLongLeftRightArrow;"], [1, "&longmapsto;"], [2, "&dzigrarr;"], [258, "&nvlArr;"], [0, "&nvrArr;"], [0, "&nvHarr;"], [0, "&Map;"], [6, "&lbarr;"], [0, "&bkarow;"], [0, "&lBarr;"], [0, "&dbkarow;"], [0, "&drbkarow;"], [0, "&DDotrahd;"], [0, "&UpArrowBar;"], [0, "&DownArrowBar;"], [2, "&Rarrtl;"], [2, "&latail;"], [0, "&ratail;"], [0, "&lAtail;"], [0, "&rAtail;"], [0, "&larrfs;"], [0, "&rarrfs;"], [0, "&larrbfs;"], [0, "&rarrbfs;"], [2, "&nwarhk;"], [0, "&nearhk;"], [0, "&hksearow;"], [0, "&hkswarow;"], [0, "&nwnear;"], [0, "&nesear;"], [0, "&seswar;"], [0, "&swnwar;"], [8, { v: "&rarrc;", n: 824, o: "&nrarrc;" }], [1, "&cudarrr;"], [0, "&ldca;"], [0, "&rdca;"], [0, "&cudarrl;"], [0, "&larrpl;"], [2, "&curarrm;"], [0, "&cularrp;"], [7, "&rarrpl;"], [2, "&harrcir;"], [0, "&Uarrocir;"], [0, "&lurdshar;"], [0, "&ldrushar;"], [2, "&LeftRightVector;"], [0, "&RightUpDownVector;"], [0, "&DownLeftRightVector;"], [0, "&LeftUpDownVector;"], [0, "&LeftVectorBar;"], [0, "&RightVectorBar;"], [0, "&RightUpVectorBar;"], [0, "&RightDownVectorBar;"], [0, "&DownLeftVectorBar;"], [0, "&DownRightVectorBar;"], [0, "&LeftUpVectorBar;"], [0, "&LeftDownVectorBar;"], [0, "&LeftTeeVector;"], [0, "&RightTeeVector;"], [0, "&RightUpTeeVector;"], [0, "&RightDownTeeVector;"], [0, "&DownLeftTeeVector;"], [0, "&DownRightTeeVector;"], [0, "&LeftUpTeeVector;"], [0, "&LeftDownTeeVector;"], [0, "&lHar;"], [0, "&uHar;"], [0, "&rHar;"], [0, "&dHar;"], [0, "&luruhar;"], [0, "&ldrdhar;"], [0, "&ruluhar;"], [0, "&rdldhar;"], [0, "&lharul;"], [0, "&llhard;"], [0, "&rharul;"], [0, "&lrhard;"], [0, "&udhar;"], [0, "&duhar;"], [0, "&RoundImplies;"], [0, "&erarr;"], [0, "&simrarr;"], [0, "&larrsim;"], [0, "&rarrsim;"], [0, "&rarrap;"], [0, "&ltlarr;"], [1, "&gtrarr;"], [0, "&subrarr;"], [1, "&suplarr;"], [0, "&lfisht;"], [0, "&rfisht;"], [0, "&ufisht;"], [0, "&dfisht;"], [5, "&lopar;"], [0, "&ropar;"], [4, "&lbrke;"], [0, "&rbrke;"], [0, "&lbrkslu;"], [0, "&rbrksld;"], [0, "&lbrksld;"], [0, "&rbrkslu;"], [0, "&langd;"], [0, "&rangd;"], [0, "&lparlt;"], [0, "&rpargt;"], [0, "&gtlPar;"], [0, "&ltrPar;"], [3, "&vzigzag;"], [1, "&vangrt;"], [0, "&angrtvbd;"], [6, "&ange;"], [0, "&range;"], [0, "&dwangle;"], [0, "&uwangle;"], [0, "&angmsdaa;"], [0, "&angmsdab;"], [0, "&angmsdac;"], [0, "&angmsdad;"], [0, "&angmsdae;"], [0, "&angmsdaf;"], [0, "&angmsdag;"], [0, "&angmsdah;"], [0, "&bemptyv;"], [0, "&demptyv;"], [0, "&cemptyv;"], [0, "&raemptyv;"], [0, "&laemptyv;"], [0, "&ohbar;"], [0, "&omid;"], [0, "&opar;"], [1, "&operp;"], [1, "&olcross;"], [0, "&odsold;"], [1, "&olcir;"], [0, "&ofcir;"], [0, "&olt;"], [0, "&ogt;"], [0, "&cirscir;"], [0, "&cirE;"], [0, "&solb;"], [0, "&bsolb;"], [3, "&boxbox;"], [3, "&trisb;"], [0, "&rtriltri;"], [0, { v: "&LeftTriangleBar;", n: 824, o: "&NotLeftTriangleBar;" }], [0, { v: "&RightTriangleBar;", n: 824, o: "&NotRightTriangleBar;" }], [11, "&iinfin;"], [0, "&infintie;"], [0, "&nvinfin;"], [4, "&eparsl;"], [0, "&smeparsl;"], [0, "&eqvparsl;"], [5, "&blacklozenge;"], [8, "&RuleDelayed;"], [1, "&dsol;"], [9, "&bigodot;"], [0, "&bigoplus;"], [0, "&bigotimes;"], [1, "&biguplus;"], [1, "&bigsqcup;"], [5, "&iiiint;"], [0, "&fpartint;"], [2, "&cirfnint;"], [0, "&awint;"], [0, "&rppolint;"], [0, "&scpolint;"], [0, "&npolint;"], [0, "&pointint;"], [0, "&quatint;"], [0, "&intlarhk;"], [10, "&pluscir;"], [0, "&plusacir;"], [0, "&simplus;"], [0, "&plusdu;"], [0, "&plussim;"], [0, "&plustwo;"], [1, "&mcomma;"], [0, "&minusdu;"], [2, "&loplus;"], [0, "&roplus;"], [0, "&Cross;"], [0, "&timesd;"], [0, "&timesbar;"], [1, "&smashp;"], [0, "&lotimes;"], [0, "&rotimes;"], [0, "&otimesas;"], [0, "&Otimes;"], [0, "&odiv;"], [0, "&triplus;"], [0, "&triminus;"], [0, "&tritime;"], [0, "&intprod;"], [2, "&amalg;"], [0, "&capdot;"], [1, "&ncup;"], [0, "&ncap;"], [0, "&capand;"], [0, "&cupor;"], [0, "&cupcap;"], [0, "&capcup;"], [0, "&cupbrcap;"], [0, "&capbrcup;"], [0, "&cupcup;"], [0, "&capcap;"], [0, "&ccups;"], [0, "&ccaps;"], [2, "&ccupssm;"], [2, "&And;"], [0, "&Or;"], [0, "&andand;"], [0, "&oror;"], [0, "&orslope;"], [0, "&andslope;"], [1, "&andv;"], [0, "&orv;"], [0, "&andd;"], [0, "&ord;"], [1, "&wedbar;"], [6, "&sdote;"], [3, "&simdot;"], [2, { v: "&congdot;", n: 824, o: "&ncongdot;" }], [0, "&easter;"], [0, "&apacir;"], [0, { v: "&apE;", n: 824, o: "&napE;" }], [0, "&eplus;"], [0, "&pluse;"], [0, "&Esim;"], [0, "&Colone;"], [0, "&Equal;"], [1, "&ddotseq;"], [0, "&equivDD;"], [0, "&ltcir;"], [0, "&gtcir;"], [0, "&ltquest;"], [0, "&gtquest;"], [0, { v: "&leqslant;", n: 824, o: "&nleqslant;" }], [0, { v: "&geqslant;", n: 824, o: "&ngeqslant;" }], [0, "&lesdot;"], [0, "&gesdot;"], [0, "&lesdoto;"], [0, "&gesdoto;"], [0, "&lesdotor;"], [0, "&gesdotol;"], [0, "&lap;"], [0, "&gap;"], [0, "&lne;"], [0, "&gne;"], [0, "&lnap;"], [0, "&gnap;"], [0, "&lEg;"], [0, "&gEl;"], [0, "&lsime;"], [0, "&gsime;"], [0, "&lsimg;"], [0, "&gsiml;"], [0, "&lgE;"], [0, "&glE;"], [0, "&lesges;"], [0, "&gesles;"], [0, "&els;"], [0, "&egs;"], [0, "&elsdot;"], [0, "&egsdot;"], [0, "&el;"], [0, "&eg;"], [2, "&siml;"], [0, "&simg;"], [0, "&simlE;"], [0, "&simgE;"], [0, { v: "&LessLess;", n: 824, o: "&NotNestedLessLess;" }], [0, { v: "&GreaterGreater;", n: 824, o: "&NotNestedGreaterGreater;" }], [1, "&glj;"], [0, "&gla;"], [0, "&ltcc;"], [0, "&gtcc;"], [0, "&lescc;"], [0, "&gescc;"], [0, "&smt;"], [0, "&lat;"], [0, { v: "&smte;", n: 65024, o: "&smtes;" }], [0, { v: "&late;", n: 65024, o: "&lates;" }], [0, "&bumpE;"], [0, { v: "&PrecedesEqual;", n: 824, o: "&NotPrecedesEqual;" }], [0, { v: "&sce;", n: 824, o: "&NotSucceedsEqual;" }], [2, "&prE;"], [0, "&scE;"], [0, "&precneqq;"], [0, "&scnE;"], [0, "&prap;"], [0, "&scap;"], [0, "&precnapprox;"], [0, "&scnap;"], [0, "&Pr;"], [0, "&Sc;"], [0, "&subdot;"], [0, "&supdot;"], [0, "&subplus;"], [0, "&supplus;"], [0, "&submult;"], [0, "&supmult;"], [0, "&subedot;"], [0, "&supedot;"], [0, { v: "&subE;", n: 824, o: "&nsubE;" }], [0, { v: "&supE;", n: 824, o: "&nsupE;" }], [0, "&subsim;"], [0, "&supsim;"], [2, { v: "&subnE;", n: 65024, o: "&varsubsetneqq;" }], [0, { v: "&supnE;", n: 65024, o: "&varsupsetneqq;" }], [2, "&csub;"], [0, "&csup;"], [0, "&csube;"], [0, "&csupe;"], [0, "&subsup;"], [0, "&supsub;"], [0, "&subsub;"], [0, "&supsup;"], [0, "&suphsub;"], [0, "&supdsub;"], [0, "&forkv;"], [0, "&topfork;"], [0, "&mlcp;"], [8, "&Dashv;"], [1, "&Vdashl;"], [0, "&Barv;"], [0, "&vBar;"], [0, "&vBarv;"], [1, "&Vbar;"], [0, "&Not;"], [0, "&bNot;"], [0, "&rnmid;"], [0, "&cirmid;"], [0, "&midcir;"], [0, "&topcir;"], [0, "&nhpar;"], [0, "&parsim;"], [9, { v: "&parsl;", n: 8421, o: "&nparsl;" }], [44343, { n: new Map(pt([[56476, "&Ascr;"], [1, "&Cscr;"], [0, "&Dscr;"], [2, "&Gscr;"], [2, "&Jscr;"], [0, "&Kscr;"], [2, "&Nscr;"], [0, "&Oscr;"], [0, "&Pscr;"], [0, "&Qscr;"], [1, "&Sscr;"], [0, "&Tscr;"], [0, "&Uscr;"], [0, "&Vscr;"], [0, "&Wscr;"], [0, "&Xscr;"], [0, "&Yscr;"], [0, "&Zscr;"], [0, "&ascr;"], [0, "&bscr;"], [0, "&cscr;"], [0, "&dscr;"], [1, "&fscr;"], [1, "&hscr;"], [0, "&iscr;"], [0, "&jscr;"], [0, "&kscr;"], [0, "&lscr;"], [0, "&mscr;"], [0, "&nscr;"], [1, "&pscr;"], [0, "&qscr;"], [0, "&rscr;"], [0, "&sscr;"], [0, "&tscr;"], [0, "&uscr;"], [0, "&vscr;"], [0, "&wscr;"], [0, "&xscr;"], [0, "&yscr;"], [0, "&zscr;"], [52, "&Afr;"], [0, "&Bfr;"], [1, "&Dfr;"], [0, "&Efr;"], [0, "&Ffr;"], [0, "&Gfr;"], [2, "&Jfr;"], [0, "&Kfr;"], [0, "&Lfr;"], [0, "&Mfr;"], [0, "&Nfr;"], [0, "&Ofr;"], [0, "&Pfr;"], [0, "&Qfr;"], [1, "&Sfr;"], [0, "&Tfr;"], [0, "&Ufr;"], [0, "&Vfr;"], [0, "&Wfr;"], [0, "&Xfr;"], [0, "&Yfr;"], [1, "&afr;"], [0, "&bfr;"], [0, "&cfr;"], [0, "&dfr;"], [0, "&efr;"], [0, "&ffr;"], [0, "&gfr;"], [0, "&hfr;"], [0, "&ifr;"], [0, "&jfr;"], [0, "&kfr;"], [0, "&lfr;"], [0, "&mfr;"], [0, "&nfr;"], [0, "&ofr;"], [0, "&pfr;"], [0, "&qfr;"], [0, "&rfr;"], [0, "&sfr;"], [0, "&tfr;"], [0, "&ufr;"], [0, "&vfr;"], [0, "&wfr;"], [0, "&xfr;"], [0, "&yfr;"], [0, "&zfr;"], [0, "&Aopf;"], [0, "&Bopf;"], [1, "&Dopf;"], [0, "&Eopf;"], [0, "&Fopf;"], [0, "&Gopf;"], [1, "&Iopf;"], [0, "&Jopf;"], [0, "&Kopf;"], [0, "&Lopf;"], [0, "&Mopf;"], [1, "&Oopf;"], [3, "&Sopf;"], [0, "&Topf;"], [0, "&Uopf;"], [0, "&Vopf;"], [0, "&Wopf;"], [0, "&Xopf;"], [0, "&Yopf;"], [1, "&aopf;"], [0, "&bopf;"], [0, "&copf;"], [0, "&dopf;"], [0, "&eopf;"], [0, "&fopf;"], [0, "&gopf;"], [0, "&hopf;"], [0, "&iopf;"], [0, "&jopf;"], [0, "&kopf;"], [0, "&lopf;"], [0, "&mopf;"], [0, "&nopf;"], [0, "&oopf;"], [0, "&popf;"], [0, "&qopf;"], [0, "&ropf;"], [0, "&sopf;"], [0, "&topf;"], [0, "&uopf;"], [0, "&vopf;"], [0, "&wopf;"], [0, "&xopf;"], [0, "&yopf;"], [0, "&zopf;"]])) }], [8906, "&fflig;"], [0, "&filig;"], [0, "&fllig;"], [0, "&ffilig;"], [0, "&ffllig;"]]));
@@ -749,11 +749,11 @@ var mr;
 (function (e) { e[e.XML = 0] = "XML", e[e.HTML = 1] = "HTML"; })(mr || (mr = {}));
 var xr;
 (function (e) { e[e.UTF8 = 0] = "UTF8", e[e.ASCII = 1] = "ASCII", e[e.Extensive = 2] = "Extensive", e[e.Attribute = 3] = "Attribute", e[e.Text = 4] = "Text"; })(xr || (xr = {}));
-var wr = new Map(["altGlyph", "altGlyphDef", "altGlyphItem", "animateColor", "animateMotion", "animateTransform", "clipPath", "feBlend", "feColorMatrix", "feComponentTransfer", "feComposite", "feConvolveMatrix", "feDiffuseLighting", "feDisplacementMap", "feDistantLight", "feDropShadow", "feFlood", "feFuncA", "feFuncB", "feFuncG", "feFuncR", "feGaussianBlur", "feImage", "feMerge", "feMergeNode", "feMorphology", "feOffset", "fePointLight", "feSpecularLighting", "feSpotLight", "feTile", "feTurbulence", "foreignObject", "glyphRef", "linearGradient", "radialGradient", "textPath"].map(function (e) { return [e.toLowerCase(), e]; })), Sr = new Map(["definitionURL", "attributeName", "attributeType", "baseFrequency", "baseProfile", "calcMode", "clipPathUnits", "diffuseConstant", "edgeMode", "filterUnits", "glyphRef", "gradientTransform", "gradientUnits", "kernelMatrix", "kernelUnitLength", "keyPoints", "keySplines", "keyTimes", "lengthAdjust", "limitingConeAngle", "markerHeight", "markerUnits", "markerWidth", "maskContentUnits", "maskUnits", "numOctaves", "pathLength", "patternContentUnits", "patternTransform", "patternUnits", "pointsAtX", "pointsAtY", "pointsAtZ", "preserveAlpha", "preserveAspectRatio", "primitiveUnits", "refX", "refY", "repeatCount", "repeatDur", "requiredExtensions", "requiredFeatures", "specularConstant", "specularExponent", "spreadMethod", "startOffset", "stdDeviation", "stitchTiles", "surfaceScale", "systemLanguage", "tableValues", "targetX", "targetY", "textLength", "viewBox", "viewTarget", "xChannelSelector", "yChannelSelector", "zoomAndPan"].map(function (e) { return [e.toLowerCase(), e]; }));
+var Sr = new Map(["altGlyph", "altGlyphDef", "altGlyphItem", "animateColor", "animateMotion", "animateTransform", "clipPath", "feBlend", "feColorMatrix", "feComponentTransfer", "feComposite", "feConvolveMatrix", "feDiffuseLighting", "feDisplacementMap", "feDistantLight", "feDropShadow", "feFlood", "feFuncA", "feFuncB", "feFuncG", "feFuncR", "feGaussianBlur", "feImage", "feMerge", "feMergeNode", "feMorphology", "feOffset", "fePointLight", "feSpecularLighting", "feSpotLight", "feTile", "feTurbulence", "foreignObject", "glyphRef", "linearGradient", "radialGradient", "textPath"].map(function (e) { return [e.toLowerCase(), e]; })), wr = new Map(["definitionURL", "attributeName", "attributeType", "baseFrequency", "baseProfile", "calcMode", "clipPathUnits", "diffuseConstant", "edgeMode", "filterUnits", "glyphRef", "gradientTransform", "gradientUnits", "kernelMatrix", "kernelUnitLength", "keyPoints", "keySplines", "keyTimes", "lengthAdjust", "limitingConeAngle", "markerHeight", "markerUnits", "markerWidth", "maskContentUnits", "maskUnits", "numOctaves", "pathLength", "patternContentUnits", "patternTransform", "patternUnits", "pointsAtX", "pointsAtY", "pointsAtZ", "preserveAlpha", "preserveAspectRatio", "primitiveUnits", "refX", "refY", "repeatCount", "repeatDur", "requiredExtensions", "requiredFeatures", "specularConstant", "specularExponent", "spreadMethod", "startOffset", "stdDeviation", "stitchTiles", "surfaceScale", "systemLanguage", "tableValues", "targetX", "targetY", "textLength", "viewBox", "viewTarget", "xChannelSelector", "yChannelSelector", "zoomAndPan"].map(function (e) { return [e.toLowerCase(), e]; }));
 var P0 = new Set(["style", "script", "xmp", "iframe", "noembed", "noframes", "plaintext", "noscript"]);
 function F0(e) { return e.replace(/"/g, "&quot;"); }
 function G0(e, t) { var u; if (!e)
-    return; var r = ((u = t.encodeEntities) !== null && u !== void 0 ? u : t.decodeEntities) === !1 ? F0 : t.xmlMode || t.encodeEntities !== "utf8" ? et : gt; return Object.keys(e).map(function (a) { var n, i; var c = (n = e[a]) !== null && n !== void 0 ? n : ""; return t.xmlMode === "foreign" && (a = (i = Sr.get(a)) !== null && i !== void 0 ? i : a), !t.emptyAttrs && !t.xmlMode && c === "" ? a : "".concat(a, "=\"").concat(r(c), "\""); }).join(" "); }
+    return; var r = ((u = t.encodeEntities) !== null && u !== void 0 ? u : t.decodeEntities) === !1 ? F0 : t.xmlMode || t.encodeEntities !== "utf8" ? et : gt; return Object.keys(e).map(function (a) { var n, i; var c = (n = e[a]) !== null && n !== void 0 ? n : ""; return t.xmlMode === "foreign" && (a = (i = wr.get(a)) !== null && i !== void 0 ? i : a), !t.emptyAttrs && !t.xmlMode && c === "" ? a : "".concat(a, "=\"").concat(r(c), "\""); }).join(" "); }
 var Er = new Set(["area", "base", "basefont", "br", "col", "command", "embed", "frame", "hr", "img", "input", "isindex", "keygen", "link", "meta", "param", "source", "track", "wbr"]);
 function bu(e, t) {
     if (t === void 0) { t = {}; }
@@ -775,7 +775,7 @@ function V0(e, t) { switch (e.type) {
     case eu: return W0(e, t);
 } }
 var j0 = new Set(["mi", "mo", "mn", "ms", "mtext", "annotation-xml", "foreignObject", "desc", "title"]), z0 = new Set(["svg", "math"]);
-function K0(e, t) { var u; t.xmlMode === "foreign" && (e.name = (u = wr.get(e.name)) !== null && u !== void 0 ? u : e.name, e.parent && j0.has(e.parent.name) && (t = Te(de({}, t), { xmlMode: !1 }))), !t.xmlMode && z0.has(e.name) && (t = Te(de({}, t), { xmlMode: "foreign" })); var r = "<".concat(e.name), a = G0(e.attribs, t); return a && (r += " ".concat(a)), e.children.length === 0 && (t.xmlMode ? t.selfClosingTags !== !1 : t.selfClosingTags && Er.has(e.name)) ? (t.xmlMode || (r += " "), r += "/>") : (r += ">", e.children.length > 0 && (r += bu(e.children, t)), (t.xmlMode || !Er.has(e.name)) && (r += "</".concat(e.name, ">"))), r; }
+function K0(e, t) { var u; t.xmlMode === "foreign" && (e.name = (u = Sr.get(e.name)) !== null && u !== void 0 ? u : e.name, e.parent && j0.has(e.parent.name) && (t = Te(de({}, t), { xmlMode: !1 }))), !t.xmlMode && z0.has(e.name) && (t = Te(de({}, t), { xmlMode: "foreign" })); var r = "<".concat(e.name), a = G0(e.attribs, t); return a && (r += " ".concat(a)), e.children.length === 0 && (t.xmlMode ? t.selfClosingTags !== !1 : t.selfClosingTags && Er.has(e.name)) ? (t.xmlMode || (r += " "), r += "/>") : (r += ">", e.children.length > 0 && (r += bu(e.children, t)), (t.xmlMode || !Er.has(e.name)) && (r += "</".concat(e.name, ">"))), r; }
 function _0(e) { return "<".concat(e.data, ">"); }
 function W0(e, t) { var u; var r = e.data || ""; return ((u = t.encodeEntities) !== null && u !== void 0 ? u : t.decodeEntities) !== !1 && !(!t.xmlMode && e.parent && P0.has(e.parent.name)) && (r = t.xmlMode || t.encodeEntities !== "utf8" ? et(r) : mt(r)), r; }
 function $0(e) { return "<![CDATA[".concat(e.children[0].data, "]]>"); }
@@ -785,7 +785,7 @@ function X0(e, t) { return Y(e) ? e.children.map(function (u) { return Ar(u, t);
 function xt(e) {
     return Array.isArray(e) ? e.map(xt).join("") : U(e) ? e.name === "br" ? "\n" : xt(e.children) : Be(e) ? xt(e.children) : he(e) ? e.data : "";
 }
-function we(e) { return Array.isArray(e) ? e.map(we).join("") : Y(e) && !Ye(e) ? we(e.children) : he(e) ? e.data : ""; }
+function Se(e) { return Array.isArray(e) ? e.map(Se).join("") : Y(e) && !Ye(e) ? Se(e.children) : he(e) ? e.data : ""; }
 function pu(e) { return Array.isArray(e) ? e.map(pu).join("") : Y(e) && (e.type === O.Tag || Be(e)) ? pu(e.children) : he(e) ? e.data : ""; }
 function yt(e) { return Y(e) ? e.children : []; }
 function Tr(e) { return e.parent || null; }
@@ -853,9 +853,9 @@ function xu(e, t) { me(t); var u = e.parent; if (u) {
 function Ge(e, t, u, r) {
     if (u === void 0) { u = !0; }
     if (r === void 0) { r = 1 / 0; }
-    return wt(e, Array.isArray(t) ? t : [t], u, r);
+    return St(e, Array.isArray(t) ? t : [t], u, r);
 }
-function wt(e, t, u, r) { var a = [], n = [Array.isArray(t) ? t : [t]], i = [0]; for (;;) {
+function St(e, t, u, r) { var a = [], n = [Array.isArray(t) ? t : [t]], i = [0]; for (;;) {
     if (i[0] >= n[0].length) {
         if (i.length === 1)
             return a;
@@ -868,7 +868,7 @@ function wt(e, t, u, r) { var a = [], n = [Array.isArray(t) ? t : [t]], i = [0];
     u && Y(c) && c.children.length > 0 && (i.unshift(0), n.unshift(c.children));
 } }
 function aa(e, t) { return t.find(e); }
-function St(e, t, u) {
+function wt(e, t, u) {
     if (u === void 0) { u = !0; }
     var r = Array.isArray(t) ? t : [t];
     for (var a = 0; a < r.length; a++) {
@@ -876,7 +876,7 @@ function St(e, t, u) {
         if (U(n) && e(n))
             return n;
         if (u && Y(n) && n.children.length > 0) {
-            var i = St(e, n.children, !0);
+            var i = wt(e, n.children, !0);
             if (i)
                 return i;
         }
@@ -906,7 +906,7 @@ function ca(e, t, u, r) {
 }
 function oa(e, t, u) {
     if (u === void 0) { u = !0; }
-    return Array.isArray(t) || (t = [t]), St(yu("id", e), t, u);
+    return Array.isArray(t) || (t = [t]), wt(yu("id", e), t, u);
 }
 function ke(e, t, u, r) {
     if (u === void 0) { u = !0; }
@@ -942,11 +942,11 @@ function Cr(e, t) { var u = [], r = []; if (e === t)
     u.unshift(a), a = a.parent; for (a = Y(t) ? t : t.parent; a;)
     r.unshift(a), a = a.parent; var n = Math.min(u.length, r.length), i = 0; for (; i < n && u[i] === r[i];)
     i++; if (i === 0)
-    return oe.DISCONNECTED; var c = u[i - 1], f = c.children, b = u[i], w = r[i]; return f.indexOf(b) > f.indexOf(w) ? c === t ? oe.FOLLOWING | oe.CONTAINED_BY : oe.FOLLOWING : c === e ? oe.PRECEDING | oe.CONTAINS : oe.PRECEDING; }
+    return oe.DISCONNECTED; var c = u[i - 1], l = c.children, h = u[i], v = r[i]; return l.indexOf(h) > l.indexOf(v) ? c === t ? oe.FOLLOWING | oe.CONTAINED_BY : oe.FOLLOWING : c === e ? oe.PRECEDING | oe.CONTAINS : oe.PRECEDING; }
 function vu(e) { return e = e.filter(function (t, u, r) { return !r.includes(t, u + 1); }), e.sort(function (t, u) { var r = Cr(t, u); return r & oe.PRECEDING ? -1 : r & oe.FOLLOWING ? 1 : 0; }), e; }
-function wu(e) { var t = At(ma, e); return t ? t.name === "feed" ? ha(t) : ba(t) : null; }
-function ha(e) { var t; var u = e.children, r = { type: "atom", items: ke("entry", u).map(function (i) { var c; var f = i.children, b = { media: qr(f) }; ue(b, "id", "id", f), ue(b, "title", "title", f); var w = (c = At("link", f)) === null || c === void 0 ? void 0 : c.attribs.href; w && (b.link = w); var L = Se("summary", f) || Se("content", f); L && (b.description = L); var A = Se("updated", f); return A && (b.pubDate = new Date(A)), b; }) }; ue(r, "id", "id", u), ue(r, "title", "title", u); var a = (t = At("link", u)) === null || t === void 0 ? void 0 : t.attribs.href; a && (r.link = a), ue(r, "description", "subtitle", u); var n = Se("updated", u); return n && (r.updated = new Date(n)), ue(r, "author", "email", u, !0), r; }
-function ba(e) { var t, u; var r = (u = (t = At("channel", e.children)) === null || t === void 0 ? void 0 : t.children) !== null && u !== void 0 ? u : [], a = { type: e.name.substr(0, 3), id: "", items: ke("item", e.children).map(function (i) { var c = i.children, f = { media: qr(c) }; ue(f, "id", "guid", c), ue(f, "title", "title", c), ue(f, "link", "link", c), ue(f, "description", "description", c); var b = Se("pubDate", c) || Se("dc:date", c); return b && (f.pubDate = new Date(b)), f; }) }; ue(a, "title", "title", r), ue(a, "link", "link", r), ue(a, "description", "description", r); var n = Se("lastBuildDate", r); return n && (a.updated = new Date(n)), ue(a, "author", "managingEditor", r, !0), a; }
+function Su(e) { var t = At(ma, e); return t ? t.name === "feed" ? ha(t) : ba(t) : null; }
+function ha(e) { var t; var u = e.children, r = { type: "atom", items: ke("entry", u).map(function (i) { var c; var l = i.children, h = { media: qr(l) }; ue(h, "id", "id", l), ue(h, "title", "title", l); var v = (c = At("link", l)) === null || c === void 0 ? void 0 : c.attribs.href; v && (h.link = v); var C = we("summary", l) || we("content", l); C && (h.description = C); var E = we("updated", l); return E && (h.pubDate = new Date(E)), h; }) }; ue(r, "id", "id", u), ue(r, "title", "title", u); var a = (t = At("link", u)) === null || t === void 0 ? void 0 : t.attribs.href; a && (r.link = a), ue(r, "description", "subtitle", u); var n = we("updated", u); return n && (r.updated = new Date(n)), ue(r, "author", "email", u, !0), r; }
+function ba(e) { var t, u; var r = (u = (t = At("channel", e.children)) === null || t === void 0 ? void 0 : t.children) !== null && u !== void 0 ? u : [], a = { type: e.name.substr(0, 3), id: "", items: ke("item", e.children).map(function (i) { var c = i.children, l = { media: qr(c) }; ue(l, "id", "guid", c), ue(l, "title", "title", c), ue(l, "link", "link", c), ue(l, "description", "description", c); var h = we("pubDate", c) || we("dc:date", c); return h && (l.pubDate = new Date(h)), l; }) }; ue(a, "title", "title", r), ue(a, "link", "link", r), ue(a, "description", "description", r); var n = we("lastBuildDate", r); return n && (a.updated = new Date(n)), ue(a, "author", "managingEditor", r, !0), a; }
 var pa = ["url", "type", "lang"], ga = ["fileSize", "bitrate", "framerate", "samplingrate", "channels", "duration", "height", "width"];
 function qr(e) { return ke("media:content", e).map(function (t) {
     var e_4, _b, e_5, _c;
@@ -980,13 +980,13 @@ function qr(e) { return ke("media:content", e).map(function (t) {
     return u.expression && (r.expression = u.expression), r;
 }); }
 function At(e, t) { return ke(e, t, !0, 1)[0]; }
-function Se(e, t, u) {
+function we(e, t, u) {
     if (u === void 0) { u = !1; }
-    return we(ke(e, t, u, 1)).trim();
+    return Se(ke(e, t, u, 1)).trim();
 }
 function ue(e, t, u, r, a) {
     if (a === void 0) { a = !1; }
-    var n = Se(u, r, a);
+    var n = we(u, r, a);
     n && (e[t] = n);
 }
 function ma(e) { return e === "rss" || e === "feed" || e === "rdf:RDF"; }
@@ -1005,57 +1005,57 @@ function Ce(e) { switch (e.type) {
     case N.ColumnCombinator: return !0;
     default: return !1;
 } }
-var wa = new Set(["contains", "icontains"]);
-function Sa(e, t, u) { var r = parseInt(t, 16) - 65536; return r !== r || u ? t : r < 0 ? String.fromCharCode(r + 65536) : String.fromCharCode(r >> 10 | 55296, r & 1023 | 56320); }
-function tt(e) { return e.replace(xa, Sa); }
-function Su(e) { return e === 39 || e === 34; }
+var Sa = new Set(["contains", "icontains"]);
+function wa(e, t, u) { var r = parseInt(t, 16) - 65536; return r !== r || u ? t : r < 0 ? String.fromCharCode(r + 65536) : String.fromCharCode(r >> 10 | 55296, r & 1023 | 56320); }
+function tt(e) { return e.replace(xa, wa); }
+function wu(e) { return e === 39 || e === 34; }
 function Dr(e) { return e === 32 || e === 9 || e === 10 || e === 12 || e === 13; }
 function Ee(e) { var t = [], u = Or(t, "".concat(e), 0); if (u < e.length)
     throw new Error("Unmatched selector: ".concat(e.slice(u))); return t; }
-function Or(e, t, u) { var r = []; function a(A) { var T = t.slice(u + A).match(Ir); if (!T)
-    throw new Error("Expected name, found ".concat(t.slice(u))); var _b = __read(T, 1), I = _b[0]; return u += A + I.length, tt(I); } function n(A) { for (u += A; u < t.length && Dr(t.charCodeAt(u));)
-    u++; } function i() { u += 1; var A = u, T = 1; for (; T > 0 && u < t.length; u++)
+function Or(e, t, u) { var r = []; function a(E) { var T = t.slice(u + E).match(Ir); if (!T)
+    throw new Error("Expected name, found ".concat(t.slice(u))); var _b = __read(T, 1), I = _b[0]; return u += E + I.length, tt(I); } function n(E) { for (u += E; u < t.length && Dr(t.charCodeAt(u));)
+    u++; } function i() { u += 1; var E = u, T = 1; for (; T > 0 && u < t.length; u++)
     t.charCodeAt(u) === 40 && !c(u) ? T++ : t.charCodeAt(u) === 41 && !c(u) && T--; if (T)
-    throw new Error("Parenthesis not matched"); return tt(t.slice(A, u - 1)); } function c(A) { var T = 0; for (; t.charCodeAt(--A) === 92;)
-    T++; return (T & 1) === 1; } function f() { if (r.length > 0 && Ce(r[r.length - 1]))
-    throw new Error("Did not expect successive traversals."); } function b(A) { if (r.length > 0 && r[r.length - 1].type === N.Descendant) {
-    r[r.length - 1].type = A;
+    throw new Error("Parenthesis not matched"); return tt(t.slice(E, u - 1)); } function c(E) { var T = 0; for (; t.charCodeAt(--E) === 92;)
+    T++; return (T & 1) === 1; } function l() { if (r.length > 0 && Ce(r[r.length - 1]))
+    throw new Error("Did not expect successive traversals."); } function h(E) { if (r.length > 0 && r[r.length - 1].type === N.Descendant) {
+    r[r.length - 1].type = E;
     return;
-} f(), r.push({ type: A }); } function w(A, T) { r.push({ type: N.Attribute, name: A, action: T, value: a(1), namespace: null, ignoreCase: "quirks" }); } function L() { if (r.length && r[r.length - 1].type === N.Descendant && r.pop(), r.length === 0)
+} l(), r.push({ type: E }); } function v(E, T) { r.push({ type: N.Attribute, name: E, action: T, value: a(1), namespace: null, ignoreCase: "quirks" }); } function C() { if (r.length && r[r.length - 1].type === N.Descendant && r.pop(), r.length === 0)
     throw new Error("Empty sub-selector"); e.push(r); } if (n(0), t.length === u)
     return u; e: for (; u < t.length;) {
-    var A = t.charCodeAt(u);
-    switch (A) {
+    var E = t.charCodeAt(u);
+    switch (E) {
         case 32:
         case 9:
         case 10:
         case 12:
         case 13: {
-            (r.length === 0 || r[0].type !== N.Descendant) && (f(), r.push({ type: N.Descendant })), n(1);
+            (r.length === 0 || r[0].type !== N.Descendant) && (l(), r.push({ type: N.Descendant })), n(1);
             break;
         }
         case 62: {
-            b(N.Child), n(1);
+            h(N.Child), n(1);
             break;
         }
         case 60: {
-            b(N.Parent), n(1);
+            h(N.Parent), n(1);
             break;
         }
         case 126: {
-            b(N.Sibling), n(1);
+            h(N.Sibling), n(1);
             break;
         }
         case 43: {
-            b(N.Adjacent), n(1);
+            h(N.Adjacent), n(1);
             break;
         }
         case 46: {
-            w("class", V.Element);
+            v("class", V.Element);
             break;
         }
         case 35: {
-            w("id", V.Equals);
+            v("id", V.Equals);
             break;
         }
         case 91: {
@@ -1072,19 +1072,19 @@ function Or(e, t, u) { var r = []; function a(A) { var T = t.slice(u + A).match(
                 t.charCodeAt(u) === 61 && (D = V.Equals, n(1));
             var J = "", ne = null;
             if (D !== "exists") {
-                if (Su(t.charCodeAt(u))) {
-                    var q = t.charCodeAt(u), H = u + 1;
-                    for (; H < t.length && (t.charCodeAt(H) !== q || c(H));)
+                if (wu(t.charCodeAt(u))) {
+                    var L = t.charCodeAt(u), H = u + 1;
+                    for (; H < t.length && (t.charCodeAt(H) !== L || c(H));)
                         H += 1;
-                    if (t.charCodeAt(H) !== q)
+                    if (t.charCodeAt(H) !== L)
                         throw new Error("Attribute value didn't end");
                     J = tt(t.slice(u + 1, H)), u = H + 1;
                 }
                 else {
-                    var q = u;
+                    var L = u;
                     for (; u < t.length && (!Dr(t.charCodeAt(u)) && t.charCodeAt(u) !== 93 || c(u));)
                         u += 1;
-                    J = tt(t.slice(q, u));
+                    J = tt(t.slice(L, u));
                 }
                 n(0);
                 var P = t.charCodeAt(u) | 32;
@@ -1093,8 +1093,8 @@ function Or(e, t, u) { var r = []; function a(A) { var T = t.slice(u + A).match(
             if (t.charCodeAt(u) !== 93)
                 throw new Error("Attribute selector didn't terminate");
             u += 1;
-            var v = { type: N.Attribute, name: T, action: D, value: J, namespace: I, ignoreCase: ne };
-            r.push(v);
+            var S = { type: N.Attribute, name: T, action: D, value: J, namespace: I, ignoreCase: ne };
+            r.push(S);
             break;
         }
         case 58: {
@@ -1105,16 +1105,16 @@ function Or(e, t, u) { var r = []; function a(A) { var T = t.slice(u + A).match(
             var T = a(1).toLowerCase(), I = null;
             if (t.charCodeAt(u) === 40)
                 if (va.has(T)) {
-                    if (Su(t.charCodeAt(u + 1)))
+                    if (wu(t.charCodeAt(u + 1)))
                         throw new Error("Pseudo-selector ".concat(T, " cannot be quoted"));
                     if (I = [], u = Or(I, t, u + 1), t.charCodeAt(u) !== 41)
                         throw new Error("Missing closing parenthesis in :".concat(T, " (").concat(t, ")"));
                     u += 1;
                 }
                 else {
-                    if (I = i(), wa.has(T)) {
+                    if (I = i(), Sa.has(T)) {
                         var D = I.charCodeAt(0);
-                        D === I.charCodeAt(I.length - 1) && Su(D) && (I = I.slice(1, -1));
+                        D === I.charCodeAt(I.length - 1) && wu(D) && (I = I.slice(1, -1));
                     }
                     I = tt(I);
                 }
@@ -1122,7 +1122,7 @@ function Or(e, t, u) { var r = []; function a(A) { var T = t.slice(u + A).match(
             break;
         }
         case 44: {
-            L(), r = [], n(1);
+            C(), r = [], n(1);
             break;
         }
         default: {
@@ -1134,11 +1134,11 @@ function Or(e, t, u) { var r = []; function a(A) { var T = t.slice(u + A).match(
                 break;
             }
             var T = null, I = void 0;
-            if (A === 42)
+            if (E === 42)
                 u += 1, I = "*";
-            else if (A === 124) {
+            else if (E === 124) {
                 if (I = "", t.charCodeAt(u + 1) === 124) {
-                    b(N.ColumnCombinator), n(2);
+                    h(N.ColumnCombinator), n(2);
                     break;
                 }
             }
@@ -1149,7 +1149,7 @@ function Or(e, t, u) { var r = []; function a(A) { var T = t.slice(u + A).match(
             t.charCodeAt(u) === 124 && t.charCodeAt(u + 1) !== 124 && (T = I, t.charCodeAt(u + 1) === 42 ? (I = "*", u += 2) : I = a(1)), r.push(I === "*" ? { type: N.Universal, namespace: T } : { type: N.Tag, name: I, namespace: T });
         }
     }
-} return L(), u; }
+} return C(), u; }
 var Ou = Ne(Ae(), 1);
 var xe = Ne(Ae(), 1);
 var Rr = new Map([[N.Universal, 50], [N.Tag, 30], [N.Attribute, 1], [N.Pseudo, 0]]);
@@ -1168,22 +1168,22 @@ var rt = Ne(Ae(), 1), Aa = /[-[\]{}()*+?.,\\^$|#\s]/g;
 function Mr(e) { return e.replace(Aa, "\\$&"); }
 var Ta = new Set(["accept", "accept-charset", "align", "alink", "axis", "bgcolor", "charset", "checked", "clear", "codetype", "color", "compact", "declare", "defer", "dir", "direction", "disabled", "enctype", "face", "frame", "hreflang", "http-equiv", "lang", "language", "link", "media", "method", "multiple", "nohref", "noresize", "noshade", "nowrap", "readonly", "rel", "rev", "rules", "scope", "scrolling", "selected", "shape", "target", "text", "type", "valign", "valuetype", "vlink"]);
 function qe(e, t) { return typeof e.ignoreCase == "boolean" ? e.ignoreCase : e.ignoreCase === "quirks" ? !!t.quirksMode : !t.xmlMode && Ta.has(e.name); }
-var Br = { equals: function (e, t, u) { var r = u.adapter, a = t.name, n = t.value; return qe(t, u) ? (n = n.toLowerCase(), function (i) { var c = r.getAttributeValue(i, a); return c != null && c.length === n.length && c.toLowerCase() === n && e(i); }) : function (i) { return r.getAttributeValue(i, a) === n && e(i); }; }, hyphen: function (e, t, u) { var r = u.adapter, a = t.name, n = t.value, i = n.length; return qe(t, u) ? (n = n.toLowerCase(), function (f) { var b = r.getAttributeValue(f, a); return b != null && (b.length === i || b.charAt(i) === "-") && b.substr(0, i).toLowerCase() === n && e(f); }) : function (f) { var b = r.getAttributeValue(f, a); return b != null && (b.length === i || b.charAt(i) === "-") && b.substr(0, i) === n && e(f); }; }, element: function (e, t, u) { var r = u.adapter, a = t.name, n = t.value; if (/\s/.test(n))
-        return rt.default.falseFunc; var i = new RegExp("(?:^|\\s)".concat(Mr(n), "(?:$|\\s)"), qe(t, u) ? "i" : ""); return function (f) { var b = r.getAttributeValue(f, a); return b != null && b.length >= n.length && i.test(b) && e(f); }; }, exists: function (e, _b, _c) {
+var Br = { equals: function (e, t, u) { var r = u.adapter, a = t.name, n = t.value; return qe(t, u) ? (n = n.toLowerCase(), function (i) { var c = r.getAttributeValue(i, a); return c != null && c.length === n.length && c.toLowerCase() === n && e(i); }) : function (i) { return r.getAttributeValue(i, a) === n && e(i); }; }, hyphen: function (e, t, u) { var r = u.adapter, a = t.name, n = t.value, i = n.length; return qe(t, u) ? (n = n.toLowerCase(), function (l) { var h = r.getAttributeValue(l, a); return h != null && (h.length === i || h.charAt(i) === "-") && h.substr(0, i).toLowerCase() === n && e(l); }) : function (l) { var h = r.getAttributeValue(l, a); return h != null && (h.length === i || h.charAt(i) === "-") && h.substr(0, i) === n && e(l); }; }, element: function (e, t, u) { var r = u.adapter, a = t.name, n = t.value; if (/\s/.test(n))
+        return rt.default.falseFunc; var i = new RegExp("(?:^|\\s)".concat(Mr(n), "(?:$|\\s)"), qe(t, u) ? "i" : ""); return function (l) { var h = r.getAttributeValue(l, a); return h != null && h.length >= n.length && i.test(h) && e(l); }; }, exists: function (e, _b, _c) {
         var t = _b.name;
         var u = _c.adapter;
         return function (r) { return u.hasAttrib(r, t) && e(r); };
-    }, start: function (e, t, u) { var r = u.adapter, a = t.name, n = t.value, i = n.length; return i === 0 ? rt.default.falseFunc : qe(t, u) ? (n = n.toLowerCase(), function (c) { var f = r.getAttributeValue(c, a); return f != null && f.length >= i && f.substr(0, i).toLowerCase() === n && e(c); }) : function (c) { var f; return !!(!((f = r.getAttributeValue(c, a)) === null || f === void 0) && f.startsWith(n)) && e(c); }; }, end: function (e, t, u) { var r = u.adapter, a = t.name, n = t.value, i = -n.length; return i === 0 ? rt.default.falseFunc : qe(t, u) ? (n = n.toLowerCase(), function (c) { var f; return ((f = r.getAttributeValue(c, a)) === null || f === void 0 ? void 0 : f.substr(i).toLowerCase()) === n && e(c); }) : function (c) { var f; return !!(!((f = r.getAttributeValue(c, a)) === null || f === void 0) && f.endsWith(n)) && e(c); }; }, any: function (e, t, u) { var r = u.adapter, a = t.name, n = t.value; if (n === "")
+    }, start: function (e, t, u) { var r = u.adapter, a = t.name, n = t.value, i = n.length; return i === 0 ? rt.default.falseFunc : qe(t, u) ? (n = n.toLowerCase(), function (c) { var l = r.getAttributeValue(c, a); return l != null && l.length >= i && l.substr(0, i).toLowerCase() === n && e(c); }) : function (c) { var l; return !!(!((l = r.getAttributeValue(c, a)) === null || l === void 0) && l.startsWith(n)) && e(c); }; }, end: function (e, t, u) { var r = u.adapter, a = t.name, n = t.value, i = -n.length; return i === 0 ? rt.default.falseFunc : qe(t, u) ? (n = n.toLowerCase(), function (c) { var l; return ((l = r.getAttributeValue(c, a)) === null || l === void 0 ? void 0 : l.substr(i).toLowerCase()) === n && e(c); }) : function (c) { var l; return !!(!((l = r.getAttributeValue(c, a)) === null || l === void 0) && l.endsWith(n)) && e(c); }; }, any: function (e, t, u) { var r = u.adapter, a = t.name, n = t.value; if (n === "")
         return rt.default.falseFunc; if (qe(t, u)) {
         var i_1 = new RegExp(Mr(n), "i");
-        return function (f) { var b = r.getAttributeValue(f, a); return b != null && b.length >= n.length && i_1.test(b) && e(f); };
+        return function (l) { var h = r.getAttributeValue(l, a); return h != null && h.length >= n.length && i_1.test(h) && e(l); };
     } return function (i) { var c; return !!(!((c = r.getAttributeValue(i, a)) === null || c === void 0) && c.includes(n)) && e(i); }; }, not: function (e, t, u) { var r = u.adapter, a = t.name, n = t.value; return n === "" ? function (i) { return !!r.getAttributeValue(i, a) && e(i); } : qe(t, u) ? (n = n.toLowerCase(), function (i) { var c = r.getAttributeValue(i, a); return (c == null || c.length !== n.length || c.toLowerCase() !== n) && e(i); }) : function (i) { return r.getAttributeValue(i, a) !== n && e(i); }; } };
 var Na = new Set([9, 10, 12, 13, 32]), Pr = 48, ka = 57;
 function Fr(e) { if (e = e.trim().toLowerCase(), e === "even")
     return [2, 0]; if (e === "odd")
     return [2, 1]; var t = 0, u = 0, r = n(), a = i(); if (t < e.length && e.charAt(t) === "n" && (t++, u = r * (a != null ? a : 1), c(), t < e.length ? (r = n(), c(), a = i()) : r = a = 0), a === null || t < e.length)
-    throw new Error("n-th rule couldn't be parsed ('".concat(e, "')")); return [u, r * a]; function n() { return e.charAt(t) === "-" ? (t++, -1) : (e.charAt(t) === "+" && t++, 1); } function i() { var f = t, b = 0; for (; t < e.length && e.charCodeAt(t) >= Pr && e.charCodeAt(t) <= ka;)
-    b = b * 10 + (e.charCodeAt(t) - Pr), t++; return t === f ? null : b; } function c() { for (; t < e.length && Na.has(e.charCodeAt(t));)
+    throw new Error("n-th rule couldn't be parsed ('".concat(e, "')")); return [u, r * a]; function n() { return e.charAt(t) === "-" ? (t++, -1) : (e.charAt(t) === "+" && t++, 1); } function i() { var l = t, h = 0; for (; t < e.length && e.charCodeAt(t) >= Pr && e.charCodeAt(t) <= ka;)
+    h = h * 10 + (e.charCodeAt(t) - Pr), t++; return t === l ? null : h; } function c() { for (; t < e.length && Na.has(e.charCodeAt(t));)
     t++; } }
 var Au = Ne(Ae(), 1);
 function Gr(e) { var t = e[0], u = e[1] - 1; if (u < 0 && t <= 0)
@@ -1204,31 +1204,31 @@ var je = { contains: function (e, t, _b) {
     }, "nth-child": function (e, t, _b) {
         var u = _b.adapter, r = _b.equals;
         var a = Ve(t);
-        return a === re.default.falseFunc ? re.default.falseFunc : a === re.default.trueFunc ? Tt(e, u) : function (i) { var c = u.getSiblings(i), f = 0; for (var b = 0; b < c.length && !r(i, c[b]); b++)
-            u.isTag(c[b]) && f++; return a(f) && e(i); };
+        return a === re.default.falseFunc ? re.default.falseFunc : a === re.default.trueFunc ? Tt(e, u) : function (i) { var c = u.getSiblings(i), l = 0; for (var h = 0; h < c.length && !r(i, c[h]); h++)
+            u.isTag(c[h]) && l++; return a(l) && e(i); };
     }, "nth-last-child": function (e, t, _b) {
         var u = _b.adapter, r = _b.equals;
         var a = Ve(t);
-        return a === re.default.falseFunc ? re.default.falseFunc : a === re.default.trueFunc ? Tt(e, u) : function (i) { var c = u.getSiblings(i), f = 0; for (var b = c.length - 1; b >= 0 && !r(i, c[b]); b--)
-            u.isTag(c[b]) && f++; return a(f) && e(i); };
+        return a === re.default.falseFunc ? re.default.falseFunc : a === re.default.trueFunc ? Tt(e, u) : function (i) { var c = u.getSiblings(i), l = 0; for (var h = c.length - 1; h >= 0 && !r(i, c[h]); h--)
+            u.isTag(c[h]) && l++; return a(l) && e(i); };
     }, "nth-of-type": function (e, t, _b) {
         var u = _b.adapter, r = _b.equals;
         var a = Ve(t);
-        return a === re.default.falseFunc ? re.default.falseFunc : a === re.default.trueFunc ? Tt(e, u) : function (i) { var c = u.getSiblings(i), f = 0; for (var b = 0; b < c.length; b++) {
-            var w = c[b];
-            if (r(i, w))
+        return a === re.default.falseFunc ? re.default.falseFunc : a === re.default.trueFunc ? Tt(e, u) : function (i) { var c = u.getSiblings(i), l = 0; for (var h = 0; h < c.length; h++) {
+            var v = c[h];
+            if (r(i, v))
                 break;
-            u.isTag(w) && u.getName(w) === u.getName(i) && f++;
-        } return a(f) && e(i); };
+            u.isTag(v) && u.getName(v) === u.getName(i) && l++;
+        } return a(l) && e(i); };
     }, "nth-last-of-type": function (e, t, _b) {
         var u = _b.adapter, r = _b.equals;
         var a = Ve(t);
-        return a === re.default.falseFunc ? re.default.falseFunc : a === re.default.trueFunc ? Tt(e, u) : function (i) { var c = u.getSiblings(i), f = 0; for (var b = c.length - 1; b >= 0; b--) {
-            var w = c[b];
-            if (r(i, w))
+        return a === re.default.falseFunc ? re.default.falseFunc : a === re.default.trueFunc ? Tt(e, u) : function (i) { var c = u.getSiblings(i), l = 0; for (var h = c.length - 1; h >= 0; h--) {
+            var v = c[h];
+            if (r(i, v))
                 break;
-            u.isTag(w) && u.getName(w) === u.getName(i) && f++;
-        } return a(f) && e(i); };
+            u.isTag(v) && u.getName(v) === u.getName(i) && l++;
+        } return a(l) && e(i); };
     }, root: function (e, t, _b) {
         var u = _b.adapter;
         return function (r) { var a = u.getParent(r); return (a == null || !u.isTag(a)) && e(r); };
@@ -1300,26 +1300,26 @@ function Lu(e, t) { return e === le.default.falseFunc ? le.default.falseFunc : f
 function Iu(e, t) { var u = t.getSiblings(e); if (u.length <= 1)
     return []; var r = u.indexOf(e); return r < 0 || r === u.length - 1 ? [] : u.slice(r + 1).filter(t.isTag); }
 function Cu(e) { return { xmlMode: !!e.xmlMode, lowerCaseAttributeNames: !!e.lowerCaseAttributeNames, lowerCaseTags: !!e.lowerCaseTags, quirksMode: !!e.quirksMode, cacheResults: !!e.cacheResults, pseudos: e.pseudos, adapter: e.adapter, equals: e.equals }; }
-var ku = function (e, t, u, r, a) { var n = a(t, Cu(u), r); return n === le.default.trueFunc ? e : n === le.default.falseFunc ? le.default.falseFunc : function (i) { return n(i) && e(i); }; }, kt = { is: ku, matches: ku, where: ku, not: function (e, t, u, r, a) { var n = a(t, Cu(u), r); return n === le.default.falseFunc ? e : n === le.default.trueFunc ? le.default.falseFunc : function (i) { return !n(i) && e(i); }; }, has: function (e, t, u, r, a) { var n = u.adapter, i = Cu(u); i.relativeSelector = !0; var c = t.some(function (w) { return w.some(ut); }) ? [qu] : void 0, f = a(t, i, c); if (f === le.default.falseFunc)
-        return le.default.falseFunc; var b = Lu(f, n); if (c && f !== le.default.trueFunc) {
-        var _b = f.shouldTestNextSiblings, w_1 = _b === void 0 ? !1 : _b;
-        return function (L) { if (!e(L))
-            return !1; c[0] = L; var A = n.getChildren(L), T = w_1 ? __spreadArray(__spreadArray([], __read(A), false), __read(Iu(L, n)), false) : A; return n.existsOne(b, T); };
-    } return function (w) { return e(w) && n.existsOne(b, n.getChildren(w)); }; } };
+var ku = function (e, t, u, r, a) { var n = a(t, Cu(u), r); return n === le.default.trueFunc ? e : n === le.default.falseFunc ? le.default.falseFunc : function (i) { return n(i) && e(i); }; }, kt = { is: ku, matches: ku, where: ku, not: function (e, t, u, r, a) { var n = a(t, Cu(u), r); return n === le.default.falseFunc ? e : n === le.default.trueFunc ? le.default.falseFunc : function (i) { return !n(i) && e(i); }; }, has: function (e, t, u, r, a) { var n = u.adapter, i = Cu(u); i.relativeSelector = !0; var c = t.some(function (v) { return v.some(ut); }) ? [qu] : void 0, l = a(t, i, c); if (l === le.default.falseFunc)
+        return le.default.falseFunc; var h = Lu(l, n); if (c && l !== le.default.trueFunc) {
+        var _b = l.shouldTestNextSiblings, v_1 = _b === void 0 ? !1 : _b;
+        return function (C) { if (!e(C))
+            return !1; c[0] = C; var E = n.getChildren(C), T = v_1 ? __spreadArray(__spreadArray([], __read(E), false), __read(Iu(C, n)), false) : E; return n.existsOne(h, T); };
+    } return function (v) { return e(v) && n.existsOne(h, n.getChildren(v)); }; } };
 function Vr(e, t, u, r, a) { var n; var i = t.name, c = t.data; if (Array.isArray(c)) {
     if (!(i in kt))
         throw new Error("Unknown pseudo-class :".concat(i, "(").concat(c, ")"));
     return kt[i](e, c, u, r, a);
-} var f = (n = u.pseudos) === null || n === void 0 ? void 0 : n[i], b = typeof f == "string" ? f : Nt[i]; if (typeof b == "string") {
+} var l = (n = u.pseudos) === null || n === void 0 ? void 0 : n[i], h = typeof l == "string" ? l : Nt[i]; if (typeof h == "string") {
     if (c != null)
         throw new Error("Pseudo ".concat(i, " doesn't have any arguments"));
-    var w = Ee(b);
-    return kt.is(e, w, u, r, a);
-} if (typeof f == "function")
-    return Nu(f, i, c, 1), function (w) { return f(w, c) && e(w); }; if (i in je)
+    var v = Ee(h);
+    return kt.is(e, v, u, r, a);
+} if (typeof l == "function")
+    return Nu(l, i, c, 1), function (v) { return l(v, c) && e(v); }; if (i in je)
     return je[i](e, c, u, r); if (i in at) {
-    var w_2 = at[i];
-    return Nu(w_2, i, c, 2), function (L) { return w_2(L, u, c) && e(L); };
+    var v_2 = at[i];
+    return Nu(v_2, i, c, 2), function (C) { return v_2(C, u, c) && e(C); };
 } throw new Error("Unknown pseudo-class :".concat(i)); }
 function Du(e, t) { var u = t.getParent(e); return u && t.isTag(u) ? u : null; }
 function jr(e, t, u, r, a) { var n = u.adapter, i = u.equals; switch (t.type) {
@@ -1335,40 +1335,40 @@ function jr(e, t, u, r, a) { var n = u.adapter, i = u.equals; switch (t.type) {
         if (t.namespace != null)
             throw new Error("Namespaced tag names are not yet supported by css-select");
         var c_1 = t.name;
-        return (!u.xmlMode || u.lowerCaseTags) && (c_1 = c_1.toLowerCase()), function (b) { return n.getName(b) === c_1 && e(b); };
+        return (!u.xmlMode || u.lowerCaseTags) && (c_1 = c_1.toLowerCase()), function (h) { return n.getName(h) === c_1 && e(h); };
     }
     case N.Descendant: {
         if (u.cacheResults === !1 || typeof WeakSet == "undefined")
-            return function (b) { var w = b; for (; w = Du(w, n);)
-                if (e(w))
+            return function (h) { var v = h; for (; v = Du(v, n);)
+                if (e(v))
                     return !0; return !1; };
         var c_2 = new WeakSet;
-        return function (b) { var w = b; for (; w = Du(w, n);)
-            if (!c_2.has(w)) {
-                if (n.isTag(w) && e(w))
+        return function (h) { var v = h; for (; v = Du(v, n);)
+            if (!c_2.has(v)) {
+                if (n.isTag(v) && e(v))
                     return !0;
-                c_2.add(w);
+                c_2.add(v);
             } return !1; };
     }
-    case "_flexibleDescendant": return function (f) { var b = f; do
-        if (e(b))
+    case "_flexibleDescendant": return function (l) { var h = l; do
+        if (e(h))
             return !0;
-    while (b = Du(b, n)); return !1; };
-    case N.Parent: return function (f) { return n.getChildren(f).some(function (b) { return n.isTag(b) && e(b); }); };
-    case N.Child: return function (f) { var b = n.getParent(f); return b != null && n.isTag(b) && e(b); };
-    case N.Sibling: return function (f) { var b = n.getSiblings(f); for (var w = 0; w < b.length; w++) {
-        var L = b[w];
-        if (i(f, L))
+    while (h = Du(h, n)); return !1; };
+    case N.Parent: return function (l) { return n.getChildren(l).some(function (h) { return n.isTag(h) && e(h); }); };
+    case N.Child: return function (l) { var h = n.getParent(l); return h != null && n.isTag(h) && e(h); };
+    case N.Sibling: return function (l) { var h = n.getSiblings(l); for (var v = 0; v < h.length; v++) {
+        var C = h[v];
+        if (i(l, C))
             break;
-        if (n.isTag(L) && e(L))
+        if (n.isTag(C) && e(C))
             return !0;
     } return !1; };
-    case N.Adjacent: return n.prevElementSibling ? function (f) { var b = n.prevElementSibling(f); return b != null && e(b); } : function (f) { var b = n.getSiblings(f), w; for (var L = 0; L < b.length; L++) {
-        var A = b[L];
-        if (i(f, A))
+    case N.Adjacent: return n.prevElementSibling ? function (l) { var h = n.prevElementSibling(l); return h != null && e(h); } : function (l) { var h = n.getSiblings(l), v; for (var C = 0; C < h.length; C++) {
+        var E = h[C];
+        if (i(l, E))
             break;
-        n.isTag(A) && (w = A);
-    } return !!w && e(w); };
+        n.isTag(E) && (v = E);
+    } return !!v && e(v); };
     case N.Universal: {
         if (t.namespace != null && t.namespace !== "*")
             throw new Error("Namespaced universal selectors are not yet supported by css-select");
@@ -1404,11 +1404,11 @@ function Ia(e, _b, u) {
 }
 function qt(e, t, u) { var r; e.forEach(Eu), u = (r = t.context) !== null && r !== void 0 ? r : u; var a = Array.isArray(u), n = u && (Array.isArray(u) ? u : [u]); if (t.relativeSelector !== !1)
     Ia(e, t, n);
-else if (e.some(function (f) { return f.length > 0 && ut(f[0]); }))
-    throw new Error("Relative selectors are not allowed when the `relativeSelector` option is disabled"); var i = !1, c = e.map(function (f) { if (f.length >= 2) {
-    var _b = __read(f, 2), b = _b[0], w = _b[1];
-    b.type !== N.Pseudo || b.name !== "scope" || (a && w.type === N.Descendant ? f[1] = qa : (w.type === N.Adjacent || w.type === N.Sibling) && (i = !0));
-} return Da(f, t, n); }).reduce(Oa, xe.default.falseFunc); return c.shouldTestNextSiblings = i, c; }
+else if (e.some(function (l) { return l.length > 0 && ut(l[0]); }))
+    throw new Error("Relative selectors are not allowed when the `relativeSelector` option is disabled"); var i = !1, c = e.map(function (l) { if (l.length >= 2) {
+    var _b = __read(l, 2), h = _b[0], v = _b[1];
+    h.type !== N.Pseudo || h.name !== "scope" || (a && v.type === N.Descendant ? l[1] = qa : (v.type === N.Adjacent || v.type === N.Sibling) && (i = !0));
+} return Da(l, t, n); }).reduce(Oa, xe.default.falseFunc); return c.shouldTestNextSiblings = i, c; }
 function Da(e, t, u) { var r; return e.reduce(function (a, n) { return a === xe.default.falseFunc ? xe.default.falseFunc : jr(a, n, t, u, qt); }, (r = t.rootFunc) !== null && r !== void 0 ? r : xe.default.trueFunc); }
 function Oa(e, t) { return t === xe.default.falseFunc || e === xe.default.trueFunc ? e : e === xe.default.falseFunc || t === xe.default.trueFunc ? t : function (r) { return e(r) || t(r); }; }
 var _r = function (e, t) { return e === t; }, Ua = { adapter: be, equals: _r };
@@ -1493,16 +1493,16 @@ function Ga(e, t, u) { if (t.length === 0)
     i.length && (n = new Set(i));
 } for (var i = 0; i < a.length && (n == null ? void 0 : n.size) !== t.length; i++) {
     var c = a[i];
-    if ((n ? t.filter(function (w) { return U(w) && !n.has(w); }) : t).length === 0)
+    if ((n ? t.filter(function (v) { return U(v) && !n.has(v); }) : t).length === 0)
         break;
-    var b = Zr(c, t, u);
-    if (b.length)
+    var h = Zr(c, t, u);
+    if (h.length)
         if (n)
-            b.forEach(function (w) { return n.add(w); });
+            h.forEach(function (v) { return n.add(v); });
         else {
             if (i === a.length - 1)
-                return b;
-            n = new Set(b);
+                return h;
+            n = new Set(h);
         }
 } return typeof n != "undefined" ? n.size === t.length ? t : t.filter(function (i) { return n.has(i); }) : []; }
 function Zr(e, t, u) { var r; if (e.some(Ce)) {
@@ -1515,24 +1515,24 @@ function Bu(e, t, u, r) {
     if (typeof e == "function")
         return Jr(t, e);
     var _b = __read(Dt(Ee(e)), 2), a = _b[0], n = _b[1], i = n.map(function (c) { return Ut(t, c, u, !0, r); });
-    return a.length && i.push(Ru(t, a, u, r)), i.length === 0 ? [] : i.length === 1 ? i[0] : vu(i.reduce(function (c, f) { return __spreadArray(__spreadArray([], __read(c), false), __read(f), false); }));
+    return a.length && i.push(Ru(t, a, u, r)), i.length === 0 ? [] : i.length === 1 ? i[0] : vu(i.reduce(function (c, l) { return __spreadArray(__spreadArray([], __read(c), false), __read(l), false); }));
 }
-function Ut(e, t, u, r, a) { var n = t.findIndex(ze), i = t.slice(0, n), c = t[n], f = t.length - 1 === n ? a : 1 / 0, b = Qr(c.name, c.data, f); if (b === 0)
-    return []; var L = (i.length === 0 && !Array.isArray(e) ? yt(e).filter(U) : i.length === 0 ? (Array.isArray(e) ? e : [e]).filter(U) : r || i.some(Ce) ? Ru(e, [i], u, b) : Hu(e, [i], u)).slice(0, b), A = Fa(c.name, L, c.data, u); if (A.length === 0 || t.length === n + 1)
-    return A; var T = t.slice(n + 1), I = T.some(Ce); if (I) {
+function Ut(e, t, u, r, a) { var n = t.findIndex(ze), i = t.slice(0, n), c = t[n], l = t.length - 1 === n ? a : 1 / 0, h = Qr(c.name, c.data, l); if (h === 0)
+    return []; var C = (i.length === 0 && !Array.isArray(e) ? yt(e).filter(U) : i.length === 0 ? (Array.isArray(e) ? e : [e]).filter(U) : r || i.some(Ce) ? Ru(e, [i], u, h) : Hu(e, [i], u)).slice(0, h), E = Fa(c.name, C, c.data, u); if (E.length === 0 || t.length === n + 1)
+    return E; var T = t.slice(n + 1), I = T.some(Ce); if (I) {
     if (Ce(T[0])) {
         var D = T[0].type;
-        (D === N.Sibling || D === N.Adjacent) && (A = It(A, be, !0)), T.unshift(Ma);
+        (D === N.Sibling || D === N.Adjacent) && (E = It(E, be, !0)), T.unshift(Ma);
     }
-    u = Te(de({}, u), { relativeSelector: !1, rootFunc: function (D) { return A.includes(D); } });
+    u = Te(de({}, u), { relativeSelector: !1, rootFunc: function (D) { return E.includes(D); } });
 }
 else
-    u.rootFunc && u.rootFunc !== Ot.trueFunc && (u = Te(de({}, u), { rootFunc: Ot.trueFunc })); return T.some(ze) ? Ut(A, T, u, !1, a) : I ? Ru(A, [T], u, a) : Hu(A, [T], u); }
+    u.rootFunc && u.rootFunc !== Ot.trueFunc && (u = Te(de({}, u), { rootFunc: Ot.trueFunc })); return T.some(ze) ? Ut(E, T, u, !1, a) : I ? Ru(E, [T], u, a) : Hu(E, [T], u); }
 function Ru(e, t, u, r) { var a = Lt(t, u, e); return Jr(e, a, r); }
 function Jr(e, t, u) {
     if (u === void 0) { u = 1 / 0; }
     var r = It(e, be, t.shouldTestNextSiblings);
-    return wt(function (a) { return U(a) && t(a); }, r, !0, u);
+    return St(function (a) { return U(a) && t(a); }, r, !0, u);
 }
 function Hu(e, t, u) { var r = (Array.isArray(e) ? e : [e]).filter(U); if (r.length === 0)
     return r; var a = Lt(t, u); return a === Ot.trueFunc ? r : r.filter(a); }
@@ -1562,7 +1562,7 @@ function e0(e) { if (typeof btoa == "function")
     var r = e.charCodeAt(u), a = e.charCodeAt(u + 1), n = e.charCodeAt(u + 2), i = r << 16 | (a || 0) << 8 | (n || 0);
     t += Rt[i >> 18 & 63] + Rt[i >> 12 & 63] + (u + 1 < e.length ? Rt[i >> 6 & 63] : "=") + (u + 2 < e.length ? Rt[i & 63] : "=");
 } return t; }
-var Va = function (e, t, u) { return Bu(e, t, u); }, a0 = function (e, t, u) { return Bu(e, t, u, 1)[0] || null; }, n0 = /[\s ]+/g, t0 = new Set(["p", "div", "br", "li", "tr", "h1", "h2", "h3", "h4", "h5", "h6", "ul", "ol", "table", "section", "article", "header", "footer", "blockquote", "pre", "dd", "dt", "hr"]), ja = { containsOwn: function (e, t) { return Gu(e).toLowerCase().includes(String(t).toLowerCase()); }, matches: function (e, t) { return u0(t).test(Fu(e)); }, matchesOwn: function (e, t) { return u0(t).test(Gu(e)); }, containsData: function (e, t) { return we(e).includes(t); }, "contains-ci": function (e, t) { return Fu(e).toLowerCase().includes(String(t).toLowerCase()); } };
+var Va = function (e, t, u) { return Bu(e, t, u); }, a0 = function (e, t, u) { return Bu(e, t, u, 1)[0] || null; }, n0 = /[\s ]+/g, t0 = new Set(["p", "div", "br", "li", "tr", "h1", "h2", "h3", "h4", "h5", "h6", "ul", "ol", "table", "section", "article", "header", "footer", "blockquote", "pre", "dd", "dt", "hr"]), ja = { containsOwn: function (e, t) { return Gu(e).toLowerCase().includes(String(t).toLowerCase()); }, matches: function (e, t) { return u0(t).test(Fu(e)); }, matchesOwn: function (e, t) { return u0(t).test(Gu(e)); }, containsData: function (e, t) { return Se(e).includes(t); }, "contains-ci": function (e, t) { return Fu(e).toLowerCase().includes(String(t).toLowerCase()); } };
 function u0(e) { try {
     return new RegExp(e);
 }
@@ -1628,7 +1628,7 @@ var Le = (function () {
     e.prototype.is = function (t) { return Mu(this.node, Bt(t), Mt); };
     e.prototype.text = function () { return Fu(this.node); };
     e.prototype.ownText = function () { return Gu(this.node); };
-    e.prototype.wholeText = function () { return we(this.node); };
+    e.prototype.wholeText = function () { return Se(this.node); };
     e.prototype.data = function () { return (this.node.children || []).filter(function (t) { return t.type === "text"; }).map(function (t) { return t.data; }).join(""); };
     e.prototype.html = function () { return (this.node.children || []).map(function (t) { return Fe(t, { decodeEntities: !1 }); }).join("").trim(); };
     e.prototype.outerHtml = function () { return Fe(this.node, { decodeEntities: !1 }); };
@@ -1829,8 +1829,8 @@ function s0(e, t) { var u = new Set((t || ["p", "br", "b", "i", "em", "strong", 
                 var c = (i.children || []).slice();
                 try {
                     for (var c_3 = (e_20 = void 0, __values(c)), c_3_1 = c_3.next(); !c_3_1.done; c_3_1 = c_3.next()) {
-                        var f = c_3_1.value;
-                        xu(i, f);
+                        var l = c_3_1.value;
+                        xu(i, l);
                     }
                 }
                 catch (e_20_1) { e_20 = { error: e_20_1 }; }
@@ -1914,30 +1914,30 @@ function _a(e) {
     }
     return t;
 }
-function l0(e, t) { var u = function (i) { return ({ getItem: function (c) { var f = e.storageGet(i + c); return f == null ? null : f; }, setItem: function (c, f) { return e.storageSet(i + c, f == null ? null : String(f)); }, removeItem: function (c) { return e.storageSet(i + c, null); }, clear: function () { return e.storageClear && e.storageClear(i); } }); }, r = "__cookie__", a = {}; a.Response = { success: function (i, c) { return ({ code: 0, data: i === void 0 ? null : i, data2: c === void 0 ? null : c }); }, error: function (i) { return ({ code: 1, data: i == null ? "" : String(i) }); } }, a.fetch = function (c, f) {
-    return __awaiter(this, void 0, void 0, function () { var b, D, w, L, A, D, T, I, D_1; return __generator(this, function (_b) {
+function l0(e, t) { var u = function (i) { return ({ getItem: function (c) { var l = e.storageGet(i + c); return l == null ? null : l; }, setItem: function (c, l) { return e.storageSet(i + c, l == null ? null : String(l)); }, removeItem: function (c) { return e.storageSet(i + c, null); }, clear: function () { return e.storageClear && e.storageClear(i); } }); }, r = "__cookie__", a = {}; a.Response = { success: function (i, c) { return ({ code: 0, data: i === void 0 ? null : i, data2: c === void 0 ? null : c }); }, error: function (i) { return ({ code: 1, data: i == null ? "" : String(i) }); } }, a.fetch = function (c, l) {
+    return __awaiter(this, void 0, void 0, function () { var h, D, v, C, E, D, T, I, D_1; return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                f = f || {};
-                b = String(c);
-                if (f.queries) {
-                    D = Object.entries(f.queries).map(function (_b) {
+                l = l || {};
+                h = String(c);
+                if (l.queries) {
+                    D = Object.entries(l.queries).map(function (_b) {
                         var _c = __read(_b, 2), K = _c[0], J = _c[1];
                         return encodeURIComponent(K) + "=" + encodeURIComponent(J);
                     }).join("&");
-                    D && (b += (b.includes("?") ? "&" : "?") + D);
+                    D && (h += (h.includes("?") ? "&" : "?") + D);
                 }
-                w = Object.assign({ "User-Agent": nt }, _a(f.headers)), L = e.storageGet(r);
-                L && !Object.keys(w).some(function (D) { return D.toLowerCase() === "cookie"; }) && (w.Cookie = L);
-                A = f.body;
-                if (A != null && typeof A == "object") {
-                    D = Object.keys(w).find(function (K) { return K.toLowerCase() === "content-type"; });
-                    D && /json/i.test(w[D]) ? A = JSON.stringify(A) : (A = Object.entries(A).map(function (_b) {
+                v = Object.assign({ "User-Agent": nt }, _a(l.headers)), C = e.storageGet(r);
+                C && !Object.keys(v).some(function (D) { return D.toLowerCase() === "cookie"; }) && (v.Cookie = C);
+                E = l.body;
+                if (E != null && typeof E == "object") {
+                    D = Object.keys(v).find(function (K) { return K.toLowerCase() === "content-type"; });
+                    D && /json/i.test(v[D]) ? E = JSON.stringify(E) : (E = Object.entries(E).map(function (_b) {
                         var _c = __read(_b, 2), K = _c[0], J = _c[1];
                         return encodeURIComponent(K) + "=" + encodeURIComponent(J);
-                    }).join("&"), D || (w["Content-Type"] = "application/x-www-form-urlencoded"));
+                    }).join("&"), D || (v["Content-Type"] = "application/x-www-form-urlencoded"));
                 }
-                T = { url: b, method: (f.method || (A != null ? "POST" : "GET")).toUpperCase(), headers: w, body: A, timeout: f.timeout };
+                T = { url: h, method: (l.method || (E != null ? "POST" : "GET")).toUpperCase(), headers: v, body: E, timeout: l.timeout };
                 _b.label = 1;
             case 1:
                 _b.trys.push([1, 3, , 4]);
@@ -1947,12 +1947,21 @@ function l0(e, t) { var u = function (i) { return ({ getItem: function (c) { var
                 return [3, 4];
             case 3:
                 D_1 = _b.sent();
-                I = { status: 0, url: b, headers: {}, text: "", error: String(D_1 && D_1.message || D_1) };
+                I = { status: 0, url: h, headers: {}, text: "", error: String(D_1 && D_1.message || D_1) };
                 return [3, 4];
             case 4: return [2, new zu(I, T)];
         }
     }); });
-}, a.Http = { get: function (i) { return o0(a, "GET", i); }, post: function (i) { return o0(a, "POST", i); } }, a.Html = { parse: function (i, c) { return Pt(i, c || ""); }, clean: function (i, c) { return s0(i, c); } }, a.localStorage = u("ls:"), a.cacheStorage = u("cs:"), a.localConfig = { getItem: function (i) { return e.config(i); } }, a.localCookie = { setCookie: function (i) { e.storageSet(r, String(i).split(";")[0]); }, getCookie: function () { return e.storageGet(r) || ""; } }, a.sleep = function (i) { return new Promise(function (c) { return typeof setTimeout == "function" ? setTimeout(c, Math.min(Number(i) || 0, 1e4)) : c(); }); }; var n = function () {
+}, a.Http = { get: function (i) { return o0(a, "GET", i); }, post: function (i) { return o0(a, "POST", i); } }, a.Html = { parse: function (i, c) { return Pt(i, c || ""); }, clean: function (i, c) { return s0(i, c); } }, a.localStorage = u("ls:"), a.cacheStorage = u("cs:"), a.resumeStorage = { get: function (i) { try {
+        var c = e.storageGet("resume:" + i);
+        return c && parseFloat(c) || 0;
+    }
+    catch (l) {
+        return 0;
+    } }, set: function (i, c) { try {
+        e.storageSet("resume:" + i, String(Math.max(0, c || 0)));
+    }
+    catch (l) { } } }, a.localConfig = { getItem: function (i) { return e.config(i); } }, a.localCookie = { setCookie: function (i) { e.storageSet(r, String(i).split(";")[0]); }, getCookie: function () { return e.storageGet(r) || ""; } }, a.sleep = function (i) { return new Promise(function (c) { return typeof setTimeout == "function" ? setTimeout(c, Math.min(Number(i) || 0, 1e4)) : c(); }); }; var n = function () {
     var i = [];
     for (var _i = 0; _i < arguments.length; _i++) {
         i[_i] = arguments[_i];
@@ -2026,7 +2035,7 @@ var B = function (e) { return e == null ? "" : String(e); }, Wa = function (e) {
                         r = this.scripts[t];
                         if (!r)
                             throw new Error("script " + t + " missing");
-                        a = function (c) { var f = _this.host.config(c); return f == null ? (_this.meta.configDefaults || {})[c] : f; };
+                        a = function (c) { var l = _this.host.config(c); return l == null ? (_this.meta.configDefaults || {})[c] : l; };
                         return [4, r(this.env, a)];
                     case 1:
                         n = _b.sent();
@@ -2086,7 +2095,7 @@ var B = function (e) { return e == null ? "" : String(e); }, Wa = function (e) {
     };
     class_1.prototype.list = function (t, u, r) {
         return __awaiter(this, void 0, void 0, function () {
-            var a, n, i, c, f;
+            var a, n, i, c, l;
             var _this = this;
             return __generator(this, function (_b) {
                 switch (_b.label) {
@@ -2100,8 +2109,8 @@ var B = function (e) { return e == null ? "" : String(e); }, Wa = function (e) {
                     case 1:
                         i = _b.sent(), c = B(i.data2);
                         c && (this.tokens[a + "|" + (r + 1)] = c);
-                        f = (i.data || []).filter(Boolean).map(function (b) { return ({ name: B(b.name).trim(), link: Ie(b.host || _this.base + "/", b.link), cover: Ie(b.host || _this.base + "/", b.cover), description: B(b.description), tag: B(b.tag) }); }).filter(function (b) { return b.name && b.link; });
-                        return [2, { items: f, hasNext: !!c && f.length > 0 }];
+                        l = (i.data || []).filter(Boolean).map(function (h) { return ({ name: B(h.name).trim(), link: Ie(h.host || _this.base + "/", h.link), cover: Ie(h.host || _this.base + "/", h.cover), description: B(h.description), tag: B(h.tag) }); }).filter(function (h) { return h.name && h.link; });
+                        return [2, { items: l, hasNext: !!c && l.length > 0 }];
                 }
             });
         });
@@ -2243,7 +2252,7 @@ var B = function (e) { return e == null ? "" : String(e); }, Wa = function (e) {
     };
     class_1.prototype.videos = function (t) {
         return __awaiter(this, void 0, void 0, function () {
-            var u, a, r, u_3, u_3_1, a, n, i, i_2, i_2_1, c, n_2, e_23_1;
+            var u, n, r, a, u_3, u_3_1, n, i, c, c_4, c_4_1, l, h, v, C, i_2, e_23_1;
             var e_23, _b, e_24, _c;
             var _this = this;
             return __generator(this, function (_d) {
@@ -2253,11 +2262,11 @@ var B = function (e) { return e == null ? "" : String(e); }, Wa = function (e) {
                         if (!this.has("chap")) return [3, 2];
                         return [4, this.run("chap", t)];
                     case 1:
-                        a = (_d.sent()).data;
-                        Array.isArray(a) && a.length && (u = a.map(function (n) { return typeof n == "string" ? { title: "Server", data: n } : { title: B(n.title || n.name || "Server"), data: B(n.data || n.url || n.link) }; }));
+                        n = (_d.sent()).data;
+                        Array.isArray(n) && n.length && (u = n.map(function (i) { return typeof i == "string" ? { title: "Server", data: i } : { title: B(i.title || i.name || "Server"), data: B(i.data || i.url || i.link) }; }));
                         _d.label = 2;
                     case 2:
-                        r = [];
+                        r = this.env && this.env.resumeStorage ? this.env.resumeStorage.get(t) : 0, a = [];
                         _d.label = 3;
                     case 3:
                         _d.trys.push([3, 10, 11, 12]);
@@ -2265,30 +2274,33 @@ var B = function (e) { return e == null ? "" : String(e); }, Wa = function (e) {
                         _d.label = 4;
                     case 4:
                         if (!!u_3_1.done) return [3, 9];
-                        a = u_3_1.value;
+                        n = u_3_1.value;
                         _d.label = 5;
                     case 5:
                         _d.trys.push([5, 7, , 8]);
-                        return [4, this.run("track", a.data)];
+                        return [4, this.run("track", n.data)];
                     case 6:
-                        n = (_d.sent()).data || {}, i = Array.isArray(n) ? n : [n];
+                        i = (_d.sent()).data || {}, c = Array.isArray(i) ? i : [i];
                         try {
-                            for (i_2 = (e_24 = void 0, __values(i)), i_2_1 = i_2.next(); !i_2_1.done; i_2_1 = i_2.next()) {
-                                c = i_2_1.value;
-                                !c || !c.data || c.type !== "webview" && r.push({ url: Ie(c.host || this.base + "/", c.data), quality: a.title + (c.quality ? " " + c.quality : ""), headers: c.headers || { Referer: this.base + "/" }, subtitles: (c.subtitles || (c.subtitle ? [{ data: c.subtitle, label: "Sub" }] : [])).map(function (f) { return ({ file: Ie(_this.base + "/", f.data || f.file), label: B(f.label || f.language || "Sub") }); }), mimeType: B(c.mimeType) });
+                            for (c_4 = (e_24 = void 0, __values(c)), c_4_1 = c_4.next(); !c_4_1.done; c_4_1 = c_4.next()) {
+                                l = c_4_1.value;
+                                if (!l || !l.data || l.type === "webview")
+                                    continue;
+                                h = Ie(l.host || this.base + "/", l.data), v = r > 0 && !l.data.includes("#t=") && !l.data.includes("&t=") ? (l.data.includes("#") ? "&" : "#") + "t=" + Math.floor(r) : "", C = r > 0 ? " [Tiếp tục " + Math.floor(r / 60) + ":" + ("0" + Math.floor(r % 60)).slice(-2) + "]" : "";
+                                a.push({ url: h + v, rawUrl: h, resumeSec: r, quality: n.title + (l.quality ? " " + l.quality : "") + C, headers: l.headers || { Referer: this.base + "/" }, subtitles: (l.subtitles || (l.subtitle ? [{ data: l.subtitle, label: "Sub" }] : [])).map(function (E) { return ({ file: Ie(_this.base + "/", E.data || E.file), label: B(E.label || E.language || "Sub") }); }), mimeType: B(l.mimeType) });
                             }
                         }
                         catch (e_24_1) { e_24 = { error: e_24_1 }; }
                         finally {
                             try {
-                                if (i_2_1 && !i_2_1.done && (_c = i_2.return)) _c.call(i_2);
+                                if (c_4_1 && !c_4_1.done && (_c = c_4.return)) _c.call(c_4);
                             }
                             finally { if (e_24) throw e_24.error; }
                         }
                         return [3, 8];
                     case 7:
-                        n_2 = _d.sent();
-                        this.host.log && this.host.log("track " + a.title + ": " + n_2.message);
+                        i_2 = _d.sent();
+                        this.host.log && this.host.log("track " + n.title + ": " + i_2.message);
                         return [3, 8];
                     case 8:
                         u_3_1 = u_3.next();
@@ -2304,7 +2316,7 @@ var B = function (e) { return e == null ? "" : String(e); }, Wa = function (e) {
                         }
                         finally { if (e_23) throw e_23.error; }
                         return [7];
-                    case 12: return [2, r];
+                    case 12: return [2, a];
                 }
             });
         });
@@ -2314,62 +2326,62 @@ var B = function (e) { return e == null ? "" : String(e); }, Wa = function (e) {
 function f0(e) {
     return String(e).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", type: "novel", locale: "vi", nsfw: !1, version: 9, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.truyenchu", lnIcon: "", lnVersion: "1.2.9" }, d0 = { home: function (e, t) {
+var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", type: "novel", locale: "vi", nsfw: !1, version: 9, config: {}, configDefaults: {}, itemType: 2, short: !1, shorts: !1, lnId: "kiritokmn.truyenchu", lnIcon: "", lnVersion: "1.3.9" }, d0 = { home: function (e, t) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, r, a, n, i, c, f, b, w, L, A, T, I, D, K, J, ne) {
+            return [2, (function (u, r, a, n, i, c, l, h, v, C, E, T, I, D, K, J, ne) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0: return [4, (function () {
-                                    return __awaiter(this, void 0, void 0, function () { function C(s, l) { var o = s.select(l); return o.size() > 0 ? o.get(0) : null; } function Q(s) { return s.indexOf(v) === 0 ? s.substring(v.length) : s.indexOf(q) === 0 ? s.substring(q.length) : s; } function fe(s) { return s ? (s.indexOf(q + "/") === 0 && s.indexOf(v) !== 0 && (s = v + s.substring(q.length)), s.indexOf("http") === 0 ? s : v + (s.charAt(0) === "/" ? s : "/" + s)) : v; } function te(s) {
-                                        return __awaiter(this, void 0, void 0, function () { var l, _b, _c; return __generator(this, function (_d) {
+                                    return __awaiter(this, void 0, void 0, function () { function q(s, f) { var o = s.select(f); return o.size() > 0 ? o.get(0) : null; } function Q(s) { return s.indexOf(S) === 0 ? s.substring(S.length) : s.indexOf(L) === 0 ? s.substring(L.length) : s; } function fe(s) { return s ? (s.indexOf(L + "/") === 0 && s.indexOf(S) !== 0 && (s = S + s.substring(L.length)), s.indexOf("http") === 0 ? s : S + (s.charAt(0) === "/" ? s : "/" + s)) : S; } function te(s) {
+                                        return __awaiter(this, void 0, void 0, function () { var f, _b, _c; return __generator(this, function (_d) {
                                             switch (_d.label) {
                                                 case 0: return [4, u(s, M)];
                                                 case 1:
-                                                    l = _d.sent();
-                                                    _b = l;
+                                                    f = _d.sent();
+                                                    _b = f;
                                                     if (!_b) return [3, 4];
-                                                    _c = !l.ok && !(l.status >= 400 && l.status < 500);
+                                                    _c = !f.ok && !(f.status >= 400 && f.status < 500);
                                                     if (!_c) return [3, 3];
                                                     return [4, u(s, M)];
                                                 case 2:
-                                                    _c = (l = _d.sent());
+                                                    _c = (f = _d.sent());
                                                     _d.label = 3;
                                                 case 3:
-                                                    _b = (_c, l);
+                                                    _b = (_c, f);
                                                     _d.label = 4;
                                                 case 4: return [2, _b];
                                             }
                                         }); });
-                                    } function X(s) { var l = C(s, "img[data-src], img[data-lazy], img[src]"); if (l) {
-                                        var o = l.attr("data-src") || l.attr("data-lazy") || l.attr("src") || "";
+                                    } function X(s) { var f = q(s, "img[data-src], img[data-lazy], img[src]"); if (f) {
+                                        var o = f.attr("data-src") || f.attr("data-lazy") || f.attr("src") || "";
                                         if (o && o.indexOf("data:") !== 0)
                                             return o;
-                                    } var h = C(s, "[data-bg], [style*='background-image']"); if (h) {
-                                        var d = h.attr("data-bg") || "";
+                                    } var b = q(s, "[data-bg], [style*='background-image']"); if (b) {
+                                        var d = b.attr("data-bg") || "";
                                         if (!d) {
-                                            var p = _.exec(h.attr("style") || "");
+                                            var p = _.exec(b.attr("style") || "");
                                             p && (d = p[1]);
                                         }
                                         if (d)
                                             return d;
-                                    } return ""; } function ie(s) { var l = [], o = {}, h = s.select(".page-item-detail"); h.size() === 0 && (h = s.select(".manga__item, .c-image-hover, .row.row-eq-height .col-6")); for (var d = 0; d < h.size(); d++) {
-                                        var p = h.get(d), g = C(p, ".post-title a[href], h3.h5 a[href], h3 a[href], h2 a[href]");
+                                    } return ""; } function ie(s) { var f = [], o = {}, b = s.select(".page-item-detail"); b.size() === 0 && (b = s.select(".manga__item, .c-image-hover, .row.row-eq-height .col-6")); for (var d = 0; d < b.size(); d++) {
+                                        var p = b.get(d), g = q(p, ".post-title a[href], h3.h5 a[href], h3 a[href], h2 a[href]");
                                         if (g) {
                                             var m = g.attr("href") || "";
                                             if (!(!m || W.test(m)) && !(m.indexOf("/the-loai/") !== -1 || m.indexOf("/tac-gia/") !== -1)) {
                                                 var y = Q(m);
                                                 if (!o[y]) {
                                                     o[y] = !0;
-                                                    var S = g.text().trim();
-                                                    if (S) {
-                                                        var E = X(p);
-                                                        E && E.indexOf("http") !== 0 && (E = v + E), l.push({ name: S, link: y, host: P, cover: E, description: "" });
+                                                    var w = g.text().trim();
+                                                    if (w) {
+                                                        var A = X(p);
+                                                        A && A.indexOf("http") !== 0 && (A = S + A), f.push({ name: w, link: y, host: P, cover: A, description: "" });
                                                     }
                                                 }
                                             }
                                         }
-                                    } return l; } function se(s, l) { var o = l + 1, h = s.select("a[href*='/page/" + o + "/']"); if (h.size() > 0)
-                                        return String(o); var d = C(s, ".nav-previous a, a[rel='prev']"); if (!d)
+                                    } return f; } function se(s, f) { var o = f + 1, b = s.select("a[href*='/page/" + o + "/']"); if (b.size() > 0)
+                                        return String(o); var d = q(s, ".nav-previous a, a[rel='prev']"); if (!d)
                                         for (var p = s.select("a[href*='/page/']"), g = 0; g < p.size(); g++) {
                                             var m = p.get(g).text().trim();
                                             if (m === "Cũ hơn" || m.indexOf("Older") === 0) {
@@ -2377,17 +2389,17 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
                                                 break;
                                             }
                                         } if (d) {
-                                        var y = d.attr("href") || "", S = $.exec(y);
-                                        if (S)
-                                            return S[1];
+                                        var y = d.attr("href") || "", w = $.exec(y);
+                                        if (w)
+                                            return w[1];
                                         if (y)
                                             return String(o);
                                     } return null; } function F() {
                                         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
                                             return [2, n.success([{ title: "Mới Cập Nhật", input: "truyen", script: "homecontent.js" }])];
                                         }); });
-                                    } var v, P, q, H, M, _, W, $; return __generator(this, function (_b) {
-                                        v = "https://truyenchu.net", P = "https://truyenchu.net", q = "https://www.truyenchu.net", H = { "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36", Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en;q=0.5", Referer: "https://truyenchu.net/" }, M = { headers: H }, _ = /url\(['""]?([^'""\)\s]+)['""]?\)/, W = /^\s*$|^javascript:|^#|\/wp-login|\/wp-admin|\/cart|\/checkout|\/account|\/contact|\/tag\//, $ = /\/page\/(\d+)\/?/;
+                                    } var S, P, L, H, M, _, W, $; return __generator(this, function (_b) {
+                                        S = "https://truyenchu.net", P = "https://truyenchu.net", L = "https://www.truyenchu.net", H = { "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36", Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en;q=0.5", Referer: "https://truyenchu.net/" }, M = { headers: H }, _ = /url\(['""]?([^'""\)\s]+)['""]?\)/, W = /^\s*$|^javascript:|^#|\/wp-login|\/wp-admin|\/cart|\/checkout|\/account|\/contact|\/tag\//, $ = /\/page\/(\d+)\/?/;
                                         return [2, typeof F == "function" ? F : void 0];
                                     }); });
                                 })()];
@@ -2398,60 +2410,60 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
         }); });
     }, homecontent: function (e, t) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, r, a, n, i, c, f, b, w, L, A, T, I, D, K, J, ne) {
+            return [2, (function (u, r, a, n, i, c, l, h, v, C, E, T, I, D, K, J, ne) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0: return [4, (function () {
-                                    return __awaiter(this, void 0, void 0, function () { function C(s, l) { var o = s.select(l); return o.size() > 0 ? o.get(0) : null; } function Q(s) { return s.indexOf(v) === 0 ? s.substring(v.length) : s.indexOf(q) === 0 ? s.substring(q.length) : s; } function fe(s) { return s ? (s.indexOf(q + "/") === 0 && s.indexOf(v) !== 0 && (s = v + s.substring(q.length)), s.indexOf("http") === 0 ? s : v + (s.charAt(0) === "/" ? s : "/" + s)) : v; } function te(s) {
-                                        return __awaiter(this, void 0, void 0, function () { var l, _b, _c; return __generator(this, function (_d) {
+                                    return __awaiter(this, void 0, void 0, function () { function q(s, f) { var o = s.select(f); return o.size() > 0 ? o.get(0) : null; } function Q(s) { return s.indexOf(S) === 0 ? s.substring(S.length) : s.indexOf(L) === 0 ? s.substring(L.length) : s; } function fe(s) { return s ? (s.indexOf(L + "/") === 0 && s.indexOf(S) !== 0 && (s = S + s.substring(L.length)), s.indexOf("http") === 0 ? s : S + (s.charAt(0) === "/" ? s : "/" + s)) : S; } function te(s) {
+                                        return __awaiter(this, void 0, void 0, function () { var f, _b, _c; return __generator(this, function (_d) {
                                             switch (_d.label) {
                                                 case 0: return [4, u(s, M)];
                                                 case 1:
-                                                    l = _d.sent();
-                                                    _b = l;
+                                                    f = _d.sent();
+                                                    _b = f;
                                                     if (!_b) return [3, 4];
-                                                    _c = !l.ok && !(l.status >= 400 && l.status < 500);
+                                                    _c = !f.ok && !(f.status >= 400 && f.status < 500);
                                                     if (!_c) return [3, 3];
                                                     return [4, u(s, M)];
                                                 case 2:
-                                                    _c = (l = _d.sent());
+                                                    _c = (f = _d.sent());
                                                     _d.label = 3;
                                                 case 3:
-                                                    _b = (_c, l);
+                                                    _b = (_c, f);
                                                     _d.label = 4;
                                                 case 4: return [2, _b];
                                             }
                                         }); });
-                                    } function X(s) { var l = C(s, "img[data-src], img[data-lazy], img[src]"); if (l) {
-                                        var o = l.attr("data-src") || l.attr("data-lazy") || l.attr("src") || "";
+                                    } function X(s) { var f = q(s, "img[data-src], img[data-lazy], img[src]"); if (f) {
+                                        var o = f.attr("data-src") || f.attr("data-lazy") || f.attr("src") || "";
                                         if (o && o.indexOf("data:") !== 0)
                                             return o;
-                                    } var h = C(s, "[data-bg], [style*='background-image']"); if (h) {
-                                        var d = h.attr("data-bg") || "";
+                                    } var b = q(s, "[data-bg], [style*='background-image']"); if (b) {
+                                        var d = b.attr("data-bg") || "";
                                         if (!d) {
-                                            var p = _.exec(h.attr("style") || "");
+                                            var p = _.exec(b.attr("style") || "");
                                             p && (d = p[1]);
                                         }
                                         if (d)
                                             return d;
-                                    } return ""; } function ie(s) { var l = [], o = {}, h = s.select(".page-item-detail"); h.size() === 0 && (h = s.select(".manga__item, .c-image-hover, .row.row-eq-height .col-6")); for (var d = 0; d < h.size(); d++) {
-                                        var p = h.get(d), g = C(p, ".post-title a[href], h3.h5 a[href], h3 a[href], h2 a[href]");
+                                    } return ""; } function ie(s) { var f = [], o = {}, b = s.select(".page-item-detail"); b.size() === 0 && (b = s.select(".manga__item, .c-image-hover, .row.row-eq-height .col-6")); for (var d = 0; d < b.size(); d++) {
+                                        var p = b.get(d), g = q(p, ".post-title a[href], h3.h5 a[href], h3 a[href], h2 a[href]");
                                         if (g) {
                                             var m = g.attr("href") || "";
                                             if (!(!m || W.test(m)) && !(m.indexOf("/the-loai/") !== -1 || m.indexOf("/tac-gia/") !== -1)) {
                                                 var y = Q(m);
                                                 if (!o[y]) {
                                                     o[y] = !0;
-                                                    var S = g.text().trim();
-                                                    if (S) {
-                                                        var E = X(p);
-                                                        E && E.indexOf("http") !== 0 && (E = v + E), l.push({ name: S, link: y, host: P, cover: E, description: "" });
+                                                    var w = g.text().trim();
+                                                    if (w) {
+                                                        var A = X(p);
+                                                        A && A.indexOf("http") !== 0 && (A = S + A), f.push({ name: w, link: y, host: P, cover: A, description: "" });
                                                     }
                                                 }
                                             }
                                         }
-                                    } return l; } function se(s, l) { var o = l + 1, h = s.select("a[href*='/page/" + o + "/']"); if (h.size() > 0)
-                                        return String(o); var d = C(s, ".nav-previous a, a[rel='prev']"); if (!d)
+                                    } return f; } function se(s, f) { var o = f + 1, b = s.select("a[href*='/page/" + o + "/']"); if (b.size() > 0)
+                                        return String(o); var d = q(s, ".nav-previous a, a[rel='prev']"); if (!d)
                                         for (var p = s.select("a[href*='/page/']"), g = 0; g < p.size(); g++) {
                                             var m = p.get(g).text().trim();
                                             if (m === "Cũ hơn" || m.indexOf("Older") === 0) {
@@ -2459,21 +2471,21 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
                                                 break;
                                             }
                                         } if (d) {
-                                        var y = d.attr("href") || "", S = $.exec(y);
-                                        if (S)
-                                            return S[1];
+                                        var y = d.attr("href") || "", w = $.exec(y);
+                                        if (w)
+                                            return w[1];
                                         if (y)
                                             return String(o);
-                                    } return null; } function F(s, l) {
-                                        return __awaiter(this, void 0, void 0, function () { var o, h, d, p, g, m; return __generator(this, function (_b) {
+                                    } return null; } function F(s, f) {
+                                        return __awaiter(this, void 0, void 0, function () { var o, b, d, p, g, m; return __generator(this, function (_b) {
                                             switch (_b.label) {
                                                 case 0:
-                                                    o = l ? parseInt(l) : 1, h = o <= 1 ? v + "/truyen/" : v + "/truyen/page/" + o + "/";
-                                                    return [4, te(h)];
+                                                    o = f ? parseInt(f) : 1, b = o <= 1 ? S + "/truyen/" : S + "/truyen/page/" + o + "/";
+                                                    return [4, te(b)];
                                                 case 1:
                                                     d = _b.sent();
                                                     if (!d || !d.ok)
-                                                        return [2, n.error("Không tải được trang " + h)];
+                                                        return [2, n.error("Không tải được trang " + b)];
                                                     p = d.html();
                                                     if (!p)
                                                         return [2, n.success([], null)];
@@ -2484,8 +2496,8 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
                                                     return [2, n.success(g, m)];
                                             }
                                         }); });
-                                    } var v, P, q, H, M, _, W, $; return __generator(this, function (_b) {
-                                        v = "https://truyenchu.net", P = "https://truyenchu.net", q = "https://www.truyenchu.net", H = { "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36", Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en;q=0.5", Referer: "https://truyenchu.net/" }, M = { headers: H }, _ = /url\(['""]?([^'""\)\s]+)['""]?\)/, W = /^\s*$|^javascript:|^#|\/wp-login|\/wp-admin|\/cart|\/checkout|\/account|\/contact|\/tag\//, $ = /\/page\/(\d+)\/?/;
+                                    } var S, P, L, H, M, _, W, $; return __generator(this, function (_b) {
+                                        S = "https://truyenchu.net", P = "https://truyenchu.net", L = "https://www.truyenchu.net", H = { "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36", Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en;q=0.5", Referer: "https://truyenchu.net/" }, M = { headers: H }, _ = /url\(['""]?([^'""\)\s]+)['""]?\)/, W = /^\s*$|^javascript:|^#|\/wp-login|\/wp-admin|\/cart|\/checkout|\/account|\/contact|\/tag\//, $ = /\/page\/(\d+)\/?/;
                                         return [2, typeof F == "function" ? F : void 0];
                                     }); });
                                 })()];
@@ -2496,60 +2508,60 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
         }); });
     }, genre: function (e, t) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, r, a, n, i, c, f, b, w, L, A, T, I, D, K, J, ne) {
+            return [2, (function (u, r, a, n, i, c, l, h, v, C, E, T, I, D, K, J, ne) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0: return [4, (function () {
-                                    return __awaiter(this, void 0, void 0, function () { function C(s, l) { var o = s.select(l); return o.size() > 0 ? o.get(0) : null; } function Q(s) { return s.indexOf(v) === 0 ? s.substring(v.length) : s.indexOf(q) === 0 ? s.substring(q.length) : s; } function fe(s) { return s ? (s.indexOf(q + "/") === 0 && s.indexOf(v) !== 0 && (s = v + s.substring(q.length)), s.indexOf("http") === 0 ? s : v + (s.charAt(0) === "/" ? s : "/" + s)) : v; } function te(s) {
-                                        return __awaiter(this, void 0, void 0, function () { var l, _b, _c; return __generator(this, function (_d) {
+                                    return __awaiter(this, void 0, void 0, function () { function q(s, f) { var o = s.select(f); return o.size() > 0 ? o.get(0) : null; } function Q(s) { return s.indexOf(S) === 0 ? s.substring(S.length) : s.indexOf(L) === 0 ? s.substring(L.length) : s; } function fe(s) { return s ? (s.indexOf(L + "/") === 0 && s.indexOf(S) !== 0 && (s = S + s.substring(L.length)), s.indexOf("http") === 0 ? s : S + (s.charAt(0) === "/" ? s : "/" + s)) : S; } function te(s) {
+                                        return __awaiter(this, void 0, void 0, function () { var f, _b, _c; return __generator(this, function (_d) {
                                             switch (_d.label) {
                                                 case 0: return [4, u(s, M)];
                                                 case 1:
-                                                    l = _d.sent();
-                                                    _b = l;
+                                                    f = _d.sent();
+                                                    _b = f;
                                                     if (!_b) return [3, 4];
-                                                    _c = !l.ok && !(l.status >= 400 && l.status < 500);
+                                                    _c = !f.ok && !(f.status >= 400 && f.status < 500);
                                                     if (!_c) return [3, 3];
                                                     return [4, u(s, M)];
                                                 case 2:
-                                                    _c = (l = _d.sent());
+                                                    _c = (f = _d.sent());
                                                     _d.label = 3;
                                                 case 3:
-                                                    _b = (_c, l);
+                                                    _b = (_c, f);
                                                     _d.label = 4;
                                                 case 4: return [2, _b];
                                             }
                                         }); });
-                                    } function X(s) { var l = C(s, "img[data-src], img[data-lazy], img[src]"); if (l) {
-                                        var o = l.attr("data-src") || l.attr("data-lazy") || l.attr("src") || "";
+                                    } function X(s) { var f = q(s, "img[data-src], img[data-lazy], img[src]"); if (f) {
+                                        var o = f.attr("data-src") || f.attr("data-lazy") || f.attr("src") || "";
                                         if (o && o.indexOf("data:") !== 0)
                                             return o;
-                                    } var h = C(s, "[data-bg], [style*='background-image']"); if (h) {
-                                        var d = h.attr("data-bg") || "";
+                                    } var b = q(s, "[data-bg], [style*='background-image']"); if (b) {
+                                        var d = b.attr("data-bg") || "";
                                         if (!d) {
-                                            var p = _.exec(h.attr("style") || "");
+                                            var p = _.exec(b.attr("style") || "");
                                             p && (d = p[1]);
                                         }
                                         if (d)
                                             return d;
-                                    } return ""; } function ie(s) { var l = [], o = {}, h = s.select(".page-item-detail"); h.size() === 0 && (h = s.select(".manga__item, .c-image-hover, .row.row-eq-height .col-6")); for (var d = 0; d < h.size(); d++) {
-                                        var p = h.get(d), g = C(p, ".post-title a[href], h3.h5 a[href], h3 a[href], h2 a[href]");
+                                    } return ""; } function ie(s) { var f = [], o = {}, b = s.select(".page-item-detail"); b.size() === 0 && (b = s.select(".manga__item, .c-image-hover, .row.row-eq-height .col-6")); for (var d = 0; d < b.size(); d++) {
+                                        var p = b.get(d), g = q(p, ".post-title a[href], h3.h5 a[href], h3 a[href], h2 a[href]");
                                         if (g) {
                                             var m = g.attr("href") || "";
                                             if (!(!m || W.test(m)) && !(m.indexOf("/the-loai/") !== -1 || m.indexOf("/tac-gia/") !== -1)) {
                                                 var y = Q(m);
                                                 if (!o[y]) {
                                                     o[y] = !0;
-                                                    var S = g.text().trim();
-                                                    if (S) {
-                                                        var E = X(p);
-                                                        E && E.indexOf("http") !== 0 && (E = v + E), l.push({ name: S, link: y, host: P, cover: E, description: "" });
+                                                    var w = g.text().trim();
+                                                    if (w) {
+                                                        var A = X(p);
+                                                        A && A.indexOf("http") !== 0 && (A = S + A), f.push({ name: w, link: y, host: P, cover: A, description: "" });
                                                     }
                                                 }
                                             }
                                         }
-                                    } return l; } function se(s, l) { var o = l + 1, h = s.select("a[href*='/page/" + o + "/']"); if (h.size() > 0)
-                                        return String(o); var d = C(s, ".nav-previous a, a[rel='prev']"); if (!d)
+                                    } return f; } function se(s, f) { var o = f + 1, b = s.select("a[href*='/page/" + o + "/']"); if (b.size() > 0)
+                                        return String(o); var d = q(s, ".nav-previous a, a[rel='prev']"); if (!d)
                                         for (var p = s.select("a[href*='/page/']"), g = 0; g < p.size(); g++) {
                                             var m = p.get(g).text().trim();
                                             if (m === "Cũ hơn" || m.indexOf("Older") === 0) {
@@ -2557,17 +2569,17 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
                                                 break;
                                             }
                                         } if (d) {
-                                        var y = d.attr("href") || "", S = $.exec(y);
-                                        if (S)
-                                            return S[1];
+                                        var y = d.attr("href") || "", w = $.exec(y);
+                                        if (w)
+                                            return w[1];
                                         if (y)
                                             return String(o);
                                     } return null; } function F() {
                                         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
                                             return [2, n.success([{ title: "Cổ Đại", input: "co-dai", script: "genrecontent.js" }, { title: "Cung Đấu", input: "cung-dau", script: "genrecontent.js" }, { title: "Đam Mỹ", input: "dam-my", script: "genrecontent.js" }, { title: "Dị Giới", input: "di-gioi", script: "genrecontent.js" }, { title: "Dị Năng", input: "di-nang", script: "genrecontent.js" }, { title: "Điền Văn", input: "dien-van", script: "genrecontent.js" }, { title: "Đô Thị", input: "do-thi", script: "genrecontent.js" }, { title: "Đoản Văn", input: "doan-van", script: "genrecontent.js" }, { title: "Đông Phương", input: "dong-phuong", script: "genrecontent.js" }, { title: "Gia Đấu", input: "gia-dau", script: "genrecontent.js" }, { title: "Hài Hước", input: "hai-huoc", script: "genrecontent.js" }, { title: "Hệ Thống", input: "he-thong", script: "genrecontent.js" }, { title: "Huyền Huyễn", input: "huyen-huyen", script: "genrecontent.js" }, { title: "Khác", input: "khac", script: "genrecontent.js" }, { title: "Khoa Huyễn", input: "khoa-huyen", script: "genrecontent.js" }, { title: "Kiếm Hiệp", input: "kiem-hiep", script: "genrecontent.js" }, { title: "Lịch Sử", input: "lich-su", script: "genrecontent.js" }, { title: "Linh Dị", input: "linh-di", script: "genrecontent.js" }, { title: "Mạt Thế", input: "mat-the", script: "genrecontent.js" }, { title: "Ngôn Tình", input: "ngon-tinh", script: "genrecontent.js" }, { title: "Ngược", input: "nguoc", script: "genrecontent.js" }, { title: "Nữ Cường", input: "nu-cuong", script: "genrecontent.js" }, { title: "Quân Sự", input: "quan-su", script: "genrecontent.js" }, { title: "Sắc", input: "sac", script: "genrecontent.js" }, { title: "Sắc Hiệp", input: "sac-hiep", script: "genrecontent.js" }, { title: "Sủng", input: "sung", script: "genrecontent.js" }, { title: "Tiên Hiệp", input: "tien-hiep", script: "genrecontent.js" }, { title: "Trinh Thám", input: "trinh-tham", script: "genrecontent.js" }, { title: "Trọng Sinh", input: "trong-sinh", script: "genrecontent.js" }, { title: "Truyện Teen", input: "truyen-teen", script: "genrecontent.js" }, { title: "Võ Hiệp", input: "vo-hiep", script: "genrecontent.js" }, { title: "Võng Du", input: "vong-du", script: "genrecontent.js" }, { title: "Xuyên Không", input: "xuyen-khong", script: "genrecontent.js" }, { title: "Xuyên Nhanh", input: "xuyen-nhanh", script: "genrecontent.js" }])];
                                         }); });
-                                    } var v, P, q, H, M, _, W, $; return __generator(this, function (_b) {
-                                        v = "https://truyenchu.net", P = "https://truyenchu.net", q = "https://www.truyenchu.net", H = { "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36", Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en;q=0.5", Referer: "https://truyenchu.net/" }, M = { headers: H }, _ = /url\(['""]?([^'""\)\s]+)['""]?\)/, W = /^\s*$|^javascript:|^#|\/wp-login|\/wp-admin|\/cart|\/checkout|\/account|\/contact|\/tag\//, $ = /\/page\/(\d+)\/?/;
+                                    } var S, P, L, H, M, _, W, $; return __generator(this, function (_b) {
+                                        S = "https://truyenchu.net", P = "https://truyenchu.net", L = "https://www.truyenchu.net", H = { "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36", Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en;q=0.5", Referer: "https://truyenchu.net/" }, M = { headers: H }, _ = /url\(['""]?([^'""\)\s]+)['""]?\)/, W = /^\s*$|^javascript:|^#|\/wp-login|\/wp-admin|\/cart|\/checkout|\/account|\/contact|\/tag\//, $ = /\/page\/(\d+)\/?/;
                                         return [2, typeof F == "function" ? F : void 0];
                                     }); });
                                 })()];
@@ -2578,60 +2590,60 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
         }); });
     }, genrecontent: function (e, t) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, r, a, n, i, c, f, b, w, L, A, T, I, D, K, J, ne) {
+            return [2, (function (u, r, a, n, i, c, l, h, v, C, E, T, I, D, K, J, ne) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0: return [4, (function () {
-                                    return __awaiter(this, void 0, void 0, function () { function C(s, l) { var o = s.select(l); return o.size() > 0 ? o.get(0) : null; } function Q(s) { return s.indexOf(v) === 0 ? s.substring(v.length) : s.indexOf(q) === 0 ? s.substring(q.length) : s; } function fe(s) { return s ? (s.indexOf(q + "/") === 0 && s.indexOf(v) !== 0 && (s = v + s.substring(q.length)), s.indexOf("http") === 0 ? s : v + (s.charAt(0) === "/" ? s : "/" + s)) : v; } function te(s) {
-                                        return __awaiter(this, void 0, void 0, function () { var l, _b, _c; return __generator(this, function (_d) {
+                                    return __awaiter(this, void 0, void 0, function () { function q(s, f) { var o = s.select(f); return o.size() > 0 ? o.get(0) : null; } function Q(s) { return s.indexOf(S) === 0 ? s.substring(S.length) : s.indexOf(L) === 0 ? s.substring(L.length) : s; } function fe(s) { return s ? (s.indexOf(L + "/") === 0 && s.indexOf(S) !== 0 && (s = S + s.substring(L.length)), s.indexOf("http") === 0 ? s : S + (s.charAt(0) === "/" ? s : "/" + s)) : S; } function te(s) {
+                                        return __awaiter(this, void 0, void 0, function () { var f, _b, _c; return __generator(this, function (_d) {
                                             switch (_d.label) {
                                                 case 0: return [4, u(s, M)];
                                                 case 1:
-                                                    l = _d.sent();
-                                                    _b = l;
+                                                    f = _d.sent();
+                                                    _b = f;
                                                     if (!_b) return [3, 4];
-                                                    _c = !l.ok && !(l.status >= 400 && l.status < 500);
+                                                    _c = !f.ok && !(f.status >= 400 && f.status < 500);
                                                     if (!_c) return [3, 3];
                                                     return [4, u(s, M)];
                                                 case 2:
-                                                    _c = (l = _d.sent());
+                                                    _c = (f = _d.sent());
                                                     _d.label = 3;
                                                 case 3:
-                                                    _b = (_c, l);
+                                                    _b = (_c, f);
                                                     _d.label = 4;
                                                 case 4: return [2, _b];
                                             }
                                         }); });
-                                    } function X(s) { var l = C(s, "img[data-src], img[data-lazy], img[src]"); if (l) {
-                                        var o = l.attr("data-src") || l.attr("data-lazy") || l.attr("src") || "";
+                                    } function X(s) { var f = q(s, "img[data-src], img[data-lazy], img[src]"); if (f) {
+                                        var o = f.attr("data-src") || f.attr("data-lazy") || f.attr("src") || "";
                                         if (o && o.indexOf("data:") !== 0)
                                             return o;
-                                    } var h = C(s, "[data-bg], [style*='background-image']"); if (h) {
-                                        var d = h.attr("data-bg") || "";
+                                    } var b = q(s, "[data-bg], [style*='background-image']"); if (b) {
+                                        var d = b.attr("data-bg") || "";
                                         if (!d) {
-                                            var p = _.exec(h.attr("style") || "");
+                                            var p = _.exec(b.attr("style") || "");
                                             p && (d = p[1]);
                                         }
                                         if (d)
                                             return d;
-                                    } return ""; } function ie(s) { var l = [], o = {}, h = s.select(".page-item-detail"); h.size() === 0 && (h = s.select(".manga__item, .c-image-hover, .row.row-eq-height .col-6")); for (var d = 0; d < h.size(); d++) {
-                                        var p = h.get(d), g = C(p, ".post-title a[href], h3.h5 a[href], h3 a[href], h2 a[href]");
+                                    } return ""; } function ie(s) { var f = [], o = {}, b = s.select(".page-item-detail"); b.size() === 0 && (b = s.select(".manga__item, .c-image-hover, .row.row-eq-height .col-6")); for (var d = 0; d < b.size(); d++) {
+                                        var p = b.get(d), g = q(p, ".post-title a[href], h3.h5 a[href], h3 a[href], h2 a[href]");
                                         if (g) {
                                             var m = g.attr("href") || "";
                                             if (!(!m || W.test(m)) && !(m.indexOf("/the-loai/") !== -1 || m.indexOf("/tac-gia/") !== -1)) {
                                                 var y = Q(m);
                                                 if (!o[y]) {
                                                     o[y] = !0;
-                                                    var S = g.text().trim();
-                                                    if (S) {
-                                                        var E = X(p);
-                                                        E && E.indexOf("http") !== 0 && (E = v + E), l.push({ name: S, link: y, host: P, cover: E, description: "" });
+                                                    var w = g.text().trim();
+                                                    if (w) {
+                                                        var A = X(p);
+                                                        A && A.indexOf("http") !== 0 && (A = S + A), f.push({ name: w, link: y, host: P, cover: A, description: "" });
                                                     }
                                                 }
                                             }
                                         }
-                                    } return l; } function se(s, l) { var o = l + 1, h = s.select("a[href*='/page/" + o + "/']"); if (h.size() > 0)
-                                        return String(o); var d = C(s, ".nav-previous a, a[rel='prev']"); if (!d)
+                                    } return f; } function se(s, f) { var o = f + 1, b = s.select("a[href*='/page/" + o + "/']"); if (b.size() > 0)
+                                        return String(o); var d = q(s, ".nav-previous a, a[rel='prev']"); if (!d)
                                         for (var p = s.select("a[href*='/page/']"), g = 0; g < p.size(); g++) {
                                             var m = p.get(g).text().trim();
                                             if (m === "Cũ hơn" || m.indexOf("Older") === 0) {
@@ -2639,17 +2651,17 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
                                                 break;
                                             }
                                         } if (d) {
-                                        var y = d.attr("href") || "", S = $.exec(y);
-                                        if (S)
-                                            return S[1];
+                                        var y = d.attr("href") || "", w = $.exec(y);
+                                        if (w)
+                                            return w[1];
                                         if (y)
                                             return String(o);
-                                    } return null; } function F(s, l) {
-                                        return __awaiter(this, void 0, void 0, function () { var o, h, d, p, g, m; return __generator(this, function (_b) {
+                                    } return null; } function F(s, f) {
+                                        return __awaiter(this, void 0, void 0, function () { var o, b, d, p, g, m; return __generator(this, function (_b) {
                                             switch (_b.label) {
                                                 case 0:
-                                                    o = l ? parseInt(l) : 1, h = o <= 1 ? v + "/the-loai/" + s + "/" : v + "/the-loai/" + s + "/page/" + o + "/";
-                                                    return [4, te(h)];
+                                                    o = f ? parseInt(f) : 1, b = o <= 1 ? S + "/the-loai/" + s + "/" : S + "/the-loai/" + s + "/page/" + o + "/";
+                                                    return [4, te(b)];
                                                 case 1:
                                                     d = _b.sent();
                                                     if (!d || !d.ok)
@@ -2664,8 +2676,8 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
                                                     return [2, n.success(g, m)];
                                             }
                                         }); });
-                                    } var v, P, q, H, M, _, W, $; return __generator(this, function (_b) {
-                                        v = "https://truyenchu.net", P = "https://truyenchu.net", q = "https://www.truyenchu.net", H = { "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36", Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en;q=0.5", Referer: "https://truyenchu.net/" }, M = { headers: H }, _ = /url\(['""]?([^'""\)\s]+)['""]?\)/, W = /^\s*$|^javascript:|^#|\/wp-login|\/wp-admin|\/cart|\/checkout|\/account|\/contact|\/tag\//, $ = /\/page\/(\d+)\/?/;
+                                    } var S, P, L, H, M, _, W, $; return __generator(this, function (_b) {
+                                        S = "https://truyenchu.net", P = "https://truyenchu.net", L = "https://www.truyenchu.net", H = { "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36", Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en;q=0.5", Referer: "https://truyenchu.net/" }, M = { headers: H }, _ = /url\(['""]?([^'""\)\s]+)['""]?\)/, W = /^\s*$|^javascript:|^#|\/wp-login|\/wp-admin|\/cart|\/checkout|\/account|\/contact|\/tag\//, $ = /\/page\/(\d+)\/?/;
                                         return [2, typeof F == "function" ? F : void 0];
                                     }); });
                                 })()];
@@ -2677,41 +2689,41 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
     }, detail: function (e, t) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
-                return [2, (function (u, r, a, n, i, c, f, b, w, L, A, T, I, D, K, J, ne) {
+                return [2, (function (u, r, a, n, i, c, l, h, v, C, E, T, I, D, K, J, ne) {
                         return __awaiter(this, void 0, void 0, function () {
                             return __generator(this, function (_b) {
                                 switch (_b.label) {
                                     case 0: return [4, (function () {
                                             return __awaiter(this, void 0, void 0, function () {
-                                                function C(o, h) { var d = o.select(h); return d.size() > 0 ? d.get(0) : null; }
-                                                function Q(o) { return o.indexOf(v) === 0 ? o.substring(v.length) : o.indexOf(q) === 0 ? o.substring(q.length) : o; }
-                                                function fe(o) { return o ? (o.indexOf(q + "/") === 0 && o.indexOf(v) !== 0 && (o = v + o.substring(q.length)), o.indexOf("http") === 0 ? o : v + (o.charAt(0) === "/" ? o : "/" + o)) : v; }
+                                                function q(o, b) { var d = o.select(b); return d.size() > 0 ? d.get(0) : null; }
+                                                function Q(o) { return o.indexOf(S) === 0 ? o.substring(S.length) : o.indexOf(L) === 0 ? o.substring(L.length) : o; }
+                                                function fe(o) { return o ? (o.indexOf(L + "/") === 0 && o.indexOf(S) !== 0 && (o = S + o.substring(L.length)), o.indexOf("http") === 0 ? o : S + (o.charAt(0) === "/" ? o : "/" + o)) : S; }
                                                 function te(o) {
-                                                    return __awaiter(this, void 0, void 0, function () { var h, _b, _c; return __generator(this, function (_d) {
+                                                    return __awaiter(this, void 0, void 0, function () { var b, _b, _c; return __generator(this, function (_d) {
                                                         switch (_d.label) {
                                                             case 0: return [4, u(o, M)];
                                                             case 1:
-                                                                h = _d.sent();
-                                                                _b = h;
+                                                                b = _d.sent();
+                                                                _b = b;
                                                                 if (!_b) return [3, 4];
-                                                                _c = !h.ok && !(h.status >= 400 && h.status < 500);
+                                                                _c = !b.ok && !(b.status >= 400 && b.status < 500);
                                                                 if (!_c) return [3, 3];
                                                                 return [4, u(o, M)];
                                                             case 2:
-                                                                _c = (h = _d.sent());
+                                                                _c = (b = _d.sent());
                                                                 _d.label = 3;
                                                             case 3:
-                                                                _b = (_c, h);
+                                                                _b = (_c, b);
                                                                 _d.label = 4;
                                                             case 4: return [2, _b];
                                                         }
                                                     }); });
                                                 }
-                                                function X(o) { var h = C(o, "img[data-src], img[data-lazy], img[src]"); if (h) {
-                                                    var d = h.attr("data-src") || h.attr("data-lazy") || h.attr("src") || "";
+                                                function X(o) { var b = q(o, "img[data-src], img[data-lazy], img[src]"); if (b) {
+                                                    var d = b.attr("data-src") || b.attr("data-lazy") || b.attr("src") || "";
                                                     if (d && d.indexOf("data:") !== 0)
                                                         return d;
-                                                } var p = C(o, "[data-bg], [style*='background-image']"); if (p) {
+                                                } var p = q(o, "[data-bg], [style*='background-image']"); if (p) {
                                                     var g = p.attr("data-bg") || "";
                                                     if (!g) {
                                                         var m = _.exec(p.attr("style") || "");
@@ -2720,46 +2732,46 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
                                                     if (g)
                                                         return g;
                                                 } return ""; }
-                                                function ie(o) { var h = [], d = {}, p = o.select(".page-item-detail"); p.size() === 0 && (p = o.select(".manga__item, .c-image-hover, .row.row-eq-height .col-6")); for (var g = 0; g < p.size(); g++) {
-                                                    var m = p.get(g), y = C(m, ".post-title a[href], h3.h5 a[href], h3 a[href], h2 a[href]");
+                                                function ie(o) { var b = [], d = {}, p = o.select(".page-item-detail"); p.size() === 0 && (p = o.select(".manga__item, .c-image-hover, .row.row-eq-height .col-6")); for (var g = 0; g < p.size(); g++) {
+                                                    var m = p.get(g), y = q(m, ".post-title a[href], h3.h5 a[href], h3 a[href], h2 a[href]");
                                                     if (y) {
-                                                        var S = y.attr("href") || "";
-                                                        if (!(!S || W.test(S)) && !(S.indexOf("/the-loai/") !== -1 || S.indexOf("/tac-gia/") !== -1)) {
-                                                            var E = Q(S);
-                                                            if (!d[E]) {
-                                                                d[E] = !0;
+                                                        var w = y.attr("href") || "";
+                                                        if (!(!w || W.test(w)) && !(w.indexOf("/the-loai/") !== -1 || w.indexOf("/tac-gia/") !== -1)) {
+                                                            var A = Q(w);
+                                                            if (!d[A]) {
+                                                                d[A] = !0;
                                                                 var G = y.text().trim();
                                                                 if (G) {
                                                                     var ee = X(m);
-                                                                    ee && ee.indexOf("http") !== 0 && (ee = v + ee), h.push({ name: G, link: E, host: P, cover: ee, description: "" });
+                                                                    ee && ee.indexOf("http") !== 0 && (ee = S + ee), b.push({ name: G, link: A, host: P, cover: ee, description: "" });
                                                                 }
                                                             }
                                                         }
                                                     }
-                                                } return h; }
-                                                function se(o, h) { var d = h + 1, p = o.select("a[href*='/page/" + d + "/']"); if (p.size() > 0)
-                                                    return String(d); var g = C(o, ".nav-previous a, a[rel='prev']"); if (!g)
+                                                } return b; }
+                                                function se(o, b) { var d = b + 1, p = o.select("a[href*='/page/" + d + "/']"); if (p.size() > 0)
+                                                    return String(d); var g = q(o, ".nav-previous a, a[rel='prev']"); if (!g)
                                                     for (var m = o.select("a[href*='/page/']"), y = 0; y < m.size(); y++) {
-                                                        var S = m.get(y).text().trim();
-                                                        if (S === "Cũ hơn" || S.indexOf("Older") === 0) {
+                                                        var w = m.get(y).text().trim();
+                                                        if (w === "Cũ hơn" || w.indexOf("Older") === 0) {
                                                             g = m.get(y);
                                                             break;
                                                         }
                                                     } if (g) {
-                                                    var E = g.attr("href") || "", G = $.exec(E);
+                                                    var A = g.attr("href") || "", G = $.exec(A);
                                                     if (G)
                                                         return G[1];
-                                                    if (E)
+                                                    if (A)
                                                         return String(d);
                                                 } return null; }
-                                                function l(o) {
+                                                function f(o) {
                                                     return __awaiter(this, void 0, void 0, function () {
-                                                        var h, d, p, g, m, y, S, E, G, ee, b0, Wu, Vt, $u, Qu, jt, Xu, zt, p0, Zu, Ju, st, ct, Kt, _t, Yu, Wt, er, g0, ot, tr;
+                                                        var b, d, p, g, m, y, w, A, G, ee, b0, Wu, Vt, $u, Qu, jt, Xu, zt, p0, Zu, Ju, st, ct, Kt, _t, Yu, Wt, er, g0, ot, tr;
                                                         return __generator(this, function (_b) {
                                                             switch (_b.label) {
                                                                 case 0:
-                                                                    h = fe(o);
-                                                                    return [4, te(h)];
+                                                                    b = fe(o);
+                                                                    return [4, te(b)];
                                                                 case 1:
                                                                     d = _b.sent();
                                                                     if (!d || !d.ok)
@@ -2767,11 +2779,11 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
                                                                     p = d.html();
                                                                     if (!p)
                                                                         return [2, n.error("Không đọc được nội dung trang")];
-                                                                    g = C(p, "h1.entry-title, .post-title h1, h1.post-title, h1"), m = g ? g.text().trim() : "", y = "", S = C(p, ".summary_image img, .tab-summary img");
-                                                                    S && (y = S.attr("data-src") || S.attr("data-lazy") || S.attr("src") || ""), y && y.indexOf("http") !== 0 && (y = v + y);
-                                                                    E = "", G = "", ee = C(p, ".author-content a, .manga-authors a");
+                                                                    g = q(p, "h1.entry-title, .post-title h1, h1.post-title, h1"), m = g ? g.text().trim() : "", y = "", w = q(p, ".summary_image img, .tab-summary img");
+                                                                    w && (y = w.attr("data-src") || w.attr("data-lazy") || w.attr("src") || ""), y && y.indexOf("http") !== 0 && (y = S + y);
+                                                                    A = "", G = "", ee = q(p, ".author-content a, .manga-authors a");
                                                                     if (ee) {
-                                                                        E = ee.text().trim();
+                                                                        A = ee.text().trim();
                                                                         b0 = ee.attr("href") || "", Wu = F.exec(b0);
                                                                         Wu && (G = "author:" + Wu[1]);
                                                                     }
@@ -2783,7 +2795,7 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
                                                                             Zu && $u.push({ title: zt, input: Zu[1], script: "genrecontent.js" });
                                                                         }
                                                                     }
-                                                                    Ju = C(p, ".post-status .summary-content"), st = Ju ? Ju.text().trim() : "", ct = "", Kt = C(p, ".manga-excerpt, .summary__content, .description-summary");
+                                                                    Ju = q(p, ".post-status .summary-content"), st = Ju ? Ju.text().trim() : "", ct = "", Kt = q(p, ".manga-excerpt, .summary__content, .description-summary");
                                                                     if (Kt) {
                                                                         _t = Kt.select("p");
                                                                         if (_t.size() > 0) {
@@ -2798,16 +2810,16 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
                                                                     g0 = st.indexOf("Completed") === -1 && st.indexOf("Hoàn") === -1, ot = "";
                                                                     st && (ot += "Tình trạng: " + st), Vt.length > 0 && (ot += (ot ? "\n" : "") + "Thể loại: " + Vt.join(", "));
                                                                     tr = [];
-                                                                    return [2, (G && tr.push({ title: "Cùng tác giả: " + E, input: G, script: "suggest.js" }), n.success({ name: m, cover: y, host: P, author: E, description: ct, detail: ot, ongoing: g0, genres: $u, suggests: tr, comments: [] }))];
+                                                                    return [2, (G && tr.push({ title: "Cùng tác giả: " + A, input: G, script: "suggest.js" }), n.success({ name: m, cover: y, host: P, author: A, description: ct, detail: ot, ongoing: g0, genres: $u, suggests: tr, comments: [] }))];
                                                             }
                                                         });
                                                     });
                                                 }
-                                                var v, P, q, H, M, _, W, $, F, s;
+                                                var S, P, L, H, M, _, W, $, F, s;
                                                 return __generator(this, function (_b) {
-                                                    v = "https://truyenchu.net", P = "https://truyenchu.net", q = "https://www.truyenchu.net", H = { "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36", Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en;q=0.5", Referer: "https://truyenchu.net/" }, M = { headers: H }, _ = /url\(['""]?([^'""\)\s]+)['""]?\)/, W = /^\s*$|^javascript:|^#|\/wp-login|\/wp-admin|\/cart|\/checkout|\/account|\/contact|\/tag\//, $ = /\/page\/(\d+)\/?/;
+                                                    S = "https://truyenchu.net", P = "https://truyenchu.net", L = "https://www.truyenchu.net", H = { "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36", Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en;q=0.5", Referer: "https://truyenchu.net/" }, M = { headers: H }, _ = /url\(['""]?([^'""\)\s]+)['""]?\)/, W = /^\s*$|^javascript:|^#|\/wp-login|\/wp-admin|\/cart|\/checkout|\/account|\/contact|\/tag\//, $ = /\/page\/(\d+)\/?/;
                                                     F = /\/tac-gia\/([^\/]+)\/?/, s = /\/the-loai\/([^\/]+)\/?/;
-                                                    return [2, typeof l == "function" ? l : void 0];
+                                                    return [2, typeof f == "function" ? f : void 0];
                                                 });
                                             });
                                         })()];
@@ -2820,60 +2832,60 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
         });
     }, search: function (e, t) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, r, a, n, i, c, f, b, w, L, A, T, I, D, K, J, ne) {
+            return [2, (function (u, r, a, n, i, c, l, h, v, C, E, T, I, D, K, J, ne) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0: return [4, (function () {
-                                    return __awaiter(this, void 0, void 0, function () { function C(s, l) { var o = s.select(l); return o.size() > 0 ? o.get(0) : null; } function Q(s) { return s.indexOf(v) === 0 ? s.substring(v.length) : s.indexOf(q) === 0 ? s.substring(q.length) : s; } function fe(s) { return s ? (s.indexOf(q + "/") === 0 && s.indexOf(v) !== 0 && (s = v + s.substring(q.length)), s.indexOf("http") === 0 ? s : v + (s.charAt(0) === "/" ? s : "/" + s)) : v; } function te(s) {
-                                        return __awaiter(this, void 0, void 0, function () { var l, _b, _c; return __generator(this, function (_d) {
+                                    return __awaiter(this, void 0, void 0, function () { function q(s, f) { var o = s.select(f); return o.size() > 0 ? o.get(0) : null; } function Q(s) { return s.indexOf(S) === 0 ? s.substring(S.length) : s.indexOf(L) === 0 ? s.substring(L.length) : s; } function fe(s) { return s ? (s.indexOf(L + "/") === 0 && s.indexOf(S) !== 0 && (s = S + s.substring(L.length)), s.indexOf("http") === 0 ? s : S + (s.charAt(0) === "/" ? s : "/" + s)) : S; } function te(s) {
+                                        return __awaiter(this, void 0, void 0, function () { var f, _b, _c; return __generator(this, function (_d) {
                                             switch (_d.label) {
                                                 case 0: return [4, u(s, M)];
                                                 case 1:
-                                                    l = _d.sent();
-                                                    _b = l;
+                                                    f = _d.sent();
+                                                    _b = f;
                                                     if (!_b) return [3, 4];
-                                                    _c = !l.ok && !(l.status >= 400 && l.status < 500);
+                                                    _c = !f.ok && !(f.status >= 400 && f.status < 500);
                                                     if (!_c) return [3, 3];
                                                     return [4, u(s, M)];
                                                 case 2:
-                                                    _c = (l = _d.sent());
+                                                    _c = (f = _d.sent());
                                                     _d.label = 3;
                                                 case 3:
-                                                    _b = (_c, l);
+                                                    _b = (_c, f);
                                                     _d.label = 4;
                                                 case 4: return [2, _b];
                                             }
                                         }); });
-                                    } function X(s) { var l = C(s, "img[data-src], img[data-lazy], img[src]"); if (l) {
-                                        var o = l.attr("data-src") || l.attr("data-lazy") || l.attr("src") || "";
+                                    } function X(s) { var f = q(s, "img[data-src], img[data-lazy], img[src]"); if (f) {
+                                        var o = f.attr("data-src") || f.attr("data-lazy") || f.attr("src") || "";
                                         if (o && o.indexOf("data:") !== 0)
                                             return o;
-                                    } var h = C(s, "[data-bg], [style*='background-image']"); if (h) {
-                                        var d = h.attr("data-bg") || "";
+                                    } var b = q(s, "[data-bg], [style*='background-image']"); if (b) {
+                                        var d = b.attr("data-bg") || "";
                                         if (!d) {
-                                            var p = _.exec(h.attr("style") || "");
+                                            var p = _.exec(b.attr("style") || "");
                                             p && (d = p[1]);
                                         }
                                         if (d)
                                             return d;
-                                    } return ""; } function ie(s) { var l = [], o = {}, h = s.select(".page-item-detail"); h.size() === 0 && (h = s.select(".manga__item, .c-image-hover, .row.row-eq-height .col-6")); for (var d = 0; d < h.size(); d++) {
-                                        var p = h.get(d), g = C(p, ".post-title a[href], h3.h5 a[href], h3 a[href], h2 a[href]");
+                                    } return ""; } function ie(s) { var f = [], o = {}, b = s.select(".page-item-detail"); b.size() === 0 && (b = s.select(".manga__item, .c-image-hover, .row.row-eq-height .col-6")); for (var d = 0; d < b.size(); d++) {
+                                        var p = b.get(d), g = q(p, ".post-title a[href], h3.h5 a[href], h3 a[href], h2 a[href]");
                                         if (g) {
                                             var m = g.attr("href") || "";
                                             if (!(!m || W.test(m)) && !(m.indexOf("/the-loai/") !== -1 || m.indexOf("/tac-gia/") !== -1)) {
                                                 var y = Q(m);
                                                 if (!o[y]) {
                                                     o[y] = !0;
-                                                    var S = g.text().trim();
-                                                    if (S) {
-                                                        var E = X(p);
-                                                        E && E.indexOf("http") !== 0 && (E = v + E), l.push({ name: S, link: y, host: P, cover: E, description: "" });
+                                                    var w = g.text().trim();
+                                                    if (w) {
+                                                        var A = X(p);
+                                                        A && A.indexOf("http") !== 0 && (A = S + A), f.push({ name: w, link: y, host: P, cover: A, description: "" });
                                                     }
                                                 }
                                             }
                                         }
-                                    } return l; } function se(s, l) { var o = l + 1, h = s.select("a[href*='/page/" + o + "/']"); if (h.size() > 0)
-                                        return String(o); var d = C(s, ".nav-previous a, a[rel='prev']"); if (!d)
+                                    } return f; } function se(s, f) { var o = f + 1, b = s.select("a[href*='/page/" + o + "/']"); if (b.size() > 0)
+                                        return String(o); var d = q(s, ".nav-previous a, a[rel='prev']"); if (!d)
                                         for (var p = s.select("a[href*='/page/']"), g = 0; g < p.size(); g++) {
                                             var m = p.get(g).text().trim();
                                             if (m === "Cũ hơn" || m.indexOf("Older") === 0) {
@@ -2881,16 +2893,16 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
                                                 break;
                                             }
                                         } if (d) {
-                                        var y = d.attr("href") || "", S = $.exec(y);
-                                        if (S)
-                                            return S[1];
+                                        var y = d.attr("href") || "", w = $.exec(y);
+                                        if (w)
+                                            return w[1];
                                         if (y)
                                             return String(o);
-                                    } return null; } function F(s, l) {
-                                        return __awaiter(this, void 0, void 0, function () { var o, h, d, p, g, m, y; return __generator(this, function (_b) {
+                                    } return null; } function F(s, f) {
+                                        return __awaiter(this, void 0, void 0, function () { var o, b, d, p, g, m, y; return __generator(this, function (_b) {
                                             switch (_b.label) {
                                                 case 0:
-                                                    o = l ? parseInt(l) : 1, h = encodeURIComponent(s), d = o <= 1 ? v + "/?s=" + h + "&post_type=wp-manga" : v + "/page/" + o + "/?s=" + h + "&post_type=wp-manga";
+                                                    o = f ? parseInt(f) : 1, b = encodeURIComponent(s), d = o <= 1 ? S + "/?s=" + b + "&post_type=wp-manga" : S + "/page/" + o + "/?s=" + b + "&post_type=wp-manga";
                                                     return [4, te(d)];
                                                 case 1:
                                                     p = _b.sent();
@@ -2906,8 +2918,8 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
                                                     return [2, n.success(m, y)];
                                             }
                                         }); });
-                                    } var v, P, q, H, M, _, W, $; return __generator(this, function (_b) {
-                                        v = "https://truyenchu.net", P = "https://truyenchu.net", q = "https://www.truyenchu.net", H = { "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36", Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en;q=0.5", Referer: "https://truyenchu.net/" }, M = { headers: H }, _ = /url\(['""]?([^'""\)\s]+)['""]?\)/, W = /^\s*$|^javascript:|^#|\/wp-login|\/wp-admin|\/cart|\/checkout|\/account|\/contact|\/tag\//, $ = /\/page\/(\d+)\/?/;
+                                    } var S, P, L, H, M, _, W, $; return __generator(this, function (_b) {
+                                        S = "https://truyenchu.net", P = "https://truyenchu.net", L = "https://www.truyenchu.net", H = { "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36", Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en;q=0.5", Referer: "https://truyenchu.net/" }, M = { headers: H }, _ = /url\(['""]?([^'""\)\s]+)['""]?\)/, W = /^\s*$|^javascript:|^#|\/wp-login|\/wp-admin|\/cart|\/checkout|\/account|\/contact|\/tag\//, $ = /\/page\/(\d+)\/?/;
                                         return [2, typeof F == "function" ? F : void 0];
                                     }); });
                                 })()];
@@ -2918,35 +2930,35 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
         }); });
     }, toc: function (e, t) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, r, a, n, i, c, f, b, w, L, A, T, I, D, K, J, ne) {
+            return [2, (function (u, r, a, n, i, c, l, h, v, C, E, T, I, D, K, J, ne) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0: return [4, (function () {
-                                    return __awaiter(this, void 0, void 0, function () { function C(o, h) { var d = o.select(h); return d.size() > 0 ? d.get(0) : null; } function Q(o) { return o.indexOf(v) === 0 ? o.substring(v.length) : o.indexOf(q) === 0 ? o.substring(q.length) : o; } function fe(o) { return o ? (o.indexOf(q + "/") === 0 && o.indexOf(v) !== 0 && (o = v + o.substring(q.length)), o.indexOf("http") === 0 ? o : v + (o.charAt(0) === "/" ? o : "/" + o)) : v; } function te(o) {
-                                        return __awaiter(this, void 0, void 0, function () { var h, _b, _c; return __generator(this, function (_d) {
+                                    return __awaiter(this, void 0, void 0, function () { function q(o, b) { var d = o.select(b); return d.size() > 0 ? d.get(0) : null; } function Q(o) { return o.indexOf(S) === 0 ? o.substring(S.length) : o.indexOf(L) === 0 ? o.substring(L.length) : o; } function fe(o) { return o ? (o.indexOf(L + "/") === 0 && o.indexOf(S) !== 0 && (o = S + o.substring(L.length)), o.indexOf("http") === 0 ? o : S + (o.charAt(0) === "/" ? o : "/" + o)) : S; } function te(o) {
+                                        return __awaiter(this, void 0, void 0, function () { var b, _b, _c; return __generator(this, function (_d) {
                                             switch (_d.label) {
                                                 case 0: return [4, u(o, M)];
                                                 case 1:
-                                                    h = _d.sent();
-                                                    _b = h;
+                                                    b = _d.sent();
+                                                    _b = b;
                                                     if (!_b) return [3, 4];
-                                                    _c = !h.ok && !(h.status >= 400 && h.status < 500);
+                                                    _c = !b.ok && !(b.status >= 400 && b.status < 500);
                                                     if (!_c) return [3, 3];
                                                     return [4, u(o, M)];
                                                 case 2:
-                                                    _c = (h = _d.sent());
+                                                    _c = (b = _d.sent());
                                                     _d.label = 3;
                                                 case 3:
-                                                    _b = (_c, h);
+                                                    _b = (_c, b);
                                                     _d.label = 4;
                                                 case 4: return [2, _b];
                                             }
                                         }); });
-                                    } function X(o) { var h = C(o, "img[data-src], img[data-lazy], img[src]"); if (h) {
-                                        var d = h.attr("data-src") || h.attr("data-lazy") || h.attr("src") || "";
+                                    } function X(o) { var b = q(o, "img[data-src], img[data-lazy], img[src]"); if (b) {
+                                        var d = b.attr("data-src") || b.attr("data-lazy") || b.attr("src") || "";
                                         if (d && d.indexOf("data:") !== 0)
                                             return d;
-                                    } var p = C(o, "[data-bg], [style*='background-image']"); if (p) {
+                                    } var p = q(o, "[data-bg], [style*='background-image']"); if (p) {
                                         var g = p.attr("data-bg") || "";
                                         if (!g) {
                                             var m = _.exec(p.attr("style") || "");
@@ -2954,49 +2966,49 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
                                         }
                                         if (g)
                                             return g;
-                                    } return ""; } function ie(o) { var h = [], d = {}, p = o.select(".page-item-detail"); p.size() === 0 && (p = o.select(".manga__item, .c-image-hover, .row.row-eq-height .col-6")); for (var g = 0; g < p.size(); g++) {
-                                        var m = p.get(g), y = C(m, ".post-title a[href], h3.h5 a[href], h3 a[href], h2 a[href]");
+                                    } return ""; } function ie(o) { var b = [], d = {}, p = o.select(".page-item-detail"); p.size() === 0 && (p = o.select(".manga__item, .c-image-hover, .row.row-eq-height .col-6")); for (var g = 0; g < p.size(); g++) {
+                                        var m = p.get(g), y = q(m, ".post-title a[href], h3.h5 a[href], h3 a[href], h2 a[href]");
                                         if (y) {
-                                            var S = y.attr("href") || "";
-                                            if (!(!S || W.test(S)) && !(S.indexOf("/the-loai/") !== -1 || S.indexOf("/tac-gia/") !== -1)) {
-                                                var E = Q(S);
-                                                if (!d[E]) {
-                                                    d[E] = !0;
+                                            var w = y.attr("href") || "";
+                                            if (!(!w || W.test(w)) && !(w.indexOf("/the-loai/") !== -1 || w.indexOf("/tac-gia/") !== -1)) {
+                                                var A = Q(w);
+                                                if (!d[A]) {
+                                                    d[A] = !0;
                                                     var G = y.text().trim();
                                                     if (G) {
                                                         var ee = X(m);
-                                                        ee && ee.indexOf("http") !== 0 && (ee = v + ee), h.push({ name: G, link: E, host: P, cover: ee, description: "" });
+                                                        ee && ee.indexOf("http") !== 0 && (ee = S + ee), b.push({ name: G, link: A, host: P, cover: ee, description: "" });
                                                     }
                                                 }
                                             }
                                         }
-                                    } return h; } function se(o, h) { var d = h + 1, p = o.select("a[href*='/page/" + d + "/']"); if (p.size() > 0)
-                                        return String(d); var g = C(o, ".nav-previous a, a[rel='prev']"); if (!g)
+                                    } return b; } function se(o, b) { var d = b + 1, p = o.select("a[href*='/page/" + d + "/']"); if (p.size() > 0)
+                                        return String(d); var g = q(o, ".nav-previous a, a[rel='prev']"); if (!g)
                                         for (var m = o.select("a[href*='/page/']"), y = 0; y < m.size(); y++) {
-                                            var S = m.get(y).text().trim();
-                                            if (S === "Cũ hơn" || S.indexOf("Older") === 0) {
+                                            var w = m.get(y).text().trim();
+                                            if (w === "Cũ hơn" || w.indexOf("Older") === 0) {
                                                 g = m.get(y);
                                                 break;
                                             }
                                         } if (g) {
-                                        var E = g.attr("href") || "", G = $.exec(E);
+                                        var A = g.attr("href") || "", G = $.exec(A);
                                         if (G)
                                             return G[1];
-                                        if (E)
+                                        if (A)
                                             return String(d);
-                                    } return null; } function s(o, h, d) { for (var p = o.select(".wp-manga-chapter a[href], li.wp-manga-chapter a[href]"), g = 0; g < p.size(); g++) {
+                                    } return null; } function s(o, b, d) { for (var p = o.select(".wp-manga-chapter a[href], li.wp-manga-chapter a[href]"), g = 0; g < p.size(); g++) {
                                         var m = p.get(g), y = m.attr("href") || "";
-                                        if (!(!y || !F.test(y)) && (y.indexOf("http") !== 0 && (y = v + y), !h[y])) {
-                                            h[y] = !0;
-                                            var S = m.text().trim();
-                                            S && d.push({ name: S, url: y, host: P });
+                                        if (!(!y || !F.test(y)) && (y.indexOf("http") !== 0 && (y = S + y), !b[y])) {
+                                            b[y] = !0;
+                                            var w = m.text().trim();
+                                            w && d.push({ name: w, url: y, host: P });
                                         }
-                                    } } function l(o) {
-                                        return __awaiter(this, void 0, void 0, function () { var h, d, p, g, m, y, S, E; return __generator(this, function (_b) {
+                                    } } function f(o) {
+                                        return __awaiter(this, void 0, void 0, function () { var b, d, p, g, m, y, w, A; return __generator(this, function (_b) {
                                             switch (_b.label) {
                                                 case 0:
-                                                    h = fe(o), d = h.replace(/\/?$/, "/") + "ajax/chapters/";
-                                                    return [4, u(d, { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded", Referer: h, "User-Agent": H["User-Agent"] } })];
+                                                    b = fe(o), d = b.replace(/\/?$/, "/") + "ajax/chapters/";
+                                                    return [4, u(d, { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded", Referer: b, "User-Agent": H["User-Agent"] } })];
                                                 case 1:
                                                     p = _b.sent();
                                                     if (!p || !p.ok)
@@ -3007,15 +3019,15 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
                                                     m = [], y = {};
                                                     if (s(g, y, m), m.length === 0)
                                                         return [2, n.error("Không tìm thấy danh sách chương")];
-                                                    for (S = [], E = m.length - 1; E >= 0; E--)
-                                                        S.push(m[E]);
-                                                    return [2, n.success(S)];
+                                                    for (w = [], A = m.length - 1; A >= 0; A--)
+                                                        w.push(m[A]);
+                                                    return [2, n.success(w)];
                                             }
                                         }); });
-                                    } var v, P, q, H, M, _, W, $, F; return __generator(this, function (_b) {
-                                        v = "https://truyenchu.net", P = "https://truyenchu.net", q = "https://www.truyenchu.net", H = { "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36", Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en;q=0.5", Referer: "https://truyenchu.net/" }, M = { headers: H }, _ = /url\(['""]?([^'""\)\s]+)['""]?\)/, W = /^\s*$|^javascript:|^#|\/wp-login|\/wp-admin|\/cart|\/checkout|\/account|\/contact|\/tag\//, $ = /\/page\/(\d+)\/?/;
+                                    } var S, P, L, H, M, _, W, $, F; return __generator(this, function (_b) {
+                                        S = "https://truyenchu.net", P = "https://truyenchu.net", L = "https://www.truyenchu.net", H = { "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36", Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en;q=0.5", Referer: "https://truyenchu.net/" }, M = { headers: H }, _ = /url\(['""]?([^'""\)\s]+)['""]?\)/, W = /^\s*$|^javascript:|^#|\/wp-login|\/wp-admin|\/cart|\/checkout|\/account|\/contact|\/tag\//, $ = /\/page\/(\d+)\/?/;
                                         F = /\/truyen\/[^\/]+\/chuong/;
-                                        return [2, typeof l == "function" ? l : void 0];
+                                        return [2, typeof f == "function" ? f : void 0];
                                     }); });
                                 })()];
                             case 1: return [2, _b.sent()];
@@ -3025,60 +3037,60 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
         }); });
     }, chap: function (e, t) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, r, a, n, i, c, f, b, w, L, A, T, I, D, K, J, ne) {
+            return [2, (function (u, r, a, n, i, c, l, h, v, C, E, T, I, D, K, J, ne) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0: return [4, (function () {
-                                    return __awaiter(this, void 0, void 0, function () { function C(s, l) { var o = s.select(l); return o.size() > 0 ? o.get(0) : null; } function Q(s) { return s.indexOf(v) === 0 ? s.substring(v.length) : s.indexOf(q) === 0 ? s.substring(q.length) : s; } function fe(s) { return s ? (s.indexOf(q + "/") === 0 && s.indexOf(v) !== 0 && (s = v + s.substring(q.length)), s.indexOf("http") === 0 ? s : v + (s.charAt(0) === "/" ? s : "/" + s)) : v; } function te(s) {
-                                        return __awaiter(this, void 0, void 0, function () { var l, _b, _c; return __generator(this, function (_d) {
+                                    return __awaiter(this, void 0, void 0, function () { function q(s, f) { var o = s.select(f); return o.size() > 0 ? o.get(0) : null; } function Q(s) { return s.indexOf(S) === 0 ? s.substring(S.length) : s.indexOf(L) === 0 ? s.substring(L.length) : s; } function fe(s) { return s ? (s.indexOf(L + "/") === 0 && s.indexOf(S) !== 0 && (s = S + s.substring(L.length)), s.indexOf("http") === 0 ? s : S + (s.charAt(0) === "/" ? s : "/" + s)) : S; } function te(s) {
+                                        return __awaiter(this, void 0, void 0, function () { var f, _b, _c; return __generator(this, function (_d) {
                                             switch (_d.label) {
                                                 case 0: return [4, u(s, M)];
                                                 case 1:
-                                                    l = _d.sent();
-                                                    _b = l;
+                                                    f = _d.sent();
+                                                    _b = f;
                                                     if (!_b) return [3, 4];
-                                                    _c = !l.ok && !(l.status >= 400 && l.status < 500);
+                                                    _c = !f.ok && !(f.status >= 400 && f.status < 500);
                                                     if (!_c) return [3, 3];
                                                     return [4, u(s, M)];
                                                 case 2:
-                                                    _c = (l = _d.sent());
+                                                    _c = (f = _d.sent());
                                                     _d.label = 3;
                                                 case 3:
-                                                    _b = (_c, l);
+                                                    _b = (_c, f);
                                                     _d.label = 4;
                                                 case 4: return [2, _b];
                                             }
                                         }); });
-                                    } function X(s) { var l = C(s, "img[data-src], img[data-lazy], img[src]"); if (l) {
-                                        var o = l.attr("data-src") || l.attr("data-lazy") || l.attr("src") || "";
+                                    } function X(s) { var f = q(s, "img[data-src], img[data-lazy], img[src]"); if (f) {
+                                        var o = f.attr("data-src") || f.attr("data-lazy") || f.attr("src") || "";
                                         if (o && o.indexOf("data:") !== 0)
                                             return o;
-                                    } var h = C(s, "[data-bg], [style*='background-image']"); if (h) {
-                                        var d = h.attr("data-bg") || "";
+                                    } var b = q(s, "[data-bg], [style*='background-image']"); if (b) {
+                                        var d = b.attr("data-bg") || "";
                                         if (!d) {
-                                            var p = _.exec(h.attr("style") || "");
+                                            var p = _.exec(b.attr("style") || "");
                                             p && (d = p[1]);
                                         }
                                         if (d)
                                             return d;
-                                    } return ""; } function ie(s) { var l = [], o = {}, h = s.select(".page-item-detail"); h.size() === 0 && (h = s.select(".manga__item, .c-image-hover, .row.row-eq-height .col-6")); for (var d = 0; d < h.size(); d++) {
-                                        var p = h.get(d), g = C(p, ".post-title a[href], h3.h5 a[href], h3 a[href], h2 a[href]");
+                                    } return ""; } function ie(s) { var f = [], o = {}, b = s.select(".page-item-detail"); b.size() === 0 && (b = s.select(".manga__item, .c-image-hover, .row.row-eq-height .col-6")); for (var d = 0; d < b.size(); d++) {
+                                        var p = b.get(d), g = q(p, ".post-title a[href], h3.h5 a[href], h3 a[href], h2 a[href]");
                                         if (g) {
                                             var m = g.attr("href") || "";
                                             if (!(!m || W.test(m)) && !(m.indexOf("/the-loai/") !== -1 || m.indexOf("/tac-gia/") !== -1)) {
                                                 var y = Q(m);
                                                 if (!o[y]) {
                                                     o[y] = !0;
-                                                    var S = g.text().trim();
-                                                    if (S) {
-                                                        var E = X(p);
-                                                        E && E.indexOf("http") !== 0 && (E = v + E), l.push({ name: S, link: y, host: P, cover: E, description: "" });
+                                                    var w = g.text().trim();
+                                                    if (w) {
+                                                        var A = X(p);
+                                                        A && A.indexOf("http") !== 0 && (A = S + A), f.push({ name: w, link: y, host: P, cover: A, description: "" });
                                                     }
                                                 }
                                             }
                                         }
-                                    } return l; } function se(s, l) { var o = l + 1, h = s.select("a[href*='/page/" + o + "/']"); if (h.size() > 0)
-                                        return String(o); var d = C(s, ".nav-previous a, a[rel='prev']"); if (!d)
+                                    } return f; } function se(s, f) { var o = f + 1, b = s.select("a[href*='/page/" + o + "/']"); if (b.size() > 0)
+                                        return String(o); var d = q(s, ".nav-previous a, a[rel='prev']"); if (!d)
                                         for (var p = s.select("a[href*='/page/']"), g = 0; g < p.size(); g++) {
                                             var m = p.get(g).text().trim();
                                             if (m === "Cũ hơn" || m.indexOf("Older") === 0) {
@@ -3086,25 +3098,25 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
                                                 break;
                                             }
                                         } if (d) {
-                                        var y = d.attr("href") || "", S = $.exec(y);
-                                        if (S)
-                                            return S[1];
+                                        var y = d.attr("href") || "", w = $.exec(y);
+                                        if (w)
+                                            return w[1];
                                         if (y)
                                             return String(o);
                                     } return null; } function F(s) {
-                                        return __awaiter(this, void 0, void 0, function () { var l, o, h, d, p; return __generator(this, function (_b) {
+                                        return __awaiter(this, void 0, void 0, function () { var f, o, b, d, p; return __generator(this, function (_b) {
                                             switch (_b.label) {
                                                 case 0:
-                                                    l = fe(s);
-                                                    return [4, te(l)];
+                                                    f = fe(s);
+                                                    return [4, te(f)];
                                                 case 1:
                                                     o = _b.sent();
                                                     if (!o || !o.ok)
                                                         return [2, n.error("Không tải được chương")];
-                                                    h = o.html();
-                                                    if (!h)
+                                                    b = o.html();
+                                                    if (!b)
                                                         return [2, n.error("Không đọc được nội dung chương")];
-                                                    d = C(h, ".reading-content .text-left, .reading-content, .entry-content-single, .text-left");
+                                                    d = q(b, ".reading-content .text-left, .reading-content, .entry-content-single, .text-left");
                                                     if (!d)
                                                         return [2, n.error("Không tìm thấy nội dung chương")];
                                                     d.select("script, style, ins, noscript, iframe, button, .adsense, .adsbygoogle, .ad, [class*='ads']").remove(), d.select("a").remove();
@@ -3112,8 +3124,8 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
                                                     return [2, !p || p.trim().length === 0 ? n.error("Nội dung chương trống") : n.success(p)];
                                             }
                                         }); });
-                                    } var v, P, q, H, M, _, W, $; return __generator(this, function (_b) {
-                                        v = "https://truyenchu.net", P = "https://truyenchu.net", q = "https://www.truyenchu.net", H = { "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36", Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en;q=0.5", Referer: "https://truyenchu.net/" }, M = { headers: H }, _ = /url\(['""]?([^'""\)\s]+)['""]?\)/, W = /^\s*$|^javascript:|^#|\/wp-login|\/wp-admin|\/cart|\/checkout|\/account|\/contact|\/tag\//, $ = /\/page\/(\d+)\/?/;
+                                    } var S, P, L, H, M, _, W, $; return __generator(this, function (_b) {
+                                        S = "https://truyenchu.net", P = "https://truyenchu.net", L = "https://www.truyenchu.net", H = { "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36", Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en;q=0.5", Referer: "https://truyenchu.net/" }, M = { headers: H }, _ = /url\(['""]?([^'""\)\s]+)['""]?\)/, W = /^\s*$|^javascript:|^#|\/wp-login|\/wp-admin|\/cart|\/checkout|\/account|\/contact|\/tag\//, $ = /\/page\/(\d+)\/?/;
                                         return [2, typeof F == "function" ? F : void 0];
                                     }); });
                                 })()];
@@ -3124,21 +3136,21 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
         }); });
     }, suggest: function (e, t) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
-            return [2, (function (u, r, a, n, i, c, f, b, w, L, A, T, I, D, K, J, ne) {
+            return [2, (function (u, r, a, n, i, c, l, h, v, C, E, T, I, D, K, J, ne) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0: return [4, (function () {
-                                    return __awaiter(this, void 0, void 0, function () { function C(l, o) { var h = l.select(o); return h.size() > 0 ? h.get(0) : null; } function Q(l) { return l.indexOf(v) === 0 ? l.substring(v.length) : l.indexOf(q) === 0 ? l.substring(q.length) : l; } function fe(l) { return l ? (l.indexOf(q + "/") === 0 && l.indexOf(v) !== 0 && (l = v + l.substring(q.length)), l.indexOf("http") === 0 ? l : v + (l.charAt(0) === "/" ? l : "/" + l)) : v; } function te(l) {
+                                    return __awaiter(this, void 0, void 0, function () { function q(f, o) { var b = f.select(o); return b.size() > 0 ? b.get(0) : null; } function Q(f) { return f.indexOf(S) === 0 ? f.substring(S.length) : f.indexOf(L) === 0 ? f.substring(L.length) : f; } function fe(f) { return f ? (f.indexOf(L + "/") === 0 && f.indexOf(S) !== 0 && (f = S + f.substring(L.length)), f.indexOf("http") === 0 ? f : S + (f.charAt(0) === "/" ? f : "/" + f)) : S; } function te(f) {
                                         return __awaiter(this, void 0, void 0, function () { var o, _b, _c; return __generator(this, function (_d) {
                                             switch (_d.label) {
-                                                case 0: return [4, u(l, M)];
+                                                case 0: return [4, u(f, M)];
                                                 case 1:
                                                     o = _d.sent();
                                                     _b = o;
                                                     if (!_b) return [3, 4];
                                                     _c = !o.ok && !(o.status >= 400 && o.status < 500);
                                                     if (!_c) return [3, 3];
-                                                    return [4, u(l, M)];
+                                                    return [4, u(f, M)];
                                                 case 2:
                                                     _c = (o = _d.sent());
                                                     _d.label = 3;
@@ -3148,11 +3160,11 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
                                                 case 4: return [2, _b];
                                             }
                                         }); });
-                                    } function X(l) { var o = C(l, "img[data-src], img[data-lazy], img[src]"); if (o) {
-                                        var h = o.attr("data-src") || o.attr("data-lazy") || o.attr("src") || "";
-                                        if (h && h.indexOf("data:") !== 0)
-                                            return h;
-                                    } var d = C(l, "[data-bg], [style*='background-image']"); if (d) {
+                                    } function X(f) { var o = q(f, "img[data-src], img[data-lazy], img[src]"); if (o) {
+                                        var b = o.attr("data-src") || o.attr("data-lazy") || o.attr("src") || "";
+                                        if (b && b.indexOf("data:") !== 0)
+                                            return b;
+                                    } var d = q(f, "[data-bg], [style*='background-image']"); if (d) {
                                         var p = d.attr("data-bg") || "";
                                         if (!p) {
                                             var g = _.exec(d.attr("style") || "");
@@ -3160,44 +3172,44 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
                                         }
                                         if (p)
                                             return p;
-                                    } return ""; } function ie(l) { var o = [], h = {}, d = l.select(".page-item-detail"); d.size() === 0 && (d = l.select(".manga__item, .c-image-hover, .row.row-eq-height .col-6")); for (var p = 0; p < d.size(); p++) {
-                                        var g = d.get(p), m = C(g, ".post-title a[href], h3.h5 a[href], h3 a[href], h2 a[href]");
+                                    } return ""; } function ie(f) { var o = [], b = {}, d = f.select(".page-item-detail"); d.size() === 0 && (d = f.select(".manga__item, .c-image-hover, .row.row-eq-height .col-6")); for (var p = 0; p < d.size(); p++) {
+                                        var g = d.get(p), m = q(g, ".post-title a[href], h3.h5 a[href], h3 a[href], h2 a[href]");
                                         if (m) {
                                             var y = m.attr("href") || "";
                                             if (!(!y || W.test(y)) && !(y.indexOf("/the-loai/") !== -1 || y.indexOf("/tac-gia/") !== -1)) {
-                                                var S = Q(y);
-                                                if (!h[S]) {
-                                                    h[S] = !0;
-                                                    var E = m.text().trim();
-                                                    if (E) {
+                                                var w = Q(y);
+                                                if (!b[w]) {
+                                                    b[w] = !0;
+                                                    var A = m.text().trim();
+                                                    if (A) {
                                                         var G = X(g);
-                                                        G && G.indexOf("http") !== 0 && (G = v + G), o.push({ name: E, link: S, host: P, cover: G, description: "" });
+                                                        G && G.indexOf("http") !== 0 && (G = S + G), o.push({ name: A, link: w, host: P, cover: G, description: "" });
                                                     }
                                                 }
                                             }
                                         }
-                                    } return o; } function se(l, o) { var h = o + 1, d = l.select("a[href*='/page/" + h + "/']"); if (d.size() > 0)
-                                        return String(h); var p = C(l, ".nav-previous a, a[rel='prev']"); if (!p)
-                                        for (var g = l.select("a[href*='/page/']"), m = 0; m < g.size(); m++) {
+                                    } return o; } function se(f, o) { var b = o + 1, d = f.select("a[href*='/page/" + b + "/']"); if (d.size() > 0)
+                                        return String(b); var p = q(f, ".nav-previous a, a[rel='prev']"); if (!p)
+                                        for (var g = f.select("a[href*='/page/']"), m = 0; m < g.size(); m++) {
                                             var y = g.get(m).text().trim();
                                             if (y === "Cũ hơn" || y.indexOf("Older") === 0) {
                                                 p = g.get(m);
                                                 break;
                                             }
                                         } if (p) {
-                                        var S = p.attr("href") || "", E = $.exec(S);
-                                        if (E)
-                                            return E[1];
-                                        if (S)
-                                            return String(h);
-                                    } return null; } function s(l, o) {
-                                        return __awaiter(this, void 0, void 0, function () { var h, d, p, g, m, y, S; return __generator(this, function (_b) {
+                                        var w = p.attr("href") || "", A = $.exec(w);
+                                        if (A)
+                                            return A[1];
+                                        if (w)
+                                            return String(b);
+                                    } return null; } function s(f, o) {
+                                        return __awaiter(this, void 0, void 0, function () { var b, d, p, g, m, y, w; return __generator(this, function (_b) {
                                             switch (_b.label) {
                                                 case 0:
-                                                    h = o ? parseInt(o) : 1;
-                                                    if (l.indexOf("author:") !== 0)
+                                                    b = o ? parseInt(o) : 1;
+                                                    if (f.indexOf("author:") !== 0)
                                                         return [2, n.success([], null)];
-                                                    d = l.substring(7), p = h <= 1 ? v + "/tac-gia/" + d + "/" : v + "/tac-gia/" + d + "/page/" + h + "/";
+                                                    d = f.substring(7), p = b <= 1 ? S + "/tac-gia/" + d + "/" : S + "/tac-gia/" + d + "/page/" + b + "/";
                                                     return [4, te(p)];
                                                 case 1:
                                                     g = _b.sent();
@@ -3209,12 +3221,12 @@ var ye = { id: "truyenchu", name: "TruyenChu", source: "https://truyenchu.net", 
                                                     y = ie(m);
                                                     if (!y || y.length === 0)
                                                         return [2, n.success([], null)];
-                                                    S = se(m, h);
-                                                    return [2, n.success(y, S)];
+                                                    w = se(m, b);
+                                                    return [2, n.success(y, w)];
                                             }
                                         }); });
-                                    } var v, P, q, H, M, _, W, $, F; return __generator(this, function (_b) {
-                                        v = "https://truyenchu.net", P = "https://truyenchu.net", q = "https://www.truyenchu.net", H = { "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36", Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en;q=0.5", Referer: "https://truyenchu.net/" }, M = { headers: H }, _ = /url\(['""]?([^'""\)\s]+)['""]?\)/, W = /^\s*$|^javascript:|^#|\/wp-login|\/wp-admin|\/cart|\/checkout|\/account|\/contact|\/tag\//, $ = /\/page\/(\d+)\/?/;
+                                    } var S, P, L, H, M, _, W, $, F; return __generator(this, function (_b) {
+                                        S = "https://truyenchu.net", P = "https://truyenchu.net", L = "https://www.truyenchu.net", H = { "User-Agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36", Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "vi-VN,vi;q=0.9,en;q=0.5", Referer: "https://truyenchu.net/" }, M = { headers: H }, _ = /url\(['""]?([^'""\)\s]+)['""]?\)/, W = /^\s*$|^javascript:|^#|\/wp-login|\/wp-admin|\/cart|\/checkout|\/account|\/contact|\/tag\//, $ = /\/page\/(\d+)\/?/;
                                         F = /\/tac-gia\/([^\/]+)\/?/;
                                         return [2, typeof s == "function" ? s : void 0];
                                     }); });

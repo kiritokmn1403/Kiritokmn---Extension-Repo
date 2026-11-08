@@ -1952,7 +1952,16 @@ function Da(e, t) { var u = function (o) { return ({ getItem: function (h) { var
             case 4: return [2, new yu(N, S)];
         }
     }); });
-}, n.Http = { get: function (o) { return Ca(n, "GET", o); }, post: function (o) { return Ca(n, "POST", o); } }, n.Html = { parse: function (o, h) { return we(o, h || ""); }, clean: function (o, h) { return ka(o, h); } }, n.localStorage = u("ls:"), n.cacheStorage = u("cs:"), n.localConfig = { getItem: function (o) { return e.config(o); } }, n.localCookie = { setCookie: function (o) { e.storageSet(a, String(o).split(";")[0]); }, getCookie: function () { return e.storageGet(a) || ""; } }, n.sleep = function (o) { return new Promise(function (h) { return typeof setTimeout == "function" ? setTimeout(h, Math.min(Number(o) || 0, 1e4)) : h(); }); }; var s = function () {
+}, n.Http = { get: function (o) { return Ca(n, "GET", o); }, post: function (o) { return Ca(n, "POST", o); } }, n.Html = { parse: function (o, h) { return we(o, h || ""); }, clean: function (o, h) { return ka(o, h); } }, n.localStorage = u("ls:"), n.cacheStorage = u("cs:"), n.resumeStorage = { get: function (o) { try {
+        var h = e.storageGet("resume:" + o);
+        return h && parseFloat(h) || 0;
+    }
+    catch (p) {
+        return 0;
+    } }, set: function (o, h) { try {
+        e.storageSet("resume:" + o, String(Math.max(0, h || 0)));
+    }
+    catch (p) { } } }, n.localConfig = { getItem: function (o) { return e.config(o); } }, n.localCookie = { setCookie: function (o) { e.storageSet(a, String(o).split(";")[0]); }, getCookie: function () { return e.storageGet(a) || ""; } }, n.sleep = function (o) { return new Promise(function (h) { return typeof setTimeout == "function" ? setTimeout(h, Math.min(Number(o) || 0, 1e4)) : h(); }); }; var s = function () {
     var o = [];
     for (var _i = 0; _i < arguments.length; _i++) {
         o[_i] = arguments[_i];
@@ -2243,7 +2252,7 @@ var I = function (e) { return e == null ? "" : String(e); }, l0 = function (e) {
     };
     class_1.prototype.videos = function (t) {
         return __awaiter(this, void 0, void 0, function () {
-            var u, n, a, u_3, u_3_1, n, s, o, o_2, o_2_1, h, s_2, e_23_1;
+            var u, s, a, n, u_3, u_3_1, s, o, h, h_4, h_4_1, p, m, x, T, o_2, e_23_1;
             var e_23, _b, e_24, _c;
             var _this = this;
             return __generator(this, function (_d) {
@@ -2253,11 +2262,11 @@ var I = function (e) { return e == null ? "" : String(e); }, l0 = function (e) {
                         if (!this.has("chap")) return [3, 2];
                         return [4, this.run("chap", t)];
                     case 1:
-                        n = (_d.sent()).data;
-                        Array.isArray(n) && n.length && (u = n.map(function (s) { return typeof s == "string" ? { title: "Server", data: s } : { title: I(s.title || s.name || "Server"), data: I(s.data || s.url || s.link) }; }));
+                        s = (_d.sent()).data;
+                        Array.isArray(s) && s.length && (u = s.map(function (o) { return typeof o == "string" ? { title: "Server", data: o } : { title: I(o.title || o.name || "Server"), data: I(o.data || o.url || o.link) }; }));
                         _d.label = 2;
                     case 2:
-                        a = [];
+                        a = this.env && this.env.resumeStorage ? this.env.resumeStorage.get(t) : 0, n = [];
                         _d.label = 3;
                     case 3:
                         _d.trys.push([3, 10, 11, 12]);
@@ -2265,30 +2274,33 @@ var I = function (e) { return e == null ? "" : String(e); }, l0 = function (e) {
                         _d.label = 4;
                     case 4:
                         if (!!u_3_1.done) return [3, 9];
-                        n = u_3_1.value;
+                        s = u_3_1.value;
                         _d.label = 5;
                     case 5:
                         _d.trys.push([5, 7, , 8]);
-                        return [4, this.run("track", n.data)];
+                        return [4, this.run("track", s.data)];
                     case 6:
-                        s = (_d.sent()).data || {}, o = Array.isArray(s) ? s : [s];
+                        o = (_d.sent()).data || {}, h = Array.isArray(o) ? o : [o];
                         try {
-                            for (o_2 = (e_24 = void 0, __values(o)), o_2_1 = o_2.next(); !o_2_1.done; o_2_1 = o_2.next()) {
-                                h = o_2_1.value;
-                                !h || !h.data || h.type !== "webview" && a.push({ url: bt(h.host || this.base + "/", h.data), quality: n.title + (h.quality ? " " + h.quality : ""), headers: h.headers || { Referer: this.base + "/" }, subtitles: (h.subtitles || (h.subtitle ? [{ data: h.subtitle, label: "Sub" }] : [])).map(function (p) { return ({ file: bt(_this.base + "/", p.data || p.file), label: I(p.label || p.language || "Sub") }); }), mimeType: I(h.mimeType) });
+                            for (h_4 = (e_24 = void 0, __values(h)), h_4_1 = h_4.next(); !h_4_1.done; h_4_1 = h_4.next()) {
+                                p = h_4_1.value;
+                                if (!p || !p.data || p.type === "webview")
+                                    continue;
+                                m = bt(p.host || this.base + "/", p.data), x = a > 0 && !p.data.includes("#t=") && !p.data.includes("&t=") ? (p.data.includes("#") ? "&" : "#") + "t=" + Math.floor(a) : "", T = a > 0 ? " [Tiếp tục " + Math.floor(a / 60) + ":" + ("0" + Math.floor(a % 60)).slice(-2) + "]" : "";
+                                n.push({ url: m + x, rawUrl: m, resumeSec: a, quality: s.title + (p.quality ? " " + p.quality : "") + T, headers: p.headers || { Referer: this.base + "/" }, subtitles: (p.subtitles || (p.subtitle ? [{ data: p.subtitle, label: "Sub" }] : [])).map(function (v) { return ({ file: bt(_this.base + "/", v.data || v.file), label: I(v.label || v.language || "Sub") }); }), mimeType: I(p.mimeType) });
                             }
                         }
                         catch (e_24_1) { e_24 = { error: e_24_1 }; }
                         finally {
                             try {
-                                if (o_2_1 && !o_2_1.done && (_c = o_2.return)) _c.call(o_2);
+                                if (h_4_1 && !h_4_1.done && (_c = h_4.return)) _c.call(h_4);
                             }
                             finally { if (e_24) throw e_24.error; }
                         }
                         return [3, 8];
                     case 7:
-                        s_2 = _d.sent();
-                        this.host.log && this.host.log("track " + n.title + ": " + s_2.message);
+                        o_2 = _d.sent();
+                        this.host.log && this.host.log("track " + s.title + ": " + o_2.message);
                         return [3, 8];
                     case 8:
                         u_3_1 = u_3.next();
@@ -2304,7 +2316,7 @@ var I = function (e) { return e == null ? "" : String(e); }, l0 = function (e) {
                         }
                         finally { if (e_23) throw e_23.error; }
                         return [7];
-                    case 12: return [2, a];
+                    case 12: return [2, n];
                 }
             });
         });
@@ -2335,7 +2347,7 @@ function qt(e, t) {
         }
     }); });
 }
-var ut = { id: "gaumeoteam", name: "Gấu Mèo Team", source: "https://gaumeoteam.com", type: "novel", locale: "vi", nsfw: !1, version: 1, config: { DOMAIN: { title: "Tên miền", subtitle: "Đổi khi trang đổi tên miền", default: "https://gaumeoteam.com", values: ["https://gaumeoteam.com"], mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://gaumeoteam.com" }, itemType: 2, lnId: "kiritokmn.gaumeoteam", lnIcon: "", lnVersion: "1.2.1" }, Ia = { home: function (e, t) {
+var ut = { id: "gaumeoteam", name: "Gấu Mèo Team", source: "https://gaumeoteam.com", type: "novel", locale: "vi", nsfw: !1, version: 1, config: { DOMAIN: { title: "Tên miền", subtitle: "Đổi khi trang đổi tên miền", default: "https://gaumeoteam.com", values: ["https://gaumeoteam.com"], mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://gaumeoteam.com" }, itemType: 2, short: !1, shorts: !1, lnId: "kiritokmn.gaumeoteam", lnIcon: "", lnVersion: "1.3.1" }, Ia = { home: function (e, t) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
                 return [2, (function (u, a, n, s, o, h, p, m, x, T, v, S, N, C, F, z, K) {

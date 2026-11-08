@@ -444,8 +444,8 @@ var ju = new Set(["input", "option", "optgroup", "select", "button", "datalist",
         } this.isVoidElement(e) || (this.stack.unshift(e), this.htmlMode && (i0.has(e) ? this.foreignContext.unshift(!0) : n0.has(e) && this.foreignContext.unshift(!1))), (i = (a = this.cbs).onopentagname) === null || i === void 0 || i.call(a, e), this.cbs.onopentag && (this.attribs = {}); };
     ee.prototype.endOpenTag = function (e) { var t, r; this.startIndex = this.openTagStart, this.attribs && ((r = (t = this.cbs).onopentag) === null || r === void 0 || r.call(t, this.tagname, this.attribs, e), this.attribs = null), this.cbs.onclosetag && this.isVoidElement(this.tagname) && this.cbs.onclosetag(this.tagname, !0), this.tagname = ""; };
     ee.prototype.onopentagend = function (e) { this.endIndex = e, this.endOpenTag(!1), this.startIndex = e + 1; };
-    ee.prototype.onclosetag = function (e, t) { var r, a, i, n, s, c, o, d; this.endIndex = t; var v = this.getSlice(e, t); if (this.lowerCaseTagNames && (v = v.toLowerCase()), this.htmlMode && (i0.has(v) || n0.has(v)) && this.foreignContext.shift(), this.isVoidElement(v))
-        this.htmlMode && v === "br" && ((n = (i = this.cbs).onopentagname) === null || n === void 0 || n.call(i, "br"), (c = (s = this.cbs).onopentag) === null || c === void 0 || c.call(s, "br", {}, !0), (d = (o = this.cbs).onclosetag) === null || d === void 0 || d.call(o, "br", !1));
+    ee.prototype.onclosetag = function (e, t) { var r, a, i, n, s, c, o, f; this.endIndex = t; var v = this.getSlice(e, t); if (this.lowerCaseTagNames && (v = v.toLowerCase()), this.htmlMode && (i0.has(v) || n0.has(v)) && this.foreignContext.shift(), this.isVoidElement(v))
+        this.htmlMode && v === "br" && ((n = (i = this.cbs).onopentagname) === null || n === void 0 || n.call(i, "br"), (c = (s = this.cbs).onopentag) === null || c === void 0 || c.call(s, "br", {}, !0), (f = (o = this.cbs).onclosetag) === null || f === void 0 || f.call(o, "br", !1));
     else {
         var p = this.stack.indexOf(v);
         if (p !== -1)
@@ -472,7 +472,7 @@ var ju = new Set(["input", "option", "optgroup", "select", "button", "datalist",
         this.cbs.onprocessinginstruction("?".concat(a), "?".concat(r));
     } this.startIndex = t + 1; };
     ee.prototype.oncomment = function (e, t, r) { var a, i, n, s; this.endIndex = t, (i = (a = this.cbs).oncomment) === null || i === void 0 || i.call(a, this.getSlice(e, t - r)), (s = (n = this.cbs).oncommentend) === null || s === void 0 || s.call(n), this.startIndex = t + 1; };
-    ee.prototype.oncdata = function (e, t, r) { var a, i, n, s, c, o, d, v, p, g; this.endIndex = t; var S = this.getSlice(e, t - r); !this.htmlMode || this.options.recognizeCDATA ? ((i = (a = this.cbs).oncdatastart) === null || i === void 0 || i.call(a), (s = (n = this.cbs).ontext) === null || s === void 0 || s.call(n, S), (o = (c = this.cbs).oncdataend) === null || o === void 0 || o.call(c)) : ((v = (d = this.cbs).oncomment) === null || v === void 0 || v.call(d, "[CDATA[".concat(S, "]]")), (g = (p = this.cbs).oncommentend) === null || g === void 0 || g.call(p)), this.startIndex = t + 1; };
+    ee.prototype.oncdata = function (e, t, r) { var a, i, n, s, c, o, f, v, p, g; this.endIndex = t; var S = this.getSlice(e, t - r); !this.htmlMode || this.options.recognizeCDATA ? ((i = (a = this.cbs).oncdatastart) === null || i === void 0 || i.call(a), (s = (n = this.cbs).ontext) === null || s === void 0 || s.call(n, S), (o = (c = this.cbs).oncdataend) === null || o === void 0 || o.call(c)) : ((v = (f = this.cbs).oncomment) === null || v === void 0 || v.call(f, "[CDATA[".concat(S, "]]")), (g = (p = this.cbs).oncommentend) === null || g === void 0 || g.call(p)), this.startIndex = t + 1; };
     ee.prototype.onend = function () { var e, t; if (this.cbs.onclosetag) {
         this.endIndex = this.startIndex;
         for (var r = 0; r < this.stack.length; r++)
@@ -766,17 +766,17 @@ var Qu = gt;
 function Or(u, e) { switch (u.type) {
     case et: return gt(u.children, e);
     case ot:
-    case rt: return Fr(u);
+    case rt: return Br(u);
     case at: return Gr(u);
     case ct: return Hr(u);
     case it:
     case nt:
-    case st: return Br(u, e);
+    case st: return Fr(u, e);
     case tt: return Pr(u, e);
 } }
 var Mr = new Set(["mi", "mo", "mn", "ms", "mtext", "annotation-xml", "foreignObject", "desc", "title"]), Rr = new Set(["svg", "math"]);
-function Br(u, e) { var t; e.xmlMode === "foreign" && (u.name = (t = g0.get(u.name)) !== null && t !== void 0 ? t : u.name, u.parent && Mr.has(u.parent.name) && (e = Du(du({}, e), { xmlMode: !1 }))), !e.xmlMode && Rr.has(u.name) && (e = Du(du({}, e), { xmlMode: "foreign" })); var r = "<".concat(u.name), a = Ur(u.attribs, e); return a && (r += " ".concat(a)), u.children.length === 0 && (e.xmlMode ? e.selfClosingTags !== !1 : e.selfClosingTags && x0.has(u.name)) ? (e.xmlMode || (r += " "), r += "/>") : (r += ">", u.children.length > 0 && (r += gt(u.children, e)), (e.xmlMode || !x0.has(u.name)) && (r += "</".concat(u.name, ">"))), r; }
-function Fr(u) { return "<".concat(u.data, ">"); }
+function Fr(u, e) { var t; e.xmlMode === "foreign" && (u.name = (t = g0.get(u.name)) !== null && t !== void 0 ? t : u.name, u.parent && Mr.has(u.parent.name) && (e = Du(du({}, e), { xmlMode: !1 }))), !e.xmlMode && Rr.has(u.name) && (e = Du(du({}, e), { xmlMode: "foreign" })); var r = "<".concat(u.name), a = Ur(u.attribs, e); return a && (r += " ".concat(a)), u.children.length === 0 && (e.xmlMode ? e.selfClosingTags !== !1 : e.selfClosingTags && x0.has(u.name)) ? (e.xmlMode || (r += " "), r += "/>") : (r += ">", u.children.length > 0 && (r += gt(u.children, e)), (e.xmlMode || !x0.has(u.name)) && (r += "</".concat(u.name, ">"))), r; }
+function Br(u) { return "<".concat(u.data, ">"); }
 function Pr(u, e) { var t; var r = u.data || ""; return ((t = e.encodeEntities) !== null && t !== void 0 ? t : e.decodeEntities) !== !1 && !(!e.xmlMode && u.parent && Ir.has(u.parent.name)) && (r = e.xmlMode || e.encodeEntities !== "utf8" ? oe(r) : Te(r)), r; }
 function Hr(u) { return "<![CDATA[".concat(u.children[0].data, "]]>"); }
 function Gr(u) { return "<!--".concat(u.data, "-->"); }
@@ -942,10 +942,10 @@ function A0(u, e) { var t = [], r = []; if (u === e)
     t.unshift(a), a = a.parent; for (a = X(e) ? e : e.parent; a;)
     r.unshift(a), a = a.parent; var i = Math.min(t.length, r.length), n = 0; for (; n < i && t[n] === r[n];)
     n++; if (n === 0)
-    return ou.DISCONNECTED; var s = t[n - 1], c = s.children, o = t[n], d = r[n]; return c.indexOf(o) > c.indexOf(d) ? s === e ? ou.FOLLOWING | ou.CONTAINED_BY : ou.FOLLOWING : s === u ? ou.PRECEDING | ou.CONTAINS : ou.PRECEDING; }
+    return ou.DISCONNECTED; var s = t[n - 1], c = s.children, o = t[n], f = r[n]; return c.indexOf(o) > c.indexOf(f) ? s === e ? ou.FOLLOWING | ou.CONTAINED_BY : ou.FOLLOWING : s === u ? ou.PRECEDING | ou.CONTAINS : ou.PRECEDING; }
 function wt(u) { return u = u.filter(function (e, t, r) { return !r.includes(e, t + 1); }), u.sort(function (e, t) { var r = A0(e, t); return r & ou.PRECEDING ? -1 : r & ou.FOLLOWING ? 1 : 0; }), u; }
 function At(u) { var e = De(oa, u); return e ? e.name === "feed" ? ia(e) : na(e) : null; }
-function ia(u) { var e; var t = u.children, r = { type: "atom", items: Ou("entry", t).map(function (n) { var s; var c = n.children, o = { media: E0(c) }; uu(o, "id", "id", c), uu(o, "title", "title", c); var d = (s = De("link", c)) === null || s === void 0 ? void 0 : s.attribs.href; d && (o.link = d); var v = qu("summary", c) || qu("content", c); v && (o.description = v); var p = qu("updated", c); return p && (o.pubDate = new Date(p)), o; }) }; uu(r, "id", "id", t), uu(r, "title", "title", t); var a = (e = De("link", t)) === null || e === void 0 ? void 0 : e.attribs.href; a && (r.link = a), uu(r, "description", "subtitle", t); var i = qu("updated", t); return i && (r.updated = new Date(i)), uu(r, "author", "email", t, !0), r; }
+function ia(u) { var e; var t = u.children, r = { type: "atom", items: Ou("entry", t).map(function (n) { var s; var c = n.children, o = { media: E0(c) }; uu(o, "id", "id", c), uu(o, "title", "title", c); var f = (s = De("link", c)) === null || s === void 0 ? void 0 : s.attribs.href; f && (o.link = f); var v = qu("summary", c) || qu("content", c); v && (o.description = v); var p = qu("updated", c); return p && (o.pubDate = new Date(p)), o; }) }; uu(r, "id", "id", t), uu(r, "title", "title", t); var a = (e = De("link", t)) === null || e === void 0 ? void 0 : e.attribs.href; a && (r.link = a), uu(r, "description", "subtitle", t); var i = qu("updated", t); return i && (r.updated = new Date(i)), uu(r, "author", "email", t, !0), r; }
 function na(u) { var e, t; var r = (t = (e = De("channel", u.children)) === null || e === void 0 ? void 0 : e.children) !== null && t !== void 0 ? t : [], a = { type: u.name.substr(0, 3), id: "", items: Ou("item", u.children).map(function (n) { var s = n.children, c = { media: E0(s) }; uu(c, "id", "guid", s), uu(c, "title", "title", s), uu(c, "link", "link", s), uu(c, "description", "description", s); var o = qu("pubDate", s) || qu("dc:date", s); return o && (c.pubDate = new Date(o)), c; }) }; uu(a, "title", "title", r), uu(a, "link", "link", r), uu(a, "description", "description", r); var i = qu("lastBuildDate", r); return i && (a.updated = new Date(i)), uu(a, "author", "managingEditor", r, !0), a; }
 var sa = ["url", "type", "lang"], ca = ["fileSize", "bitrate", "framerate", "samplingrate", "channels", "duration", "height", "width"];
 function E0(u) { return Ou("media:content", u).map(function (e) {
@@ -993,9 +993,9 @@ function oa(u) { return u === "rss" || u === "feed" || u === "rdf:RDF"; }
 function T0(u, e) { var t = new Ku(void 0, e); return new ee(t, e).end(u), t.root; }
 var m;
 (function (u) { u.Attribute = "attribute", u.Pseudo = "pseudo", u.PseudoElement = "pseudo-element", u.Tag = "tag", u.Universal = "universal", u.Adjacent = "adjacent", u.Child = "child", u.Descendant = "descendant", u.Parent = "parent", u.Sibling = "sibling", u.ColumnCombinator = "column-combinator"; })(m || (m = {}));
-var B;
-(function (u) { u.Any = "any", u.Element = "element", u.End = "end", u.Equals = "equals", u.Exists = "exists", u.Hyphen = "hyphen", u.Not = "not", u.Start = "start"; })(B || (B = {}));
-var N0 = /^[^\\#]?(?:\\(?:[\da-f]{1,6}\s?|.)|[\w\-\u00b0-\uFFFF])+/, la = /\\([\da-f]{1,6}\s?|(\s)|.)/gi, fa = new Map([[126, B.Element], [94, B.Start], [36, B.End], [42, B.Any], [33, B.Not], [124, B.Hyphen]]), da = new Set(["has", "not", "matches", "is", "where", "host", "host-context"]);
+var F;
+(function (u) { u.Any = "any", u.Element = "element", u.End = "end", u.Equals = "equals", u.Exists = "exists", u.Hyphen = "hyphen", u.Not = "not", u.Start = "start"; })(F || (F = {}));
+var N0 = /^[^\\#]?(?:\\(?:[\da-f]{1,6}\s?|.)|[\w\-\u00b0-\uFFFF])+/, la = /\\([\da-f]{1,6}\s?|(\s)|.)/gi, fa = new Map([[126, F.Element], [94, F.Start], [36, F.End], [42, F.Any], [33, F.Not], [124, F.Hyphen]]), da = new Set(["has", "not", "matches", "is", "where", "host", "host-context"]);
 function Mu(u) { switch (u.type) {
     case m.Adjacent:
     case m.Child:
@@ -1021,7 +1021,7 @@ function q0(u, e, t) { var r = []; function a(p) { var g = e.slice(t + p).match(
     throw new Error("Did not expect successive traversals."); } function o(p) { if (r.length > 0 && r[r.length - 1].type === m.Descendant) {
     r[r.length - 1].type = p;
     return;
-} c(), r.push({ type: p }); } function d(p, g) { r.push({ type: m.Attribute, name: p, action: g, value: a(1), namespace: null, ignoreCase: "quirks" }); } function v() { if (r.length && r[r.length - 1].type === m.Descendant && r.pop(), r.length === 0)
+} c(), r.push({ type: p }); } function f(p, g) { r.push({ type: m.Attribute, name: p, action: g, value: a(1), namespace: null, ignoreCase: "quirks" }); } function v() { if (r.length && r[r.length - 1].type === m.Descendant && r.pop(), r.length === 0)
     throw new Error("Empty sub-selector"); u.push(r); } if (i(0), e.length === t)
     return t; u: for (; t < e.length;) {
     var p = e.charCodeAt(t);
@@ -1051,25 +1051,25 @@ function q0(u, e, t) { var r = []; function a(p) { var g = e.slice(t + p).match(
             break;
         }
         case 46: {
-            d("class", B.Element);
+            f("class", F.Element);
             break;
         }
         case 35: {
-            d("id", B.Equals);
+            f("id", F.Equals);
             break;
         }
         case 91: {
             i(1);
             var g = void 0, S = null;
             e.charCodeAt(t) === 124 ? g = a(1) : e.startsWith("*|", t) ? (S = "*", g = a(2)) : (g = a(0), e.charCodeAt(t) === 124 && e.charCodeAt(t + 1) !== 61 && (S = g, g = a(1))), i(0);
-            var A = B.Exists, K = fa.get(e.charCodeAt(t));
+            var A = F.Exists, K = fa.get(e.charCodeAt(t));
             if (K) {
                 if (A = K, e.charCodeAt(t + 1) !== 61)
                     throw new Error("Expected `=`");
                 i(2);
             }
             else
-                e.charCodeAt(t) === 61 && (A = B.Equals, i(1));
+                e.charCodeAt(t) === 61 && (A = F.Equals, i(1));
             var Z = "", fu = null;
             if (A !== "exists") {
                 if (Et(e.charCodeAt(t))) {
@@ -1154,7 +1154,7 @@ var Mt = Uu(Lu(), 1);
 var Au = Uu(Lu(), 1);
 var L0 = new Map([[m.Universal, 50], [m.Tag, 30], [m.Attribute, 1], [m.Pseudo, 0]]);
 function fe(u) { return !L0.has(u.type); }
-var pa = new Map([[B.Exists, 10], [B.Equals, 8], [B.Not, 7], [B.Start, 6], [B.End, 6], [B.Any, 5]]);
+var pa = new Map([[F.Exists, 10], [F.Equals, 8], [F.Not, 7], [F.Start, 6], [F.End, 6], [F.Any, 5]]);
 function Tt(u) { var e = u.map(I0); for (var t = 1; t < u.length; t++) {
     var r = e[t];
     if (!(r < 0))
@@ -1163,7 +1163,7 @@ function Tt(u) { var e = u.map(I0); for (var t = 1; t < u.length; t++) {
             u[a + 1] = u[a], u[a] = i, e[a + 1] = e[a], e[a] = r;
         }
 } }
-function I0(u) { var e, t; var r = (e = L0.get(u.type)) !== null && e !== void 0 ? e : -1; return u.type === m.Attribute ? (r = (t = pa.get(u.action)) !== null && t !== void 0 ? t : 4, u.action === B.Equals && u.name === "id" && (r = 9), u.ignoreCase && (r >>= 1)) : u.type === m.Pseudo && (u.data ? u.name === "has" || u.name === "contains" ? r = 0 : Array.isArray(u.data) ? (r = Math.min.apply(Math, __spreadArray([], __read(u.data.map(function (a) { return Math.min.apply(Math, __spreadArray([], __read(a.map(I0)), false)); })), false)), r < 0 && (r = 0)) : r = 2 : r = 3), r; }
+function I0(u) { var e, t; var r = (e = L0.get(u.type)) !== null && e !== void 0 ? e : -1; return u.type === m.Attribute ? (r = (t = pa.get(u.action)) !== null && t !== void 0 ? t : 4, u.action === F.Equals && u.name === "id" && (r = 9), u.ignoreCase && (r >>= 1)) : u.type === m.Pseudo && (u.data ? u.name === "has" || u.name === "contains" ? r = 0 : Array.isArray(u.data) ? (r = Math.min.apply(Math, __spreadArray([], __read(u.data.map(function (a) { return Math.min.apply(Math, __spreadArray([], __read(a.map(I0)), false)); })), false)), r < 0 && (r = 0)) : r = 2 : r = 3), r; }
 var de = Uu(Lu(), 1), ga = /[-[\]{}()*+?.,\\^$|#\s]/g;
 function D0(u) { return u.replace(ga, "\\$&"); }
 var ma = new Set(["accept", "accept-charset", "align", "alink", "axis", "bgcolor", "charset", "checked", "clear", "codetype", "color", "compact", "declare", "defer", "dir", "direction", "disabled", "enctype", "face", "frame", "hreflang", "http-equiv", "lang", "language", "link", "media", "method", "multiple", "nohref", "noresize", "noshade", "nowrap", "readonly", "rel", "rev", "rules", "scope", "scrolling", "selected", "shape", "target", "text", "type", "valign", "valuetype", "vlink"]);
@@ -1215,19 +1215,19 @@ var Ju = { contains: function (u, e, _a) {
         var t = _a.adapter, r = _a.equals;
         var a = Zu(e);
         return a === eu.default.falseFunc ? eu.default.falseFunc : a === eu.default.trueFunc ? Ue(u, t) : function (n) { var s = t.getSiblings(n), c = 0; for (var o = 0; o < s.length; o++) {
-            var d = s[o];
-            if (r(n, d))
+            var f = s[o];
+            if (r(n, f))
                 break;
-            t.isTag(d) && t.getName(d) === t.getName(n) && c++;
+            t.isTag(f) && t.getName(f) === t.getName(n) && c++;
         } return a(c) && u(n); };
     }, "nth-last-of-type": function (u, e, _a) {
         var t = _a.adapter, r = _a.equals;
         var a = Zu(e);
         return a === eu.default.falseFunc ? eu.default.falseFunc : a === eu.default.trueFunc ? Ue(u, t) : function (n) { var s = t.getSiblings(n), c = 0; for (var o = s.length - 1; o >= 0; o--) {
-            var d = s[o];
-            if (r(n, d))
+            var f = s[o];
+            if (r(n, f))
                 break;
-            t.isTag(d) && t.getName(d) === t.getName(n) && c++;
+            t.isTag(f) && t.getName(f) === t.getName(n) && c++;
         } return a(c) && u(n); };
     }, root: function (u, e, _a) {
         var t = _a.adapter;
@@ -1300,29 +1300,29 @@ function Dt(u, e) { return u === lu.default.falseFunc ? lu.default.falseFunc : f
 function Ut(u, e) { var t = e.getSiblings(u); if (t.length <= 1)
     return []; var r = t.indexOf(u); return r < 0 || r === t.length - 1 ? [] : t.slice(r + 1).filter(e.isTag); }
 function Lt(u) { return { xmlMode: !!u.xmlMode, lowerCaseAttributeNames: !!u.lowerCaseAttributeNames, lowerCaseTags: !!u.lowerCaseTags, quirksMode: !!u.quirksMode, cacheResults: !!u.cacheResults, pseudos: u.pseudos, adapter: u.adapter, equals: u.equals }; }
-var kt = function (u, e, t, r, a) { var i = a(e, Lt(t), r); return i === lu.default.trueFunc ? u : i === lu.default.falseFunc ? lu.default.falseFunc : function (n) { return i(n) && u(n); }; }, Me = { is: kt, matches: kt, where: kt, not: function (u, e, t, r, a) { var i = a(e, Lt(t), r); return i === lu.default.falseFunc ? u : i === lu.default.trueFunc ? lu.default.falseFunc : function (n) { return !i(n) && u(n); }; }, has: function (u, e, t, r, a) { var i = t.adapter, n = Lt(t); n.relativeSelector = !0; var s = e.some(function (d) { return d.some(fe); }) ? [It] : void 0, c = a(e, n, s); if (c === lu.default.falseFunc)
+var kt = function (u, e, t, r, a) { var i = a(e, Lt(t), r); return i === lu.default.trueFunc ? u : i === lu.default.falseFunc ? lu.default.falseFunc : function (n) { return i(n) && u(n); }; }, Me = { is: kt, matches: kt, where: kt, not: function (u, e, t, r, a) { var i = a(e, Lt(t), r); return i === lu.default.falseFunc ? u : i === lu.default.trueFunc ? lu.default.falseFunc : function (n) { return !i(n) && u(n); }; }, has: function (u, e, t, r, a) { var i = t.adapter, n = Lt(t); n.relativeSelector = !0; var s = e.some(function (f) { return f.some(fe); }) ? [It] : void 0, c = a(e, n, s); if (c === lu.default.falseFunc)
         return lu.default.falseFunc; var o = Dt(c, i); if (s && c !== lu.default.trueFunc) {
-        var _a = c.shouldTestNextSiblings, d_1 = _a === void 0 ? !1 : _a;
+        var _a = c.shouldTestNextSiblings, f_1 = _a === void 0 ? !1 : _a;
         return function (v) { if (!u(v))
-            return !1; s[0] = v; var p = i.getChildren(v), g = d_1 ? __spreadArray(__spreadArray([], __read(p), false), __read(Ut(v, i)), false) : p; return i.existsOne(o, g); };
-    } return function (d) { return u(d) && i.existsOne(o, i.getChildren(d)); }; } };
-function B0(u, e, t, r, a) { var i; var n = e.name, s = e.data; if (Array.isArray(s)) {
+            return !1; s[0] = v; var p = i.getChildren(v), g = f_1 ? __spreadArray(__spreadArray([], __read(p), false), __read(Ut(v, i)), false) : p; return i.existsOne(o, g); };
+    } return function (f) { return u(f) && i.existsOne(o, i.getChildren(f)); }; } };
+function F0(u, e, t, r, a) { var i; var n = e.name, s = e.data; if (Array.isArray(s)) {
     if (!(n in Me))
         throw new Error("Unknown pseudo-class :".concat(n, "(").concat(s, ")"));
     return Me[n](u, s, t, r, a);
 } var c = (i = t.pseudos) === null || i === void 0 ? void 0 : i[n], o = typeof c == "string" ? c : Oe[n]; if (typeof o == "string") {
     if (s != null)
         throw new Error("Pseudo ".concat(n, " doesn't have any arguments"));
-    var d = ku(o);
-    return Me.is(u, d, t, r, a);
+    var f = ku(o);
+    return Me.is(u, f, t, r, a);
 } if (typeof c == "function")
-    return qt(c, n, s, 1), function (d) { return c(d, s) && u(d); }; if (n in Ju)
+    return qt(c, n, s, 1), function (f) { return c(f, s) && u(f); }; if (n in Ju)
     return Ju[n](u, s, t, r); if (n in he) {
-    var d_2 = he[n];
-    return qt(d_2, n, s, 2), function (v) { return d_2(v, t, s) && u(v); };
+    var f_2 = he[n];
+    return qt(f_2, n, s, 2), function (v) { return f_2(v, t, s) && u(v); };
 } throw new Error("Unknown pseudo-class :".concat(n)); }
 function Ot(u, e) { var t = e.getParent(u); return t && e.isTag(t) ? t : null; }
-function F0(u, e, t, r, a) { var i = t.adapter, n = t.equals; switch (e.type) {
+function B0(u, e, t, r, a) { var i = t.adapter, n = t.equals; switch (e.type) {
     case m.PseudoElement: throw new Error("Pseudo-elements are not supported by css-select");
     case m.ColumnCombinator: throw new Error("Column combinators are not yet supported by css-select");
     case m.Attribute: {
@@ -1330,7 +1330,7 @@ function F0(u, e, t, r, a) { var i = t.adapter, n = t.equals; switch (e.type) {
             throw new Error("Namespaced attributes are not yet supported by css-select");
         return (!t.xmlMode || t.lowerCaseAttributeNames) && (e.name = e.name.toLowerCase()), U0[e.action](u, e, t);
     }
-    case m.Pseudo: return B0(u, e, t, r, a);
+    case m.Pseudo: return F0(u, e, t, r, a);
     case m.Tag: {
         if (e.namespace != null)
             throw new Error("Namespaced tag names are not yet supported by css-select");
@@ -1339,15 +1339,15 @@ function F0(u, e, t, r, a) { var i = t.adapter, n = t.equals; switch (e.type) {
     }
     case m.Descendant: {
         if (t.cacheResults === !1 || typeof WeakSet == "undefined")
-            return function (o) { var d = o; for (; d = Ot(d, i);)
-                if (u(d))
+            return function (o) { var f = o; for (; f = Ot(f, i);)
+                if (u(f))
                     return !0; return !1; };
         var s_2 = new WeakSet;
-        return function (o) { var d = o; for (; d = Ot(d, i);)
-            if (!s_2.has(d)) {
-                if (i.isTag(d) && u(d))
+        return function (o) { var f = o; for (; f = Ot(f, i);)
+            if (!s_2.has(f)) {
+                if (i.isTag(f) && u(f))
                     return !0;
-                s_2.add(d);
+                s_2.add(f);
             } return !1; };
     }
     case "_flexibleDescendant": return function (c) { var o = c; do
@@ -1356,19 +1356,19 @@ function F0(u, e, t, r, a) { var i = t.adapter, n = t.equals; switch (e.type) {
     while (o = Ot(o, i)); return !1; };
     case m.Parent: return function (c) { return i.getChildren(c).some(function (o) { return i.isTag(o) && u(o); }); };
     case m.Child: return function (c) { var o = i.getParent(c); return o != null && i.isTag(o) && u(o); };
-    case m.Sibling: return function (c) { var o = i.getSiblings(c); for (var d = 0; d < o.length; d++) {
-        var v = o[d];
+    case m.Sibling: return function (c) { var o = i.getSiblings(c); for (var f = 0; f < o.length; f++) {
+        var v = o[f];
         if (n(c, v))
             break;
         if (i.isTag(v) && u(v))
             return !0;
     } return !1; };
-    case m.Adjacent: return i.prevElementSibling ? function (c) { var o = i.prevElementSibling(c); return o != null && u(o); } : function (c) { var o = i.getSiblings(c), d; for (var v = 0; v < o.length; v++) {
+    case m.Adjacent: return i.prevElementSibling ? function (c) { var o = i.prevElementSibling(c); return o != null && u(o); } : function (c) { var o = i.getSiblings(c), f; for (var v = 0; v < o.length; v++) {
         var p = o[v];
         if (n(c, p))
             break;
-        i.isTag(p) && (d = p);
-    } return !!d && u(d); };
+        i.isTag(p) && (f = p);
+    } return !!f && u(f); };
     case m.Universal: {
         if (e.namespace != null && e.namespace !== "*")
             throw new Error("Namespaced universal selectors are not yet supported by css-select");
@@ -1376,7 +1376,7 @@ function F0(u, e, t, r, a) { var i = t.adapter, n = t.equals; switch (e.type) {
     }
 } }
 function P0(u, e, t) { var r = Re(u, e, t); return Dt(r, e.adapter); }
-function Re(u, e, t) { var r = typeof u == "string" ? ku(u) : u; return Be(r, e, t); }
+function Re(u, e, t) { var r = typeof u == "string" ? ku(u) : u; return Fe(r, e, t); }
 function H0(u) { return u.type === m.Pseudo && (u.name === "scope" || Array.isArray(u.data) && u.data.some(function (e) { return e.some(H0); })); }
 var va = { type: m.Descendant }, Sa = { type: "_flexibleDescendant" }, wa = { type: m.Pseudo, name: "scope", data: null };
 function Aa(u, _a, t) {
@@ -1402,19 +1402,19 @@ function Aa(u, _a, t) {
         finally { if (e_6) throw e_6.error; }
     }
 }
-function Be(u, e, t) { var r; u.forEach(Tt), t = (r = e.context) !== null && r !== void 0 ? r : t; var a = Array.isArray(t), i = t && (Array.isArray(t) ? t : [t]); if (e.relativeSelector !== !1)
+function Fe(u, e, t) { var r; u.forEach(Tt), t = (r = e.context) !== null && r !== void 0 ? r : t; var a = Array.isArray(t), i = t && (Array.isArray(t) ? t : [t]); if (e.relativeSelector !== !1)
     Aa(u, e, i);
 else if (u.some(function (c) { return c.length > 0 && fe(c[0]); }))
     throw new Error("Relative selectors are not allowed when the `relativeSelector` option is disabled"); var n = !1, s = u.map(function (c) { if (c.length >= 2) {
-    var _a = __read(c, 2), o = _a[0], d = _a[1];
-    o.type !== m.Pseudo || o.name !== "scope" || (a && d.type === m.Descendant ? c[1] = Sa : (d.type === m.Adjacent || d.type === m.Sibling) && (n = !0));
+    var _a = __read(c, 2), o = _a[0], f = _a[1];
+    o.type !== m.Pseudo || o.name !== "scope" || (a && f.type === m.Descendant ? c[1] = Sa : (f.type === m.Adjacent || f.type === m.Sibling) && (n = !0));
 } return Ea(c, e, i); }).reduce(Ta, Au.default.falseFunc); return s.shouldTestNextSiblings = n, s; }
-function Ea(u, e, t) { var r; return u.reduce(function (a, i) { return a === Au.default.falseFunc ? Au.default.falseFunc : F0(a, i, e, t, Be); }, (r = e.rootFunc) !== null && r !== void 0 ? r : Au.default.trueFunc); }
+function Ea(u, e, t) { var r; return u.reduce(function (a, i) { return a === Au.default.falseFunc ? Au.default.falseFunc : B0(a, i, e, t, Fe); }, (r = e.rootFunc) !== null && r !== void 0 ? r : Au.default.trueFunc); }
 function Ta(u, e) { return e === Au.default.falseFunc || u === Au.default.trueFunc ? u : u === Au.default.falseFunc || e === Au.default.trueFunc ? e : function (r) { return u(r) || e(r); }; }
 var G0 = function (u, e) { return u === e; }, Na = { adapter: xu, equals: G0 };
 function V0(u) { var e, t, r, a; var i = u != null ? u : Na; return (e = i.adapter) !== null && e !== void 0 || (i.adapter = xu), (t = i.equals) !== null && t !== void 0 || (i.equals = (a = (r = i.adapter) === null || r === void 0 ? void 0 : r.equals) !== null && a !== void 0 ? a : G0), i; }
 function Rt(u) { return function (t, r, a) { var i = V0(r); return u(t, i, a); }; }
-var Jn = Rt(P0), Yn = Rt(Re), Fe = Rt(Be);
+var Jn = Rt(P0), Yn = Rt(Re), Be = Rt(Fe);
 function j0(u) { return function (t, r, a) { var i = V0(a); typeof t != "function" && (t = Re(t, i, r)); var n = Pe(r, i.adapter, t.shouldTestNextSiblings); return u(t, n, i); }; }
 function Pe(u, e, t) {
     if (t === void 0) { t = !1; }
@@ -1469,7 +1469,7 @@ function Ia(u, e, t) {
     if (typeof e == "function")
         return u.some(e);
     var _a = __read(He(ku(e)), 2), r = _a[0], a = _a[1];
-    return r.length > 0 && u.some(Fe(r, t)) || a.some(function (i) { return W0(i, u, t).length > 0; });
+    return r.length > 0 && u.some(Be(r, t)) || a.some(function (i) { return W0(i, u, t).length > 0; });
 }
 function Da(u, e, t, r) { var a = typeof t == "string" ? parseInt(t, 10) : NaN; switch (u) {
     case "first":
@@ -1487,18 +1487,18 @@ function Da(u, e, t, r) { var a = typeof t == "string" ? parseInt(t, 10) : NaN; 
 } }
 function Ua(u, e, t) { if (e.length === 0)
     return []; var _a = __read(He(u), 2), r = _a[0], a = _a[1], i; if (r.length) {
-    var n = Ft(e, r, t);
+    var n = Bt(e, r, t);
     if (a.length === 0)
         return n;
     n.length && (i = new Set(n));
 } for (var n = 0; n < a.length && (i == null ? void 0 : i.size) !== e.length; n++) {
     var s = a[n];
-    if ((i ? e.filter(function (d) { return q(d) && !i.has(d); }) : e).length === 0)
+    if ((i ? e.filter(function (f) { return q(f) && !i.has(f); }) : e).length === 0)
         break;
     var o = W0(s, e, t);
     if (o.length)
         if (i)
-            o.forEach(function (d) { return i.add(d); });
+            o.forEach(function (f) { return i.add(f); });
         else {
             if (n === a.length - 1)
                 return o;
@@ -1515,10 +1515,10 @@ function Ht(u, e, t, r) {
     if (typeof u == "function")
         return K0(e, u);
     var _a = __read(He(ku(u)), 2), a = _a[0], i = _a[1], n = i.map(function (s) { return Ve(e, s, t, !0, r); });
-    return a.length && n.push(Bt(e, a, t, r)), n.length === 0 ? [] : n.length === 1 ? n[0] : wt(n.reduce(function (s, c) { return __spreadArray(__spreadArray([], __read(s), false), __read(c), false); }));
+    return a.length && n.push(Ft(e, a, t, r)), n.length === 0 ? [] : n.length === 1 ? n[0] : wt(n.reduce(function (s, c) { return __spreadArray(__spreadArray([], __read(s), false), __read(c), false); }));
 }
 function Ve(u, e, t, r, a) { var i = e.findIndex(Yu), n = e.slice(0, i), s = e[i], c = e.length - 1 === i ? a : 1 / 0, o = z0(s.name, s.data, c); if (o === 0)
-    return []; var v = (n.length === 0 && !Array.isArray(u) ? Ce(u).filter(q) : n.length === 0 ? (Array.isArray(u) ? u : [u]).filter(q) : r || n.some(Mu) ? Bt(u, [n], t, o) : Ft(u, [n], t)).slice(0, o), p = Da(s.name, v, s.data, t); if (p.length === 0 || e.length === i + 1)
+    return []; var v = (n.length === 0 && !Array.isArray(u) ? Ce(u).filter(q) : n.length === 0 ? (Array.isArray(u) ? u : [u]).filter(q) : r || n.some(Mu) ? Ft(u, [n], t, o) : Bt(u, [n], t)).slice(0, o), p = Da(s.name, v, s.data, t); if (p.length === 0 || e.length === i + 1)
     return p; var g = e.slice(i + 1), S = g.some(Mu); if (S) {
     if (Mu(g[0])) {
         var A = g[0].type;
@@ -1527,15 +1527,15 @@ function Ve(u, e, t, r, a) { var i = e.findIndex(Yu), n = e.slice(0, i), s = e[i
     t = Du(du({}, t), { relativeSelector: !1, rootFunc: function (A) { return p.includes(A); } });
 }
 else
-    t.rootFunc && t.rootFunc !== Ge.trueFunc && (t = Du(du({}, t), { rootFunc: Ge.trueFunc })); return g.some(Yu) ? Ve(p, g, t, !1, a) : S ? Bt(p, [g], t, a) : Ft(p, [g], t); }
-function Bt(u, e, t, r) { var a = Fe(e, t, u); return K0(u, a, r); }
+    t.rootFunc && t.rootFunc !== Ge.trueFunc && (t = Du(du({}, t), { rootFunc: Ge.trueFunc })); return g.some(Yu) ? Ve(p, g, t, !1, a) : S ? Ft(p, [g], t, a) : Bt(p, [g], t); }
+function Ft(u, e, t, r) { var a = Be(e, t, u); return K0(u, a, r); }
 function K0(u, e, t) {
     if (t === void 0) { t = 1 / 0; }
     var r = Pe(u, xu, e.shouldTestNextSiblings);
     return ke(function (a) { return q(a) && e(a); }, r, !0, t);
 }
-function Ft(u, e, t) { var r = (Array.isArray(u) ? u : [u]).filter(q); if (r.length === 0)
-    return r; var a = Fe(e, t); return a === Ge.trueFunc ? r : r.filter(a); }
+function Bt(u, e, t) { var r = (Array.isArray(u) ? u : [u]).filter(q); if (r.length === 0)
+    return r; var a = Be(e, t); return a === Ge.trueFunc ? r : r.filter(a); }
 function Q0(u) { var e = /^(?:([a-zA-Z][\w+.-]*):)?(?:\/\/([^/?#]*))?([^?#]*)(?:\?([^#]*))?(?:#(.*))?$/.exec(u) || []; return { scheme: e[1], auth: e[2], path: e[3] || "", query: e[4], frag: e[5] }; }
 function Gt(u) { var e = [], t = u.split("/"); for (var r = 0; r < t.length; r++) {
     var a = t[r];
@@ -1614,7 +1614,7 @@ function er(u, e) { if (!e)
 catch (t) {
     return u ? "" : e;
 } }
-var Bu = (function () {
+var Fu = (function () {
     function u(e, t) {
         this.node = e, this.doc = t;
     }
@@ -1702,7 +1702,7 @@ function zt(u, e) {
     try {
         for (var _b = __values(u || []), _c = _b.next(); !_c.done; _c = _b.next()) {
             var r = _c.value;
-            t.push(r instanceof Bu ? r : new Bu(r, e));
+            t.push(r instanceof Fu ? r : new Fu(r, e));
         }
     }
     catch (e_11_1) { e_11 = { error: e_11_1 }; }
@@ -1815,7 +1815,7 @@ finally {
     }
     finally { if (e_1) throw e_1.error; }
 }
-function Ke(u, e) { var t = T0(String(u == null ? "" : u), { decodeEntities: !0, lowerCaseAttributeNames: !0 }), r = new Bu(t, null); r.doc = r, r.__base = e || ""; var a = _0("base[href]", t); return a && a.attribs.href && (r.__base = er(r.__base, a.attribs.href)), r; }
+function Ke(u, e) { var t = T0(String(u == null ? "" : u), { decodeEntities: !0, lowerCaseAttributeNames: !0 }), r = new Fu(t, null); r.doc = r, r.__base = e || ""; var a = _0("base[href]", t); return a && a.attribs.href && (r.__base = er(r.__base, a.attribs.href)), r; }
 function tr(u, e) { var t = new Set((e || ["p", "br", "b", "i", "em", "strong", "img", "div", "span"]).map(String)), r = Ke(u), a = function (i) {
     var e_17, _a, e_18, _b;
     try {
@@ -1857,7 +1857,7 @@ function Ra(u) { if (typeof Buffer != "undefined")
     return Buffer.from(u).toString("base64"); var e = ""; for (var t = 0; t < u.length; t++)
     e += String.fromCharCode(u[t]); return X0(e); }
 function rr(u) { return typeof TextEncoder != "undefined" ? new TextEncoder().encode(u) : Uint8Array.from(unescape(encodeURIComponent(u)), function (e) { return e.charCodeAt(0); }); }
-function Ba(u) { var e = ""; for (var t = 0; t < u.length; t++) {
+function Fa(u) { var e = ""; for (var t = 0; t < u.length; t++) {
     var r = u.charCodeAt(t);
     if (r < 128) {
         e += u[t];
@@ -1879,7 +1879,7 @@ var Wt = (function () {
         try {
             return new TextDecoder(String(e).toLowerCase()).decode(this._raw.bytes);
         }
-        catch (r) { } var t = this._raw.text == null ? "" : String(this._raw.text); return e || (e = (String(this.header("content-type") || "").match(/charset=([\w-]+)/i) || [])[1]), e && /^(gbk|gb2312|gb18030)$/i.test(String(e)) && typeof __GBK_TABLE == "string" && /[\x80-\xff]/.test(t) && !/[^\x00-\xff]/.test(t) ? Ba(t) : t; };
+        catch (r) { } var t = this._raw.text == null ? "" : String(this._raw.text); return e || (e = (String(this.header("content-type") || "").match(/charset=([\w-]+)/i) || [])[1]), e && /^(gbk|gb2312|gb18030)$/i.test(String(e)) && typeof __GBK_TABLE == "string" && /[\x80-\xff]/.test(t) && !/[^\x00-\xff]/.test(t) ? Fa(t) : t; };
     Wt.prototype.string = function (e) { return this.text(e); };
     Wt.prototype.html = function (e) { return Ke(this.text(e), this.url); };
     Wt.prototype.json = function () { try {
@@ -1892,7 +1892,7 @@ var Wt = (function () {
     Wt.prototype.blob = function () { var e = this; return { size: (this._raw.bytes || rr(this.text())).length, type: this.header("content-type"), base64: function () { return e.base64(); } }; };
     return Wt;
 }());
-function Fa(u) {
+function Ba(u) {
     var e_19, _a;
     var e = {};
     if (!u)
@@ -1915,7 +1915,7 @@ function Fa(u) {
     return e;
 }
 function ir(u, e) { var t = function (n) { return ({ getItem: function (s) { var c = u.storageGet(n + s); return c == null ? null : c; }, setItem: function (s, c) { return u.storageSet(n + s, c == null ? null : String(c)); }, removeItem: function (s) { return u.storageSet(n + s, null); }, clear: function () { return u.storageClear && u.storageClear(n); } }); }, r = "__cookie__", a = {}; a.Response = { success: function (n, s) { return ({ code: 0, data: n === void 0 ? null : n, data2: s === void 0 ? null : s }); }, error: function (n) { return ({ code: 1, data: n == null ? "" : String(n) }); } }, a.fetch = function (s, c) {
-    return __awaiter(this, void 0, void 0, function () { var o, A, d, v, p, A, g, S, A_1; return __generator(this, function (_a) {
+    return __awaiter(this, void 0, void 0, function () { var o, A, f, v, p, A, g, S, A_1; return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 c = c || {};
@@ -1927,17 +1927,17 @@ function ir(u, e) { var t = function (n) { return ({ getItem: function (s) { var
                     }).join("&");
                     A && (o += (o.includes("?") ? "&" : "?") + A);
                 }
-                d = Object.assign({ "User-Agent": be }, Fa(c.headers)), v = u.storageGet(r);
-                v && !Object.keys(d).some(function (A) { return A.toLowerCase() === "cookie"; }) && (d.Cookie = v);
+                f = Object.assign({ "User-Agent": be }, Ba(c.headers)), v = u.storageGet(r);
+                v && !Object.keys(f).some(function (A) { return A.toLowerCase() === "cookie"; }) && (f.Cookie = v);
                 p = c.body;
                 if (p != null && typeof p == "object") {
-                    A = Object.keys(d).find(function (K) { return K.toLowerCase() === "content-type"; });
-                    A && /json/i.test(d[A]) ? p = JSON.stringify(p) : (p = Object.entries(p).map(function (_a) {
+                    A = Object.keys(f).find(function (K) { return K.toLowerCase() === "content-type"; });
+                    A && /json/i.test(f[A]) ? p = JSON.stringify(p) : (p = Object.entries(p).map(function (_a) {
                         var _b = __read(_a, 2), K = _b[0], Z = _b[1];
                         return encodeURIComponent(K) + "=" + encodeURIComponent(Z);
-                    }).join("&"), A || (d["Content-Type"] = "application/x-www-form-urlencoded"));
+                    }).join("&"), A || (f["Content-Type"] = "application/x-www-form-urlencoded"));
                 }
-                g = { url: o, method: (c.method || (p != null ? "POST" : "GET")).toUpperCase(), headers: d, body: p, timeout: c.timeout };
+                g = { url: o, method: (c.method || (p != null ? "POST" : "GET")).toUpperCase(), headers: f, body: p, timeout: c.timeout };
                 _a.label = 1;
             case 1:
                 _a.trys.push([1, 3, , 4]);
@@ -1952,7 +1952,16 @@ function ir(u, e) { var t = function (n) { return ({ getItem: function (s) { var
             case 4: return [2, new Wt(S, g)];
         }
     }); });
-}, a.Http = { get: function (n) { return ar(a, "GET", n); }, post: function (n) { return ar(a, "POST", n); } }, a.Html = { parse: function (n, s) { return Ke(n, s || ""); }, clean: function (n, s) { return tr(n, s); } }, a.localStorage = t("ls:"), a.cacheStorage = t("cs:"), a.localConfig = { getItem: function (n) { return u.config(n); } }, a.localCookie = { setCookie: function (n) { u.storageSet(r, String(n).split(";")[0]); }, getCookie: function () { return u.storageGet(r) || ""; } }, a.sleep = function (n) { return new Promise(function (s) { return typeof setTimeout == "function" ? setTimeout(s, Math.min(Number(n) || 0, 1e4)) : s(); }); }; var i = function () {
+}, a.Http = { get: function (n) { return ar(a, "GET", n); }, post: function (n) { return ar(a, "POST", n); } }, a.Html = { parse: function (n, s) { return Ke(n, s || ""); }, clean: function (n, s) { return tr(n, s); } }, a.localStorage = t("ls:"), a.cacheStorage = t("cs:"), a.resumeStorage = { get: function (n) { try {
+        var s = u.storageGet("resume:" + n);
+        return s && parseFloat(s) || 0;
+    }
+    catch (c) {
+        return 0;
+    } }, set: function (n, s) { try {
+        u.storageSet("resume:" + n, String(Math.max(0, s || 0)));
+    }
+    catch (c) { } } }, a.localConfig = { getItem: function (n) { return u.config(n); } }, a.localCookie = { setCookie: function (n) { u.storageSet(r, String(n).split(";")[0]); }, getCookie: function () { return u.storageGet(r) || ""; } }, a.sleep = function (n) { return new Promise(function (s) { return typeof setTimeout == "function" ? setTimeout(s, Math.min(Number(n) || 0, 1e4)) : s(); }); }; var i = function () {
     var n = [];
     for (var _i = 0; _i < arguments.length; _i++) {
         n[_i] = arguments[_i];
@@ -1961,7 +1970,7 @@ function ir(u, e) { var t = function (n) { return ({ getItem: function (s) { var
         u.log && u.log(n.map(function (s) { return typeof s == "string" ? s : JSON.stringify(s); }).join(" "));
     }
     catch (s) { }
-}; return a.Log = { log: i }, a.console = { log: i, error: i, warn: i, info: i }, a.Console = a.console, a.log = i, a.UserAgent = { system: function () { return be; }, chrome: function () { return be; }, android: function () { return be; }, ios: function () { return "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1"; } }, a.Engine = { newBrowser: function () { throw new Error("Headless browser is not available in this app (" + (u.name || "host") + ")"); } }, a.Graphics = { createCanvas: function () { throw new Error("Graphics API is not available in this app"); }, createImage: function () { throw new Error("Graphics API is not available in this app"); } }, a.Script = { execute: function () { throw new Error("Script.execute is not available"); } }, a.Elements = yu, a.Element = Bu, a.__meta = e, a; }
+}; return a.Log = { log: i }, a.console = { log: i, error: i, warn: i, info: i }, a.Console = a.console, a.log = i, a.UserAgent = { system: function () { return be; }, chrome: function () { return be; }, android: function () { return be; }, ios: function () { return "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1"; } }, a.Engine = { newBrowser: function () { throw new Error("Headless browser is not available in this app (" + (u.name || "host") + ")"); } }, a.Graphics = { createCanvas: function () { throw new Error("Graphics API is not available in this app"); }, createImage: function () { throw new Error("Graphics API is not available in this app"); } }, a.Script = { execute: function () { throw new Error("Script.execute is not available"); } }, a.Elements = yu, a.Element = Fu, a.__meta = e, a; }
 function ar(u, e, t) { var r = { method: e, url: t, headers: {}, body: void 0, queries: void 0 }, a = { headers: function (i) { return Object.assign(r.headers, i || {}), a; }, header: function (i, n) { return r.headers[i] = n, a; }, params: function (i) { return r.queries = i, a; }, queries: function (i) { return r.queries = i, a; }, body: function (i) { return r.body = i, a; }, html: function (i) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
             switch (_a.label) {
@@ -1991,7 +2000,7 @@ function ar(u, e, t) { var r = { method: e, url: t, headers: {}, body: void 0, q
             }
         }); });
     } }; return a; }
-function Fu(u, e) { if (!e)
+function Bu(u, e) { if (!e)
     return ""; if (e = String(e).trim(), /^data:|^blob:/.test(e))
     return e; if (e.startsWith("//"))
     return "https:" + e; if (typeof __abs == "function")
@@ -2100,7 +2109,7 @@ var U = function (u) { return u == null ? "" : String(u); }, Pa = function (u) {
                     case 1:
                         n = _a.sent(), s = U(n.data2);
                         s && (this.tokens[a + "|" + (r + 1)] = s);
-                        c = (n.data || []).filter(Boolean).map(function (o) { return ({ name: U(o.name).trim(), link: Fu(o.host || _this.base + "/", o.link), cover: Fu(o.host || _this.base + "/", o.cover), description: U(o.description), tag: U(o.tag) }); }).filter(function (o) { return o.name && o.link; });
+                        c = (n.data || []).filter(Boolean).map(function (o) { return ({ name: U(o.name).trim(), link: Bu(o.host || _this.base + "/", o.link), cover: Bu(o.host || _this.base + "/", o.cover), description: U(o.description), tag: U(o.tag) }); }).filter(function (o) { return o.name && o.link; });
                         return [2, { items: c, hasNext: !!s && c.length > 0 }];
                 }
             });
@@ -2137,7 +2146,7 @@ var U = function (u) { return u == null ? "" : String(u); }, Pa = function (u) {
                 case 0: return [4, this.run("detail", e)];
                 case 1:
                     t = (_a.sent()).data || {}, r = [].concat(t.genres || [], t.tags || []).map(function (a) { return typeof a == "string" ? a : a && a.title; }).filter(Boolean);
-                    return [2, { name: U(t.name).trim(), cover: Fu(t.host || this.base + "/", t.cover), author: U(t.author).trim(), description: nr(U(t.description)), detail: nr(U(t.detail)), ongoing: t.ongoing !== !1 && t.ongoing !== "false", genres: Pa(r.map(function (a) { return String(a).trim(); })), url: e, format: U(t.format) }];
+                    return [2, { name: U(t.name).trim(), cover: Bu(t.host || this.base + "/", t.cover), author: U(t.author).trim(), description: nr(U(t.description)), detail: nr(U(t.detail)), ongoing: t.ongoing !== !1 && t.ongoing !== "false", genres: Pa(r.map(function (a) { return String(a).trim(); })), url: e, format: U(t.format) }];
             }
         }); });
     };
@@ -2192,7 +2201,7 @@ var U = function (u) { return u == null ? "" : String(u); }, Pa = function (u) {
                     case 12:
                         _c;
                         _f.label = 13;
-                    case 13: return [2, t.filter(function (r) { return r && r.url && r.type !== "section"; }).map(function (r, a) { return ({ name: U(r.name).trim() || "#" + (a + 1), url: Fu(r.host || _this.base + "/", r.url), pay: !!(r.pay || r.lock) }); })];
+                    case 13: return [2, t.filter(function (r) { return r && r.url && r.type !== "section"; }).map(function (r, a) { return ({ name: U(r.name).trim() || "#" + (a + 1), url: Bu(r.host || _this.base + "/", r.url), pay: !!(r.pay || r.lock) }); })];
                 }
             });
         });
@@ -2226,7 +2235,7 @@ var U = function (u) { return u == null ? "" : String(u); }, Pa = function (u) {
                         r = function (i) { return !i || /^data:|loading|lazy|blank|placeholder|spacer|\/nocover|1x1\./i.test(String(i)); }, a = function (i) { if (typeof i == "string")
                             return i; if (!i)
                             return ""; var n = i.link || i.url || i.data, s = Array.isArray(i.fallback) ? i.fallback.filter(Boolean) : []; return r(n) && s.length ? s[0] : n; };
-                        return [2, (t || []).map(function (i) { return Fu(_this.base + "/", a(i)); }).filter(Boolean)];
+                        return [2, (t || []).map(function (i) { return Bu(_this.base + "/", a(i)); }).filter(Boolean)];
                 }
             });
         });
@@ -2243,7 +2252,7 @@ var U = function (u) { return u == null ? "" : String(u); }, Pa = function (u) {
     };
     class_1.prototype.videos = function (e) {
         return __awaiter(this, void 0, void 0, function () {
-            var t, a, r, t_3, t_3_1, a, i, n, n_2, n_2_1, s, i_2, e_21_1;
+            var t, i, r, a, t_3, t_3_1, i, n, s, s_4, s_4_1, c, o, f, v, n_2, e_21_1;
             var e_21, _a, e_22, _b;
             var _this = this;
             return __generator(this, function (_c) {
@@ -2253,11 +2262,11 @@ var U = function (u) { return u == null ? "" : String(u); }, Pa = function (u) {
                         if (!this.has("chap")) return [3, 2];
                         return [4, this.run("chap", e)];
                     case 1:
-                        a = (_c.sent()).data;
-                        Array.isArray(a) && a.length && (t = a.map(function (i) { return typeof i == "string" ? { title: "Server", data: i } : { title: U(i.title || i.name || "Server"), data: U(i.data || i.url || i.link) }; }));
+                        i = (_c.sent()).data;
+                        Array.isArray(i) && i.length && (t = i.map(function (n) { return typeof n == "string" ? { title: "Server", data: n } : { title: U(n.title || n.name || "Server"), data: U(n.data || n.url || n.link) }; }));
                         _c.label = 2;
                     case 2:
-                        r = [];
+                        r = this.env && this.env.resumeStorage ? this.env.resumeStorage.get(e) : 0, a = [];
                         _c.label = 3;
                     case 3:
                         _c.trys.push([3, 10, 11, 12]);
@@ -2265,30 +2274,33 @@ var U = function (u) { return u == null ? "" : String(u); }, Pa = function (u) {
                         _c.label = 4;
                     case 4:
                         if (!!t_3_1.done) return [3, 9];
-                        a = t_3_1.value;
+                        i = t_3_1.value;
                         _c.label = 5;
                     case 5:
                         _c.trys.push([5, 7, , 8]);
-                        return [4, this.run("track", a.data)];
+                        return [4, this.run("track", i.data)];
                     case 6:
-                        i = (_c.sent()).data || {}, n = Array.isArray(i) ? i : [i];
+                        n = (_c.sent()).data || {}, s = Array.isArray(n) ? n : [n];
                         try {
-                            for (n_2 = (e_22 = void 0, __values(n)), n_2_1 = n_2.next(); !n_2_1.done; n_2_1 = n_2.next()) {
-                                s = n_2_1.value;
-                                !s || !s.data || s.type !== "webview" && r.push({ url: Fu(s.host || this.base + "/", s.data), quality: a.title + (s.quality ? " " + s.quality : ""), headers: s.headers || { Referer: this.base + "/" }, subtitles: (s.subtitles || (s.subtitle ? [{ data: s.subtitle, label: "Sub" }] : [])).map(function (c) { return ({ file: Fu(_this.base + "/", c.data || c.file), label: U(c.label || c.language || "Sub") }); }), mimeType: U(s.mimeType) });
+                            for (s_4 = (e_22 = void 0, __values(s)), s_4_1 = s_4.next(); !s_4_1.done; s_4_1 = s_4.next()) {
+                                c = s_4_1.value;
+                                if (!c || !c.data || c.type === "webview")
+                                    continue;
+                                o = Bu(c.host || this.base + "/", c.data), f = r > 0 && !c.data.includes("#t=") && !c.data.includes("&t=") ? (c.data.includes("#") ? "&" : "#") + "t=" + Math.floor(r) : "", v = r > 0 ? " [Tiếp tục " + Math.floor(r / 60) + ":" + ("0" + Math.floor(r % 60)).slice(-2) + "]" : "";
+                                a.push({ url: o + f, rawUrl: o, resumeSec: r, quality: i.title + (c.quality ? " " + c.quality : "") + v, headers: c.headers || { Referer: this.base + "/" }, subtitles: (c.subtitles || (c.subtitle ? [{ data: c.subtitle, label: "Sub" }] : [])).map(function (p) { return ({ file: Bu(_this.base + "/", p.data || p.file), label: U(p.label || p.language || "Sub") }); }), mimeType: U(c.mimeType) });
                             }
                         }
                         catch (e_22_1) { e_22 = { error: e_22_1 }; }
                         finally {
                             try {
-                                if (n_2_1 && !n_2_1.done && (_b = n_2.return)) _b.call(n_2);
+                                if (s_4_1 && !s_4_1.done && (_b = s_4.return)) _b.call(s_4);
                             }
                             finally { if (e_22) throw e_22.error; }
                         }
                         return [3, 8];
                     case 7:
-                        i_2 = _c.sent();
-                        this.host.log && this.host.log("track " + a.title + ": " + i_2.message);
+                        n_2 = _c.sent();
+                        this.host.log && this.host.log("track " + i.title + ": " + n_2.message);
                         return [3, 8];
                     case 8:
                         t_3_1 = t_3.next();
@@ -2304,7 +2316,7 @@ var U = function (u) { return u == null ? "" : String(u); }, Pa = function (u) {
                         }
                         finally { if (e_21) throw e_21.error; }
                         return [7];
-                    case 12: return [2, r];
+                    case 12: return [2, a];
                 }
             });
         });
@@ -2314,23 +2326,23 @@ var U = function (u) { return u == null ? "" : String(u); }, Pa = function (u) {
 function nr(u) {
     return String(u).replace(/<br\s*\/?>/gi, "\n").replace(/<\/p>/gi, "\n").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\n{3,}/g, "\n\n").trim();
 }
-var Eu = { id: "vivutruyencom", name: "Vivu Truyện", source: "https://vivutruyen.net/", type: "novel", locale: "vi", nsfw: !1, version: 1, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.vivutruyencom", lnIcon: "", lnVersion: "1.2.1" }, sr = { home: function (u, e) {
+var Eu = { id: "vivutruyencom", name: "Vivu Truyện", source: "https://vivutruyen.net/", type: "novel", locale: "vi", nsfw: !1, version: 1, config: {}, configDefaults: {}, itemType: 2, short: !1, shorts: !1, lnId: "kiritokmn.vivutruyencom", lnIcon: "", lnVersion: "1.3.1" }, sr = { home: function (u, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, a, i, n, s, c, o, d, v, p, g, S, A, K, Z, fu) {
+            return [2, (function (t, r, a, i, n, s, c, o, f, v, p, g, S, A, K, Z, fu) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0: return [4, (function () {
-                                    return __awaiter(this, void 0, void 0, function () { function P(N, f) {
+                                    return __awaiter(this, void 0, void 0, function () { function P(N, d) {
                                         return __awaiter(this, void 0, void 0, function () { var b, h; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0:
-                                                    f || (f = {});
+                                                    d || (d = {});
                                                     b = { "User-Agent": L, Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" };
-                                                    if (f.headers)
-                                                        for (h in f.headers)
-                                                            b[h] = f.headers[h];
-                                                    f.headers = b;
-                                                    return [4, t(N, f)];
+                                                    if (d.headers)
+                                                        for (h in d.headers)
+                                                            b[h] = d.headers[h];
+                                                    d.headers = b;
+                                                    return [4, t(N, d)];
                                                 case 1: return [2, _a.sent()];
                                             }
                                         }); });
@@ -2354,35 +2366,35 @@ var Eu = { id: "vivutruyencom", name: "Vivu Truyện", source: "https://vivutruy
         }); });
     }, genre: function (u, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, a, i, n, s, c, o, d, v, p, g, S, A, K, Z, fu) {
+            return [2, (function (t, r, a, i, n, s, c, o, f, v, p, g, S, A, K, Z, fu) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0: return [4, (function () {
-                                    return __awaiter(this, void 0, void 0, function () { function P(N, f) {
+                                    return __awaiter(this, void 0, void 0, function () { function P(N, d) {
                                         return __awaiter(this, void 0, void 0, function () { var b, h; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0:
-                                                    f || (f = {});
+                                                    d || (d = {});
                                                     b = { "User-Agent": L, Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" };
-                                                    if (f.headers)
-                                                        for (h in f.headers)
-                                                            b[h] = f.headers[h];
-                                                    f.headers = b;
-                                                    return [4, t(N, f)];
+                                                    if (d.headers)
+                                                        for (h in d.headers)
+                                                            b[h] = d.headers[h];
+                                                    d.headers = b;
+                                                    return [4, t(N, d)];
                                                 case 1: return [2, _a.sent()];
                                             }
                                         }); });
                                     } function E() {
-                                        return __awaiter(this, void 0, void 0, function () { function w(R, O) { !R || !O || h[O] || (h[O] = !0, b.push({ title: R, input: O, script: "gen.js" })); } var N, f, b, h, T, I, F, H, D; return __generator(this, function (_a) {
+                                        return __awaiter(this, void 0, void 0, function () { function w(R, O) { !R || !O || h[O] || (h[O] = !0, b.push({ title: R, input: O, script: "gen.js" })); } var N, d, b, h, T, I, B, H, D; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0: return [4, P(x)];
                                                 case 1:
                                                     N = _a.sent();
                                                     if (!N.ok)
                                                         return [2, i.error("HTTP Error: " + N.status)];
-                                                    f = N.html(), b = [], h = {};
-                                                    for (T = f.select("ul.danh-muc a.menu-item"), I = 0; I < T.size(); I++) {
-                                                        F = T.get(I), H = F.text().replace(/\s+/g, " ").trim(), D = F.attr("href") || "";
+                                                    d = N.html(), b = [], h = {};
+                                                    for (T = d.select("ul.danh-muc a.menu-item"), I = 0; I < T.size(); I++) {
+                                                        B = T.get(I), H = B.text().replace(/\s+/g, " ").trim(), D = B.attr("href") || "";
                                                         !H || !D || (D.indexOf("http") !== 0 && (D = D.charAt(0) === "/" ? x + D : x + "/" + D), w(H, D));
                                                     }
                                                     return [2, (b.length === 0 && w("Hiện Đại", x + "/hien-dai/"), i.success(b))];
@@ -2404,11 +2416,11 @@ var Eu = { id: "vivutruyencom", name: "Vivu Truyện", source: "https://vivutruy
         }); });
     }, gen: function (u, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, a, i, n, s, c, o, d, v, p, g, S, A, K, Z, fu) {
+            return [2, (function (t, r, a, i, n, s, c, o, f, v, p, g, S, A, K, Z, fu) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0: return [4, (function () {
-                                    return __awaiter(this, void 0, void 0, function () { function P(f, b) {
+                                    return __awaiter(this, void 0, void 0, function () { function P(d, b) {
                                         return __awaiter(this, void 0, void 0, function () { var h, w; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0:
@@ -2418,23 +2430,23 @@ var Eu = { id: "vivutruyencom", name: "Vivu Truyện", source: "https://vivutruy
                                                         for (w in b.headers)
                                                             h[w] = b.headers[w];
                                                     b.headers = h;
-                                                    return [4, t(f, b)];
+                                                    return [4, t(d, b)];
                                                 case 1: return [2, _a.sent()];
                                             }
                                         }); });
-                                    } function E(f) { return f ? f.indexOf("http") === 0 ? f : f.charAt(0) === "/" ? x + f : x + "/" + f : ""; } function N(f, b) {
-                                        return __awaiter(this, void 0, void 0, function () { var h, w, T, I, F, H, D, R, O, iu, M, nu, $, G, Y, su, _, Tu, tu, hu, vu, Q, bu, V, J, ru, pu, gu, Pu, Iu, _u, ge, Xt, me, Zt; return __generator(this, function (_a) {
+                                    } function E(d) { return d ? d.indexOf("http") === 0 ? d : d.charAt(0) === "/" ? x + d : x + "/" + d : ""; } function N(d, b) {
+                                        return __awaiter(this, void 0, void 0, function () { var h, w, T, I, B, H, D, R, O, iu, M, nu, $, G, Y, su, _, Tu, tu, hu, vu, Q, bu, V, J, ru, pu, gu, Pu, Iu, _u, ge, Xt, me, Zt; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0:
                                                     b || (b = "1");
-                                                    h = E(f || x), w = h.replace(/\/$/, "");
+                                                    h = E(d || x), w = h.replace(/\/$/, "");
                                                     b !== "1" && (w = w + "/page/" + b + "/");
                                                     return [4, P(w)];
                                                 case 1:
                                                     T = _a.sent();
                                                     if (!T.ok)
                                                         return [2, i.error("HTTP Error: " + T.status)];
-                                                    I = T.html(), F = [], H = {}, D = I.select(".uk-cover-container");
+                                                    I = T.html(), B = [], H = {}, D = I.select(".uk-cover-container");
                                                     if (D.size() > 0)
                                                         for (R = 0; R < D.size(); R++) {
                                                             O = D.get(R), iu = O.select("a.uk-position-cover").first();
@@ -2444,7 +2456,7 @@ var Eu = { id: "vivutruyencom", name: "Vivu Truyện", source: "https://vivutruy
                                                                     nu = "", $ = "", G = "", Y = O.select(".de-cu-title").first(), su = O.select(".chap-title").first(), _ = su ? su.text().replace(/\s+/g, " ").trim() : "", Tu = O.select(".tien-to").first(), tu = Tu ? Tu.text().replace(/\s+/g, " ").trim() : "";
                                                                     Y && (Y.select(".chap-title").remove(), nu = Y.text().replace(/\s+/g, " ").trim());
                                                                     hu = O.select("img").first();
-                                                                    hu && ($ = E(hu.attr("data-src") || hu.attr("src") || "")), tu && _ ? G = tu + " - " + _ : tu ? G = tu : _ ? G = _ : G = "", nu && (H[M] = !0, F.push({ name: nu, link: M, cover: $, description: G, host: x }));
+                                                                    hu && ($ = E(hu.attr("data-src") || hu.attr("src") || "")), tu && _ ? G = tu + " - " + _ : tu ? G = tu : _ ? G = _ : G = "", nu && (H[M] = !0, B.push({ name: nu, link: M, cover: $, description: G, host: x }));
                                                                 }
                                                             }
                                                         }
@@ -2461,11 +2473,11 @@ var Eu = { id: "vivutruyencom", name: "Vivu Truyện", source: "https://vivutruy
                                                                     _u = J.select(".tien-to, .status").first(), ge = _u ? _u.text().replace(/\s+/g, " ").trim() : "", Xt = J.select(".chap-title, .chuong").first(), me = Xt ? Xt.text().replace(/\s+/g, " ").trim() : "";
                                                                     ge && me ? gu = ge + " - " + me : ge ? gu = ge : me ? gu = me : gu = "";
                                                                 }
-                                                                ru || (ru = bu.text().replace(/\s+/g, " ").replace(/Chương\s*\d+.*$/i, "").trim()), ru && (H[V] = !0, F.push({ name: ru, link: V, cover: pu, description: gu, host: x }));
+                                                                ru || (ru = bu.text().replace(/\s+/g, " ").replace(/Chương\s*\d+.*$/i, "").trim()), ru && (H[V] = !0, B.push({ name: ru, link: V, cover: pu, description: gu, host: x }));
                                                             }
                                                         }
                                                     Zt = "";
-                                                    return [2, ((I.select('a[rel="next"], .pagination a.next, .pagination .next a').size() > 0 || I.select(".pagination a").size() > 0) && (Zt = String(parseInt(b, 10) + 1)), i.success(F, Zt))];
+                                                    return [2, ((I.select('a[rel="next"], .pagination a.next, .pagination .next a').size() > 0 || I.select(".pagination a").size() > 0) && (Zt = String(parseInt(b, 10) + 1)), i.success(B, Zt))];
                                             }
                                         }); });
                                     } var x, L; return __generator(this, function (_a) {
@@ -2473,7 +2485,7 @@ var Eu = { id: "vivutruyencom", name: "Vivu Truyện", source: "https://vivutruy
                                         try {
                                             CONFIG_URL && (x = CONFIG_URL), CONFIG_UA && (L = CONFIG_UA);
                                         }
-                                        catch (f) { }
+                                        catch (d) { }
                                         return [2, typeof N == "function" ? N : void 0];
                                     }); });
                                 })()];
@@ -2484,30 +2496,30 @@ var Eu = { id: "vivutruyencom", name: "Vivu Truyện", source: "https://vivutruy
         }); });
     }, page: function (u, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, a, i, n, s, c, o, d, v, p, g, S, A, K, Z, fu) {
+            return [2, (function (t, r, a, i, n, s, c, o, f, v, p, g, S, A, K, Z, fu) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0: return [4, (function () {
-                                    return __awaiter(this, void 0, void 0, function () { function P(N, f) {
+                                    return __awaiter(this, void 0, void 0, function () { function P(N, d) {
                                         return __awaiter(this, void 0, void 0, function () { var b, h; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0:
-                                                    f || (f = {});
+                                                    d || (d = {});
                                                     b = { "User-Agent": L, Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" };
-                                                    if (f.headers)
-                                                        for (h in f.headers)
-                                                            b[h] = f.headers[h];
-                                                    f.headers = b;
-                                                    return [4, t(N, f)];
+                                                    if (d.headers)
+                                                        for (h in d.headers)
+                                                            b[h] = d.headers[h];
+                                                    d.headers = b;
+                                                    return [4, t(N, d)];
                                                 case 1: return [2, _a.sent()];
                                             }
                                         }); });
                                     } function E(N) {
-                                        return __awaiter(this, void 0, void 0, function () { var f; return __generator(this, function (_a) {
+                                        return __awaiter(this, void 0, void 0, function () { var d; return __generator(this, function (_a) {
                                             if (!N)
                                                 return [2, i.error("URL không hợp lệ")];
-                                            f = N;
-                                            return [2, (f.indexOf("http") !== 0 && (f = f.charAt(0) === "/" ? x + f : x + "/" + f), i.success([f]))];
+                                            d = N;
+                                            return [2, (d.indexOf("http") !== 0 && (d = d.charAt(0) === "/" ? x + d : x + "/" + d), i.success([d]))];
                                         }); });
                                     } var x, L; return __generator(this, function (_a) {
                                         x = "https://vivutruyen.net", L = "Mozilla/5.0 (Linux; Android 12; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Mobile Safari/537.36";
@@ -2525,32 +2537,32 @@ var Eu = { id: "vivutruyencom", name: "Vivu Truyện", source: "https://vivutruy
         }); });
     }, detail: function (u, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, a, i, n, s, c, o, d, v, p, g, S, A, K, Z, fu) {
+            return [2, (function (t, r, a, i, n, s, c, o, f, v, p, g, S, A, K, Z, fu) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0: return [4, (function () {
-                                    return __awaiter(this, void 0, void 0, function () { function P(N, f) {
+                                    return __awaiter(this, void 0, void 0, function () { function P(N, d) {
                                         return __awaiter(this, void 0, void 0, function () { var b, h; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0:
-                                                    f || (f = {});
+                                                    d || (d = {});
                                                     b = { "User-Agent": L, Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" };
-                                                    if (f.headers)
-                                                        for (h in f.headers)
-                                                            b[h] = f.headers[h];
-                                                    f.headers = b;
-                                                    return [4, t(N, f)];
+                                                    if (d.headers)
+                                                        for (h in d.headers)
+                                                            b[h] = d.headers[h];
+                                                    d.headers = b;
+                                                    return [4, t(N, d)];
                                                 case 1: return [2, _a.sent()];
                                             }
                                         }); });
                                     } function E(N) {
-                                        return __awaiter(this, void 0, void 0, function () { var f, b, h, w, T, I, F, H, D, R, O, iu, M, nu, $, G, Y, su, _, Tu, tu, hu, vu, Q, bu, V, J, ru, pu, gu; return __generator(this, function (_a) {
+                                        return __awaiter(this, void 0, void 0, function () { var d, b, h, w, T, I, B, H, D, R, O, iu, M, nu, $, G, Y, su, _, Tu, tu, hu, vu, Q, bu, V, J, ru, pu, gu; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0: return [4, P(N)];
                                                 case 1:
-                                                    f = _a.sent();
-                                                    if (f.ok) {
-                                                        b = f.html(), h = "", w = "", T = "", I = "", F = "Đang ra", H = "", D = [], R = [], O = [];
+                                                    d = _a.sent();
+                                                    if (d.ok) {
+                                                        b = d.html(), h = "", w = "", T = "", I = "", B = "Đang ra", H = "", D = [], R = [], O = [];
                                                         try {
                                                             iu = b.select("article h1, h1 .title-truyen, h1").first();
                                                             iu && (h = iu.text().replace(/\s+/g, " ").trim());
@@ -2568,23 +2580,23 @@ var Eu = { id: "vivutruyencom", name: "Vivu Truyện", source: "https://vivutruy
                                                                         Q && Q.indexOf("http") !== 0 && (Q = Q.charAt(0) === "/" ? x + Q : x + "/" + Q), vu && Q && (D.push({ title: vu, input: Q, script: "gen.js" }), R.push(vu));
                                                                     }
                                                                 else
-                                                                    su.indexOf("trạng thái:") > -1 && (F = Y.replace(/trạng thái:/i, "").replace(/\s+/g, " ").trim());
+                                                                    su.indexOf("trạng thái:") > -1 && (B = Y.replace(/trạng thái:/i, "").replace(/\s+/g, " ").trim());
                                                             }
                                                             if (!T) {
                                                                 bu = b.select('meta[name="author"], meta[property="author"]').first();
                                                                 bu && (T = bu.attr("content").replace(/\s+/g, " ").trim());
                                                             }
-                                                            T || (T = "Đang cập nhật"), F || (F = "Đang ra");
+                                                            T || (T = "Đang cập nhật"), B || (B = "Đang ra");
                                                             V = b.select(".noi-dung");
                                                             V.size() > 0 && (H = V.text().replace(/\s+/g, " ").trim().substring(0, 500)), I && (I.indexOf("http") !== 0 && (I = I.charAt(0) === "/" ? x + I : x + "/" + I), O.push({ title: "Truyện cùng tác giả", input: I, script: "gen.js" })), D.length > 0 && O.push({ title: "Truyện cùng thể loại", input: D[0].input, script: "gen.js" });
                                                         }
                                                         catch (Pu) { }
-                                                        J = F.toLowerCase(), ru = J.indexOf("hoàn thành") === -1 && J.indexOf("đã hoàn") === -1 && J.indexOf("full") === -1 && J.indexOf("complete") === -1, pu = [];
-                                                        pu.push("<p><strong>Tác giả:</strong> " + T + "</p>"), R.length > 0 && pu.push("<p><strong>Thể loại:</strong> " + R.join(", ") + "</p>"), pu.push("<p><strong>Trạng thái:</strong> " + F + "</p>");
+                                                        J = B.toLowerCase(), ru = J.indexOf("hoàn thành") === -1 && J.indexOf("đã hoàn") === -1 && J.indexOf("full") === -1 && J.indexOf("complete") === -1, pu = [];
+                                                        pu.push("<p><strong>Tác giả:</strong> " + T + "</p>"), R.length > 0 && pu.push("<p><strong>Thể loại:</strong> " + R.join(", ") + "</p>"), pu.push("<p><strong>Trạng thái:</strong> " + B + "</p>");
                                                         gu = pu.join("");
-                                                        return [2, i.success({ name: h, cover: w, host: x, author: T, status: F, description: H, detail: gu, ongoing: ru, genres: D, suggests: O, category: R.length > 0 ? R[0] : "", categories: R, link: N })];
+                                                        return [2, i.success({ name: h, cover: w, host: x, author: T, status: B, description: H, detail: gu, ongoing: ru, genres: D, suggests: O, category: R.length > 0 ? R[0] : "", categories: R, link: N })];
                                                     }
-                                                    return [2, i.error("HTTP Error: " + f.status)];
+                                                    return [2, i.error("HTTP Error: " + d.status)];
                                             }
                                         }); });
                                     } var x, L; return __generator(this, function (_a) {
@@ -2603,11 +2615,11 @@ var Eu = { id: "vivutruyencom", name: "Vivu Truyện", source: "https://vivutruy
         }); });
     }, search: function (u, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, a, i, n, s, c, o, d, v, p, g, S, A, K, Z, fu) {
+            return [2, (function (t, r, a, i, n, s, c, o, f, v, p, g, S, A, K, Z, fu) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0: return [4, (function () {
-                                    return __awaiter(this, void 0, void 0, function () { function P(f, b) {
+                                    return __awaiter(this, void 0, void 0, function () { function P(d, b) {
                                         return __awaiter(this, void 0, void 0, function () { var h, w; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0:
@@ -2617,23 +2629,23 @@ var Eu = { id: "vivutruyencom", name: "Vivu Truyện", source: "https://vivutruy
                                                         for (w in b.headers)
                                                             h[w] = b.headers[w];
                                                     b.headers = h;
-                                                    return [4, t(f, b)];
+                                                    return [4, t(d, b)];
                                                 case 1: return [2, _a.sent()];
                                             }
                                         }); });
-                                    } function E(f) { return f ? f.indexOf("http") === 0 ? f : f.charAt(0) === "/" ? x + f : x + "/" + f : ""; } function N(f, b) {
-                                        return __awaiter(this, void 0, void 0, function () { var h, w, T, I, F, H, D, R, O, iu, M, nu, $, G, Y, su, _, Tu, tu, hu, vu, Q, bu, V, J, ru, pu, gu, Pu, Iu, _u; return __generator(this, function (_a) {
+                                    } function E(d) { return d ? d.indexOf("http") === 0 ? d : d.charAt(0) === "/" ? x + d : x + "/" + d : ""; } function N(d, b) {
+                                        return __awaiter(this, void 0, void 0, function () { var h, w, T, I, B, H, D, R, O, iu, M, nu, $, G, Y, su, _, Tu, tu, hu, vu, Q, bu, V, J, ru, pu, gu, Pu, Iu, _u; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0:
                                                     b || (b = "1");
-                                                    h = encodeURIComponent(f);
+                                                    h = encodeURIComponent(d);
                                                     b === "1" ? w = x + "/?s=" + h : w = x + "/page/" + b + "/?s=" + h;
                                                     return [4, P(w)];
                                                 case 1:
                                                     T = _a.sent();
                                                     if (!T.ok)
                                                         return [2, i.error("HTTP Error: " + T.status)];
-                                                    I = T.html(), F = [], H = {}, D = I.select(".uk-cover-container");
+                                                    I = T.html(), B = [], H = {}, D = I.select(".uk-cover-container");
                                                     if (D.size() > 0)
                                                         for (R = 0; R < D.size(); R++) {
                                                             O = D.get(R), iu = O.select("a.uk-position-cover").first();
@@ -2643,7 +2655,7 @@ var Eu = { id: "vivutruyencom", name: "Vivu Truyện", source: "https://vivutruy
                                                                     nu = "", $ = "", G = "", Y = O.select(".de-cu-title").first(), su = O.select(".chap-title").first(), _ = su ? su.text().replace(/\s+/g, " ").trim() : "", Tu = O.select(".tien-to").first(), tu = Tu ? Tu.text().replace(/\s+/g, " ").trim() : "";
                                                                     Y && (Y.select(".chap-title").remove(), nu = Y.text().replace(/\s+/g, " ").trim());
                                                                     hu = O.select("img").first();
-                                                                    hu && ($ = E(hu.attr("data-src") || hu.attr("src") || "")), tu && _ ? G = tu + " - " + _ : tu ? G = tu : _ ? G = _ : G = "", nu && (H[M] = !0, F.push({ name: nu, link: M, cover: $, description: G, host: x }));
+                                                                    hu && ($ = E(hu.attr("data-src") || hu.attr("src") || "")), tu && _ ? G = tu + " - " + _ : tu ? G = tu : _ ? G = _ : G = "", nu && (H[M] = !0, B.push({ name: nu, link: M, cover: $, description: G, host: x }));
                                                                 }
                                                             }
                                                         }
@@ -2658,11 +2670,11 @@ var Eu = { id: "vivutruyencom", name: "Vivu Truyện", source: "https://vivutruy
                                                                     Iu = J.select("img");
                                                                     Iu.size() > 0 && (pu = E(Iu.attr("src") || Iu.attr("data-src") || "")), gu = (J.text() || "").replace(/\s+/g, " ").trim();
                                                                 }
-                                                                ru || (ru = bu.text().replace(/\s+/g, " ").replace(/Chương\s*\d+.*$/i, "").trim()), ru && (H[V] = !0, F.push({ name: ru, link: V, cover: pu, description: gu, host: x }));
+                                                                ru || (ru = bu.text().replace(/\s+/g, " ").replace(/Chương\s*\d+.*$/i, "").trim()), ru && (H[V] = !0, B.push({ name: ru, link: V, cover: pu, description: gu, host: x }));
                                                             }
                                                         }
                                                     _u = "";
-                                                    return [2, ((I.select('a[rel="next"], .pagination a.next, .pagination .next a').size() > 0 || I.select(".pagination a").size() > 0) && (_u = String(parseInt(b, 10) + 1)), i.success(F, _u))];
+                                                    return [2, ((I.select('a[rel="next"], .pagination a.next, .pagination .next a').size() > 0 || I.select(".pagination a").size() > 0) && (_u = String(parseInt(b, 10) + 1)), i.success(B, _u))];
                                             }
                                         }); });
                                     } var x, L; return __generator(this, function (_a) {
@@ -2670,7 +2682,7 @@ var Eu = { id: "vivutruyencom", name: "Vivu Truyện", source: "https://vivutruy
                                         try {
                                             CONFIG_URL && (x = CONFIG_URL), CONFIG_UA && (L = CONFIG_UA);
                                         }
-                                        catch (f) { }
+                                        catch (d) { }
                                         return [2, typeof N == "function" ? N : void 0];
                                     }); });
                                 })()];
@@ -2681,7 +2693,7 @@ var Eu = { id: "vivutruyencom", name: "Vivu Truyện", source: "https://vivutruy
         }); });
     }, toc: function (u, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, a, i, n, s, c, o, d, v, p, g, S, A, K, Z, fu) {
+            return [2, (function (t, r, a, i, n, s, c, o, f, v, p, g, S, A, K, Z, fu) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0: return [4, (function () {
@@ -2703,16 +2715,16 @@ var Eu = { id: "vivutruyencom", name: "Vivu Truyện", source: "https://vivutruy
                                         return ""; var h = b.replace(/^(https?:)?\/\//i, ""), w = h.indexOf("/"); if (w !== -1) {
                                         var T = h.substring(0, w);
                                         (T.indexOf(".") !== -1 || T.indexOf(":") !== -1) && (h = h.substring(w));
-                                    } return h = h.split("?")[0].split("#")[0], h = h.replace(/^\/+|\/+$/g, ""), h; } function N(b) { var h = b.match(/Chương\s*(\d+)/i); return h ? parseInt(h[1], 10) : null; } function f(b) {
-                                        return __awaiter(this, void 0, void 0, function () { var h, w, T, I, F, H, D, R, O, iu, M, nu, $, G, Y, su; return __generator(this, function (_a) {
+                                    } return h = h.split("?")[0].split("#")[0], h = h.replace(/^\/+|\/+$/g, ""), h; } function N(b) { var h = b.match(/Chương\s*(\d+)/i); return h ? parseInt(h[1], 10) : null; } function d(b) {
+                                        return __awaiter(this, void 0, void 0, function () { var h, w, T, I, B, H, D, R, O, iu, M, nu, $, G, Y, su; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0: return [4, P(b)];
                                                 case 1:
                                                     h = _a.sent();
                                                     if (!h.ok)
                                                         return [2, i.error("HTTP Error: " + h.status)];
-                                                    w = h.html(), T = [], I = {}, F = E(b).toLowerCase();
-                                                    if (!F)
+                                                    w = h.html(), T = [], I = {}, B = E(b).toLowerCase();
+                                                    if (!B)
                                                         return [2, i.error("Invalid Book URL")];
                                                     try {
                                                         for (H = w.select('a.chap-title, .list a.chap-title, ul.uk-switcher a[href*="/chuong-"], a[href*="/chuong-"]'), D = 0; D < H.size(); D++) {
@@ -2721,7 +2733,7 @@ var Eu = { id: "vivutruyencom", name: "Vivu Truyện", source: "https://vivutruy
                                                                 iu = R.attr("href") || "", M = (R.text() || "").replace(/\s+/g, " ").trim();
                                                                 if (!(!iu || !M)) {
                                                                     nu = E(iu).toLowerCase();
-                                                                    if (nu.indexOf(F + "/") === 0) {
+                                                                    if (nu.indexOf(B + "/") === 0) {
                                                                         $ = iu;
                                                                         $.indexOf("http") !== 0 && ($ = $.charAt(0) === "/" ? x + $ : x + "/" + $);
                                                                         G = $.replace(/\/$/, "").toLowerCase();
@@ -2745,7 +2757,7 @@ var Eu = { id: "vivutruyencom", name: "Vivu Truyện", source: "https://vivutruy
                                             CONFIG_URL && (x = CONFIG_URL), CONFIG_UA && (L = CONFIG_UA);
                                         }
                                         catch (b) { }
-                                        return [2, typeof f == "function" ? f : void 0];
+                                        return [2, typeof d == "function" ? d : void 0];
                                     }); });
                                 })()];
                             case 1: return [2, _a.sent()];
@@ -2755,33 +2767,33 @@ var Eu = { id: "vivutruyencom", name: "Vivu Truyện", source: "https://vivutruy
         }); });
     }, chap: function (u, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
-            return [2, (function (t, r, a, i, n, s, c, o, d, v, p, g, S, A, K, Z, fu) {
+            return [2, (function (t, r, a, i, n, s, c, o, f, v, p, g, S, A, K, Z, fu) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0: return [4, (function () {
-                                    return __awaiter(this, void 0, void 0, function () { function P(N, f) {
+                                    return __awaiter(this, void 0, void 0, function () { function P(N, d) {
                                         return __awaiter(this, void 0, void 0, function () { var b, h; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0:
-                                                    f || (f = {});
+                                                    d || (d = {});
                                                     b = { "User-Agent": L, Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" };
-                                                    if (f.headers)
-                                                        for (h in f.headers)
-                                                            b[h] = f.headers[h];
-                                                    f.headers = b;
-                                                    return [4, t(N, f)];
+                                                    if (d.headers)
+                                                        for (h in d.headers)
+                                                            b[h] = d.headers[h];
+                                                    d.headers = b;
+                                                    return [4, t(N, d)];
                                                 case 1: return [2, _a.sent()];
                                             }
                                         }); });
                                     } function E(N) {
-                                        return __awaiter(this, void 0, void 0, function () { var f, b, h, w; return __generator(this, function (_a) {
+                                        return __awaiter(this, void 0, void 0, function () { var d, b, h, w; return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0: return [4, P(N)];
                                                 case 1:
-                                                    f = _a.sent();
-                                                    if (!f.ok)
-                                                        return [2, i.error("HTTP Error: " + f.status)];
-                                                    b = f.html(), h = "";
+                                                    d = _a.sent();
+                                                    if (!d.ok)
+                                                        return [2, i.error("HTTP Error: " + d.status)];
+                                                    b = d.html(), h = "";
                                                     try {
                                                         w = b.select(".reading");
                                                         w.size() === 0 && (w = b.select(".noi-dung")), w.size() > 0 && (h = w.html() || "", h = h.replace(/<div class="google-auto-placed[\s\S]*?<\/div>/gi, ""), h = h.replace(/<ins[\s\S]*?<\/ins>/gi, ""), h = h.replace(/<iframe[\s\S]*?<\/iframe>/gi, ""));

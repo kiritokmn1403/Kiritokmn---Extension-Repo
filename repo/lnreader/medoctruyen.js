@@ -112,13 +112,13 @@ var Qr = function (t, e) { return function () { return (e || t((e = { exports: {
     je(t, r, { get: e[r], enumerable: !0 }); }, Mu = function (t, e, r, i) {
     var e_3, _b;
     if (e && typeof e == "object" || typeof e == "function") {
-        var _loop_1 = function (c) {
-            !Uu.call(t, c) && c !== r && je(t, c, { get: function () { return e[c]; }, enumerable: !(i = Jr(e, c)) || i.enumerable });
+        var _loop_1 = function (s) {
+            !Uu.call(t, s) && s !== r && je(t, s, { get: function () { return e[s]; }, enumerable: !(i = Jr(e, s)) || i.enumerable });
         };
         try {
             for (var _c = __values(Xr(e)), _d = _c.next(); !_d.done; _d = _c.next()) {
-                var c = _d.value;
-                _loop_1(c);
+                var s = _d.value;
+                _loop_1(s);
             }
         }
         catch (e_3_1) { e_3 = { error: e_3_1 }; }
@@ -165,41 +165,41 @@ var qe = (function () {
         case G.NamedEntity: return this.stateNamedEntity(e, r);
     } };
     qe.prototype.stateNumericStart = function (e, r) { return r >= e.length ? -1 : (e.charCodeAt(r) | ta) === $.LOWER_X ? (this.state = G.NumericHex, this.consumed += 1, this.stateNumericHex(e, r + 1)) : (this.state = G.NumericDecimal, this.stateNumericDecimal(e, r)); };
-    qe.prototype.addToNumericResult = function (e, r, i, c) { if (r !== i) {
+    qe.prototype.addToNumericResult = function (e, r, i, s) { if (r !== i) {
         var o = i - r;
-        this.result = this.result * Math.pow(c, o) + parseInt(e.substr(r, o), c), this.consumed += o;
+        this.result = this.result * Math.pow(s, o) + parseInt(e.substr(r, o), s), this.consumed += o;
     } };
     qe.prototype.stateNumericHex = function (e, r) { var i = r; for (; r < e.length;) {
-        var c = e.charCodeAt(r);
-        if (Pt(c) || ua(c))
+        var s = e.charCodeAt(r);
+        if (Pt(s) || ua(s))
             r += 1;
         else
-            return this.addToNumericResult(e, i, r, 16), this.emitNumericEntity(c, 3);
+            return this.addToNumericResult(e, i, r, 16), this.emitNumericEntity(s, 3);
     } return this.addToNumericResult(e, i, r, 16), -1; };
     qe.prototype.stateNumericDecimal = function (e, r) { var i = r; for (; r < e.length;) {
-        var c = e.charCodeAt(r);
-        if (Pt(c))
+        var s = e.charCodeAt(r);
+        if (Pt(s))
             r += 1;
         else
-            return this.addToNumericResult(e, i, r, 10), this.emitNumericEntity(c, 2);
+            return this.addToNumericResult(e, i, r, 10), this.emitNumericEntity(s, 2);
     } return this.addToNumericResult(e, i, r, 10), -1; };
     qe.prototype.emitNumericEntity = function (e, r) { var i; if (this.consumed <= r)
         return (i = this.errors) === null || i === void 0 || i.absenceOfDigitsInNumericCharacterReference(this.consumed), 0; if (e === $.SEMI)
         this.consumed += 1;
     else if (this.decodeMode === ue.Strict)
         return 0; return this.emitCodePoint(Mt(this.result), this.consumed), this.errors && (e !== $.SEMI && this.errors.missingSemicolonAfterCharacterReference(), this.errors.validateNumericCharacterReference(this.result)), this.consumed; };
-    qe.prototype.stateNamedEntity = function (e, r) { var i = this.decodeTree, c = i[this.treeIndex], o = (c & ge.VALUE_LENGTH) >> 14; for (; r < e.length; r++, this.excess++) {
+    qe.prototype.stateNamedEntity = function (e, r) { var i = this.decodeTree, s = i[this.treeIndex], o = (s & ge.VALUE_LENGTH) >> 14; for (; r < e.length; r++, this.excess++) {
         var g = e.charCodeAt(r);
-        if (this.treeIndex = ia(i, c, this.treeIndex + Math.max(1, o), g), this.treeIndex < 0)
+        if (this.treeIndex = ia(i, s, this.treeIndex + Math.max(1, o), g), this.treeIndex < 0)
             return this.result === 0 || this.decodeMode === ue.Attribute && (o === 0 || aa(g)) ? 0 : this.emitNotTerminatedNamedEntity();
-        if (c = i[this.treeIndex], o = (c & ge.VALUE_LENGTH) >> 14, o !== 0) {
+        if (s = i[this.treeIndex], o = (s & ge.VALUE_LENGTH) >> 14, o !== 0) {
             if (g === $.SEMI)
                 return this.emitNamedEntityData(this.treeIndex, o, this.consumed + this.excess);
             this.decodeMode !== ue.Strict && (this.result = this.treeIndex, this.consumed += this.excess, this.excess = 0);
         }
     } return -1; };
-    qe.prototype.emitNotTerminatedNamedEntity = function () { var e; var _b = this, r = _b.result, i = _b.decodeTree, c = (i[r] & ge.VALUE_LENGTH) >> 14; return this.emitNamedEntityData(r, c, this.consumed), (e = this.errors) === null || e === void 0 || e.missingSemicolonAfterCharacterReference(), this.consumed; };
-    qe.prototype.emitNamedEntityData = function (e, r, i) { var c = this.decodeTree; return this.emitCodePoint(r === 1 ? c[e] & ~ge.VALUE_LENGTH : c[e + 1], i), r === 3 && this.emitCodePoint(c[e + 2], i), i; };
+    qe.prototype.emitNotTerminatedNamedEntity = function () { var e; var _b = this, r = _b.result, i = _b.decodeTree, s = (i[r] & ge.VALUE_LENGTH) >> 14; return this.emitNamedEntityData(r, s, this.consumed), (e = this.errors) === null || e === void 0 || e.missingSemicolonAfterCharacterReference(), this.consumed; };
+    qe.prototype.emitNamedEntityData = function (e, r, i) { var s = this.decodeTree; return this.emitCodePoint(r === 1 ? s[e] & ~ge.VALUE_LENGTH : s[e + 1], i), r === 3 && this.emitCodePoint(s[e + 2], i), i; };
     qe.prototype.end = function () { var e; switch (this.state) {
         case G.NamedEntity: return this.result !== 0 && (this.decodeMode !== ue.Attribute || this.result === this.treeIndex) ? this.emitNotTerminatedNamedEntity() : 0;
         case G.NumericDecimal: return this.emitNumericEntity(0, 2);
@@ -209,27 +209,27 @@ var qe = (function () {
     } };
     return qe;
 }());
-function Pu(t) { var e = "", r = new qe(t, function (i) { return e += Ce(i); }); return function (c, o) { var g = 0, v = 0; for (; (v = c.indexOf("&", v)) >= 0;) {
-    e += c.slice(g, v), r.startEntity(o);
-    var S = r.write(c, v + 1);
+function Pu(t) { var e = "", r = new qe(t, function (i) { return e += Ce(i); }); return function (s, o) { var g = 0, v = 0; for (; (v = s.indexOf("&", v)) >= 0;) {
+    e += s.slice(g, v), r.startEntity(o);
+    var S = r.write(s, v + 1);
     if (S < 0) {
         g = v + r.end();
         break;
     }
     g = v + S, v = S === 0 ? g + 1 : g;
-} var y = e + c.slice(g); return e = "", y; }; }
-function ia(t, e, r, i) { var c = (e & ge.BRANCH_LENGTH) >> 7, o = e & ge.JUMP_TABLE; if (c === 0)
+} var y = e + s.slice(g); return e = "", y; }; }
+function ia(t, e, r, i) { var s = (e & ge.BRANCH_LENGTH) >> 7, o = e & ge.JUMP_TABLE; if (s === 0)
     return o !== 0 && i === o ? r : -1; if (o) {
     var y = i - o;
-    return y < 0 || y >= c ? -1 : t[r + y] - 1;
-} var g = r, v = g + c - 1; for (; g <= v;) {
+    return y < 0 || y >= s ? -1 : t[r + y] - 1;
+} var g = r, v = g + s - 1; for (; g <= v;) {
     var y = g + v >>> 1, S = t[y];
     if (S < i)
         g = y + 1;
     else if (S > i)
         v = y - 1;
     else
-        return t[y + c];
+        return t[y + s];
 } return -1; }
 var Li = Pu(ut), Oi = Pu(rt);
 var I;
@@ -245,7 +245,7 @@ var K = { Cdata: new Uint8Array([67, 68, 65, 84, 65, 91]), CdataEnd: new Uint8Ar
     function Ne(_b, i) {
         var _c = _b.xmlMode, e = _c === void 0 ? !1 : _c, _d = _b.decodeEntities, r = _d === void 0 ? !0 : _d;
         var _this = this;
-        this.cbs = i, this.state = E.Text, this.buffer = "", this.sectionStart = 0, this.index = 0, this.entityStart = 0, this.baseState = E.Text, this.isSpecial = !1, this.running = !0, this.offset = 0, this.currentSequence = void 0, this.sequenceIndex = 0, this.xmlMode = e, this.decodeEntities = r, this.entityDecoder = new qe(e ? rt : ut, function (c, o) { return _this.emitCodePoint(c, o); });
+        this.cbs = i, this.state = E.Text, this.buffer = "", this.sectionStart = 0, this.index = 0, this.entityStart = 0, this.baseState = E.Text, this.isSpecial = !1, this.running = !0, this.offset = 0, this.currentSequence = void 0, this.sequenceIndex = 0, this.xmlMode = e, this.decodeEntities = r, this.entityDecoder = new qe(e ? rt : ut, function (s, o) { return _this.emitCodePoint(s, o); });
     }
     Ne.prototype.reset = function () { this.state = E.Text, this.buffer = "", this.sectionStart = 0, this.index = 0, this.baseState = E.Text, this.currentSequence = void 0, this.running = !0, this.offset = 0; };
     Ne.prototype.write = function (e) { this.offset += this.buffer.length, this.buffer = e, this.parse(); };
@@ -430,55 +430,55 @@ var K = { Cdata: new Uint8Array([67, 68, 65, 84, 65, 91]), CdataEnd: new Uint8Ar
 var _e = new Set(["input", "option", "optgroup", "select", "button", "datalist", "textarea"]), F = new Set(["p"]), Bu = new Set(["thead", "tbody"]), Fu = new Set(["dd", "dt"]), ju = new Set(["rt", "rp"]), ca = new Map([["tr", new Set(["tr", "th", "td"])], ["th", new Set(["th"])], ["td", new Set(["thead", "th", "td"])], ["body", new Set(["head", "link", "script"])], ["li", new Set(["li"])], ["p", F], ["h1", F], ["h2", F], ["h3", F], ["h4", F], ["h5", F], ["h6", F], ["select", _e], ["input", _e], ["output", _e], ["button", _e], ["datalist", _e], ["textarea", _e], ["option", new Set(["option"])], ["optgroup", new Set(["optgroup", "option"])], ["dd", Fu], ["dt", Fu], ["address", F], ["article", F], ["aside", F], ["blockquote", F], ["details", F], ["div", F], ["dl", F], ["fieldset", F], ["figcaption", F], ["figure", F], ["footer", F], ["form", F], ["header", F], ["hr", F], ["main", F], ["nav", F], ["ol", F], ["pre", F], ["section", F], ["table", F], ["ul", F], ["rt", ju], ["rp", ju], ["tbody", Bu], ["tfoot", Bu]]), sa = new Set(["area", "base", "basefont", "br", "col", "command", "embed", "frame", "hr", "img", "input", "isindex", "keygen", "link", "meta", "param", "source", "track", "wbr"]), Vu = new Set(["math", "svg"]), zu = new Set(["mi", "mo", "mn", "ms", "mtext", "annotation-xml", "foreignobject", "desc", "title"]), oa = /\s|\//, Ve = (function () {
     function Ve(e, r) {
         if (r === void 0) { r = {}; }
-        var i, c, o, g, v, y;
-        this.options = r, this.startIndex = 0, this.endIndex = 0, this.openTagStart = 0, this.tagname = "", this.attribname = "", this.attribvalue = "", this.attribs = null, this.stack = [], this.buffers = [], this.bufferOffset = 0, this.writeIndex = 0, this.ended = !1, this.cbs = e != null ? e : {}, this.htmlMode = !this.options.xmlMode, this.lowerCaseTagNames = (i = r.lowerCaseTags) !== null && i !== void 0 ? i : this.htmlMode, this.lowerCaseAttributeNames = (c = r.lowerCaseAttributeNames) !== null && c !== void 0 ? c : this.htmlMode, this.recognizeSelfClosing = (o = r.recognizeSelfClosing) !== null && o !== void 0 ? o : !this.htmlMode, this.tokenizer = new ((g = r.Tokenizer) !== null && g !== void 0 ? g : Ne)(this.options, this), this.foreignContext = [!this.htmlMode], (y = (v = this.cbs).onparserinit) === null || y === void 0 || y.call(v, this);
+        var i, s, o, g, v, y;
+        this.options = r, this.startIndex = 0, this.endIndex = 0, this.openTagStart = 0, this.tagname = "", this.attribname = "", this.attribvalue = "", this.attribs = null, this.stack = [], this.buffers = [], this.bufferOffset = 0, this.writeIndex = 0, this.ended = !1, this.cbs = e != null ? e : {}, this.htmlMode = !this.options.xmlMode, this.lowerCaseTagNames = (i = r.lowerCaseTags) !== null && i !== void 0 ? i : this.htmlMode, this.lowerCaseAttributeNames = (s = r.lowerCaseAttributeNames) !== null && s !== void 0 ? s : this.htmlMode, this.recognizeSelfClosing = (o = r.recognizeSelfClosing) !== null && o !== void 0 ? o : !this.htmlMode, this.tokenizer = new ((g = r.Tokenizer) !== null && g !== void 0 ? g : Ne)(this.options, this), this.foreignContext = [!this.htmlMode], (y = (v = this.cbs).onparserinit) === null || y === void 0 || y.call(v, this);
     }
-    Ve.prototype.ontext = function (e, r) { var i, c; var o = this.getSlice(e, r); this.endIndex = r - 1, (c = (i = this.cbs).ontext) === null || c === void 0 || c.call(i, o), this.startIndex = r; };
-    Ve.prototype.ontextentity = function (e, r) { var i, c; this.endIndex = r - 1, (c = (i = this.cbs).ontext) === null || c === void 0 || c.call(i, Ce(e)), this.startIndex = r; };
+    Ve.prototype.ontext = function (e, r) { var i, s; var o = this.getSlice(e, r); this.endIndex = r - 1, (s = (i = this.cbs).ontext) === null || s === void 0 || s.call(i, o), this.startIndex = r; };
+    Ve.prototype.ontextentity = function (e, r) { var i, s; this.endIndex = r - 1, (s = (i = this.cbs).ontext) === null || s === void 0 || s.call(i, Ce(e)), this.startIndex = r; };
     Ve.prototype.isVoidElement = function (e) { return this.htmlMode && sa.has(e); };
     Ve.prototype.onopentagname = function (e, r) { this.endIndex = r; var i = this.getSlice(e, r); this.lowerCaseTagNames && (i = i.toLowerCase()), this.emitOpenTag(i); };
-    Ve.prototype.emitOpenTag = function (e) { var r, i, c, o; this.openTagStart = this.startIndex, this.tagname = e; var g = this.htmlMode && ca.get(e); if (g)
+    Ve.prototype.emitOpenTag = function (e) { var r, i, s, o; this.openTagStart = this.startIndex, this.tagname = e; var g = this.htmlMode && ca.get(e); if (g)
         for (; this.stack.length > 0 && g.has(this.stack[0]);) {
             var v = this.stack.shift();
             (i = (r = this.cbs).onclosetag) === null || i === void 0 || i.call(r, v, !0);
-        } this.isVoidElement(e) || (this.stack.unshift(e), this.htmlMode && (Vu.has(e) ? this.foreignContext.unshift(!0) : zu.has(e) && this.foreignContext.unshift(!1))), (o = (c = this.cbs).onopentagname) === null || o === void 0 || o.call(c, e), this.cbs.onopentag && (this.attribs = {}); };
+        } this.isVoidElement(e) || (this.stack.unshift(e), this.htmlMode && (Vu.has(e) ? this.foreignContext.unshift(!0) : zu.has(e) && this.foreignContext.unshift(!1))), (o = (s = this.cbs).onopentagname) === null || o === void 0 || o.call(s, e), this.cbs.onopentag && (this.attribs = {}); };
     Ve.prototype.endOpenTag = function (e) { var r, i; this.startIndex = this.openTagStart, this.attribs && ((i = (r = this.cbs).onopentag) === null || i === void 0 || i.call(r, this.tagname, this.attribs, e), this.attribs = null), this.cbs.onclosetag && this.isVoidElement(this.tagname) && this.cbs.onclosetag(this.tagname, !0), this.tagname = ""; };
     Ve.prototype.onopentagend = function (e) { this.endIndex = e, this.endOpenTag(!1), this.startIndex = e + 1; };
-    Ve.prototype.onclosetag = function (e, r) { var i, c, o, g, v, y, S, T; this.endIndex = r; var L = this.getSlice(e, r); if (this.lowerCaseTagNames && (L = L.toLowerCase()), this.htmlMode && (Vu.has(L) || zu.has(L)) && this.foreignContext.shift(), this.isVoidElement(L))
+    Ve.prototype.onclosetag = function (e, r) { var i, s, o, g, v, y, S, T; this.endIndex = r; var L = this.getSlice(e, r); if (this.lowerCaseTagNames && (L = L.toLowerCase()), this.htmlMode && (Vu.has(L) || zu.has(L)) && this.foreignContext.shift(), this.isVoidElement(L))
         this.htmlMode && L === "br" && ((g = (o = this.cbs).onopentagname) === null || g === void 0 || g.call(o, "br"), (y = (v = this.cbs).onopentag) === null || y === void 0 || y.call(v, "br", {}, !0), (T = (S = this.cbs).onclosetag) === null || T === void 0 || T.call(S, "br", !1));
     else {
         var q = this.stack.indexOf(L);
         if (q !== -1)
             for (var N = 0; N <= q; N++) {
                 var O = this.stack.shift();
-                (c = (i = this.cbs).onclosetag) === null || c === void 0 || c.call(i, O, N !== q);
+                (s = (i = this.cbs).onclosetag) === null || s === void 0 || s.call(i, O, N !== q);
             }
         else
             this.htmlMode && L === "p" && (this.emitOpenTag("p"), this.closeCurrentTag(!0));
     } this.startIndex = r + 1; };
     Ve.prototype.onselfclosingtag = function (e) { this.endIndex = e, this.recognizeSelfClosing || this.foreignContext[0] ? (this.closeCurrentTag(!1), this.startIndex = e + 1) : this.onopentagend(e); };
-    Ve.prototype.closeCurrentTag = function (e) { var r, i; var c = this.tagname; this.endOpenTag(e), this.stack[0] === c && ((i = (r = this.cbs).onclosetag) === null || i === void 0 || i.call(r, c, !e), this.stack.shift()); };
+    Ve.prototype.closeCurrentTag = function (e) { var r, i; var s = this.tagname; this.endOpenTag(e), this.stack[0] === s && ((i = (r = this.cbs).onclosetag) === null || i === void 0 || i.call(r, s, !e), this.stack.shift()); };
     Ve.prototype.onattribname = function (e, r) { this.startIndex = e; var i = this.getSlice(e, r); this.attribname = this.lowerCaseAttributeNames ? i.toLowerCase() : i; };
     Ve.prototype.onattribdata = function (e, r) { this.attribvalue += this.getSlice(e, r); };
     Ve.prototype.onattribentity = function (e) { this.attribvalue += Ce(e); };
-    Ve.prototype.onattribend = function (e, r) { var i, c; this.endIndex = r, (c = (i = this.cbs).onattribute) === null || c === void 0 || c.call(i, this.attribname, this.attribvalue, e === re.Double ? '"' : e === re.Single ? "'" : e === re.NoValue ? void 0 : null), this.attribs && !Object.prototype.hasOwnProperty.call(this.attribs, this.attribname) && (this.attribs[this.attribname] = this.attribvalue), this.attribvalue = ""; };
+    Ve.prototype.onattribend = function (e, r) { var i, s; this.endIndex = r, (s = (i = this.cbs).onattribute) === null || s === void 0 || s.call(i, this.attribname, this.attribvalue, e === re.Double ? '"' : e === re.Single ? "'" : e === re.NoValue ? void 0 : null), this.attribs && !Object.prototype.hasOwnProperty.call(this.attribs, this.attribname) && (this.attribs[this.attribname] = this.attribvalue), this.attribvalue = ""; };
     Ve.prototype.getInstructionName = function (e) { var r = e.search(oa), i = r < 0 ? e : e.substr(0, r); return this.lowerCaseTagNames && (i = i.toLowerCase()), i; };
     Ve.prototype.ondeclaration = function (e, r) { this.endIndex = r; var i = this.getSlice(e, r); if (this.cbs.onprocessinginstruction) {
-        var c = this.getInstructionName(i);
-        this.cbs.onprocessinginstruction("!".concat(c), "!".concat(i));
+        var s = this.getInstructionName(i);
+        this.cbs.onprocessinginstruction("!".concat(s), "!".concat(i));
     } this.startIndex = r + 1; };
     Ve.prototype.onprocessinginstruction = function (e, r) { this.endIndex = r; var i = this.getSlice(e, r); if (this.cbs.onprocessinginstruction) {
-        var c = this.getInstructionName(i);
-        this.cbs.onprocessinginstruction("?".concat(c), "?".concat(i));
+        var s = this.getInstructionName(i);
+        this.cbs.onprocessinginstruction("?".concat(s), "?".concat(i));
     } this.startIndex = r + 1; };
-    Ve.prototype.oncomment = function (e, r, i) { var c, o, g, v; this.endIndex = r, (o = (c = this.cbs).oncomment) === null || o === void 0 || o.call(c, this.getSlice(e, r - i)), (v = (g = this.cbs).oncommentend) === null || v === void 0 || v.call(g), this.startIndex = r + 1; };
-    Ve.prototype.oncdata = function (e, r, i) { var c, o, g, v, y, S, T, L, q, N; this.endIndex = r; var O = this.getSlice(e, r - i); !this.htmlMode || this.options.recognizeCDATA ? ((o = (c = this.cbs).oncdatastart) === null || o === void 0 || o.call(c), (v = (g = this.cbs).ontext) === null || v === void 0 || v.call(g, O), (S = (y = this.cbs).oncdataend) === null || S === void 0 || S.call(y)) : ((L = (T = this.cbs).oncomment) === null || L === void 0 || L.call(T, "[CDATA[".concat(O, "]]")), (N = (q = this.cbs).oncommentend) === null || N === void 0 || N.call(q)), this.startIndex = r + 1; };
+    Ve.prototype.oncomment = function (e, r, i) { var s, o, g, v; this.endIndex = r, (o = (s = this.cbs).oncomment) === null || o === void 0 || o.call(s, this.getSlice(e, r - i)), (v = (g = this.cbs).oncommentend) === null || v === void 0 || v.call(g), this.startIndex = r + 1; };
+    Ve.prototype.oncdata = function (e, r, i) { var s, o, g, v, y, S, T, L, q, N; this.endIndex = r; var O = this.getSlice(e, r - i); !this.htmlMode || this.options.recognizeCDATA ? ((o = (s = this.cbs).oncdatastart) === null || o === void 0 || o.call(s), (v = (g = this.cbs).ontext) === null || v === void 0 || v.call(g, O), (S = (y = this.cbs).oncdataend) === null || S === void 0 || S.call(y)) : ((L = (T = this.cbs).oncomment) === null || L === void 0 || L.call(T, "[CDATA[".concat(O, "]]")), (N = (q = this.cbs).oncommentend) === null || N === void 0 || N.call(q)), this.startIndex = r + 1; };
     Ve.prototype.onend = function () { var e, r; if (this.cbs.onclosetag) {
         this.endIndex = this.startIndex;
         for (var i = 0; i < this.stack.length; i++)
             this.cbs.onclosetag(this.stack[i], !0);
     } (r = (e = this.cbs).onend) === null || r === void 0 || r.call(e); };
-    Ve.prototype.reset = function () { var e, r, i, c; (r = (e = this.cbs).onreset) === null || r === void 0 || r.call(e), this.tokenizer.reset(), this.tagname = "", this.attribname = "", this.attribs = null, this.stack.length = 0, this.startIndex = 0, this.endIndex = 0, (c = (i = this.cbs).onparserinit) === null || c === void 0 || c.call(i, this), this.buffers.length = 0, this.foreignContext.length = 0, this.foreignContext.unshift(!this.htmlMode), this.bufferOffset = 0, this.writeIndex = 0, this.ended = !1; };
+    Ve.prototype.reset = function () { var e, r, i, s; (r = (e = this.cbs).onreset) === null || r === void 0 || r.call(e), this.tokenizer.reset(), this.tagname = "", this.attribname = "", this.attribs = null, this.stack.length = 0, this.startIndex = 0, this.endIndex = 0, (s = (i = this.cbs).onparserinit) === null || s === void 0 || s.call(i, this), this.buffers.length = 0, this.foreignContext.length = 0, this.foreignContext.unshift(!this.htmlMode), this.bufferOffset = 0, this.writeIndex = 0, this.ended = !1; };
     Ve.prototype.parseComplete = function (e) { this.reset(), this.end(e); };
     Ve.prototype.getSlice = function (e, r) { for (; e - this.bufferOffset >= this.buffers[0].length;)
         this.shiftBuffer(); var i = this.buffers[0].slice(e - this.bufferOffset, r - this.bufferOffset); for (; r - this.bufferOffset > this.buffers[0].length;)
@@ -637,11 +637,11 @@ var nt = (function () {
     return Ie;
 }(Ge)), Je = (function (_super) {
     __extends(Je, _super);
-    function Je(e, r, i, c) {
+    function Je(e, r, i, s) {
         if (i === void 0) { i = []; }
-        if (c === void 0) { c = e === "script" ? U.Script : e === "style" ? U.Style : U.Tag; }
+        if (s === void 0) { s = e === "script" ? U.Script : e === "style" ? U.Style : U.Tag; }
         var _this = this;
-        _this = _super.call(this, i) || this, _this.name = e, _this.attribs = r, _this.type = c;
+        _this = _super.call(this, i) || this, _this.name = e, _this.attribs = r, _this.type = s;
         return _this;
     }
     Object.defineProperty(Je.prototype, "nodeType", {
@@ -680,16 +680,16 @@ function Hu(t, e) {
     else if (We(t))
         r = new He(t.data);
     else if (P(t)) {
-        var i = e ? Wt(t.children) : [], c_1 = new Je(t.name, ne({}, t.attribs), i);
-        i.forEach(function (o) { return o.parent = c_1; }), t.namespace != null && (c_1.namespace = t.namespace), t["x-attribsNamespace"] && (c_1["x-attribsNamespace"] = ne({}, t["x-attribsNamespace"])), t["x-attribsPrefix"] && (c_1["x-attribsPrefix"] = ne({}, t["x-attribsPrefix"])), r = c_1;
+        var i = e ? Wt(t.children) : [], s_1 = new Je(t.name, ne({}, t.attribs), i);
+        i.forEach(function (o) { return o.parent = s_1; }), t.namespace != null && (s_1.namespace = t.namespace), t["x-attribsNamespace"] && (s_1["x-attribsNamespace"] = ne({}, t["x-attribsNamespace"])), t["x-attribsPrefix"] && (s_1["x-attribsPrefix"] = ne({}, t["x-attribsPrefix"])), r = s_1;
     }
     else if (Le(t)) {
-        var i = e ? Wt(t.children) : [], c_2 = new $e(i);
-        i.forEach(function (o) { return o.parent = c_2; }), r = c_2;
+        var i = e ? Wt(t.children) : [], s_2 = new $e(i);
+        i.forEach(function (o) { return o.parent = s_2; }), r = s_2;
     }
     else if (Xt(t)) {
-        var i = e ? Wt(t.children) : [], c_3 = new Ie(i);
-        i.forEach(function (o) { return o.parent = c_3; }), t["x-mode"] && (c_3["x-mode"] = t["x-mode"]), r = c_3;
+        var i = e ? Wt(t.children) : [], s_3 = new Ie(i);
+        i.forEach(function (o) { return o.parent = s_3; }), t["x-mode"] && (s_3["x-mode"] = t["x-mode"]), r = s_3;
     }
     else if (fa(t)) {
         var i = new Re(t.name, t.data);
@@ -710,7 +710,7 @@ var Ru = { withStartIndices: !1, withEndIndices: !1, xmlMode: !1 }, Oe = (functi
     Oe.prototype.onend = function () { this.done || (this.done = !0, this.parser = null, this.handleCallback(null)); };
     Oe.prototype.onerror = function (e) { this.handleCallback(e); };
     Oe.prototype.onclosetag = function () { this.lastNode = null; var e = this.tagStack.pop(); this.options.withEndIndices && (e.endIndex = this.parser.endIndex), this.elementCB && this.elementCB(e); };
-    Oe.prototype.onopentag = function (e, r) { var i = this.options.xmlMode ? U.Tag : void 0, c = new Je(e, r, void 0, i); this.addNode(c), this.tagStack.push(c); };
+    Oe.prototype.onopentag = function (e, r) { var i = this.options.xmlMode ? U.Tag : void 0, s = new Je(e, r, void 0, i); this.addNode(s), this.tagStack.push(s); };
     Oe.prototype.ontext = function (e) { var r = this.lastNode; if (r && r.type === U.Text)
         r.data += e, this.options.withEndIndices && (r.endIndex = this.parser.endIndex);
     else {
@@ -739,11 +739,11 @@ function ct(t) { for (var e = 1; e < t.length; e++)
 var la = new Map(ct([[9, "&Tab;"], [0, "&NewLine;"], [22, "&excl;"], [0, "&quot;"], [0, "&num;"], [0, "&dollar;"], [0, "&percnt;"], [0, "&amp;"], [0, "&apos;"], [0, "&lpar;"], [0, "&rpar;"], [0, "&ast;"], [0, "&plus;"], [0, "&comma;"], [1, "&period;"], [0, "&sol;"], [10, "&colon;"], [0, "&semi;"], [0, { v: "&lt;", n: 8402, o: "&nvlt;" }], [0, { v: "&equals;", n: 8421, o: "&bne;" }], [0, { v: "&gt;", n: 8402, o: "&nvgt;" }], [0, "&quest;"], [0, "&commat;"], [26, "&lbrack;"], [0, "&bsol;"], [0, "&rbrack;"], [0, "&Hat;"], [0, "&lowbar;"], [0, "&DiacriticalGrave;"], [5, { n: 106, o: "&fjlig;" }], [20, "&lbrace;"], [0, "&verbar;"], [0, "&rbrace;"], [34, "&nbsp;"], [0, "&iexcl;"], [0, "&cent;"], [0, "&pound;"], [0, "&curren;"], [0, "&yen;"], [0, "&brvbar;"], [0, "&sect;"], [0, "&die;"], [0, "&copy;"], [0, "&ordf;"], [0, "&laquo;"], [0, "&not;"], [0, "&shy;"], [0, "&circledR;"], [0, "&macr;"], [0, "&deg;"], [0, "&PlusMinus;"], [0, "&sup2;"], [0, "&sup3;"], [0, "&acute;"], [0, "&micro;"], [0, "&para;"], [0, "&centerdot;"], [0, "&cedil;"], [0, "&sup1;"], [0, "&ordm;"], [0, "&raquo;"], [0, "&frac14;"], [0, "&frac12;"], [0, "&frac34;"], [0, "&iquest;"], [0, "&Agrave;"], [0, "&Aacute;"], [0, "&Acirc;"], [0, "&Atilde;"], [0, "&Auml;"], [0, "&angst;"], [0, "&AElig;"], [0, "&Ccedil;"], [0, "&Egrave;"], [0, "&Eacute;"], [0, "&Ecirc;"], [0, "&Euml;"], [0, "&Igrave;"], [0, "&Iacute;"], [0, "&Icirc;"], [0, "&Iuml;"], [0, "&ETH;"], [0, "&Ntilde;"], [0, "&Ograve;"], [0, "&Oacute;"], [0, "&Ocirc;"], [0, "&Otilde;"], [0, "&Ouml;"], [0, "&times;"], [0, "&Oslash;"], [0, "&Ugrave;"], [0, "&Uacute;"], [0, "&Ucirc;"], [0, "&Uuml;"], [0, "&Yacute;"], [0, "&THORN;"], [0, "&szlig;"], [0, "&agrave;"], [0, "&aacute;"], [0, "&acirc;"], [0, "&atilde;"], [0, "&auml;"], [0, "&aring;"], [0, "&aelig;"], [0, "&ccedil;"], [0, "&egrave;"], [0, "&eacute;"], [0, "&ecirc;"], [0, "&euml;"], [0, "&igrave;"], [0, "&iacute;"], [0, "&icirc;"], [0, "&iuml;"], [0, "&eth;"], [0, "&ntilde;"], [0, "&ograve;"], [0, "&oacute;"], [0, "&ocirc;"], [0, "&otilde;"], [0, "&ouml;"], [0, "&div;"], [0, "&oslash;"], [0, "&ugrave;"], [0, "&uacute;"], [0, "&ucirc;"], [0, "&uuml;"], [0, "&yacute;"], [0, "&thorn;"], [0, "&yuml;"], [0, "&Amacr;"], [0, "&amacr;"], [0, "&Abreve;"], [0, "&abreve;"], [0, "&Aogon;"], [0, "&aogon;"], [0, "&Cacute;"], [0, "&cacute;"], [0, "&Ccirc;"], [0, "&ccirc;"], [0, "&Cdot;"], [0, "&cdot;"], [0, "&Ccaron;"], [0, "&ccaron;"], [0, "&Dcaron;"], [0, "&dcaron;"], [0, "&Dstrok;"], [0, "&dstrok;"], [0, "&Emacr;"], [0, "&emacr;"], [2, "&Edot;"], [0, "&edot;"], [0, "&Eogon;"], [0, "&eogon;"], [0, "&Ecaron;"], [0, "&ecaron;"], [0, "&Gcirc;"], [0, "&gcirc;"], [0, "&Gbreve;"], [0, "&gbreve;"], [0, "&Gdot;"], [0, "&gdot;"], [0, "&Gcedil;"], [1, "&Hcirc;"], [0, "&hcirc;"], [0, "&Hstrok;"], [0, "&hstrok;"], [0, "&Itilde;"], [0, "&itilde;"], [0, "&Imacr;"], [0, "&imacr;"], [2, "&Iogon;"], [0, "&iogon;"], [0, "&Idot;"], [0, "&imath;"], [0, "&IJlig;"], [0, "&ijlig;"], [0, "&Jcirc;"], [0, "&jcirc;"], [0, "&Kcedil;"], [0, "&kcedil;"], [0, "&kgreen;"], [0, "&Lacute;"], [0, "&lacute;"], [0, "&Lcedil;"], [0, "&lcedil;"], [0, "&Lcaron;"], [0, "&lcaron;"], [0, "&Lmidot;"], [0, "&lmidot;"], [0, "&Lstrok;"], [0, "&lstrok;"], [0, "&Nacute;"], [0, "&nacute;"], [0, "&Ncedil;"], [0, "&ncedil;"], [0, "&Ncaron;"], [0, "&ncaron;"], [0, "&napos;"], [0, "&ENG;"], [0, "&eng;"], [0, "&Omacr;"], [0, "&omacr;"], [2, "&Odblac;"], [0, "&odblac;"], [0, "&OElig;"], [0, "&oelig;"], [0, "&Racute;"], [0, "&racute;"], [0, "&Rcedil;"], [0, "&rcedil;"], [0, "&Rcaron;"], [0, "&rcaron;"], [0, "&Sacute;"], [0, "&sacute;"], [0, "&Scirc;"], [0, "&scirc;"], [0, "&Scedil;"], [0, "&scedil;"], [0, "&Scaron;"], [0, "&scaron;"], [0, "&Tcedil;"], [0, "&tcedil;"], [0, "&Tcaron;"], [0, "&tcaron;"], [0, "&Tstrok;"], [0, "&tstrok;"], [0, "&Utilde;"], [0, "&utilde;"], [0, "&Umacr;"], [0, "&umacr;"], [0, "&Ubreve;"], [0, "&ubreve;"], [0, "&Uring;"], [0, "&uring;"], [0, "&Udblac;"], [0, "&udblac;"], [0, "&Uogon;"], [0, "&uogon;"], [0, "&Wcirc;"], [0, "&wcirc;"], [0, "&Ycirc;"], [0, "&ycirc;"], [0, "&Yuml;"], [0, "&Zacute;"], [0, "&zacute;"], [0, "&Zdot;"], [0, "&zdot;"], [0, "&Zcaron;"], [0, "&zcaron;"], [19, "&fnof;"], [34, "&imped;"], [63, "&gacute;"], [65, "&jmath;"], [142, "&circ;"], [0, "&caron;"], [16, "&breve;"], [0, "&DiacriticalDot;"], [0, "&ring;"], [0, "&ogon;"], [0, "&DiacriticalTilde;"], [0, "&dblac;"], [51, "&DownBreve;"], [127, "&Alpha;"], [0, "&Beta;"], [0, "&Gamma;"], [0, "&Delta;"], [0, "&Epsilon;"], [0, "&Zeta;"], [0, "&Eta;"], [0, "&Theta;"], [0, "&Iota;"], [0, "&Kappa;"], [0, "&Lambda;"], [0, "&Mu;"], [0, "&Nu;"], [0, "&Xi;"], [0, "&Omicron;"], [0, "&Pi;"], [0, "&Rho;"], [1, "&Sigma;"], [0, "&Tau;"], [0, "&Upsilon;"], [0, "&Phi;"], [0, "&Chi;"], [0, "&Psi;"], [0, "&ohm;"], [7, "&alpha;"], [0, "&beta;"], [0, "&gamma;"], [0, "&delta;"], [0, "&epsi;"], [0, "&zeta;"], [0, "&eta;"], [0, "&theta;"], [0, "&iota;"], [0, "&kappa;"], [0, "&lambda;"], [0, "&mu;"], [0, "&nu;"], [0, "&xi;"], [0, "&omicron;"], [0, "&pi;"], [0, "&rho;"], [0, "&sigmaf;"], [0, "&sigma;"], [0, "&tau;"], [0, "&upsi;"], [0, "&phi;"], [0, "&chi;"], [0, "&psi;"], [0, "&omega;"], [7, "&thetasym;"], [0, "&Upsi;"], [2, "&phiv;"], [0, "&piv;"], [5, "&Gammad;"], [0, "&digamma;"], [18, "&kappav;"], [0, "&rhov;"], [3, "&epsiv;"], [0, "&backepsilon;"], [10, "&IOcy;"], [0, "&DJcy;"], [0, "&GJcy;"], [0, "&Jukcy;"], [0, "&DScy;"], [0, "&Iukcy;"], [0, "&YIcy;"], [0, "&Jsercy;"], [0, "&LJcy;"], [0, "&NJcy;"], [0, "&TSHcy;"], [0, "&KJcy;"], [1, "&Ubrcy;"], [0, "&DZcy;"], [0, "&Acy;"], [0, "&Bcy;"], [0, "&Vcy;"], [0, "&Gcy;"], [0, "&Dcy;"], [0, "&IEcy;"], [0, "&ZHcy;"], [0, "&Zcy;"], [0, "&Icy;"], [0, "&Jcy;"], [0, "&Kcy;"], [0, "&Lcy;"], [0, "&Mcy;"], [0, "&Ncy;"], [0, "&Ocy;"], [0, "&Pcy;"], [0, "&Rcy;"], [0, "&Scy;"], [0, "&Tcy;"], [0, "&Ucy;"], [0, "&Fcy;"], [0, "&KHcy;"], [0, "&TScy;"], [0, "&CHcy;"], [0, "&SHcy;"], [0, "&SHCHcy;"], [0, "&HARDcy;"], [0, "&Ycy;"], [0, "&SOFTcy;"], [0, "&Ecy;"], [0, "&YUcy;"], [0, "&YAcy;"], [0, "&acy;"], [0, "&bcy;"], [0, "&vcy;"], [0, "&gcy;"], [0, "&dcy;"], [0, "&iecy;"], [0, "&zhcy;"], [0, "&zcy;"], [0, "&icy;"], [0, "&jcy;"], [0, "&kcy;"], [0, "&lcy;"], [0, "&mcy;"], [0, "&ncy;"], [0, "&ocy;"], [0, "&pcy;"], [0, "&rcy;"], [0, "&scy;"], [0, "&tcy;"], [0, "&ucy;"], [0, "&fcy;"], [0, "&khcy;"], [0, "&tscy;"], [0, "&chcy;"], [0, "&shcy;"], [0, "&shchcy;"], [0, "&hardcy;"], [0, "&ycy;"], [0, "&softcy;"], [0, "&ecy;"], [0, "&yucy;"], [0, "&yacy;"], [1, "&iocy;"], [0, "&djcy;"], [0, "&gjcy;"], [0, "&jukcy;"], [0, "&dscy;"], [0, "&iukcy;"], [0, "&yicy;"], [0, "&jsercy;"], [0, "&ljcy;"], [0, "&njcy;"], [0, "&tshcy;"], [0, "&kjcy;"], [1, "&ubrcy;"], [0, "&dzcy;"], [7074, "&ensp;"], [0, "&emsp;"], [0, "&emsp13;"], [0, "&emsp14;"], [1, "&numsp;"], [0, "&puncsp;"], [0, "&ThinSpace;"], [0, "&hairsp;"], [0, "&NegativeMediumSpace;"], [0, "&zwnj;"], [0, "&zwj;"], [0, "&lrm;"], [0, "&rlm;"], [0, "&dash;"], [2, "&ndash;"], [0, "&mdash;"], [0, "&horbar;"], [0, "&Verbar;"], [1, "&lsquo;"], [0, "&CloseCurlyQuote;"], [0, "&lsquor;"], [1, "&ldquo;"], [0, "&CloseCurlyDoubleQuote;"], [0, "&bdquo;"], [1, "&dagger;"], [0, "&Dagger;"], [0, "&bull;"], [2, "&nldr;"], [0, "&hellip;"], [9, "&permil;"], [0, "&pertenk;"], [0, "&prime;"], [0, "&Prime;"], [0, "&tprime;"], [0, "&backprime;"], [3, "&lsaquo;"], [0, "&rsaquo;"], [3, "&oline;"], [2, "&caret;"], [1, "&hybull;"], [0, "&frasl;"], [10, "&bsemi;"], [7, "&qprime;"], [7, { v: "&MediumSpace;", n: 8202, o: "&ThickSpace;" }], [0, "&NoBreak;"], [0, "&af;"], [0, "&InvisibleTimes;"], [0, "&ic;"], [72, "&euro;"], [46, "&tdot;"], [0, "&DotDot;"], [37, "&complexes;"], [2, "&incare;"], [4, "&gscr;"], [0, "&hamilt;"], [0, "&Hfr;"], [0, "&Hopf;"], [0, "&planckh;"], [0, "&hbar;"], [0, "&imagline;"], [0, "&Ifr;"], [0, "&lagran;"], [0, "&ell;"], [1, "&naturals;"], [0, "&numero;"], [0, "&copysr;"], [0, "&weierp;"], [0, "&Popf;"], [0, "&Qopf;"], [0, "&realine;"], [0, "&real;"], [0, "&reals;"], [0, "&rx;"], [3, "&trade;"], [1, "&integers;"], [2, "&mho;"], [0, "&zeetrf;"], [0, "&iiota;"], [2, "&bernou;"], [0, "&Cayleys;"], [1, "&escr;"], [0, "&Escr;"], [0, "&Fouriertrf;"], [1, "&Mellintrf;"], [0, "&order;"], [0, "&alefsym;"], [0, "&beth;"], [0, "&gimel;"], [0, "&daleth;"], [12, "&CapitalDifferentialD;"], [0, "&dd;"], [0, "&ee;"], [0, "&ii;"], [10, "&frac13;"], [0, "&frac23;"], [0, "&frac15;"], [0, "&frac25;"], [0, "&frac35;"], [0, "&frac45;"], [0, "&frac16;"], [0, "&frac56;"], [0, "&frac18;"], [0, "&frac38;"], [0, "&frac58;"], [0, "&frac78;"], [49, "&larr;"], [0, "&ShortUpArrow;"], [0, "&rarr;"], [0, "&darr;"], [0, "&harr;"], [0, "&updownarrow;"], [0, "&nwarr;"], [0, "&nearr;"], [0, "&LowerRightArrow;"], [0, "&LowerLeftArrow;"], [0, "&nlarr;"], [0, "&nrarr;"], [1, { v: "&rarrw;", n: 824, o: "&nrarrw;" }], [0, "&Larr;"], [0, "&Uarr;"], [0, "&Rarr;"], [0, "&Darr;"], [0, "&larrtl;"], [0, "&rarrtl;"], [0, "&LeftTeeArrow;"], [0, "&mapstoup;"], [0, "&map;"], [0, "&DownTeeArrow;"], [1, "&hookleftarrow;"], [0, "&hookrightarrow;"], [0, "&larrlp;"], [0, "&looparrowright;"], [0, "&harrw;"], [0, "&nharr;"], [1, "&lsh;"], [0, "&rsh;"], [0, "&ldsh;"], [0, "&rdsh;"], [1, "&crarr;"], [0, "&cularr;"], [0, "&curarr;"], [2, "&circlearrowleft;"], [0, "&circlearrowright;"], [0, "&leftharpoonup;"], [0, "&DownLeftVector;"], [0, "&RightUpVector;"], [0, "&LeftUpVector;"], [0, "&rharu;"], [0, "&DownRightVector;"], [0, "&dharr;"], [0, "&dharl;"], [0, "&RightArrowLeftArrow;"], [0, "&udarr;"], [0, "&LeftArrowRightArrow;"], [0, "&leftleftarrows;"], [0, "&upuparrows;"], [0, "&rightrightarrows;"], [0, "&ddarr;"], [0, "&leftrightharpoons;"], [0, "&Equilibrium;"], [0, "&nlArr;"], [0, "&nhArr;"], [0, "&nrArr;"], [0, "&DoubleLeftArrow;"], [0, "&DoubleUpArrow;"], [0, "&DoubleRightArrow;"], [0, "&dArr;"], [0, "&DoubleLeftRightArrow;"], [0, "&DoubleUpDownArrow;"], [0, "&nwArr;"], [0, "&neArr;"], [0, "&seArr;"], [0, "&swArr;"], [0, "&lAarr;"], [0, "&rAarr;"], [1, "&zigrarr;"], [6, "&larrb;"], [0, "&rarrb;"], [15, "&DownArrowUpArrow;"], [7, "&loarr;"], [0, "&roarr;"], [0, "&hoarr;"], [0, "&forall;"], [0, "&comp;"], [0, { v: "&part;", n: 824, o: "&npart;" }], [0, "&exist;"], [0, "&nexist;"], [0, "&empty;"], [1, "&Del;"], [0, "&Element;"], [0, "&NotElement;"], [1, "&ni;"], [0, "&notni;"], [2, "&prod;"], [0, "&coprod;"], [0, "&sum;"], [0, "&minus;"], [0, "&MinusPlus;"], [0, "&dotplus;"], [1, "&Backslash;"], [0, "&lowast;"], [0, "&compfn;"], [1, "&radic;"], [2, "&prop;"], [0, "&infin;"], [0, "&angrt;"], [0, { v: "&ang;", n: 8402, o: "&nang;" }], [0, "&angmsd;"], [0, "&angsph;"], [0, "&mid;"], [0, "&nmid;"], [0, "&DoubleVerticalBar;"], [0, "&NotDoubleVerticalBar;"], [0, "&and;"], [0, "&or;"], [0, { v: "&cap;", n: 65024, o: "&caps;" }], [0, { v: "&cup;", n: 65024, o: "&cups;" }], [0, "&int;"], [0, "&Int;"], [0, "&iiint;"], [0, "&conint;"], [0, "&Conint;"], [0, "&Cconint;"], [0, "&cwint;"], [0, "&ClockwiseContourIntegral;"], [0, "&awconint;"], [0, "&there4;"], [0, "&becaus;"], [0, "&ratio;"], [0, "&Colon;"], [0, "&dotminus;"], [1, "&mDDot;"], [0, "&homtht;"], [0, { v: "&sim;", n: 8402, o: "&nvsim;" }], [0, { v: "&backsim;", n: 817, o: "&race;" }], [0, { v: "&ac;", n: 819, o: "&acE;" }], [0, "&acd;"], [0, "&VerticalTilde;"], [0, "&NotTilde;"], [0, { v: "&eqsim;", n: 824, o: "&nesim;" }], [0, "&sime;"], [0, "&NotTildeEqual;"], [0, "&cong;"], [0, "&simne;"], [0, "&ncong;"], [0, "&ap;"], [0, "&nap;"], [0, "&ape;"], [0, { v: "&apid;", n: 824, o: "&napid;" }], [0, "&backcong;"], [0, { v: "&asympeq;", n: 8402, o: "&nvap;" }], [0, { v: "&bump;", n: 824, o: "&nbump;" }], [0, { v: "&bumpe;", n: 824, o: "&nbumpe;" }], [0, { v: "&doteq;", n: 824, o: "&nedot;" }], [0, "&doteqdot;"], [0, "&efDot;"], [0, "&erDot;"], [0, "&Assign;"], [0, "&ecolon;"], [0, "&ecir;"], [0, "&circeq;"], [1, "&wedgeq;"], [0, "&veeeq;"], [1, "&triangleq;"], [2, "&equest;"], [0, "&ne;"], [0, { v: "&Congruent;", n: 8421, o: "&bnequiv;" }], [0, "&nequiv;"], [1, { v: "&le;", n: 8402, o: "&nvle;" }], [0, { v: "&ge;", n: 8402, o: "&nvge;" }], [0, { v: "&lE;", n: 824, o: "&nlE;" }], [0, { v: "&gE;", n: 824, o: "&ngE;" }], [0, { v: "&lnE;", n: 65024, o: "&lvertneqq;" }], [0, { v: "&gnE;", n: 65024, o: "&gvertneqq;" }], [0, { v: "&ll;", n: new Map(ct([[824, "&nLtv;"], [7577, "&nLt;"]])) }], [0, { v: "&gg;", n: new Map(ct([[824, "&nGtv;"], [7577, "&nGt;"]])) }], [0, "&between;"], [0, "&NotCupCap;"], [0, "&nless;"], [0, "&ngt;"], [0, "&nle;"], [0, "&nge;"], [0, "&lesssim;"], [0, "&GreaterTilde;"], [0, "&nlsim;"], [0, "&ngsim;"], [0, "&LessGreater;"], [0, "&gl;"], [0, "&NotLessGreater;"], [0, "&NotGreaterLess;"], [0, "&pr;"], [0, "&sc;"], [0, "&prcue;"], [0, "&sccue;"], [0, "&PrecedesTilde;"], [0, { v: "&scsim;", n: 824, o: "&NotSucceedsTilde;" }], [0, "&NotPrecedes;"], [0, "&NotSucceeds;"], [0, { v: "&sub;", n: 8402, o: "&NotSubset;" }], [0, { v: "&sup;", n: 8402, o: "&NotSuperset;" }], [0, "&nsub;"], [0, "&nsup;"], [0, "&sube;"], [0, "&supe;"], [0, "&NotSubsetEqual;"], [0, "&NotSupersetEqual;"], [0, { v: "&subne;", n: 65024, o: "&varsubsetneq;" }], [0, { v: "&supne;", n: 65024, o: "&varsupsetneq;" }], [1, "&cupdot;"], [0, "&UnionPlus;"], [0, { v: "&sqsub;", n: 824, o: "&NotSquareSubset;" }], [0, { v: "&sqsup;", n: 824, o: "&NotSquareSuperset;" }], [0, "&sqsube;"], [0, "&sqsupe;"], [0, { v: "&sqcap;", n: 65024, o: "&sqcaps;" }], [0, { v: "&sqcup;", n: 65024, o: "&sqcups;" }], [0, "&CirclePlus;"], [0, "&CircleMinus;"], [0, "&CircleTimes;"], [0, "&osol;"], [0, "&CircleDot;"], [0, "&circledcirc;"], [0, "&circledast;"], [1, "&circleddash;"], [0, "&boxplus;"], [0, "&boxminus;"], [0, "&boxtimes;"], [0, "&dotsquare;"], [0, "&RightTee;"], [0, "&dashv;"], [0, "&DownTee;"], [0, "&bot;"], [1, "&models;"], [0, "&DoubleRightTee;"], [0, "&Vdash;"], [0, "&Vvdash;"], [0, "&VDash;"], [0, "&nvdash;"], [0, "&nvDash;"], [0, "&nVdash;"], [0, "&nVDash;"], [0, "&prurel;"], [1, "&LeftTriangle;"], [0, "&RightTriangle;"], [0, { v: "&LeftTriangleEqual;", n: 8402, o: "&nvltrie;" }], [0, { v: "&RightTriangleEqual;", n: 8402, o: "&nvrtrie;" }], [0, "&origof;"], [0, "&imof;"], [0, "&multimap;"], [0, "&hercon;"], [0, "&intcal;"], [0, "&veebar;"], [1, "&barvee;"], [0, "&angrtvb;"], [0, "&lrtri;"], [0, "&bigwedge;"], [0, "&bigvee;"], [0, "&bigcap;"], [0, "&bigcup;"], [0, "&diam;"], [0, "&sdot;"], [0, "&sstarf;"], [0, "&divideontimes;"], [0, "&bowtie;"], [0, "&ltimes;"], [0, "&rtimes;"], [0, "&leftthreetimes;"], [0, "&rightthreetimes;"], [0, "&backsimeq;"], [0, "&curlyvee;"], [0, "&curlywedge;"], [0, "&Sub;"], [0, "&Sup;"], [0, "&Cap;"], [0, "&Cup;"], [0, "&fork;"], [0, "&epar;"], [0, "&lessdot;"], [0, "&gtdot;"], [0, { v: "&Ll;", n: 824, o: "&nLl;" }], [0, { v: "&Gg;", n: 824, o: "&nGg;" }], [0, { v: "&leg;", n: 65024, o: "&lesg;" }], [0, { v: "&gel;", n: 65024, o: "&gesl;" }], [2, "&cuepr;"], [0, "&cuesc;"], [0, "&NotPrecedesSlantEqual;"], [0, "&NotSucceedsSlantEqual;"], [0, "&NotSquareSubsetEqual;"], [0, "&NotSquareSupersetEqual;"], [2, "&lnsim;"], [0, "&gnsim;"], [0, "&precnsim;"], [0, "&scnsim;"], [0, "&nltri;"], [0, "&NotRightTriangle;"], [0, "&nltrie;"], [0, "&NotRightTriangleEqual;"], [0, "&vellip;"], [0, "&ctdot;"], [0, "&utdot;"], [0, "&dtdot;"], [0, "&disin;"], [0, "&isinsv;"], [0, "&isins;"], [0, { v: "&isindot;", n: 824, o: "&notindot;" }], [0, "&notinvc;"], [0, "&notinvb;"], [1, { v: "&isinE;", n: 824, o: "&notinE;" }], [0, "&nisd;"], [0, "&xnis;"], [0, "&nis;"], [0, "&notnivc;"], [0, "&notnivb;"], [6, "&barwed;"], [0, "&Barwed;"], [1, "&lceil;"], [0, "&rceil;"], [0, "&LeftFloor;"], [0, "&rfloor;"], [0, "&drcrop;"], [0, "&dlcrop;"], [0, "&urcrop;"], [0, "&ulcrop;"], [0, "&bnot;"], [1, "&profline;"], [0, "&profsurf;"], [1, "&telrec;"], [0, "&target;"], [5, "&ulcorn;"], [0, "&urcorn;"], [0, "&dlcorn;"], [0, "&drcorn;"], [2, "&frown;"], [0, "&smile;"], [9, "&cylcty;"], [0, "&profalar;"], [7, "&topbot;"], [6, "&ovbar;"], [1, "&solbar;"], [60, "&angzarr;"], [51, "&lmoustache;"], [0, "&rmoustache;"], [2, "&OverBracket;"], [0, "&bbrk;"], [0, "&bbrktbrk;"], [37, "&OverParenthesis;"], [0, "&UnderParenthesis;"], [0, "&OverBrace;"], [0, "&UnderBrace;"], [2, "&trpezium;"], [4, "&elinters;"], [59, "&blank;"], [164, "&circledS;"], [55, "&boxh;"], [1, "&boxv;"], [9, "&boxdr;"], [3, "&boxdl;"], [3, "&boxur;"], [3, "&boxul;"], [3, "&boxvr;"], [7, "&boxvl;"], [7, "&boxhd;"], [7, "&boxhu;"], [7, "&boxvh;"], [19, "&boxH;"], [0, "&boxV;"], [0, "&boxdR;"], [0, "&boxDr;"], [0, "&boxDR;"], [0, "&boxdL;"], [0, "&boxDl;"], [0, "&boxDL;"], [0, "&boxuR;"], [0, "&boxUr;"], [0, "&boxUR;"], [0, "&boxuL;"], [0, "&boxUl;"], [0, "&boxUL;"], [0, "&boxvR;"], [0, "&boxVr;"], [0, "&boxVR;"], [0, "&boxvL;"], [0, "&boxVl;"], [0, "&boxVL;"], [0, "&boxHd;"], [0, "&boxhD;"], [0, "&boxHD;"], [0, "&boxHu;"], [0, "&boxhU;"], [0, "&boxHU;"], [0, "&boxvH;"], [0, "&boxVh;"], [0, "&boxVH;"], [19, "&uhblk;"], [3, "&lhblk;"], [3, "&block;"], [8, "&blk14;"], [0, "&blk12;"], [0, "&blk34;"], [13, "&square;"], [8, "&blacksquare;"], [0, "&EmptyVerySmallSquare;"], [1, "&rect;"], [0, "&marker;"], [2, "&fltns;"], [1, "&bigtriangleup;"], [0, "&blacktriangle;"], [0, "&triangle;"], [2, "&blacktriangleright;"], [0, "&rtri;"], [3, "&bigtriangledown;"], [0, "&blacktriangledown;"], [0, "&dtri;"], [2, "&blacktriangleleft;"], [0, "&ltri;"], [6, "&loz;"], [0, "&cir;"], [32, "&tridot;"], [2, "&bigcirc;"], [8, "&ultri;"], [0, "&urtri;"], [0, "&lltri;"], [0, "&EmptySmallSquare;"], [0, "&FilledSmallSquare;"], [8, "&bigstar;"], [0, "&star;"], [7, "&phone;"], [49, "&female;"], [1, "&male;"], [29, "&spades;"], [2, "&clubs;"], [1, "&hearts;"], [0, "&diamondsuit;"], [3, "&sung;"], [2, "&flat;"], [0, "&natural;"], [0, "&sharp;"], [163, "&check;"], [3, "&cross;"], [8, "&malt;"], [21, "&sext;"], [33, "&VerticalSeparator;"], [25, "&lbbrk;"], [0, "&rbbrk;"], [84, "&bsolhsub;"], [0, "&suphsol;"], [28, "&LeftDoubleBracket;"], [0, "&RightDoubleBracket;"], [0, "&lang;"], [0, "&rang;"], [0, "&Lang;"], [0, "&Rang;"], [0, "&loang;"], [0, "&roang;"], [7, "&longleftarrow;"], [0, "&longrightarrow;"], [0, "&longleftrightarrow;"], [0, "&DoubleLongLeftArrow;"], [0, "&DoubleLongRightArrow;"], [0, "&DoubleLongLeftRightArrow;"], [1, "&longmapsto;"], [2, "&dzigrarr;"], [258, "&nvlArr;"], [0, "&nvrArr;"], [0, "&nvHarr;"], [0, "&Map;"], [6, "&lbarr;"], [0, "&bkarow;"], [0, "&lBarr;"], [0, "&dbkarow;"], [0, "&drbkarow;"], [0, "&DDotrahd;"], [0, "&UpArrowBar;"], [0, "&DownArrowBar;"], [2, "&Rarrtl;"], [2, "&latail;"], [0, "&ratail;"], [0, "&lAtail;"], [0, "&rAtail;"], [0, "&larrfs;"], [0, "&rarrfs;"], [0, "&larrbfs;"], [0, "&rarrbfs;"], [2, "&nwarhk;"], [0, "&nearhk;"], [0, "&hksearow;"], [0, "&hkswarow;"], [0, "&nwnear;"], [0, "&nesear;"], [0, "&seswar;"], [0, "&swnwar;"], [8, { v: "&rarrc;", n: 824, o: "&nrarrc;" }], [1, "&cudarrr;"], [0, "&ldca;"], [0, "&rdca;"], [0, "&cudarrl;"], [0, "&larrpl;"], [2, "&curarrm;"], [0, "&cularrp;"], [7, "&rarrpl;"], [2, "&harrcir;"], [0, "&Uarrocir;"], [0, "&lurdshar;"], [0, "&ldrushar;"], [2, "&LeftRightVector;"], [0, "&RightUpDownVector;"], [0, "&DownLeftRightVector;"], [0, "&LeftUpDownVector;"], [0, "&LeftVectorBar;"], [0, "&RightVectorBar;"], [0, "&RightUpVectorBar;"], [0, "&RightDownVectorBar;"], [0, "&DownLeftVectorBar;"], [0, "&DownRightVectorBar;"], [0, "&LeftUpVectorBar;"], [0, "&LeftDownVectorBar;"], [0, "&LeftTeeVector;"], [0, "&RightTeeVector;"], [0, "&RightUpTeeVector;"], [0, "&RightDownTeeVector;"], [0, "&DownLeftTeeVector;"], [0, "&DownRightTeeVector;"], [0, "&LeftUpTeeVector;"], [0, "&LeftDownTeeVector;"], [0, "&lHar;"], [0, "&uHar;"], [0, "&rHar;"], [0, "&dHar;"], [0, "&luruhar;"], [0, "&ldrdhar;"], [0, "&ruluhar;"], [0, "&rdldhar;"], [0, "&lharul;"], [0, "&llhard;"], [0, "&rharul;"], [0, "&lrhard;"], [0, "&udhar;"], [0, "&duhar;"], [0, "&RoundImplies;"], [0, "&erarr;"], [0, "&simrarr;"], [0, "&larrsim;"], [0, "&rarrsim;"], [0, "&rarrap;"], [0, "&ltlarr;"], [1, "&gtrarr;"], [0, "&subrarr;"], [1, "&suplarr;"], [0, "&lfisht;"], [0, "&rfisht;"], [0, "&ufisht;"], [0, "&dfisht;"], [5, "&lopar;"], [0, "&ropar;"], [4, "&lbrke;"], [0, "&rbrke;"], [0, "&lbrkslu;"], [0, "&rbrksld;"], [0, "&lbrksld;"], [0, "&rbrkslu;"], [0, "&langd;"], [0, "&rangd;"], [0, "&lparlt;"], [0, "&rpargt;"], [0, "&gtlPar;"], [0, "&ltrPar;"], [3, "&vzigzag;"], [1, "&vangrt;"], [0, "&angrtvbd;"], [6, "&ange;"], [0, "&range;"], [0, "&dwangle;"], [0, "&uwangle;"], [0, "&angmsdaa;"], [0, "&angmsdab;"], [0, "&angmsdac;"], [0, "&angmsdad;"], [0, "&angmsdae;"], [0, "&angmsdaf;"], [0, "&angmsdag;"], [0, "&angmsdah;"], [0, "&bemptyv;"], [0, "&demptyv;"], [0, "&cemptyv;"], [0, "&raemptyv;"], [0, "&laemptyv;"], [0, "&ohbar;"], [0, "&omid;"], [0, "&opar;"], [1, "&operp;"], [1, "&olcross;"], [0, "&odsold;"], [1, "&olcir;"], [0, "&ofcir;"], [0, "&olt;"], [0, "&ogt;"], [0, "&cirscir;"], [0, "&cirE;"], [0, "&solb;"], [0, "&bsolb;"], [3, "&boxbox;"], [3, "&trisb;"], [0, "&rtriltri;"], [0, { v: "&LeftTriangleBar;", n: 824, o: "&NotLeftTriangleBar;" }], [0, { v: "&RightTriangleBar;", n: 824, o: "&NotRightTriangleBar;" }], [11, "&iinfin;"], [0, "&infintie;"], [0, "&nvinfin;"], [4, "&eparsl;"], [0, "&smeparsl;"], [0, "&eqvparsl;"], [5, "&blacklozenge;"], [8, "&RuleDelayed;"], [1, "&dsol;"], [9, "&bigodot;"], [0, "&bigoplus;"], [0, "&bigotimes;"], [1, "&biguplus;"], [1, "&bigsqcup;"], [5, "&iiiint;"], [0, "&fpartint;"], [2, "&cirfnint;"], [0, "&awint;"], [0, "&rppolint;"], [0, "&scpolint;"], [0, "&npolint;"], [0, "&pointint;"], [0, "&quatint;"], [0, "&intlarhk;"], [10, "&pluscir;"], [0, "&plusacir;"], [0, "&simplus;"], [0, "&plusdu;"], [0, "&plussim;"], [0, "&plustwo;"], [1, "&mcomma;"], [0, "&minusdu;"], [2, "&loplus;"], [0, "&roplus;"], [0, "&Cross;"], [0, "&timesd;"], [0, "&timesbar;"], [1, "&smashp;"], [0, "&lotimes;"], [0, "&rotimes;"], [0, "&otimesas;"], [0, "&Otimes;"], [0, "&odiv;"], [0, "&triplus;"], [0, "&triminus;"], [0, "&tritime;"], [0, "&intprod;"], [2, "&amalg;"], [0, "&capdot;"], [1, "&ncup;"], [0, "&ncap;"], [0, "&capand;"], [0, "&cupor;"], [0, "&cupcap;"], [0, "&capcup;"], [0, "&cupbrcap;"], [0, "&capbrcup;"], [0, "&cupcup;"], [0, "&capcap;"], [0, "&ccups;"], [0, "&ccaps;"], [2, "&ccupssm;"], [2, "&And;"], [0, "&Or;"], [0, "&andand;"], [0, "&oror;"], [0, "&orslope;"], [0, "&andslope;"], [1, "&andv;"], [0, "&orv;"], [0, "&andd;"], [0, "&ord;"], [1, "&wedbar;"], [6, "&sdote;"], [3, "&simdot;"], [2, { v: "&congdot;", n: 824, o: "&ncongdot;" }], [0, "&easter;"], [0, "&apacir;"], [0, { v: "&apE;", n: 824, o: "&napE;" }], [0, "&eplus;"], [0, "&pluse;"], [0, "&Esim;"], [0, "&Colone;"], [0, "&Equal;"], [1, "&ddotseq;"], [0, "&equivDD;"], [0, "&ltcir;"], [0, "&gtcir;"], [0, "&ltquest;"], [0, "&gtquest;"], [0, { v: "&leqslant;", n: 824, o: "&nleqslant;" }], [0, { v: "&geqslant;", n: 824, o: "&ngeqslant;" }], [0, "&lesdot;"], [0, "&gesdot;"], [0, "&lesdoto;"], [0, "&gesdoto;"], [0, "&lesdotor;"], [0, "&gesdotol;"], [0, "&lap;"], [0, "&gap;"], [0, "&lne;"], [0, "&gne;"], [0, "&lnap;"], [0, "&gnap;"], [0, "&lEg;"], [0, "&gEl;"], [0, "&lsime;"], [0, "&gsime;"], [0, "&lsimg;"], [0, "&gsiml;"], [0, "&lgE;"], [0, "&glE;"], [0, "&lesges;"], [0, "&gesles;"], [0, "&els;"], [0, "&egs;"], [0, "&elsdot;"], [0, "&egsdot;"], [0, "&el;"], [0, "&eg;"], [2, "&siml;"], [0, "&simg;"], [0, "&simlE;"], [0, "&simgE;"], [0, { v: "&LessLess;", n: 824, o: "&NotNestedLessLess;" }], [0, { v: "&GreaterGreater;", n: 824, o: "&NotNestedGreaterGreater;" }], [1, "&glj;"], [0, "&gla;"], [0, "&ltcc;"], [0, "&gtcc;"], [0, "&lescc;"], [0, "&gescc;"], [0, "&smt;"], [0, "&lat;"], [0, { v: "&smte;", n: 65024, o: "&smtes;" }], [0, { v: "&late;", n: 65024, o: "&lates;" }], [0, "&bumpE;"], [0, { v: "&PrecedesEqual;", n: 824, o: "&NotPrecedesEqual;" }], [0, { v: "&sce;", n: 824, o: "&NotSucceedsEqual;" }], [2, "&prE;"], [0, "&scE;"], [0, "&precneqq;"], [0, "&scnE;"], [0, "&prap;"], [0, "&scap;"], [0, "&precnapprox;"], [0, "&scnap;"], [0, "&Pr;"], [0, "&Sc;"], [0, "&subdot;"], [0, "&supdot;"], [0, "&subplus;"], [0, "&supplus;"], [0, "&submult;"], [0, "&supmult;"], [0, "&subedot;"], [0, "&supedot;"], [0, { v: "&subE;", n: 824, o: "&nsubE;" }], [0, { v: "&supE;", n: 824, o: "&nsupE;" }], [0, "&subsim;"], [0, "&supsim;"], [2, { v: "&subnE;", n: 65024, o: "&varsubsetneqq;" }], [0, { v: "&supnE;", n: 65024, o: "&varsupsetneqq;" }], [2, "&csub;"], [0, "&csup;"], [0, "&csube;"], [0, "&csupe;"], [0, "&subsup;"], [0, "&supsub;"], [0, "&subsub;"], [0, "&supsup;"], [0, "&suphsub;"], [0, "&supdsub;"], [0, "&forkv;"], [0, "&topfork;"], [0, "&mlcp;"], [8, "&Dashv;"], [1, "&Vdashl;"], [0, "&Barv;"], [0, "&vBar;"], [0, "&vBarv;"], [1, "&Vbar;"], [0, "&Not;"], [0, "&bNot;"], [0, "&rnmid;"], [0, "&cirmid;"], [0, "&midcir;"], [0, "&topcir;"], [0, "&nhpar;"], [0, "&parsim;"], [9, { v: "&parsl;", n: 8421, o: "&nparsl;" }], [44343, { n: new Map(ct([[56476, "&Ascr;"], [1, "&Cscr;"], [0, "&Dscr;"], [2, "&Gscr;"], [2, "&Jscr;"], [0, "&Kscr;"], [2, "&Nscr;"], [0, "&Oscr;"], [0, "&Pscr;"], [0, "&Qscr;"], [1, "&Sscr;"], [0, "&Tscr;"], [0, "&Uscr;"], [0, "&Vscr;"], [0, "&Wscr;"], [0, "&Xscr;"], [0, "&Yscr;"], [0, "&Zscr;"], [0, "&ascr;"], [0, "&bscr;"], [0, "&cscr;"], [0, "&dscr;"], [1, "&fscr;"], [1, "&hscr;"], [0, "&iscr;"], [0, "&jscr;"], [0, "&kscr;"], [0, "&lscr;"], [0, "&mscr;"], [0, "&nscr;"], [1, "&pscr;"], [0, "&qscr;"], [0, "&rscr;"], [0, "&sscr;"], [0, "&tscr;"], [0, "&uscr;"], [0, "&vscr;"], [0, "&wscr;"], [0, "&xscr;"], [0, "&yscr;"], [0, "&zscr;"], [52, "&Afr;"], [0, "&Bfr;"], [1, "&Dfr;"], [0, "&Efr;"], [0, "&Ffr;"], [0, "&Gfr;"], [2, "&Jfr;"], [0, "&Kfr;"], [0, "&Lfr;"], [0, "&Mfr;"], [0, "&Nfr;"], [0, "&Ofr;"], [0, "&Pfr;"], [0, "&Qfr;"], [1, "&Sfr;"], [0, "&Tfr;"], [0, "&Ufr;"], [0, "&Vfr;"], [0, "&Wfr;"], [0, "&Xfr;"], [0, "&Yfr;"], [1, "&afr;"], [0, "&bfr;"], [0, "&cfr;"], [0, "&dfr;"], [0, "&efr;"], [0, "&ffr;"], [0, "&gfr;"], [0, "&hfr;"], [0, "&ifr;"], [0, "&jfr;"], [0, "&kfr;"], [0, "&lfr;"], [0, "&mfr;"], [0, "&nfr;"], [0, "&ofr;"], [0, "&pfr;"], [0, "&qfr;"], [0, "&rfr;"], [0, "&sfr;"], [0, "&tfr;"], [0, "&ufr;"], [0, "&vfr;"], [0, "&wfr;"], [0, "&xfr;"], [0, "&yfr;"], [0, "&zfr;"], [0, "&Aopf;"], [0, "&Bopf;"], [1, "&Dopf;"], [0, "&Eopf;"], [0, "&Fopf;"], [0, "&Gopf;"], [1, "&Iopf;"], [0, "&Jopf;"], [0, "&Kopf;"], [0, "&Lopf;"], [0, "&Mopf;"], [1, "&Oopf;"], [3, "&Sopf;"], [0, "&Topf;"], [0, "&Uopf;"], [0, "&Vopf;"], [0, "&Wopf;"], [0, "&Xopf;"], [0, "&Yopf;"], [1, "&aopf;"], [0, "&bopf;"], [0, "&copf;"], [0, "&dopf;"], [0, "&eopf;"], [0, "&fopf;"], [0, "&gopf;"], [0, "&hopf;"], [0, "&iopf;"], [0, "&jopf;"], [0, "&kopf;"], [0, "&lopf;"], [0, "&mopf;"], [0, "&nopf;"], [0, "&oopf;"], [0, "&popf;"], [0, "&qopf;"], [0, "&ropf;"], [0, "&sopf;"], [0, "&topf;"], [0, "&uopf;"], [0, "&vopf;"], [0, "&wopf;"], [0, "&xopf;"], [0, "&yopf;"], [0, "&zopf;"]])) }], [8906, "&fflig;"], [0, "&filig;"], [0, "&fllig;"], [0, "&ffilig;"], [0, "&ffllig;"]]));
 var Kt = /["&'<>$\x80-\uFFFF]/g, Gu = new Map([[34, "&quot;"], [38, "&amp;"], [39, "&apos;"], [60, "&lt;"], [62, "&gt;"]]), $u = String.prototype.codePointAt != null ? function (t, e) { return t.codePointAt(e); } : function (t, e) { return (t.charCodeAt(e) & 64512) === 55296 ? (t.charCodeAt(e) - 55296) * 1024 + t.charCodeAt(e + 1) - 56320 + 65536 : t.charCodeAt(e); };
 function Xe(t) { var e = "", r = 0, i; for (; (i = Kt.exec(t)) !== null;) {
-    var c = i.index, o = t.charCodeAt(c), g = Gu.get(o);
-    g !== void 0 ? (e += t.substring(r, c) + g, r = c + 1) : (e += "".concat(t.substring(r, c), "&#x").concat($u(t, c).toString(16), ";"), r = Kt.lastIndex += +((o & 64512) === 55296));
+    var s = i.index, o = t.charCodeAt(s), g = Gu.get(o);
+    g !== void 0 ? (e += t.substring(r, s) + g, r = s + 1) : (e += "".concat(t.substring(r, s), "&#x").concat($u(t, s).toString(16), ";"), r = Kt.lastIndex += +((o & 64512) === 55296));
 } return e + t.substr(r); }
-function Zt(t, e) { return function (i) { var c, o = 0, g = ""; for (; c = t.exec(i);)
-    o !== c.index && (g += i.substring(o, c.index)), g += e.get(c[0].charCodeAt(0)), o = c.index + 1; return g + i.substring(o); }; }
+function Zt(t, e) { return function (i) { var s, o = 0, g = ""; for (; s = t.exec(i);)
+    o !== s.index && (g += i.substring(o, s.index)), g += e.get(s[0].charCodeAt(0)), o = s.index + 1; return g + i.substring(o); }; }
 var Ju = Zt(/[&<>'"]/g, Gu), st = Zt(/["&\u00A0]/g, new Map([[34, "&quot;"], [38, "&amp;"], [160, "&nbsp;"]])), ot = Zt(/[&<>\u00A0]/g, new Map([[38, "&amp;"], [60, "&lt;"], [62, "&gt;"], [160, "&nbsp;"]]));
 var Wu;
 (function (t) { t[t.XML = 0] = "XML", t[t.HTML = 1] = "HTML"; })(Wu || (Wu = {}));
@@ -753,13 +753,13 @@ var Qu = new Map(["altGlyph", "altGlyphDef", "altGlyphItem", "animateColor", "an
 var ha = new Set(["style", "script", "xmp", "iframe", "noembed", "noframes", "plaintext", "noscript"]);
 function pa(t) { return t.replace(/"/g, "&quot;"); }
 function ga(t, e) { var r; if (!t)
-    return; var i = ((r = e.encodeEntities) !== null && r !== void 0 ? r : e.decodeEntities) === !1 ? pa : e.xmlMode || e.encodeEntities !== "utf8" ? Xe : st; return Object.keys(t).map(function (c) { var o, g; var v = (o = t[c]) !== null && o !== void 0 ? o : ""; return e.xmlMode === "foreign" && (c = (g = Yu.get(c)) !== null && g !== void 0 ? g : c), !e.emptyAttrs && !e.xmlMode && v === "" ? c : "".concat(c, "=\"").concat(i(v), "\""); }).join(" "); }
+    return; var i = ((r = e.encodeEntities) !== null && r !== void 0 ? r : e.decodeEntities) === !1 ? pa : e.xmlMode || e.encodeEntities !== "utf8" ? Xe : st; return Object.keys(t).map(function (s) { var o, g; var v = (o = t[s]) !== null && o !== void 0 ? o : ""; return e.xmlMode === "foreign" && (s = (g = Yu.get(s)) !== null && g !== void 0 ? g : s), !e.emptyAttrs && !e.xmlMode && v === "" ? s : "".concat(s, "=\"").concat(i(v), "\""); }).join(" "); }
 var er = new Set(["area", "base", "basefont", "br", "col", "command", "embed", "frame", "hr", "img", "input", "isindex", "keygen", "link", "meta", "param", "source", "track", "wbr"]);
 function eu(t, e) {
     if (e === void 0) { e = {}; }
     var r = "length" in t ? t : [t], i = "";
-    for (var c = 0; c < r.length; c++)
-        i += ba(r[c], e);
+    for (var s = 0; s < r.length; s++)
+        i += ba(r[s], e);
     return i;
 }
 var Ue = eu;
@@ -775,7 +775,7 @@ function ba(t, e) { switch (t.type) {
     case jt: return ya(t, e);
 } }
 var ma = new Set(["mi", "mo", "mn", "ms", "mtext", "annotation-xml", "foreignObject", "desc", "title"]), xa = new Set(["svg", "math"]);
-function va(t, e) { var r; e.xmlMode === "foreign" && (t.name = (r = Qu.get(t.name)) !== null && r !== void 0 ? r : t.name, t.parent && ma.has(t.parent.name) && (e = we(ne({}, e), { xmlMode: !1 }))), !e.xmlMode && xa.has(t.name) && (e = we(ne({}, e), { xmlMode: "foreign" })); var i = "<".concat(t.name), c = ga(t.attribs, e); return c && (i += " ".concat(c)), t.children.length === 0 && (e.xmlMode ? e.selfClosingTags !== !1 : e.selfClosingTags && er.has(t.name)) ? (e.xmlMode || (i += " "), i += "/>") : (i += ">", t.children.length > 0 && (i += eu(t.children, e)), (e.xmlMode || !er.has(t.name)) && (i += "</".concat(t.name, ">"))), i; }
+function va(t, e) { var r; e.xmlMode === "foreign" && (t.name = (r = Qu.get(t.name)) !== null && r !== void 0 ? r : t.name, t.parent && ma.has(t.parent.name) && (e = we(ne({}, e), { xmlMode: !1 }))), !e.xmlMode && xa.has(t.name) && (e = we(ne({}, e), { xmlMode: "foreign" })); var i = "<".concat(t.name), s = ga(t.attribs, e); return s && (i += " ".concat(s)), t.children.length === 0 && (e.xmlMode ? e.selfClosingTags !== !1 : e.selfClosingTags && er.has(t.name)) ? (e.xmlMode || (i += " "), i += "/>") : (i += ">", t.children.length > 0 && (i += eu(t.children, e)), (e.xmlMode || !er.has(t.name)) && (i += "</".concat(t.name, ">"))), i; }
 function wa(t) { return "<".concat(t.data, ">"); }
 function ya(t, e) { var r; var i = t.data || ""; return ((r = e.encodeEntities) !== null && r !== void 0 ? r : e.decodeEntities) !== !1 && !(!e.xmlMode && t.parent && ha.has(t.parent.name)) && (i = e.xmlMode || e.encodeEntities !== "utf8" ? Xe(i) : ot(i)), i; }
 function Sa(t) { return "<![CDATA[".concat(t.children[0].data, "]]>"); }
@@ -794,11 +794,11 @@ function dt(t) {
     var e = ur(t);
     if (e != null)
         return lt(e);
-    var r = [t], i = t.prev, c = t.next;
+    var r = [t], i = t.prev, s = t.next;
     for (; i != null;)
         r.unshift(i), _b = i, i = _b.prev;
-    for (; c != null;)
-        r.push(c), _c = c, c = _c.next;
+    for (; s != null;)
+        r.push(s), _c = s, s = _c.next;
     return r;
 }
 function Ea(t, e) { var r; return (r = t.attribs) === null || r === void 0 ? void 0 : r[e]; }
@@ -822,8 +822,8 @@ function de(t) { if (t.prev && (t.prev.next = t.next), t.next && (t.next.prev = 
     var e = t.parent.children, r = e.lastIndexOf(t);
     r >= 0 && e.splice(r, 1);
 } t.next = null, t.prev = null, t.parent = null; }
-function qa(t, e) { var r = e.prev = t.prev; r && (r.next = e); var i = e.next = t.next; i && (i.prev = e); var c = e.parent = t.parent; if (c) {
-    var o = c.children;
+function qa(t, e) { var r = e.prev = t.prev; r && (r.next = e); var i = e.next = t.next; i && (i.prev = e); var s = e.parent = t.parent; if (s) {
+    var o = s.children;
     o[o.lastIndexOf(t)] = e, t.parent = null;
 } }
 function Na(t, e) { if (de(e), e.next = null, e.parent = t, t.children.push(e) > 1) {
@@ -834,8 +834,8 @@ else
     e.prev = null; }
 function _a(t, e) { de(e); var r = t.parent, i = t.next; if (e.next = i, e.prev = t, t.next = e, e.parent = r, i) {
     if (i.prev = e, r) {
-        var c = r.children;
-        c.splice(c.lastIndexOf(i), 0, e);
+        var s = r.children;
+        s.splice(s.lastIndexOf(i), 0, e);
     }
 }
 else
@@ -855,24 +855,24 @@ function Me(t, e, r, i) {
     if (i === void 0) { i = 1 / 0; }
     return ht(t, Array.isArray(e) ? e : [e], r, i);
 }
-function ht(t, e, r, i) { var c = [], o = [Array.isArray(e) ? e : [e]], g = [0]; for (;;) {
+function ht(t, e, r, i) { var s = [], o = [Array.isArray(e) ? e : [e]], g = [0]; for (;;) {
     if (g[0] >= o[0].length) {
         if (g.length === 1)
-            return c;
+            return s;
         o.shift(), g.shift();
         continue;
     }
     var v = o[0][g[0]++];
-    if (t(v) && (c.push(v), --i <= 0))
-        return c;
+    if (t(v) && (s.push(v), --i <= 0))
+        return s;
     r && Z(v) && v.children.length > 0 && (g.unshift(0), o.unshift(v.children));
 } }
 function Ia(t, e) { return e.find(t); }
 function pt(t, e, r) {
     if (r === void 0) { r = !0; }
     var i = Array.isArray(e) ? e : [e];
-    for (var c = 0; c < i.length; c++) {
-        var o = i[c];
+    for (var s = 0; s < i.length; s++) {
+        var o = i[s];
         if (P(o) && t(o))
             return o;
         if (r && Z(o) && o.children.length > 0) {
@@ -884,15 +884,15 @@ function pt(t, e, r) {
     return null;
 }
 function rr(t, e) { return (Array.isArray(e) ? e : [e]).some(function (r) { return P(r) && t(r) || Z(r) && rr(t, r.children); }); }
-function La(t, e) { var r = [], i = [Array.isArray(e) ? e : [e]], c = [0]; for (;;) {
-    if (c[0] >= i[0].length) {
+function La(t, e) { var r = [], i = [Array.isArray(e) ? e : [e]], s = [0]; for (;;) {
+    if (s[0] >= i[0].length) {
         if (i.length === 1)
             return r;
-        i.shift(), c.shift();
+        i.shift(), s.shift();
         continue;
     }
-    var o = i[0][c[0]++];
-    P(o) && t(o) && r.push(o), Z(o) && o.children.length > 0 && (c.unshift(0), i.unshift(o.children));
+    var o = i[0][s[0]++];
+    P(o) && t(o) && r.push(o), Z(o) && o.children.length > 0 && (s.unshift(0), i.unshift(o.children));
 } }
 var gt = { tag_name: function (t) { return typeof t == "function" ? function (e) { return P(e) && t(e.name); } : t === "*" ? P : function (e) { return P(e) && e.name === t; }; }, tag_type: function (t) { return typeof t == "function" ? function (e) { return t(e.type); } : function (e) { return e.type === t; }; }, tag_contains: function (t) { return typeof t == "function" ? function (e) { return ce(e) && t(e.data); } : function (e) { return ce(e) && e.data === t; }; } };
 function iu(t, e) { return typeof e == "function" ? function (r) { return P(r) && e(r.attribs[t]); } : function (r) { return P(r) && r.attribs[t] === e; }; }
@@ -901,8 +901,8 @@ function ar(t) { var e = Object.keys(t).map(function (r) { var i = t[r]; return 
 function Ua(t, e) { var r = ar(t); return r ? r(e) : !0; }
 function Ma(t, e, r, i) {
     if (i === void 0) { i = 1 / 0; }
-    var c = ar(t);
-    return c ? Me(c, e, r, i) : [];
+    var s = ar(t);
+    return s ? Me(s, e, r, i) : [];
 }
 function Pa(t, e, r) {
     if (r === void 0) { r = !0; }
@@ -938,23 +938,23 @@ function ja(t) { var e = t.length; for (; --e >= 0;) {
 var ae;
 (function (t) { t[t.DISCONNECTED = 1] = "DISCONNECTED", t[t.PRECEDING = 2] = "PRECEDING", t[t.FOLLOWING = 4] = "FOLLOWING", t[t.CONTAINS = 8] = "CONTAINS", t[t.CONTAINED_BY = 16] = "CONTAINED_BY"; })(ae || (ae = {}));
 function ir(t, e) { var r = [], i = []; if (t === e)
-    return 0; var c = Z(t) ? t : t.parent; for (; c;)
-    r.unshift(c), c = c.parent; for (c = Z(e) ? e : e.parent; c;)
-    i.unshift(c), c = c.parent; var o = Math.min(r.length, i.length), g = 0; for (; g < o && r[g] === i[g];)
+    return 0; var s = Z(t) ? t : t.parent; for (; s;)
+    r.unshift(s), s = s.parent; for (s = Z(e) ? e : e.parent; s;)
+    i.unshift(s), s = s.parent; var o = Math.min(r.length, i.length), g = 0; for (; g < o && r[g] === i[g];)
     g++; if (g === 0)
     return ae.DISCONNECTED; var v = r[g - 1], y = v.children, S = r[g], T = i[g]; return y.indexOf(S) > y.indexOf(T) ? v === e ? ae.FOLLOWING | ae.CONTAINED_BY : ae.FOLLOWING : v === t ? ae.PRECEDING | ae.CONTAINS : ae.PRECEDING; }
 function nu(t) { return t = t.filter(function (e, r, i) { return !i.includes(e, r + 1); }), t.sort(function (e, r) { var i = ir(e, r); return i & ae.PRECEDING ? -1 : i & ae.FOLLOWING ? 1 : 0; }), t; }
 function cu(t) { var e = bt(Ga, t); return e ? e.name === "feed" ? Va(e) : za(e) : null; }
-function Va(t) { var e; var r = t.children, i = { type: "atom", items: Se("entry", r).map(function (g) { var v; var y = g.children, S = { media: nr(y) }; Y(S, "id", "id", y), Y(S, "title", "title", y); var T = (v = bt("link", y)) === null || v === void 0 ? void 0 : v.attribs.href; T && (S.link = T); var L = me("summary", y) || me("content", y); L && (S.description = L); var q = me("updated", y); return q && (S.pubDate = new Date(q)), S; }) }; Y(i, "id", "id", r), Y(i, "title", "title", r); var c = (e = bt("link", r)) === null || e === void 0 ? void 0 : e.attribs.href; c && (i.link = c), Y(i, "description", "subtitle", r); var o = me("updated", r); return o && (i.updated = new Date(o)), Y(i, "author", "email", r, !0), i; }
-function za(t) { var e, r; var i = (r = (e = bt("channel", t.children)) === null || e === void 0 ? void 0 : e.children) !== null && r !== void 0 ? r : [], c = { type: t.name.substr(0, 3), id: "", items: Se("item", t.children).map(function (g) { var v = g.children, y = { media: nr(v) }; Y(y, "id", "guid", v), Y(y, "title", "title", v), Y(y, "link", "link", v), Y(y, "description", "description", v); var S = me("pubDate", v) || me("dc:date", v); return S && (y.pubDate = new Date(S)), y; }) }; Y(c, "title", "title", i), Y(c, "link", "link", i), Y(c, "description", "description", i); var o = me("lastBuildDate", i); return o && (c.updated = new Date(o)), Y(c, "author", "managingEditor", i, !0), c; }
+function Va(t) { var e; var r = t.children, i = { type: "atom", items: Se("entry", r).map(function (g) { var v; var y = g.children, S = { media: nr(y) }; Y(S, "id", "id", y), Y(S, "title", "title", y); var T = (v = bt("link", y)) === null || v === void 0 ? void 0 : v.attribs.href; T && (S.link = T); var L = me("summary", y) || me("content", y); L && (S.description = L); var q = me("updated", y); return q && (S.pubDate = new Date(q)), S; }) }; Y(i, "id", "id", r), Y(i, "title", "title", r); var s = (e = bt("link", r)) === null || e === void 0 ? void 0 : e.attribs.href; s && (i.link = s), Y(i, "description", "subtitle", r); var o = me("updated", r); return o && (i.updated = new Date(o)), Y(i, "author", "email", r, !0), i; }
+function za(t) { var e, r; var i = (r = (e = bt("channel", t.children)) === null || e === void 0 ? void 0 : e.children) !== null && r !== void 0 ? r : [], s = { type: t.name.substr(0, 3), id: "", items: Se("item", t.children).map(function (g) { var v = g.children, y = { media: nr(v) }; Y(y, "id", "guid", v), Y(y, "title", "title", v), Y(y, "link", "link", v), Y(y, "description", "description", v); var S = me("pubDate", v) || me("dc:date", v); return S && (y.pubDate = new Date(S)), y; }) }; Y(s, "title", "title", i), Y(s, "link", "link", i), Y(s, "description", "description", i); var o = me("lastBuildDate", i); return o && (s.updated = new Date(o)), Y(s, "author", "managingEditor", i, !0), s; }
 var Ha = ["url", "type", "lang"], Ra = ["fileSize", "bitrate", "framerate", "samplingrate", "channels", "duration", "height", "width"];
 function nr(t) { return Se("media:content", t).map(function (e) {
     var e_4, _b, e_5, _c;
     var r = e.attribs, i = { medium: r.medium, isDefault: !!r.isDefault };
     try {
         for (var Ha_1 = __values(Ha), Ha_1_1 = Ha_1.next(); !Ha_1_1.done; Ha_1_1 = Ha_1.next()) {
-            var c = Ha_1_1.value;
-            r[c] && (i[c] = r[c]);
+            var s = Ha_1_1.value;
+            r[s] && (i[s] = r[s]);
         }
     }
     catch (e_4_1) { e_4 = { error: e_4_1 }; }
@@ -966,8 +966,8 @@ function nr(t) { return Se("media:content", t).map(function (e) {
     }
     try {
         for (var Ra_1 = __values(Ra), Ra_1_1 = Ra_1.next(); !Ra_1_1.done; Ra_1_1 = Ra_1.next()) {
-            var c = Ra_1_1.value;
-            r[c] && (i[c] = parseInt(r[c], 10));
+            var s = Ra_1_1.value;
+            r[s] && (i[s] = parseInt(r[s], 10));
         }
     }
     catch (e_5_1) { e_5 = { error: e_5_1 }; }
@@ -984,9 +984,9 @@ function me(t, e, r) {
     if (r === void 0) { r = !1; }
     return be(Se(t, e, r, 1)).trim();
 }
-function Y(t, e, r, i, c) {
-    if (c === void 0) { c = !1; }
-    var o = me(r, i, c);
+function Y(t, e, r, i, s) {
+    if (s === void 0) { s = !1; }
+    var o = me(r, i, s);
     o && (t[e] = o);
 }
 function Ga(t) { return t === "rss" || t === "feed" || t === "rdf:RDF"; }
@@ -1012,7 +1012,7 @@ function su(t) { return t === 39 || t === 34; }
 function or(t) { return t === 32 || t === 9 || t === 10 || t === 12 || t === 13; }
 function xe(t) { var e = [], r = fr(e, "".concat(t), 0); if (r < t.length)
     throw new Error("Unmatched selector: ".concat(t.slice(r))); return e; }
-function fr(t, e, r) { var i = []; function c(q) { var N = e.slice(r + q).match(sr); if (!N)
+function fr(t, e, r) { var i = []; function s(q) { var N = e.slice(r + q).match(sr); if (!N)
     throw new Error("Expected name, found ".concat(e.slice(r))); var _b = __read(N, 1), O = _b[0]; return r += q + O.length, Ke(O); } function o(q) { for (r += q; r < e.length && or(e.charCodeAt(r));)
     r++; } function g() { r += 1; var q = r, N = 1; for (; N > 0 && r < e.length; r++)
     e.charCodeAt(r) === 40 && !v(r) ? N++ : e.charCodeAt(r) === 41 && !v(r) && N--; if (N)
@@ -1021,7 +1021,7 @@ function fr(t, e, r) { var i = []; function c(q) { var N = e.slice(r + q).match(
     throw new Error("Did not expect successive traversals."); } function S(q) { if (i.length > 0 && i[i.length - 1].type === _.Descendant) {
     i[i.length - 1].type = q;
     return;
-} y(), i.push({ type: q }); } function T(q, N) { i.push({ type: _.Attribute, name: q, action: N, value: c(1), namespace: null, ignoreCase: "quirks" }); } function L() { if (i.length && i[i.length - 1].type === _.Descendant && i.pop(), i.length === 0)
+} y(), i.push({ type: q }); } function T(q, N) { i.push({ type: _.Attribute, name: q, action: N, value: s(1), namespace: null, ignoreCase: "quirks" }); } function L() { if (i.length && i[i.length - 1].type === _.Descendant && i.pop(), i.length === 0)
     throw new Error("Empty sub-selector"); t.push(i); } if (o(0), e.length === r)
     return r; e: for (; r < e.length;) {
     var q = e.charCodeAt(r);
@@ -1061,7 +1061,7 @@ function fr(t, e, r) { var i = []; function c(q) { var N = e.slice(r + q).match(
         case 91: {
             o(1);
             var N = void 0, O = null;
-            e.charCodeAt(r) === 124 ? N = c(1) : e.startsWith("*|", r) ? (O = "*", N = c(2)) : (N = c(0), e.charCodeAt(r) === 124 && e.charCodeAt(r + 1) !== 61 && (O = N, N = c(1))), o(0);
+            e.charCodeAt(r) === 124 ? N = s(1) : e.startsWith("*|", r) ? (O = "*", N = s(2)) : (N = s(0), e.charCodeAt(r) === 124 && e.charCodeAt(r + 1) !== 61 && (O = N, N = s(1))), o(0);
             var M = H.Exists, Q = Ja.get(e.charCodeAt(r));
             if (Q) {
                 if (M = Q, e.charCodeAt(r + 1) !== 61)
@@ -1073,18 +1073,18 @@ function fr(t, e, r) { var i = []; function c(q) { var N = e.slice(r + q).match(
             var te = "", fe = null;
             if (M !== "exists") {
                 if (su(e.charCodeAt(r))) {
-                    var s = e.charCodeAt(r), d = r + 1;
-                    for (; d < e.length && (e.charCodeAt(d) !== s || v(d));)
+                    var c = e.charCodeAt(r), d = r + 1;
+                    for (; d < e.length && (e.charCodeAt(d) !== c || v(d));)
                         d += 1;
-                    if (e.charCodeAt(d) !== s)
+                    if (e.charCodeAt(d) !== c)
                         throw new Error("Attribute value didn't end");
                     te = Ke(e.slice(r + 1, d)), r = d + 1;
                 }
                 else {
-                    var s = r;
+                    var c = r;
                     for (; r < e.length && (!or(e.charCodeAt(r)) && e.charCodeAt(r) !== 93 || v(r));)
                         r += 1;
-                    te = Ke(e.slice(s, r));
+                    te = Ke(e.slice(c, r));
                 }
                 o(0);
                 var k = e.charCodeAt(r) | 32;
@@ -1099,10 +1099,10 @@ function fr(t, e, r) { var i = []; function c(q) { var N = e.slice(r + q).match(
         }
         case 58: {
             if (e.charCodeAt(r + 1) === 58) {
-                i.push({ type: _.PseudoElement, name: c(2).toLowerCase(), data: e.charCodeAt(r) === 40 ? g() : null });
+                i.push({ type: _.PseudoElement, name: s(2).toLowerCase(), data: e.charCodeAt(r) === 40 ? g() : null });
                 continue;
             }
-            var N = c(1).toLowerCase(), O = null;
+            var N = s(1).toLowerCase(), O = null;
             if (e.charCodeAt(r) === 40)
                 if (Wa.has(N)) {
                     if (su(e.charCodeAt(r + 1)))
@@ -1143,10 +1143,10 @@ function fr(t, e, r) { var i = []; function c(q) { var N = e.slice(r + q).match(
                 }
             }
             else if (sr.test(e.slice(r)))
-                O = c(0);
+                O = s(0);
             else
                 break e;
-            e.charCodeAt(r) === 124 && e.charCodeAt(r + 1) !== 124 && (N = O, e.charCodeAt(r + 1) === 42 ? (O = "*", r += 2) : O = c(1)), i.push(O === "*" ? { type: _.Universal, namespace: N } : { type: _.Tag, name: O, namespace: N });
+            e.charCodeAt(r) === 124 && e.charCodeAt(r + 1) !== 124 && (N = O, e.charCodeAt(r + 1) === 42 ? (O = "*", r += 2) : O = s(1)), i.push(O === "*" ? { type: _.Universal, namespace: N } : { type: _.Tag, name: O, namespace: N });
         }
     }
 } return L(), r; }
@@ -1158,31 +1158,31 @@ var Za = new Map([[H.Exists, 10], [H.Equals, 8], [H.Not, 7], [H.Start, 6], [H.En
 function ou(t) { var e = t.map(hr); for (var r = 1; r < t.length; r++) {
     var i = e[r];
     if (!(i < 0))
-        for (var c = r - 1; c >= 0 && i < e[c]; c--) {
-            var o = t[c + 1];
-            t[c + 1] = t[c], t[c] = o, e[c + 1] = e[c], e[c] = i;
+        for (var s = r - 1; s >= 0 && i < e[s]; s--) {
+            var o = t[s + 1];
+            t[s + 1] = t[s], t[s] = o, e[s + 1] = e[s], e[s] = i;
         }
 } }
-function hr(t) { var e, r; var i = (e = dr.get(t.type)) !== null && e !== void 0 ? e : -1; return t.type === _.Attribute ? (i = (r = Za.get(t.action)) !== null && r !== void 0 ? r : 4, t.action === H.Equals && t.name === "id" && (i = 9), t.ignoreCase && (i >>= 1)) : t.type === _.Pseudo && (t.data ? t.name === "has" || t.name === "contains" ? i = 0 : Array.isArray(t.data) ? (i = Math.min.apply(Math, __spreadArray([], __read(t.data.map(function (c) { return Math.min.apply(Math, __spreadArray([], __read(c.map(hr)), false)); })), false)), i < 0 && (i = 0)) : i = 2 : i = 3), i; }
+function hr(t) { var e, r; var i = (e = dr.get(t.type)) !== null && e !== void 0 ? e : -1; return t.type === _.Attribute ? (i = (r = Za.get(t.action)) !== null && r !== void 0 ? r : 4, t.action === H.Equals && t.name === "id" && (i = 9), t.ignoreCase && (i >>= 1)) : t.type === _.Pseudo && (t.data ? t.name === "has" || t.name === "contains" ? i = 0 : Array.isArray(t.data) ? (i = Math.min.apply(Math, __spreadArray([], __read(t.data.map(function (s) { return Math.min.apply(Math, __spreadArray([], __read(s.map(hr)), false)); })), false)), i < 0 && (i = 0)) : i = 2 : i = 3), i; }
 var Qe = ye(ve(), 1), Qa = /[-[\]{}()*+?.,\\^$|#\s]/g;
 function pr(t) { return t.replace(Qa, "\\$&"); }
 var Ya = new Set(["accept", "accept-charset", "align", "alink", "axis", "bgcolor", "charset", "checked", "clear", "codetype", "color", "compact", "declare", "defer", "dir", "direction", "disabled", "enctype", "face", "frame", "hreflang", "http-equiv", "lang", "language", "link", "media", "method", "multiple", "nohref", "noresize", "noshade", "nowrap", "readonly", "rel", "rev", "rules", "scope", "scrolling", "selected", "shape", "target", "text", "type", "valign", "valuetype", "vlink"]);
 function ke(t, e) { return typeof t.ignoreCase == "boolean" ? t.ignoreCase : t.ignoreCase === "quirks" ? !!e.quirksMode : !e.xmlMode && Ya.has(t.name); }
-var gr = { equals: function (t, e, r) { var i = r.adapter, c = e.name, o = e.value; return ke(e, r) ? (o = o.toLowerCase(), function (g) { var v = i.getAttributeValue(g, c); return v != null && v.length === o.length && v.toLowerCase() === o && t(g); }) : function (g) { return i.getAttributeValue(g, c) === o && t(g); }; }, hyphen: function (t, e, r) { var i = r.adapter, c = e.name, o = e.value, g = o.length; return ke(e, r) ? (o = o.toLowerCase(), function (y) { var S = i.getAttributeValue(y, c); return S != null && (S.length === g || S.charAt(g) === "-") && S.substr(0, g).toLowerCase() === o && t(y); }) : function (y) { var S = i.getAttributeValue(y, c); return S != null && (S.length === g || S.charAt(g) === "-") && S.substr(0, g) === o && t(y); }; }, element: function (t, e, r) { var i = r.adapter, c = e.name, o = e.value; if (/\s/.test(o))
-        return Qe.default.falseFunc; var g = new RegExp("(?:^|\\s)".concat(pr(o), "(?:$|\\s)"), ke(e, r) ? "i" : ""); return function (y) { var S = i.getAttributeValue(y, c); return S != null && S.length >= o.length && g.test(S) && t(y); }; }, exists: function (t, _b, _c) {
+var gr = { equals: function (t, e, r) { var i = r.adapter, s = e.name, o = e.value; return ke(e, r) ? (o = o.toLowerCase(), function (g) { var v = i.getAttributeValue(g, s); return v != null && v.length === o.length && v.toLowerCase() === o && t(g); }) : function (g) { return i.getAttributeValue(g, s) === o && t(g); }; }, hyphen: function (t, e, r) { var i = r.adapter, s = e.name, o = e.value, g = o.length; return ke(e, r) ? (o = o.toLowerCase(), function (y) { var S = i.getAttributeValue(y, s); return S != null && (S.length === g || S.charAt(g) === "-") && S.substr(0, g).toLowerCase() === o && t(y); }) : function (y) { var S = i.getAttributeValue(y, s); return S != null && (S.length === g || S.charAt(g) === "-") && S.substr(0, g) === o && t(y); }; }, element: function (t, e, r) { var i = r.adapter, s = e.name, o = e.value; if (/\s/.test(o))
+        return Qe.default.falseFunc; var g = new RegExp("(?:^|\\s)".concat(pr(o), "(?:$|\\s)"), ke(e, r) ? "i" : ""); return function (y) { var S = i.getAttributeValue(y, s); return S != null && S.length >= o.length && g.test(S) && t(y); }; }, exists: function (t, _b, _c) {
         var e = _b.name;
         var r = _c.adapter;
         return function (i) { return r.hasAttrib(i, e) && t(i); };
-    }, start: function (t, e, r) { var i = r.adapter, c = e.name, o = e.value, g = o.length; return g === 0 ? Qe.default.falseFunc : ke(e, r) ? (o = o.toLowerCase(), function (v) { var y = i.getAttributeValue(v, c); return y != null && y.length >= g && y.substr(0, g).toLowerCase() === o && t(v); }) : function (v) { var y; return !!(!((y = i.getAttributeValue(v, c)) === null || y === void 0) && y.startsWith(o)) && t(v); }; }, end: function (t, e, r) { var i = r.adapter, c = e.name, o = e.value, g = -o.length; return g === 0 ? Qe.default.falseFunc : ke(e, r) ? (o = o.toLowerCase(), function (v) { var y; return ((y = i.getAttributeValue(v, c)) === null || y === void 0 ? void 0 : y.substr(g).toLowerCase()) === o && t(v); }) : function (v) { var y; return !!(!((y = i.getAttributeValue(v, c)) === null || y === void 0) && y.endsWith(o)) && t(v); }; }, any: function (t, e, r) { var i = r.adapter, c = e.name, o = e.value; if (o === "")
+    }, start: function (t, e, r) { var i = r.adapter, s = e.name, o = e.value, g = o.length; return g === 0 ? Qe.default.falseFunc : ke(e, r) ? (o = o.toLowerCase(), function (v) { var y = i.getAttributeValue(v, s); return y != null && y.length >= g && y.substr(0, g).toLowerCase() === o && t(v); }) : function (v) { var y; return !!(!((y = i.getAttributeValue(v, s)) === null || y === void 0) && y.startsWith(o)) && t(v); }; }, end: function (t, e, r) { var i = r.adapter, s = e.name, o = e.value, g = -o.length; return g === 0 ? Qe.default.falseFunc : ke(e, r) ? (o = o.toLowerCase(), function (v) { var y; return ((y = i.getAttributeValue(v, s)) === null || y === void 0 ? void 0 : y.substr(g).toLowerCase()) === o && t(v); }) : function (v) { var y; return !!(!((y = i.getAttributeValue(v, s)) === null || y === void 0) && y.endsWith(o)) && t(v); }; }, any: function (t, e, r) { var i = r.adapter, s = e.name, o = e.value; if (o === "")
         return Qe.default.falseFunc; if (ke(e, r)) {
         var g_1 = new RegExp(pr(o), "i");
-        return function (y) { var S = i.getAttributeValue(y, c); return S != null && S.length >= o.length && g_1.test(S) && t(y); };
-    } return function (g) { var v; return !!(!((v = i.getAttributeValue(g, c)) === null || v === void 0) && v.includes(o)) && t(g); }; }, not: function (t, e, r) { var i = r.adapter, c = e.name, o = e.value; return o === "" ? function (g) { return !!i.getAttributeValue(g, c) && t(g); } : ke(e, r) ? (o = o.toLowerCase(), function (g) { var v = i.getAttributeValue(g, c); return (v == null || v.length !== o.length || v.toLowerCase() !== o) && t(g); }) : function (g) { return i.getAttributeValue(g, c) !== o && t(g); }; } };
+        return function (y) { var S = i.getAttributeValue(y, s); return S != null && S.length >= o.length && g_1.test(S) && t(y); };
+    } return function (g) { var v; return !!(!((v = i.getAttributeValue(g, s)) === null || v === void 0) && v.includes(o)) && t(g); }; }, not: function (t, e, r) { var i = r.adapter, s = e.name, o = e.value; return o === "" ? function (g) { return !!i.getAttributeValue(g, s) && t(g); } : ke(e, r) ? (o = o.toLowerCase(), function (g) { var v = i.getAttributeValue(g, s); return (v == null || v.length !== o.length || v.toLowerCase() !== o) && t(g); }) : function (g) { return i.getAttributeValue(g, s) !== o && t(g); }; } };
 var ei = new Set([9, 10, 12, 13, 32]), br = 48, ti = 57;
 function mr(t) { if (t = t.trim().toLowerCase(), t === "even")
     return [2, 0]; if (t === "odd")
-    return [2, 1]; var e = 0, r = 0, i = o(), c = g(); if (e < t.length && t.charAt(e) === "n" && (e++, r = i * (c != null ? c : 1), v(), e < t.length ? (i = o(), v(), c = g()) : i = c = 0), c === null || e < t.length)
-    throw new Error("n-th rule couldn't be parsed ('".concat(t, "')")); return [r, i * c]; function o() { return t.charAt(e) === "-" ? (e++, -1) : (t.charAt(e) === "+" && e++, 1); } function g() { var y = e, S = 0; for (; e < t.length && t.charCodeAt(e) >= br && t.charCodeAt(e) <= ti;)
+    return [2, 1]; var e = 0, r = 0, i = o(), s = g(); if (e < t.length && t.charAt(e) === "n" && (e++, r = i * (s != null ? s : 1), v(), e < t.length ? (i = o(), v(), s = g()) : i = s = 0), s === null || e < t.length)
+    throw new Error("n-th rule couldn't be parsed ('".concat(t, "')")); return [r, i * s]; function o() { return t.charAt(e) === "-" ? (e++, -1) : (t.charAt(e) === "+" && e++, 1); } function g() { var y = e, S = 0; for (; e < t.length && t.charCodeAt(e) >= br && t.charCodeAt(e) <= ti;)
     S = S * 10 + (t.charCodeAt(e) - br), e++; return e === y ? null : S; } function v() { for (; e < t.length && ei.has(t.charCodeAt(e));)
     e++; } }
 var fu = ye(ve(), 1);
@@ -1190,52 +1190,52 @@ function xr(t) { var e = t[0], r = t[1] - 1; if (r < 0 && e <= 0)
     return fu.default.falseFunc; if (e === -1)
     return function (o) { return o <= r; }; if (e === 0)
     return function (o) { return o === r; }; if (e === 1)
-    return r < 0 ? fu.default.trueFunc : function (o) { return o >= r; }; var i = Math.abs(e), c = (r % i + i) % i; return e > 1 ? function (o) { return o >= r && o % i === c; } : function (o) { return o <= r && o % i === c; }; }
+    return r < 0 ? fu.default.trueFunc : function (o) { return o >= r; }; var i = Math.abs(e), s = (r % i + i) % i; return e > 1 ? function (o) { return o >= r && o % i === s; } : function (o) { return o <= r && o % i === s; }; }
 function Pe(t) { return xr(mr(t)); }
 var ee = ye(ve(), 1);
 function mt(t, e) { return function (r) { var i = e.getParent(r); return i != null && e.isTag(i) && t(r); }; }
 var Be = { contains: function (t, e, _b) {
         var r = _b.adapter;
-        return function (c) { return t(c) && r.getText(c).includes(e); };
+        return function (s) { return t(s) && r.getText(s).includes(e); };
     }, icontains: function (t, e, _b) {
         var r = _b.adapter;
         var i = e.toLowerCase();
         return function (o) { return t(o) && r.getText(o).toLowerCase().includes(i); };
     }, "nth-child": function (t, e, _b) {
         var r = _b.adapter, i = _b.equals;
-        var c = Pe(e);
-        return c === ee.default.falseFunc ? ee.default.falseFunc : c === ee.default.trueFunc ? mt(t, r) : function (g) { var v = r.getSiblings(g), y = 0; for (var S = 0; S < v.length && !i(g, v[S]); S++)
-            r.isTag(v[S]) && y++; return c(y) && t(g); };
+        var s = Pe(e);
+        return s === ee.default.falseFunc ? ee.default.falseFunc : s === ee.default.trueFunc ? mt(t, r) : function (g) { var v = r.getSiblings(g), y = 0; for (var S = 0; S < v.length && !i(g, v[S]); S++)
+            r.isTag(v[S]) && y++; return s(y) && t(g); };
     }, "nth-last-child": function (t, e, _b) {
         var r = _b.adapter, i = _b.equals;
-        var c = Pe(e);
-        return c === ee.default.falseFunc ? ee.default.falseFunc : c === ee.default.trueFunc ? mt(t, r) : function (g) { var v = r.getSiblings(g), y = 0; for (var S = v.length - 1; S >= 0 && !i(g, v[S]); S--)
-            r.isTag(v[S]) && y++; return c(y) && t(g); };
+        var s = Pe(e);
+        return s === ee.default.falseFunc ? ee.default.falseFunc : s === ee.default.trueFunc ? mt(t, r) : function (g) { var v = r.getSiblings(g), y = 0; for (var S = v.length - 1; S >= 0 && !i(g, v[S]); S--)
+            r.isTag(v[S]) && y++; return s(y) && t(g); };
     }, "nth-of-type": function (t, e, _b) {
         var r = _b.adapter, i = _b.equals;
-        var c = Pe(e);
-        return c === ee.default.falseFunc ? ee.default.falseFunc : c === ee.default.trueFunc ? mt(t, r) : function (g) { var v = r.getSiblings(g), y = 0; for (var S = 0; S < v.length; S++) {
+        var s = Pe(e);
+        return s === ee.default.falseFunc ? ee.default.falseFunc : s === ee.default.trueFunc ? mt(t, r) : function (g) { var v = r.getSiblings(g), y = 0; for (var S = 0; S < v.length; S++) {
             var T = v[S];
             if (i(g, T))
                 break;
             r.isTag(T) && r.getName(T) === r.getName(g) && y++;
-        } return c(y) && t(g); };
+        } return s(y) && t(g); };
     }, "nth-last-of-type": function (t, e, _b) {
         var r = _b.adapter, i = _b.equals;
-        var c = Pe(e);
-        return c === ee.default.falseFunc ? ee.default.falseFunc : c === ee.default.trueFunc ? mt(t, r) : function (g) { var v = r.getSiblings(g), y = 0; for (var S = v.length - 1; S >= 0; S--) {
+        var s = Pe(e);
+        return s === ee.default.falseFunc ? ee.default.falseFunc : s === ee.default.trueFunc ? mt(t, r) : function (g) { var v = r.getSiblings(g), y = 0; for (var S = v.length - 1; S >= 0; S--) {
             var T = v[S];
             if (i(g, T))
                 break;
             r.isTag(T) && r.getName(T) === r.getName(g) && y++;
-        } return c(y) && t(g); };
+        } return s(y) && t(g); };
     }, root: function (t, e, _b) {
         var r = _b.adapter;
-        return function (i) { var c = r.getParent(i); return (c == null || !r.isTag(c)) && t(i); };
-    }, scope: function (t, e, r, i) { var c = r.equals; return !i || i.length === 0 ? Be.root(t, e, r) : i.length === 1 ? function (o) { return c(i[0], o) && t(o); } : function (o) { return i.includes(o) && t(o); }; }, hover: lu("isHovered"), visited: lu("isVisited"), active: lu("isActive") };
+        return function (i) { var s = r.getParent(i); return (s == null || !r.isTag(s)) && t(i); };
+    }, scope: function (t, e, r, i) { var s = r.equals; return !i || i.length === 0 ? Be.root(t, e, r) : i.length === 1 ? function (o) { return s(i[0], o) && t(o); } : function (o) { return i.includes(o) && t(o); }; }, hover: lu("isHovered"), visited: lu("isVisited"), active: lu("isActive") };
 function lu(t) { return function (r, i, _b) {
-    var c = _b.adapter;
-    var o = c[t];
+    var s = _b.adapter;
+    var o = s[t];
     return typeof o != "function" ? ee.default.falseFunc : function (v) { return o(v) && r(v); };
 }; }
 var Ye = { empty: function (t, _b) {
@@ -1245,44 +1245,44 @@ var Ye = { empty: function (t, _b) {
         var e = _b.adapter, r = _b.equals;
         if (e.prevElementSibling)
             return e.prevElementSibling(t) == null;
-        var i = e.getSiblings(t).find(function (c) { return e.isTag(c); });
+        var i = e.getSiblings(t).find(function (s) { return e.isTag(s); });
         return i != null && r(t, i);
     }, "last-child": function (t, _b) {
         var e = _b.adapter, r = _b.equals;
         var i = e.getSiblings(t);
-        for (var c = i.length - 1; c >= 0; c--) {
-            if (r(t, i[c]))
+        for (var s = i.length - 1; s >= 0; s--) {
+            if (r(t, i[s]))
                 return !0;
-            if (e.isTag(i[c]))
+            if (e.isTag(i[s]))
                 break;
         }
         return !1;
     }, "first-of-type": function (t, _b) {
         var e = _b.adapter, r = _b.equals;
-        var i = e.getSiblings(t), c = e.getName(t);
+        var i = e.getSiblings(t), s = e.getName(t);
         for (var o = 0; o < i.length; o++) {
             var g = i[o];
             if (r(t, g))
                 return !0;
-            if (e.isTag(g) && e.getName(g) === c)
+            if (e.isTag(g) && e.getName(g) === s)
                 break;
         }
         return !1;
     }, "last-of-type": function (t, _b) {
         var e = _b.adapter, r = _b.equals;
-        var i = e.getSiblings(t), c = e.getName(t);
+        var i = e.getSiblings(t), s = e.getName(t);
         for (var o = i.length - 1; o >= 0; o--) {
             var g = i[o];
             if (r(t, g))
                 return !0;
-            if (e.isTag(g) && e.getName(g) === c)
+            if (e.isTag(g) && e.getName(g) === s)
                 break;
         }
         return !1;
     }, "only-of-type": function (t, _b) {
         var e = _b.adapter, r = _b.equals;
         var i = e.getName(t);
-        return e.getSiblings(t).every(function (c) { return r(t, c) || !e.isTag(c) || e.getName(c) !== i; });
+        return e.getSiblings(t).every(function (s) { return r(t, s) || !e.isTag(s) || e.getName(s) !== i; });
     }, "only-child": function (t, _b) {
         var e = _b.adapter, r = _b.equals;
         return e.getSiblings(t).every(function (i) { return r(t, i) || !e.isTag(i); });
@@ -1300,21 +1300,21 @@ function bu(t, e) { return t === ie.default.falseFunc ? ie.default.falseFunc : f
 function mu(t, e) { var r = e.getSiblings(t); if (r.length <= 1)
     return []; var i = r.indexOf(t); return i < 0 || i === r.length - 1 ? [] : r.slice(i + 1).filter(e.isTag); }
 function pu(t) { return { xmlMode: !!t.xmlMode, lowerCaseAttributeNames: !!t.lowerCaseAttributeNames, lowerCaseTags: !!t.lowerCaseTags, quirksMode: !!t.quirksMode, cacheResults: !!t.cacheResults, pseudos: t.pseudos, adapter: t.adapter, equals: t.equals }; }
-var hu = function (t, e, r, i, c) { var o = c(e, pu(r), i); return o === ie.default.trueFunc ? t : o === ie.default.falseFunc ? ie.default.falseFunc : function (g) { return o(g) && t(g); }; }, vt = { is: hu, matches: hu, where: hu, not: function (t, e, r, i, c) { var o = c(e, pu(r), i); return o === ie.default.falseFunc ? t : o === ie.default.trueFunc ? ie.default.falseFunc : function (g) { return !o(g) && t(g); }; }, has: function (t, e, r, i, c) { var o = r.adapter, g = pu(r); g.relativeSelector = !0; var v = e.some(function (T) { return T.some(Ze); }) ? [gu] : void 0, y = c(e, g, v); if (y === ie.default.falseFunc)
+var hu = function (t, e, r, i, s) { var o = s(e, pu(r), i); return o === ie.default.trueFunc ? t : o === ie.default.falseFunc ? ie.default.falseFunc : function (g) { return o(g) && t(g); }; }, vt = { is: hu, matches: hu, where: hu, not: function (t, e, r, i, s) { var o = s(e, pu(r), i); return o === ie.default.falseFunc ? t : o === ie.default.trueFunc ? ie.default.falseFunc : function (g) { return !o(g) && t(g); }; }, has: function (t, e, r, i, s) { var o = r.adapter, g = pu(r); g.relativeSelector = !0; var v = e.some(function (T) { return T.some(Ze); }) ? [gu] : void 0, y = s(e, g, v); if (y === ie.default.falseFunc)
         return ie.default.falseFunc; var S = bu(y, o); if (v && y !== ie.default.trueFunc) {
         var _b = y.shouldTestNextSiblings, T_1 = _b === void 0 ? !1 : _b;
         return function (L) { if (!t(L))
             return !1; v[0] = L; var q = o.getChildren(L), N = T_1 ? __spreadArray(__spreadArray([], __read(q), false), __read(mu(L, o)), false) : q; return o.existsOne(S, N); };
     } return function (T) { return t(T) && o.existsOne(S, o.getChildren(T)); }; } };
-function vr(t, e, r, i, c) { var o; var g = e.name, v = e.data; if (Array.isArray(v)) {
+function vr(t, e, r, i, s) { var o; var g = e.name, v = e.data; if (Array.isArray(v)) {
     if (!(g in vt))
         throw new Error("Unknown pseudo-class :".concat(g, "(").concat(v, ")"));
-    return vt[g](t, v, r, i, c);
+    return vt[g](t, v, r, i, s);
 } var y = (o = r.pseudos) === null || o === void 0 ? void 0 : o[g], S = typeof y == "string" ? y : xt[g]; if (typeof S == "string") {
     if (v != null)
         throw new Error("Pseudo ".concat(g, " doesn't have any arguments"));
     var T = xe(S);
-    return vt.is(t, T, r, i, c);
+    return vt.is(t, T, r, i, s);
 } if (typeof y == "function")
     return du(y, g, v, 1), function (T) { return y(T, v) && t(T); }; if (g in Be)
     return Be[g](t, v, r, i); if (g in Ye) {
@@ -1322,7 +1322,7 @@ function vr(t, e, r, i, c) { var o; var g = e.name, v = e.data; if (Array.isArra
     return du(T_2, g, v, 2), function (L) { return T_2(L, r, v) && t(L); };
 } throw new Error("Unknown pseudo-class :".concat(g)); }
 function xu(t, e) { var r = e.getParent(t); return r && e.isTag(r) ? r : null; }
-function wr(t, e, r, i, c) { var o = r.adapter, g = r.equals; switch (e.type) {
+function wr(t, e, r, i, s) { var o = r.adapter, g = r.equals; switch (e.type) {
     case _.PseudoElement: throw new Error("Pseudo-elements are not supported by css-select");
     case _.ColumnCombinator: throw new Error("Column combinators are not yet supported by css-select");
     case _.Attribute: {
@@ -1330,7 +1330,7 @@ function wr(t, e, r, i, c) { var o = r.adapter, g = r.equals; switch (e.type) {
             throw new Error("Namespaced attributes are not yet supported by css-select");
         return (!r.xmlMode || r.lowerCaseAttributeNames) && (e.name = e.name.toLowerCase()), gr[e.action](t, e, r);
     }
-    case _.Pseudo: return vr(t, e, r, i, c);
+    case _.Pseudo: return vr(t, e, r, i, s);
     case _.Tag: {
         if (e.namespace != null)
             throw new Error("Namespaced tag names are not yet supported by css-select");
@@ -1382,16 +1382,16 @@ var ui = { type: _.Descendant }, ri = { type: "_flexibleDescendant" }, ai = { ty
 function ii(t, _b, r) {
     var e_6, _c;
     var e = _b.adapter;
-    var i = !!(r != null && r.every(function (c) { var o = e.isTag(c) && e.getParent(c); return c === gu || o && e.isTag(o); }));
+    var i = !!(r != null && r.every(function (s) { var o = e.isTag(s) && e.getParent(s); return s === gu || o && e.isTag(o); }));
     try {
         for (var t_1 = __values(t), t_1_1 = t_1.next(); !t_1_1.done; t_1_1 = t_1.next()) {
-            var c = t_1_1.value;
-            if (!(c.length > 0 && Ze(c[0]) && c[0].type !== _.Descendant))
-                if (i && !c.some(Sr))
-                    c.unshift(ui);
+            var s = t_1_1.value;
+            if (!(s.length > 0 && Ze(s[0]) && s[0].type !== _.Descendant))
+                if (i && !s.some(Sr))
+                    s.unshift(ui);
                 else
                     continue;
-            c.unshift(ai);
+            s.unshift(ai);
         }
     }
     catch (e_6_1) { e_6 = { error: e_6_1 }; }
@@ -1402,26 +1402,26 @@ function ii(t, _b, r) {
         finally { if (e_6) throw e_6.error; }
     }
 }
-function yt(t, e, r) { var i; t.forEach(ou), r = (i = e.context) !== null && i !== void 0 ? i : r; var c = Array.isArray(r), o = r && (Array.isArray(r) ? r : [r]); if (e.relativeSelector !== !1)
+function yt(t, e, r) { var i; t.forEach(ou), r = (i = e.context) !== null && i !== void 0 ? i : r; var s = Array.isArray(r), o = r && (Array.isArray(r) ? r : [r]); if (e.relativeSelector !== !1)
     ii(t, e, o);
 else if (t.some(function (y) { return y.length > 0 && Ze(y[0]); }))
     throw new Error("Relative selectors are not allowed when the `relativeSelector` option is disabled"); var g = !1, v = t.map(function (y) { if (y.length >= 2) {
     var _b = __read(y, 2), S = _b[0], T = _b[1];
-    S.type !== _.Pseudo || S.name !== "scope" || (c && T.type === _.Descendant ? y[1] = ri : (T.type === _.Adjacent || T.type === _.Sibling) && (g = !0));
+    S.type !== _.Pseudo || S.name !== "scope" || (s && T.type === _.Descendant ? y[1] = ri : (T.type === _.Adjacent || T.type === _.Sibling) && (g = !0));
 } return ni(y, e, o); }).reduce(ci, he.default.falseFunc); return v.shouldTestNextSiblings = g, v; }
-function ni(t, e, r) { var i; return t.reduce(function (c, o) { return c === he.default.falseFunc ? he.default.falseFunc : wr(c, o, e, r, yt); }, (i = e.rootFunc) !== null && i !== void 0 ? i : he.default.trueFunc); }
+function ni(t, e, r) { var i; return t.reduce(function (s, o) { return s === he.default.falseFunc ? he.default.falseFunc : wr(s, o, e, r, yt); }, (i = e.rootFunc) !== null && i !== void 0 ? i : he.default.trueFunc); }
 function ci(t, e) { return e === he.default.falseFunc || t === he.default.trueFunc ? t : t === he.default.falseFunc || e === he.default.trueFunc ? e : function (i) { return t(i) || e(i); }; }
 var Ar = function (t, e) { return t === e; }, si = { adapter: se, equals: Ar };
-function kr(t) { var e, r, i, c; var o = t != null ? t : si; return (e = o.adapter) !== null && e !== void 0 || (o.adapter = se), (r = o.equals) !== null && r !== void 0 || (o.equals = (c = (i = o.adapter) === null || i === void 0 ? void 0 : i.equals) !== null && c !== void 0 ? c : Ar), o; }
-function wu(t) { return function (r, i, c) { var o = kr(i); return t(r, o, c); }; }
+function kr(t) { var e, r, i, s; var o = t != null ? t : si; return (e = o.adapter) !== null && e !== void 0 || (o.adapter = se), (r = o.equals) !== null && r !== void 0 || (o.equals = (s = (i = o.adapter) === null || i === void 0 ? void 0 : i.equals) !== null && s !== void 0 ? s : Ar), o; }
+function wu(t) { return function (r, i, s) { var o = kr(i); return t(r, o, s); }; }
 var L0 = wu(yr), O0 = wu(wt), St = wu(yt);
-function Er(t) { return function (r, i, c) { var o = kr(c); typeof r != "function" && (r = wt(r, o, i)); var g = At(i, o.adapter, r.shouldTestNextSiblings); return t(r, g, o); }; }
+function Er(t) { return function (r, i, s) { var o = kr(s); typeof r != "function" && (r = wt(r, o, i)); var g = At(i, o.adapter, r.shouldTestNextSiblings); return t(r, g, o); }; }
 function At(t, e, r) {
     if (r === void 0) { r = !1; }
     return r && (t = oi(t, e)), Array.isArray(t) ? e.removeSubsets(t) : e.getChildren(t);
 }
-function oi(t, e) { var r = Array.isArray(t) ? t.slice(0) : [t], i = r.length; for (var c = 0; c < i; c++) {
-    var o = mu(r[c], e);
+function oi(t, e) { var r = Array.isArray(t) ? t.slice(0) : [t], i = r.length; for (var s = 0; s < i; s++) {
+    var o = mu(r[s], e);
     r.push.apply(r, __spreadArray([], __read(o), false));
 } return r; }
 var U0 = Er(function (t, e, r) { return t === vu.default.falseFunc || !e || e.length === 0 ? [] : r.adapter.findAll(t, e); }), M0 = Er(function (t, e, r) { return t === vu.default.falseFunc || !e || e.length === 0 ? null : r.adapter.findOne(t, e); });
@@ -1468,16 +1468,16 @@ function hi(t, e, r) {
     if (r === void 0) { r = {}; }
     if (typeof e == "function")
         return t.some(e);
-    var _b = __read(kt(xe(e)), 2), i = _b[0], c = _b[1];
-    return i.length > 0 && t.some(St(i, r)) || c.some(function (o) { return qr(o, t, r).length > 0; });
+    var _b = __read(kt(xe(e)), 2), i = _b[0], s = _b[1];
+    return i.length > 0 && t.some(St(i, r)) || s.some(function (o) { return qr(o, t, r).length > 0; });
 }
-function pi(t, e, r, i) { var c = typeof r == "string" ? parseInt(r, 10) : NaN; switch (t) {
+function pi(t, e, r, i) { var s = typeof r == "string" ? parseInt(r, 10) : NaN; switch (t) {
     case "first":
     case "lt": return e;
     case "last": return e.length > 0 ? [e[e.length - 1]] : e;
     case "nth":
-    case "eq": return isFinite(c) && Math.abs(c) < e.length ? [c < 0 ? e[e.length + c] : e[c]] : [];
-    case "gt": return isFinite(c) ? e.slice(c + 1) : [];
+    case "eq": return isFinite(s) && Math.abs(s) < e.length ? [s < 0 ? e[e.length + s] : e[s]] : [];
+    case "gt": return isFinite(s) ? e.slice(s + 1) : [];
     case "even": return e.filter(function (o, g) { return g % 2 === 0; });
     case "odd": return e.filter(function (o, g) { return g % 2 === 1; });
     case "not": {
@@ -1486,13 +1486,13 @@ function pi(t, e, r, i) { var c = typeof r == "string" ? parseInt(r, 10) : NaN; 
     }
 } }
 function gi(t, e, r) { if (e.length === 0)
-    return []; var _b = __read(kt(t), 2), i = _b[0], c = _b[1], o; if (i.length) {
+    return []; var _b = __read(kt(t), 2), i = _b[0], s = _b[1], o; if (i.length) {
     var g = Su(e, i, r);
-    if (c.length === 0)
+    if (s.length === 0)
         return g;
     g.length && (o = new Set(g));
-} for (var g = 0; g < c.length && (o == null ? void 0 : o.size) !== e.length; g++) {
-    var v = c[g];
+} for (var g = 0; g < s.length && (o == null ? void 0 : o.size) !== e.length; g++) {
+    var v = s[g];
     if ((o ? e.filter(function (T) { return P(T) && !o.has(T); }) : e).length === 0)
         break;
     var S = qr(v, e, r);
@@ -1500,24 +1500,24 @@ function gi(t, e, r) { if (e.length === 0)
         if (o)
             S.forEach(function (T) { return o.add(T); });
         else {
-            if (g === c.length - 1)
+            if (g === s.length - 1)
                 return S;
             o = new Set(S);
         }
 } return typeof o != "undefined" ? o.size === e.length ? e : e.filter(function (g) { return o.has(g); }) : []; }
 function qr(t, e, r) { var i; if (t.some(Ae)) {
-    var c = (i = r.root) !== null && i !== void 0 ? i : Cr(e[0]), o = we(ne({}, r), { context: e, relativeSelector: !1 });
-    return t.push(di), Tt(c, t, o, !0, e.length);
+    var s = (i = r.root) !== null && i !== void 0 ? i : Cr(e[0]), o = we(ne({}, r), { context: e, relativeSelector: !1 });
+    return t.push(di), Tt(s, t, o, !0, e.length);
 } return Tt(e, t, r, !1, e.length); }
 function ku(t, e, r, i) {
     if (r === void 0) { r = {}; }
     if (i === void 0) { i = 1 / 0; }
     if (typeof t == "function")
         return Nr(e, t);
-    var _b = __read(kt(xe(t)), 2), c = _b[0], o = _b[1], g = o.map(function (v) { return Tt(e, v, r, !0, i); });
-    return c.length && g.push(yu(e, c, r, i)), g.length === 0 ? [] : g.length === 1 ? g[0] : nu(g.reduce(function (v, y) { return __spreadArray(__spreadArray([], __read(v), false), __read(y), false); }));
+    var _b = __read(kt(xe(t)), 2), s = _b[0], o = _b[1], g = o.map(function (v) { return Tt(e, v, r, !0, i); });
+    return s.length && g.push(yu(e, s, r, i)), g.length === 0 ? [] : g.length === 1 ? g[0] : nu(g.reduce(function (v, y) { return __spreadArray(__spreadArray([], __read(v), false), __read(y), false); }));
 }
-function Tt(t, e, r, i, c) { var o = e.findIndex(Fe), g = e.slice(0, o), v = e[o], y = e.length - 1 === o ? c : 1 / 0, S = Tr(v.name, v.data, y); if (S === 0)
+function Tt(t, e, r, i, s) { var o = e.findIndex(Fe), g = e.slice(0, o), v = e[o], y = e.length - 1 === o ? s : 1 / 0, S = Tr(v.name, v.data, y); if (S === 0)
     return []; var L = (g.length === 0 && !Array.isArray(t) ? lt(t).filter(P) : g.length === 0 ? (Array.isArray(t) ? t : [t]).filter(P) : i || g.some(Ae) ? yu(t, [g], r, S) : Su(t, [g], r)).slice(0, S), q = pi(v.name, L, v.data, r); if (q.length === 0 || e.length === o + 1)
     return q; var N = e.slice(o + 1), O = N.some(Ae); if (O) {
     if (Ae(N[0])) {
@@ -1527,39 +1527,39 @@ function Tt(t, e, r, i, c) { var o = e.findIndex(Fe), g = e.slice(0, o), v = e[o
     r = we(ne({}, r), { relativeSelector: !1, rootFunc: function (M) { return q.includes(M); } });
 }
 else
-    r.rootFunc && r.rootFunc !== Et.trueFunc && (r = we(ne({}, r), { rootFunc: Et.trueFunc })); return N.some(Fe) ? Tt(q, N, r, !1, c) : O ? yu(q, [N], r, c) : Su(q, [N], r); }
-function yu(t, e, r, i) { var c = St(e, r, t); return Nr(t, c, i); }
+    r.rootFunc && r.rootFunc !== Et.trueFunc && (r = we(ne({}, r), { rootFunc: Et.trueFunc })); return N.some(Fe) ? Tt(q, N, r, !1, s) : O ? yu(q, [N], r, s) : Su(q, [N], r); }
+function yu(t, e, r, i) { var s = St(e, r, t); return Nr(t, s, i); }
 function Nr(t, e, r) {
     if (r === void 0) { r = 1 / 0; }
     var i = At(t, se, e.shouldTestNextSiblings);
-    return ht(function (c) { return P(c) && e(c); }, i, !0, r);
+    return ht(function (s) { return P(s) && e(s); }, i, !0, r);
 }
 function Su(t, e, r) { var i = (Array.isArray(t) ? t : [t]).filter(P); if (i.length === 0)
-    return i; var c = St(e, r); return c === Et.trueFunc ? i : i.filter(c); }
+    return i; var s = St(e, r); return s === Et.trueFunc ? i : i.filter(s); }
 function _r(t) { var e = /^(?:([a-zA-Z][\w+.-]*):)?(?:\/\/([^/?#]*))?([^?#]*)(?:\?([^#]*))?(?:#(.*))?$/.exec(t) || []; return { scheme: e[1], auth: e[2], path: e[3] || "", query: e[4], frag: e[5] }; }
 function Eu(t) { var e = [], r = t.split("/"); for (var i = 0; i < r.length; i++) {
-    var c = r[i];
-    c === ".." ? (e.length > 1 && e.pop(), i === r.length - 1 && e.push("")) : c === "." ? i === r.length - 1 && e.push("") : e.push(c);
+    var s = r[i];
+    s === ".." ? (e.length > 1 && e.pop(), i === r.length - 1 && e.push("")) : s === "." ? i === r.length - 1 && e.push("") : e.push(s);
 } return e.join("/"); }
 function qt(t, e) { e = e == null ? "" : String(e).trim(); var r = _r(e); if (r.scheme || !t)
     return e; var i = _r(String(t)); if (!i.scheme)
-    return e; var c = i.auth, o, g; if (r.auth !== void 0)
-    c = r.auth, o = Eu(r.path), g = r.query;
+    return e; var s = i.auth, o, g; if (r.auth !== void 0)
+    s = r.auth, o = Eu(r.path), g = r.query;
 else if (!r.path)
     o = i.path, g = r.query !== void 0 ? r.query : i.query;
 else {
     if (r.path.charAt(0) === "/")
         o = Eu(r.path);
     else {
-        var v = c !== void 0 && !i.path ? "/" : i.path.slice(0, i.path.lastIndexOf("/") + 1);
+        var v = s !== void 0 && !i.path ? "/" : i.path.slice(0, i.path.lastIndexOf("/") + 1);
         o = Eu(v + r.path);
     }
     g = r.query;
-} return c !== void 0 && o.charAt(0) !== "/" && (o = "/" + o), i.scheme + ":" + (c !== void 0 ? "//" + c : "") + o + (g !== void 0 ? "?" + g : "") + (r.frag !== void 0 ? "#" + r.frag : ""); }
+} return s !== void 0 && o.charAt(0) !== "/" && (o = "/" + o), i.scheme + ":" + (s !== void 0 ? "//" + s : "") + o + (g !== void 0 ? "?" + g : "") + (r.frag !== void 0 ? "#" + r.frag : ""); }
 var Ct = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 function Dr(t) { if (typeof btoa == "function")
     return btoa(t); var e = ""; for (var r = 0; r < t.length; r += 3) {
-    var i = t.charCodeAt(r), c = t.charCodeAt(r + 1), o = t.charCodeAt(r + 2), g = i << 16 | (c || 0) << 8 | (o || 0);
+    var i = t.charCodeAt(r), s = t.charCodeAt(r + 1), o = t.charCodeAt(r + 2), g = i << 16 | (s || 0) << 8 | (o || 0);
     e += Ct[g >> 18 & 63] + Ct[g >> 12 & 63] + (r + 1 < t.length ? Ct[g >> 6 & 63] : "=") + (r + 2 < t.length ? Ct[g & 63] : "=");
 } return e; }
 var bi = function (t, e, r) { return ku(t, e, r); }, Ur = function (t, e, r) { return ku(t, e, r, 1)[0] || null; }, Mr = /[\s ]+/g, Ir = new Set(["p", "div", "br", "li", "tr", "h1", "h2", "h3", "h4", "h5", "h6", "ul", "ol", "table", "section", "article", "header", "footer", "blockquote", "pre", "dd", "dt", "hr"]), mi = { containsOwn: function (t, e) { return Cu(t).toLowerCase().includes(String(e).toLowerCase()); }, matches: function (t, e) { return Lr(e).test(Tu(t)); }, matchesOwn: function (t, e) { return Lr(e).test(Cu(t)); }, containsData: function (t, e) { return be(t).includes(e); }, "contains-ci": function (t, e) { return Tu(t).toLowerCase().includes(String(e).toLowerCase()); } };
@@ -1577,8 +1577,8 @@ function Tu(t) { if (!t)
     var e_8, _b;
     try {
         for (var _c = __values(i.children || []), _d = _c.next(); !_d.done; _d = _c.next()) {
-            var c = _d.value;
-            c.type === "text" ? e += c.data : (c.type === "tag" || c.type === "script" || c.type === "style") && (c.name === "br" ? e += " " : c.type === "tag" && (Ir.has(c.name) && (e += " "), r(c), Ir.has(c.name) && (e += " ")));
+            var s = _d.value;
+            s.type === "text" ? e += s.data : (s.type === "tag" || s.type === "script" || s.type === "style") && (s.name === "br" ? e += " " : s.type === "tag" && (Ir.has(s.name) && (e += " "), r(s), Ir.has(s.name) && (e += " ")));
         }
     }
     catch (e_8_1) { e_8 = { error: e_8_1 }; }
@@ -1745,8 +1745,8 @@ var Or = { size: function () { return this.length; }, isEmpty: function () { ret
                 var i = _f.value;
                 try {
                     for (var _g = (e_14 = void 0, __values(i.select(t))), _h = _g.next(); !_h.done; _h = _g.next()) {
-                        var c = _h.value;
-                        r.has(c.node) || (r.add(c.node), e.push(c));
+                        var s = _h.value;
+                        r.has(s.node) || (r.add(s.node), e.push(s));
                     }
                 }
                 catch (e_14_1) { e_14 = { error: e_14_1 }; }
@@ -1815,8 +1815,8 @@ finally {
     }
     finally { if (e_1) throw e_1.error; }
 }
-function Dt(t, e) { var r = cr(String(t == null ? "" : t), { decodeEntities: !0, lowerCaseAttributeNames: !0 }), i = new Ee(r, null); i.doc = i, i.__base = e || ""; var c = Ur("base[href]", r); return c && c.attribs.href && (i.__base = Pr(i.__base, c.attribs.href)), i; }
-function Br(t, e) { var r = new Set((e || ["p", "br", "b", "i", "em", "strong", "img", "div", "span"]).map(String)), i = Dt(t), c = function (o) {
+function Dt(t, e) { var r = cr(String(t == null ? "" : t), { decodeEntities: !0, lowerCaseAttributeNames: !0 }), i = new Ee(r, null); i.doc = i, i.__base = e || ""; var s = Ur("base[href]", r); return s && s.attribs.href && (i.__base = Pr(i.__base, s.attribs.href)), i; }
+function Br(t, e) { var r = new Set((e || ["p", "br", "b", "i", "em", "strong", "img", "div", "span"]).map(String)), i = Dt(t), s = function (o) {
     var e_17, _b, e_18, _c;
     try {
         for (var _d = __values((o.children || []).slice()), _f = _d.next(); !_f.done; _f = _d.next()) {
@@ -1825,7 +1825,7 @@ function Br(t, e) { var r = new Set((e || ["p", "br", "b", "i", "em", "strong", 
                 de(g);
                 continue;
             }
-            if (g.type === "tag" && (c(g), !r.has(g.name))) {
+            if (g.type === "tag" && (s(g), !r.has(g.name))) {
                 var v = (g.children || []).slice();
                 try {
                     for (var v_3 = (e_18 = void 0, __values(v)), v_3_1 = v_3.next(); !v_3_1.done; v_3_1 = v_3.next()) {
@@ -1851,7 +1851,7 @@ function Br(t, e) { var r = new Set((e || ["p", "br", "b", "i", "em", "strong", 
         }
         finally { if (e_17) throw e_17.error; }
     }
-}; return c(i.node), Ue(i.node.children, { decodeEntities: !1 }); }
+}; return s(i.node), Ue(i.node.children, { decodeEntities: !1 }); }
 var et = "Mozilla/5.0 (Linux; Android 14; SM-S918B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36";
 function xi(t) { if (typeof Buffer != "undefined")
     return Buffer.from(t).toString("base64"); var e = ""; for (var r = 0; r < t.length; r++)
@@ -1867,8 +1867,8 @@ function vi(t) { var e = ""; for (var r = 0; r < t.length; r++) {
         e += "€";
         continue;
     }
-    var c = t.charCodeAt(r + 1);
-    i >= 129 && i <= 254 && c >= 64 && c <= 254 && c !== 127 ? (e += __GBK_TABLE[(i - 129) * 190 + (c - 64) - (c > 127 ? 1 : 0)], r++) : e += "�";
+    var s = t.charCodeAt(r + 1);
+    i >= 129 && i <= 254 && s >= 64 && s <= 254 && s !== 127 ? (e += __GBK_TABLE[(i - 129) * 190 + (s - 64) - (s > 127 ? 1 : 0)], r++) : e += "�";
 } return e; }
 var _u = (function () {
     function _u(e, r) {
@@ -1914,7 +1914,7 @@ function wi(t) {
     }
     return e;
 }
-function Vr(t, e) { var r = function (g) { return ({ getItem: function (v) { var y = t.storageGet(g + v); return y == null ? null : y; }, setItem: function (v, y) { return t.storageSet(g + v, y == null ? null : String(y)); }, removeItem: function (v) { return t.storageSet(g + v, null); }, clear: function () { return t.storageClear && t.storageClear(g); } }); }, i = "__cookie__", c = {}; c.Response = { success: function (g, v) { return ({ code: 0, data: g === void 0 ? null : g, data2: v === void 0 ? null : v }); }, error: function (g) { return ({ code: 1, data: g == null ? "" : String(g) }); } }, c.fetch = function (v, y) {
+function Vr(t, e) { var r = function (g) { return ({ getItem: function (v) { var y = t.storageGet(g + v); return y == null ? null : y; }, setItem: function (v, y) { return t.storageSet(g + v, y == null ? null : String(y)); }, removeItem: function (v) { return t.storageSet(g + v, null); }, clear: function () { return t.storageClear && t.storageClear(g); } }); }, i = "__cookie__", s = {}; s.Response = { success: function (g, v) { return ({ code: 0, data: g === void 0 ? null : g, data2: v === void 0 ? null : v }); }, error: function (g) { return ({ code: 1, data: g == null ? "" : String(g) }); } }, s.fetch = function (v, y) {
     return __awaiter(this, void 0, void 0, function () { var S, M, T, L, q, M, N, O, M_1; return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -1952,7 +1952,16 @@ function Vr(t, e) { var r = function (g) { return ({ getItem: function (v) { var
             case 4: return [2, new _u(O, N)];
         }
     }); });
-}, c.Http = { get: function (g) { return jr(c, "GET", g); }, post: function (g) { return jr(c, "POST", g); } }, c.Html = { parse: function (g, v) { return Dt(g, v || ""); }, clean: function (g, v) { return Br(g, v); } }, c.localStorage = r("ls:"), c.cacheStorage = r("cs:"), c.localConfig = { getItem: function (g) { return t.config(g); } }, c.localCookie = { setCookie: function (g) { t.storageSet(i, String(g).split(";")[0]); }, getCookie: function () { return t.storageGet(i) || ""; } }, c.sleep = function (g) { return new Promise(function (v) { return typeof setTimeout == "function" ? setTimeout(v, Math.min(Number(g) || 0, 1e4)) : v(); }); }; var o = function () {
+}, s.Http = { get: function (g) { return jr(s, "GET", g); }, post: function (g) { return jr(s, "POST", g); } }, s.Html = { parse: function (g, v) { return Dt(g, v || ""); }, clean: function (g, v) { return Br(g, v); } }, s.localStorage = r("ls:"), s.cacheStorage = r("cs:"), s.resumeStorage = { get: function (g) { try {
+        var v = t.storageGet("resume:" + g);
+        return v && parseFloat(v) || 0;
+    }
+    catch (y) {
+        return 0;
+    } }, set: function (g, v) { try {
+        t.storageSet("resume:" + g, String(Math.max(0, v || 0)));
+    }
+    catch (y) { } } }, s.localConfig = { getItem: function (g) { return t.config(g); } }, s.localCookie = { setCookie: function (g) { t.storageSet(i, String(g).split(";")[0]); }, getCookie: function () { return t.storageGet(i) || ""; } }, s.sleep = function (g) { return new Promise(function (v) { return typeof setTimeout == "function" ? setTimeout(v, Math.min(Number(g) || 0, 1e4)) : v(); }); }; var o = function () {
     var g = [];
     for (var _i = 0; _i < arguments.length; _i++) {
         g[_i] = arguments[_i];
@@ -1961,8 +1970,8 @@ function Vr(t, e) { var r = function (g) { return ({ getItem: function (v) { var
         t.log && t.log(g.map(function (v) { return typeof v == "string" ? v : JSON.stringify(v); }).join(" "));
     }
     catch (v) { }
-}; return c.Log = { log: o }, c.console = { log: o, error: o, warn: o, info: o }, c.Console = c.console, c.log = o, c.UserAgent = { system: function () { return et; }, chrome: function () { return et; }, android: function () { return et; }, ios: function () { return "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1"; } }, c.Engine = { newBrowser: function () { throw new Error("Headless browser is not available in this app (" + (t.name || "host") + ")"); } }, c.Graphics = { createCanvas: function () { throw new Error("Graphics API is not available in this app"); }, createImage: function () { throw new Error("Graphics API is not available in this app"); } }, c.Script = { execute: function () { throw new Error("Script.execute is not available"); } }, c.Elements = oe, c.Element = Ee, c.__meta = e, c; }
-function jr(t, e, r) { var i = { method: e, url: r, headers: {}, body: void 0, queries: void 0 }, c = { headers: function (o) { return Object.assign(i.headers, o || {}), c; }, header: function (o, g) { return i.headers[o] = g, c; }, params: function (o) { return i.queries = o, c; }, queries: function (o) { return i.queries = o, c; }, body: function (o) { return i.body = o, c; }, html: function (o) {
+}; return s.Log = { log: o }, s.console = { log: o, error: o, warn: o, info: o }, s.Console = s.console, s.log = o, s.UserAgent = { system: function () { return et; }, chrome: function () { return et; }, android: function () { return et; }, ios: function () { return "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1"; } }, s.Engine = { newBrowser: function () { throw new Error("Headless browser is not available in this app (" + (t.name || "host") + ")"); } }, s.Graphics = { createCanvas: function () { throw new Error("Graphics API is not available in this app"); }, createImage: function () { throw new Error("Graphics API is not available in this app"); } }, s.Script = { execute: function () { throw new Error("Script.execute is not available"); } }, s.Elements = oe, s.Element = Ee, s.__meta = e, s; }
+function jr(t, e, r) { var i = { method: e, url: r, headers: {}, body: void 0, queries: void 0 }, s = { headers: function (o) { return Object.assign(i.headers, o || {}), s; }, header: function (o, g) { return i.headers[o] = g, s; }, params: function (o) { return i.queries = o, s; }, queries: function (o) { return i.queries = o, s; }, body: function (o) { return i.body = o, s; }, html: function (o) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0: return [4, t.fetch(i.url, i)];
@@ -1990,7 +1999,7 @@ function jr(t, e, r) { var i = { method: e, url: r, headers: {}, body: void 0, q
                 case 1: return [2, (_b.sent()).json()];
             }
         }); });
-    } }; return c; }
+    } }; return s; }
 function Te(t, e) { if (!e)
     return ""; if (e = String(e).trim(), /^data:|^blob:/.test(e))
     return e; if (e.startsWith("//"))
@@ -2003,8 +2012,8 @@ catch (r) {
 } }
 var z = function (t) { return t == null ? "" : String(t); }, yi = function (t) { return t.filter(function (e, r) { return e && t.indexOf(e) === r; }); }, It = (function () {
     function class_1(e) {
-        var r = e.meta, i = e.scripts, c = e.host;
-        this.meta = r, this.host = c, this.env = e.env || Vr(c, r), this.scripts = i, this.cache = {}, this.tokens = {};
+        var r = e.meta, i = e.scripts, s = e.host;
+        this.meta = r, this.host = s, this.env = e.env || Vr(s, r), this.scripts = i, this.cache = {}, this.tokens = {};
     }
     Object.defineProperty(class_1.prototype, "base", {
         get: function () { return z(this.host.config("DOMAIN") || this.meta.source).replace(/\/+$/, ""); },
@@ -2018,7 +2027,7 @@ var z = function (t) { return t == null ? "" : String(t); }, yi = function (t) {
             r[_i - 1] = arguments[_i];
         }
         return __awaiter(this, void 0, void 0, function () {
-            var i, c, o, g;
+            var i, s, o, g;
             var _this = this;
             return __generator(this, function (_b) {
                 switch (_b.label) {
@@ -2026,8 +2035,8 @@ var z = function (t) { return t == null ? "" : String(t); }, yi = function (t) {
                         i = this.scripts[e];
                         if (!i)
                             throw new Error("script " + e + " missing");
-                        c = function (v) { var y = _this.host.config(v); return y == null ? (_this.meta.configDefaults || {})[v] : y; };
-                        return [4, i(this.env, c)];
+                        s = function (v) { var y = _this.host.config(v); return y == null ? (_this.meta.configDefaults || {})[v] : y; };
+                        return [4, i(this.env, s)];
                     case 1:
                         o = _b.sent();
                         if (typeof o != "function")
@@ -2086,20 +2095,20 @@ var z = function (t) { return t == null ? "" : String(t); }, yi = function (t) {
     };
     class_1.prototype.list = function (e, r, i) {
         return __awaiter(this, void 0, void 0, function () {
-            var c, o, g, v, y;
+            var s, o, g, v, y;
             var _this = this;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        c = e + "|" + r;
+                        s = e + "|" + r;
                         i = Math.max(1, i | 0);
-                        o = i === 1 ? "" : this.tokens[c + "|" + i];
+                        o = i === 1 ? "" : this.tokens[s + "|" + i];
                         if (i > 1 && o == null)
                             return [2, { items: [], hasNext: !1 }];
                         return [4, this.run(e, r, o)];
                     case 1:
                         g = _b.sent(), v = z(g.data2);
-                        v && (this.tokens[c + "|" + (i + 1)] = v);
+                        v && (this.tokens[s + "|" + (i + 1)] = v);
                         y = (g.data || []).filter(Boolean).map(function (S) { return ({ name: z(S.name).trim(), link: Te(S.host || _this.base + "/", S.link), cover: Te(S.host || _this.base + "/", S.cover), description: z(S.description), tag: z(S.tag) }); }).filter(function (S) { return S.name && S.link; });
                         return [2, { items: y, hasNext: !!v && y.length > 0 }];
                 }
@@ -2136,14 +2145,14 @@ var z = function (t) { return t == null ? "" : String(t); }, yi = function (t) {
             switch (_b.label) {
                 case 0: return [4, this.run("detail", e)];
                 case 1:
-                    r = (_b.sent()).data || {}, i = [].concat(r.genres || [], r.tags || []).map(function (c) { return typeof c == "string" ? c : c && c.title; }).filter(Boolean);
-                    return [2, { name: z(r.name).trim(), cover: Te(r.host || this.base + "/", r.cover), author: z(r.author).trim(), description: zr(z(r.description)), detail: zr(z(r.detail)), ongoing: r.ongoing !== !1 && r.ongoing !== "false", genres: yi(i.map(function (c) { return String(c).trim(); })), url: e, format: z(r.format) }];
+                    r = (_b.sent()).data || {}, i = [].concat(r.genres || [], r.tags || []).map(function (s) { return typeof s == "string" ? s : s && s.title; }).filter(Boolean);
+                    return [2, { name: z(r.name).trim(), cover: Te(r.host || this.base + "/", r.cover), author: z(r.author).trim(), description: zr(z(r.description)), detail: zr(z(r.detail)), ongoing: r.ongoing !== !1 && r.ongoing !== "false", genres: yi(i.map(function (s) { return String(s).trim(); })), url: e, format: z(r.format) }];
             }
         }); });
     };
     class_1.prototype.chapters = function (e) {
         return __awaiter(this, void 0, void 0, function () {
-            var r, i, i_1, i_1_1, c, _b, _c, e_20_1, _d;
+            var r, i, i_1, i_1_1, s, _b, _c, e_20_1, _d;
             var e_20, _f;
             var _this = this;
             return __generator(this, function (_g) {
@@ -2161,9 +2170,9 @@ var z = function (t) { return t == null ? "" : String(t); }, yi = function (t) {
                         _g.label = 3;
                     case 3:
                         if (!!i_1_1.done) return [3, 6];
-                        c = i_1_1.value;
+                        s = i_1_1.value;
                         _c = (_b = r).concat;
-                        return [4, this.run("toc", z(c))];
+                        return [4, this.run("toc", z(s))];
                     case 4:
                         r = _c.apply(_b, [(_g.sent()).data || []]);
                         _g.label = 5;
@@ -2192,14 +2201,14 @@ var z = function (t) { return t == null ? "" : String(t); }, yi = function (t) {
                     case 12:
                         _d;
                         _g.label = 13;
-                    case 13: return [2, r.filter(function (i) { return i && i.url && i.type !== "section"; }).map(function (i, c) { return ({ name: z(i.name).trim() || "#" + (c + 1), url: Te(i.host || _this.base + "/", i.url), pay: !!(i.pay || i.lock) }); })];
+                    case 13: return [2, r.filter(function (i) { return i && i.url && i.type !== "section"; }).map(function (i, s) { return ({ name: z(i.name).trim() || "#" + (s + 1), url: Te(i.host || _this.base + "/", i.url), pay: !!(i.pay || i.lock) }); })];
                 }
             });
         });
     };
     class_1.prototype.pages = function (e) {
         return __awaiter(this, void 0, void 0, function () {
-            var r, _b, _c, i, c;
+            var r, _b, _c, i, s;
             var _this = this;
             return __generator(this, function (_d) {
                 switch (_d.label) {
@@ -2223,10 +2232,10 @@ var z = function (t) { return t == null ? "" : String(t); }, yi = function (t) {
                         _d.label = 6;
                     case 6:
                         _b, typeof r == "string" && (r = r.split(/[\n,]+/));
-                        i = function (o) { return !o || /^data:|loading|lazy|blank|placeholder|spacer|\/nocover|1x1\./i.test(String(o)); }, c = function (o) { if (typeof o == "string")
+                        i = function (o) { return !o || /^data:|loading|lazy|blank|placeholder|spacer|\/nocover|1x1\./i.test(String(o)); }, s = function (o) { if (typeof o == "string")
                             return o; if (!o)
                             return ""; var g = o.link || o.url || o.data, v = Array.isArray(o.fallback) ? o.fallback.filter(Boolean) : []; return i(g) && v.length ? v[0] : g; };
-                        return [2, (r || []).map(function (o) { return Te(_this.base + "/", c(o)); }).filter(Boolean)];
+                        return [2, (r || []).map(function (o) { return Te(_this.base + "/", s(o)); }).filter(Boolean)];
                 }
             });
         });
@@ -2243,7 +2252,7 @@ var z = function (t) { return t == null ? "" : String(t); }, yi = function (t) {
     };
     class_1.prototype.videos = function (e) {
         return __awaiter(this, void 0, void 0, function () {
-            var r, c, i, r_3, r_3_1, c, o, g, g_2, g_2_1, v, o_2, e_21_1;
+            var r, o, i, s, r_3, r_3_1, o, g, v, v_4, v_4_1, y, S, T, L, g_2, e_21_1;
             var e_21, _b, e_22, _c;
             var _this = this;
             return __generator(this, function (_d) {
@@ -2253,11 +2262,11 @@ var z = function (t) { return t == null ? "" : String(t); }, yi = function (t) {
                         if (!this.has("chap")) return [3, 2];
                         return [4, this.run("chap", e)];
                     case 1:
-                        c = (_d.sent()).data;
-                        Array.isArray(c) && c.length && (r = c.map(function (o) { return typeof o == "string" ? { title: "Server", data: o } : { title: z(o.title || o.name || "Server"), data: z(o.data || o.url || o.link) }; }));
+                        o = (_d.sent()).data;
+                        Array.isArray(o) && o.length && (r = o.map(function (g) { return typeof g == "string" ? { title: "Server", data: g } : { title: z(g.title || g.name || "Server"), data: z(g.data || g.url || g.link) }; }));
                         _d.label = 2;
                     case 2:
-                        i = [];
+                        i = this.env && this.env.resumeStorage ? this.env.resumeStorage.get(e) : 0, s = [];
                         _d.label = 3;
                     case 3:
                         _d.trys.push([3, 10, 11, 12]);
@@ -2265,30 +2274,33 @@ var z = function (t) { return t == null ? "" : String(t); }, yi = function (t) {
                         _d.label = 4;
                     case 4:
                         if (!!r_3_1.done) return [3, 9];
-                        c = r_3_1.value;
+                        o = r_3_1.value;
                         _d.label = 5;
                     case 5:
                         _d.trys.push([5, 7, , 8]);
-                        return [4, this.run("track", c.data)];
+                        return [4, this.run("track", o.data)];
                     case 6:
-                        o = (_d.sent()).data || {}, g = Array.isArray(o) ? o : [o];
+                        g = (_d.sent()).data || {}, v = Array.isArray(g) ? g : [g];
                         try {
-                            for (g_2 = (e_22 = void 0, __values(g)), g_2_1 = g_2.next(); !g_2_1.done; g_2_1 = g_2.next()) {
-                                v = g_2_1.value;
-                                !v || !v.data || v.type !== "webview" && i.push({ url: Te(v.host || this.base + "/", v.data), quality: c.title + (v.quality ? " " + v.quality : ""), headers: v.headers || { Referer: this.base + "/" }, subtitles: (v.subtitles || (v.subtitle ? [{ data: v.subtitle, label: "Sub" }] : [])).map(function (y) { return ({ file: Te(_this.base + "/", y.data || y.file), label: z(y.label || y.language || "Sub") }); }), mimeType: z(v.mimeType) });
+                            for (v_4 = (e_22 = void 0, __values(v)), v_4_1 = v_4.next(); !v_4_1.done; v_4_1 = v_4.next()) {
+                                y = v_4_1.value;
+                                if (!y || !y.data || y.type === "webview")
+                                    continue;
+                                S = Te(y.host || this.base + "/", y.data), T = i > 0 && !y.data.includes("#t=") && !y.data.includes("&t=") ? (y.data.includes("#") ? "&" : "#") + "t=" + Math.floor(i) : "", L = i > 0 ? " [Tiếp tục " + Math.floor(i / 60) + ":" + ("0" + Math.floor(i % 60)).slice(-2) + "]" : "";
+                                s.push({ url: S + T, rawUrl: S, resumeSec: i, quality: o.title + (y.quality ? " " + y.quality : "") + L, headers: y.headers || { Referer: this.base + "/" }, subtitles: (y.subtitles || (y.subtitle ? [{ data: y.subtitle, label: "Sub" }] : [])).map(function (q) { return ({ file: Te(_this.base + "/", q.data || q.file), label: z(q.label || q.language || "Sub") }); }), mimeType: z(y.mimeType) });
                             }
                         }
                         catch (e_22_1) { e_22 = { error: e_22_1 }; }
                         finally {
                             try {
-                                if (g_2_1 && !g_2_1.done && (_c = g_2.return)) _c.call(g_2);
+                                if (v_4_1 && !v_4_1.done && (_c = v_4.return)) _c.call(v_4);
                             }
                             finally { if (e_22) throw e_22.error; }
                         }
                         return [3, 8];
                     case 7:
-                        o_2 = _d.sent();
-                        this.host.log && this.host.log("track " + c.title + ": " + o_2.message);
+                        g_2 = _d.sent();
+                        this.host.log && this.host.log("track " + o.title + ": " + g_2.message);
                         return [3, 8];
                     case 8:
                         r_3_1 = r_3.next();
@@ -2304,7 +2316,7 @@ var z = function (t) { return t == null ? "" : String(t); }, yi = function (t) {
                         }
                         finally { if (e_21) throw e_21.error; }
                         return [7];
-                    case 12: return [2, i];
+                    case 12: return [2, s];
                 }
             });
         });
@@ -2335,10 +2347,10 @@ function J(t, e) {
         }
     }); });
 }
-var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medoctruyen.vn", type: "novel", locale: "vi", nsfw: !1, version: 1, config: { DOMAIN: { title: "Tên miền", subtitle: "Đổi khi trang đổi tên miền", default: "https://medoctruyen.vn", values: ["https://medoctruyen.vn"], mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://medoctruyen.vn" }, itemType: 2, lnId: "kiritokmn.medoctruyen", lnIcon: "", lnVersion: "1.2.1" }, Hr = { home: function (t, e) {
+var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medoctruyen.vn", type: "novel", locale: "vi", nsfw: !1, version: 1, config: { DOMAIN: { title: "Tên miền", subtitle: "Đổi khi trang đổi tên miền", default: "https://medoctruyen.vn", values: ["https://medoctruyen.vn"], mode: "input", format: "text" } }, configDefaults: { DOMAIN: "https://medoctruyen.vn" }, itemType: 2, short: !1, shorts: !1, lnId: "kiritokmn.medoctruyen", lnIcon: "", lnVersion: "1.3.1" }, Hr = { home: function (t, e) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
-                return [2, (function (r, i, c, o, g, v, y, S, T, L, q, N, O, M, Q, te, fe) {
+                return [2, (function (r, i, s, o, g, v, y, S, T, L, q, N, O, M, Q, te, fe) {
                         return __awaiter(this, void 0, void 0, function () {
                             var R;
                             return __generator(this, function (_b) {
@@ -2350,19 +2362,19 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                     function W() {
                                                         return __awaiter(this, void 0, void 0, function () { var u, a; return __generator(this, function (_b) {
                                                             u = [];
-                                                            for (a in s.tabs)
+                                                            for (a in c.tabs)
                                                                 u.push({ title: a, input: a, script: "browse.js" });
                                                             return [2, o.success(u)];
                                                         }); });
                                                     }
-                                                    var k, s, d, x;
+                                                    var k, c, d, x;
                                                     return __generator(this, function (_b) {
                                                         k = "https://medoctruyen.vn";
                                                         try {
                                                             R && (k = String(R).replace(/\/+$/, ""));
                                                         }
                                                         catch (u) { }
-                                                        s = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".flex", title: "a@title || img@alt || a@title || img@alt", link: "a@href", ch_list: "div.rounded-xl > ul a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: "div.whitespace-pre-line" }, d = { img: function (u) { if (!u)
+                                                        c = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".flex", title: "a@title || img@alt || a@title || img@alt", link: "a@href", ch_list: "div.rounded-xl > ul a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: "div.whitespace-pre-line" }, d = { img: function (u) { if (!u)
                                                                 return ""; for (var a = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], n = 0; n < a.length; n++) {
                                                                 var f = u.attr(a[n]);
                                                                 if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
@@ -2530,7 +2542,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     return __generator(this, function (_g) {
                                                                         switch (_g.label) {
                                                                             case 0:
-                                                                                n = function (A) { return a && s[a + A] || s[A]; }, f = u.select(n("item")), l = [], h = {}, p = 0;
+                                                                                n = function (A) { return a && c[a + A] || c[A]; }, f = u.select(n("item")), l = [], h = {}, p = 0;
                                                                                 _g.label = 1;
                                                                             case 1:
                                                                                 if (!(p < f.size())) return [3, 9];
@@ -2569,12 +2581,12 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                             }, listPage: function (u, a, n) {
                                                                 return __awaiter(this, void 0, void 0, function () { var f, l, h; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
-                                                                        case 0: return [4, d.html(x.url(u, a, n), s.req)];
+                                                                        case 0: return [4, d.html(x.url(u, a, n), c.req)];
                                                                         case 1:
                                                                             f = _b.sent();
                                                                             return [4, x.items(f, n ? "s_" : "")];
                                                                         case 2:
-                                                                            l = _b.sent(), h = s.next ? f.select(s.next).size() > 0 : l.length >= (s.pageSize || 10);
+                                                                            l = _b.sent(), h = c.next ? f.select(c.next).size() > 0 : l.length >= (c.pageSize || 10);
                                                                             return [2, o.success(l, d.next(h && l.length > 0, a))];
                                                                     }
                                                                 }); });
@@ -2582,7 +2594,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var n; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            n = s.tabs && s.tabs[u] || u;
+                                                                            n = c.tabs && c.tabs[u] || u;
                                                                             return [4, x.listPage(n, a, "")];
                                                                         case 1: return [2, _b.sent()];
                                                                     }
@@ -2591,13 +2603,13 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var n, f, l, _b; return __generator(this, function (_c) {
                                                                     switch (_c.label) {
                                                                         case 0:
-                                                                            if (!(s.q_cut && !d.isUrl(u) && (u = String(u).split(new RegExp(s.q_cut))[0].trim() || u), d.isUrl(u))) return [3, 2];
+                                                                            if (!(c.q_cut && !d.isUrl(u) && (u = String(u).split(new RegExp(c.q_cut))[0].trim() || u), d.isUrl(u))) return [3, 2];
                                                                             n = d.fix(u);
-                                                                            return [4, x.listPage(n + (n.indexOf("?") > 0 ? "&" : "?") + (s.pageParam || "page") + "={p}", a, "")];
+                                                                            return [4, x.listPage(n + (n.indexOf("?") > 0 ? "&" : "?") + (c.pageParam || "page") + "={p}", a, "")];
                                                                         case 1: return [2, _c.sent()];
                                                                         case 2:
-                                                                            if (!s.search_post) return [3, 5];
-                                                                            return [4, d.html(x.url(s.search_post.url, a, u), { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: String(s.search_post.body).replace(/\{q\}/g, d.enc(u)) })];
+                                                                            if (!c.search_post) return [3, 5];
+                                                                            return [4, d.html(x.url(c.search_post.url, a, u), { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: String(c.search_post.body).replace(/\{q\}/g, d.enc(u)) })];
                                                                         case 3:
                                                                             f = _c.sent();
                                                                             return [4, x.items(f, "s_")];
@@ -2605,12 +2617,12 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             l = _c.sent();
                                                                             return [2, o.success(l, null)];
                                                                         case 5:
-                                                                            if (!s.search_json) return [3, 7];
-                                                                            return [4, x.jsonSearch(s.search_json, u, a)];
+                                                                            if (!c.search_json) return [3, 7];
+                                                                            return [4, x.jsonSearch(c.search_json, u, a)];
                                                                         case 6:
                                                                             _b = _c.sent();
                                                                             return [3, 9];
-                                                                        case 7: return [4, x.listPage(s.search, a, u)];
+                                                                        case 7: return [4, x.listPage(c.search, a, u)];
                                                                         case 8:
                                                                             _b = _c.sent();
                                                                             _c.label = 9;
@@ -2620,7 +2632,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                             }, jsonSearch: function (u, a, n) {
                                                                 return __awaiter(this, void 0, void 0, function () { var f, l, h; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
-                                                                        case 0: return [4, d.json(x.url(u.url, n, a), s.req)];
+                                                                        case 0: return [4, d.json(x.url(u.url, n, a), c.req)];
                                                                         case 1:
                                                                             f = _b.sent();
                                                                             u.list && u.list.split(".").forEach(function (p) { f = f && f[p]; });
@@ -2632,12 +2644,12 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var u, a; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            if (!s.genre)
+                                                                            if (!c.genre)
                                                                                 return [2, o.success([])];
-                                                                            return [4, d.html(d.fix(s.genrePage || "/"))];
+                                                                            return [4, d.html(d.fix(c.genrePage || "/"))];
                                                                         case 1:
                                                                             u = _b.sent();
-                                                                            return [4, J(u.select(s.genre), function (n) {
+                                                                            return [4, J(u.select(c.genre), function (n) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
@@ -2661,11 +2673,11 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     var _h;
                                                                     return __generator(this, function (_j) {
                                                                         switch (_j.label) {
-                                                                            case 0: return [4, d.html(u, s.req)];
+                                                                            case 0: return [4, d.html(u, c.req)];
                                                                             case 1:
                                                                                 a = _j.sent();
-                                                                                if (!s.d_genres) return [3, 3];
-                                                                                return [4, J(a.select(s.d_genres), function (l) {
+                                                                                if (!c.d_genres) return [3, 3];
+                                                                                return [4, J(a.select(c.d_genres), function (l) {
                                                                                         return __awaiter(this, void 0, void 0, function () {
                                                                                             var _b;
                                                                                             return __generator(this, function (_c) {
@@ -2686,22 +2698,22 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                                 _j.label = 4;
                                                                             case 4:
                                                                                 n = _b;
-                                                                                return [4, x.pick(a, s.d_status)];
+                                                                                return [4, x.pick(a, c.d_status)];
                                                                             case 5:
                                                                                 f = _j.sent();
                                                                                 _d = (_c = o).success;
                                                                                 _h = {};
-                                                                                return [4, x.pick(a, s.d_title || "h1")];
+                                                                                return [4, x.pick(a, c.d_title || "h1")];
                                                                             case 6:
                                                                                 _h.name = _j.sent();
                                                                                 _g = (_f = d).fix;
-                                                                                return [4, x.pick(a, s.d_cover || "meta[property=og:image]@content")];
+                                                                                return [4, x.pick(a, c.d_cover || "meta[property=og:image]@content")];
                                                                             case 7:
                                                                                 _h.cover = _g.apply(_f, [_j.sent()]);
-                                                                                return [4, x.pick(a, s.d_author)];
+                                                                                return [4, x.pick(a, c.d_author)];
                                                                             case 8:
                                                                                 _h.author = _j.sent();
-                                                                                return [4, x.pick(a, (s.d_desc || "meta[name=description]@content").replace(/$/, ""))];
+                                                                                return [4, x.pick(a, (c.d_desc || "meta[name=description]@content").replace(/$/, ""))];
                                                                             case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = f ? "Tình trạng: " + f : "", _h.ongoing = d.ongoing(f), _h.genres = n, _h.host = k, _h)])];
                                                                         }
                                                                     });
@@ -2713,23 +2725,23 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     return __generator(this, function (_k) {
                                                                         switch (_k.label) {
                                                                             case 0:
-                                                                                if (!s.ch_action) return [3, 2];
+                                                                                if (!c.ch_action) return [3, 2];
                                                                                 return [4, x.actionToc(u)];
                                                                             case 1: return [2, _k.sent()];
                                                                             case 2:
-                                                                                if (s.single)
-                                                                                    return [2, o.success([{ name: s.single === !0 ? "Xem / Đọc" : s.single, url: u, host: k }])];
+                                                                                if (c.single)
+                                                                                    return [2, o.success([{ name: c.single === !0 ? "Xem / Đọc" : c.single, url: u, host: k }])];
                                                                                 a = [u], n = [], f = {};
-                                                                                return [4, d.html(s.ch_rewrite ? u.replace(new RegExp(s.ch_rewrite[0]), s.ch_rewrite[1]) : u, s.req)];
+                                                                                return [4, d.html(c.ch_rewrite ? u.replace(new RegExp(c.ch_rewrite[0]), c.ch_rewrite[1]) : u, c.req)];
                                                                             case 3:
                                                                                 l = _k.sent();
-                                                                                if (!s.ch_url) return [3, 7];
-                                                                                return [4, x.pick(l, s.ch_url)];
+                                                                                if (!c.ch_url) return [3, 7];
+                                                                                return [4, x.pick(l, c.ch_url)];
                                                                             case 4:
                                                                                 h = _k.sent();
                                                                                 _b = h;
                                                                                 if (!_b) return [3, 6];
-                                                                                return [4, d.html(d.fix(h), s.req)];
+                                                                                return [4, d.html(d.fix(h), c.req)];
                                                                             case 5:
                                                                                 _b = (l = _k.sent());
                                                                                 _k.label = 6;
@@ -2740,21 +2752,21 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                                 p = 0;
                                                                                 _k.label = 8;
                                                                             case 8:
-                                                                                if (!(p < (s.ch_maxPages || 60))) return [3, 22];
-                                                                                m = l.select(s.ch_list), b = 0;
+                                                                                if (!(p < (c.ch_maxPages || 60))) return [3, 22];
+                                                                                m = l.select(c.ch_list), b = 0;
                                                                                 _k.label = 9;
                                                                             case 9:
                                                                                 if (!(b < m.size())) return [3, 17];
                                                                                 return [4, m.get(b)];
                                                                             case 10:
-                                                                                w = _k.sent(), A = s.ch_attr ? w.attr(s.ch_attr) : w.attr("href") || w.attr("data-href");
+                                                                                w = _k.sent(), A = c.ch_attr ? w.attr(c.ch_attr) : w.attr("href") || w.attr("data-href");
                                                                                 _c = !A || A === "#" || f[A];
                                                                                 if (_c) return [3, 15];
                                                                                 f[A] = 1;
                                                                                 _f = (_d = n).push;
                                                                                 _j = {};
-                                                                                if (!s.ch_name) return [3, 12];
-                                                                                return [4, x.pick(w, s.ch_name)];
+                                                                                if (!c.ch_name) return [3, 12];
+                                                                                return [4, x.pick(w, c.ch_name)];
                                                                             case 11:
                                                                                 _g = _k.sent();
                                                                                 return [3, 14];
@@ -2772,29 +2784,29 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                                 b++;
                                                                                 return [3, 9];
                                                                             case 17:
-                                                                                C = s.ch_next ? l.select(s.ch_next).first() : null;
+                                                                                C = c.ch_next ? l.select(c.ch_next).first() : null;
                                                                                 if (!C || !C.attr("href"))
                                                                                     return [3, 22];
                                                                                 D = d.fix(C.attr("href"));
                                                                                 if (a.indexOf(D) >= 0)
                                                                                     return [3, 22];
                                                                                 a.push(D);
-                                                                                _h = s.ch_delay;
+                                                                                _h = c.ch_delay;
                                                                                 if (!_h) return [3, 19];
-                                                                                return [4, T(s.ch_delay)];
+                                                                                return [4, T(c.ch_delay)];
                                                                             case 18:
                                                                                 _h = (_k.sent());
                                                                                 _k.label = 19;
                                                                             case 19:
                                                                                 _h;
-                                                                                return [4, d.html(D, s.req)];
+                                                                                return [4, d.html(D, c.req)];
                                                                             case 20:
                                                                                 l = _k.sent();
                                                                                 _k.label = 21;
                                                                             case 21:
                                                                                 p++;
                                                                                 return [3, 8];
-                                                                            case 22: return [2, (s.ch_reverse && n.reverse(), !n.length && s.ch_fallback_single && n.push({ name: s.ch_fallback_single === !0 ? "Xem phim" : s.ch_fallback_single, url: u, host: k }), o.success(n))];
+                                                                            case 22: return [2, (c.ch_reverse && n.reverse(), !n.length && c.ch_fallback_single && n.push({ name: c.ch_fallback_single === !0 ? "Xem phim" : c.ch_fallback_single, url: u, host: k }), o.success(n))];
                                                                         }
                                                                     });
                                                                 });
@@ -2805,25 +2817,25 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             a = [], n = [u], f = u, l = 0;
                                                                             _l.label = 1;
                                                                         case 1:
-                                                                            if (!(l < (s.pages_max || 40))) return [3, 17];
-                                                                            if (!s.initmanga) return [3, 5];
+                                                                            if (!(l < (c.pages_max || 40))) return [3, 17];
+                                                                            if (!c.initmanga) return [3, 5];
                                                                             _c = (_b = d).check;
-                                                                            return [4, d.get(f, s.req)];
+                                                                            return [4, d.get(f, c.req)];
                                                                         case 2: return [4, _c.apply(_b, [_l.sent(), f])];
                                                                         case 3:
                                                                             p = _l.sent();
                                                                             return [4, p.text()];
                                                                         case 4:
                                                                             m = (_l.sent()) || "", b = x.initManga(m);
-                                                                            h = c.parse(b ? '<div id="imc-dec">' + b + "</div>" : m, f);
+                                                                            h = s.parse(b ? '<div id="imc-dec">' + b + "</div>" : m, f);
                                                                             return [3, 7];
-                                                                        case 5: return [4, d.html(f, s.req)];
+                                                                        case 5: return [4, d.html(f, c.req)];
                                                                         case 6:
                                                                             h = _l.sent();
                                                                             _l.label = 7;
                                                                         case 7:
-                                                                            w = h.select(s.initmanga ? "#imc-dec img, " + (s.pages || "#chapter-content img") : s.pages || ".page-chapter img, .reading-content img, .chapter-content img");
-                                                                            if (!s.initmanga) return [3, 11];
+                                                                            w = h.select(c.initmanga ? "#imc-dec img, " + (c.pages || "#chapter-content img") : c.pages || ".page-chapter img, .reading-content img, .chapter-content img");
+                                                                            if (!c.initmanga) return [3, 11];
                                                                             A = h.select("#imc-dec canvas[data-enc]"), C = 0;
                                                                             _l.label = 8;
                                                                         case 8:
@@ -2853,9 +2865,9 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             j++;
                                                                             return [3, 12];
                                                                         case 15:
-                                                                            if (!s.pages_next)
+                                                                            if (!c.pages_next)
                                                                                 return [3, 17];
-                                                                            X = h.select(s.pages_next).first();
+                                                                            X = h.select(c.pages_next).first();
                                                                             if (!X)
                                                                                 return [3, 17];
                                                                             B = d.fix(X.attr("href"));
@@ -2874,32 +2886,32 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     switch (_v.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
-                                                                            return [4, d.get(u, s.req)];
+                                                                            return [4, d.get(u, c.req)];
                                                                         case 1: return [4, _c.apply(_b, [_v.sent(), u])];
                                                                         case 2:
                                                                             a = _v.sent();
                                                                             return [4, a.text()];
                                                                         case 3:
                                                                             n = (_v.sent()) || "";
-                                                                            if (!s.content_rsc) return [3, 5];
-                                                                            f = x.rscText(n), l = s.c_locked && new RegExp(s.c_locked, "i").test(n), h = l ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
+                                                                            if (!c.content_rsc) return [3, 5];
+                                                                            f = x.rscText(n), l = c.c_locked && new RegExp(c.c_locked, "i").test(n), h = l ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
                                                                             if (!(f || l)) return [3, 5];
                                                                             _f = (_d = o).success;
                                                                             _g = [x.toParas(f) + h];
-                                                                            return [4, x.pick(c.parse(n, u), s.c_title || "h1 || title")];
+                                                                            return [4, x.pick(s.parse(n, u), c.c_title || "h1 || title")];
                                                                         case 4: return [2, _f.apply(_d, _g.concat([_v.sent()]))];
                                                                         case 5:
-                                                                            if (!s.initmanga) return [3, 8];
+                                                                            if (!c.initmanga) return [3, 8];
                                                                             p = x.initManga(n);
                                                                             if (!p) return [3, 8];
                                                                             _j = (_h = o).success;
-                                                                            return [4, d.cleanContent(c.parse('<div id="imc-dec">' + p + "</div>", u).select("#imc-dec").first())];
+                                                                            return [4, d.cleanContent(s.parse('<div id="imc-dec">' + p + "</div>", u).select("#imc-dec").first())];
                                                                         case 6:
                                                                             _k = [_v.sent()];
-                                                                            return [4, x.pick(c.parse(n, u), s.c_title || "h1 || h2")];
+                                                                            return [4, x.pick(s.parse(n, u), c.c_title || "h1 || h2")];
                                                                         case 7: return [2, _j.apply(_h, _k.concat([_v.sent()]))];
                                                                         case 8:
-                                                                            m = c.parse(n, u), b = m.select(s.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            m = s.parse(n, u), b = m.select(c.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
                                                                             if (!!b) return [3, 10];
                                                                             if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(n.slice(0, 2e4)))
                                                                                 throw new Error("CLOUDFLARE: trang " + k + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
@@ -2912,7 +2924,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             return [4, d.cleanContent(b)];
                                                                         case 11:
                                                                             _s = [_v.sent()];
-                                                                            return [4, x.pick(m, s.c_title || "h1 || h2")];
+                                                                            return [4, x.pick(m, c.c_title || "h1 || h2")];
                                                                         case 12: return [2, _q.apply(_p, _s.concat([_v.sent()]))];
                                                                     }
                                                                 }); });
@@ -2971,9 +2983,9 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var a, n, f, _b, _c, l, h, p, _d, m, _f, b; return __generator(this, function (_g) {
                                                                     switch (_g.label) {
                                                                         case 0:
-                                                                            a = s.ch_action;
+                                                                            a = c.ch_action;
                                                                             _c = (_b = d).check;
-                                                                            return [4, d.get(u, s.req)];
+                                                                            return [4, d.get(u, c.req)];
                                                                         case 1: return [4, _c.apply(_b, [_g.sent(), u])];
                                                                         case 2: return [4, (_g.sent()).text()];
                                                                         case 3:
@@ -3044,18 +3056,18 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var a, n; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            if (!s.servers)
+                                                                            if (!c.servers)
                                                                                 return [2, o.success([{ title: "Server", data: u }])];
-                                                                            return [4, d.html(u, s.req)];
+                                                                            return [4, d.html(u, c.req)];
                                                                         case 1:
                                                                             a = _b.sent();
-                                                                            return [4, J(a.select(s.servers), function (f) {
+                                                                            return [4, J(a.select(c.servers), function (f) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
                                                                                         var l;
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
                                                                                             switch (_c.label) {
-                                                                                                case 0: return [4, x.pick(f, s.server_data || ":self@data-link || :self@data-src || :self@href")];
+                                                                                                case 0: return [4, x.pick(f, c.server_data || ":self@data-link || :self@data-src || :self@href")];
                                                                                                 case 1:
                                                                                                     l = _c.sent();
                                                                                                     _b = {};
@@ -3082,8 +3094,8 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             return [4, n.text()];
                                                                         case 2:
                                                                             f = _b.sent();
-                                                                            if (!(s.video && !a)) return [3, 4];
-                                                                            return [4, x.pick(c.parse(f, u), s.video)];
+                                                                            if (!(c.video && !a)) return [3, 4];
+                                                                            return [4, x.pick(s.parse(f, u), c.video)];
                                                                         case 3:
                                                                             l = _b.sent();
                                                                             if (l)
@@ -3093,7 +3105,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             h = x.sniff(f);
                                                                             if (h)
                                                                                 return [2, o.success({ type: "native", data: h, headers: { Referer: a ? u : k + "/" } })];
-                                                                            p = c.parse(f, u), m = p.select(s.iframe || "iframe[src], iframe[data-src]").first();
+                                                                            p = s.parse(f, u), m = p.select(c.iframe || "iframe[src], iframe[data-src]").first();
                                                                             if (!(m && a < 2)) return [3, 6];
                                                                             b = d.fix(m.attr("src") || m.attr("data-src"));
                                                                             if (!b) return [3, 6];
@@ -3117,7 +3129,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
     }, search: function (t, e) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
-                return [2, (function (r, i, c, o, g, v, y, S, T, L, q, N, O, M, Q, te, fe) {
+                return [2, (function (r, i, s, o, g, v, y, S, T, L, q, N, O, M, Q, te, fe) {
                         return __awaiter(this, void 0, void 0, function () {
                             var R;
                             return __generator(this, function (_b) {
@@ -3134,14 +3146,14 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                             }
                                                         }); });
                                                     }
-                                                    var k, s, d, x;
+                                                    var k, c, d, x;
                                                     return __generator(this, function (_b) {
                                                         k = "https://medoctruyen.vn";
                                                         try {
                                                             R && (k = String(R).replace(/\/+$/, ""));
                                                         }
                                                         catch (u) { }
-                                                        s = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".flex", title: "a@title || img@alt || a@title || img@alt", link: "a@href", ch_list: "div.rounded-xl > ul a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: "div.whitespace-pre-line" }, d = { img: function (u) { if (!u)
+                                                        c = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".flex", title: "a@title || img@alt || a@title || img@alt", link: "a@href", ch_list: "div.rounded-xl > ul a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: "div.whitespace-pre-line" }, d = { img: function (u) { if (!u)
                                                                 return ""; for (var a = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], n = 0; n < a.length; n++) {
                                                                 var f = u.attr(a[n]);
                                                                 if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
@@ -3309,7 +3321,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     return __generator(this, function (_g) {
                                                                         switch (_g.label) {
                                                                             case 0:
-                                                                                n = function (A) { return a && s[a + A] || s[A]; }, f = u.select(n("item")), l = [], h = {}, p = 0;
+                                                                                n = function (A) { return a && c[a + A] || c[A]; }, f = u.select(n("item")), l = [], h = {}, p = 0;
                                                                                 _g.label = 1;
                                                                             case 1:
                                                                                 if (!(p < f.size())) return [3, 9];
@@ -3348,12 +3360,12 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                             }, listPage: function (u, a, n) {
                                                                 return __awaiter(this, void 0, void 0, function () { var f, l, h; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
-                                                                        case 0: return [4, d.html(x.url(u, a, n), s.req)];
+                                                                        case 0: return [4, d.html(x.url(u, a, n), c.req)];
                                                                         case 1:
                                                                             f = _b.sent();
                                                                             return [4, x.items(f, n ? "s_" : "")];
                                                                         case 2:
-                                                                            l = _b.sent(), h = s.next ? f.select(s.next).size() > 0 : l.length >= (s.pageSize || 10);
+                                                                            l = _b.sent(), h = c.next ? f.select(c.next).size() > 0 : l.length >= (c.pageSize || 10);
                                                                             return [2, o.success(l, d.next(h && l.length > 0, a))];
                                                                     }
                                                                 }); });
@@ -3361,7 +3373,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var n; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            n = s.tabs && s.tabs[u] || u;
+                                                                            n = c.tabs && c.tabs[u] || u;
                                                                             return [4, x.listPage(n, a, "")];
                                                                         case 1: return [2, _b.sent()];
                                                                     }
@@ -3370,13 +3382,13 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var n, f, l, _b; return __generator(this, function (_c) {
                                                                     switch (_c.label) {
                                                                         case 0:
-                                                                            if (!(s.q_cut && !d.isUrl(u) && (u = String(u).split(new RegExp(s.q_cut))[0].trim() || u), d.isUrl(u))) return [3, 2];
+                                                                            if (!(c.q_cut && !d.isUrl(u) && (u = String(u).split(new RegExp(c.q_cut))[0].trim() || u), d.isUrl(u))) return [3, 2];
                                                                             n = d.fix(u);
-                                                                            return [4, x.listPage(n + (n.indexOf("?") > 0 ? "&" : "?") + (s.pageParam || "page") + "={p}", a, "")];
+                                                                            return [4, x.listPage(n + (n.indexOf("?") > 0 ? "&" : "?") + (c.pageParam || "page") + "={p}", a, "")];
                                                                         case 1: return [2, _c.sent()];
                                                                         case 2:
-                                                                            if (!s.search_post) return [3, 5];
-                                                                            return [4, d.html(x.url(s.search_post.url, a, u), { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: String(s.search_post.body).replace(/\{q\}/g, d.enc(u)) })];
+                                                                            if (!c.search_post) return [3, 5];
+                                                                            return [4, d.html(x.url(c.search_post.url, a, u), { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: String(c.search_post.body).replace(/\{q\}/g, d.enc(u)) })];
                                                                         case 3:
                                                                             f = _c.sent();
                                                                             return [4, x.items(f, "s_")];
@@ -3384,12 +3396,12 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             l = _c.sent();
                                                                             return [2, o.success(l, null)];
                                                                         case 5:
-                                                                            if (!s.search_json) return [3, 7];
-                                                                            return [4, x.jsonSearch(s.search_json, u, a)];
+                                                                            if (!c.search_json) return [3, 7];
+                                                                            return [4, x.jsonSearch(c.search_json, u, a)];
                                                                         case 6:
                                                                             _b = _c.sent();
                                                                             return [3, 9];
-                                                                        case 7: return [4, x.listPage(s.search, a, u)];
+                                                                        case 7: return [4, x.listPage(c.search, a, u)];
                                                                         case 8:
                                                                             _b = _c.sent();
                                                                             _c.label = 9;
@@ -3399,7 +3411,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                             }, jsonSearch: function (u, a, n) {
                                                                 return __awaiter(this, void 0, void 0, function () { var f, l, h; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
-                                                                        case 0: return [4, d.json(x.url(u.url, n, a), s.req)];
+                                                                        case 0: return [4, d.json(x.url(u.url, n, a), c.req)];
                                                                         case 1:
                                                                             f = _b.sent();
                                                                             u.list && u.list.split(".").forEach(function (p) { f = f && f[p]; });
@@ -3411,12 +3423,12 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var u, a; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            if (!s.genre)
+                                                                            if (!c.genre)
                                                                                 return [2, o.success([])];
-                                                                            return [4, d.html(d.fix(s.genrePage || "/"))];
+                                                                            return [4, d.html(d.fix(c.genrePage || "/"))];
                                                                         case 1:
                                                                             u = _b.sent();
-                                                                            return [4, J(u.select(s.genre), function (n) {
+                                                                            return [4, J(u.select(c.genre), function (n) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
@@ -3440,11 +3452,11 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     var _h;
                                                                     return __generator(this, function (_j) {
                                                                         switch (_j.label) {
-                                                                            case 0: return [4, d.html(u, s.req)];
+                                                                            case 0: return [4, d.html(u, c.req)];
                                                                             case 1:
                                                                                 a = _j.sent();
-                                                                                if (!s.d_genres) return [3, 3];
-                                                                                return [4, J(a.select(s.d_genres), function (l) {
+                                                                                if (!c.d_genres) return [3, 3];
+                                                                                return [4, J(a.select(c.d_genres), function (l) {
                                                                                         return __awaiter(this, void 0, void 0, function () {
                                                                                             var _b;
                                                                                             return __generator(this, function (_c) {
@@ -3465,22 +3477,22 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                                 _j.label = 4;
                                                                             case 4:
                                                                                 n = _b;
-                                                                                return [4, x.pick(a, s.d_status)];
+                                                                                return [4, x.pick(a, c.d_status)];
                                                                             case 5:
                                                                                 f = _j.sent();
                                                                                 _d = (_c = o).success;
                                                                                 _h = {};
-                                                                                return [4, x.pick(a, s.d_title || "h1")];
+                                                                                return [4, x.pick(a, c.d_title || "h1")];
                                                                             case 6:
                                                                                 _h.name = _j.sent();
                                                                                 _g = (_f = d).fix;
-                                                                                return [4, x.pick(a, s.d_cover || "meta[property=og:image]@content")];
+                                                                                return [4, x.pick(a, c.d_cover || "meta[property=og:image]@content")];
                                                                             case 7:
                                                                                 _h.cover = _g.apply(_f, [_j.sent()]);
-                                                                                return [4, x.pick(a, s.d_author)];
+                                                                                return [4, x.pick(a, c.d_author)];
                                                                             case 8:
                                                                                 _h.author = _j.sent();
-                                                                                return [4, x.pick(a, (s.d_desc || "meta[name=description]@content").replace(/$/, ""))];
+                                                                                return [4, x.pick(a, (c.d_desc || "meta[name=description]@content").replace(/$/, ""))];
                                                                             case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = f ? "Tình trạng: " + f : "", _h.ongoing = d.ongoing(f), _h.genres = n, _h.host = k, _h)])];
                                                                         }
                                                                     });
@@ -3492,23 +3504,23 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     return __generator(this, function (_k) {
                                                                         switch (_k.label) {
                                                                             case 0:
-                                                                                if (!s.ch_action) return [3, 2];
+                                                                                if (!c.ch_action) return [3, 2];
                                                                                 return [4, x.actionToc(u)];
                                                                             case 1: return [2, _k.sent()];
                                                                             case 2:
-                                                                                if (s.single)
-                                                                                    return [2, o.success([{ name: s.single === !0 ? "Xem / Đọc" : s.single, url: u, host: k }])];
+                                                                                if (c.single)
+                                                                                    return [2, o.success([{ name: c.single === !0 ? "Xem / Đọc" : c.single, url: u, host: k }])];
                                                                                 a = [u], n = [], f = {};
-                                                                                return [4, d.html(s.ch_rewrite ? u.replace(new RegExp(s.ch_rewrite[0]), s.ch_rewrite[1]) : u, s.req)];
+                                                                                return [4, d.html(c.ch_rewrite ? u.replace(new RegExp(c.ch_rewrite[0]), c.ch_rewrite[1]) : u, c.req)];
                                                                             case 3:
                                                                                 l = _k.sent();
-                                                                                if (!s.ch_url) return [3, 7];
-                                                                                return [4, x.pick(l, s.ch_url)];
+                                                                                if (!c.ch_url) return [3, 7];
+                                                                                return [4, x.pick(l, c.ch_url)];
                                                                             case 4:
                                                                                 h = _k.sent();
                                                                                 _b = h;
                                                                                 if (!_b) return [3, 6];
-                                                                                return [4, d.html(d.fix(h), s.req)];
+                                                                                return [4, d.html(d.fix(h), c.req)];
                                                                             case 5:
                                                                                 _b = (l = _k.sent());
                                                                                 _k.label = 6;
@@ -3519,21 +3531,21 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                                 p = 0;
                                                                                 _k.label = 8;
                                                                             case 8:
-                                                                                if (!(p < (s.ch_maxPages || 60))) return [3, 22];
-                                                                                m = l.select(s.ch_list), b = 0;
+                                                                                if (!(p < (c.ch_maxPages || 60))) return [3, 22];
+                                                                                m = l.select(c.ch_list), b = 0;
                                                                                 _k.label = 9;
                                                                             case 9:
                                                                                 if (!(b < m.size())) return [3, 17];
                                                                                 return [4, m.get(b)];
                                                                             case 10:
-                                                                                w = _k.sent(), A = s.ch_attr ? w.attr(s.ch_attr) : w.attr("href") || w.attr("data-href");
+                                                                                w = _k.sent(), A = c.ch_attr ? w.attr(c.ch_attr) : w.attr("href") || w.attr("data-href");
                                                                                 _c = !A || A === "#" || f[A];
                                                                                 if (_c) return [3, 15];
                                                                                 f[A] = 1;
                                                                                 _f = (_d = n).push;
                                                                                 _j = {};
-                                                                                if (!s.ch_name) return [3, 12];
-                                                                                return [4, x.pick(w, s.ch_name)];
+                                                                                if (!c.ch_name) return [3, 12];
+                                                                                return [4, x.pick(w, c.ch_name)];
                                                                             case 11:
                                                                                 _g = _k.sent();
                                                                                 return [3, 14];
@@ -3551,29 +3563,29 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                                 b++;
                                                                                 return [3, 9];
                                                                             case 17:
-                                                                                C = s.ch_next ? l.select(s.ch_next).first() : null;
+                                                                                C = c.ch_next ? l.select(c.ch_next).first() : null;
                                                                                 if (!C || !C.attr("href"))
                                                                                     return [3, 22];
                                                                                 D = d.fix(C.attr("href"));
                                                                                 if (a.indexOf(D) >= 0)
                                                                                     return [3, 22];
                                                                                 a.push(D);
-                                                                                _h = s.ch_delay;
+                                                                                _h = c.ch_delay;
                                                                                 if (!_h) return [3, 19];
-                                                                                return [4, T(s.ch_delay)];
+                                                                                return [4, T(c.ch_delay)];
                                                                             case 18:
                                                                                 _h = (_k.sent());
                                                                                 _k.label = 19;
                                                                             case 19:
                                                                                 _h;
-                                                                                return [4, d.html(D, s.req)];
+                                                                                return [4, d.html(D, c.req)];
                                                                             case 20:
                                                                                 l = _k.sent();
                                                                                 _k.label = 21;
                                                                             case 21:
                                                                                 p++;
                                                                                 return [3, 8];
-                                                                            case 22: return [2, (s.ch_reverse && n.reverse(), !n.length && s.ch_fallback_single && n.push({ name: s.ch_fallback_single === !0 ? "Xem phim" : s.ch_fallback_single, url: u, host: k }), o.success(n))];
+                                                                            case 22: return [2, (c.ch_reverse && n.reverse(), !n.length && c.ch_fallback_single && n.push({ name: c.ch_fallback_single === !0 ? "Xem phim" : c.ch_fallback_single, url: u, host: k }), o.success(n))];
                                                                         }
                                                                     });
                                                                 });
@@ -3584,25 +3596,25 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             a = [], n = [u], f = u, l = 0;
                                                                             _l.label = 1;
                                                                         case 1:
-                                                                            if (!(l < (s.pages_max || 40))) return [3, 17];
-                                                                            if (!s.initmanga) return [3, 5];
+                                                                            if (!(l < (c.pages_max || 40))) return [3, 17];
+                                                                            if (!c.initmanga) return [3, 5];
                                                                             _c = (_b = d).check;
-                                                                            return [4, d.get(f, s.req)];
+                                                                            return [4, d.get(f, c.req)];
                                                                         case 2: return [4, _c.apply(_b, [_l.sent(), f])];
                                                                         case 3:
                                                                             p = _l.sent();
                                                                             return [4, p.text()];
                                                                         case 4:
                                                                             m = (_l.sent()) || "", b = x.initManga(m);
-                                                                            h = c.parse(b ? '<div id="imc-dec">' + b + "</div>" : m, f);
+                                                                            h = s.parse(b ? '<div id="imc-dec">' + b + "</div>" : m, f);
                                                                             return [3, 7];
-                                                                        case 5: return [4, d.html(f, s.req)];
+                                                                        case 5: return [4, d.html(f, c.req)];
                                                                         case 6:
                                                                             h = _l.sent();
                                                                             _l.label = 7;
                                                                         case 7:
-                                                                            w = h.select(s.initmanga ? "#imc-dec img, " + (s.pages || "#chapter-content img") : s.pages || ".page-chapter img, .reading-content img, .chapter-content img");
-                                                                            if (!s.initmanga) return [3, 11];
+                                                                            w = h.select(c.initmanga ? "#imc-dec img, " + (c.pages || "#chapter-content img") : c.pages || ".page-chapter img, .reading-content img, .chapter-content img");
+                                                                            if (!c.initmanga) return [3, 11];
                                                                             A = h.select("#imc-dec canvas[data-enc]"), C = 0;
                                                                             _l.label = 8;
                                                                         case 8:
@@ -3632,9 +3644,9 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             j++;
                                                                             return [3, 12];
                                                                         case 15:
-                                                                            if (!s.pages_next)
+                                                                            if (!c.pages_next)
                                                                                 return [3, 17];
-                                                                            X = h.select(s.pages_next).first();
+                                                                            X = h.select(c.pages_next).first();
                                                                             if (!X)
                                                                                 return [3, 17];
                                                                             B = d.fix(X.attr("href"));
@@ -3653,32 +3665,32 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     switch (_v.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
-                                                                            return [4, d.get(u, s.req)];
+                                                                            return [4, d.get(u, c.req)];
                                                                         case 1: return [4, _c.apply(_b, [_v.sent(), u])];
                                                                         case 2:
                                                                             a = _v.sent();
                                                                             return [4, a.text()];
                                                                         case 3:
                                                                             n = (_v.sent()) || "";
-                                                                            if (!s.content_rsc) return [3, 5];
-                                                                            f = x.rscText(n), l = s.c_locked && new RegExp(s.c_locked, "i").test(n), h = l ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
+                                                                            if (!c.content_rsc) return [3, 5];
+                                                                            f = x.rscText(n), l = c.c_locked && new RegExp(c.c_locked, "i").test(n), h = l ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
                                                                             if (!(f || l)) return [3, 5];
                                                                             _f = (_d = o).success;
                                                                             _g = [x.toParas(f) + h];
-                                                                            return [4, x.pick(c.parse(n, u), s.c_title || "h1 || title")];
+                                                                            return [4, x.pick(s.parse(n, u), c.c_title || "h1 || title")];
                                                                         case 4: return [2, _f.apply(_d, _g.concat([_v.sent()]))];
                                                                         case 5:
-                                                                            if (!s.initmanga) return [3, 8];
+                                                                            if (!c.initmanga) return [3, 8];
                                                                             p = x.initManga(n);
                                                                             if (!p) return [3, 8];
                                                                             _j = (_h = o).success;
-                                                                            return [4, d.cleanContent(c.parse('<div id="imc-dec">' + p + "</div>", u).select("#imc-dec").first())];
+                                                                            return [4, d.cleanContent(s.parse('<div id="imc-dec">' + p + "</div>", u).select("#imc-dec").first())];
                                                                         case 6:
                                                                             _k = [_v.sent()];
-                                                                            return [4, x.pick(c.parse(n, u), s.c_title || "h1 || h2")];
+                                                                            return [4, x.pick(s.parse(n, u), c.c_title || "h1 || h2")];
                                                                         case 7: return [2, _j.apply(_h, _k.concat([_v.sent()]))];
                                                                         case 8:
-                                                                            m = c.parse(n, u), b = m.select(s.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            m = s.parse(n, u), b = m.select(c.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
                                                                             if (!!b) return [3, 10];
                                                                             if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(n.slice(0, 2e4)))
                                                                                 throw new Error("CLOUDFLARE: trang " + k + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
@@ -3691,7 +3703,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             return [4, d.cleanContent(b)];
                                                                         case 11:
                                                                             _s = [_v.sent()];
-                                                                            return [4, x.pick(m, s.c_title || "h1 || h2")];
+                                                                            return [4, x.pick(m, c.c_title || "h1 || h2")];
                                                                         case 12: return [2, _q.apply(_p, _s.concat([_v.sent()]))];
                                                                     }
                                                                 }); });
@@ -3750,9 +3762,9 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var a, n, f, _b, _c, l, h, p, _d, m, _f, b; return __generator(this, function (_g) {
                                                                     switch (_g.label) {
                                                                         case 0:
-                                                                            a = s.ch_action;
+                                                                            a = c.ch_action;
                                                                             _c = (_b = d).check;
-                                                                            return [4, d.get(u, s.req)];
+                                                                            return [4, d.get(u, c.req)];
                                                                         case 1: return [4, _c.apply(_b, [_g.sent(), u])];
                                                                         case 2: return [4, (_g.sent()).text()];
                                                                         case 3:
@@ -3823,18 +3835,18 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var a, n; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            if (!s.servers)
+                                                                            if (!c.servers)
                                                                                 return [2, o.success([{ title: "Server", data: u }])];
-                                                                            return [4, d.html(u, s.req)];
+                                                                            return [4, d.html(u, c.req)];
                                                                         case 1:
                                                                             a = _b.sent();
-                                                                            return [4, J(a.select(s.servers), function (f) {
+                                                                            return [4, J(a.select(c.servers), function (f) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
                                                                                         var l;
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
                                                                                             switch (_c.label) {
-                                                                                                case 0: return [4, x.pick(f, s.server_data || ":self@data-link || :self@data-src || :self@href")];
+                                                                                                case 0: return [4, x.pick(f, c.server_data || ":self@data-link || :self@data-src || :self@href")];
                                                                                                 case 1:
                                                                                                     l = _c.sent();
                                                                                                     _b = {};
@@ -3861,8 +3873,8 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             return [4, n.text()];
                                                                         case 2:
                                                                             f = _b.sent();
-                                                                            if (!(s.video && !a)) return [3, 4];
-                                                                            return [4, x.pick(c.parse(f, u), s.video)];
+                                                                            if (!(c.video && !a)) return [3, 4];
+                                                                            return [4, x.pick(s.parse(f, u), c.video)];
                                                                         case 3:
                                                                             l = _b.sent();
                                                                             if (l)
@@ -3872,7 +3884,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             h = x.sniff(f);
                                                                             if (h)
                                                                                 return [2, o.success({ type: "native", data: h, headers: { Referer: a ? u : k + "/" } })];
-                                                                            p = c.parse(f, u), m = p.select(s.iframe || "iframe[src], iframe[data-src]").first();
+                                                                            p = s.parse(f, u), m = p.select(c.iframe || "iframe[src], iframe[data-src]").first();
                                                                             if (!(m && a < 2)) return [3, 6];
                                                                             b = d.fix(m.attr("src") || m.attr("data-src"));
                                                                             if (!b) return [3, 6];
@@ -3896,7 +3908,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
     }, detail: function (t, e) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
-                return [2, (function (r, i, c, o, g, v, y, S, T, L, q, N, O, M, Q, te, fe) {
+                return [2, (function (r, i, s, o, g, v, y, S, T, L, q, N, O, M, Q, te, fe) {
                         return __awaiter(this, void 0, void 0, function () {
                             var R;
                             return __generator(this, function (_b) {
@@ -3913,14 +3925,14 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                             }
                                                         }); });
                                                     }
-                                                    var k, s, d, x;
+                                                    var k, c, d, x;
                                                     return __generator(this, function (_b) {
                                                         k = "https://medoctruyen.vn";
                                                         try {
                                                             R && (k = String(R).replace(/\/+$/, ""));
                                                         }
                                                         catch (u) { }
-                                                        s = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".flex", title: "a@title || img@alt || a@title || img@alt", link: "a@href", ch_list: "div.rounded-xl > ul a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: "div.whitespace-pre-line" }, d = { img: function (u) { if (!u)
+                                                        c = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".flex", title: "a@title || img@alt || a@title || img@alt", link: "a@href", ch_list: "div.rounded-xl > ul a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: "div.whitespace-pre-line" }, d = { img: function (u) { if (!u)
                                                                 return ""; for (var a = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], n = 0; n < a.length; n++) {
                                                                 var f = u.attr(a[n]);
                                                                 if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
@@ -4088,7 +4100,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     return __generator(this, function (_g) {
                                                                         switch (_g.label) {
                                                                             case 0:
-                                                                                n = function (A) { return a && s[a + A] || s[A]; }, f = u.select(n("item")), l = [], h = {}, p = 0;
+                                                                                n = function (A) { return a && c[a + A] || c[A]; }, f = u.select(n("item")), l = [], h = {}, p = 0;
                                                                                 _g.label = 1;
                                                                             case 1:
                                                                                 if (!(p < f.size())) return [3, 9];
@@ -4127,12 +4139,12 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                             }, listPage: function (u, a, n) {
                                                                 return __awaiter(this, void 0, void 0, function () { var f, l, h; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
-                                                                        case 0: return [4, d.html(x.url(u, a, n), s.req)];
+                                                                        case 0: return [4, d.html(x.url(u, a, n), c.req)];
                                                                         case 1:
                                                                             f = _b.sent();
                                                                             return [4, x.items(f, n ? "s_" : "")];
                                                                         case 2:
-                                                                            l = _b.sent(), h = s.next ? f.select(s.next).size() > 0 : l.length >= (s.pageSize || 10);
+                                                                            l = _b.sent(), h = c.next ? f.select(c.next).size() > 0 : l.length >= (c.pageSize || 10);
                                                                             return [2, o.success(l, d.next(h && l.length > 0, a))];
                                                                     }
                                                                 }); });
@@ -4140,7 +4152,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var n; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            n = s.tabs && s.tabs[u] || u;
+                                                                            n = c.tabs && c.tabs[u] || u;
                                                                             return [4, x.listPage(n, a, "")];
                                                                         case 1: return [2, _b.sent()];
                                                                     }
@@ -4149,13 +4161,13 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var n, f, l, _b; return __generator(this, function (_c) {
                                                                     switch (_c.label) {
                                                                         case 0:
-                                                                            if (!(s.q_cut && !d.isUrl(u) && (u = String(u).split(new RegExp(s.q_cut))[0].trim() || u), d.isUrl(u))) return [3, 2];
+                                                                            if (!(c.q_cut && !d.isUrl(u) && (u = String(u).split(new RegExp(c.q_cut))[0].trim() || u), d.isUrl(u))) return [3, 2];
                                                                             n = d.fix(u);
-                                                                            return [4, x.listPage(n + (n.indexOf("?") > 0 ? "&" : "?") + (s.pageParam || "page") + "={p}", a, "")];
+                                                                            return [4, x.listPage(n + (n.indexOf("?") > 0 ? "&" : "?") + (c.pageParam || "page") + "={p}", a, "")];
                                                                         case 1: return [2, _c.sent()];
                                                                         case 2:
-                                                                            if (!s.search_post) return [3, 5];
-                                                                            return [4, d.html(x.url(s.search_post.url, a, u), { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: String(s.search_post.body).replace(/\{q\}/g, d.enc(u)) })];
+                                                                            if (!c.search_post) return [3, 5];
+                                                                            return [4, d.html(x.url(c.search_post.url, a, u), { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: String(c.search_post.body).replace(/\{q\}/g, d.enc(u)) })];
                                                                         case 3:
                                                                             f = _c.sent();
                                                                             return [4, x.items(f, "s_")];
@@ -4163,12 +4175,12 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             l = _c.sent();
                                                                             return [2, o.success(l, null)];
                                                                         case 5:
-                                                                            if (!s.search_json) return [3, 7];
-                                                                            return [4, x.jsonSearch(s.search_json, u, a)];
+                                                                            if (!c.search_json) return [3, 7];
+                                                                            return [4, x.jsonSearch(c.search_json, u, a)];
                                                                         case 6:
                                                                             _b = _c.sent();
                                                                             return [3, 9];
-                                                                        case 7: return [4, x.listPage(s.search, a, u)];
+                                                                        case 7: return [4, x.listPage(c.search, a, u)];
                                                                         case 8:
                                                                             _b = _c.sent();
                                                                             _c.label = 9;
@@ -4178,7 +4190,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                             }, jsonSearch: function (u, a, n) {
                                                                 return __awaiter(this, void 0, void 0, function () { var f, l, h; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
-                                                                        case 0: return [4, d.json(x.url(u.url, n, a), s.req)];
+                                                                        case 0: return [4, d.json(x.url(u.url, n, a), c.req)];
                                                                         case 1:
                                                                             f = _b.sent();
                                                                             u.list && u.list.split(".").forEach(function (p) { f = f && f[p]; });
@@ -4190,12 +4202,12 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var u, a; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            if (!s.genre)
+                                                                            if (!c.genre)
                                                                                 return [2, o.success([])];
-                                                                            return [4, d.html(d.fix(s.genrePage || "/"))];
+                                                                            return [4, d.html(d.fix(c.genrePage || "/"))];
                                                                         case 1:
                                                                             u = _b.sent();
-                                                                            return [4, J(u.select(s.genre), function (n) {
+                                                                            return [4, J(u.select(c.genre), function (n) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
@@ -4219,11 +4231,11 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     var _h;
                                                                     return __generator(this, function (_j) {
                                                                         switch (_j.label) {
-                                                                            case 0: return [4, d.html(u, s.req)];
+                                                                            case 0: return [4, d.html(u, c.req)];
                                                                             case 1:
                                                                                 a = _j.sent();
-                                                                                if (!s.d_genres) return [3, 3];
-                                                                                return [4, J(a.select(s.d_genres), function (l) {
+                                                                                if (!c.d_genres) return [3, 3];
+                                                                                return [4, J(a.select(c.d_genres), function (l) {
                                                                                         return __awaiter(this, void 0, void 0, function () {
                                                                                             var _b;
                                                                                             return __generator(this, function (_c) {
@@ -4244,22 +4256,22 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                                 _j.label = 4;
                                                                             case 4:
                                                                                 n = _b;
-                                                                                return [4, x.pick(a, s.d_status)];
+                                                                                return [4, x.pick(a, c.d_status)];
                                                                             case 5:
                                                                                 f = _j.sent();
                                                                                 _d = (_c = o).success;
                                                                                 _h = {};
-                                                                                return [4, x.pick(a, s.d_title || "h1")];
+                                                                                return [4, x.pick(a, c.d_title || "h1")];
                                                                             case 6:
                                                                                 _h.name = _j.sent();
                                                                                 _g = (_f = d).fix;
-                                                                                return [4, x.pick(a, s.d_cover || "meta[property=og:image]@content")];
+                                                                                return [4, x.pick(a, c.d_cover || "meta[property=og:image]@content")];
                                                                             case 7:
                                                                                 _h.cover = _g.apply(_f, [_j.sent()]);
-                                                                                return [4, x.pick(a, s.d_author)];
+                                                                                return [4, x.pick(a, c.d_author)];
                                                                             case 8:
                                                                                 _h.author = _j.sent();
-                                                                                return [4, x.pick(a, (s.d_desc || "meta[name=description]@content").replace(/$/, ""))];
+                                                                                return [4, x.pick(a, (c.d_desc || "meta[name=description]@content").replace(/$/, ""))];
                                                                             case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = f ? "Tình trạng: " + f : "", _h.ongoing = d.ongoing(f), _h.genres = n, _h.host = k, _h)])];
                                                                         }
                                                                     });
@@ -4271,23 +4283,23 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     return __generator(this, function (_k) {
                                                                         switch (_k.label) {
                                                                             case 0:
-                                                                                if (!s.ch_action) return [3, 2];
+                                                                                if (!c.ch_action) return [3, 2];
                                                                                 return [4, x.actionToc(u)];
                                                                             case 1: return [2, _k.sent()];
                                                                             case 2:
-                                                                                if (s.single)
-                                                                                    return [2, o.success([{ name: s.single === !0 ? "Xem / Đọc" : s.single, url: u, host: k }])];
+                                                                                if (c.single)
+                                                                                    return [2, o.success([{ name: c.single === !0 ? "Xem / Đọc" : c.single, url: u, host: k }])];
                                                                                 a = [u], n = [], f = {};
-                                                                                return [4, d.html(s.ch_rewrite ? u.replace(new RegExp(s.ch_rewrite[0]), s.ch_rewrite[1]) : u, s.req)];
+                                                                                return [4, d.html(c.ch_rewrite ? u.replace(new RegExp(c.ch_rewrite[0]), c.ch_rewrite[1]) : u, c.req)];
                                                                             case 3:
                                                                                 l = _k.sent();
-                                                                                if (!s.ch_url) return [3, 7];
-                                                                                return [4, x.pick(l, s.ch_url)];
+                                                                                if (!c.ch_url) return [3, 7];
+                                                                                return [4, x.pick(l, c.ch_url)];
                                                                             case 4:
                                                                                 h = _k.sent();
                                                                                 _b = h;
                                                                                 if (!_b) return [3, 6];
-                                                                                return [4, d.html(d.fix(h), s.req)];
+                                                                                return [4, d.html(d.fix(h), c.req)];
                                                                             case 5:
                                                                                 _b = (l = _k.sent());
                                                                                 _k.label = 6;
@@ -4298,21 +4310,21 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                                 p = 0;
                                                                                 _k.label = 8;
                                                                             case 8:
-                                                                                if (!(p < (s.ch_maxPages || 60))) return [3, 22];
-                                                                                m = l.select(s.ch_list), b = 0;
+                                                                                if (!(p < (c.ch_maxPages || 60))) return [3, 22];
+                                                                                m = l.select(c.ch_list), b = 0;
                                                                                 _k.label = 9;
                                                                             case 9:
                                                                                 if (!(b < m.size())) return [3, 17];
                                                                                 return [4, m.get(b)];
                                                                             case 10:
-                                                                                w = _k.sent(), A = s.ch_attr ? w.attr(s.ch_attr) : w.attr("href") || w.attr("data-href");
+                                                                                w = _k.sent(), A = c.ch_attr ? w.attr(c.ch_attr) : w.attr("href") || w.attr("data-href");
                                                                                 _c = !A || A === "#" || f[A];
                                                                                 if (_c) return [3, 15];
                                                                                 f[A] = 1;
                                                                                 _f = (_d = n).push;
                                                                                 _j = {};
-                                                                                if (!s.ch_name) return [3, 12];
-                                                                                return [4, x.pick(w, s.ch_name)];
+                                                                                if (!c.ch_name) return [3, 12];
+                                                                                return [4, x.pick(w, c.ch_name)];
                                                                             case 11:
                                                                                 _g = _k.sent();
                                                                                 return [3, 14];
@@ -4330,29 +4342,29 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                                 b++;
                                                                                 return [3, 9];
                                                                             case 17:
-                                                                                C = s.ch_next ? l.select(s.ch_next).first() : null;
+                                                                                C = c.ch_next ? l.select(c.ch_next).first() : null;
                                                                                 if (!C || !C.attr("href"))
                                                                                     return [3, 22];
                                                                                 D = d.fix(C.attr("href"));
                                                                                 if (a.indexOf(D) >= 0)
                                                                                     return [3, 22];
                                                                                 a.push(D);
-                                                                                _h = s.ch_delay;
+                                                                                _h = c.ch_delay;
                                                                                 if (!_h) return [3, 19];
-                                                                                return [4, T(s.ch_delay)];
+                                                                                return [4, T(c.ch_delay)];
                                                                             case 18:
                                                                                 _h = (_k.sent());
                                                                                 _k.label = 19;
                                                                             case 19:
                                                                                 _h;
-                                                                                return [4, d.html(D, s.req)];
+                                                                                return [4, d.html(D, c.req)];
                                                                             case 20:
                                                                                 l = _k.sent();
                                                                                 _k.label = 21;
                                                                             case 21:
                                                                                 p++;
                                                                                 return [3, 8];
-                                                                            case 22: return [2, (s.ch_reverse && n.reverse(), !n.length && s.ch_fallback_single && n.push({ name: s.ch_fallback_single === !0 ? "Xem phim" : s.ch_fallback_single, url: u, host: k }), o.success(n))];
+                                                                            case 22: return [2, (c.ch_reverse && n.reverse(), !n.length && c.ch_fallback_single && n.push({ name: c.ch_fallback_single === !0 ? "Xem phim" : c.ch_fallback_single, url: u, host: k }), o.success(n))];
                                                                         }
                                                                     });
                                                                 });
@@ -4363,25 +4375,25 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             a = [], n = [u], f = u, l = 0;
                                                                             _l.label = 1;
                                                                         case 1:
-                                                                            if (!(l < (s.pages_max || 40))) return [3, 17];
-                                                                            if (!s.initmanga) return [3, 5];
+                                                                            if (!(l < (c.pages_max || 40))) return [3, 17];
+                                                                            if (!c.initmanga) return [3, 5];
                                                                             _c = (_b = d).check;
-                                                                            return [4, d.get(f, s.req)];
+                                                                            return [4, d.get(f, c.req)];
                                                                         case 2: return [4, _c.apply(_b, [_l.sent(), f])];
                                                                         case 3:
                                                                             p = _l.sent();
                                                                             return [4, p.text()];
                                                                         case 4:
                                                                             m = (_l.sent()) || "", b = x.initManga(m);
-                                                                            h = c.parse(b ? '<div id="imc-dec">' + b + "</div>" : m, f);
+                                                                            h = s.parse(b ? '<div id="imc-dec">' + b + "</div>" : m, f);
                                                                             return [3, 7];
-                                                                        case 5: return [4, d.html(f, s.req)];
+                                                                        case 5: return [4, d.html(f, c.req)];
                                                                         case 6:
                                                                             h = _l.sent();
                                                                             _l.label = 7;
                                                                         case 7:
-                                                                            w = h.select(s.initmanga ? "#imc-dec img, " + (s.pages || "#chapter-content img") : s.pages || ".page-chapter img, .reading-content img, .chapter-content img");
-                                                                            if (!s.initmanga) return [3, 11];
+                                                                            w = h.select(c.initmanga ? "#imc-dec img, " + (c.pages || "#chapter-content img") : c.pages || ".page-chapter img, .reading-content img, .chapter-content img");
+                                                                            if (!c.initmanga) return [3, 11];
                                                                             A = h.select("#imc-dec canvas[data-enc]"), C = 0;
                                                                             _l.label = 8;
                                                                         case 8:
@@ -4411,9 +4423,9 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             j++;
                                                                             return [3, 12];
                                                                         case 15:
-                                                                            if (!s.pages_next)
+                                                                            if (!c.pages_next)
                                                                                 return [3, 17];
-                                                                            X = h.select(s.pages_next).first();
+                                                                            X = h.select(c.pages_next).first();
                                                                             if (!X)
                                                                                 return [3, 17];
                                                                             B = d.fix(X.attr("href"));
@@ -4432,32 +4444,32 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     switch (_v.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
-                                                                            return [4, d.get(u, s.req)];
+                                                                            return [4, d.get(u, c.req)];
                                                                         case 1: return [4, _c.apply(_b, [_v.sent(), u])];
                                                                         case 2:
                                                                             a = _v.sent();
                                                                             return [4, a.text()];
                                                                         case 3:
                                                                             n = (_v.sent()) || "";
-                                                                            if (!s.content_rsc) return [3, 5];
-                                                                            f = x.rscText(n), l = s.c_locked && new RegExp(s.c_locked, "i").test(n), h = l ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
+                                                                            if (!c.content_rsc) return [3, 5];
+                                                                            f = x.rscText(n), l = c.c_locked && new RegExp(c.c_locked, "i").test(n), h = l ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
                                                                             if (!(f || l)) return [3, 5];
                                                                             _f = (_d = o).success;
                                                                             _g = [x.toParas(f) + h];
-                                                                            return [4, x.pick(c.parse(n, u), s.c_title || "h1 || title")];
+                                                                            return [4, x.pick(s.parse(n, u), c.c_title || "h1 || title")];
                                                                         case 4: return [2, _f.apply(_d, _g.concat([_v.sent()]))];
                                                                         case 5:
-                                                                            if (!s.initmanga) return [3, 8];
+                                                                            if (!c.initmanga) return [3, 8];
                                                                             p = x.initManga(n);
                                                                             if (!p) return [3, 8];
                                                                             _j = (_h = o).success;
-                                                                            return [4, d.cleanContent(c.parse('<div id="imc-dec">' + p + "</div>", u).select("#imc-dec").first())];
+                                                                            return [4, d.cleanContent(s.parse('<div id="imc-dec">' + p + "</div>", u).select("#imc-dec").first())];
                                                                         case 6:
                                                                             _k = [_v.sent()];
-                                                                            return [4, x.pick(c.parse(n, u), s.c_title || "h1 || h2")];
+                                                                            return [4, x.pick(s.parse(n, u), c.c_title || "h1 || h2")];
                                                                         case 7: return [2, _j.apply(_h, _k.concat([_v.sent()]))];
                                                                         case 8:
-                                                                            m = c.parse(n, u), b = m.select(s.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            m = s.parse(n, u), b = m.select(c.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
                                                                             if (!!b) return [3, 10];
                                                                             if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(n.slice(0, 2e4)))
                                                                                 throw new Error("CLOUDFLARE: trang " + k + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
@@ -4470,7 +4482,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             return [4, d.cleanContent(b)];
                                                                         case 11:
                                                                             _s = [_v.sent()];
-                                                                            return [4, x.pick(m, s.c_title || "h1 || h2")];
+                                                                            return [4, x.pick(m, c.c_title || "h1 || h2")];
                                                                         case 12: return [2, _q.apply(_p, _s.concat([_v.sent()]))];
                                                                     }
                                                                 }); });
@@ -4529,9 +4541,9 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var a, n, f, _b, _c, l, h, p, _d, m, _f, b; return __generator(this, function (_g) {
                                                                     switch (_g.label) {
                                                                         case 0:
-                                                                            a = s.ch_action;
+                                                                            a = c.ch_action;
                                                                             _c = (_b = d).check;
-                                                                            return [4, d.get(u, s.req)];
+                                                                            return [4, d.get(u, c.req)];
                                                                         case 1: return [4, _c.apply(_b, [_g.sent(), u])];
                                                                         case 2: return [4, (_g.sent()).text()];
                                                                         case 3:
@@ -4602,18 +4614,18 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var a, n; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            if (!s.servers)
+                                                                            if (!c.servers)
                                                                                 return [2, o.success([{ title: "Server", data: u }])];
-                                                                            return [4, d.html(u, s.req)];
+                                                                            return [4, d.html(u, c.req)];
                                                                         case 1:
                                                                             a = _b.sent();
-                                                                            return [4, J(a.select(s.servers), function (f) {
+                                                                            return [4, J(a.select(c.servers), function (f) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
                                                                                         var l;
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
                                                                                             switch (_c.label) {
-                                                                                                case 0: return [4, x.pick(f, s.server_data || ":self@data-link || :self@data-src || :self@href")];
+                                                                                                case 0: return [4, x.pick(f, c.server_data || ":self@data-link || :self@data-src || :self@href")];
                                                                                                 case 1:
                                                                                                     l = _c.sent();
                                                                                                     _b = {};
@@ -4640,8 +4652,8 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             return [4, n.text()];
                                                                         case 2:
                                                                             f = _b.sent();
-                                                                            if (!(s.video && !a)) return [3, 4];
-                                                                            return [4, x.pick(c.parse(f, u), s.video)];
+                                                                            if (!(c.video && !a)) return [3, 4];
+                                                                            return [4, x.pick(s.parse(f, u), c.video)];
                                                                         case 3:
                                                                             l = _b.sent();
                                                                             if (l)
@@ -4651,7 +4663,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             h = x.sniff(f);
                                                                             if (h)
                                                                                 return [2, o.success({ type: "native", data: h, headers: { Referer: a ? u : k + "/" } })];
-                                                                            p = c.parse(f, u), m = p.select(s.iframe || "iframe[src], iframe[data-src]").first();
+                                                                            p = s.parse(f, u), m = p.select(c.iframe || "iframe[src], iframe[data-src]").first();
                                                                             if (!(m && a < 2)) return [3, 6];
                                                                             b = d.fix(m.attr("src") || m.attr("data-src"));
                                                                             if (!b) return [3, 6];
@@ -4675,7 +4687,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
     }, toc: function (t, e) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
-                return [2, (function (r, i, c, o, g, v, y, S, T, L, q, N, O, M, Q, te, fe) {
+                return [2, (function (r, i, s, o, g, v, y, S, T, L, q, N, O, M, Q, te, fe) {
                         return __awaiter(this, void 0, void 0, function () {
                             var R;
                             return __generator(this, function (_b) {
@@ -4692,14 +4704,14 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                             }
                                                         }); });
                                                     }
-                                                    var k, s, d, x;
+                                                    var k, c, d, x;
                                                     return __generator(this, function (_b) {
                                                         k = "https://medoctruyen.vn";
                                                         try {
                                                             R && (k = String(R).replace(/\/+$/, ""));
                                                         }
                                                         catch (u) { }
-                                                        s = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".flex", title: "a@title || img@alt || a@title || img@alt", link: "a@href", ch_list: "div.rounded-xl > ul a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: "div.whitespace-pre-line" }, d = { img: function (u) { if (!u)
+                                                        c = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".flex", title: "a@title || img@alt || a@title || img@alt", link: "a@href", ch_list: "div.rounded-xl > ul a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: "div.whitespace-pre-line" }, d = { img: function (u) { if (!u)
                                                                 return ""; for (var a = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], n = 0; n < a.length; n++) {
                                                                 var f = u.attr(a[n]);
                                                                 if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
@@ -4867,7 +4879,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     return __generator(this, function (_g) {
                                                                         switch (_g.label) {
                                                                             case 0:
-                                                                                n = function (A) { return a && s[a + A] || s[A]; }, f = u.select(n("item")), l = [], h = {}, p = 0;
+                                                                                n = function (A) { return a && c[a + A] || c[A]; }, f = u.select(n("item")), l = [], h = {}, p = 0;
                                                                                 _g.label = 1;
                                                                             case 1:
                                                                                 if (!(p < f.size())) return [3, 9];
@@ -4906,12 +4918,12 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                             }, listPage: function (u, a, n) {
                                                                 return __awaiter(this, void 0, void 0, function () { var f, l, h; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
-                                                                        case 0: return [4, d.html(x.url(u, a, n), s.req)];
+                                                                        case 0: return [4, d.html(x.url(u, a, n), c.req)];
                                                                         case 1:
                                                                             f = _b.sent();
                                                                             return [4, x.items(f, n ? "s_" : "")];
                                                                         case 2:
-                                                                            l = _b.sent(), h = s.next ? f.select(s.next).size() > 0 : l.length >= (s.pageSize || 10);
+                                                                            l = _b.sent(), h = c.next ? f.select(c.next).size() > 0 : l.length >= (c.pageSize || 10);
                                                                             return [2, o.success(l, d.next(h && l.length > 0, a))];
                                                                     }
                                                                 }); });
@@ -4919,7 +4931,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var n; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            n = s.tabs && s.tabs[u] || u;
+                                                                            n = c.tabs && c.tabs[u] || u;
                                                                             return [4, x.listPage(n, a, "")];
                                                                         case 1: return [2, _b.sent()];
                                                                     }
@@ -4928,13 +4940,13 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var n, f, l, _b; return __generator(this, function (_c) {
                                                                     switch (_c.label) {
                                                                         case 0:
-                                                                            if (!(s.q_cut && !d.isUrl(u) && (u = String(u).split(new RegExp(s.q_cut))[0].trim() || u), d.isUrl(u))) return [3, 2];
+                                                                            if (!(c.q_cut && !d.isUrl(u) && (u = String(u).split(new RegExp(c.q_cut))[0].trim() || u), d.isUrl(u))) return [3, 2];
                                                                             n = d.fix(u);
-                                                                            return [4, x.listPage(n + (n.indexOf("?") > 0 ? "&" : "?") + (s.pageParam || "page") + "={p}", a, "")];
+                                                                            return [4, x.listPage(n + (n.indexOf("?") > 0 ? "&" : "?") + (c.pageParam || "page") + "={p}", a, "")];
                                                                         case 1: return [2, _c.sent()];
                                                                         case 2:
-                                                                            if (!s.search_post) return [3, 5];
-                                                                            return [4, d.html(x.url(s.search_post.url, a, u), { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: String(s.search_post.body).replace(/\{q\}/g, d.enc(u)) })];
+                                                                            if (!c.search_post) return [3, 5];
+                                                                            return [4, d.html(x.url(c.search_post.url, a, u), { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: String(c.search_post.body).replace(/\{q\}/g, d.enc(u)) })];
                                                                         case 3:
                                                                             f = _c.sent();
                                                                             return [4, x.items(f, "s_")];
@@ -4942,12 +4954,12 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             l = _c.sent();
                                                                             return [2, o.success(l, null)];
                                                                         case 5:
-                                                                            if (!s.search_json) return [3, 7];
-                                                                            return [4, x.jsonSearch(s.search_json, u, a)];
+                                                                            if (!c.search_json) return [3, 7];
+                                                                            return [4, x.jsonSearch(c.search_json, u, a)];
                                                                         case 6:
                                                                             _b = _c.sent();
                                                                             return [3, 9];
-                                                                        case 7: return [4, x.listPage(s.search, a, u)];
+                                                                        case 7: return [4, x.listPage(c.search, a, u)];
                                                                         case 8:
                                                                             _b = _c.sent();
                                                                             _c.label = 9;
@@ -4957,7 +4969,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                             }, jsonSearch: function (u, a, n) {
                                                                 return __awaiter(this, void 0, void 0, function () { var f, l, h; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
-                                                                        case 0: return [4, d.json(x.url(u.url, n, a), s.req)];
+                                                                        case 0: return [4, d.json(x.url(u.url, n, a), c.req)];
                                                                         case 1:
                                                                             f = _b.sent();
                                                                             u.list && u.list.split(".").forEach(function (p) { f = f && f[p]; });
@@ -4969,12 +4981,12 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var u, a; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            if (!s.genre)
+                                                                            if (!c.genre)
                                                                                 return [2, o.success([])];
-                                                                            return [4, d.html(d.fix(s.genrePage || "/"))];
+                                                                            return [4, d.html(d.fix(c.genrePage || "/"))];
                                                                         case 1:
                                                                             u = _b.sent();
-                                                                            return [4, J(u.select(s.genre), function (n) {
+                                                                            return [4, J(u.select(c.genre), function (n) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
@@ -4998,11 +5010,11 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     var _h;
                                                                     return __generator(this, function (_j) {
                                                                         switch (_j.label) {
-                                                                            case 0: return [4, d.html(u, s.req)];
+                                                                            case 0: return [4, d.html(u, c.req)];
                                                                             case 1:
                                                                                 a = _j.sent();
-                                                                                if (!s.d_genres) return [3, 3];
-                                                                                return [4, J(a.select(s.d_genres), function (l) {
+                                                                                if (!c.d_genres) return [3, 3];
+                                                                                return [4, J(a.select(c.d_genres), function (l) {
                                                                                         return __awaiter(this, void 0, void 0, function () {
                                                                                             var _b;
                                                                                             return __generator(this, function (_c) {
@@ -5023,22 +5035,22 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                                 _j.label = 4;
                                                                             case 4:
                                                                                 n = _b;
-                                                                                return [4, x.pick(a, s.d_status)];
+                                                                                return [4, x.pick(a, c.d_status)];
                                                                             case 5:
                                                                                 f = _j.sent();
                                                                                 _d = (_c = o).success;
                                                                                 _h = {};
-                                                                                return [4, x.pick(a, s.d_title || "h1")];
+                                                                                return [4, x.pick(a, c.d_title || "h1")];
                                                                             case 6:
                                                                                 _h.name = _j.sent();
                                                                                 _g = (_f = d).fix;
-                                                                                return [4, x.pick(a, s.d_cover || "meta[property=og:image]@content")];
+                                                                                return [4, x.pick(a, c.d_cover || "meta[property=og:image]@content")];
                                                                             case 7:
                                                                                 _h.cover = _g.apply(_f, [_j.sent()]);
-                                                                                return [4, x.pick(a, s.d_author)];
+                                                                                return [4, x.pick(a, c.d_author)];
                                                                             case 8:
                                                                                 _h.author = _j.sent();
-                                                                                return [4, x.pick(a, (s.d_desc || "meta[name=description]@content").replace(/$/, ""))];
+                                                                                return [4, x.pick(a, (c.d_desc || "meta[name=description]@content").replace(/$/, ""))];
                                                                             case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = f ? "Tình trạng: " + f : "", _h.ongoing = d.ongoing(f), _h.genres = n, _h.host = k, _h)])];
                                                                         }
                                                                     });
@@ -5050,23 +5062,23 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     return __generator(this, function (_k) {
                                                                         switch (_k.label) {
                                                                             case 0:
-                                                                                if (!s.ch_action) return [3, 2];
+                                                                                if (!c.ch_action) return [3, 2];
                                                                                 return [4, x.actionToc(u)];
                                                                             case 1: return [2, _k.sent()];
                                                                             case 2:
-                                                                                if (s.single)
-                                                                                    return [2, o.success([{ name: s.single === !0 ? "Xem / Đọc" : s.single, url: u, host: k }])];
+                                                                                if (c.single)
+                                                                                    return [2, o.success([{ name: c.single === !0 ? "Xem / Đọc" : c.single, url: u, host: k }])];
                                                                                 a = [u], n = [], f = {};
-                                                                                return [4, d.html(s.ch_rewrite ? u.replace(new RegExp(s.ch_rewrite[0]), s.ch_rewrite[1]) : u, s.req)];
+                                                                                return [4, d.html(c.ch_rewrite ? u.replace(new RegExp(c.ch_rewrite[0]), c.ch_rewrite[1]) : u, c.req)];
                                                                             case 3:
                                                                                 l = _k.sent();
-                                                                                if (!s.ch_url) return [3, 7];
-                                                                                return [4, x.pick(l, s.ch_url)];
+                                                                                if (!c.ch_url) return [3, 7];
+                                                                                return [4, x.pick(l, c.ch_url)];
                                                                             case 4:
                                                                                 h = _k.sent();
                                                                                 _b = h;
                                                                                 if (!_b) return [3, 6];
-                                                                                return [4, d.html(d.fix(h), s.req)];
+                                                                                return [4, d.html(d.fix(h), c.req)];
                                                                             case 5:
                                                                                 _b = (l = _k.sent());
                                                                                 _k.label = 6;
@@ -5077,21 +5089,21 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                                 p = 0;
                                                                                 _k.label = 8;
                                                                             case 8:
-                                                                                if (!(p < (s.ch_maxPages || 60))) return [3, 22];
-                                                                                m = l.select(s.ch_list), b = 0;
+                                                                                if (!(p < (c.ch_maxPages || 60))) return [3, 22];
+                                                                                m = l.select(c.ch_list), b = 0;
                                                                                 _k.label = 9;
                                                                             case 9:
                                                                                 if (!(b < m.size())) return [3, 17];
                                                                                 return [4, m.get(b)];
                                                                             case 10:
-                                                                                w = _k.sent(), A = s.ch_attr ? w.attr(s.ch_attr) : w.attr("href") || w.attr("data-href");
+                                                                                w = _k.sent(), A = c.ch_attr ? w.attr(c.ch_attr) : w.attr("href") || w.attr("data-href");
                                                                                 _c = !A || A === "#" || f[A];
                                                                                 if (_c) return [3, 15];
                                                                                 f[A] = 1;
                                                                                 _f = (_d = n).push;
                                                                                 _j = {};
-                                                                                if (!s.ch_name) return [3, 12];
-                                                                                return [4, x.pick(w, s.ch_name)];
+                                                                                if (!c.ch_name) return [3, 12];
+                                                                                return [4, x.pick(w, c.ch_name)];
                                                                             case 11:
                                                                                 _g = _k.sent();
                                                                                 return [3, 14];
@@ -5109,29 +5121,29 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                                 b++;
                                                                                 return [3, 9];
                                                                             case 17:
-                                                                                C = s.ch_next ? l.select(s.ch_next).first() : null;
+                                                                                C = c.ch_next ? l.select(c.ch_next).first() : null;
                                                                                 if (!C || !C.attr("href"))
                                                                                     return [3, 22];
                                                                                 D = d.fix(C.attr("href"));
                                                                                 if (a.indexOf(D) >= 0)
                                                                                     return [3, 22];
                                                                                 a.push(D);
-                                                                                _h = s.ch_delay;
+                                                                                _h = c.ch_delay;
                                                                                 if (!_h) return [3, 19];
-                                                                                return [4, T(s.ch_delay)];
+                                                                                return [4, T(c.ch_delay)];
                                                                             case 18:
                                                                                 _h = (_k.sent());
                                                                                 _k.label = 19;
                                                                             case 19:
                                                                                 _h;
-                                                                                return [4, d.html(D, s.req)];
+                                                                                return [4, d.html(D, c.req)];
                                                                             case 20:
                                                                                 l = _k.sent();
                                                                                 _k.label = 21;
                                                                             case 21:
                                                                                 p++;
                                                                                 return [3, 8];
-                                                                            case 22: return [2, (s.ch_reverse && n.reverse(), !n.length && s.ch_fallback_single && n.push({ name: s.ch_fallback_single === !0 ? "Xem phim" : s.ch_fallback_single, url: u, host: k }), o.success(n))];
+                                                                            case 22: return [2, (c.ch_reverse && n.reverse(), !n.length && c.ch_fallback_single && n.push({ name: c.ch_fallback_single === !0 ? "Xem phim" : c.ch_fallback_single, url: u, host: k }), o.success(n))];
                                                                         }
                                                                     });
                                                                 });
@@ -5142,25 +5154,25 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             a = [], n = [u], f = u, l = 0;
                                                                             _l.label = 1;
                                                                         case 1:
-                                                                            if (!(l < (s.pages_max || 40))) return [3, 17];
-                                                                            if (!s.initmanga) return [3, 5];
+                                                                            if (!(l < (c.pages_max || 40))) return [3, 17];
+                                                                            if (!c.initmanga) return [3, 5];
                                                                             _c = (_b = d).check;
-                                                                            return [4, d.get(f, s.req)];
+                                                                            return [4, d.get(f, c.req)];
                                                                         case 2: return [4, _c.apply(_b, [_l.sent(), f])];
                                                                         case 3:
                                                                             p = _l.sent();
                                                                             return [4, p.text()];
                                                                         case 4:
                                                                             m = (_l.sent()) || "", b = x.initManga(m);
-                                                                            h = c.parse(b ? '<div id="imc-dec">' + b + "</div>" : m, f);
+                                                                            h = s.parse(b ? '<div id="imc-dec">' + b + "</div>" : m, f);
                                                                             return [3, 7];
-                                                                        case 5: return [4, d.html(f, s.req)];
+                                                                        case 5: return [4, d.html(f, c.req)];
                                                                         case 6:
                                                                             h = _l.sent();
                                                                             _l.label = 7;
                                                                         case 7:
-                                                                            w = h.select(s.initmanga ? "#imc-dec img, " + (s.pages || "#chapter-content img") : s.pages || ".page-chapter img, .reading-content img, .chapter-content img");
-                                                                            if (!s.initmanga) return [3, 11];
+                                                                            w = h.select(c.initmanga ? "#imc-dec img, " + (c.pages || "#chapter-content img") : c.pages || ".page-chapter img, .reading-content img, .chapter-content img");
+                                                                            if (!c.initmanga) return [3, 11];
                                                                             A = h.select("#imc-dec canvas[data-enc]"), C = 0;
                                                                             _l.label = 8;
                                                                         case 8:
@@ -5190,9 +5202,9 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             j++;
                                                                             return [3, 12];
                                                                         case 15:
-                                                                            if (!s.pages_next)
+                                                                            if (!c.pages_next)
                                                                                 return [3, 17];
-                                                                            X = h.select(s.pages_next).first();
+                                                                            X = h.select(c.pages_next).first();
                                                                             if (!X)
                                                                                 return [3, 17];
                                                                             B = d.fix(X.attr("href"));
@@ -5211,32 +5223,32 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     switch (_v.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
-                                                                            return [4, d.get(u, s.req)];
+                                                                            return [4, d.get(u, c.req)];
                                                                         case 1: return [4, _c.apply(_b, [_v.sent(), u])];
                                                                         case 2:
                                                                             a = _v.sent();
                                                                             return [4, a.text()];
                                                                         case 3:
                                                                             n = (_v.sent()) || "";
-                                                                            if (!s.content_rsc) return [3, 5];
-                                                                            f = x.rscText(n), l = s.c_locked && new RegExp(s.c_locked, "i").test(n), h = l ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
+                                                                            if (!c.content_rsc) return [3, 5];
+                                                                            f = x.rscText(n), l = c.c_locked && new RegExp(c.c_locked, "i").test(n), h = l ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
                                                                             if (!(f || l)) return [3, 5];
                                                                             _f = (_d = o).success;
                                                                             _g = [x.toParas(f) + h];
-                                                                            return [4, x.pick(c.parse(n, u), s.c_title || "h1 || title")];
+                                                                            return [4, x.pick(s.parse(n, u), c.c_title || "h1 || title")];
                                                                         case 4: return [2, _f.apply(_d, _g.concat([_v.sent()]))];
                                                                         case 5:
-                                                                            if (!s.initmanga) return [3, 8];
+                                                                            if (!c.initmanga) return [3, 8];
                                                                             p = x.initManga(n);
                                                                             if (!p) return [3, 8];
                                                                             _j = (_h = o).success;
-                                                                            return [4, d.cleanContent(c.parse('<div id="imc-dec">' + p + "</div>", u).select("#imc-dec").first())];
+                                                                            return [4, d.cleanContent(s.parse('<div id="imc-dec">' + p + "</div>", u).select("#imc-dec").first())];
                                                                         case 6:
                                                                             _k = [_v.sent()];
-                                                                            return [4, x.pick(c.parse(n, u), s.c_title || "h1 || h2")];
+                                                                            return [4, x.pick(s.parse(n, u), c.c_title || "h1 || h2")];
                                                                         case 7: return [2, _j.apply(_h, _k.concat([_v.sent()]))];
                                                                         case 8:
-                                                                            m = c.parse(n, u), b = m.select(s.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            m = s.parse(n, u), b = m.select(c.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
                                                                             if (!!b) return [3, 10];
                                                                             if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(n.slice(0, 2e4)))
                                                                                 throw new Error("CLOUDFLARE: trang " + k + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
@@ -5249,7 +5261,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             return [4, d.cleanContent(b)];
                                                                         case 11:
                                                                             _s = [_v.sent()];
-                                                                            return [4, x.pick(m, s.c_title || "h1 || h2")];
+                                                                            return [4, x.pick(m, c.c_title || "h1 || h2")];
                                                                         case 12: return [2, _q.apply(_p, _s.concat([_v.sent()]))];
                                                                     }
                                                                 }); });
@@ -5308,9 +5320,9 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var a, n, f, _b, _c, l, h, p, _d, m, _f, b; return __generator(this, function (_g) {
                                                                     switch (_g.label) {
                                                                         case 0:
-                                                                            a = s.ch_action;
+                                                                            a = c.ch_action;
                                                                             _c = (_b = d).check;
-                                                                            return [4, d.get(u, s.req)];
+                                                                            return [4, d.get(u, c.req)];
                                                                         case 1: return [4, _c.apply(_b, [_g.sent(), u])];
                                                                         case 2: return [4, (_g.sent()).text()];
                                                                         case 3:
@@ -5381,18 +5393,18 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var a, n; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            if (!s.servers)
+                                                                            if (!c.servers)
                                                                                 return [2, o.success([{ title: "Server", data: u }])];
-                                                                            return [4, d.html(u, s.req)];
+                                                                            return [4, d.html(u, c.req)];
                                                                         case 1:
                                                                             a = _b.sent();
-                                                                            return [4, J(a.select(s.servers), function (f) {
+                                                                            return [4, J(a.select(c.servers), function (f) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
                                                                                         var l;
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
                                                                                             switch (_c.label) {
-                                                                                                case 0: return [4, x.pick(f, s.server_data || ":self@data-link || :self@data-src || :self@href")];
+                                                                                                case 0: return [4, x.pick(f, c.server_data || ":self@data-link || :self@data-src || :self@href")];
                                                                                                 case 1:
                                                                                                     l = _c.sent();
                                                                                                     _b = {};
@@ -5419,8 +5431,8 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             return [4, n.text()];
                                                                         case 2:
                                                                             f = _b.sent();
-                                                                            if (!(s.video && !a)) return [3, 4];
-                                                                            return [4, x.pick(c.parse(f, u), s.video)];
+                                                                            if (!(c.video && !a)) return [3, 4];
+                                                                            return [4, x.pick(s.parse(f, u), c.video)];
                                                                         case 3:
                                                                             l = _b.sent();
                                                                             if (l)
@@ -5430,7 +5442,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             h = x.sniff(f);
                                                                             if (h)
                                                                                 return [2, o.success({ type: "native", data: h, headers: { Referer: a ? u : k + "/" } })];
-                                                                            p = c.parse(f, u), m = p.select(s.iframe || "iframe[src], iframe[data-src]").first();
+                                                                            p = s.parse(f, u), m = p.select(c.iframe || "iframe[src], iframe[data-src]").first();
                                                                             if (!(m && a < 2)) return [3, 6];
                                                                             b = d.fix(m.attr("src") || m.attr("data-src"));
                                                                             if (!b) return [3, 6];
@@ -5454,7 +5466,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
     }, chap: function (t, e) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
-                return [2, (function (r, i, c, o, g, v, y, S, T, L, q, N, O, M, Q, te, fe) {
+                return [2, (function (r, i, s, o, g, v, y, S, T, L, q, N, O, M, Q, te, fe) {
                         return __awaiter(this, void 0, void 0, function () {
                             var R;
                             return __generator(this, function (_b) {
@@ -5471,14 +5483,14 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                             }
                                                         }); });
                                                     }
-                                                    var k, s, d, x;
+                                                    var k, c, d, x;
                                                     return __generator(this, function (_b) {
                                                         k = "https://medoctruyen.vn";
                                                         try {
                                                             R && (k = String(R).replace(/\/+$/, ""));
                                                         }
                                                         catch (u) { }
-                                                        s = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".flex", title: "a@title || img@alt || a@title || img@alt", link: "a@href", ch_list: "div.rounded-xl > ul a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: "div.whitespace-pre-line" }, d = { img: function (u) { if (!u)
+                                                        c = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".flex", title: "a@title || img@alt || a@title || img@alt", link: "a@href", ch_list: "div.rounded-xl > ul a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: "div.whitespace-pre-line" }, d = { img: function (u) { if (!u)
                                                                 return ""; for (var a = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], n = 0; n < a.length; n++) {
                                                                 var f = u.attr(a[n]);
                                                                 if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
@@ -5646,7 +5658,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     return __generator(this, function (_g) {
                                                                         switch (_g.label) {
                                                                             case 0:
-                                                                                n = function (A) { return a && s[a + A] || s[A]; }, f = u.select(n("item")), l = [], h = {}, p = 0;
+                                                                                n = function (A) { return a && c[a + A] || c[A]; }, f = u.select(n("item")), l = [], h = {}, p = 0;
                                                                                 _g.label = 1;
                                                                             case 1:
                                                                                 if (!(p < f.size())) return [3, 9];
@@ -5685,12 +5697,12 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                             }, listPage: function (u, a, n) {
                                                                 return __awaiter(this, void 0, void 0, function () { var f, l, h; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
-                                                                        case 0: return [4, d.html(x.url(u, a, n), s.req)];
+                                                                        case 0: return [4, d.html(x.url(u, a, n), c.req)];
                                                                         case 1:
                                                                             f = _b.sent();
                                                                             return [4, x.items(f, n ? "s_" : "")];
                                                                         case 2:
-                                                                            l = _b.sent(), h = s.next ? f.select(s.next).size() > 0 : l.length >= (s.pageSize || 10);
+                                                                            l = _b.sent(), h = c.next ? f.select(c.next).size() > 0 : l.length >= (c.pageSize || 10);
                                                                             return [2, o.success(l, d.next(h && l.length > 0, a))];
                                                                     }
                                                                 }); });
@@ -5698,7 +5710,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var n; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            n = s.tabs && s.tabs[u] || u;
+                                                                            n = c.tabs && c.tabs[u] || u;
                                                                             return [4, x.listPage(n, a, "")];
                                                                         case 1: return [2, _b.sent()];
                                                                     }
@@ -5707,13 +5719,13 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var n, f, l, _b; return __generator(this, function (_c) {
                                                                     switch (_c.label) {
                                                                         case 0:
-                                                                            if (!(s.q_cut && !d.isUrl(u) && (u = String(u).split(new RegExp(s.q_cut))[0].trim() || u), d.isUrl(u))) return [3, 2];
+                                                                            if (!(c.q_cut && !d.isUrl(u) && (u = String(u).split(new RegExp(c.q_cut))[0].trim() || u), d.isUrl(u))) return [3, 2];
                                                                             n = d.fix(u);
-                                                                            return [4, x.listPage(n + (n.indexOf("?") > 0 ? "&" : "?") + (s.pageParam || "page") + "={p}", a, "")];
+                                                                            return [4, x.listPage(n + (n.indexOf("?") > 0 ? "&" : "?") + (c.pageParam || "page") + "={p}", a, "")];
                                                                         case 1: return [2, _c.sent()];
                                                                         case 2:
-                                                                            if (!s.search_post) return [3, 5];
-                                                                            return [4, d.html(x.url(s.search_post.url, a, u), { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: String(s.search_post.body).replace(/\{q\}/g, d.enc(u)) })];
+                                                                            if (!c.search_post) return [3, 5];
+                                                                            return [4, d.html(x.url(c.search_post.url, a, u), { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: String(c.search_post.body).replace(/\{q\}/g, d.enc(u)) })];
                                                                         case 3:
                                                                             f = _c.sent();
                                                                             return [4, x.items(f, "s_")];
@@ -5721,12 +5733,12 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             l = _c.sent();
                                                                             return [2, o.success(l, null)];
                                                                         case 5:
-                                                                            if (!s.search_json) return [3, 7];
-                                                                            return [4, x.jsonSearch(s.search_json, u, a)];
+                                                                            if (!c.search_json) return [3, 7];
+                                                                            return [4, x.jsonSearch(c.search_json, u, a)];
                                                                         case 6:
                                                                             _b = _c.sent();
                                                                             return [3, 9];
-                                                                        case 7: return [4, x.listPage(s.search, a, u)];
+                                                                        case 7: return [4, x.listPage(c.search, a, u)];
                                                                         case 8:
                                                                             _b = _c.sent();
                                                                             _c.label = 9;
@@ -5736,7 +5748,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                             }, jsonSearch: function (u, a, n) {
                                                                 return __awaiter(this, void 0, void 0, function () { var f, l, h; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
-                                                                        case 0: return [4, d.json(x.url(u.url, n, a), s.req)];
+                                                                        case 0: return [4, d.json(x.url(u.url, n, a), c.req)];
                                                                         case 1:
                                                                             f = _b.sent();
                                                                             u.list && u.list.split(".").forEach(function (p) { f = f && f[p]; });
@@ -5748,12 +5760,12 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var u, a; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            if (!s.genre)
+                                                                            if (!c.genre)
                                                                                 return [2, o.success([])];
-                                                                            return [4, d.html(d.fix(s.genrePage || "/"))];
+                                                                            return [4, d.html(d.fix(c.genrePage || "/"))];
                                                                         case 1:
                                                                             u = _b.sent();
-                                                                            return [4, J(u.select(s.genre), function (n) {
+                                                                            return [4, J(u.select(c.genre), function (n) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
@@ -5777,11 +5789,11 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     var _h;
                                                                     return __generator(this, function (_j) {
                                                                         switch (_j.label) {
-                                                                            case 0: return [4, d.html(u, s.req)];
+                                                                            case 0: return [4, d.html(u, c.req)];
                                                                             case 1:
                                                                                 a = _j.sent();
-                                                                                if (!s.d_genres) return [3, 3];
-                                                                                return [4, J(a.select(s.d_genres), function (l) {
+                                                                                if (!c.d_genres) return [3, 3];
+                                                                                return [4, J(a.select(c.d_genres), function (l) {
                                                                                         return __awaiter(this, void 0, void 0, function () {
                                                                                             var _b;
                                                                                             return __generator(this, function (_c) {
@@ -5802,22 +5814,22 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                                 _j.label = 4;
                                                                             case 4:
                                                                                 n = _b;
-                                                                                return [4, x.pick(a, s.d_status)];
+                                                                                return [4, x.pick(a, c.d_status)];
                                                                             case 5:
                                                                                 f = _j.sent();
                                                                                 _d = (_c = o).success;
                                                                                 _h = {};
-                                                                                return [4, x.pick(a, s.d_title || "h1")];
+                                                                                return [4, x.pick(a, c.d_title || "h1")];
                                                                             case 6:
                                                                                 _h.name = _j.sent();
                                                                                 _g = (_f = d).fix;
-                                                                                return [4, x.pick(a, s.d_cover || "meta[property=og:image]@content")];
+                                                                                return [4, x.pick(a, c.d_cover || "meta[property=og:image]@content")];
                                                                             case 7:
                                                                                 _h.cover = _g.apply(_f, [_j.sent()]);
-                                                                                return [4, x.pick(a, s.d_author)];
+                                                                                return [4, x.pick(a, c.d_author)];
                                                                             case 8:
                                                                                 _h.author = _j.sent();
-                                                                                return [4, x.pick(a, (s.d_desc || "meta[name=description]@content").replace(/$/, ""))];
+                                                                                return [4, x.pick(a, (c.d_desc || "meta[name=description]@content").replace(/$/, ""))];
                                                                             case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = f ? "Tình trạng: " + f : "", _h.ongoing = d.ongoing(f), _h.genres = n, _h.host = k, _h)])];
                                                                         }
                                                                     });
@@ -5829,23 +5841,23 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     return __generator(this, function (_k) {
                                                                         switch (_k.label) {
                                                                             case 0:
-                                                                                if (!s.ch_action) return [3, 2];
+                                                                                if (!c.ch_action) return [3, 2];
                                                                                 return [4, x.actionToc(u)];
                                                                             case 1: return [2, _k.sent()];
                                                                             case 2:
-                                                                                if (s.single)
-                                                                                    return [2, o.success([{ name: s.single === !0 ? "Xem / Đọc" : s.single, url: u, host: k }])];
+                                                                                if (c.single)
+                                                                                    return [2, o.success([{ name: c.single === !0 ? "Xem / Đọc" : c.single, url: u, host: k }])];
                                                                                 a = [u], n = [], f = {};
-                                                                                return [4, d.html(s.ch_rewrite ? u.replace(new RegExp(s.ch_rewrite[0]), s.ch_rewrite[1]) : u, s.req)];
+                                                                                return [4, d.html(c.ch_rewrite ? u.replace(new RegExp(c.ch_rewrite[0]), c.ch_rewrite[1]) : u, c.req)];
                                                                             case 3:
                                                                                 l = _k.sent();
-                                                                                if (!s.ch_url) return [3, 7];
-                                                                                return [4, x.pick(l, s.ch_url)];
+                                                                                if (!c.ch_url) return [3, 7];
+                                                                                return [4, x.pick(l, c.ch_url)];
                                                                             case 4:
                                                                                 h = _k.sent();
                                                                                 _b = h;
                                                                                 if (!_b) return [3, 6];
-                                                                                return [4, d.html(d.fix(h), s.req)];
+                                                                                return [4, d.html(d.fix(h), c.req)];
                                                                             case 5:
                                                                                 _b = (l = _k.sent());
                                                                                 _k.label = 6;
@@ -5856,21 +5868,21 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                                 p = 0;
                                                                                 _k.label = 8;
                                                                             case 8:
-                                                                                if (!(p < (s.ch_maxPages || 60))) return [3, 22];
-                                                                                m = l.select(s.ch_list), b = 0;
+                                                                                if (!(p < (c.ch_maxPages || 60))) return [3, 22];
+                                                                                m = l.select(c.ch_list), b = 0;
                                                                                 _k.label = 9;
                                                                             case 9:
                                                                                 if (!(b < m.size())) return [3, 17];
                                                                                 return [4, m.get(b)];
                                                                             case 10:
-                                                                                w = _k.sent(), A = s.ch_attr ? w.attr(s.ch_attr) : w.attr("href") || w.attr("data-href");
+                                                                                w = _k.sent(), A = c.ch_attr ? w.attr(c.ch_attr) : w.attr("href") || w.attr("data-href");
                                                                                 _c = !A || A === "#" || f[A];
                                                                                 if (_c) return [3, 15];
                                                                                 f[A] = 1;
                                                                                 _f = (_d = n).push;
                                                                                 _j = {};
-                                                                                if (!s.ch_name) return [3, 12];
-                                                                                return [4, x.pick(w, s.ch_name)];
+                                                                                if (!c.ch_name) return [3, 12];
+                                                                                return [4, x.pick(w, c.ch_name)];
                                                                             case 11:
                                                                                 _g = _k.sent();
                                                                                 return [3, 14];
@@ -5888,29 +5900,29 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                                 b++;
                                                                                 return [3, 9];
                                                                             case 17:
-                                                                                C = s.ch_next ? l.select(s.ch_next).first() : null;
+                                                                                C = c.ch_next ? l.select(c.ch_next).first() : null;
                                                                                 if (!C || !C.attr("href"))
                                                                                     return [3, 22];
                                                                                 D = d.fix(C.attr("href"));
                                                                                 if (a.indexOf(D) >= 0)
                                                                                     return [3, 22];
                                                                                 a.push(D);
-                                                                                _h = s.ch_delay;
+                                                                                _h = c.ch_delay;
                                                                                 if (!_h) return [3, 19];
-                                                                                return [4, T(s.ch_delay)];
+                                                                                return [4, T(c.ch_delay)];
                                                                             case 18:
                                                                                 _h = (_k.sent());
                                                                                 _k.label = 19;
                                                                             case 19:
                                                                                 _h;
-                                                                                return [4, d.html(D, s.req)];
+                                                                                return [4, d.html(D, c.req)];
                                                                             case 20:
                                                                                 l = _k.sent();
                                                                                 _k.label = 21;
                                                                             case 21:
                                                                                 p++;
                                                                                 return [3, 8];
-                                                                            case 22: return [2, (s.ch_reverse && n.reverse(), !n.length && s.ch_fallback_single && n.push({ name: s.ch_fallback_single === !0 ? "Xem phim" : s.ch_fallback_single, url: u, host: k }), o.success(n))];
+                                                                            case 22: return [2, (c.ch_reverse && n.reverse(), !n.length && c.ch_fallback_single && n.push({ name: c.ch_fallback_single === !0 ? "Xem phim" : c.ch_fallback_single, url: u, host: k }), o.success(n))];
                                                                         }
                                                                     });
                                                                 });
@@ -5921,25 +5933,25 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             a = [], n = [u], f = u, l = 0;
                                                                             _l.label = 1;
                                                                         case 1:
-                                                                            if (!(l < (s.pages_max || 40))) return [3, 17];
-                                                                            if (!s.initmanga) return [3, 5];
+                                                                            if (!(l < (c.pages_max || 40))) return [3, 17];
+                                                                            if (!c.initmanga) return [3, 5];
                                                                             _c = (_b = d).check;
-                                                                            return [4, d.get(f, s.req)];
+                                                                            return [4, d.get(f, c.req)];
                                                                         case 2: return [4, _c.apply(_b, [_l.sent(), f])];
                                                                         case 3:
                                                                             p = _l.sent();
                                                                             return [4, p.text()];
                                                                         case 4:
                                                                             m = (_l.sent()) || "", b = x.initManga(m);
-                                                                            h = c.parse(b ? '<div id="imc-dec">' + b + "</div>" : m, f);
+                                                                            h = s.parse(b ? '<div id="imc-dec">' + b + "</div>" : m, f);
                                                                             return [3, 7];
-                                                                        case 5: return [4, d.html(f, s.req)];
+                                                                        case 5: return [4, d.html(f, c.req)];
                                                                         case 6:
                                                                             h = _l.sent();
                                                                             _l.label = 7;
                                                                         case 7:
-                                                                            w = h.select(s.initmanga ? "#imc-dec img, " + (s.pages || "#chapter-content img") : s.pages || ".page-chapter img, .reading-content img, .chapter-content img");
-                                                                            if (!s.initmanga) return [3, 11];
+                                                                            w = h.select(c.initmanga ? "#imc-dec img, " + (c.pages || "#chapter-content img") : c.pages || ".page-chapter img, .reading-content img, .chapter-content img");
+                                                                            if (!c.initmanga) return [3, 11];
                                                                             A = h.select("#imc-dec canvas[data-enc]"), C = 0;
                                                                             _l.label = 8;
                                                                         case 8:
@@ -5969,9 +5981,9 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             j++;
                                                                             return [3, 12];
                                                                         case 15:
-                                                                            if (!s.pages_next)
+                                                                            if (!c.pages_next)
                                                                                 return [3, 17];
-                                                                            X = h.select(s.pages_next).first();
+                                                                            X = h.select(c.pages_next).first();
                                                                             if (!X)
                                                                                 return [3, 17];
                                                                             B = d.fix(X.attr("href"));
@@ -5990,32 +6002,32 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     switch (_v.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
-                                                                            return [4, d.get(u, s.req)];
+                                                                            return [4, d.get(u, c.req)];
                                                                         case 1: return [4, _c.apply(_b, [_v.sent(), u])];
                                                                         case 2:
                                                                             a = _v.sent();
                                                                             return [4, a.text()];
                                                                         case 3:
                                                                             n = (_v.sent()) || "";
-                                                                            if (!s.content_rsc) return [3, 5];
-                                                                            f = x.rscText(n), l = s.c_locked && new RegExp(s.c_locked, "i").test(n), h = l ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
+                                                                            if (!c.content_rsc) return [3, 5];
+                                                                            f = x.rscText(n), l = c.c_locked && new RegExp(c.c_locked, "i").test(n), h = l ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
                                                                             if (!(f || l)) return [3, 5];
                                                                             _f = (_d = o).success;
                                                                             _g = [x.toParas(f) + h];
-                                                                            return [4, x.pick(c.parse(n, u), s.c_title || "h1 || title")];
+                                                                            return [4, x.pick(s.parse(n, u), c.c_title || "h1 || title")];
                                                                         case 4: return [2, _f.apply(_d, _g.concat([_v.sent()]))];
                                                                         case 5:
-                                                                            if (!s.initmanga) return [3, 8];
+                                                                            if (!c.initmanga) return [3, 8];
                                                                             p = x.initManga(n);
                                                                             if (!p) return [3, 8];
                                                                             _j = (_h = o).success;
-                                                                            return [4, d.cleanContent(c.parse('<div id="imc-dec">' + p + "</div>", u).select("#imc-dec").first())];
+                                                                            return [4, d.cleanContent(s.parse('<div id="imc-dec">' + p + "</div>", u).select("#imc-dec").first())];
                                                                         case 6:
                                                                             _k = [_v.sent()];
-                                                                            return [4, x.pick(c.parse(n, u), s.c_title || "h1 || h2")];
+                                                                            return [4, x.pick(s.parse(n, u), c.c_title || "h1 || h2")];
                                                                         case 7: return [2, _j.apply(_h, _k.concat([_v.sent()]))];
                                                                         case 8:
-                                                                            m = c.parse(n, u), b = m.select(s.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            m = s.parse(n, u), b = m.select(c.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
                                                                             if (!!b) return [3, 10];
                                                                             if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(n.slice(0, 2e4)))
                                                                                 throw new Error("CLOUDFLARE: trang " + k + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
@@ -6028,7 +6040,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             return [4, d.cleanContent(b)];
                                                                         case 11:
                                                                             _s = [_v.sent()];
-                                                                            return [4, x.pick(m, s.c_title || "h1 || h2")];
+                                                                            return [4, x.pick(m, c.c_title || "h1 || h2")];
                                                                         case 12: return [2, _q.apply(_p, _s.concat([_v.sent()]))];
                                                                     }
                                                                 }); });
@@ -6087,9 +6099,9 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var a, n, f, _b, _c, l, h, p, _d, m, _f, b; return __generator(this, function (_g) {
                                                                     switch (_g.label) {
                                                                         case 0:
-                                                                            a = s.ch_action;
+                                                                            a = c.ch_action;
                                                                             _c = (_b = d).check;
-                                                                            return [4, d.get(u, s.req)];
+                                                                            return [4, d.get(u, c.req)];
                                                                         case 1: return [4, _c.apply(_b, [_g.sent(), u])];
                                                                         case 2: return [4, (_g.sent()).text()];
                                                                         case 3:
@@ -6160,18 +6172,18 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var a, n; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            if (!s.servers)
+                                                                            if (!c.servers)
                                                                                 return [2, o.success([{ title: "Server", data: u }])];
-                                                                            return [4, d.html(u, s.req)];
+                                                                            return [4, d.html(u, c.req)];
                                                                         case 1:
                                                                             a = _b.sent();
-                                                                            return [4, J(a.select(s.servers), function (f) {
+                                                                            return [4, J(a.select(c.servers), function (f) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
                                                                                         var l;
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
                                                                                             switch (_c.label) {
-                                                                                                case 0: return [4, x.pick(f, s.server_data || ":self@data-link || :self@data-src || :self@href")];
+                                                                                                case 0: return [4, x.pick(f, c.server_data || ":self@data-link || :self@data-src || :self@href")];
                                                                                                 case 1:
                                                                                                     l = _c.sent();
                                                                                                     _b = {};
@@ -6198,8 +6210,8 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             return [4, n.text()];
                                                                         case 2:
                                                                             f = _b.sent();
-                                                                            if (!(s.video && !a)) return [3, 4];
-                                                                            return [4, x.pick(c.parse(f, u), s.video)];
+                                                                            if (!(c.video && !a)) return [3, 4];
+                                                                            return [4, x.pick(s.parse(f, u), c.video)];
                                                                         case 3:
                                                                             l = _b.sent();
                                                                             if (l)
@@ -6209,7 +6221,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             h = x.sniff(f);
                                                                             if (h)
                                                                                 return [2, o.success({ type: "native", data: h, headers: { Referer: a ? u : k + "/" } })];
-                                                                            p = c.parse(f, u), m = p.select(s.iframe || "iframe[src], iframe[data-src]").first();
+                                                                            p = s.parse(f, u), m = p.select(c.iframe || "iframe[src], iframe[data-src]").first();
                                                                             if (!(m && a < 2)) return [3, 6];
                                                                             b = d.fix(m.attr("src") || m.attr("data-src"));
                                                                             if (!b) return [3, 6];
@@ -6233,7 +6245,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
     }, browse: function (t, e) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_b) {
-                return [2, (function (r, i, c, o, g, v, y, S, T, L, q, N, O, M, Q, te, fe) {
+                return [2, (function (r, i, s, o, g, v, y, S, T, L, q, N, O, M, Q, te, fe) {
                         return __awaiter(this, void 0, void 0, function () {
                             var R;
                             return __generator(this, function (_b) {
@@ -6250,14 +6262,14 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                             }
                                                         }); });
                                                     }
-                                                    var k, s, d, x;
+                                                    var k, c, d, x;
                                                     return __generator(this, function (_b) {
                                                         k = "https://medoctruyen.vn";
                                                         try {
                                                             R && (k = String(R).replace(/\/+$/, ""));
                                                         }
                                                         catch (u) { }
-                                                        s = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".flex", title: "a@title || img@alt || a@title || img@alt", link: "a@href", ch_list: "div.rounded-xl > ul a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: "div.whitespace-pre-line" }, d = { img: function (u) { if (!u)
+                                                        c = { tabs: { "Mới cập nhật": "/[?page={p}]" }, search: "/tim-kiem?keyword={q}[&page={p}]", item: ".flex", title: "a@title || img@alt || a@title || img@alt", link: "a@href", ch_list: "div.rounded-xl > ul a", d_title: "h1 || meta[property=og:title]@content", d_cover: "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img", d_desc: "meta[name=description]@content", content: "div.whitespace-pre-line" }, d = { img: function (u) { if (!u)
                                                                 return ""; for (var a = ["data-src", "data-lazy-src", "data-original", "data-lazyload", "data-cfsrc", "data-url", "src"], n = 0; n < a.length; n++) {
                                                                 var f = u.attr(a[n]);
                                                                 if (f && f.indexOf("data:image") !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(f))
@@ -6425,7 +6437,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     return __generator(this, function (_g) {
                                                                         switch (_g.label) {
                                                                             case 0:
-                                                                                n = function (A) { return a && s[a + A] || s[A]; }, f = u.select(n("item")), l = [], h = {}, p = 0;
+                                                                                n = function (A) { return a && c[a + A] || c[A]; }, f = u.select(n("item")), l = [], h = {}, p = 0;
                                                                                 _g.label = 1;
                                                                             case 1:
                                                                                 if (!(p < f.size())) return [3, 9];
@@ -6464,12 +6476,12 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                             }, listPage: function (u, a, n) {
                                                                 return __awaiter(this, void 0, void 0, function () { var f, l, h; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
-                                                                        case 0: return [4, d.html(x.url(u, a, n), s.req)];
+                                                                        case 0: return [4, d.html(x.url(u, a, n), c.req)];
                                                                         case 1:
                                                                             f = _b.sent();
                                                                             return [4, x.items(f, n ? "s_" : "")];
                                                                         case 2:
-                                                                            l = _b.sent(), h = s.next ? f.select(s.next).size() > 0 : l.length >= (s.pageSize || 10);
+                                                                            l = _b.sent(), h = c.next ? f.select(c.next).size() > 0 : l.length >= (c.pageSize || 10);
                                                                             return [2, o.success(l, d.next(h && l.length > 0, a))];
                                                                     }
                                                                 }); });
@@ -6477,7 +6489,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var n; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            n = s.tabs && s.tabs[u] || u;
+                                                                            n = c.tabs && c.tabs[u] || u;
                                                                             return [4, x.listPage(n, a, "")];
                                                                         case 1: return [2, _b.sent()];
                                                                     }
@@ -6486,13 +6498,13 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var n, f, l, _b; return __generator(this, function (_c) {
                                                                     switch (_c.label) {
                                                                         case 0:
-                                                                            if (!(s.q_cut && !d.isUrl(u) && (u = String(u).split(new RegExp(s.q_cut))[0].trim() || u), d.isUrl(u))) return [3, 2];
+                                                                            if (!(c.q_cut && !d.isUrl(u) && (u = String(u).split(new RegExp(c.q_cut))[0].trim() || u), d.isUrl(u))) return [3, 2];
                                                                             n = d.fix(u);
-                                                                            return [4, x.listPage(n + (n.indexOf("?") > 0 ? "&" : "?") + (s.pageParam || "page") + "={p}", a, "")];
+                                                                            return [4, x.listPage(n + (n.indexOf("?") > 0 ? "&" : "?") + (c.pageParam || "page") + "={p}", a, "")];
                                                                         case 1: return [2, _c.sent()];
                                                                         case 2:
-                                                                            if (!s.search_post) return [3, 5];
-                                                                            return [4, d.html(x.url(s.search_post.url, a, u), { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: String(s.search_post.body).replace(/\{q\}/g, d.enc(u)) })];
+                                                                            if (!c.search_post) return [3, 5];
+                                                                            return [4, d.html(x.url(c.search_post.url, a, u), { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: String(c.search_post.body).replace(/\{q\}/g, d.enc(u)) })];
                                                                         case 3:
                                                                             f = _c.sent();
                                                                             return [4, x.items(f, "s_")];
@@ -6500,12 +6512,12 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             l = _c.sent();
                                                                             return [2, o.success(l, null)];
                                                                         case 5:
-                                                                            if (!s.search_json) return [3, 7];
-                                                                            return [4, x.jsonSearch(s.search_json, u, a)];
+                                                                            if (!c.search_json) return [3, 7];
+                                                                            return [4, x.jsonSearch(c.search_json, u, a)];
                                                                         case 6:
                                                                             _b = _c.sent();
                                                                             return [3, 9];
-                                                                        case 7: return [4, x.listPage(s.search, a, u)];
+                                                                        case 7: return [4, x.listPage(c.search, a, u)];
                                                                         case 8:
                                                                             _b = _c.sent();
                                                                             _c.label = 9;
@@ -6515,7 +6527,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                             }, jsonSearch: function (u, a, n) {
                                                                 return __awaiter(this, void 0, void 0, function () { var f, l, h; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
-                                                                        case 0: return [4, d.json(x.url(u.url, n, a), s.req)];
+                                                                        case 0: return [4, d.json(x.url(u.url, n, a), c.req)];
                                                                         case 1:
                                                                             f = _b.sent();
                                                                             u.list && u.list.split(".").forEach(function (p) { f = f && f[p]; });
@@ -6527,12 +6539,12 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var u, a; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            if (!s.genre)
+                                                                            if (!c.genre)
                                                                                 return [2, o.success([])];
-                                                                            return [4, d.html(d.fix(s.genrePage || "/"))];
+                                                                            return [4, d.html(d.fix(c.genrePage || "/"))];
                                                                         case 1:
                                                                             u = _b.sent();
-                                                                            return [4, J(u.select(s.genre), function (n) {
+                                                                            return [4, J(u.select(c.genre), function (n) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
@@ -6556,11 +6568,11 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     var _h;
                                                                     return __generator(this, function (_j) {
                                                                         switch (_j.label) {
-                                                                            case 0: return [4, d.html(u, s.req)];
+                                                                            case 0: return [4, d.html(u, c.req)];
                                                                             case 1:
                                                                                 a = _j.sent();
-                                                                                if (!s.d_genres) return [3, 3];
-                                                                                return [4, J(a.select(s.d_genres), function (l) {
+                                                                                if (!c.d_genres) return [3, 3];
+                                                                                return [4, J(a.select(c.d_genres), function (l) {
                                                                                         return __awaiter(this, void 0, void 0, function () {
                                                                                             var _b;
                                                                                             return __generator(this, function (_c) {
@@ -6581,22 +6593,22 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                                 _j.label = 4;
                                                                             case 4:
                                                                                 n = _b;
-                                                                                return [4, x.pick(a, s.d_status)];
+                                                                                return [4, x.pick(a, c.d_status)];
                                                                             case 5:
                                                                                 f = _j.sent();
                                                                                 _d = (_c = o).success;
                                                                                 _h = {};
-                                                                                return [4, x.pick(a, s.d_title || "h1")];
+                                                                                return [4, x.pick(a, c.d_title || "h1")];
                                                                             case 6:
                                                                                 _h.name = _j.sent();
                                                                                 _g = (_f = d).fix;
-                                                                                return [4, x.pick(a, s.d_cover || "meta[property=og:image]@content")];
+                                                                                return [4, x.pick(a, c.d_cover || "meta[property=og:image]@content")];
                                                                             case 7:
                                                                                 _h.cover = _g.apply(_f, [_j.sent()]);
-                                                                                return [4, x.pick(a, s.d_author)];
+                                                                                return [4, x.pick(a, c.d_author)];
                                                                             case 8:
                                                                                 _h.author = _j.sent();
-                                                                                return [4, x.pick(a, (s.d_desc || "meta[name=description]@content").replace(/$/, ""))];
+                                                                                return [4, x.pick(a, (c.d_desc || "meta[name=description]@content").replace(/$/, ""))];
                                                                             case 9: return [2, _d.apply(_c, [(_h.description = _j.sent(), _h.detail = f ? "Tình trạng: " + f : "", _h.ongoing = d.ongoing(f), _h.genres = n, _h.host = k, _h)])];
                                                                         }
                                                                     });
@@ -6608,23 +6620,23 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     return __generator(this, function (_k) {
                                                                         switch (_k.label) {
                                                                             case 0:
-                                                                                if (!s.ch_action) return [3, 2];
+                                                                                if (!c.ch_action) return [3, 2];
                                                                                 return [4, x.actionToc(u)];
                                                                             case 1: return [2, _k.sent()];
                                                                             case 2:
-                                                                                if (s.single)
-                                                                                    return [2, o.success([{ name: s.single === !0 ? "Xem / Đọc" : s.single, url: u, host: k }])];
+                                                                                if (c.single)
+                                                                                    return [2, o.success([{ name: c.single === !0 ? "Xem / Đọc" : c.single, url: u, host: k }])];
                                                                                 a = [u], n = [], f = {};
-                                                                                return [4, d.html(s.ch_rewrite ? u.replace(new RegExp(s.ch_rewrite[0]), s.ch_rewrite[1]) : u, s.req)];
+                                                                                return [4, d.html(c.ch_rewrite ? u.replace(new RegExp(c.ch_rewrite[0]), c.ch_rewrite[1]) : u, c.req)];
                                                                             case 3:
                                                                                 l = _k.sent();
-                                                                                if (!s.ch_url) return [3, 7];
-                                                                                return [4, x.pick(l, s.ch_url)];
+                                                                                if (!c.ch_url) return [3, 7];
+                                                                                return [4, x.pick(l, c.ch_url)];
                                                                             case 4:
                                                                                 h = _k.sent();
                                                                                 _b = h;
                                                                                 if (!_b) return [3, 6];
-                                                                                return [4, d.html(d.fix(h), s.req)];
+                                                                                return [4, d.html(d.fix(h), c.req)];
                                                                             case 5:
                                                                                 _b = (l = _k.sent());
                                                                                 _k.label = 6;
@@ -6635,21 +6647,21 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                                 p = 0;
                                                                                 _k.label = 8;
                                                                             case 8:
-                                                                                if (!(p < (s.ch_maxPages || 60))) return [3, 22];
-                                                                                m = l.select(s.ch_list), b = 0;
+                                                                                if (!(p < (c.ch_maxPages || 60))) return [3, 22];
+                                                                                m = l.select(c.ch_list), b = 0;
                                                                                 _k.label = 9;
                                                                             case 9:
                                                                                 if (!(b < m.size())) return [3, 17];
                                                                                 return [4, m.get(b)];
                                                                             case 10:
-                                                                                w = _k.sent(), A = s.ch_attr ? w.attr(s.ch_attr) : w.attr("href") || w.attr("data-href");
+                                                                                w = _k.sent(), A = c.ch_attr ? w.attr(c.ch_attr) : w.attr("href") || w.attr("data-href");
                                                                                 _c = !A || A === "#" || f[A];
                                                                                 if (_c) return [3, 15];
                                                                                 f[A] = 1;
                                                                                 _f = (_d = n).push;
                                                                                 _j = {};
-                                                                                if (!s.ch_name) return [3, 12];
-                                                                                return [4, x.pick(w, s.ch_name)];
+                                                                                if (!c.ch_name) return [3, 12];
+                                                                                return [4, x.pick(w, c.ch_name)];
                                                                             case 11:
                                                                                 _g = _k.sent();
                                                                                 return [3, 14];
@@ -6667,29 +6679,29 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                                 b++;
                                                                                 return [3, 9];
                                                                             case 17:
-                                                                                C = s.ch_next ? l.select(s.ch_next).first() : null;
+                                                                                C = c.ch_next ? l.select(c.ch_next).first() : null;
                                                                                 if (!C || !C.attr("href"))
                                                                                     return [3, 22];
                                                                                 D = d.fix(C.attr("href"));
                                                                                 if (a.indexOf(D) >= 0)
                                                                                     return [3, 22];
                                                                                 a.push(D);
-                                                                                _h = s.ch_delay;
+                                                                                _h = c.ch_delay;
                                                                                 if (!_h) return [3, 19];
-                                                                                return [4, T(s.ch_delay)];
+                                                                                return [4, T(c.ch_delay)];
                                                                             case 18:
                                                                                 _h = (_k.sent());
                                                                                 _k.label = 19;
                                                                             case 19:
                                                                                 _h;
-                                                                                return [4, d.html(D, s.req)];
+                                                                                return [4, d.html(D, c.req)];
                                                                             case 20:
                                                                                 l = _k.sent();
                                                                                 _k.label = 21;
                                                                             case 21:
                                                                                 p++;
                                                                                 return [3, 8];
-                                                                            case 22: return [2, (s.ch_reverse && n.reverse(), !n.length && s.ch_fallback_single && n.push({ name: s.ch_fallback_single === !0 ? "Xem phim" : s.ch_fallback_single, url: u, host: k }), o.success(n))];
+                                                                            case 22: return [2, (c.ch_reverse && n.reverse(), !n.length && c.ch_fallback_single && n.push({ name: c.ch_fallback_single === !0 ? "Xem phim" : c.ch_fallback_single, url: u, host: k }), o.success(n))];
                                                                         }
                                                                     });
                                                                 });
@@ -6700,25 +6712,25 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             a = [], n = [u], f = u, l = 0;
                                                                             _l.label = 1;
                                                                         case 1:
-                                                                            if (!(l < (s.pages_max || 40))) return [3, 17];
-                                                                            if (!s.initmanga) return [3, 5];
+                                                                            if (!(l < (c.pages_max || 40))) return [3, 17];
+                                                                            if (!c.initmanga) return [3, 5];
                                                                             _c = (_b = d).check;
-                                                                            return [4, d.get(f, s.req)];
+                                                                            return [4, d.get(f, c.req)];
                                                                         case 2: return [4, _c.apply(_b, [_l.sent(), f])];
                                                                         case 3:
                                                                             p = _l.sent();
                                                                             return [4, p.text()];
                                                                         case 4:
                                                                             m = (_l.sent()) || "", b = x.initManga(m);
-                                                                            h = c.parse(b ? '<div id="imc-dec">' + b + "</div>" : m, f);
+                                                                            h = s.parse(b ? '<div id="imc-dec">' + b + "</div>" : m, f);
                                                                             return [3, 7];
-                                                                        case 5: return [4, d.html(f, s.req)];
+                                                                        case 5: return [4, d.html(f, c.req)];
                                                                         case 6:
                                                                             h = _l.sent();
                                                                             _l.label = 7;
                                                                         case 7:
-                                                                            w = h.select(s.initmanga ? "#imc-dec img, " + (s.pages || "#chapter-content img") : s.pages || ".page-chapter img, .reading-content img, .chapter-content img");
-                                                                            if (!s.initmanga) return [3, 11];
+                                                                            w = h.select(c.initmanga ? "#imc-dec img, " + (c.pages || "#chapter-content img") : c.pages || ".page-chapter img, .reading-content img, .chapter-content img");
+                                                                            if (!c.initmanga) return [3, 11];
                                                                             A = h.select("#imc-dec canvas[data-enc]"), C = 0;
                                                                             _l.label = 8;
                                                                         case 8:
@@ -6748,9 +6760,9 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             j++;
                                                                             return [3, 12];
                                                                         case 15:
-                                                                            if (!s.pages_next)
+                                                                            if (!c.pages_next)
                                                                                 return [3, 17];
-                                                                            X = h.select(s.pages_next).first();
+                                                                            X = h.select(c.pages_next).first();
                                                                             if (!X)
                                                                                 return [3, 17];
                                                                             B = d.fix(X.attr("href"));
@@ -6769,32 +6781,32 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                     switch (_v.label) {
                                                                         case 0:
                                                                             _c = (_b = d).check;
-                                                                            return [4, d.get(u, s.req)];
+                                                                            return [4, d.get(u, c.req)];
                                                                         case 1: return [4, _c.apply(_b, [_v.sent(), u])];
                                                                         case 2:
                                                                             a = _v.sent();
                                                                             return [4, a.text()];
                                                                         case 3:
                                                                             n = (_v.sent()) || "";
-                                                                            if (!s.content_rsc) return [3, 5];
-                                                                            f = x.rscText(n), l = s.c_locked && new RegExp(s.c_locked, "i").test(n), h = l ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
+                                                                            if (!c.content_rsc) return [3, 5];
+                                                                            f = x.rscText(n), l = c.c_locked && new RegExp(c.c_locked, "i").test(n), h = l ? "<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại " + k + " để đọc tiếp.</i></p>" : "";
                                                                             if (!(f || l)) return [3, 5];
                                                                             _f = (_d = o).success;
                                                                             _g = [x.toParas(f) + h];
-                                                                            return [4, x.pick(c.parse(n, u), s.c_title || "h1 || title")];
+                                                                            return [4, x.pick(s.parse(n, u), c.c_title || "h1 || title")];
                                                                         case 4: return [2, _f.apply(_d, _g.concat([_v.sent()]))];
                                                                         case 5:
-                                                                            if (!s.initmanga) return [3, 8];
+                                                                            if (!c.initmanga) return [3, 8];
                                                                             p = x.initManga(n);
                                                                             if (!p) return [3, 8];
                                                                             _j = (_h = o).success;
-                                                                            return [4, d.cleanContent(c.parse('<div id="imc-dec">' + p + "</div>", u).select("#imc-dec").first())];
+                                                                            return [4, d.cleanContent(s.parse('<div id="imc-dec">' + p + "</div>", u).select("#imc-dec").first())];
                                                                         case 6:
                                                                             _k = [_v.sent()];
-                                                                            return [4, x.pick(c.parse(n, u), s.c_title || "h1 || h2")];
+                                                                            return [4, x.pick(s.parse(n, u), c.c_title || "h1 || h2")];
                                                                         case 7: return [2, _j.apply(_h, _k.concat([_v.sent()]))];
                                                                         case 8:
-                                                                            m = c.parse(n, u), b = m.select(s.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
+                                                                            m = s.parse(n, u), b = m.select(c.content || "#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content").first();
                                                                             if (!!b) return [3, 10];
                                                                             if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(n.slice(0, 2e4)))
                                                                                 throw new Error("CLOUDFLARE: trang " + k + " yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.");
@@ -6807,7 +6819,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             return [4, d.cleanContent(b)];
                                                                         case 11:
                                                                             _s = [_v.sent()];
-                                                                            return [4, x.pick(m, s.c_title || "h1 || h2")];
+                                                                            return [4, x.pick(m, c.c_title || "h1 || h2")];
                                                                         case 12: return [2, _q.apply(_p, _s.concat([_v.sent()]))];
                                                                     }
                                                                 }); });
@@ -6866,9 +6878,9 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var a, n, f, _b, _c, l, h, p, _d, m, _f, b; return __generator(this, function (_g) {
                                                                     switch (_g.label) {
                                                                         case 0:
-                                                                            a = s.ch_action;
+                                                                            a = c.ch_action;
                                                                             _c = (_b = d).check;
-                                                                            return [4, d.get(u, s.req)];
+                                                                            return [4, d.get(u, c.req)];
                                                                         case 1: return [4, _c.apply(_b, [_g.sent(), u])];
                                                                         case 2: return [4, (_g.sent()).text()];
                                                                         case 3:
@@ -6939,18 +6951,18 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                 return __awaiter(this, void 0, void 0, function () { var a, n; return __generator(this, function (_b) {
                                                                     switch (_b.label) {
                                                                         case 0:
-                                                                            if (!s.servers)
+                                                                            if (!c.servers)
                                                                                 return [2, o.success([{ title: "Server", data: u }])];
-                                                                            return [4, d.html(u, s.req)];
+                                                                            return [4, d.html(u, c.req)];
                                                                         case 1:
                                                                             a = _b.sent();
-                                                                            return [4, J(a.select(s.servers), function (f) {
+                                                                            return [4, J(a.select(c.servers), function (f) {
                                                                                     return __awaiter(this, void 0, void 0, function () {
                                                                                         var l;
                                                                                         var _b;
                                                                                         return __generator(this, function (_c) {
                                                                                             switch (_c.label) {
-                                                                                                case 0: return [4, x.pick(f, s.server_data || ":self@data-link || :self@data-src || :self@href")];
+                                                                                                case 0: return [4, x.pick(f, c.server_data || ":self@data-link || :self@data-src || :self@href")];
                                                                                                 case 1:
                                                                                                     l = _c.sent();
                                                                                                     _b = {};
@@ -6977,8 +6989,8 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             return [4, n.text()];
                                                                         case 2:
                                                                             f = _b.sent();
-                                                                            if (!(s.video && !a)) return [3, 4];
-                                                                            return [4, x.pick(c.parse(f, u), s.video)];
+                                                                            if (!(c.video && !a)) return [3, 4];
+                                                                            return [4, x.pick(s.parse(f, u), c.video)];
                                                                         case 3:
                                                                             l = _b.sent();
                                                                             if (l)
@@ -6988,7 +7000,7 @@ var pe = { id: "medoctruyen", name: "Mê Đọc Truyện", source: "https://medo
                                                                             h = x.sniff(f);
                                                                             if (h)
                                                                                 return [2, o.success({ type: "native", data: h, headers: { Referer: a ? u : k + "/" } })];
-                                                                            p = c.parse(f, u), m = p.select(s.iframe || "iframe[src], iframe[data-src]").first();
+                                                                            p = s.parse(f, u), m = p.select(c.iframe || "iframe[src], iframe[data-src]").first();
                                                                             if (!(m && a < 2)) return [3, 6];
                                                                             b = d.fix(m.attr("src") || m.attr("data-src"));
                                                                             if (!b) return [3, 6];
@@ -7022,7 +7034,7 @@ var Du = {}, Lt = tt && tt.storage ? tt.storage : { get: function (t) { return D
     function class_2() {
         var _this = this;
         this.id = pe.lnId, this.name = pe.name, this.icon = pe.lnIcon, this.site = pe.source, this.version = pe.lnVersion, this.filters = void 0, this.webStorageUtilized = !1, this.engine = Rr({ name: "LNReader", request: function (e) { return __awaiter(_this, void 0, void 0, function () {
-                var r, i, c;
+                var r, i, s;
                 var _b;
                 return __generator(this, function (_c) {
                     switch (_c.label) {
@@ -7031,12 +7043,12 @@ var Du = {}, Lt = tt && tt.storage ? tt.storage : { get: function (t) { return D
                             e.body != null && e.method !== "GET" && (r.body = e.body);
                             return [4, Si(e.url, r)];
                         case 1:
-                            i = _c.sent(), c = {};
+                            i = _c.sent(), s = {};
                             try {
-                                i.headers.forEach(function (o, g) { c[g] = o; });
+                                i.headers.forEach(function (o, g) { s[g] = o; });
                             }
                             catch (o) { }
-                            _b = { status: i.status, url: i.url || e.url, headers: c };
+                            _b = { status: i.status, url: i.url || e.url, headers: s };
                             return [4, i.text()];
                         case 2: return [2, (_b.text = _c.sent(), _b)];
                     }
@@ -7056,7 +7068,7 @@ var Du = {}, Lt = tt && tt.storage ? tt.storage : { get: function (t) { return D
                 case 3:
                     _b = _c.sent();
                     _c.label = 4;
-                case 4: return [2, (_b).items.map(function (c) { return ({ name: c.name, path: c.link, cover: c.cover }); })];
+                case 4: return [2, (_b).items.map(function (s) { return ({ name: s.name, path: s.link, cover: s.cover }); })];
             }
         }); });
     };
@@ -7064,7 +7076,7 @@ var Du = {}, Lt = tt && tt.storage ? tt.storage : { get: function (t) { return D
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0: return [4, this.engine.search(e, r)];
-                case 1: return [2, (_b.sent()).items.map(function (c) { return ({ name: c.name, path: c.link, cover: c.cover }); })];
+                case 1: return [2, (_b.sent()).items.map(function (s) { return ({ name: s.name, path: s.link, cover: s.cover }); })];
             }
         }); });
     };
@@ -7077,7 +7089,7 @@ var Du = {}, Lt = tt && tt.storage ? tt.storage : { get: function (t) { return D
                     return [4, this.engine.chapters(e)];
                 case 2:
                     i = _b.sent();
-                    return [2, { path: e, name: r.name || "Untitled", cover: r.cover, summary: r.description, author: r.author, status: r.ongoing ? "Ongoing" : "Completed", genres: r.genres.join(","), chapters: i.map(function (c, o) { return ({ name: c.name, path: c.url, chapterNumber: o + 1 }); }) }];
+                    return [2, { path: e, name: r.name || "Untitled", cover: r.cover, summary: r.description, author: r.author, status: r.ongoing ? "Ongoing" : "Completed", genres: r.genres.join(","), chapters: i.map(function (s, o) { return ({ name: s.name, path: s.url, chapterNumber: o + 1 }); }) }];
             }
         }); });
     };

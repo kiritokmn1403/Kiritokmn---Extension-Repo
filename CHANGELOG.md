@@ -1,3 +1,29 @@
+# Kiritokmn Extension Repo — v0.0.2 (08/11/2026)
+
+## Tính năng mới & Cải tiến trong bản 0.0.2
+- **Tích hợp "Resume A Video" cho toàn bộ 44 nguồn Phim & Video**:
+  - Ghi nhớ tiến trình và thời gian xem phim (`resumeStorage` thông qua `localStorage` / `SharedPreferences`).
+  - Tự động gắn mốc phát Media Fragment (`#t=` hoặc `&t=`) trực tiếp vào URL luồng phát (HLS / MP4), giúp ExoPlayer (Aniyomi / Nekoyomi) và trình phát Mangayomi / YomiHub tự động tiếp tục phát từ chính xác giây người dùng thoát ra trước đó.
+  - Hiển thị nhãn trực quan `[Tiếp tục mm:ss]` trên danh sách server/chất lượng video.
+  - Bổ sung tùy chọn `RESUME_VIDEO` (Bật/Tắt tiếp tục phát từ vị trí đã thoát) trong cài đặt nguồn tiện ích.
+- **Hỗ trợ tính năng "Short Video" chuẩn YomiHub**:
+  - Cấu hình 11 nguồn video ngắn dọc 9:16 (YouTube Shorts, TikTok, Douyin, FreeReels, Tik.Porn, FikFap, Kwiky, xFree, FapReel, SexVietTop, PornHub shorties).
+  - Bổ sung trường `shorts: true` và `hasShorts: true` vào metadata tiện ích và `repo/index.json`.
+  - Bổ sung bộ lọc `SelectFilter` (Chế độ Shorts / Mặc định) trong `getFilterList()` để YomiHub nhận diện và kích hoạt chế độ cuộn dọc 9:16.
+- **Nâng cấp phiên bản toàn hệ thống**:
+  - `package.json` lên `0.0.2`.
+  - Bộ 4 APK Aniyomi/Nekoyomi lên `versionCode = 2`, `versionName = 14.2` (anime) và `1.4.2` (manga).
+  - Tiện ích Mangayomi/YomiHub lên `0.4.x`, LNReader/IReader lên `1.3.x`.
+- **Tối ưu hóa hiệu năng & Dung lượng**:
+  - Tinh gọn mã nguồn trung gian, loại trừ thư viện mã hóa `crypto-js` dư thừa đối với các nguồn không cần thiết.
+  - Đóng gói toàn bộ các file cài đặt vào thư mục `Output/` và cập nhật danh sách link tải Releases trên `README.md`.
+- **Kiểm thử thiết bị thực tế**:
+  - Cài đặt và kiểm thử trực tiếp trên điện thoại Samsung Galaxy Note9 (SM-N960N).
+  - Kiểm thử giao diện và tương thích trên các ứng dụng: Aniyomi, Nekoyomi, Mangayomi, YomiHub, LNReader, vBook, LeechText.
+  - Chụp ảnh màn hình và quay video toàn bộ quá trình kiểm thử lưu tại `_work/shots/`.
+
+---
+
 # Kiritokmn Extension Repo — v0.0.1 (04/11/2026)
 
 Bản đầu tiên: dựng lại toàn bộ repo (trước đó chỉ có README/LICENSE).

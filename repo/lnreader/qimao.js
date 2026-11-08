@@ -2301,7 +2301,16 @@ function pi(t, e) { var u = function (s) { return ({ getItem: function (n) { var
             case 4: return [2, new Vu(h, x)];
         }
     }); });
-}, i.Http = { get: function (s) { return hi(i, "GET", s); }, post: function (s) { return hi(i, "POST", s); } }, i.Html = { parse: function (s, n) { return at(s, n || ""); }, clean: function (s, n) { return di(s, n); } }, i.localStorage = u("ls:"), i.cacheStorage = u("cs:"), i.localConfig = { getItem: function (s) { return t.config(s); } }, i.localCookie = { setCookie: function (s) { t.storageSet(r, String(s).split(";")[0]); }, getCookie: function () { return t.storageGet(r) || ""; } }, i.sleep = function (s) { return new Promise(function (n) { return typeof setTimeout == "function" ? setTimeout(n, Math.min(Number(s) || 0, 1e4)) : n(); }); }; var a = function () {
+}, i.Http = { get: function (s) { return hi(i, "GET", s); }, post: function (s) { return hi(i, "POST", s); } }, i.Html = { parse: function (s, n) { return at(s, n || ""); }, clean: function (s, n) { return di(s, n); } }, i.localStorage = u("ls:"), i.cacheStorage = u("cs:"), i.resumeStorage = { get: function (s) { try {
+        var n = t.storageGet("resume:" + s);
+        return n && parseFloat(n) || 0;
+    }
+    catch (c) {
+        return 0;
+    } }, set: function (s, n) { try {
+        t.storageSet("resume:" + s, String(Math.max(0, n || 0)));
+    }
+    catch (c) { } } }, i.localConfig = { getItem: function (s) { return t.config(s); } }, i.localCookie = { setCookie: function (s) { t.storageSet(r, String(s).split(";")[0]); }, getCookie: function () { return t.storageGet(r) || ""; } }, i.sleep = function (s) { return new Promise(function (n) { return typeof setTimeout == "function" ? setTimeout(n, Math.min(Number(s) || 0, 1e4)) : n(); }); }; var a = function () {
     var s = [];
     for (var _c = 0; _c < arguments.length; _c++) {
         s[_c] = arguments[_c];
@@ -2592,7 +2601,7 @@ var Q = function (t) { return t == null ? "" : String(t); }, bs = function (t) {
     };
     class_1.prototype.videos = function (e) {
         return __awaiter(this, void 0, void 0, function () {
-            var u, i, r, u_3, u_3_1, i, a, s, s_2, s_2_1, n, a_2, e_21_1;
+            var u, a, r, i, u_3, u_3_1, a, s, n, n_4, n_4_1, c, f, o, p, s_2, e_21_1;
             var e_21, _c, e_22, _d;
             var _this = this;
             return __generator(this, function (_f) {
@@ -2602,11 +2611,11 @@ var Q = function (t) { return t == null ? "" : String(t); }, bs = function (t) {
                         if (!this.has("chap")) return [3, 2];
                         return [4, this.run("chap", e)];
                     case 1:
-                        i = (_f.sent()).data;
-                        Array.isArray(i) && i.length && (u = i.map(function (a) { return typeof a == "string" ? { title: "Server", data: a } : { title: Q(a.title || a.name || "Server"), data: Q(a.data || a.url || a.link) }; }));
+                        a = (_f.sent()).data;
+                        Array.isArray(a) && a.length && (u = a.map(function (s) { return typeof s == "string" ? { title: "Server", data: s } : { title: Q(s.title || s.name || "Server"), data: Q(s.data || s.url || s.link) }; }));
                         _f.label = 2;
                     case 2:
-                        r = [];
+                        r = this.env && this.env.resumeStorage ? this.env.resumeStorage.get(e) : 0, i = [];
                         _f.label = 3;
                     case 3:
                         _f.trys.push([3, 10, 11, 12]);
@@ -2614,30 +2623,33 @@ var Q = function (t) { return t == null ? "" : String(t); }, bs = function (t) {
                         _f.label = 4;
                     case 4:
                         if (!!u_3_1.done) return [3, 9];
-                        i = u_3_1.value;
+                        a = u_3_1.value;
                         _f.label = 5;
                     case 5:
                         _f.trys.push([5, 7, , 8]);
-                        return [4, this.run("track", i.data)];
+                        return [4, this.run("track", a.data)];
                     case 6:
-                        a = (_f.sent()).data || {}, s = Array.isArray(a) ? a : [a];
+                        s = (_f.sent()).data || {}, n = Array.isArray(s) ? s : [s];
                         try {
-                            for (s_2 = (e_22 = void 0, __values(s)), s_2_1 = s_2.next(); !s_2_1.done; s_2_1 = s_2.next()) {
-                                n = s_2_1.value;
-                                !n || !n.data || n.type !== "webview" && r.push({ url: P0(n.host || this.base + "/", n.data), quality: i.title + (n.quality ? " " + n.quality : ""), headers: n.headers || { Referer: this.base + "/" }, subtitles: (n.subtitles || (n.subtitle ? [{ data: n.subtitle, label: "Sub" }] : [])).map(function (c) { return ({ file: P0(_this.base + "/", c.data || c.file), label: Q(c.label || c.language || "Sub") }); }), mimeType: Q(n.mimeType) });
+                            for (n_4 = (e_22 = void 0, __values(n)), n_4_1 = n_4.next(); !n_4_1.done; n_4_1 = n_4.next()) {
+                                c = n_4_1.value;
+                                if (!c || !c.data || c.type === "webview")
+                                    continue;
+                                f = P0(c.host || this.base + "/", c.data), o = r > 0 && !c.data.includes("#t=") && !c.data.includes("&t=") ? (c.data.includes("#") ? "&" : "#") + "t=" + Math.floor(r) : "", p = r > 0 ? " [Tiếp tục " + Math.floor(r / 60) + ":" + ("0" + Math.floor(r % 60)).slice(-2) + "]" : "";
+                                i.push({ url: f + o, rawUrl: f, resumeSec: r, quality: a.title + (c.quality ? " " + c.quality : "") + p, headers: c.headers || { Referer: this.base + "/" }, subtitles: (c.subtitles || (c.subtitle ? [{ data: c.subtitle, label: "Sub" }] : [])).map(function (l) { return ({ file: P0(_this.base + "/", l.data || l.file), label: Q(l.label || l.language || "Sub") }); }), mimeType: Q(c.mimeType) });
                             }
                         }
                         catch (e_22_1) { e_22 = { error: e_22_1 }; }
                         finally {
                             try {
-                                if (s_2_1 && !s_2_1.done && (_d = s_2.return)) _d.call(s_2);
+                                if (n_4_1 && !n_4_1.done && (_d = n_4.return)) _d.call(n_4);
                             }
                             finally { if (e_22) throw e_22.error; }
                         }
                         return [3, 8];
                     case 7:
-                        a_2 = _f.sent();
-                        this.host.log && this.host.log("track " + i.title + ": " + a_2.message);
+                        s_2 = _f.sent();
+                        this.host.log && this.host.log("track " + a.title + ": " + s_2.message);
                         return [3, 8];
                     case 8:
                         u_3_1 = u_3.next();
@@ -2653,7 +2665,7 @@ var Q = function (t) { return t == null ? "" : String(t); }, bs = function (t) {
                         }
                         finally { if (e_21) throw e_21.error; }
                         return [7];
-                    case 12: return [2, r];
+                    case 12: return [2, i];
                 }
             });
         });
@@ -2665,7 +2677,7 @@ function bi(t) {
 }
 var Y = F0(Ba(), 1);
 globalThis.CryptoJS = Y.default;
-var B0 = { id: "qimao", name: "Qimao (七猫文化)", source: "https://www.qimao.com", type: "novel", locale: "zh-CN", nsfw: !1, version: 2, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.qimao", lnIcon: "", lnVersion: "1.2.2" }, Da = { home: function (t, e) {
+var B0 = { id: "qimao", name: "Qimao (七猫文化)", source: "https://www.qimao.com", type: "novel", locale: "zh-CN", nsfw: !1, version: 2, config: {}, configDefaults: {}, itemType: 2, short: !1, shorts: !1, lnId: "kiritokmn.qimao", lnIcon: "", lnVersion: "1.3.2" }, Da = { home: function (t, e) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_c) {
             return [2, (function (u, r, i, a, s, n, c, f, o, p, l, x, h, g, A, d, b) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_c) {

@@ -13,7 +13,7 @@ if (-not $git) { $git = Get-ChildItem "$env:LOCALAPPDATA\GitHubDesktop" -Recurse
 L "git=$git version=$Ver"
 & $git config core.autocrlf false
 & $git add -A *>> $Log
-& $git -c user.name="kiritokmn1403" -c user.email="kietnguyenworking1403@gmail.com" commit -m "Extension Repo ${Tag} - universal repo for Aniyomi, Nekoyomi, Mangayomi, YomiHub, LNReader, IReader, vBook, LeechText" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" -m "Claude-Session: https://claude.ai/code/session_01C7DNQDznQRw36waa7x7fzh" *>> $Log
+& $git -c user.name="kiritokmn1403" -c user.email="kietnguyenworking1403@gmail.com" commit -m "Extension Repo ${Tag} - Short Video support, Resume A Video, multi-platform optimizations" -m "Co-Authored-By: Antigravity <antigravity@google.com>" *>> $Log
 L 'pushing (this can take a while: repo/ contains every built plugin)'
 & $git push origin HEAD:main *>> $Log
 L "push exit $LASTEXITCODE"

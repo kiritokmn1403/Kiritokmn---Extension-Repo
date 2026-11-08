@@ -87,15 +87,15 @@ function scriptEntries(pj, srcDir) {
   return map;
 }
 
-function generateScriptsModule(id, pj, srcDir) {
+function generateScriptsModule(id, pj, dir, reg = {}) {
   const cfgKeys = Object.keys(pj.config || {});
   const cfgDefaults = Object.fromEntries(cfgKeys.map(k => [k, String((pj.config[k] || {}).default ?? '')]));
   let needCrypto = false;
   const parts = [];
-  for (const [key, file] of Object.entries(scriptEntries(pj, srcDir))) {
-    const p = path.join(srcDir, 'src', file);
+  for (const [key, file] of Object.entries(scriptEntries(pj, dir))) {
+    const p = path.join(dir, 'src', file);
     if (!fs.existsSync(p)) throw new Error(`${id}: script ${file} missing`);
-    let code = inlineLoads(fs.readFileSync(p, 'utf8'), path.join(srcDir, 'src'));
+    let code = inlineLoads(fs.readFileSync(p, 'utf8'), path.join(dir, 'src'));
     // lib_generic mentions CryptoJS for optional features; only bundle crypto-js when a script really needs it
     if (/load\(\s*['"]crypto\.js['"]\s*\)/.test(fs.readFileSync(p, 'utf8')) || /CryptoJS/.test(code.split(LIB_GENERIC_SRC).join(''))) needCrypto = true;
     let out;
@@ -109,7 +109,8 @@ function generateScriptsModule(id, pj, srcDir) {
   const META = {
     id, name: md.name, source: md.source, type: md.type, locale: md.locale, nsfw: !!md.nsfw, version: md.version,
     config: pj.config || {}, configDefaults: cfgDefaults, itemType: ITEM_TYPE[md.type],
-    lnId: 'kiritokmn.' + id, lnIcon: '', lnVersion: '1.2.' + md.version,
+    short: !!reg.short, shorts: !!reg.short,
+    lnId: 'kiritokmn.' + id, lnIcon: '', lnVersion: '1.3.' + md.version,
   };
   return `${needCrypto ? "import CryptoJS from 'crypto-js';\nglobalThis.CryptoJS = CryptoJS;\n" : ''}${ASYNC_HELPERS}\nexport const META = ${JSON.stringify(META)};\nexport const SCRIPTS = {\n${parts.join(',\n')}\n};\n`;
 }
@@ -172,13 +173,13 @@ for (const id of ids) {
     vbookIndex.push({ name: md.name, author: md.author, path: `${BASE}/repo/vbook/${id}.zip`, version: md.version, source: md.source, icon: fs.existsSync(path.join(dir, 'icon.png')) ? `${BASE}/sources/${id}/icon.png` : icon, description: md.description, type: md.type, locale: VB_LOCALE[md.locale] || md.locale, nsfw: !!md.nsfw });
     // ---- shared async scripts module
     const genFile = path.join(GEN, id + '.scripts.js');
-    fs.writeFileSync(genFile, generateScriptsModule(id, pj, dir));
+    fs.writeFileSync(genFile, generateScriptsModule(id, pj, dir, reg));
     // ---- self-contained script module for the Node test runners
     { const r = await esbuild.build({ entryPoints: [genFile], bundle: true, write: false, format: 'esm', platform: 'neutral', target: 'es2022', nodePaths: [path.join(ROOT, 'node_modules'), path.join(ROOT, '../_work/deps/node_modules')], mainFields: ['module', 'main'], logLevel: 'silent' });
       fs.mkdirSync(path.join(GEN, 'test'), { recursive: true }); fs.writeFileSync(path.join(GEN, 'test', id + '.mjs'), r.outputFiles[0].text); }
     // ---- Mangayomi / YomiHub
-    const ver = `0.3.${md.version}`; // 0.1.x: pure-JS URL resolver; 0.2.x: image Referer from page origin; 0.3.x: lazy-placeholder page fallback
-    const mgMeta = { name: md.name, lang: md.locale === 'all' ? 'all' : md.locale, id: hash31('kiritokmn:' + id), baseUrl: md.source, apiUrl: '', iconUrl: icon, typeSource: 'single', itemType: ITEM_TYPE[md.type], isNsfw: !!md.nsfw, version: ver, dateFormat: '', dateFormatLocale: '', pkgPath: `repo/mangayomi/${id}.js` };
+    const ver = `0.4.${md.version}`; // 0.1.x: pure-JS URL resolver; 0.2.x: image Referer; 0.3.x: lazy fallback; 0.4.x: Shorts & Resume A Video
+    const mgMeta = { name: md.name, lang: md.locale === 'all' ? 'all' : md.locale, id: hash31('kiritokmn:' + id), baseUrl: md.source, apiUrl: '', iconUrl: icon, typeSource: 'single', itemType: ITEM_TYPE[md.type], isNsfw: !!md.nsfw, version: ver, dateFormat: '', dateFormatLocale: '', pkgPath: `repo/mangayomi/${id}.js`, shorts: !!reg.short, hasShorts: !!reg.short };
     let mg = await bundle('entry.js', genFile, 'iife', { globalName: '__VB', target: 'es2020' });
     const needGbk = /gbk|gb2312|gb18030/i.test(scriptsSrc(id));
     mg = `const mangayomiSources = [${JSON.stringify(mgMeta)}];\n` + (needGbk ? `var __GBK_TABLE = ${JSON.stringify(GBK_TABLE)};\n` : '') + mg + '\n' + fs.readFileSync(path.join(ROOT, 'hosts/mangayomi.tail.js'), 'utf8');
@@ -193,7 +194,7 @@ for (const id of ids) {
       // so a bundle that reassigns module.exports must also put default on the original exports object.
       ln += '\nif (typeof exports === "object" && exports && module.exports !== exports && module.exports && module.exports.default) exports.default = module.exports.default;\n';
       fs.writeFileSync(path.join(OUT, 'lnreader', id + '.js'), ln); lnSize = ln.length;
-      lnIndex.push({ id: 'kiritokmn.' + id, name: md.name, site: md.source, lang: LN_LANG[md.locale] || 'Multi', version: '1.2.' + md.version, url: `${BASE}/repo/lnreader/${id}.js`, iconUrl: icon });
+      lnIndex.push({ id: 'kiritokmn.' + id, name: md.name, site: md.source, lang: LN_LANG[md.locale] || 'Multi', version: '1.3.' + md.version, url: `${BASE}/repo/lnreader/${id}.js`, iconUrl: icon, short: !!reg.short });
     }
     // ---- Aniyomi / Nekoyomi (video + comic, built into multi-source APKs)
     if (md.type === 'video' || md.type === 'comic') {
@@ -201,9 +202,9 @@ for (const id of ids) {
       const adir = path.join(ANDROID, mod, 'src', fl, 'assets', 'vb', 'src'); fs.mkdirSync(adir, { recursive: true });
       fs.writeFileSync(path.join(adir, id + '.js'), rhinoSourceFile(id, pj, dir));
       const doms = ((pj.config || {}).DOMAIN || {}).values || [md.source];
-      androidAssets[mod + ':' + fl].push({ id, name: md.name, lang: md.locale === 'all' ? 'all' : md.locale, baseUrl: md.source, type: md.type, nsfw: !!md.nsfw, sourceId: hash31('aniyomi:' + id), domains: doms });
+      androidAssets[mod + ':' + fl].push({ id, name: md.name, lang: md.locale === 'all' ? 'all' : md.locale, baseUrl: md.source, type: md.type, nsfw: !!md.nsfw, sourceId: hash31('aniyomi:' + id), domains: doms, short: !!reg.short });
     }
-    if (md.type === 'video' || md.type === 'comic') aniSources.push({ id, name: md.name, lang: md.locale === 'all' ? 'all' : md.locale, baseUrl: md.source, type: md.type, nsfw: !!md.nsfw, sourceId: hash31('aniyomi:' + id) });
+    if (md.type === 'video' || md.type === 'comic') aniSources.push({ id, name: md.name, lang: md.locale === 'all' ? 'all' : md.locale, baseUrl: md.source, type: md.type, nsfw: !!md.nsfw, sourceId: hash31('aniyomi:' + id), short: !!reg.short });
     report.push({ id, ok: true, type: md.type, ms: Date.now() - t0, mgKB: Math.round(mg.length / 1024), lnKB: Math.round(lnSize / 1024), stt: reg.stt });
   } catch (e) {
     report.push({ id, ok: false, error: String(e.message || e) });

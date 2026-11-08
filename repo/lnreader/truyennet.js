@@ -1952,7 +1952,16 @@ function V0(e, u) { var t = function (n) { return ({ getItem: function (s) { var
             case 4: return [2, new qt(m, h)];
         }
     }); });
-}, a.Http = { get: function (n) { return P0(a, "GET", n); }, post: function (n) { return P0(a, "POST", n); } }, a.Html = { parse: function (n, s) { return Lu(n, s || ""); }, clean: function (n, s) { return F0(n, s); } }, a.localStorage = t("ls:"), a.cacheStorage = t("cs:"), a.localConfig = { getItem: function (n) { return e.config(n); } }, a.localCookie = { setCookie: function (n) { e.storageSet(r, String(n).split(";")[0]); }, getCookie: function () { return e.storageGet(r) || ""; } }, a.sleep = function (n) { return new Promise(function (s) { return typeof setTimeout == "function" ? setTimeout(s, Math.min(Number(n) || 0, 1e4)) : s(); }); }; var i = function () {
+}, a.Http = { get: function (n) { return P0(a, "GET", n); }, post: function (n) { return P0(a, "POST", n); } }, a.Html = { parse: function (n, s) { return Lu(n, s || ""); }, clean: function (n, s) { return F0(n, s); } }, a.localStorage = t("ls:"), a.cacheStorage = t("cs:"), a.resumeStorage = { get: function (n) { try {
+        var s = e.storageGet("resume:" + n);
+        return s && parseFloat(s) || 0;
+    }
+    catch (c) {
+        return 0;
+    } }, set: function (n, s) { try {
+        e.storageSet("resume:" + n, String(Math.max(0, s || 0)));
+    }
+    catch (c) { } } }, a.localConfig = { getItem: function (n) { return e.config(n); } }, a.localCookie = { setCookie: function (n) { e.storageSet(r, String(n).split(";")[0]); }, getCookie: function () { return e.storageGet(r) || ""; } }, a.sleep = function (n) { return new Promise(function (s) { return typeof setTimeout == "function" ? setTimeout(s, Math.min(Number(n) || 0, 1e4)) : s(); }); }; var i = function () {
     var n = [];
     for (var _i = 0; _i < arguments.length; _i++) {
         n[_i] = arguments[_i];
@@ -2243,7 +2252,7 @@ var B = function (e) { return e == null ? "" : String(e); }, Sa = function (e) {
     };
     class_1.prototype.videos = function (u) {
         return __awaiter(this, void 0, void 0, function () {
-            var t, a, r, t_3, t_3_1, a, i, n, n_2, n_2_1, s, i_2, e_23_1;
+            var t, i, r, a, t_3, t_3_1, i, n, s, s_4, s_4_1, c, o, f, g, n_2, e_23_1;
             var e_23, _a, e_24, _b;
             var _this = this;
             return __generator(this, function (_c) {
@@ -2253,11 +2262,11 @@ var B = function (e) { return e == null ? "" : String(e); }, Sa = function (e) {
                         if (!this.has("chap")) return [3, 2];
                         return [4, this.run("chap", u)];
                     case 1:
-                        a = (_c.sent()).data;
-                        Array.isArray(a) && a.length && (t = a.map(function (i) { return typeof i == "string" ? { title: "Server", data: i } : { title: B(i.title || i.name || "Server"), data: B(i.data || i.url || i.link) }; }));
+                        i = (_c.sent()).data;
+                        Array.isArray(i) && i.length && (t = i.map(function (n) { return typeof n == "string" ? { title: "Server", data: n } : { title: B(n.title || n.name || "Server"), data: B(n.data || n.url || n.link) }; }));
                         _c.label = 2;
                     case 2:
-                        r = [];
+                        r = this.env && this.env.resumeStorage ? this.env.resumeStorage.get(u) : 0, a = [];
                         _c.label = 3;
                     case 3:
                         _c.trys.push([3, 10, 11, 12]);
@@ -2265,30 +2274,33 @@ var B = function (e) { return e == null ? "" : String(e); }, Sa = function (e) {
                         _c.label = 4;
                     case 4:
                         if (!!t_3_1.done) return [3, 9];
-                        a = t_3_1.value;
+                        i = t_3_1.value;
                         _c.label = 5;
                     case 5:
                         _c.trys.push([5, 7, , 8]);
-                        return [4, this.run("track", a.data)];
+                        return [4, this.run("track", i.data)];
                     case 6:
-                        i = (_c.sent()).data || {}, n = Array.isArray(i) ? i : [i];
+                        n = (_c.sent()).data || {}, s = Array.isArray(n) ? n : [n];
                         try {
-                            for (n_2 = (e_24 = void 0, __values(n)), n_2_1 = n_2.next(); !n_2_1.done; n_2_1 = n_2.next()) {
-                                s = n_2_1.value;
-                                !s || !s.data || s.type !== "webview" && r.push({ url: Ae(s.host || this.base + "/", s.data), quality: a.title + (s.quality ? " " + s.quality : ""), headers: s.headers || { Referer: this.base + "/" }, subtitles: (s.subtitles || (s.subtitle ? [{ data: s.subtitle, label: "Sub" }] : [])).map(function (c) { return ({ file: Ae(_this.base + "/", c.data || c.file), label: B(c.label || c.language || "Sub") }); }), mimeType: B(s.mimeType) });
+                            for (s_4 = (e_24 = void 0, __values(s)), s_4_1 = s_4.next(); !s_4_1.done; s_4_1 = s_4.next()) {
+                                c = s_4_1.value;
+                                if (!c || !c.data || c.type === "webview")
+                                    continue;
+                                o = Ae(c.host || this.base + "/", c.data), f = r > 0 && !c.data.includes("#t=") && !c.data.includes("&t=") ? (c.data.includes("#") ? "&" : "#") + "t=" + Math.floor(r) : "", g = r > 0 ? " [Tiếp tục " + Math.floor(r / 60) + ":" + ("0" + Math.floor(r % 60)).slice(-2) + "]" : "";
+                                a.push({ url: o + f, rawUrl: o, resumeSec: r, quality: i.title + (c.quality ? " " + c.quality : "") + g, headers: c.headers || { Referer: this.base + "/" }, subtitles: (c.subtitles || (c.subtitle ? [{ data: c.subtitle, label: "Sub" }] : [])).map(function (d) { return ({ file: Ae(_this.base + "/", d.data || d.file), label: B(d.label || d.language || "Sub") }); }), mimeType: B(c.mimeType) });
                             }
                         }
                         catch (e_24_1) { e_24 = { error: e_24_1 }; }
                         finally {
                             try {
-                                if (n_2_1 && !n_2_1.done && (_b = n_2.return)) _b.call(n_2);
+                                if (s_4_1 && !s_4_1.done && (_b = s_4.return)) _b.call(s_4);
                             }
                             finally { if (e_24) throw e_24.error; }
                         }
                         return [3, 8];
                     case 7:
-                        i_2 = _c.sent();
-                        this.host.log && this.host.log("track " + a.title + ": " + i_2.message);
+                        n_2 = _c.sent();
+                        this.host.log && this.host.log("track " + i.title + ": " + n_2.message);
                         return [3, 8];
                     case 8:
                         t_3_1 = t_3.next();
@@ -2304,7 +2316,7 @@ var B = function (e) { return e == null ? "" : String(e); }, Sa = function (e) {
                         }
                         finally { if (e_23) throw e_23.error; }
                         return [7];
-                    case 12: return [2, r];
+                    case 12: return [2, a];
                 }
             });
         });
@@ -2334,7 +2346,7 @@ function Aa(e, u) {
         }
     }); });
 }
-var oe = { id: "truyennet", name: "Truyện Net", source: "https://truyennet.vn/", type: "novel", locale: "vi", nsfw: !1, version: 2, config: {}, configDefaults: {}, itemType: 2, lnId: "kiritokmn.truyennet", lnIcon: "", lnVersion: "1.2.2" }, j0 = { home: function (e, u) {
+var oe = { id: "truyennet", name: "Truyện Net", source: "https://truyennet.vn/", type: "novel", locale: "vi", nsfw: !1, version: 2, config: {}, configDefaults: {}, itemType: 2, short: !1, shorts: !1, lnId: "kiritokmn.truyennet", lnIcon: "", lnVersion: "1.3.2" }, j0 = { home: function (e, u) {
         return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
             return [2, (function (t, r, a, i, n, s, c, o, f, g, d, h, m, v, j, W, _) {
                     return __awaiter(this, void 0, void 0, function () { return __generator(this, function (_a) {
