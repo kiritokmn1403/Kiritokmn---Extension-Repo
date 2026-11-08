@@ -70,6 +70,7 @@ export function createEnv(host, meta) {
     clear: () => host.storageClear && host.storageClear(prefix),
   });
   const cookieKey = '__cookie__';
+  const respCache = [];
   const env = {};
   env.Response = {
     success: (data, data2) => ({ code: 0, data: data === undefined ? null : data, data2: data2 === undefined ? null : data2 }),
@@ -92,8 +93,13 @@ export function createEnv(host, meta) {
       else { body = Object.entries(body).map(([k, v]) => encodeURIComponent(k) + '=' + encodeURIComponent(v)).join('&'); if (!ct) headers['Content-Type'] = 'application/x-www-form-urlencoded'; }
     }
     const req = { url: u, method: (opts.method || (body != null ? 'POST' : 'GET')).toUpperCase(), headers, body, timeout: opts.timeout };
+    // 0.0.3: detail.js and toc.js (and page.js) usually download the same page right after each other when a
+    // title is opened; keep successful GET responses for 60 s (max 6) so the second request costs nothing.
+    const ck2 = req.method === 'GET' && body == null ? u + '\n' + JSON.stringify(headers) : null;
+    if (ck2) { const now = Date.now(); const hit = respCache.find(c => c.k === ck2 && now - c.t < 60000); if (hit) return new VResponse(hit.raw, req); }
     let raw;
     try { raw = await host.request(req); } catch (e) { raw = { status: 0, url: u, headers: {}, text: '', error: String(e && e.message || e) }; }
+    if (ck2 && raw && raw.status === 200 && String(raw.text == null ? '' : raw.text).length < 3000000) { respCache.push({ k: ck2, t: Date.now(), raw }); if (respCache.length > 6) respCache.shift(); }
     return new VResponse(raw, req);
   };
   env.Http = {
@@ -103,17 +109,6 @@ export function createEnv(host, meta) {
   env.Html = { parse: (s, base) => parseHtml(s, base || ''), clean: (s, tags) => cleanHtml(s, tags) };
   env.localStorage = store('ls:');
   env.cacheStorage = store('cs:');
-  env.resumeStorage = {
-    get: function(k) {
-      try {
-        var v = host.storageGet('resume:' + k);
-        return v ? parseFloat(v) || 0 : 0;
-      } catch (e) { return 0; }
-    },
-    set: function(k, s) {
-      try { host.storageSet('resume:' + k, String(Math.max(0, s || 0))); } catch (e) {}
-    }
-  };
   env.localConfig = { getItem: k => host.config(k) };
   env.localCookie = {
     setCookie: c => { host.storageSet(cookieKey, String(c).split(';')[0]); },

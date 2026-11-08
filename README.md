@@ -1,6 +1,6 @@
 # Kiritokmn - Extension Repo
 
-**Phiên bản: 0.0.2** · Một kho tiện ích dùng chung cho **Aniyomi, Nekoyomi, Mangayomi, YomiHub, LNReader, IReader, vBook, LeechText và Aidoku** — 196 nguồn Phim, Truyện tranh, Tiểu thuyết (Tiếng Việt, Trung, Anh, Nhật).
+**Phiên bản: 0.0.3** · Một kho tiện ích dùng chung cho **Aniyomi, Nekoyomi, Mangayomi, YomiHub, LNReader, IReader, vBook, LeechText và Aidoku** — 196 nguồn Phim, Truyện tranh, Tiểu thuyết (Tiếng Việt, Trung, Anh, Nhật).
 
 Mỗi nguồn được viết **một lần** theo chuẩn vBook (JavaScript). Bộ build tự chuyển sang định dạng của từng ứng dụng:
 
@@ -10,7 +10,7 @@ Mỗi nguồn được viết **một lần** theo chuẩn vBook (JavaScript). B
 | **Mangayomi / YomiHub** | `https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/index.json` | JS source (MProvider) |
 | **LNReader / IReader** (Tiểu thuyết) | `https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/plugins.min.json` | Plugin JS (ES5) |
 | **vBook / LeechText / YomiHub (tab vBook)** | `https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/plugin.json` | Gói vBook `.zip` |
-| **Aidoku** (iOS) | xem [docs/AIDOKU.md](docs/AIDOKU.md) | chưa hỗ trợ trong 0.0.1 |
+| **Aidoku** (iOS / iPadOS, Truyện tranh + Tiểu thuyết) | `https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/aidoku/index.min.json` | Gói `.aix` (WebAssembly + JavaScriptCore), 152 nguồn — xem [docs/AIDOKU.md](docs/AIDOKU.md) |
 
 > Cả 4 đường dẫn đều nằm chung một gốc: **`https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/`** — Aniyomi/Nekoyomi chỉ cần gốc này.
 
@@ -19,13 +19,18 @@ Mỗi nguồn được viết **một lần** theo chuẩn vBook (JavaScript). B
 - **Mangayomi / YomiHub**: Tiện ích → ⋮ → Kho tiện ích → thêm `https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/index.json` cho từng tab (Truyện tranh / Phim / Tiểu thuyết).
 - **LNReader / IReader**: Tiện ích (Plugins) → Kho → thêm `https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/plugins.min.json`.
 - **vBook / LeechText**: Cài đặt → Kho tiện ích → thêm `https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/plugin.json`.
+- **Aidoku** (cần Aidoku 0.8.3 trở lên): Settings → Source Lists → `+` → dán `https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/aidoku/index.min.json`, rồi vào Browse để cài nguồn. Hoặc mở trên iPhone: `aidoku://addSourceList?url=https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/aidoku/index.min.json`.
 
 ### Thêm bằng liên kết (deep link, mở trên điện thoại)
 ```
 aniyomi://add-repo?url=https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/index.min.json
 tachiyomi://add-repo?url=https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/index.min.json
 mangayomi://add-repo?repo_name=Kiritokmn&manga_url=https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/index.json&anime_url=https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/index.json&novel_url=https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/index.json
+aidoku://addSourceList?url=https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/aidoku/index.min.json
 ```
+
+### Có gì mới trong 0.0.3
+Xem [CHANGELOG.md](CHANGELOG.md) — tóm tắt: nguồn **Aidoku** (iOS) cho 152 nguồn truyện tranh + tiểu thuyết; **Resume A Video** làm lại cho đúng cơ chế của từng ứng dụng (định danh tập phim ổn định, giữ vị trí xem khi đổi tên miền); bộ nhớ đệm phản hồi giảm số lượt tải trang khi mở truyện/phim.
 
 ## Tiện ích YomiHub (29) — chuyển từ bản tích hợp sẵn trong YomiHub 0.5.3
 
@@ -64,25 +69,26 @@ Từ YomiHub 0.5.3, các tiện ích website này **không còn tích hợp tron
 | 29 | PhimMoiHD | Phim & Điện ảnh | https://phimmoihd.online | vi |  | [phimmoihd.js](repo/yomihub/phimmoihd.js) |
 
 
-## Tải về (Releases v0.0.2)
+## Tải về (Releases v0.0.3)
 
 | Tệp |
 |---|
-| [index.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.2/index.json) |
-| [index.min.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.2/index.min.json) |
-| [Kiritokmn-Extension-0.0.2-anime-nsfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.2/Kiritokmn-Extension-0.0.2-anime-nsfw.apk) |
-| [Kiritokmn-Extension-0.0.2-anime-sfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.2/Kiritokmn-Extension-0.0.2-anime-sfw.apk) |
-| [Kiritokmn-Extension-0.0.2-lnreader-ireader.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.2/Kiritokmn-Extension-0.0.2-lnreader-ireader.zip) |
-| [Kiritokmn-Extension-0.0.2-manga-nsfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.2/Kiritokmn-Extension-0.0.2-manga-nsfw.apk) |
-| [Kiritokmn-Extension-0.0.2-manga-sfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.2/Kiritokmn-Extension-0.0.2-manga-sfw.apk) |
-| [Kiritokmn-Extension-0.0.2-mangayomi-yomihub.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.2/Kiritokmn-Extension-0.0.2-mangayomi-yomihub.zip) |
-| [Kiritokmn-Extension-0.0.2-vbook-leechtext.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.2/Kiritokmn-Extension-0.0.2-vbook-leechtext.zip) |
-| [plugin.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.2/plugin.json) |
-| [plugins.min.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.2/plugins.min.json) |
+| [index.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/index.json) |
+| [index.min.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/index.min.json) |
+| [Kiritokmn-Extension-0.0.3-aidoku.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/Kiritokmn-Extension-0.0.3-aidoku.zip) |
+| [Kiritokmn-Extension-0.0.3-anime-nsfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/Kiritokmn-Extension-0.0.3-anime-nsfw.apk) |
+| [Kiritokmn-Extension-0.0.3-anime-sfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/Kiritokmn-Extension-0.0.3-anime-sfw.apk) |
+| [Kiritokmn-Extension-0.0.3-lnreader-ireader.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/Kiritokmn-Extension-0.0.3-lnreader-ireader.zip) |
+| [Kiritokmn-Extension-0.0.3-manga-nsfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/Kiritokmn-Extension-0.0.3-manga-nsfw.apk) |
+| [Kiritokmn-Extension-0.0.3-manga-sfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/Kiritokmn-Extension-0.0.3-manga-sfw.apk) |
+| [Kiritokmn-Extension-0.0.3-mangayomi-yomihub.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/Kiritokmn-Extension-0.0.3-mangayomi-yomihub.zip) |
+| [Kiritokmn-Extension-0.0.3-vbook-leechtext.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/Kiritokmn-Extension-0.0.3-vbook-leechtext.zip) |
+| [plugin.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/plugin.json) |
+| [plugins.min.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/plugins.min.json) |
 
-Trang phát hành: https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/tag/v0.0.2
+Trang phát hành: https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/tag/v0.0.3
 
-## Trạng thái nguồn (kiểm thử tự động 2026-11-05: 65/196 chạy trọn chuỗi danh sách → chi tiết → mục lục → nội dung)
+## Trạng thái nguồn (kiểm thử tự động 2026-11-08: 63/196 chạy trọn chuỗi danh sách → chi tiết → mục lục → nội dung)
 
 Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự án). Nguồn "không truy cập được" thường do tên miền đã đổi — vào cài đặt nguồn để đổi **Tên miền**.
 
@@ -103,7 +109,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 11 | Vfilm | vfilm.vn | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; videos lỗi) |
 | 12 | Phimmoi | phimmoii.mom | vi |  | 🟡 một phần (popular, search ✓; detail lỗi) |
 | 13 | PornHub | www.pornhub.com | all | Có | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 14 | FikFap | fikfap.com | all | Có | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 14 | FikFap | fikfap.com | all | Có | 🟡 một phần (popular lỗi) |
 | 15 | Tik.Porn | tik.porn | all | Có | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 16 | Kwiky | kwiky.com/cams?AFNO=2-162764.38182 | all | Có | 🟡 một phần (popular lỗi) |
 | 17 | xFree | www.xfree.com | all | Có | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
@@ -111,7 +117,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 19 | SexVietTop | top1sexvn.com | vi | Có | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 20 | Xôi Lạc | xoilacxxi.cc | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 21 | MotPhim | motphimc.my | vi |  | 🟠 bị Cloudflare/máy chủ chặn |
-| 22 | HiHiPhim | hihiphim.com | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
+| 22 | HiHiPhim | hihiphim.com | vi |  | 🟡 một phần (popular ✓; search lỗi) |
 | 23 | PhimMoiHD | phimmoihd.online | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 24 | BLVietsub | www.blvietsub.vip | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; videos lỗi) |
 | 25 | Dailymotion | www.dailymotion.com/vn | vi |  | 🟡 một phần (popular lỗi) |
@@ -121,14 +127,14 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 29 | HentaiVietsub.com | hentaivietsub.com | vi | Có | 🟡 một phần (popular, search, detail, chapters ✓; videos lỗi) |
 | 30 | HHPanda | hhpanda.st | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; videos lỗi) |
 | 31 | HHTQHAY.VIP | hhtqhay.vip | vi |  | 🛡️ Cloudflare Turnstile – cần **xác minh thủ công** trong WebView |
-| 32 | Hồng Quả | hongguoduanju.com | zh |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
+| 32 | Hồng Quả | hongguoduanju.com | zh |  | 🟡 một phần (popular, detail ✓; search lỗi) |
 | 33 | iQIYI | www.iq.com | zh |  | 🟡 một phần (popular lỗi) |
 | 34 | LuPhim | luphim.com | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; videos lỗi) |
 | 35 | MGTV | w.mgtv.com | vi |  | 🟡 một phần (popular lỗi) |
 | 36 | NguonC | phim.nguonc.com | vi |  | ✅ hoạt động |
 | 37 | Phim Nhựa | phimnhua.online | vi |  | ✅ hoạt động |
 | 38 | Phim4K | phim4k.xyz | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 39 | PhimTV | phimtv.my | vi |  | ✅ hoạt động |
+| 39 | PhimTV | phimtv.my | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 40 | Showbox | pixnet.cc | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 41 | TikTok | www.tiktok.com | all |  | 🟡 một phần (popular lỗi) |
 | 42 | Twitch | www.twitch.tv | all |  | 🟡 một phần (popular lỗi) |
@@ -159,7 +165,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 18 | Misskon | misskon.com | vi |  | ✅ hoạt động |
 | 19 | MoeTruyen | truyen.moe | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; pages lỗi) |
 | 20 | My Reading Manga | myreadingmanga.info | all |  | 🛡️ Cloudflare Turnstile – cần **xác minh thủ công** trong WebView |
-| 21 | Navy Team Comic | navyteams.com | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
+| 21 | Navy Team Comic | navyteams.com | vi |  | ✅ hoạt động |
 | 22 | NetTruyen18 | nettruyen18.com | vi |  | ✅ hoạt động |
 | 23 | NetTruyenViet | nettruyenviet10.com | vi |  | ✅ hoạt động |
 | 24 | NetTruyenZ | nettruyenz.com | vi |  | 🟡 một phần (popular lỗi) |
@@ -234,7 +240,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 51 | Mê Truyện CV | metruyencv.com.vn | vi |  | 🟡 một phần (popular lỗi) |
 | 52 | Mê Đọc Truyện | medoctruyen.vn | vi |  | ✅ hoạt động |
 | 53 | Mọt Truyện | mottruyen.app | vi |  | ✅ hoạt động |
-| 54 | Navy Team Novel | navyteams.com | vi |  | ✅ hoạt động |
+| 54 | Navy Team Novel | navyteams.com | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; content lỗi) |
 | 55 | NetTruyen | nettruyen.com.vn | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 56 | Novel Next | www.novelnext.me | en |  | 🟡 một phần (popular, search, detail, chapters ✓; content lỗi) |
 | 57 | NovelFull.Net | novelfull.net | en |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
@@ -249,13 +255,13 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 66 | quanwenyuedu | www.quanwenyuedu.io | zh |  | 🟡 một phần (popular, search, detail ✓; chapters lỗi) |
 | 67 | QuyKiep | quykiep.com | vi |  | 🟡 một phần (popular lỗi) |
 | 68 | Shinigami LN Team | shinigamilnteam.com | vi |  | ✅ hoạt động |
-| 69 | Si Truyện CV | sitruyencv.com | vi |  | 🟡 một phần (popular lỗi) |
+| 69 | Si Truyện CV | sitruyencv.com | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 70 | Snapd | m.snapd.net | zh |  | 🟡 một phần (popular lỗi) |
 | 71 | sohu | www.sohu.com | zh |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
 | 72 | STV App Vi | sangtacviet.com | vi |  | 🟡 một phần (popular lỗi) |
 | 73 | sudugu | www.sudugu.org | zh |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 74 | sweetastes | www.bjtriz.com | zh |  | 🟡 một phần (popular, detail ✓; search lỗi) |
-| 75 | Syosetu | syosetu.com | ja |  | ✅ hoạt động |
+| 75 | Syosetu | syosetu.com | ja |  | 🟡 một phần (popular ✓; search lỗi) |
 | 76 | Syosetu R18 | novel18.syosetu.com | ja | Có | 🟡 một phần (popular lỗi) |
 | 77 | Sói Xám (Fanqie) | api.langge.cf | zh |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 78 | TaoNovel | tybook.taoyuewenhua.net | zh |  | 🟡 một phần (popular lỗi) |
@@ -277,7 +283,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 94 | Tu Tiên (.pro) | tutien.pro | vi |  | 🟡 một phần (popular lỗi) |
 | 95 | uukanshu | uukanshu.cc | zh |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 96 | Valvrareteam | valvrareteam.net | vi |  | ✅ hoạt động |
-| 97 | Viblo | viblo.asia | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
+| 97 | Viblo | viblo.asia | vi |  | 🟡 một phần (popular, detail ✓; search lỗi) |
 | 98 | vivutruyencom | vivutruyen.com | vi |  | ✅ hoạt động |
 | 99 | Việt Nam Thư Quán | vnthuquan.org | vi |  | ✅ hoạt động |
 | 100 | Wattpad | www.wattpad.com | all |  | 🟡 một phần (popular lỗi) |
@@ -289,7 +295,7 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 106 | Xbanxia - repo Đường đen | www.xbanxia.cc | zh |  | ✅ hoạt động |
 | 107 | Xianqihaotiami APP | www.xianqihaotianmi.org | zh |  | 🟡 một phần (popular lỗi) |
 | 108 | xsw | m.xsw.tw | zh |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 109 | XTruyen | www.xtruyen.net | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 109 | XTruyen | www.xtruyen.net | vi |  | 🟡 một phần (popular lỗi) |
 | 110 | YPShuo - Bình luận sách | www.ypshuo.com | zh |  | 🟡 một phần (popular lỗi) |
 | 111 | 【VIP】Bạch Ngọc Sách | bnsvip.net | vi |  | 🟡 một phần (popular lỗi) |
 | 112 | 书本书 Shubenshu | www.shubenshu.com | zh |  | 🟡 một phần (popular, search, detail, chapters ✓; content lỗi) |
@@ -303,13 +309,14 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 sources/<id>/        nguồn chuẩn vBook (plugin.json + src/*.js)   ← nơi duy nhất cần sửa
 lib/                 thư viện mẫu dùng chung (Madara, generic selector, ...)
 runtime/             engine + DOM tương thích jsoup + vBook API (JS) và prelude Rhino
-hosts/               lớp chuyển đổi cho Mangayomi, LNReader/IReader, Node test
+hosts/               lớp chuyển đổi cho Mangayomi, LNReader/IReader, Aidoku, Node test
+aidoku/              cầu nối Rust/WASM cho Aidoku (bridge/) + biểu tượng nguồn
 android/             APK đa nguồn cho Aniyomi/Nekoyomi (anime + manga, bản 18+)
 tools/               build, sinh nguồn, phân tích trang, kiểm thử
-repo/                ĐẦU RA cho các ứng dụng (index.json, plugins.min.json, plugin.json, index.min.json, apk/)
+repo/                ĐẦU RA cho các ứng dụng (index.json, plugins.min.json, plugin.json, index.min.json, apk/, aidoku/)
 data/                danh sách nguồn từ Excel, kết quả kiểm thử
 ```
 
-Build: `npm run build` · Kiểm thử: `npm test` · APK: `android/build_apks.ps1`. Ghi chú kỹ thuật: [TECHNICAL_UPDATE_NOTES.md](TECHNICAL_UPDATE_NOTES.md).
+Build: `npm run build` · Aidoku: `node tools/build/aidoku-build.mjs` (cần Rust + wasm32) · Kiểm thử: `npm test`, `node tools/test/aidoku-sim.mjs --all` · APK: `android/build_apks.ps1`. Ghi chú kỹ thuật: [TECHNICAL_UPDATE_NOTES.md](TECHNICAL_UPDATE_NOTES.md).
 
 Một số nguồn tái sử dụng tiện ích vBook mã nguồn mở của cộng đồng (ghi công tác giả gốc trong `plugin.json`). Giấy phép: GPL-3.0.

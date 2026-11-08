@@ -38,22 +38,13 @@ class DefaultExtension extends MProvider {
     if (__VB.META.itemType === 1) out.episodes = ch; else out.chapters = ch;
     return out;
   }
-  async getPageList(url) { const h = this.__imgHeaders(url); return (await this.__eng().pages(url)).map(p => ({ url: p, headers: h })); }
+  async getPageList(url) { const h = this.__imgHeaders(this.__eng().decanon(url)); return (await this.__eng().pages(url)).map(p => ({ url: p, headers: h })); }
   async getVideoList(url) {
+    // Resume A Video: Mangayomi / YomiHub save the playback position per episode themselves and seek to it on
+    // open ("Resume video position"). The engine keeps episode URLs stable (default domain), so it survives refreshes
+    // and domain switches; nothing has to be added to the stream URL.
     const list = await this.__eng().videos(url);
-    let resumeEnabled = true;
-    try { resumeEnabled = this.prefs.get('RESUME_VIDEO') !== false; } catch (e) {}
-    return list.map(v => {
-      const playUrl = (resumeEnabled && v.url) ? v.url : (v.rawUrl || v.url);
-      return {
-        url: playUrl,
-        originalUrl: v.rawUrl || v.url,
-        quality: v.quality,
-        headers: v.headers,
-        subtitles: v.subtitles,
-        audios: []
-      };
-    });
+    return list.map(v => ({ url: v.url, originalUrl: v.url, quality: v.quality, headers: v.headers, subtitles: v.subtitles, audios: [] }));
   }
   async getHtmlContent(name, url) { const c = await this.__eng().content(url); return c.html; }
   async cleanHtmlContent(html) { return html; }
@@ -76,16 +67,6 @@ class DefaultExtension extends MProvider {
   getSourcePreferences() {
     const m = __VB.META, c = (m.config || {}).DOMAIN;
     const prefs = [];
-    if (m.itemType === 1) {
-      prefs.push({
-        key: 'RESUME_VIDEO',
-        switchPreferenceCompat: {
-          title: 'Nhớ vị trí phát (Resume A Video)',
-          summary: 'Tự động tiếp tục phát từ vị trí đã thoát',
-          value: true
-        }
-      });
-    }
     if (c && Array.isArray(c.values) && c.values.length > 1) {
       prefs.push({ key: 'DOMAIN', listPreference: { title: 'Tên miền / Domain', summary: '%s', valueIndex: 0, entries: c.values, entryValues: c.values } });
     } else {

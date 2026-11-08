@@ -44,7 +44,9 @@ android {
     compileOptions { sourceCompatibility = JavaVersion.VERSION_1_8; targetCompatibility = JavaVersion.VERSION_1_8 }
     
     dependenciesInfo { includeInApk = false; includeInBundle = false }
-    packaging { resources.excludes += setOf("META-INF/**", "**.properties", "kotlin/**") }
+    // 0.0.3: keep *.properties — Rhino loads org/mozilla/javascript/resources/Messages.properties to format every
+    // script error; without it each error became "MissingResourceException: Can't find bundle … Messages".
+    packaging { resources.excludes += setOf("META-INF/**", "kotlin/**") }
 }
 
 dependencies {

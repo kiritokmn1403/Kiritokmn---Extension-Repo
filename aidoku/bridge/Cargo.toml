@@ -1,0 +1,11 @@
+[package]
+name = "kiri-bridge"
+version = "0.3.0"
+edition = "2024"
+description = "Kiritokmn Extension Repo: runs the shared vBook engine (JavaScript) inside Aidoku's JavaScriptCore context"
+license = "GPL-3.0"
+
+[dependencies]
+aidoku = { git = "https://github.com/Aidoku/aidoku-rs", rev = "ae6485e", features = ["json"] }
+serde = { version = "1.0", default-features = false, features = ["derive", "alloc"] }
+serde_json = { version = "1.0", default-features = false, features = ["alloc"] }

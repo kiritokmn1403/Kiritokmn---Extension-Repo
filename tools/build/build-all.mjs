@@ -110,7 +110,7 @@ function generateScriptsModule(id, pj, dir, reg = {}) {
     id, name: md.name, source: md.source, type: md.type, locale: md.locale, nsfw: !!md.nsfw, version: md.version,
     config: pj.config || {}, configDefaults: cfgDefaults, itemType: ITEM_TYPE[md.type],
     short: !!reg.short, shorts: !!reg.short,
-    lnId: 'kiritokmn.' + id, lnIcon: '', lnVersion: '1.3.' + md.version,
+    lnId: 'kiritokmn.' + id, lnIcon: '', lnVersion: '1.4.' + md.version,
   };
   return `${needCrypto ? "import CryptoJS from 'crypto-js';\nglobalThis.CryptoJS = CryptoJS;\n" : ''}${ASYNC_HELPERS}\nexport const META = ${JSON.stringify(META)};\nexport const SCRIPTS = {\n${parts.join(',\n')}\n};\n`;
 }
@@ -151,6 +151,8 @@ function rhinoSourceFile(id, pj, dir) {
 const ANDROID = path.join(ROOT, 'android');
 const androidAssets = { 'anime:sfw': [], 'anime:nsfw': [], 'manga:sfw': [], 'manga:nsfw': [] };
 
+const AIDOKU_TAIL = fs.readFileSync(path.join(ROOT, 'hosts/aidoku.tail.js'), 'utf8');
+const akIndex = [];
 const vbookIndex = [], mgIndex = [], lnIndex = [], aniSources = [], report = [];
 const ids = fs.readdirSync(SRC_DIR).filter(d => fs.existsSync(path.join(SRC_DIR, d, 'plugin.json'))).filter(d => !ONLY || ONLY.has(d)).sort();
 for (const id of ids) {
@@ -178,13 +180,21 @@ for (const id of ids) {
     { const r = await esbuild.build({ entryPoints: [genFile], bundle: true, write: false, format: 'esm', platform: 'neutral', target: 'es2022', nodePaths: [path.join(ROOT, 'node_modules'), path.join(ROOT, '../_work/deps/node_modules')], mainFields: ['module', 'main'], logLevel: 'silent' });
       fs.mkdirSync(path.join(GEN, 'test'), { recursive: true }); fs.writeFileSync(path.join(GEN, 'test', id + '.mjs'), r.outputFiles[0].text); }
     // ---- Mangayomi / YomiHub
-    const ver = `0.4.${md.version}`; // 0.1.x: pure-JS URL resolver; 0.2.x: image Referer; 0.3.x: lazy fallback; 0.4.x: Shorts & Resume A Video
+    const ver = `0.5.${md.version}`; // 0.1.x: pure-JS URL resolver; 0.2.x: image Referer; 0.3.x: lazy fallback; 0.4.x: Shorts flag; 0.5.x: stable URLs (resume/history keep across domains) + GET cache
     const mgMeta = { name: md.name, lang: md.locale === 'all' ? 'all' : md.locale, id: hash31('kiritokmn:' + id), baseUrl: md.source, apiUrl: '', iconUrl: icon, typeSource: 'single', itemType: ITEM_TYPE[md.type], isNsfw: !!md.nsfw, version: ver, dateFormat: '', dateFormatLocale: '', pkgPath: `repo/mangayomi/${id}.js`, shorts: !!reg.short, hasShorts: !!reg.short };
-    let mg = await bundle('entry.js', genFile, 'iife', { globalName: '__VB', target: 'es2020' });
+    const core = await bundle('entry.js', genFile, 'iife', { globalName: '__VB', target: 'es2020' });
+    let mg = core;
     const needGbk = /gbk|gb2312|gb18030/i.test(scriptsSrc(id));
+    // ---- Aidoku (iOS): comics + novels. The JS engine runs inside JavaScriptCore, driven by the Rust bridge (aidoku/).
+    if (md.type === 'comic' || md.type === 'novel') {
+      fs.mkdirSync(path.join(GEN, 'aidoku'), { recursive: true });
+      fs.writeFileSync(path.join(GEN, 'aidoku', id + '.js'), (needGbk ? `var __GBK_TABLE = ${JSON.stringify(GBK_TABLE)};\n` : '') + core + '\n' + AIDOKU_TAIL);
+      const doms = ((pj.config || {}).DOMAIN || {}).values || [md.source];
+      akIndex.push({ id, name: md.name, lang: md.locale, type: md.type, nsfw: !!md.nsfw, version: md.version, source: md.source, domains: doms, author: md.author || '', icon: fs.existsSync(path.join(dir, 'icon.png')) ? path.join('sources', id, 'icon.png') : '' });
+    }
     mg = `const mangayomiSources = [${JSON.stringify(mgMeta)}];\n` + (needGbk ? `var __GBK_TABLE = ${JSON.stringify(GBK_TABLE)};\n` : '') + mg + '\n' + fs.readFileSync(path.join(ROOT, 'hosts/mangayomi.tail.js'), 'utf8');
     fs.writeFileSync(path.join(OUT, 'mangayomi', id + '.js'), mg);
-    mgIndex.push({ ...mgMeta, hasCloudflare: CF_IDS.has(id), sourceCodeUrl: `${BASE}/repo/mangayomi/${id}.js`, isManga: md.type === 'comic', isFullData: false, appMinVerReq: '0.5.0', additionalParams: '', sourceCodeLanguage: 1, notes: 'Kiritokmn Extension Repo ' + VERSION });
+    mgIndex.push({ ...mgMeta, hasCloudflare: CF_IDS.has(id), sourceCodeUrl: `${BASE}/repo/mangayomi/${id}.js`, isManga: md.type === 'comic', isFullData: false, appMinVerReq: '0.5.0', sourceCodeLanguage: 1, additionalParams: reg.short ? 'shorts' : '', notes: 'Kiritokmn Extension Repo ' + VERSION });
     // ---- LNReader / IReader (novels only)
     let lnSize = 0;
     if (md.type === 'novel') {
@@ -194,7 +204,7 @@ for (const id of ids) {
       // so a bundle that reassigns module.exports must also put default on the original exports object.
       ln += '\nif (typeof exports === "object" && exports && module.exports !== exports && module.exports && module.exports.default) exports.default = module.exports.default;\n';
       fs.writeFileSync(path.join(OUT, 'lnreader', id + '.js'), ln); lnSize = ln.length;
-      lnIndex.push({ id: 'kiritokmn.' + id, name: md.name, site: md.source, lang: LN_LANG[md.locale] || 'Multi', version: '1.3.' + md.version, url: `${BASE}/repo/lnreader/${id}.js`, iconUrl: icon, short: !!reg.short });
+      lnIndex.push({ id: 'kiritokmn.' + id, name: md.name, site: md.source, lang: LN_LANG[md.locale] || 'Multi', version: '1.4.' + md.version, url: `${BASE}/repo/lnreader/${id}.js`, iconUrl: icon, short: !!reg.short });
     }
     // ---- Aniyomi / Nekoyomi (video + comic, built into multi-source APKs)
     if (md.type === 'video' || md.type === 'comic') {
@@ -234,6 +244,7 @@ if (!ONLY) {
   fs.writeFileSync(path.join(OUT, 'plugins.min.json'), JSON.stringify(lnIndex));
   fs.writeFileSync(path.join(OUT, 'aniyomi', 'sources.json'), JSON.stringify(aniSources, null, 1));
 }
+if (!ONLY) fs.writeFileSync(path.join(GEN, 'aidoku', 'sources.json'), JSON.stringify(akIndex, null, 1));
 fs.writeFileSync(path.join(GEN, 'build-report.json'), JSON.stringify(report, null, 1));
 const ok = report.filter(r => r.ok).length;
 console.log(`built ${ok}/${report.length} sources`);

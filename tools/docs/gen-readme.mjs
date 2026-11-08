@@ -47,7 +47,7 @@ Mỗi nguồn được viết **một lần** theo chuẩn vBook (JavaScript). B
 | **Mangayomi / YomiHub** | \`${RAW}/index.json\` | JS source (MProvider) |
 | **LNReader / IReader** (Tiểu thuyết) | \`${RAW}/plugins.min.json\` | Plugin JS (ES5) |
 | **vBook / LeechText / YomiHub (tab vBook)** | \`${RAW}/plugin.json\` | Gói vBook \`.zip\` |
-| **Aidoku** (iOS) | xem [docs/AIDOKU.md](docs/AIDOKU.md) | chưa hỗ trợ trong 0.0.1 |
+| **Aidoku** (iOS / iPadOS, Truyện tranh + Tiểu thuyết) | \`${RAW}/aidoku/index.min.json\` | Gói \`.aix\` (WebAssembly + JavaScriptCore), ${akCount()} nguồn — xem [docs/AIDOKU.md](docs/AIDOKU.md) |
 
 > Cả 4 đường dẫn đều nằm chung một gốc: **\`${RAW}/\`** — Aniyomi/Nekoyomi chỉ cần gốc này.
 
@@ -56,13 +56,18 @@ Mỗi nguồn được viết **một lần** theo chuẩn vBook (JavaScript). B
 - **Mangayomi / YomiHub**: Tiện ích → ⋮ → Kho tiện ích → thêm \`${RAW}/index.json\` cho từng tab (Truyện tranh / Phim / Tiểu thuyết).
 - **LNReader / IReader**: Tiện ích (Plugins) → Kho → thêm \`${RAW}/plugins.min.json\`.
 - **vBook / LeechText**: Cài đặt → Kho tiện ích → thêm \`${RAW}/plugin.json\`.
+- **Aidoku** (cần Aidoku 0.8.3 trở lên): Settings → Source Lists → \`+\` → dán \`${RAW}/aidoku/index.min.json\`, rồi vào Browse để cài nguồn. Hoặc mở trên iPhone: \`aidoku://addSourceList?url=${RAW}/aidoku/index.min.json\`.
 
 ### Thêm bằng liên kết (deep link, mở trên điện thoại)
 \`\`\`
 aniyomi://add-repo?url=${RAW}/index.min.json
 tachiyomi://add-repo?url=${RAW}/index.min.json
 mangayomi://add-repo?repo_name=Kiritokmn&manga_url=${RAW}/index.json&anime_url=${RAW}/index.json&novel_url=${RAW}/index.json
+aidoku://addSourceList?url=${RAW}/aidoku/index.min.json
 \`\`\`
+
+### Có gì mới trong ${VERSION}
+Xem [CHANGELOG.md](CHANGELOG.md) — tóm tắt: nguồn **Aidoku** (iOS) cho ${akCount()} nguồn truyện tranh + tiểu thuyết; **Resume A Video** làm lại cho đúng cơ chế của từng ứng dụng (định danh tập phim ổn định, giữ vị trí xem khi đổi tên miền); bộ nhớ đệm phản hồi giảm số lượt tải trang khi mở truyện/phim.
 
 ${yhSection()}
 ## Tải về (Releases v${VERSION})
@@ -83,18 +88,20 @@ ${rows}
 sources/<id>/        nguồn chuẩn vBook (plugin.json + src/*.js)   ← nơi duy nhất cần sửa
 lib/                 thư viện mẫu dùng chung (Madara, generic selector, ...)
 runtime/             engine + DOM tương thích jsoup + vBook API (JS) và prelude Rhino
-hosts/               lớp chuyển đổi cho Mangayomi, LNReader/IReader, Node test
+hosts/               lớp chuyển đổi cho Mangayomi, LNReader/IReader, Aidoku, Node test
+aidoku/              cầu nối Rust/WASM cho Aidoku (bridge/) + biểu tượng nguồn
 android/             APK đa nguồn cho Aniyomi/Nekoyomi (anime + manga, bản 18+)
 tools/               build, sinh nguồn, phân tích trang, kiểm thử
-repo/                ĐẦU RA cho các ứng dụng (index.json, plugins.min.json, plugin.json, index.min.json, apk/)
+repo/                ĐẦU RA cho các ứng dụng (index.json, plugins.min.json, plugin.json, index.min.json, apk/, aidoku/)
 data/                danh sách nguồn từ Excel, kết quả kiểm thử
 \`\`\`
 
-Build: \`npm run build\` · Kiểm thử: \`npm test\` · APK: \`android/build_apks.ps1\`. Ghi chú kỹ thuật: [TECHNICAL_UPDATE_NOTES.md](TECHNICAL_UPDATE_NOTES.md).
+Build: \`npm run build\` · Aidoku: \`node tools/build/aidoku-build.mjs\` (cần Rust + wasm32) · Kiểm thử: \`npm test\`, \`node tools/test/aidoku-sim.mjs --all\` · APK: \`android/build_apks.ps1\`. Ghi chú kỹ thuật: [TECHNICAL_UPDATE_NOTES.md](TECHNICAL_UPDATE_NOTES.md).
 
 Một số nguồn tái sử dụng tiện ích vBook mã nguồn mở của cộng đồng (ghi công tác giả gốc trong \`plugin.json\`). Giấy phép: GPL-3.0.
 `;
 
+function akCount() { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'repo/aidoku/index.min.json'), 'utf8')).sources.length; } catch (e) { return 0; } }
 // YomiHub 0.5.3: website extensions moved out of the YomiHub app (sources-yomihub/)
 function yhSection() {
   const mp = path.join(ROOT, 'sources-yomihub/meta.json');

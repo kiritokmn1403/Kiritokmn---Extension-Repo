@@ -1,0 +1,2437 @@
+{
+ "name": "Kiritokmn Extension Repo",
+ "sources": [
+  {
+   "id": "en.kiritokmn.cosplaytele",
+   "name": "Cosplaytele",
+   "version": 105,
+   "iconURL": "icons/en.kiritokmn.cosplaytele-v105.png",
+   "downloadURL": "sources/en.kiritokmn.cosplaytele-v105.aix",
+   "languages": [
+    "en"
+   ],
+   "contentRating": 2,
+   "baseURL": "https://cosplaytele.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "en.kiritokmn.fanmtl",
+   "name": "Fan MTL",
+   "version": 101,
+   "iconURL": "icons/en.kiritokmn.fanmtl-v101.png",
+   "downloadURL": "sources/en.kiritokmn.fanmtl-v101.aix",
+   "languages": [
+    "en"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.fanmtl.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "en.kiritokmn.mattreadingtranslations",
+   "name": "Matt Reading Translations",
+   "version": 103,
+   "iconURL": "icons/en.kiritokmn.mattreadingtranslations-v103.png",
+   "downloadURL": "sources/en.kiritokmn.mattreadingtranslations-v103.aix",
+   "languages": [
+    "en"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://mattreadingtranslations.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "en.kiritokmn.novelfullnet",
+   "name": "NovelFull.Net",
+   "version": 102,
+   "iconURL": "icons/en.kiritokmn.novelfullnet-v102.png",
+   "downloadURL": "sources/en.kiritokmn.novelfullnet-v102.aix",
+   "languages": [
+    "en"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://novelfull.net",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "en.kiritokmn.novelnext",
+   "name": "Novel Next",
+   "version": 101,
+   "iconURL": "icons/en.kiritokmn.novelnext-v101.png",
+   "downloadURL": "sources/en.kiritokmn.novelnext-v101.aix",
+   "languages": [
+    "en"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://novelnext.me",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "en.kiritokmn.novelphoenix",
+   "name": "NovelPhoenix",
+   "version": 103,
+   "iconURL": "icons/en.kiritokmn.novelphoenix-v103.png",
+   "downloadURL": "sources/en.kiritokmn.novelphoenix-v103.aix",
+   "languages": [
+    "en"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://novelphoenix.net",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "en.kiritokmn.novelpiaglobal",
+   "name": "Novelpia Global",
+   "version": 102,
+   "iconURL": "icons/en.kiritokmn.novelpiaglobal-v102.png",
+   "downloadURL": "sources/en.kiritokmn.novelpiaglobal-v102.aix",
+   "languages": [
+    "en"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://global.novelpia.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "en.kiritokmn.webtoonscan",
+   "name": "WebtoonScan",
+   "version": 101,
+   "iconURL": "icons/en.kiritokmn.webtoonscan-v101.png",
+   "downloadURL": "sources/en.kiritokmn.webtoonscan-v101.aix",
+   "languages": [
+    "en"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://webtoonscan.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "en.kiritokmn.weebcentral",
+   "name": "Weeb Central",
+   "version": 101,
+   "iconURL": "icons/en.kiritokmn.weebcentral-v101.png",
+   "downloadURL": "sources/en.kiritokmn.weebcentral-v101.aix",
+   "languages": [
+    "en"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://weebcentral.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "ja.kiritokmn.hamelnsyosetuorg",
+   "name": "Hameln (Syosetu.org)",
+   "version": 101,
+   "iconURL": "icons/ja.kiritokmn.hamelnsyosetuorg-v101.png",
+   "downloadURL": "sources/ja.kiritokmn.hamelnsyosetuorg-v101.aix",
+   "languages": [
+    "ja"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://syosetu.org",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "ja.kiritokmn.kakuyomu",
+   "name": "Kakuyomu",
+   "version": 101,
+   "iconURL": "icons/ja.kiritokmn.kakuyomu-v101.png",
+   "downloadURL": "sources/ja.kiritokmn.kakuyomu-v101.aix",
+   "languages": [
+    "ja"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://kakuyomu.jp",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "ja.kiritokmn.syosetu",
+   "name": "Syosetu",
+   "version": 103,
+   "iconURL": "icons/ja.kiritokmn.syosetu-v103.png",
+   "downloadURL": "sources/ja.kiritokmn.syosetu-v103.aix",
+   "languages": [
+    "ja"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://syosetu.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "ja.kiritokmn.syosetur18",
+   "name": "Syosetu R18",
+   "version": 101,
+   "iconURL": "icons/ja.kiritokmn.syosetur18-v101.png",
+   "downloadURL": "sources/ja.kiritokmn.syosetur18-v101.aix",
+   "languages": [
+    "ja"
+   ],
+   "contentRating": 2,
+   "baseURL": "https://novel18.syosetu.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "multi.kiritokmn.mangadex",
+   "name": "MangaDex",
+   "version": 101,
+   "iconURL": "icons/multi.kiritokmn.mangadex-v101.png",
+   "downloadURL": "sources/multi.kiritokmn.mangadex-v101.aix",
+   "languages": [
+    "multi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://mangadex.org",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "multi.kiritokmn.myreadingmanga",
+   "name": "My Reading Manga",
+   "version": 101,
+   "iconURL": "icons/multi.kiritokmn.myreadingmanga-v101.png",
+   "downloadURL": "sources/multi.kiritokmn.myreadingmanga-v101.aix",
+   "languages": [
+    "multi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://myreadingmanga.info",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.allin1",
+   "name": "allin1",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.allin1-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.allin1-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "http://14.225.254.182",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.apptruyenchu",
+   "name": "App Truyện Chữ",
+   "version": 103,
+   "iconURL": "icons/vi.kiritokmn.apptruyenchu-v103.png",
+   "downloadURL": "sources/vi.kiritokmn.apptruyenchu-v103.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://apptruyenchu.pro",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.banlong",
+   "name": "Bàn Long",
+   "version": 108,
+   "iconURL": "icons/vi.kiritokmn.banlong-v108.png",
+   "downloadURL": "sources/vi.kiritokmn.banlong-v108.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://blhvip.vn",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.blbattu",
+   "name": "BL Bất Tử",
+   "version": 103,
+   "iconURL": "icons/vi.kiritokmn.blbattu-v103.png",
+   "downloadURL": "sources/vi.kiritokmn.blbattu-v103.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://blbattu.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.boylovebattu",
+   "name": "Boylove Bất Tử",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.boylovebattu-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.boylovebattu-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://boylovebattu.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.cbhentai",
+   "name": "HentaiCube -18+ (iOS)",
+   "version": 115,
+   "iconURL": "icons/vi.kiritokmn.cbhentai-v115.png",
+   "downloadURL": "sources/vi.kiritokmn.cbhentai-v115.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 2,
+   "baseURL": "https://hentaicube.xyz",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.cbunucomic",
+   "name": "CBunu Comic",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.cbunucomic-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.cbunucomic-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 2,
+   "baseURL": "https://cucbongunu.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.damconuong",
+   "name": "Dâm Cô Nương",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.damconuong-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.damconuong-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 2,
+   "baseURL": "https://damconuong.name",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.destinteam",
+   "name": "Destin Team",
+   "version": 103,
+   "iconURL": "icons/vi.kiritokmn.destinteam-v103.png",
+   "downloadURL": "sources/vi.kiritokmn.destinteam-v103.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://destinteam.xyz",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.doctruyentranhbl",
+   "name": "Đọc Truyện Tranh BL",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.doctruyentranhbl-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.doctruyentranhbl-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://truyentranhbl.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.dualeotruyen",
+   "name": "Dưa Leo truyện",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.dualeotruyen-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.dualeotruyen-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 2,
+   "baseURL": "https://dualeotruyenbet.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.ehentai",
+   "name": "E Hentai",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.ehentai-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.ehentai-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 2,
+   "baseURL": "https://e-hentai.org",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.gaumeoteam",
+   "name": "Gấu Mèo Team",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.gaumeoteam-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.gaumeoteam-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://gaumeoteam.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.gioitruyen",
+   "name": "Giới Truyện",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.gioitruyen-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.gioitruyen-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://gioitruyen.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.goctruyentranh",
+   "name": "Góc Truyện Tranh",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.goctruyentranh-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.goctruyentranh-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://goctruyentranhvui41.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.hacamchicac",
+   "name": "Hắc Ám Chi Các",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.hacamchicac-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.hacamchicac-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://haccbl.xyz",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.hangtruyenchu",
+   "name": "Hang Truyện Chữ",
+   "version": 103,
+   "iconURL": "icons/vi.kiritokmn.hangtruyenchu-v103.png",
+   "downloadURL": "sources/vi.kiritokmn.hangtruyenchu-v103.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://hangtruyenchu.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.hentaivn",
+   "name": "HentaiVN",
+   "version": 128,
+   "iconURL": "icons/vi.kiritokmn.hentaivn-v128.png",
+   "downloadURL": "sources/vi.kiritokmn.hentaivn-v128.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://hentaihvn.tv",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.jellycomics",
+   "name": "Jelly Comics",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.jellycomics-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.jellycomics-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://jellycomics.online",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.julycomic",
+   "name": "JulyComic",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.julycomic-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.julycomic-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://julycomics.site",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.khotruyenchu",
+   "name": "Kho Truyện Chữ",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.khotruyenchu-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.khotruyenchu-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://khotruyenchu.me/",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.lacatruyen",
+   "name": "La Cà Truyện",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.lacatruyen-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.lacatruyen-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://lacatruyen.homes",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.lnhakovnhako",
+   "name": "Hako Novel",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.lnhakovnhako-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.lnhakovnhako-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://docln.sbs",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.lnkuro",
+   "name": "LN Kuro",
+   "version": 116,
+   "iconURL": "icons/vi.kiritokmn.lnkuro-v116.png",
+   "downloadURL": "sources/vi.kiritokmn.lnkuro-v116.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://lnkuro.top",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.lohi",
+   "name": "LoHi",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.lohi-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.lohi-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://lohi2.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.loppytoon",
+   "name": "LoppyToon",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.loppytoon-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.loppytoon-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 2,
+   "baseURL": "https://loppytoon.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.luottruyen",
+   "name": "LuotTruyen",
+   "version": 108,
+   "iconURL": "icons/vi.kiritokmn.luottruyen-v108.png",
+   "downloadURL": "sources/vi.kiritokmn.luottruyen-v108.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://luottruyen7.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.luvevaland",
+   "name": "Luvevaland",
+   "version": 103,
+   "iconURL": "icons/vi.kiritokmn.luvevaland-v103.png",
+   "downloadURL": "sources/vi.kiritokmn.luvevaland-v103.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://luvevalandn2.co",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.mangadm",
+   "name": "MangaDM",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.mangadm-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.mangadm-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://mangadm.me",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.manhwabuddy",
+   "name": "ManhwaBuddy",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.manhwabuddy-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.manhwabuddy-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://manhwabuddy.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.medoctruyen",
+   "name": "Mê Đọc Truyện",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.medoctruyen-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.medoctruyen-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://medoctruyen.vn",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.metruyenchu",
+   "name": "MeTruyenChu",
+   "version": 117,
+   "iconURL": "icons/vi.kiritokmn.metruyenchu-v117.png",
+   "downloadURL": "sources/vi.kiritokmn.metruyenchu-v117.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://metruyenchu.com.vn",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.metruyencv",
+   "name": "Mê Truyện CV",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.metruyencv-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.metruyencv-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://metruyencv.xyz",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.mimimoe",
+   "name": "Mimimoe",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.mimimoe-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.mimimoe-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://mimihentai.moe",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.minotruyen",
+   "name": "Mino Truyện",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.minotruyen-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.minotruyen-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://minotruyenv6.xyz",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.mintteanovel",
+   "name": "Minttea Novel",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.mintteanovel-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.mintteanovel-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://mintteanovel.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.misskon",
+   "name": "Misskon",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.misskon-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.misskon-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://misskon.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.moetruyen",
+   "name": "MoeTruyen",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.moetruyen-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.moetruyen-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://truyen.moe",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.monkeyd",
+   "name": "MonkeyD",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.monkeyd-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.monkeyd-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://monkeydd.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.mottruyen",
+   "name": "Mọt Truyện",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.mottruyen-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.mottruyen-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://mottruyen.app",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.moyuemacduyet",
+   "name": "Moyue · Mặc Duyệt",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.moyuemacduyet-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.moyuemacduyet-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://moyue.app",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.mtc",
+   "name": "Mê Truyện CV",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.mtc-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.mtc-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://metruyencv.xyz",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.navyteamcomic",
+   "name": "Navy Team Comic",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.navyteamcomic-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.navyteamcomic-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://navyteams.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.navyteamnovel",
+   "name": "Navy Team Novel",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.navyteamnovel-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.navyteamnovel-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://navyteams.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.nettruyen",
+   "name": "NetTruyen",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.nettruyen-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.nettruyen-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://nettruyen.com.vn",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.nettruyen18",
+   "name": "NetTruyen18",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.nettruyen18-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.nettruyen18-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://nettruyen18.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.nettruyenviet",
+   "name": "NetTruyenViet",
+   "version": 103,
+   "iconURL": "icons/vi.kiritokmn.nettruyenviet-v103.png",
+   "downloadURL": "sources/vi.kiritokmn.nettruyenviet-v103.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://nettruyenviet10.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.nettruyenz",
+   "name": "NetTruyenZ",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.nettruyenz-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.nettruyenz-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://nettruyenz.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.quykiep",
+   "name": "LightNovel VN",
+   "version": 105,
+   "iconURL": "icons/vi.kiritokmn.quykiep-v105.png",
+   "downloadURL": "sources/vi.kiritokmn.quykiep-v105.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://quykiep.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.roadsteam",
+   "name": "Roads Team",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.roadsteam-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.roadsteam-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://roadsteami.net",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.sayhentai",
+   "name": "SayHentai -18+",
+   "version": 103,
+   "iconURL": "icons/vi.kiritokmn.sayhentai-v103.png",
+   "downloadURL": "sources/vi.kiritokmn.sayhentai-v103.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 2,
+   "baseURL": "https://sayhentai.cx",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.shinigamilnteam",
+   "name": "Shinigami LN Team",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.shinigamilnteam-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.shinigamilnteam-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://shinigamilnteam.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.sitruyencv",
+   "name": "Si Truyện CV",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.sitruyencv-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.sitruyencv-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://sitruyencv.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.sonako",
+   "name": "Sonako",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.sonako-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.sonako-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://sonako.fandom.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.stvappvi",
+   "name": "STV App Vi",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.stvappvi-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.stvappvi-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://sangtacviet.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.thegioitruyen",
+   "name": "Thế Giới Truyện",
+   "version": 103,
+   "iconURL": "icons/vi.kiritokmn.thegioitruyen-v103.png",
+   "downloadURL": "sources/vi.kiritokmn.thegioitruyen-v103.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://thegioitruyen.vn",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.tiemtruyenchu",
+   "name": "Tiệm Truyện Chữ (Demo)",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.tiemtruyenchu-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.tiemtruyenchu-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://tiemtruyenchu.cloud",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.tinhlinh",
+   "name": "Tinh Linh",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.tinhlinh-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.tinhlinh-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://tinhlinh.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.truyenc",
+   "name": "TruyenC",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.truyenc-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.truyenc-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://truyenc.net",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.truyenchu",
+   "name": "TruyenChu",
+   "version": 109,
+   "iconURL": "icons/vi.kiritokmn.truyenchu-v109.png",
+   "downloadURL": "sources/vi.kiritokmn.truyenchu-v109.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://truyenchu.net",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.truyencv",
+   "name": "Mê Truyện CV",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.truyencv-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.truyencv-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://metruyencv.xyz",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.truyencvio",
+   "name": "TruyenCV.io",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.truyencvio-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.truyencvio-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://truyencv.io",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.truyendichai",
+   "name": "TruyenDich.AI",
+   "version": 105,
+   "iconURL": "icons/vi.kiritokmn.truyendichai-v105.png",
+   "downloadURL": "sources/vi.kiritokmn.truyendichai-v105.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://truyendich.store",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.truyendichain",
+   "name": "Truyện Dịch AI",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.truyendichain-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.truyendichain-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://truyendichai.top/",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.truyenfull",
+   "name": "Truyện Full",
+   "version": 114,
+   "iconURL": "icons/vi.kiritokmn.truyenfull-v114.png",
+   "downloadURL": "sources/vi.kiritokmn.truyenfull-v114.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://truyenfull.live",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.truyenfulln",
+   "name": "Truyện Full",
+   "version": 114,
+   "iconURL": "icons/vi.kiritokmn.truyenfulln-v114.png",
+   "downloadURL": "sources/vi.kiritokmn.truyenfulln-v114.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://truyenfull.live",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.truyengg",
+   "name": "TruyenGG",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.truyengg-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.truyengg-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://truyenggvn.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.truyenh",
+   "name": "Truyen H",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.truyenh-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.truyenh-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 2,
+   "baseURL": "https://truyenh.top",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.truyenmoi",
+   "name": "Truyện Mới",
+   "version": 107,
+   "iconURL": "icons/vi.kiritokmn.truyenmoi-v107.png",
+   "downloadURL": "sources/vi.kiritokmn.truyenmoi-v107.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://truyenmoiqq.com/",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.truyenmoikk",
+   "name": "Truyện Mới KK",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.truyenmoikk-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.truyenmoikk-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://truyenmoikk.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.truyennet",
+   "name": "Truyện Net",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.truyennet-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.truyennet-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://truyennet.vn/",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.truyenqq",
+   "name": "Truyện QQ",
+   "version": 125,
+   "iconURL": "icons/vi.kiritokmn.truyenqq-v125.png",
+   "downloadURL": "sources/vi.kiritokmn.truyenqq-v125.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://truyenqqko.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.truyenqqc",
+   "name": "TruyenQQ",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.truyenqqc-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.truyenqqc-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://truyenqq.com.vn",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.truyentranhdammyy",
+   "name": "Truyentranhdammyy",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.truyentranhdammyy-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.truyentranhdammyy-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://truyentranhdammyy.site",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.truyenzhihutonghop",
+   "name": "Truyện Zhihu Tổng Hợp",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.truyenzhihutonghop-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.truyenzhihutonghop-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://truyendexuat.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.tutienpro",
+   "name": "Tu Tiên (.pro)",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.tutienpro-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.tutienpro-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://tutien.pro",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.tvkh",
+   "name": "TVKH",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.tvkh-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.tvkh-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://bananacoo.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.ungtycomics",
+   "name": "Ưng Tỷ Comics",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.ungtycomics-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.ungtycomics-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://ungtycomicseo.com/",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.valvrareteam",
+   "name": "Valvrareteam",
+   "version": 110,
+   "iconURL": "icons/vi.kiritokmn.valvrareteam-v110.png",
+   "downloadURL": "sources/vi.kiritokmn.valvrareteam-v110.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://valvrareteam.net",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.viblo",
+   "name": "Viblo",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.viblo-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.viblo-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://viblo.asia",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.vietnamthuquan",
+   "name": "Việt Nam Thư Quán",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.vietnamthuquan-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.vietnamthuquan-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://vnthuquan.org",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.vinahentai",
+   "name": "VinaHentai",
+   "version": 103,
+   "iconURL": "icons/vi.kiritokmn.vinahentai-v103.png",
+   "downloadURL": "sources/vi.kiritokmn.vinahentai-v103.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://vinahentai.bio",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Comic"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.vipbachngocsach",
+   "name": "【VIP】Bạch Ngọc Sách",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.vipbachngocsach-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.vipbachngocsach-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://bnsvip.net",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.vivutruyencom",
+   "name": "Vivu Truyện",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.vivutruyencom-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.vivutruyencom-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://vivutruyen.net/",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.wattpad",
+   "name": "Wattpad - Tiếng Việt",
+   "version": 121,
+   "iconURL": "icons/vi.kiritokmn.wattpad-v121.png",
+   "downloadURL": "sources/vi.kiritokmn.wattpad-v121.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.wattpad.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.webtruyenchu",
+   "name": "Web Truyện Chữ",
+   "version": 102,
+   "iconURL": "icons/vi.kiritokmn.webtruyenchu-v102.png",
+   "downloadURL": "sources/vi.kiritokmn.webtruyenchu-v102.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://webtruyenchu.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.webtruyendich",
+   "name": "Web Truyện Dịch",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.webtruyendich-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.webtruyendich-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://webtruyendich.com/",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.wikidich",
+   "name": "Wiki Dịch",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.wikidich-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.wikidich-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://wikicv.net",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "vi.kiritokmn.xtruyen",
+   "name": "XTruyen",
+   "version": 101,
+   "iconURL": "icons/vi.kiritokmn.xtruyen-v101.png",
+   "downloadURL": "sources/vi.kiritokmn.xtruyen-v101.aix",
+   "languages": [
+    "vi"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.xtruyen.net",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.07br",
+   "name": "07br",
+   "version": 102,
+   "iconURL": "icons/zh.kiritokmn.07br-v102.png",
+   "downloadURL": "sources/zh.kiritokmn.07br-v102.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.bqg603.cc",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.101kks",
+   "name": "101kks",
+   "version": 103,
+   "iconURL": "icons/zh.kiritokmn.101kks-v103.png",
+   "downloadURL": "sources/zh.kiritokmn.101kks-v103.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://101kks.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.101minc",
+   "name": "101Minc",
+   "version": 101,
+   "iconURL": "icons/zh.kiritokmn.101minc-v101.png",
+   "downloadURL": "sources/zh.kiritokmn.101minc-v101.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.101minc.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.52shukubyquocbao",
+   "name": "52shuku",
+   "version": 112,
+   "iconURL": "icons/zh.kiritokmn.52shukubyquocbao-v112.png",
+   "downloadURL": "sources/zh.kiritokmn.52shukubyquocbao-v112.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.52shuku.net",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.69shuba",
+   "name": "69shuba",
+   "version": 102,
+   "iconURL": "icons/zh.kiritokmn.69shuba-v102.png",
+   "downloadURL": "sources/zh.kiritokmn.69shuba-v102.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.69shuba.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.69shurepoduongden",
+   "name": "69shuba",
+   "version": 102,
+   "iconURL": "icons/zh.kiritokmn.69shurepoduongden-v102.png",
+   "downloadURL": "sources/zh.kiritokmn.69shurepoduongden-v102.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.69shuba.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.75zwcom",
+   "name": "75zwcom",
+   "version": 103,
+   "iconURL": "icons/zh.kiritokmn.75zwcom-v103.png",
+   "downloadURL": "sources/zh.kiritokmn.75zwcom-v103.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://m.75biquge.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.8book",
+   "name": "8book",
+   "version": 102,
+   "iconURL": "icons/zh.kiritokmn.8book-v102.png",
+   "downloadURL": "sources/zh.kiritokmn.8book-v102.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.8book.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.abcbiquge",
+   "name": "笔趣阁-abcbiquge",
+   "version": 102,
+   "iconURL": "icons/zh.kiritokmn.abcbiquge-v102.png",
+   "downloadURL": "sources/zh.kiritokmn.abcbiquge-v102.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://m.bqg6.xyz",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.alicesw",
+   "name": "AliceSW",
+   "version": 106,
+   "iconURL": "icons/zh.kiritokmn.alicesw-v106.png",
+   "downloadURL": "sources/zh.kiritokmn.alicesw-v106.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 2,
+   "baseURL": "https://www.alicesw.com/",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.ciyuanji",
+   "name": "ciyuanji",
+   "version": 104,
+   "iconURL": "icons/zh.kiritokmn.ciyuanji-v104.png",
+   "downloadURL": "sources/zh.kiritokmn.ciyuanji-v104.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://m.ciyuanji.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.czbooksrepoduongden",
+   "name": "czbooks - repo Đường đen",
+   "version": 106,
+   "iconURL": "icons/zh.kiritokmn.czbooksrepoduongden-v106.png",
+   "downloadURL": "sources/zh.kiritokmn.czbooksrepoduongden-v106.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://czbooks.net",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.deqixs",
+   "name": "Deqixs",
+   "version": 102,
+   "iconURL": "icons/zh.kiritokmn.deqixs-v102.png",
+   "downloadURL": "sources/zh.kiritokmn.deqixs-v102.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.deqixs.org",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.douban",
+   "name": "douban",
+   "version": 101,
+   "iconURL": "icons/zh.kiritokmn.douban-v101.png",
+   "downloadURL": "sources/zh.kiritokmn.douban-v101.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://read.douban.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.duahau",
+   "name": "Dưa Hấu",
+   "version": 101,
+   "iconURL": "icons/zh.kiritokmn.duahau-v101.png",
+   "downloadURL": "sources/zh.kiritokmn.duahau-v101.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://xgmf.zuanqianyi.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.faloo",
+   "name": "bFaloo (飞卢小说)",
+   "version": 105,
+   "iconURL": "icons/zh.kiritokmn.faloo-v105.png",
+   "downloadURL": "sources/zh.kiritokmn.faloo-v105.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://b.faloo.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.gongzicp",
+   "name": "gongzicp",
+   "version": 101,
+   "iconURL": "icons/zh.kiritokmn.gongzicp-v101.png",
+   "downloadURL": "sources/zh.kiritokmn.gongzicp-v101.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.gongzicp.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.html5qqcom",
+   "name": "html5.qq.com",
+   "version": 101,
+   "iconURL": "icons/zh.kiritokmn.html5qqcom-v101.png",
+   "downloadURL": "sources/zh.kiritokmn.html5qqcom-v101.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://bookshelf.html5.qq.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.idejian",
+   "name": "idejian",
+   "version": 101,
+   "iconURL": "icons/zh.kiritokmn.idejian-v101.png",
+   "downloadURL": "sources/zh.kiritokmn.idejian-v101.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.idejian.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.ijjjxsxzw",
+   "name": "ijjjxsxzw",
+   "version": 102,
+   "iconURL": "icons/zh.kiritokmn.ijjjxsxzw-v102.png",
+   "downloadURL": "sources/zh.kiritokmn.ijjjxsxzw-v102.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://m.ijjjxsxzw.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.ixdzs8",
+   "name": "ixdzs8",
+   "version": 101,
+   "iconURL": "icons/zh.kiritokmn.ixdzs8-v101.png",
+   "downloadURL": "sources/zh.kiritokmn.ixdzs8-v101.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://ixdzs8.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.jjwxcrepoduongden",
+   "name": "Jjwxc-repo duongden💰✅",
+   "version": 102,
+   "iconURL": "icons/zh.kiritokmn.jjwxcrepoduongden-v102.png",
+   "downloadURL": "sources/zh.kiritokmn.jjwxcrepoduongden-v102.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.jjwxc.net",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.jjwxctangiang",
+   "name": "JJWXC · Tấn Giang",
+   "version": 102,
+   "iconURL": "icons/zh.kiritokmn.jjwxctangiang-v102.png",
+   "downloadURL": "sources/zh.kiritokmn.jjwxctangiang-v102.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.jjwxc.net",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.langgee",
+   "name": "Langgee",
+   "version": 101,
+   "iconURL": "icons/zh.kiritokmn.langgee-v101.png",
+   "downloadURL": "sources/zh.kiritokmn.langgee-v101.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://v5.langge.uk",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.lofter",
+   "name": "LOFTER",
+   "version": 102,
+   "iconURL": "icons/zh.kiritokmn.lofter-v102.png",
+   "downloadURL": "sources/zh.kiritokmn.lofter-v102.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.suduguu.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.piaotia",
+   "name": "飘天文学",
+   "version": 102,
+   "iconURL": "icons/zh.kiritokmn.piaotia-v102.png",
+   "downloadURL": "sources/zh.kiritokmn.piaotia-v102.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.piaotia.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.piaotianapp",
+   "name": "piaotian-app",
+   "version": 101,
+   "iconURL": "icons/zh.kiritokmn.piaotianapp-v101.png",
+   "downloadURL": "sources/zh.kiritokmn.piaotianapp-v101.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.piaotianapp.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.po18",
+   "name": "po18",
+   "version": 101,
+   "iconURL": "icons/zh.kiritokmn.po18-v101.png",
+   "downloadURL": "sources/zh.kiritokmn.po18-v101.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 2,
+   "baseURL": "https://www.po18.tw",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.po18sm",
+   "name": "po18sm",
+   "version": 101,
+   "iconURL": "icons/zh.kiritokmn.po18sm-v101.png",
+   "downloadURL": "sources/zh.kiritokmn.po18sm-v101.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 2,
+   "baseURL": "https://www.po18sm.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.qimao",
+   "name": "Qimao (七猫文化)",
+   "version": 102,
+   "iconURL": "icons/zh.kiritokmn.qimao-v102.png",
+   "downloadURL": "sources/zh.kiritokmn.qimao-v102.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.qimao.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.qmbook",
+   "name": "qmbook",
+   "version": 101,
+   "iconURL": "icons/zh.kiritokmn.qmbook-v101.png",
+   "downloadURL": "sources/zh.kiritokmn.qmbook-v101.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://m.bqg631.xyz",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.quanben",
+   "name": "quanben",
+   "version": 103,
+   "iconURL": "icons/zh.kiritokmn.quanben-v103.png",
+   "downloadURL": "sources/zh.kiritokmn.quanben-v103.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://quanben.io",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.quanwenyuedu",
+   "name": "quanwenyuedu",
+   "version": 101,
+   "iconURL": "icons/zh.kiritokmn.quanwenyuedu-v101.png",
+   "downloadURL": "sources/zh.kiritokmn.quanwenyuedu-v101.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.quanwenyuedu.io",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.shubenshu",
+   "name": "书本书 Shubenshu",
+   "version": 102,
+   "iconURL": "icons/zh.kiritokmn.shubenshu-v102.png",
+   "downloadURL": "sources/zh.kiritokmn.shubenshu-v102.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.shubenshu.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.snapd",
+   "name": "Snapd",
+   "version": 101,
+   "iconURL": "icons/zh.kiritokmn.snapd-v101.png",
+   "downloadURL": "sources/zh.kiritokmn.snapd-v101.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://m.bqgsn.cc",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.sobqg",
+   "name": "搜笔趣阁",
+   "version": 102,
+   "iconURL": "icons/zh.kiritokmn.sobqg-v102.png",
+   "downloadURL": "sources/zh.kiritokmn.sobqg-v102.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.sobqg.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.sohu",
+   "name": "sohu",
+   "version": 102,
+   "iconURL": "icons/zh.kiritokmn.sohu-v102.png",
+   "downloadURL": "sources/zh.kiritokmn.sohu-v102.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://m.sohu.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.soixamfanqie",
+   "name": "Sói Xám (Fanqie)",
+   "version": 101,
+   "iconURL": "icons/zh.kiritokmn.soixamfanqie-v101.png",
+   "downloadURL": "sources/zh.kiritokmn.soixamfanqie-v101.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://api.langge.cf",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.sudugu",
+   "name": "sudugu",
+   "version": 102,
+   "iconURL": "icons/zh.kiritokmn.sudugu-v102.png",
+   "downloadURL": "sources/zh.kiritokmn.sudugu-v102.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.suduguu.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.sweetastes",
+   "name": "sweetastes",
+   "version": 101,
+   "iconURL": "icons/zh.kiritokmn.sweetastes-v101.png",
+   "downloadURL": "sources/zh.kiritokmn.sweetastes-v101.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://baby0world.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.taonovel",
+   "name": "TaoNovel",
+   "version": 101,
+   "iconURL": "icons/zh.kiritokmn.taonovel-v101.png",
+   "downloadURL": "sources/zh.kiritokmn.taonovel-v101.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://tybook.taoyuewenhua.net",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.uukanshu",
+   "name": "uukanshu",
+   "version": 103,
+   "iconURL": "icons/zh.kiritokmn.uukanshu-v103.png",
+   "downloadURL": "sources/zh.kiritokmn.uukanshu-v103.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://uukanshu.cc",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.weibo",
+   "name": "Weibo",
+   "version": 101,
+   "iconURL": "icons/zh.kiritokmn.weibo-v101.png",
+   "downloadURL": "sources/zh.kiritokmn.weibo-v101.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://m.weibo.cn",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.wodeshucheng5",
+   "name": "wodeshucheng5",
+   "version": 101,
+   "iconURL": "icons/zh.kiritokmn.wodeshucheng5-v101.png",
+   "downloadURL": "sources/zh.kiritokmn.wodeshucheng5-v101.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.wodeshucheng5.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.xbanxiarepoduongden",
+   "name": "Xbanxia - repo Đường đen",
+   "version": 103,
+   "iconURL": "icons/zh.kiritokmn.xbanxiarepoduongden-v103.png",
+   "downloadURL": "sources/zh.kiritokmn.xbanxiarepoduongden-v103.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.xbanxia.cc",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.xianqihaotiamiapp",
+   "name": "言情小说阁 (APP)",
+   "version": 101,
+   "iconURL": "icons/zh.kiritokmn.xianqihaotiamiapp-v101.png",
+   "downloadURL": "sources/zh.kiritokmn.xianqihaotiamiapp-v101.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "http://www.xianqihaotianmi.org",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.xsw",
+   "name": "xsw",
+   "version": 101,
+   "iconURL": "icons/zh.kiritokmn.xsw-v101.png",
+   "downloadURL": "sources/zh.kiritokmn.xsw-v101.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://m.xsw.tw",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  },
+  {
+   "id": "zh.kiritokmn.ypshuobinhluansach",
+   "name": "YPShuo - Bình luận sách",
+   "version": 101,
+   "iconURL": "icons/zh.kiritokmn.ypshuobinhluansach-v101.png",
+   "downloadURL": "sources/zh.kiritokmn.ypshuobinhluansach-v101.aix",
+   "languages": [
+    "zh"
+   ],
+   "contentRating": 0,
+   "baseURL": "https://www.ypshuo.com",
+   "minAppVersion": "0.8.3",
+   "altNames": [
+    "Novel"
+   ]
+  }
+ ]
+}

@@ -25,6 +25,30 @@ export class VBookEngine {
     this.tokens = {};
   }
   get base() { return str(this.host.config('DOMAIN') || this.meta.source).replace(/\/+$/, ''); }
+  // 0.0.3 — stable identities (Resume A Video / reading history): every title / chapter / episode URL handed to
+  // an app is written with the source's DEFAULT domain, whatever domain is selected in the settings, and turned
+  // back into the current domain before a script runs. The apps (Aniyomi/Nekoyomi, Mangayomi/YomiHub, LNReader,
+  // Aidoku) key watch position + read state on that URL, so switching to a mirror domain no longer creates new
+  // episodes and the player keeps resuming where the user left off.
+  get origins() {
+    if (this._orig) return this._orig;
+    const d = (this.meta.config || {}).DOMAIN || {};
+    const key = u => { const m = /^https?:\/\/(?:www\.|m\.)?([^/?#:]+)/i.exec(str(u).trim()); return m ? m[1].toLowerCase() : ''; };
+    const set = {}; [this.meta.source, d.default].concat(d.values || []).map(key).filter(Boolean).forEach(h => { set[h] = 1; });
+    const m0 = /^https?:\/\/[^/?#]+/i.exec(str(this.meta.source)); this._orig = { key, hosts: set, def: m0 ? m0[0] : '' };
+    return this._orig;
+  }
+  canon(u) {
+    u = str(u); const o = this.origins; if (!o.def) return u;
+    const m = /^https?:\/\/[^/?#]+/i.exec(u); if (!m) return u;
+    const h = o.key(m[0]); return (o.hosts[h] === 1 || h === o.key(this.base)) ? o.def + u.slice(m[0].length) : u;
+  }
+  decanon(u) {
+    u = str(u); const o = this.origins; if (!o.def) return u;
+    const b = (/^https?:\/\/[^/?#]+/i.exec(this.base) || [])[0];
+    if (!b || b === o.def) return u;
+    return u.slice(0, o.def.length) === o.def ? b + u.slice(o.def.length) : u;
+  }
   has(name) { return !!this.scripts[name]; }
   async run(name, ...args) {
     const factory = this.scripts[name];
@@ -56,7 +80,7 @@ export class VBookEngine {
     const next = str(r.data2);
     if (next) this.tokens[key + '|' + (page + 1)] = next;
     const items = (r.data || []).filter(Boolean).map(it => ({
-      name: str(it.name).trim(), link: abs(it.host || this.base + '/', it.link), cover: abs(it.host || this.base + '/', it.cover),
+      name: str(it.name).trim(), link: this.canon(abs(it.host || this.base + '/', it.link)), cover: abs(it.host || this.base + '/', it.cover),
       description: str(it.description), tag: str(it.tag),
     })).filter(it => it.name && it.link);
     return { items, hasNext: !!next && items.length > 0 };
@@ -77,24 +101,27 @@ export class VBookEngine {
     return this.list('search', q, page);
   }
   async detail(url) {
+    url = this.decanon(url);
     const d = (await this.run('detail', url)).data || {};
     const genres = [].concat(d.genres || [], d.tags || []).map(g => (typeof g === 'string' ? g : g && g.title)).filter(Boolean);
     return {
       name: str(d.name).trim(), cover: abs(d.host || this.base + '/', d.cover), author: str(d.author).trim(),
       description: stripHtml(str(d.description)), detail: stripHtml(str(d.detail)), ongoing: d.ongoing !== false && d.ongoing !== 'false',
-      genres: uniq(genres.map(s => String(s).trim())), url: url, format: str(d.format),
+      genres: uniq(genres.map(s => String(s).trim())), url: this.canon(url), format: str(d.format),
     };
   }
   async chapters(url) {
+    url = this.decanon(url);
     let list = [];
     if (this.meta.type === 'novel' && this.has('page') && this.has('toc')) {
       // legacy contract: page.js lists TOC pages, toc.js parses each page
       const pages = (await this.run('page', url)).data || [url];
       for (const p of pages) list = list.concat((await this.run('toc', str(p))).data || []);
     } else if (this.has('toc')) list = (await this.run('toc', url)).data || [];
-    return list.filter(c => c && c.url && c.type !== 'section').map((c, i) => ({ name: str(c.name).trim() || ('#' + (i + 1)), url: abs(c.host || this.base + '/', c.url), pay: !!(c.pay || c.lock) }));
+    return list.filter(c => c && c.url && c.type !== 'section').map((c, i) => ({ name: str(c.name).trim() || ('#' + (i + 1)), url: this.canon(abs(c.host || this.base + '/', c.url)), pay: !!(c.pay || c.lock) }));
   }
   async pages(url) {
+    url = this.decanon(url);
     let data;
     if (this.has('chap') && this.meta.type === 'comic') data = (await this.run('chap', url)).data;
     else if (this.has('page')) data = (await this.run('page', url)).data;
@@ -111,16 +138,17 @@ export class VBookEngine {
     return (data || []).map(p => abs(this.base + '/', pick(p))).filter(Boolean);
   }
   async content(url) {
+    url = this.decanon(url);
     const r = await this.run('chap', url);
     return { html: str(r.data), title: str(r.data2) };
   }
   async videos(url) {
+    url = this.decanon(url);
     let servers = [{ title: 'Default', data: url }];
     if (this.has('chap')) {
       const d = (await this.run('chap', url)).data;
       if (Array.isArray(d) && d.length) servers = d.map(s => (typeof s === 'string' ? { title: 'Server', data: s } : { title: str(s.title || s.name || 'Server'), data: str(s.data || s.url || s.link) }));
     }
-    const resumeSec = (this.env && this.env.resumeStorage) ? this.env.resumeStorage.get(url) : 0;
     const out = [];
     for (const s of servers) {
       try {
@@ -130,17 +158,9 @@ export class VBookEngine {
           if (!tr || !tr.data) continue;
           if (tr.type === 'webview') continue; // embed pages cannot be played by native players
           const streamUrl = abs(tr.host || this.base + '/', tr.data);
-          const resumeFragment = (resumeSec > 0 && !tr.data.includes('#t=') && !tr.data.includes('&t='))
-            ? (tr.data.includes('#') ? '&' : '#') + 't=' + Math.floor(resumeSec)
-            : '';
-          const resumeLabel = resumeSec > 0
-            ? ' [Tiếp tục ' + Math.floor(resumeSec / 60) + ':' + ('0' + Math.floor(resumeSec % 60)).slice(-2) + ']'
-            : '';
           out.push({
-            url: streamUrl + resumeFragment,
-            rawUrl: streamUrl,
-            resumeSec: resumeSec,
-            quality: s.title + (tr.quality ? ' ' + tr.quality : '') + resumeLabel,
+            url: streamUrl,
+            quality: s.title + (tr.quality ? ' ' + tr.quality : ''),
             headers: tr.headers || { Referer: this.base + '/' },
             subtitles: (tr.subtitles || (tr.subtitle ? [{ data: tr.subtitle, label: 'Sub' }] : [])).map(x => ({ file: abs(this.base + '/', x.data || x.file), label: str(x.label || x.language || 'Sub') })),
             mimeType: str(tr.mimeType),

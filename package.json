@@ -1,6 +1,6 @@
 {
   "name": "kiritokmn-extension-repo",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "type": "module",
   "description": "Universal extension repo: one source definition -> vBook, LeechText, YomiHub, Mangayomi, LNReader, IReader, Aniyomi, Nekoyomi, Aidoku",

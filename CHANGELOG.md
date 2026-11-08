@@ -1,3 +1,31 @@
+# Kiritokmn Extension Repo — v0.0.3 (08/11/2026)
+
+## Tính năng mới
+- **Aidoku (iOS / iPadOS):** lần đầu có nguồn cho Aidoku, gồm **152 nguồn** (37 truyện tranh + 115 tiểu thuyết). Thêm vào Aidoku bằng đường dẫn `https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/aidoku/index.min.json`, hoặc mở liên kết `aidoku://addSourceList?url=…`.
+  - Mỗi nguồn là một gói `.aix`: WebAssembly viết bằng Rust (`aidoku/bridge`), bên trong chạy **chung engine JavaScript** với Mangayomi/LNReader/vBook qua JavaScriptCore của iOS. Nhờ vậy sửa nguồn một lần là cả 9 ứng dụng cùng được sửa.
+  - Truyện chữ hiển thị bằng trình đọc chữ của Aidoku (Markdown). Ảnh truyện tranh gửi kèm `Referer` của trang chương. Đọc được trang mã hoá GBK (Trung Quốc). Mỗi tab trang chủ của nguồn thành một mục trong Browse. Đổi được tên miền trong cài đặt nguồn.
+  - Cần Aidoku 0.8.3 trở lên. Chi tiết: `docs/AIDOKU.md`.
+- **Resume A Video (làm lại cho đúng):** Aniyomi, Nekoyomi, Mangayomi và YomiHub tự lưu vị trí xem theo **địa chỉ (URL) của tập phim**. Từ bản này, địa chỉ phim/truyện/tập/chương luôn được ghi theo **tên miền mặc định** của nguồn, dù người dùng chọn tên miền nào trong cài đặt. Vì vậy khi trang đổi tên miền, ứng dụng vẫn nhận ra đúng tập cũ, vẫn **xem tiếp từ chỗ đã thoát** và không mất lịch sử đọc/xem. Áp dụng cho cả 4 APK, Mangayomi/YomiHub, LNReader/IReader và Aidoku.
+- **Tăng tốc:** engine giữ lại các trang vừa tải trong 60 giây (tối đa 6 trang). Khi mở một truyện/phim, `detail.js` và `toc.js` dùng chung một lần tải trang chi tiết, nên bớt một lượt mạng mỗi lần mở.
+- **Short Video (YomiHub):** ghi thêm cờ `additionalParams: "shorts"` trong `index.json` cho các nguồn có Short Video, để bản YomiHub sau đọc được mà không cần ghi cứng ID tiện ích.
+
+## Sửa lỗi
+- **Resume A Video của 0.0.2 không hoạt động:** `engine.js` có đọc vị trí đã lưu (`resumeStorage.get`) nhưng không chỗ nào ghi vào, vì tiện ích không nhận được thông báo từ trình phát. Vì thế mốc `#t=` luôn bằng 0 và nhãn "[Tiếp tục mm:ss]" không bao giờ hiện. Hơn nữa, ExoPlayer/mpv bỏ qua `#t=` trên link HLS. Đã gỡ phần mã này cùng tuỳ chọn `RESUME_VIDEO` (bật/tắt không có tác dụng) và thay bằng cơ chế ở mục *Tính năng mới*.
+- **Đổi tên miền làm mất lịch sử:** trước đây đổi tên miền thì ứng dụng tạo tập/chương mới, mất vị trí xem và trạng thái đã đọc. Đã sửa nhờ địa chỉ ổn định.
+- `tools/win/publish.ps1`: lời nhắn commit bị ghi cứng nội dung của 0.0.2. Nay đọc từ biến `PUB_MSG`.
+- `Output/` còn sót tệp của bản cũ khi phát hành: `make-output.mjs` nay tự xoá các tệp `Kiritokmn-Extension-<phiên bản khác>-*`.
+
+## Phiên bản
+- `package.json` 0.0.3 · APK Aniyomi/Nekoyomi `versionCode 3` (`14.3` anime, `1.4.3` manga) · Mangayomi/YomiHub `0.5.x` · LNReader/IReader `1.4.x` · Aidoku `1xx` (= 100 + phiên bản nguồn).
+
+## Kiểm thử
+- `run-tests.mjs` (mạng thật, máy chủ dự án): **63/196** nguồn đi trọn chuỗi; bản 0.0.2 là 57.
+- `aidoku-sim.mjs` (adapter Aidoku trong ngữ cảnh JS trần giống JavaScriptCore, mạng thật): **61/152** nguồn đạt. Nguồn nào đạt ở `run-tests` thì cũng đạt ở Aidoku.
+- `aidoku-test-runner` (WASM + JS + mạng, công cụ chính thức của aidoku-rs): đạt trọn chuỗi với 2 nguồn mẫu (truyện tranh + truyện chữ, có chương GBK) trên máy chủ giả lập. `aidoku verify`: 152/152 gói đạt.
+- Galaxy Note9: cài 4 APK 0.0.3 và kiểm tra Nekoyomi, Aniyomi, Mangayomi, YomiHub, LNReader, vBook, LeechText. Ảnh và video ở `_work/shots/v003/`.
+
+---
+
 # Kiritokmn Extension Repo — v0.0.2 (08/11/2026)
 
 ## Tính năng mới & Cải tiến trong bản 0.0.2

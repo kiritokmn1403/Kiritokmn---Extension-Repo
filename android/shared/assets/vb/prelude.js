@@ -196,6 +196,42 @@ var VBookEngine = (function () {
         enumerable: false,
         configurable: true
     });
+    Object.defineProperty(VBookEngine.prototype, "origins", {
+        get: function () {
+            if (this._orig)
+                return this._orig;
+            var d = (this.meta.config || {}).DOMAIN || {};
+            var key = function (u) { var m = /^https?:\/\/(?:www\.|m\.)?([^/?#:]+)/i.exec(str(u).trim()); return m ? m[1].toLowerCase() : ''; };
+            var set = {};
+            [this.meta.source, d.default].concat(d.values || []).map(key).filter(Boolean).forEach(function (h) { set[h] = 1; });
+            var m0 = /^https?:\/\/[^/?#]+/i.exec(str(this.meta.source));
+            this._orig = { key: key, hosts: set, def: m0 ? m0[0] : '' };
+            return this._orig;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    VBookEngine.prototype.canon = function (u) {
+        u = str(u);
+        var o = this.origins;
+        if (!o.def)
+            return u;
+        var m = /^https?:\/\/[^/?#]+/i.exec(u);
+        if (!m)
+            return u;
+        var h = o.key(m[0]);
+        return (o.hosts[h] === 1 || h === o.key(this.base)) ? o.def + u.slice(m[0].length) : u;
+    };
+    VBookEngine.prototype.decanon = function (u) {
+        u = str(u);
+        var o = this.origins;
+        if (!o.def)
+            return u;
+        var b = (/^https?:\/\/[^/?#]+/i.exec(this.base) || [])[0];
+        if (!b || b === o.def)
+            return u;
+        return u.slice(0, o.def.length) === o.def ? b + u.slice(o.def.length) : u;
+    };
     VBookEngine.prototype.has = function (name) { return !!this.scripts[name]; };
     VBookEngine.prototype.run = function (name) {
         var _this = this;
@@ -250,7 +286,7 @@ var VBookEngine = (function () {
         if (next)
             this.tokens[key + '|' + (page + 1)] = next;
         var items = (r.data || []).filter(Boolean).map(function (it) { return ({
-            name: str(it.name).trim(), link: abs(it.host || _this.base + '/', it.link), cover: abs(it.host || _this.base + '/', it.cover),
+            name: str(it.name).trim(), link: _this.canon(abs(it.host || _this.base + '/', it.link)), cover: abs(it.host || _this.base + '/', it.cover),
             description: str(it.description), tag: str(it.tag),
         }); }).filter(function (it) { return it.name && it.link; });
         return { items: items, hasNext: !!next && items.length > 0 };
@@ -274,16 +310,18 @@ var VBookEngine = (function () {
         return this.list('search', q, page);
     };
     VBookEngine.prototype.detail = function (url) {
+        url = this.decanon(url);
         var d = (this.run('detail', url)).data || {};
         var genres = [].concat(d.genres || [], d.tags || []).map(function (g) { return (typeof g === 'string' ? g : g && g.title); }).filter(Boolean);
         return {
             name: str(d.name).trim(), cover: abs(d.host || this.base + '/', d.cover), author: str(d.author).trim(),
             description: stripHtml(str(d.description)), detail: stripHtml(str(d.detail)), ongoing: d.ongoing !== false && d.ongoing !== 'false',
-            genres: uniq(genres.map(function (s) { return String(s).trim(); })), url: url, format: str(d.format),
+            genres: uniq(genres.map(function (s) { return String(s).trim(); })), url: this.canon(url), format: str(d.format),
         };
     };
     VBookEngine.prototype.chapters = function (url) {
         var _this = this;
+        url = this.decanon(url);
         var list = [];
         if (this.meta.type === 'novel' && this.has('page') && this.has('toc')) {
             var pages = (this.run('page', url)).data || [url];
@@ -294,10 +332,11 @@ var VBookEngine = (function () {
         }
         else if (this.has('toc'))
             list = (this.run('toc', url)).data || [];
-        return list.filter(function (c) { return c && c.url && c.type !== 'section'; }).map(function (c, i) { return ({ name: str(c.name).trim() || ('#' + (i + 1)), url: abs(c.host || _this.base + '/', c.url), pay: !!(c.pay || c.lock) }); });
+        return list.filter(function (c) { return c && c.url && c.type !== 'section'; }).map(function (c, i) { return ({ name: str(c.name).trim() || ('#' + (i + 1)), url: _this.canon(abs(c.host || _this.base + '/', c.url)), pay: !!(c.pay || c.lock) }); });
     };
     VBookEngine.prototype.pages = function (url) {
         var _this = this;
+        url = this.decanon(url);
         var data;
         if (this.has('chap') && this.meta.type === 'comic')
             data = (this.run('chap', url)).data;
@@ -319,18 +358,19 @@ var VBookEngine = (function () {
         return (data || []).map(function (p) { return abs(_this.base + '/', pick(p)); }).filter(Boolean);
     };
     VBookEngine.prototype.content = function (url) {
+        url = this.decanon(url);
         var r = this.run('chap', url);
         return { html: str(r.data), title: str(r.data2) };
     };
     VBookEngine.prototype.videos = function (url) {
         var _this = this;
+        url = this.decanon(url);
         var servers = [{ title: 'Default', data: url }];
         if (this.has('chap')) {
             var d = (this.run('chap', url)).data;
             if (Array.isArray(d) && d.length)
                 servers = d.map(function (s) { return (typeof s === 'string' ? { title: 'Server', data: s } : { title: str(s.title || s.name || 'Server'), data: str(s.data || s.url || s.link) }); });
         }
-        var resumeSec = (this.env && this.env.resumeStorage) ? this.env.resumeStorage.get(url) : 0;
         var out = [];
         for (var _i = 0, servers_1 = servers; _i < servers_1.length; _i++) {
             var s = servers_1[_i];
@@ -344,17 +384,9 @@ var VBookEngine = (function () {
                     if (tr.type === 'webview')
                         continue;
                     var streamUrl = abs(tr.host || this.base + '/', tr.data);
-                    var resumeFragment = (resumeSec > 0 && !tr.data.includes('#t=') && !tr.data.includes('&t='))
-                        ? (tr.data.includes('#') ? '&' : '#') + 't=' + Math.floor(resumeSec)
-                        : '';
-                    var resumeLabel = resumeSec > 0
-                        ? ' [Tiếp tục ' + Math.floor(resumeSec / 60) + ':' + ('0' + Math.floor(resumeSec % 60)).slice(-2) + ']'
-                        : '';
                     out.push({
-                        url: streamUrl + resumeFragment,
-                        rawUrl: streamUrl,
-                        resumeSec: resumeSec,
-                        quality: s.title + (tr.quality ? ' ' + tr.quality : '') + resumeLabel,
+                        url: streamUrl,
+                        quality: s.title + (tr.quality ? ' ' + tr.quality : ''),
                         headers: tr.headers || { Referer: this.base + '/' },
                         subtitles: (tr.subtitles || (tr.subtitle ? [{ data: tr.subtitle, label: 'Sub' }] : [])).map(function (x) { return ({ file: abs(_this.base + '/', x.data || x.file), label: str(x.label || x.language || 'Sub') }); }),
                         mimeType: str(tr.mimeType),

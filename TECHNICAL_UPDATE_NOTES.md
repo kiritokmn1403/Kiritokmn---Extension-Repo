@@ -10,9 +10,9 @@ Chủ dự án yêu cầu tạo và duy trì tài liệu này ngày 25/10/2026. 
 
 | Hạng mục | Trạng thái |
 |---|---|
-| Phiên bản | **0.0.1** (04/11/2026) |
+| Phiên bản | **0.0.3** (08/11/2026) — trước đó 0.0.2 (08/11/2026), 0.0.1 (04/11/2026) |
 | Số nguồn | 196 (Phim 44 · Truyện tranh 36 · Tiểu thuyết 116) lấy từ `Project Extension Repo.xlsx` → sheet *Extension Repo Main* |
-| Ứng dụng hỗ trợ | Aniyomi, Nekoyomi (APK đa nguồn) · Mangayomi, YomiHub (JS) · LNReader, IReader (plugin JS ES5) · vBook, LeechText, YomiHub-vBook (zip vBook) · Aidoku: chưa (xem `docs/AIDOKU.md`) |
+| Ứng dụng hỗ trợ | Aniyomi, Nekoyomi (APK đa nguồn) · Mangayomi, YomiHub (JS) · LNReader, IReader (plugin JS ES5) · vBook, LeechText, YomiHub-vBook (zip vBook) · **Aidoku** (từ 0.0.3: 152 gói `.aix` — cầu nối Rust/WASM + JavaScriptCore, xem `docs/AIDOKU.md`) |
 | Kết quả kiểm thử | xem bảng trong `README.md` (tự sinh từ `data/test-results.json`) |
 
 ## Kiến trúc (0.0.1)
@@ -24,6 +24,8 @@ Chủ dự án yêu cầu tạo và duy trì tài liệu này ngày 25/10/2026. 
 - `runtime/engine.js`: lớp điều phối chung (popular/latest/search/detail/chapters/pages/content/videos, phân trang bằng token vBook).
 - `hosts/`: Mangayomi/YomiHub (`MProvider`, `Client`, `SharedPreferences`, tùy chọn đổi **Tên miền**), LNReader/IReader (CommonJS + `@libs/fetch`, hạ cấp ES5 bằng TypeScript), Node (kiểm thử).
 - `android/`: 2 module APK (anime = Aniyomi lib 14, manga = Tachiyomi lib 1.4), mỗi module 2 flavor (`sfw`, `nsfw`) → 4 APK. Script vBook chạy **nguyên bản** bằng Mozilla Rhino 1.7.15 (chế độ thông dịch) + jsoup của ứng dụng chủ (`runtime/rhino-prelude.js` + engine hạ cấp ES5). Stub API tự biên dịch từ `aniyomiorg/extensions-lib@14` và `mihonapp/extensions-lib@1.4.2` (compileOnly).
+- `aidoku/bridge` + `hosts/aidoku.tail.js` (từ 0.0.3): gói Aidoku = WebAssembly Rust chạy engine JS trong `JsContext` của Aidoku (giao thức start/poll/resume); `tools/build/aidoku-build.mjs` dựng `repo/aidoku/`.
+- Định danh ổn định (từ 0.0.3): `engine.js` `canon()`/`decanon()` — URL trả cho ứng dụng luôn theo tên miền mặc định (giữ lịch sử / vị trí xem khi đổi tên miền).
 - `repo/`: đầu ra — `index.min.json` + `repo.json` + `apk/` (Aniyomi/Nekoyomi), `index.json` (Mangayomi/YomiHub), `plugins.min.json` (LNReader/IReader), `plugin.json` + `vbook/*.zip` (vBook/LeechText/YomiHub).
 
 ## Nhật ký cập nhật
@@ -277,3 +279,52 @@ Bản phát hành lúc 14:34 (commit `f4d7c73`): **57/196** nguồn đạt kiể
 - `host-sim.mjs`: Kiểm thử giả lập môi trường Mangayomi & LNReader trên `truyenqq` (42 truyện, 3898 chương) và `mottruyen` (20 truyện, 46 chương) đạt 100%.
 - Kiểm thử thiết bị: Cài đặt đè trực tiếp 4 APK thành công (Streamed Install Success) trên Samsung Galaxy Note9. Chụp ảnh màn hình và ghi hình video kiểm thử đầy đủ.
 
+
+### 08/11/2026 — Bản 0.0.3 (Aidoku, Resume A Video làm lại, sửa lỗi Rhino trong APK, tối ưu tải trang)
+
+**Công cụ đã dùng:**
+- Mã nguồn & kho tham khảo: Git CLI (clone `Aidoku/aidoku-rs`, `Aidoku/Aidoku`, `Aidoku/AidokuRunner`, `Aidoku-Community/sources`, `kiritokmn1403/YomiHub-Project`, `apivideo/resumeAVideo`, `rust-lang/rust` (thư mục `library`) và `rust-lang/backtrace-rs` để dựng `core`/`std` cho wasm).
+- Dựng: Node.js 22/24 + esbuild + TypeScript; Rust 1.97 (`-Zbuild-std`, `wasm32-unknown-unknown`); `aidoku-cli` và `aidoku-test-runner` dựng từ aidoku-rs `ae6485e`; Python 3 + Pillow (biểu tượng nguồn Aidoku); Android SDK 35/36 + Gradle 9.3.1 + AGP 8.13.1 + JBR của Android Studio (APK).
+- Kiểm thử: adb, Samsung Galaxy Note9 SM-N960N (Android 10, `281038ac31217ece`) có Aniyomi 0.18.2.1, Nekoyomi 0.20.6, Mangayomi 0.9.95, YomiHub 0.5.3, LNReader 2.1.4, vBook 1.1.54, LeechText 2.0.0.
+- Thực thi: chạy script `.bat`/PowerShell trên máy Windows của chủ dự án (File Explorer). `_work/phone2.ps1` điều khiển điện thoại: chạm theo chữ qua `uiautomator dump`, chụp `screencap`, quay `screenrecord` thành từng đoạn 170 giây.
+
+**Đọc trước khi sửa:** `AGENTS.md` và toàn bộ tài liệu này; 2 tệp Excel (*Feature Check* → *Update* → *Extension Repo Main* 196 nguồn, *Tham Khảo*; *Project GitHub* 640+ link).
+
+**Hạng mục đã làm**
+1. **Aidoku (iOS):**
+   - `aidoku/bridge` (Rust `no_std`, crate `kiri-bridge`): giữ một `JsContext` (JavaScriptCore) cho mỗi nguồn, nạp engine JS một lần, rồi chạy theo giao thức `start`/`poll`/`resume`. Các trait đã cài: `Source`, `ListingProvider`, `DynamicListings`, `ImageRequestProvider` (Referer của trang chương + User-Agent), `BaseUrlProvider`.
+   - `hosts/aidoku.tail.js`: adapter phía JS. Gồm giải mã base64 → UTF-8/GBK (JSC không có `TextDecoder`), chuyển chương HTML sang Markdown, đánh số chương, tự lấy bộ mã ký tự từ `<meta charset>`.
+   - `tools/build/aidoku-build.mjs`: sinh Cargo workspace `.build/aidoku-ws` (mỗi nguồn một crate, `include_str!` engine), dựng wasm, đóng gói `.aix`, ghi `repo/aidoku/index.min.json` + `icons/`. `tools/gen/aidoku_icons.py`: biểu tượng 128×128 không trong suốt.
+   - `build-all.mjs` ghi thêm `.build/aidoku/<id>.js` + `sources.json` cho 152 nguồn truyện tranh/tiểu thuyết.
+2. **Resume A Video (làm lại):** `runtime/engine.js` có thêm `canon()`/`decanon()`. Mọi URL trả về ứng dụng được ghi theo tên miền mặc định; trước khi chạy script thì đổi về tên miền đang chọn. Gỡ phần resume chết của 0.0.2 trong `engine.js`, `vbook.js` (`resumeStorage`) và `hosts/mangayomi.tail.js` (`RESUME_VIDEO`, `#t=`). `getPageList` của Mangayomi lấy Referer từ URL đã đổi về tên miền đang chọn.
+3. **Tối ưu:** bộ nhớ đệm GET trong `runtime/vbook.js` (60 giây, 6 phản hồi, chỉ lưu HTTP 200).
+4. **Short Video:** đối chiếu mã YomiHub (`overlay/lib/yomihub/player/yomi_shorts.dart`): `YomiShorts.supports()` chỉ nhận ID tiện ích tích hợp (`BuiltinExtensions.shortsIds`: 920260006/7/8/13/14/15/16/17) hoặc tên bắt đầu bằng `youtube`/`fikfap`, và **không đọc** cờ `shorts` trong `index.json`. Kho đã giữ nguyên các ID này cho 8 nguồn YomiHub (YouTube, Pornhub, FikFap, Tik.Porn, Kwiky, xFree, FapReel, SexVietTop), nên Shorts chạy trong YomiHub 0.5.3. Thêm `additionalParams: "shorts"` để bản YomiHub sau nhận diện theo kho.
+5. **Phiên bản:** `package.json` 0.0.3; APK `versionCode 3` (14.3 / 1.4.3); Mangayomi 0.5.x; LNReader 1.4.x; Aidoku 1xx.
+6. **Phát hành:** `make-output.mjs` thêm `Kiritokmn-Extension-0.0.3-aidoku.zip` và xoá tệp bản cũ trong `Output/`. `gen-readme.mjs` thêm Aidoku (đường dẫn, deep link `aidoku://addSourceList`, mục "Có gì mới"). `publish.ps1` lấy lời nhắn commit từ `PUB_MSG`. `build_all.ps1` thêm bước 3b (Aidoku).
+
+**Lỗi phát hiện & cách sửa**
+| # | Lỗi | Sửa (tệp / dòng lệnh) |
+|---|---|---|
+| 63 | **Resume A Video 0.0.2 không hoạt động**: `videos()` đọc `resumeStorage.get(url)` nhưng không chỗ nào gọi `set`, vì tiện ích không nhận được thông báo từ trình phát. Mốc `#t=` luôn bằng 0, ExoPlayer/mpv cũng bỏ qua `#t=` trên HLS. Tuỳ chọn `RESUME_VIDEO` không có tác dụng | Gỡ mã chết. Vị trí xem do chính ứng dụng lưu theo URL tập (Aniyomi/Nekoyomi `last_second_seen`, Mangayomi/YomiHub `YomiPrefs.resumeVideoPosition`), nên chỉ cần URL ổn định: `engine.js` `canon()`/`decanon()` |
+| 64 | Đổi **Tên miền** trong cài đặt nguồn thì URL phim/chương đổi theo, ứng dụng tạo tập mới và mất vị trí xem / trạng thái đã đọc | Như #63. Kiểm thử: `rophim` với tên miền `rophim9.online` → `canon()` trả `https://www.rophim.soy/phim/abc`, `decanon()` đổi lại `https://rophim9.online/phim/abc`; URL ảnh CDN khác tên miền giữ nguyên |
+| 65 | `cargo` trong máy dựng (đám mây) không tải được target wasm32 (`static.rust-lang.org` bị chặn) | Lấy `library/` của rust-lang/rust đúng tag 1.97.0 + submodule `backtrace` từ GitHub, đặt làm `rust-src`, dựng bằng `RUSTC_BOOTSTRAP=1 -Zbuild-std=core,alloc` (`AIDOKU_BUILD_STD=1`) |
+| 66 | `aidoku-test-runner` dùng Boa nhưng **không chạy hàng đợi microtask** sau `eval` (khác JavaScriptCore), nên `await` không bao giờ chạy tiếp | `aidoku/test-runner-jsc-microtasks.patch`: thêm `context.run_jobs()` sau `context.eval()` (chỉ cho bộ kiểm thử) |
+| 67 | Chạy test wasm báo `duplicate lang item … core`: test của cargo bỏ qua `panic = "abort"` nên `core` bị dựng hai lần | `-Zbuild-std=std,panic_abort,test -Zpanic-abort-tests` |
+| 68 | `aidoku verify`: biểu tượng "is fully opaque… no" | `aidoku_icons.py` dán lên nền trắng (RGB) |
+| 69 | `aidoku-sim.mjs --all` in kết quả xong nhưng tiến trình Node không thoát (một trang giữ kết nối), làm `build_all.ps1` đứng ở bước 3b | Thêm `process.exit(0)`. Lần chạy này dừng tiến trình bằng `_work/!KILL.bat` (chỉ dừng tiến trình có `aidoku-sim` trong dòng lệnh) |
+| 70 | **APK: mọi lỗi script trong Rhino biến thành `MissingResourceException: Can't find bundle for base name org.mozilla.javascript.resources.Messages, locale vi_VN`**. Phát hiện khi mở Truyện QQ trong Nekoyomi trên Note9 (cả danh sách, chi tiết, đọc đều lỗi). `packaging.resources.excludes` có `**.properties` nên xoá mất `Messages.properties` của Rhino, mà Rhino cần tệp này mỗi khi tạo thông báo (kể cả cảnh báo) | `android/anime|manga/build.gradle.kts`: bỏ `**.properties` khỏi `excludes`. APK có lại `org/mozilla/javascript/resources/Messages*.properties`. Kiểm lại trên Note9: Truyện QQ danh sách → chi tiết → đọc ✅ |
+| 71 | `!RUN.bat` gọi `build_apks.ps1` với `> log` thì treo sau khi Gradle xong (Kotlin daemon giữ handle của pipe) | Chép APK từ `Output/apk-build` bằng tay. Trong `build_all.ps1` không gặp lỗi này (không chuyển hướng đầu ra) |
+| 72 | Ghi nhận (chưa sửa): **Mimimoe**, **NetTruyenViet** "đạt" `run-tests` nhưng tab đầu là danh mục của trang (Manhwa/Manhua/…, "Danh sách truyện"), không phải truyện. **Góc Truyện Tranh** chương chỉ có 1 ảnh chờ. **PhimTV**, **Rổ Phim**: HTTP 0 (tên miền chết) | Cần viết lại selector/API trên mạng thật ở bản sau. `run-tests.mjs` nên kiểm thêm "tên truyện không trùng tên mục menu" |
+
+**Kết quả kiểm thử**
+- `build-all.mjs`: 196/196 nguồn biên dịch (cả trên máy đám mây và máy Windows).
+- `aidoku-build.mjs`: 152/152 gói, tổng 19,7 MB (`.aix` 60–300 KB). `aidoku verify`: 152/152 đạt.
+- `aidoku-test-runner` (wasm thật + JS + HTTP, máy chủ HTML giả lập): `kiri-zzfxcomic` và `kiri-zzfxnovel` đều **ok**. Chuỗi: listings 2 → 2 truyện, có trang sau → "Truyện A", 3 chương → 2 trang ảnh / 1 trang chữ. Chương GBK giải mã đúng `第二章 测试中文`. Header gửi đi có `Referer`, `User-Agent`.
+- `aidoku-sim.mjs --snap` (96 nguồn có ảnh chụp trang): trùng 96/96 với engine Node trước và sau khi thêm `canon()`.
+- `run-tests.mjs` (mạng thật, 08/11/2026 11:52): **63/196** (Phim 4/44, Truyện tranh 22/37, Tiểu thuyết 37/115); bản 0.0.2 là 57.
+- `aidoku-sim.mjs --all` (mạng thật): **61/152**. Mọi nguồn đạt ở `run-tests` đều đạt ở Aidoku; thêm 8book, sohu.
+- APK: Gradle dựng 4 APK đã ký (`b92c172d…aa39d`). Cài đè trên Note9: `Streamed Install Success`, phiên bản 14.3 / 1.4.3.
+- Thiết bị (Note9) — ảnh `_work/shots/v003/*.png`, video `_work/shots/v003/*.mp4`:
+  - **Nekoyomi 0.20.6 — Phim** (`n9_neko_*`, video `n9_nekoyomi_phim_*.mp4`): NguonC, Phim Nhựa, XemPhimGi, HotPhim đi trọn danh sách → chi tiết → **phát video** ✅. Mở lại phim thì nút **"Tiếp tục"** hiện ra, tức ứng dụng giữ lịch sử xem theo URL tập ổn định. PhimTV, Rổ Phim: `HTTP 0` (tên miền chết) ❌, khớp với `run-tests`.
+  - **Nekoyomi — Truyện tranh** (`n9_nekm_*`, video `n9_nekoyomi_truyen_*.mp4`): TruyenQQ, TruyenGG, NetTruyenViet, Destin Team (giải mã Init Manga), Thế Giới Truyện, VinaHentai (18+) đọc được ✅. **Truyện QQ** lỗi `MissingResourceException` → sửa ở #70 → kiểm lại đọc được ✅ (`n9_nekm_truyenqq_fix_*`). Mimimoe, Góc Truyện Tranh: lỗi nội dung (#72).
+  - **Aniyomi 0.18.2.1** (thiết lập lần đầu: chọn thư mục thử `Download/YomiHub_test`, thêm kho bằng `aniyomi://add-repo` và `tachiyomi://add-repo`; `n9_ani_*`, video `n9_aniyomi_*.mp4`): NguonC, Phim Nhựa, HotPhim phát được ✅. Truyện QQ, TruyenGG, TruyenQQ đọc được ✅. Hắc Ám Chi Các: trang đầu của chương là ảnh `.svg`, Aniyomi mở bằng WebView.

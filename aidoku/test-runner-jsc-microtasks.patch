@@ -1,0 +1,13 @@
+diff --git a/crates/test-runner/src/imports/js.rs b/crates/test-runner/src/imports/js.rs
+index 35acd4f..a8a95d3 100644
+--- a/crates/test-runner/src/imports/js.rs
++++ b/crates/test-runner/src/imports/js.rs
+@@ -58,6 +58,8 @@ pub fn context_eval(
+ 	let Ok(result) = context.eval(src) else {
+ 		return Result::MissingResult.into();
+ 	};
++	// JavaScriptCore (the app) drains the microtask queue when an evaluation finishes: do the same here.
++	let _ = context.run_jobs();
+ 	let Some(result_string) = result
+ 		.to_string(context)
+ 		.ok()
