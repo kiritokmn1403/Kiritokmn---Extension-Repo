@@ -11,3 +11,4 @@ android/build_apks.log
 test-results.json
 *.log
 Output/apk-build/
+node_modules

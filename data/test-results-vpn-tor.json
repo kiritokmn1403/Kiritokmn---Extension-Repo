@@ -1,0 +1,3412 @@
+{
+ "date": "2026-11-08T07:23:21.108Z",
+ "total": 133,
+ "pass": 1,
+ "results": [
+  {
+   "id": "101kks",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2282,
+     "error": "CLOUDFLARE: trang https://101kks.com yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    },
+    "search": {
+     "ok": false,
+     "ms": 2141,
+     "error": "CLOUDFLARE: trang https://101kks.com yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    }
+   },
+   "type": "novel",
+   "name": "101kks",
+   "ms": 4515,
+   "pass": false
+  },
+  {
+   "id": "101minc",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2764,
+     "error": "CLOUDFLARE: trang https://www.101minc.com yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    },
+    "search": {
+     "ok": false,
+     "ms": 2526,
+     "error": "CLOUDFLARE: trang https://www.101minc.com yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    }
+   },
+   "type": "novel",
+   "name": "101Minc",
+   "ms": 5361,
+   "pass": false
+  },
+  {
+   "id": "52shukubyquocbao",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 4997,
+     "error": "Cannot read properties of null (reading 'text')"
+    },
+    "search": {
+     "ok": false,
+     "ms": 0,
+     "error": "0 items for a"
+    }
+   },
+   "type": "novel",
+   "name": "52shuku",
+   "ms": 5053,
+   "pass": false
+  },
+  {
+   "id": "69shuba",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 3001,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 1,
+     "error": "Headless browser is not available in this app (Node)"
+    }
+   },
+   "type": "novel",
+   "name": "69shuba",
+   "ms": 3044,
+   "pass": false
+  },
+  {
+   "id": "69shurepoduongden",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2098,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 1,
+     "error": "Headless browser is not available in this app (Node)"
+    }
+   },
+   "type": "novel",
+   "name": "69shuba",
+   "ms": 2140,
+   "pass": false
+  },
+  {
+   "id": "8book",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 3666,
+     "n": 42,
+     "first": {
+      "name": "刷視頻：震驚古人",
+      "link": "https://www.8book.com/novelbooks/328168",
+      "cover": "https://www.8book.com/pics/0/328168-uocn.jpg",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": true,
+     "ms": 1433,
+     "n": 15,
+     "q": "刷視頻：震驚古人"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 3974,
+     "name": "刷視頻：震驚古人",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 154
+    },
+    "chapters": {
+     "ok": true,
+     "ms": 17,
+     "n": 1318,
+     "first": {
+      "name": "第1章 為何古代最怕姓劉的造反？",
+      "url": "https://sport.thepaperbooks.com/read/328168/?24484416",
+      "pay": false
+     }
+    },
+    "content": {
+     "ok": false,
+     "ms": 6843,
+     "error": "content too short: 18"
+    }
+   },
+   "type": "novel",
+   "name": "8book",
+   "ms": 15960,
+   "pass": false
+  },
+  {
+   "id": "abcbiquge",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 5109,
+     "n": 39,
+     "first": {
+      "name": "蛊真人",
+      "link": "https://m.bqg6.xyz/info-262/",
+      "cover": "",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": true,
+     "ms": 3063,
+     "n": 39,
+     "q": "蛊真人"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 5756,
+     "name": "蛊真人",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 79
+    },
+    "chapters": {
+     "ok": false,
+     "ms": 2,
+     "error": "0 chapters"
+    }
+   },
+   "type": "novel",
+   "name": "笔趣阁-abcbiquge",
+   "ms": 13969,
+   "pass": false
+  },
+  {
+   "id": "allin1",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2950,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 1222,
+     "error": "0 items for a"
+    }
+   },
+   "type": "novel",
+   "name": "allin1",
+   "ms": 4215,
+   "pass": false
+  },
+  {
+   "id": "anime47",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 3027,
+     "error": "CLOUDFLARE: trang https://anime47.best yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    },
+    "search": {
+     "ok": false,
+     "ms": 3304,
+     "error": "CLOUDFLARE: trang https://anime47.best yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    }
+   },
+   "type": "video",
+   "name": "Anime47",
+   "ms": 6377,
+   "pass": false
+  },
+  {
+   "id": "animevnnet",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 3247,
+     "n": 20,
+     "first": {
+      "name": "Tiên Nghịch",
+      "link": "https://animevn.net/anime/tien-nghich",
+      "cover": "https://cdn.animevn.net/images/thumbs/tien-nghich.jpg",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": false,
+     "ms": 1408,
+     "error": "0 items for Tiên Nghịch"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 4260,
+     "name": "Tiên Nghịch",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 230
+    },
+    "chapters": {
+     "ok": true,
+     "ms": 8,
+     "n": 181,
+     "first": {
+      "name": "Xem Ngay",
+      "url": "https://animevn.net/anime/tien-nghich/tap-1-55097",
+      "pay": false
+     }
+    },
+    "videos": {
+     "ok": false,
+     "ms": 1182,
+     "error": "0 streams"
+    }
+   },
+   "type": "video",
+   "name": "AnimeVn.Net",
+   "ms": 10143,
+   "pass": false
+  },
+  {
+   "id": "avsubanimevietsub",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 7310,
+     "error": "HTTP 403 https://animevietsub.sale/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 6256,
+     "error": "HTTP 403 https://animevietsub.sale/tim-kiem?keyword=a"
+    }
+   },
+   "type": "video",
+   "name": "AVSub – AnimeVietsub",
+   "ms": 13603,
+   "pass": false
+  },
+  {
+   "id": "bilibili",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 7893,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 1463,
+     "error": "HTTP 404 https://www.bilibili.tv/tim-kiem?keyword=a"
+    }
+   },
+   "type": "video",
+   "name": "Bilibili",
+   "ms": 9395,
+   "pass": false
+  },
+  {
+   "id": "blvietsub",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 8271,
+     "n": 24,
+     "first": {
+      "name": "[Ứng Viên Của Tỷ Phú - The Tycoon's Candidate (2026)]",
+      "link": "https://www.blvietsub.vip/2026/11/ung-vien-cua-ty-phu-tycoons-candidate.html?m=1",
+      "cover": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sXKpvLpdEf71iHf0PXhx3WBGcU1vW1BNB3vdKokwTw5plrneOPF2Sez3oOvvZ0QGbsmX_ZcIVc7Jthm7ITWY5CSyALhjy2QETo3MA1GGZsuqN0yDn5lnkbA1yKLEUunb-AmiL6k_U",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": true,
+     "ms": 4051,
+     "n": 10,
+     "q": "[Ứng Viên"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 1718,
+     "name": "[Ứng Viên Của Tỷ Phú - The Tycoon's Candidate (2026)]",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 156
+    },
+    "chapters": {
+     "ok": true,
+     "ms": 4,
+     "n": 52,
+     "first": {
+      "name": "phim-tinh-cam",
+      "url": "https://www.blvietsub.vip/search/label/phim-tinh-cam?max-results=48",
+      "pay": false
+     }
+    },
+    "videos": {
+     "ok": false,
+     "ms": 2135,
+     "error": "0 streams"
+    }
+   },
+   "type": "video",
+   "name": "BLVietsub",
+   "ms": 16212,
+   "pass": false
+  },
+  {
+   "id": "cbhentai",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 4841,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 2014,
+     "error": "0 items for a"
+    }
+   },
+   "type": "comic",
+   "name": "HentaiCube -18+ (iOS)",
+   "ms": 6896,
+   "pass": false
+  },
+  {
+   "id": "ciyuanji",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 25009,
+     "error": "HTTP 0 https://m.ciyuanji.com/l_c_0_0_0_0_1.html"
+    },
+    "search": {
+     "ok": false,
+     "ms": 25009,
+     "error": "HTTP 0 https://m.ciyuanji.com/search/a_1.html"
+    }
+   },
+   "type": "novel",
+   "name": "ciyuanji",
+   "ms": 50055,
+   "pass": false
+  },
+  {
+   "id": "czbooksrepoduongden",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2676,
+     "error": "CLOUDFLARE: trang https://czbooks.net yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    },
+    "search": {
+     "ok": false,
+     "ms": 3610,
+     "error": "CLOUDFLARE: trang https://czbooks.net yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    }
+   },
+   "type": "novel",
+   "name": "czbooks - repo Đường đen",
+   "ms": 6328,
+   "pass": false
+  },
+  {
+   "id": "dailymotion",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2432,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 1221,
+     "error": "0 items for a"
+    }
+   },
+   "type": "video",
+   "name": "Dailymotion",
+   "ms": 3712,
+   "pass": false
+  },
+  {
+   "id": "damconuong",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 8985,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 2154,
+     "error": "0 items for a"
+    }
+   },
+   "type": "comic",
+   "name": "Dâm Cô Nương",
+   "ms": 11178,
+   "pass": false
+  },
+  {
+   "id": "doctruyentranhbl",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 7172,
+     "n": 30,
+     "first": {
+      "name": "Yêu Cậu Nhất Vũ Trụ",
+      "link": "https://truyentranhbl.com/truyen/yeu-cau-nhat-vu-tru/",
+      "cover": "https://truyentranhbl.com/wp-content/uploads/2026/10/811288fyiML._AC_UF10001000_QL80_-175x238.jpg",
+      "description": "Đặc Biệt",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": true,
+     "ms": 3544,
+     "n": 30,
+     "q": "Yêu Cậu"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 1785,
+     "name": "Yêu Cậu Nhất Vũ Trụ",
+     "author": "",
+     "genres": 8,
+     "cover": true,
+     "desc": 326
+    },
+    "chapters": {
+     "ok": true,
+     "ms": 5,
+     "n": 18,
+     "first": {
+      "name": "#1",
+      "url": "https://truyentranhbl.com/truyen/yeu-cau-nhat-vu-tru/chuong-1/",
+      "pay": false
+     }
+    },
+    "pages": {
+     "ok": false,
+     "ms": 1031,
+     "error": "0 pages"
+    }
+   },
+   "type": "comic",
+   "name": "Đọc Truyện Tranh BL",
+   "ms": 13566,
+   "pass": false
+  },
+  {
+   "id": "douban",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 25006,
+     "error": "HTTP 0 https://read.douban.com/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 25011,
+     "error": "HTTP 0 https://read.douban.com/tim-kiem?keyword=a"
+    }
+   },
+   "type": "novel",
+   "name": "douban",
+   "ms": 50052,
+   "pass": false
+  },
+  {
+   "id": "douyin",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2629,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 2398,
+     "error": "HTTP 404 https://www.douyin.com/tim-kiem?keyword=a"
+    }
+   },
+   "type": "video",
+   "name": "Douyin",
+   "ms": 5067,
+   "pass": false
+  },
+  {
+   "id": "duahau",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 25011,
+     "error": "HTTP 0 https://xgmf.zuanqianyi.com/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 25002,
+     "error": "HTTP 0 https://xgmf.zuanqianyi.com/tim-kiem?keyword=a"
+    }
+   },
+   "type": "novel",
+   "name": "Dưa Hấu",
+   "ms": 50038,
+   "pass": false
+  },
+  {
+   "id": "dualeotruyen",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 8453,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 9002,
+     "error": "0 items for a"
+    }
+   },
+   "type": "comic",
+   "name": "Dưa Leo truyện",
+   "ms": 17494,
+   "pass": false
+  },
+  {
+   "id": "fapreel",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 4790,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 1421,
+     "error": "HTTP 404 https://fapreel.com/tim-kiem?keyword=a"
+    }
+   },
+   "type": "video",
+   "name": "FapReel",
+   "ms": 6261,
+   "pass": false
+  },
+  {
+   "id": "fikfap",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 4025,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 993,
+     "error": "HTTP 404 https://fikfap.com/tim-kiem?keyword=a"
+    }
+   },
+   "type": "video",
+   "name": "FikFap",
+   "ms": 5063,
+   "pass": false
+  },
+  {
+   "id": "freereels",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 3853,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 615,
+     "error": "0 items for a"
+    }
+   },
+   "type": "video",
+   "name": "FreeReels",
+   "ms": 4512,
+   "pass": false
+  },
+  {
+   "id": "gongzicp",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 25006,
+     "error": "HTTP 0 https://www.gongzicp.com/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 25005,
+     "error": "HTTP 0 https://www.gongzicp.com/tim-kiem?keyword=a"
+    }
+   },
+   "type": "novel",
+   "name": "gongzicp",
+   "ms": 50051,
+   "pass": false
+  },
+  {
+   "id": "guphim",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 8820,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 3889,
+     "error": "HTTP 404 https://guphimz.com/tim-kiem?keyword=a"
+    }
+   },
+   "type": "video",
+   "name": "GuPhim",
+   "ms": 12745,
+   "pass": false
+  },
+  {
+   "id": "hamelnsyosetuorg",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2161,
+     "error": "CLOUDFLARE: trang https://syosetu.org yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    },
+    "search": {
+     "ok": false,
+     "ms": 768,
+     "error": "CLOUDFLARE: trang https://syosetu.org yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    }
+   },
+   "type": "novel",
+   "name": "Hameln (Syosetu.org)",
+   "ms": 2970,
+   "pass": false
+  },
+  {
+   "id": "haychill",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 4701,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 5731,
+     "error": "0 items for a"
+    }
+   },
+   "type": "video",
+   "name": "HayChill",
+   "ms": 10473,
+   "pass": false
+  },
+  {
+   "id": "hentaivietsubcom",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2143,
+     "error": "CLOUDFLARE: trang https://hentaivietsub.com yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    },
+    "search": {
+     "ok": false,
+     "ms": 857,
+     "error": "CLOUDFLARE: trang https://hentaivietsub.com yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    }
+   },
+   "type": "video",
+   "name": "HentaiVietsub.com",
+   "ms": 3028,
+   "pass": false
+  },
+  {
+   "id": "hentaivn",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 3223,
+     "error": "gen: empty result"
+    },
+    "search": {
+     "ok": false,
+     "ms": 3810,
+     "error": "search: empty result"
+    }
+   },
+   "type": "comic",
+   "name": "HentaiVN",
+   "ms": 7048,
+   "pass": false
+  },
+  {
+   "id": "hhpanda",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 5211,
+     "n": 20,
+     "first": {
+      "name": "Mục Thần Ký",
+      "link": "https://hhpanda.st/muc-than-ky",
+      "cover": "https://hhpanda.st/wp-content/uploads/2024/10/Muc-Than-Ky-12-hhkungfu-300x450.webp",
+      "description": "Tập 108 [4K]",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": true,
+     "ms": 2255,
+     "n": 20,
+     "q": "Mục Thần"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 2229,
+     "name": "Mục Thần Ký",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 1056
+    },
+    "chapters": {
+     "ok": true,
+     "ms": 10,
+     "n": 216,
+     "first": {
+      "name": "Tập 108",
+      "url": "https://hhpanda.st/watch-muc-than-ky/tap-108-sv1.html",
+      "pay": false
+     }
+    },
+    "videos": {
+     "ok": false,
+     "ms": 3470,
+     "error": "0 streams"
+    }
+   },
+   "type": "video",
+   "name": "HHPanda",
+   "ms": 13228,
+   "pass": false
+  },
+  {
+   "id": "hhtqhayvip",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 3436,
+     "error": "CLOUDFLARE: trang https://hhtqhay.vip yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    },
+    "search": {
+     "ok": false,
+     "ms": 2316,
+     "error": "CLOUDFLARE: trang https://hhtqhay.vip yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    }
+   },
+   "type": "video",
+   "name": "HHTQHAY.VIP",
+   "ms": 5818,
+   "pass": false
+  },
+  {
+   "id": "hihiphim",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 3382,
+     "n": 6,
+     "first": {
+      "name": "Đế Chế Napoleon",
+      "link": "https://hihiphim.com/phim/de-che-napoleon",
+      "cover": "https://phimimg.com/upload/vod/20240310-1/ee90af473cd75252af4b2c5364cef52f.jpg",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": false
+    },
+    "search": {
+     "ok": false,
+     "ms": 2554,
+     "error": "0 items for Đế Chế"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 1485,
+     "name": "HiHiPhim | Xem Phim Mới | Phim Hay | Phim HD Online Vietsub | Phim hay cả rổ",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 296
+    },
+    "chapters": {
+     "ok": true,
+     "ms": 4,
+     "n": 3,
+     "first": {
+      "name": "Chính kịch",
+      "url": "https://hihiphim.com/the-loai/chinh-kich",
+      "pay": false
+     }
+    },
+    "videos": {
+     "ok": false,
+     "ms": 1526,
+     "error": "0 streams"
+    }
+   },
+   "type": "video",
+   "name": "HiHiPhim",
+   "ms": 8999,
+   "pass": false
+  },
+  {
+   "id": "hongqua",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 4446,
+     "n": 27,
+     "first": {
+      "name": "万妖图录传第十四季",
+      "link": "https://hongguoduanju.com/detail?series_id=7702763145030290457",
+      "cover": "https://lf-dy-sourcecdn-tos.bytegecko.com/obj/ugflow-resource/311124/static/online/742/empty_play_v3.0fd69bf57ee24dc9fd38a59820508410.png",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": false,
+     "ms": 1292,
+     "error": "HTTP 404 https://hongguoduanju.com/tim-kiem?keyword=%E4%B8%87%E5%A6%96%E5%9B%BE%E5%BD%95%E4%BC%A0%E7%AC%AC%E5%8D%81%E5%9B%9B%E5%AD%A3"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 1872,
+     "name": "万妖图录传第十四季",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 164
+    },
+    "chapters": {
+     "ok": false,
+     "ms": 11,
+     "error": "0 chapters"
+    }
+   },
+   "type": "video",
+   "name": "Hồng Quả",
+   "ms": 7652,
+   "pass": false
+  },
+  {
+   "id": "html5qqcom",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 10952,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 3101,
+     "error": "0 items for a"
+    }
+   },
+   "type": "novel",
+   "name": "html5.qq.com",
+   "ms": 14075,
+   "pass": false
+  },
+  {
+   "id": "idejian",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 25012,
+     "error": "HTTP 0 https://www.idejian.com/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 4136,
+     "error": "0 items for a"
+    }
+   },
+   "type": "novel",
+   "name": "idejian",
+   "ms": 29233,
+   "pass": false
+  },
+  {
+   "id": "iqiyi",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 7764,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 4891,
+     "error": "HTTP 404 https://www.iq.com/tim-kiem?keyword=a"
+    }
+   },
+   "type": "video",
+   "name": "iQIYI",
+   "ms": 12708,
+   "pass": false
+  },
+  {
+   "id": "jjwxcrepoduongden",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 6810,
+     "n": 4,
+     "first": {
+      "name": "完结文库>>",
+      "link": "https://www.jjwxc.net/fenzhan/by/",
+      "cover": "",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": false
+    },
+    "search": {
+     "ok": false,
+     "ms": 5379,
+     "error": "0 items for 完结文库>>"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 4040,
+     "name": "完结金榜 完结全订榜 完结高分榜",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 72
+    },
+    "chapters": {
+     "ok": false,
+     "ms": 19,
+     "error": "0 chapters"
+    }
+   },
+   "type": "novel",
+   "name": "Jjwxc-repo duongden💰✅",
+   "ms": 16271,
+   "pass": false
+  },
+  {
+   "id": "jjwxctangiang",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 5908,
+     "n": 4,
+     "first": {
+      "name": "完结文库>>",
+      "link": "https://www.jjwxc.net/fenzhan/by/",
+      "cover": "",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": false
+    },
+    "search": {
+     "ok": false,
+     "ms": 5920,
+     "error": "0 items for 完结文库>>"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 2479,
+     "name": "完结金榜 完结全订榜 完结高分榜",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 72
+    },
+    "chapters": {
+     "ok": false,
+     "ms": 11,
+     "error": "0 chapters"
+    }
+   },
+   "type": "novel",
+   "name": "JJWXC · Tấn Giang",
+   "ms": 14415,
+   "pass": false
+  },
+  {
+   "id": "julycomic",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 23578,
+     "error": "HTTP 522 https://julycomics.site/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 22999,
+     "error": "HTTP 522 https://julycomics.site/tim-kiem?keyword=a"
+    }
+   },
+   "type": "comic",
+   "name": "JulyComic",
+   "ms": 46603,
+   "pass": false
+  },
+  {
+   "id": "khotruyenchu",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 1876,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 1747,
+     "error": "0 items for a"
+    }
+   },
+   "type": "novel",
+   "name": "Kho Truyện Chữ",
+   "ms": 3643,
+   "pass": false
+  },
+  {
+   "id": "kwiky",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2690,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 1039,
+     "error": "0 items for a"
+    }
+   },
+   "type": "video",
+   "name": "Kwiky",
+   "ms": 3749,
+   "pass": false
+  },
+  {
+   "id": "lacatruyen",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 4623,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 1707,
+     "error": "HTTP 404 https://lacatruyen.homes/tim-kiem?keyword=a"
+    }
+   },
+   "type": "novel",
+   "name": "La Cà Truyện",
+   "ms": 6355,
+   "pass": false
+  },
+  {
+   "id": "langgee",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2599,
+     "error": "HTTP 502 https://v5.langge.uk/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 3258,
+     "error": "HTTP 502 https://v5.langge.uk/tim-kiem?keyword=a"
+    }
+   },
+   "type": "novel",
+   "name": "Langgee",
+   "ms": 5882,
+   "pass": false
+  },
+  {
+   "id": "lnhakovnhako",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 1,
+     "error": "Headless browser is not available in this app (Node)"
+    },
+    "search": {
+     "ok": false,
+     "ms": 0,
+     "error": "Headless browser is not available in this app (Node)"
+    }
+   },
+   "type": "novel",
+   "name": "Hako Novel",
+   "ms": 73,
+   "pass": false
+  },
+  {
+   "id": "lnkuro",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2335,
+     "error": "Headless browser is not available in this app (Node)"
+    },
+    "search": {
+     "ok": false,
+     "ms": 959,
+     "error": "Headless browser is not available in this app (Node)"
+    }
+   },
+   "type": "novel",
+   "name": "LN Kuro",
+   "ms": 3329,
+   "pass": false
+  },
+  {
+   "id": "lofter",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 4142,
+     "n": 8,
+     "first": {
+      "name": "首页",
+      "link": "https://www.suduguu.com/",
+      "cover": "",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": false
+    },
+    "search": {
+     "ok": false,
+     "ms": 21590,
+     "error": "HTTP 0 https://www.suduguu.com/tim-kiem?keyword=%E9%A6%96%E9%A1%B5"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 2,
+     "name": "置顶捞尸人",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 93
+    },
+    "chapters": {
+     "ok": true,
+     "ms": 2,
+     "n": 44,
+     "first": {
+      "name": "捞尸人",
+      "url": "https://www.suduguu.com/51/",
+      "pay": false
+     }
+    },
+    "content": {
+     "ok": false,
+     "ms": 1365,
+     "error": "chap: Không tìm thấy nội dung — trang nhận được: \"捞尸人-完本小说全文阅读-全本完整版免费阅读-纯洁滴小龙-速读谷\" (200, 39342 ký tự)"
+    }
+   },
+   "type": "novel",
+   "name": "LOFTER",
+   "ms": 27131,
+   "pass": false
+  },
+  {
+   "id": "lohi",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2297,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 2287,
+     "error": "0 items for a"
+    }
+   },
+   "type": "novel",
+   "name": "LoHi",
+   "ms": 4606,
+   "pass": false
+  },
+  {
+   "id": "loppytoon",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2919,
+     "error": "HTTP 0 https://loppytoon.com/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 2444,
+     "error": "HTTP 0 https://loppytoon.com/tim-kiem?keyword=a"
+    }
+   },
+   "type": "novel",
+   "name": "LoppyToon",
+   "ms": 5388,
+   "pass": false
+  },
+  {
+   "id": "luottruyen",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 17653,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 38262,
+     "error": "0 items for a"
+    }
+   },
+   "type": "comic",
+   "name": "LuotTruyen",
+   "ms": 55934,
+   "pass": false
+  },
+  {
+   "id": "luphim",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 2631,
+     "n": 96,
+     "first": {
+      "name": "Phim Không Thể Dung Thứ",
+      "link": "https://luphim.com/phim/khong-the-dung-thu-18367",
+      "cover": "https://luphim.com/Content/Imgs/Movies/thumb-18367.jpg?id=719fbc1",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": true,
+     "ms": 1013,
+     "n": 60,
+     "q": "Phim Không"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 805,
+     "name": "Phim Không Thể Dung Thứ - Khong The Dung Thu - LuPhim",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 149
+    },
+    "chapters": {
+     "ok": true,
+     "ms": 830,
+     "n": 1,
+     "first": {
+      "name": "Full",
+      "url": "https://luphim.com/xem-phim/khong-the-dung-thu-18367/full",
+      "pay": false
+     }
+    },
+    "videos": {
+     "ok": false,
+     "ms": 2970,
+     "error": "0 streams"
+    }
+   },
+   "type": "video",
+   "name": "LuPhim",
+   "ms": 8283,
+   "pass": false
+  },
+  {
+   "id": "luvevaland",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2216,
+     "error": "CLOUDFLARE: trang https://luvevalandn2.co yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    },
+    "search": {
+     "ok": false,
+     "ms": 812,
+     "error": "CLOUDFLARE: trang https://luvevalandn2.co yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    }
+   },
+   "type": "novel",
+   "name": "Luvevaland",
+   "ms": 3066,
+   "pass": false
+  },
+  {
+   "id": "mangadex",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2962,
+     "error": "HTTP 403 https://mangadex.org/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 2314,
+     "error": "HTTP 403 https://mangadex.org/tim-kiem?keyword=a"
+    }
+   },
+   "type": "comic",
+   "name": "MangaDex",
+   "ms": 5313,
+   "pass": false
+  },
+  {
+   "id": "mattreadingtranslations",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 2897,
+     "n": 8,
+     "first": {
+      "name": "I Became the Tyrant of a Defense Game (Complete)",
+      "link": "https://mattreadingtranslations.com/?page_id=53",
+      "cover": "",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": false
+    },
+    "search": {
+     "ok": true,
+     "ms": 4,
+     "n": 8,
+     "q": "I Became"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 4079,
+     "name": "I Became the Tyrant of a Defense Game",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 274
+    },
+    "chapters": {
+     "ok": false,
+     "ms": 60010,
+     "error": "timeout chapters"
+    }
+   },
+   "type": "novel",
+   "name": "Matt Reading Translations",
+   "ms": 67015,
+   "pass": false
+  },
+  {
+   "id": "metruyencv",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 1882,
+     "error": "book: empty result"
+    },
+    "search": {
+     "ok": false,
+     "ms": 12358,
+     "error": "search: empty result"
+    }
+   },
+   "type": "novel",
+   "name": "Mê Truyện CV",
+   "ms": 14285,
+   "pass": false
+  },
+  {
+   "id": "mgtv",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 19515,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 4791,
+     "error": "HTTP 404 https://glb.m.mgtv.com/tim-kiem?keyword=a"
+    }
+   },
+   "type": "video",
+   "name": "MGTV",
+   "ms": 24343,
+   "pass": false
+  },
+  {
+   "id": "minotruyen",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 5245,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 2239,
+     "error": "HTTP 404 https://minotruyenv6.xyz/tim-kiem?keyword=a"
+    }
+   },
+   "type": "novel",
+   "name": "Mino Truyện",
+   "ms": 7528,
+   "pass": false
+  },
+  {
+   "id": "moetruyen",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 3518,
+     "error": "CLOUDFLARE: trang https://truyen.moe yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    },
+    "search": {
+     "ok": false,
+     "ms": 3520,
+     "error": "CLOUDFLARE: trang https://truyen.moe yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    }
+   },
+   "type": "comic",
+   "name": "MoeTruyen",
+   "ms": 7070,
+   "pass": false
+  },
+  {
+   "id": "motphim",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 13874,
+     "error": "HTTP 525 https://motphimc.my/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 12419,
+     "error": "HTTP 525 https://motphimc.my/?search=a"
+    }
+   },
+   "type": "video",
+   "name": "MotPhim",
+   "ms": 26333,
+   "pass": false
+  },
+  {
+   "id": "moyuemacduyet",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 4143,
+     "n": 24,
+     "first": {
+      "name": "骇夜：我在恐怖游戏里暴富",
+      "link": "https://moyue.app/book/%e7%95%aa%e8%8c%84:NzYxNzc0MDc4MjI5MTY1MTY0Ng",
+      "cover": "https://p6-fanqiesdk-sign.fanqiesdkpic.com/novel-pic/p2o135c18d299e3ccd6a99b2d0ab54f036c~tplv-resize:225:0.image?lk3s=8d0def8a&x-expires=1796713944&x-signature=IOUrP%2B4LavmYIG3CQu48NkojlNA%3D",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": false,
+     "ms": 1078,
+     "error": "0 items for 骇夜：我在恐怖游戏里暴富"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 881,
+     "name": "书籍名称加载中",
+     "author": "",
+     "genres": 0,
+     "cover": false,
+     "desc": 0
+    },
+    "chapters": {
+     "ok": false,
+     "ms": 1,
+     "error": "0 chapters"
+    }
+   },
+   "type": "novel",
+   "name": "Moyue · Mặc Duyệt",
+   "ms": 6139,
+   "pass": false
+  },
+  {
+   "id": "mtc",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2513,
+     "error": "book: empty result"
+    },
+    "search": {
+     "ok": false,
+     "ms": 3708,
+     "error": "search: empty result"
+    }
+   },
+   "type": "novel",
+   "name": "Mê Truyện CV",
+   "ms": 6256,
+   "pass": false
+  },
+  {
+   "id": "myreadingmanga",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2296,
+     "error": "CLOUDFLARE: trang https://myreadingmanga.info yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    },
+    "search": {
+     "ok": false,
+     "ms": 4352,
+     "error": "CLOUDFLARE: trang https://myreadingmanga.info yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    }
+   },
+   "type": "comic",
+   "name": "My Reading Manga",
+   "ms": 6682,
+   "pass": false
+  },
+  {
+   "id": "navyteamnovel",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 5156,
+     "n": 31,
+     "first": {
+      "name": "Phòng Bệnh Trắng",
+      "link": "https://navyteams.com/truyen/phong-benh-trang",
+      "cover": "https://navytruyen.com/Phong-Benh-Trang/Chap-1/1-50.webp",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": true,
+     "ms": 716,
+     "n": 1,
+     "q": "Phòng Bệnh"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 3879,
+     "name": "Navy",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 114
+    },
+    "chapters": {
+     "ok": true,
+     "ms": 2,
+     "n": 8,
+     "first": {
+      "name": "#1",
+      "url": "https://navyteams.com/truyen/phong-benh-trang/chap-1",
+      "pay": false
+     }
+    },
+    "content": {
+     "ok": false,
+     "ms": 1337,
+     "error": "chap: Không tìm thấy nội dung — trang nhận được: \"Phòng Bệnh Trắng - Chap 1 - Navy Team\" (200, 37706 ký tự)"
+    }
+   },
+   "type": "novel",
+   "name": "Navy Team Novel",
+   "ms": 11124,
+   "pass": false
+  },
+  {
+   "id": "nettruyen",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 3425,
+     "error": "HTTP 0 https://nettruyen.com.vn/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 2464,
+     "error": "HTTP 0 https://nettruyen.com.vn/tim-kiem?keyword=a"
+    }
+   },
+   "type": "novel",
+   "name": "NetTruyen",
+   "ms": 5926,
+   "pass": false
+  },
+  {
+   "id": "nettruyenz",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 4641,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 2674,
+     "error": "HTTP 404 https://nettruyenz.com/tim-kiem?keyword=a"
+    }
+   },
+   "type": "comic",
+   "name": "NetTruyenZ",
+   "ms": 7350,
+   "pass": false
+  },
+  {
+   "id": "nextphim",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 25004,
+     "error": "HTTP 0 https://nextphim.net/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 25014,
+     "error": "HTTP 0 https://nextphim.net/?s=a"
+    }
+   },
+   "type": "video",
+   "name": "NextPhim",
+   "ms": 50056,
+   "pass": false
+  },
+  {
+   "id": "novelfullnet",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 3802,
+     "error": "CLOUDFLARE: trang https://novelfull.net yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    },
+    "search": {
+     "ok": false,
+     "ms": 3161,
+     "error": "CLOUDFLARE: trang https://novelfull.net yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    }
+   },
+   "type": "novel",
+   "name": "NovelFull.Net",
+   "ms": 6971,
+   "pass": false
+  },
+  {
+   "id": "novelnext",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 3785,
+     "n": 13,
+     "first": {
+      "name": "Conquest of Taboo and Debauchery",
+      "link": "https://novelnext.me/novelnext/conquest-of-taboo-and-debauchery-2/",
+      "cover": "https://novelnext.me/files/image/conquest-of-taboo-and-debauchery-2.jpg",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": true,
+     "ms": 1416,
+     "n": 13,
+     "q": "Conquest of"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 2818,
+     "name": "Conquest of Taboo and Debauchery",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 158
+    },
+    "chapters": {
+     "ok": true,
+     "ms": 9,
+     "n": 242,
+     "first": {
+      "name": "Action",
+      "url": "https://novelnext.me/genre/Action/",
+      "pay": false
+     }
+    },
+    "content": {
+     "ok": false,
+     "ms": 2734,
+     "error": "chap: Không tìm thấy nội dung — trang nhận được: \"Action Radiant Reads\" (200, 83182 ký tự)"
+    }
+   },
+   "type": "novel",
+   "name": "Novel Next",
+   "ms": 10796,
+   "pass": false
+  },
+  {
+   "id": "phim4k",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 10198,
+     "error": "HTTP 0 https://phim4k.xyz/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 13565,
+     "error": "HTTP 0 https://phim4k.xyz/tim-kiem?keyword=a"
+    }
+   },
+   "type": "video",
+   "name": "Phim4K",
+   "ms": 23803,
+   "pass": false
+  },
+  {
+   "id": "phimmoi",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 6656,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 3580,
+     "error": "0 items for a"
+    }
+   },
+   "type": "video",
+   "name": "Phimmoi",
+   "ms": 10271,
+   "pass": false
+  },
+  {
+   "id": "phimmoihd",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 23697,
+     "error": "HTTP 522 https://phimmoihd.online/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 23461,
+     "error": "HTTP 522 https://phimmoihd.online/tim-kiem?keyword=a"
+    }
+   },
+   "type": "video",
+   "name": "PhimMoiHD",
+   "ms": 47199,
+   "pass": false
+  },
+  {
+   "id": "phimtv",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 6588,
+     "n": 65,
+     "first": {
+      "name": "Bác Sĩ X",
+      "link": "https://phimtv.lat/phim/bac-si-x-22913.html",
+      "cover": "https://img.phimtv.lat/images/bac-si-x/rrnLgjeEhULsQANRveibkLLLUPp.jpg",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": true,
+     "ms": 3126,
+     "n": 25,
+     "q": "Bác Sĩ"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 2106,
+     "name": "Bác Sĩ X",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 152
+    },
+    "chapters": {
+     "ok": true,
+     "ms": 5,
+     "n": 3,
+     "first": {
+      "name": "Tập 10",
+      "url": "https://phimtv.lat/play/bac-si-x%E2%80%90tap-10-400260.html",
+      "pay": false
+     }
+    },
+    "videos": {
+     "ok": true,
+     "ms": 2223,
+     "n": 1,
+     "first": "https://play.cbplay.live/file/play/665841ddc457b9ef00a115e4/1aa7446a-70d3-4450-afb2-2d6b3315a677.m3u8"
+    }
+   },
+   "type": "video",
+   "name": "PhimTV",
+   "ms": 14075,
+   "pass": true
+  },
+  {
+   "id": "piaotianapp",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2821,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 1483,
+     "error": "HTTP 404 https://www.piaotianapp.com/tim-kiem?keyword=a"
+    }
+   },
+   "type": "novel",
+   "name": "piaotian-app",
+   "ms": 4348,
+   "pass": false
+  },
+  {
+   "id": "po18",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 15684,
+     "error": "gen2: Bạn phải xác minh trên 18 tuổi/đăng nhập ở website này để có thể đọc."
+    },
+    "search": {
+     "ok": false,
+     "ms": 5214,
+     "error": "search: empty result"
+    }
+   },
+   "type": "novel",
+   "name": "po18",
+   "ms": 20938,
+   "pass": false
+  },
+  {
+   "id": "po18sm",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 11825,
+     "n": 11,
+     "first": {
+      "name": "点亮星星的人全文阅读",
+      "link": "https://www.po18sm.com/0/8.html",
+      "cover": "https://www.po18sm.com/modules/article/images/nocover.jpg",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": false,
+     "ms": 4557,
+     "error": "HTTP 404 https://www.po18sm.com/tim-kiem?keyword=%E7%82%B9%E4%BA%AE%E6%98%9F%E6%98%9F%E7%9A%84%E4%BA%BA%E5%85%A8%E6%96%87%E9%98%85%E8%AF%BB"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 5031,
+     "name": "点亮星星的人",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 89
+    },
+    "chapters": {
+     "ok": false,
+     "ms": 1,
+     "error": "0 chapters"
+    }
+   },
+   "type": "novel",
+   "name": "po18sm",
+   "ms": 21448,
+   "pass": false
+  },
+  {
+   "id": "pornhub",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 3710,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 1107,
+     "error": "HTTP 404 https://www.pornhub.com/tim-kiem?keyword=a"
+    }
+   },
+   "type": "video",
+   "name": "PornHub",
+   "ms": 4855,
+   "pass": false
+  },
+  {
+   "id": "qimao",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 25006,
+     "error": "gen: empty result"
+    },
+    "search": {
+     "ok": false,
+     "ms": 5052,
+     "error": "Cannot read properties of undefined (reading 'filter')"
+    }
+   },
+   "type": "novel",
+   "name": "Qimao (七猫文化)",
+   "ms": 30109,
+   "pass": false
+  },
+  {
+   "id": "qmbook",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2334,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 1194,
+     "error": "HTTP 404 https://m.bqg631.xyz/tim-kiem?keyword=a"
+    }
+   },
+   "type": "novel",
+   "name": "qmbook",
+   "ms": 3563,
+   "pass": false
+  },
+  {
+   "id": "quanben",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 2848,
+     "n": 125,
+     "first": {
+      "name": "傲世丹神",
+      "link": "https://quanben.io/n/aoshidanshen/",
+      "cover": "",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": true,
+     "ms": 850,
+     "n": 1,
+     "q": "傲世丹神"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 1052,
+     "name": "傲世丹神",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 70
+    },
+    "chapters": {
+     "ok": true,
+     "ms": 2,
+     "n": 1,
+     "first": {
+      "name": "点击阅读",
+      "url": "https://quanben.io/n/aoshidanshen/list.html",
+      "pay": false
+     }
+    },
+    "content": {
+     "ok": false,
+     "ms": 1032,
+     "error": "content too short: 47"
+    }
+   },
+   "type": "novel",
+   "name": "quanben",
+   "ms": 5823,
+   "pass": false
+  },
+  {
+   "id": "quanwenyuedu",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 2875,
+     "n": 12,
+     "first": {
+      "name": "傲世丹神",
+      "link": "https://www.quanwenyuedu.io/n/aoshidanshen/",
+      "cover": "https://img.c0m.io/quanwenyuedu.io/upload/thumbnail/book_0_999/book_1.jpg",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": true,
+     "ms": 977,
+     "n": 12,
+     "q": "傲世丹神"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 1175,
+     "name": "傲世丹神",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 65
+    },
+    "chapters": {
+     "ok": false,
+     "ms": 1,
+     "error": "0 chapters"
+    }
+   },
+   "type": "novel",
+   "name": "quanwenyuedu",
+   "ms": 5070,
+   "pass": false
+  },
+  {
+   "id": "quykiep",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 6231,
+     "error": "gen: empty result"
+    },
+    "search": {
+     "ok": false,
+     "ms": 3520,
+     "error": "search: empty result"
+    }
+   },
+   "type": "novel",
+   "name": "LightNovel VN",
+   "ms": 9789,
+   "pass": false
+  },
+  {
+   "id": "rophim",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 11018,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 23942,
+     "error": "0 items for a"
+    }
+   },
+   "type": "video",
+   "name": "Rổ Phim",
+   "ms": 34998,
+   "pass": false
+  },
+  {
+   "id": "sayhentai",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2543,
+     "error": "homecontent: Khong tai duoc danh sach"
+    },
+    "search": {
+     "ok": false,
+     "ms": 2455,
+     "error": "search: Khong tai duoc ket qua tim kiem"
+    }
+   },
+   "type": "comic",
+   "name": "SayHentai -18+",
+   "ms": 5024,
+   "pass": false
+  },
+  {
+   "id": "sexviettop",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 5171,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 2484,
+     "error": "0 items for a"
+    }
+   },
+   "type": "video",
+   "name": "SexVietTop",
+   "ms": 7692,
+   "pass": false
+  },
+  {
+   "id": "showbox",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 4595,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 2600,
+     "error": "0 items for a"
+    }
+   },
+   "type": "video",
+   "name": "Showbox",
+   "ms": 7229,
+   "pass": false
+  },
+  {
+   "id": "shubenshu",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 3554,
+     "n": 70,
+     "first": {
+      "name": "我在修仙界大器晚成",
+      "link": "https://www.shubenshu.com/lUMF/",
+      "cover": "",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": true,
+     "ms": 12524,
+     "n": 70,
+     "q": "我在修仙界大器晚成"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 3833,
+     "name": "我在修仙界大器晚成",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 87
+    },
+    "chapters": {
+     "ok": true,
+     "ms": 1,
+     "n": 58,
+     "first": {
+      "name": "第1431章 灵魔战结，界主大典（大结局，三）",
+      "url": "https://www.shubenshu.com/T2zCi.html",
+      "pay": false
+     }
+    },
+    "content": {
+     "ok": false,
+     "ms": 4003,
+     "error": "chap: Không tìm thấy nội dung — trang nhận được: \"书本书\" (200, 29673 ký tự)"
+    }
+   },
+   "type": "novel",
+   "name": "书本书 Shubenshu",
+   "ms": 23958,
+   "pass": false
+  },
+  {
+   "id": "sitruyencv",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 4924,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 1188,
+     "error": "0 items for a"
+    }
+   },
+   "type": "novel",
+   "name": "Si Truyện CV",
+   "ms": 6147,
+   "pass": false
+  },
+  {
+   "id": "snapd",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 11279,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 1618,
+     "error": "0 items for a"
+    }
+   },
+   "type": "novel",
+   "name": "Snapd",
+   "ms": 12936,
+   "pass": false
+  },
+  {
+   "id": "sohu",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 16534,
+     "n": 133,
+     "first": {
+      "name": "沪武高速事故已致1死4伤 安庆公安通报",
+      "link": "https://m.sohu.com/a/1098644844_203783?scm=10001.198_14-198_14_exp.0.0-0-0-0-0.",
+      "cover": "",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": false,
+     "ms": 1837,
+     "error": "0 items for 沪武高速事故已致1死4伤 安庆公安通报"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 1458,
+     "name": "安庆市凌晨发布情况通报",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 105
+    },
+    "chapters": {
+     "ok": true,
+     "ms": 2,
+     "n": 1,
+     "first": {
+      "name": "政事儿 2026-11-08 07:09",
+      "url": "https://m.sohu.com/media/203783",
+      "pay": false
+     }
+    },
+    "content": {
+     "ok": false,
+     "ms": 2163,
+     "error": "content too short: 11"
+    }
+   },
+   "type": "novel",
+   "name": "sohu",
+   "ms": 22039,
+   "pass": false
+  },
+  {
+   "id": "soixamfanqie",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2680,
+     "error": "HTTP 0 https://api.langge.cf/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 4959,
+     "error": "HTTP 0 https://api.langge.cf/tim-kiem?keyword=a"
+    }
+   },
+   "type": "novel",
+   "name": "Sói Xám (Fanqie)",
+   "ms": 7676,
+   "pass": false
+  },
+  {
+   "id": "sonako",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 4986,
+     "error": "CLOUDFLARE: trang https://sonako.fandom.com yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    },
+    "search": {
+     "ok": false,
+     "ms": 3016,
+     "error": "CLOUDFLARE: trang https://sonako.fandom.com yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    }
+   },
+   "type": "novel",
+   "name": "Sonako",
+   "ms": 8043,
+   "pass": false
+  },
+  {
+   "id": "stvappvi",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 25008,
+     "error": "HTTP 0 https://sangtacviet.com/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 25016,
+     "error": "HTTP 0 https://sangtacviet.com/?id=a"
+    }
+   },
+   "type": "novel",
+   "name": "STV App Vi",
+   "ms": 50062,
+   "pass": false
+  },
+  {
+   "id": "sudugu",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 5777,
+     "n": 8,
+     "first": {
+      "name": "首页",
+      "link": "https://www.suduguu.com/",
+      "cover": "",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": false
+    },
+    "search": {
+     "ok": false,
+     "ms": 25015,
+     "error": "HTTP 0 https://www.suduguu.com/tim-kiem?keyword=%E9%A6%96%E9%A1%B5"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 4,
+     "name": "置顶捞尸人",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 93
+    },
+    "chapters": {
+     "ok": true,
+     "ms": 3,
+     "n": 44,
+     "first": {
+      "name": "捞尸人",
+      "url": "https://www.suduguu.com/51/",
+      "pay": false
+     }
+    },
+    "content": {
+     "ok": false,
+     "ms": 1881,
+     "error": "chap: Không tìm thấy nội dung — trang nhận được: \"捞尸人-完本小说全文阅读-全本完整版免费阅读-纯洁滴小龙-速读谷\" (200, 39342 ký tự)"
+    }
+   },
+   "type": "novel",
+   "name": "sudugu",
+   "ms": 32716,
+   "pass": false
+  },
+  {
+   "id": "sweetastes",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 6095,
+     "n": 47,
+     "first": {
+      "name": "越軌之洲",
+      "link": "https://baby0world.com/book/150898",
+      "cover": "https://cdn.sstory.vip/thumb.ashx?path=%2fdpxs%2f20240520%2f978532D5FD69w1080h1434.Jpeg&width=150&height=200",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": false,
+     "ms": 2354,
+     "error": "0 items for 越軌之洲"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 2921,
+     "name": "熱門",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 208
+    },
+    "chapters": {
+     "ok": false,
+     "ms": 7,
+     "error": "0 chapters"
+    }
+   },
+   "type": "novel",
+   "name": "sweetastes",
+   "ms": 11423,
+   "pass": false
+  },
+  {
+   "id": "syosetu",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 4561,
+     "error": "HTTP 403 https://yomou.syosetu.com/rank/list/type/daily_total/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 4220,
+     "error": "HTTP 403 https://yomou.syosetu.com/search.php?word=a"
+    }
+   },
+   "type": "novel",
+   "name": "Syosetu",
+   "ms": 8796,
+   "pass": false
+  },
+  {
+   "id": "syosetur18",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 4690,
+     "error": "HTTP 403 https://novel18.syosetu.com/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 3614,
+     "error": "HTTP 403 https://novel18.syosetu.com/tim-kiem?keyword=a"
+    }
+   },
+   "type": "novel",
+   "name": "Syosetu R18",
+   "ms": 8332,
+   "pass": false
+  },
+  {
+   "id": "taonovel",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 25012,
+     "error": "HTTP 0 https://tybook.taoyuewenhua.net/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 25003,
+     "error": "HTTP 0 https://tybook.taoyuewenhua.net/tim-kiem?keyword=a"
+    }
+   },
+   "type": "novel",
+   "name": "TaoNovel",
+   "ms": 50022,
+   "pass": false
+  },
+  {
+   "id": "tiemtruyenchu",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 1,
+     "error": "search: error"
+    },
+    "search": {
+     "ok": false,
+     "ms": 0,
+     "error": "search: error"
+    }
+   },
+   "type": "novel",
+   "name": "Tiệm Truyện Chữ (Demo)",
+   "ms": 43,
+   "pass": false
+  },
+  {
+   "id": "tikporn",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 3033,
+     "error": "CLOUDFLARE: trang https://tik.porn yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    },
+    "search": {
+     "ok": false,
+     "ms": 1038,
+     "error": "CLOUDFLARE: trang https://tik.porn yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    }
+   },
+   "type": "video",
+   "name": "Tik.Porn",
+   "ms": 4089,
+   "pass": false
+  },
+  {
+   "id": "tiktok",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 4432,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 7076,
+     "error": "0 items for a"
+    }
+   },
+   "type": "video",
+   "name": "TikTok",
+   "ms": 11536,
+   "pass": false
+  },
+  {
+   "id": "truyenc",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 6012,
+     "n": 30,
+     "first": {
+      "name": "Thần Điêu: Mộng Đoạn Chung Nam",
+      "link": "https://truyenc.net/truyen/than-dieu-mong-doan-chung-nam",
+      "cover": "",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": false,
+     "ms": 2563,
+     "error": "0 items for Thần Điêu:"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 2483,
+     "name": "Thần Điêu: Mộng Đoạn Chung Nam",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 157
+    },
+    "chapters": {
+     "ok": true,
+     "ms": 3,
+     "n": 29,
+     "first": {
+      "name": "TruyenC",
+      "url": "https://truyenc.net/",
+      "pay": false
+     }
+    },
+    "content": {
+     "ok": false,
+     "ms": 6,
+     "error": "chap: Không tìm thấy nội dung — trang nhận được: \"TruyenC - Đọc truyện online\" (200, 395961 ký tự)"
+    }
+   },
+   "type": "novel",
+   "name": "TruyenC",
+   "ms": 11101,
+   "pass": false
+  },
+  {
+   "id": "truyencv",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 5133,
+     "error": "book: empty result"
+    },
+    "search": {
+     "ok": false,
+     "ms": 2980,
+     "error": "search: empty result"
+    }
+   },
+   "type": "novel",
+   "name": "Mê Truyện CV",
+   "ms": 8158,
+   "pass": false
+  },
+  {
+   "id": "truyencvio",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 2619,
+     "n": 12,
+     "first": {
+      "name": "Nhân vật Nhân Vật Diệp Thiên Mệnh | Truyện Vô Địch Thiên Mệnh",
+      "link": "https://truyencv.io/nhan-vat-diep-thien-menh-truyen-vo-dich-thien-menh/",
+      "cover": "",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": true,
+     "ms": 2298,
+     "n": 12,
+     "q": "Nhân vật"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 1341,
+     "name": "TruyenCV- Mê Truyện Chữ | Đọc Truyện Conver - ReView Truyện & Nhân Vật",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 132
+    },
+    "chapters": {
+     "ok": true,
+     "ms": 2,
+     "n": 7,
+     "first": {
+      "name": "IOS",
+      "url": "https://apps.apple.com/vn/app/truyencv-m%C3%AA-truy%E1%BB%87n-ch%E1%BB%AF-m%E1%BB%9Bi/id6762510778",
+      "pay": false
+     }
+    },
+    "content": {
+     "ok": false,
+     "ms": 2118,
+     "error": "chap: Không tìm thấy nội dung — trang nhận được: \"‎TruyenCV - Mê Truyện Chữ Mới App - App Store\" (200, 595909 ký tự)"
+    }
+   },
+   "type": "novel",
+   "name": "TruyenCV.io",
+   "ms": 8420,
+   "pass": false
+  },
+  {
+   "id": "truyendichain",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 9377,
+     "error": "search: error"
+    },
+    "search": {
+     "ok": false,
+     "ms": 5099,
+     "error": "search: error"
+    }
+   },
+   "type": "novel",
+   "name": "Truyện Dịch AI",
+   "ms": 14514,
+   "pass": false
+  },
+  {
+   "id": "truyenh",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 3556,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 1265,
+     "error": "0 items for a"
+    }
+   },
+   "type": "novel",
+   "name": "Truyen H",
+   "ms": 4868,
+   "pass": false
+  },
+  {
+   "id": "truyenmoi",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 5394,
+     "error": "gen: HTTP Error: 0"
+    },
+    "search": {
+     "ok": false,
+     "ms": 2074,
+     "error": "search: HTTP Error: 0"
+    }
+   },
+   "type": "novel",
+   "name": "Truyện Mới",
+   "ms": 7509,
+   "pass": false
+  },
+  {
+   "id": "truyenmoikk",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 1852,
+     "error": "HTTP 0 https://truyenmoikk.com/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 4288,
+     "error": "HTTP 0 https://truyenmoikk.com/tim-kiem?keyword=a"
+    }
+   },
+   "type": "novel",
+   "name": "Truyện Mới KK",
+   "ms": 6175,
+   "pass": false
+  },
+  {
+   "id": "truyennet",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 5504,
+     "error": "homecontent: empty result"
+    },
+    "search": {
+     "ok": false,
+     "ms": 4935,
+     "error": "search: empty result"
+    }
+   },
+   "type": "novel",
+   "name": "Truyện Net",
+   "ms": 10470,
+   "pass": false
+  },
+  {
+   "id": "tutienpro",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 4142,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 809,
+     "error": "0 items for a"
+    }
+   },
+   "type": "novel",
+   "name": "Tu Tiên (.pro)",
+   "ms": 4986,
+   "pass": false
+  },
+  {
+   "id": "twitch",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 3041,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 856,
+     "error": "0 items for a"
+    }
+   },
+   "type": "video",
+   "name": "Twitch",
+   "ms": 3934,
+   "pass": false
+  },
+  {
+   "id": "ungtycomics",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 3418,
+     "error": "gen: Kiểm tra lại?"
+    },
+    "search": {
+     "ok": false,
+     "ms": 2524,
+     "error": "search: Kiểm tra lại?"
+    }
+   },
+   "type": "comic",
+   "name": "Ưng Tỷ Comics",
+   "ms": 5979,
+   "pass": false
+  },
+  {
+   "id": "uukanshu",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 3074,
+     "error": "CLOUDFLARE: trang https://uukanshu.cc yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    },
+    "search": {
+     "ok": false,
+     "ms": 812,
+     "error": "CLOUDFLARE: trang https://uukanshu.cc yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    }
+   },
+   "type": "novel",
+   "name": "uukanshu",
+   "ms": 3912,
+   "pass": false
+  },
+  {
+   "id": "vfilm",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 11061,
+     "n": 11,
+     "first": {
+      "name": "Sóc Nâu Đáng Yêu",
+      "link": "http://vfilm.vn/phim-le/soc-nau-dang-yeu-p.html",
+      "cover": "http://vfilm.vn/data_files/film/201607/soc-nau-dang-yeu/image/soc-nau-dang-yeu-poster-vi.jpg?w=70&h=100",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": true,
+     "ms": 5873,
+     "n": 11,
+     "q": "Sóc Nâu"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 4808,
+     "name": "Sóc Nâu Đáng Yêu",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 0
+    },
+    "chapters": {
+     "ok": true,
+     "ms": 4,
+     "n": 1,
+     "first": {
+      "name": "Chương trình khuyến mại",
+      "url": "http://vfilm.vn/vfilm/chuong-trinh-khuyen-mai.html",
+      "pay": false
+     }
+    },
+    "videos": {
+     "ok": false,
+     "ms": 8861,
+     "error": "0 streams"
+    }
+   },
+   "type": "video",
+   "name": "Vfilm",
+   "ms": 30658,
+   "pass": false
+  },
+  {
+   "id": "viblo",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 6435,
+     "n": 23,
+     "first": {
+      "name": "[IMPORTANT UPDATE] VIBLO CV CẬP NHẬT CHÍNH SÁCH BẢO MẬT VÀ QUẢN LÝ DỮ LIỆU NGƯỜI DÙNG",
+      "link": "https://viblo.asia/announcements/important-update-viblo-cv-cap-nhat-chinh-sach-bao-mat-va-quan-ly-du-lieu-nguoi-dung-XRJ8R0zZVGq",
+      "cover": "",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": false,
+     "ms": 1262,
+     "error": "HTTP 404 https://viblo.asia/tim-kiem?keyword=%5BIMPORTANT%20UPDATE%5D"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 1328,
+     "name": "[IMPORTANT UPDATE] VIBLO CV CẬP NHẬT CHÍNH SÁCH BẢO MẬT VÀ QUẢN LÝ DỮ LIỆU NGƯỜI DÙNG",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 35
+    },
+    "chapters": {
+     "ok": true,
+     "ms": 3,
+     "n": 6,
+     "first": {
+      "name": "Chính sách bảo vệ dữ liệu cá nhân",
+      "url": "https://drive.google.com/file/u/1/d/1JWdpCVDUfMhDVweZ5ncPucNgxf8bMP-Q/view?usp=sharing",
+      "pay": false
+     }
+    },
+    "content": {
+     "ok": false,
+     "ms": 2479,
+     "error": "chap: Không tìm thấy nội dung — trang nhận được: \"[Sun_ VN-External] Chinh Sach Bao Ve Du Lieu Ca Nhan.pdf - G\" (200, 139520 ký tự)"
+    }
+   },
+   "type": "novel",
+   "name": "Viblo",
+   "ms": 11540,
+   "pass": false
+  },
+  {
+   "id": "vipbachngocsach",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 25015,
+     "error": "source: empty result"
+    },
+    "search": {
+     "ok": false,
+     "ms": 25010,
+     "error": "search: empty result"
+    }
+   },
+   "type": "novel",
+   "name": "【VIP】Bạch Ngọc Sách",
+   "ms": 50069,
+   "pass": false
+  },
+  {
+   "id": "vtvgo",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 3003,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 1662,
+     "error": "HTTP 404 https://cache.vtvgo.vn/tim-kiem?keyword=a"
+    }
+   },
+   "type": "video",
+   "name": "VTV Go",
+   "ms": 4705,
+   "pass": false
+  },
+  {
+   "id": "watchhentainet",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 2632,
+     "n": 53,
+     "first": {
+      "name": "Mujikaku na Osananajimi to Kyoumi Honi de Yattemitara The Animation – Episode 3",
+      "link": "https://watchhentai.net/videos/mujikaku-na-osananajimi-to-kyoumi-honi-de-yattemitara-the-animation-episode-3-id-01/",
+      "cover": "https://watchhentai.net/uploads/2026/mujikaku-na-osananajimi-to-kyoumi-honi-de-yatte-mitara-the-animation/3/1_thumb.jpg",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": true,
+     "ms": 960,
+     "n": 1,
+     "q": "Mujikaku na"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 1058,
+     "name": "Mujikaku na Osananajimi to Kyoumi Honi de Yattemitara The Animation – Episode 3",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 245
+    },
+    "chapters": {
+     "ok": true,
+     "ms": 7,
+     "n": 228,
+     "first": {
+      "name": "WatchHentai",
+      "url": "https://watchhentai.net/",
+      "pay": false
+     }
+    },
+    "videos": {
+     "ok": false,
+     "ms": 7,
+     "error": "0 streams"
+    }
+   },
+   "type": "video",
+   "name": "WatchHentai.net",
+   "ms": 4700,
+   "pass": false
+  },
+  {
+   "id": "wattpad",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 23223,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 818,
+     "error": "0 items for a"
+    }
+   },
+   "type": "novel",
+   "name": "Wattpad - Tiếng Việt",
+   "ms": 24079,
+   "pass": false
+  },
+  {
+   "id": "webtoonscan",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 25008,
+     "error": "HTTP 0 https://webtoonscan.com/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 25008,
+     "error": "HTTP 0 https://webtoonscan.com/tim-kiem?keyword=a"
+    }
+   },
+   "type": "comic",
+   "name": "WebtoonScan",
+   "ms": 50044,
+   "pass": false
+  },
+  {
+   "id": "webtruyendich",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 2619,
+     "error": "search: error"
+    },
+    "search": {
+     "ok": false,
+     "ms": 2050,
+     "error": "search: error"
+    }
+   },
+   "type": "novel",
+   "name": "Web Truyện Dịch",
+   "ms": 4713,
+   "pass": false
+  },
+  {
+   "id": "weebcentral",
+   "steps": {
+    "popular": {
+     "ok": true,
+     "ms": 5734,
+     "n": 57,
+     "first": {
+      "name": "The Swordmaster's Son cover",
+      "link": "https://weebcentral.com/chapters/01M6WJS803D0203VYG2BFN191V",
+      "cover": "https://temp.compsci88.com/cover/fallback/01J76XYG8FNWRR3PHEFKN2NB87.jpg",
+      "description": "",
+      "tag": ""
+     },
+     "hasNext": true
+    },
+    "search": {
+     "ok": true,
+     "ms": 1203,
+     "n": 57,
+     "q": "The Swordmaster's"
+    },
+    "detail": {
+     "ok": true,
+     "ms": 1218,
+     "name": "Chapter 220 | The Swordmaster's Son | Weeb Central",
+     "author": "",
+     "genres": 0,
+     "cover": true,
+     "desc": 70
+    },
+    "chapters": {
+     "ok": false,
+     "ms": 2,
+     "error": "0 chapters"
+    }
+   },
+   "type": "comic",
+   "name": "Weeb Central",
+   "ms": 8195,
+   "pass": false
+  },
+  {
+   "id": "weibo",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 8198,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 4623,
+     "error": "0 items for a"
+    }
+   },
+   "type": "novel",
+   "name": "Weibo",
+   "ms": 12860,
+   "pass": false
+  },
+  {
+   "id": "wikidich",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 6448,
+     "error": "HTTP 502 https://wikicv.net/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 2479,
+     "error": "HTTP 502 https://wikicv.net/tim-kiem?keyword=a"
+    }
+   },
+   "type": "novel",
+   "name": "Wiki Dịch",
+   "ms": 8960,
+   "pass": false
+  },
+  {
+   "id": "wodeshucheng5",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 6086,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 2024,
+     "error": "0 items for a"
+    }
+   },
+   "type": "novel",
+   "name": "wodeshucheng5",
+   "ms": 8145,
+   "pass": false
+  },
+  {
+   "id": "xfree",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 1998,
+     "error": "CLOUDFLARE: trang https://www.xfree.com yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    },
+    "search": {
+     "ok": false,
+     "ms": 1749,
+     "error": "CLOUDFLARE: trang https://www.xfree.com yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    }
+   },
+   "type": "video",
+   "name": "xFree",
+   "ms": 3798,
+   "pass": false
+  },
+  {
+   "id": "xianqihaotiamiapp",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 5964,
+     "error": "json.data.forEach is not a function"
+    },
+    "search": {
+     "ok": false,
+     "ms": 2851,
+     "error": "json.data.forEach is not a function"
+    }
+   },
+   "type": "novel",
+   "name": "言情小说阁 (APP)",
+   "ms": 8860,
+   "pass": false
+  },
+  {
+   "id": "xoilac",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 6569,
+     "error": "HTTP 0 https://xoilac32.org/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 8075,
+     "error": "HTTP 0 https://xoilac32.org/tim-kiem?keyword=a"
+    }
+   },
+   "type": "video",
+   "name": "Xôi Lạc",
+   "ms": 14680,
+   "pass": false
+  },
+  {
+   "id": "xsw",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 3234,
+     "error": "HTTP 0 https://m.xsw.tw/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 3876,
+     "error": "HTTP 0 https://m.xsw.tw/tim-kiem?keyword=a"
+    }
+   },
+   "type": "novel",
+   "name": "xsw",
+   "ms": 7153,
+   "pass": false
+  },
+  {
+   "id": "xtruyen",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 3530,
+     "error": "CLOUDFLARE: trang https://www.xtruyen.net yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    },
+    "search": {
+     "ok": false,
+     "ms": 2523,
+     "error": "CLOUDFLARE: trang https://www.xtruyen.net yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại."
+    }
+   },
+   "type": "novel",
+   "name": "XTruyen",
+   "ms": 6099,
+   "pass": false
+  },
+  {
+   "id": "youtube",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 3569,
+     "error": "0 items"
+    },
+    "search": {
+     "ok": false,
+     "ms": 1369,
+     "error": "0 items for a"
+    }
+   },
+   "type": "video",
+   "name": "YouTube",
+   "ms": 4971,
+   "pass": false
+  },
+  {
+   "id": "ypshuobinhluansach",
+   "steps": {
+    "popular": {
+     "ok": false,
+     "ms": 25015,
+     "error": "HTTP 0 https://www.ypshuo.com/"
+    },
+    "search": {
+     "ok": false,
+     "ms": 25001,
+     "error": "HTTP 0 https://www.ypshuo.com/tim-kiem?keyword=a"
+    }
+   },
+   "type": "novel",
+   "name": "YPShuo - Bình luận sách",
+   "ms": 50057,
+   "pass": false
+  }
+ ]
+}

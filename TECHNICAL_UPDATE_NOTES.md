@@ -340,3 +340,53 @@ Bản phát hành lúc 14:34 (commit `f4d7c73`): **57/196** nguồn đạt kiể
 - TikTok, Douyin, FreeReels (Short Video): trang cần chữ ký chống bot (X-Bogus / a_bogus). Cần API trung gian (ví dụ tikwm) và YomiHub đọc `additionalParams: "shorts"` (sửa ở `YomiShorts.supports()`).
 - Kiểm Aidoku trên iPhone/iPad thật khi có thiết bị. Cài Rust + `wasm32-unknown-unknown` trên máy Windows để `build_all.ps1` tự dựng lại gói Aidoku.
 - `run-tests.mjs`: thêm phép kiểm "tên truyện ≠ tên mục menu" để không báo đạt nhầm.
+
+### 08/11/2026 (chiều) — Kiểm thử các nguồn còn lỗi trên YomiHub, qua VPN tích hợp sẵn của YomiHub
+
+Chủ dự án yêu cầu: nguồn nào chưa kiểm được thì kiểm trên YomiHub. Nguồn nào không vào được thì bật VPN tích hợp sẵn của YomiHub rồi kiểm lại.
+
+**Công cụ:** YomiHub 0.5.3 trên Galaxy Note9. Dùng mục *Thêm › VPN & DNS › Dịch vụ VPN*: **Tor** (HTTP 8118 / SOCKS 9050, phạm vi "mọi tiện ích") và **Cloudflare WARP** (chế độ "Chỉ YomiHub").
+- Điều khiển máy bằng `_work/phone2.ps1`. Bản này có thêm các lệnh: `need <gói>` (bỏ qua cả khối nếu app khác đang ở trên cùng), `seekc`/`rowtapc` (tìm theo chữ có chứa), `win` (chạy lệnh Windows).
+- `adb forward tcp:18118 tcp:8118` để Node trên máy Windows đi qua đúng Tor của YomiHub.
+- `tools/test/run-tests.mjs` có thêm `--out <tệp>` để ghi kết quả riêng.
+- `_work/purge.bat` xoá bộ nhớ đệm jsDelivr của các index (YomiHub dùng jsDelivr làm bản dự phòng khi `raw.githubusercontent.com` bị chặn).
+
+**Bước 1 — kiểm tự động 133 nguồn đang lỗi, qua Tor của YomiHub** (`vpn_tor_test.bat`, kết quả ở `data/test-results-vpn-tor.json`; xác nhận `check.torproject.org` trả `IsTor:true`):
+- Đi trọn chuỗi: **1/133** (PhimTV: danh sách → tìm → chi tiết → tập → video). Khi kết nối trực tiếp từ mạng Việt Nam, nguồn này báo `HTTP 0`, tức tên miền `phimtv.my` bị nhà mạng chặn chứ không phải đã chết.
+- Đi được thêm một số bước: hihiphim 1→3, mattreadingtranslations 0→3, quanben 0→4, viblo 2→3.
+- Còn lỗi qua Tor: 92 nguồn lỗi phân tích trang (trang đổi giao diện / dựng bằng JS / cần API riêng; VPN không giúp được), 20 nguồn Cloudflare/403 (nhiều trang chặn hẳn IP Tor), 20 nguồn lỗi mạng (tên miền chết hẳn).
+
+**Bước 2 — kiểm trong app YomiHub** (ảnh `_work/shots/v003/y_*`, `w_*`, video `n9_yh_tor_test_*.mp4`, `n9_yh_warp_test_*.mp4`):
+
+| Nguồn | Kết nối thẳng (mạng VN) | Qua Tor (kiểm tự động) | Trong app YomiHub + Tor |
+|---|---|---|---|
+| PhimTV | `HTTP 0` (tên miền bị chặn) | **đạt trọn chuỗi** | Danh sách ✅ → chi tiết ✅ (10 tập) → phát: luồng video quay mãi không chạy (>70 giây) ⚠️. Thử qua WARP: vẫn `HTTP 0` (lúc đó WARP đang "Đang kết nối…") |
+| HiHiPhim | danh sách | 3/5 bước | Danh sách ✅ → chi tiết ✅ (24 tập) → phát: trang phát bắt **xác minh Cloudflare** (người dùng phải tự bấm) ⚠️ |
+| Viblo | 2 bước | 3 bước | Danh sách ✅ → chi tiết ✅ (8 bài) → **đọc nội dung ✅** |
+| quanben | Cloudflare / máy chủ chặn | 4 bước | Danh sách ✅ → chi tiết ✅ → chương chỉ có 1 dòng giới thiệu (lấy nội dung sai) ⚠️ |
+| Matt Reading Translations | Cloudflare | 3 bước | Cài bản 0.5.3 ✅. Danh sách: `HTTP 403` (Cloudflare chặn IP Tor) ❌ |
+| RoPhim (định dạng YomiHub) | `HTTP 0` | — | Danh sách trống. Chi tiết: "Sorry, you have been blocked" (`phimapi.com` chặn Tor) ❌ |
+| Xôi Lạc TV (định dạng YomiHub) | lỗi mạng | — | Danh sách trận đấu ✅ → chi tiết ✅ → phát: đang tải khi chụp ⚠️ |
+| GuPhim | lỗi mạng | lỗi | "Không có kết quả" ❌ (lỗi phân tích trang) |
+| NetTruyen (truyện chữ) | lỗi mạng | lỗi | Cài ✅. "Không có kết quả" ❌ |
+| MangaDex (GLOBAL) | `HTTP 0` (`mangadex.org` bị chặn; `api.mangadex.org` vẫn vào được) | lỗi | Cài 0.5.1 ✅ (sau khi mạng của máy được nối lại). Mở nguồn: `Error: HTTP 0 https://mangadex.org/` cả khi kết nối thẳng lẫn qua Tor ❌. Qua Tor, `curl` tới `mangadex.org` và `api.mangadex.org` đều không trả lời (chặn IP Tor) |
+| WebtoonScan | `HTTP 0` (tên miền vẫn phân giải ra `5.182.209.177` nhưng máy chủ không trả lời) | lỗi | Cài 0.5.1 ✅. Mở nguồn: quay ~2,5 phút rồi `Error: HTTP 0 https://webtoonscan.com/`, cả kết nối thẳng lẫn qua Tor ❌. Trang đã chết |
+| Wiki Dịch (truyện chữ) | `HTTP 0` (`wikicv.net` bị chặn) | lỗi | Cài 0.5.1 ✅. Kết nối thẳng: "Không có kết quả". Qua Tor: **vào được trang** (`wikicv.net` → chuyển sang `wikicv.org`, `200`, có 101 liên kết `/truyen/…`), nhưng app vẫn "Không có kết quả" ❌ vì cấu hình nguồn thiếu bộ chọn `item` |
+
+**Nhận xét**
+- VPN của YomiHub giúp được các nguồn bị **nhà mạng chặn tên miền** (PhimTV, Viblo, quanben, HiHiPhim).
+- VPN không giúp được các nguồn hỏng do **trang đổi cấu trúc** (92/133), hoặc trang **chặn IP VPN/Tor** bằng Cloudflare (Matt Reading, RoPhim/phimapi). Các nguồn này cần sửa mã ở bản sau.
+- Lỗi phát hiện thêm: YomiHub lưu danh sách tiện ích cũ (PhimTV hiện 0.3.1 trong khi kho đã là 0.5.1). Bấm cài vẫn tải đúng bản mới 0.5.1. Bộ nhớ đệm jsDelivr đã được xoá bằng `purge.bat`.
+- **Nguyên nhân gốc của nhiều nguồn "Không có kết quả":** 62/149 nguồn dùng mẫu chung (`lib/lib_generic.js`) có `config.js` chỉ khai báo `tabs`/`search`, **không có bộ chọn `item`**. `X.items()` vì thế không chọn được thẻ truyện nào, nên danh sách luôn trống dù trang tải được. Đây là trường hợp của GuPhim, NetTruyen, Wiki Dịch, MangaDex, WebtoonScan. Danh sách 62 nguồn: anime47, avsubanimevietsub, bilibili, cbhentai, dailymotion, damconuong, douban, douyin, duahau, dualeotruyen, fapreel, fikfap, freereels, gongzicp, guphim, hamelnsyosetuorg, haychill, hhtqhayvip, html5qqcom, idejian, iqiyi, julycomic, kwiky, lacatruyen, langgee, lohi, loppytoon, mangadex, mgtv, minotruyen, myreadingmanga, nettruyen, nettruyenz, phim4k, phimmoihd, piaotianapp, pornhub, qmbook, rophim, sexviettop, showbox, sitruyencv, snapd, soixamfanqie, sonako, syosetur18, taonovel, tiktok, truyenh, truyenmoikk, tutienpro, twitch, vtvgo, webtoonscan, weibo, wikidich, wodeshucheng5, xoilac, xsw, xtruyen, youtube, ypshuobinhluansach.
+- **Sự cố trong lúc kiểm:** giữa chừng Note9 mất Internet dù Wi-Fi vẫn báo đã kết nối (`ping 8.8.8.8` mất 100% gói, không phân giải được tên miền). Vì vậy Tor dừng ở 95% ("chưa kết nối được sau 90 giây") và bấm cài MangaDex chỉ quay rồi thôi, không báo lỗi. Tắt/bật lại Wi-Fi (`svc wifi disable/enable`) thì mạng trở lại, Tor kết nối lại được và cài bình thường. YomiHub không báo lỗi khi cài thất bại, đây là chỗ app nên sửa.
+- Cài qua Tor rất chậm (WebtoonScan quay hơn 4 phút). Cách nhanh hơn: tắt VPN để cài, rồi bật VPN để kiểm.
+- Gõ tìm kiếm: bàn phím Laban Key (Telex) đổi chữ khi gõ bằng `adb input text`. Dùng chuỗi con không bị Telex đổi: `gaDe` (MangaDex), `ebto` (WebtoonScan), `iki` (Wiki Dịch).
+- Sau kiểm thử đã trả lại máy như cũ, có xác nhận: VPN của YomiHub **đang tắt**, bàn phím mặc định `com.vng.inputmethod.labankey/.LatinIME`, `accelerometer_rotation = 1`. Ảnh `_work/shots/v003/z_*`, video `n9_yh_tor_final_*.mp4`.
+
+**Tổng kết kiểm trong app (12 nguồn):** đọc/xem được đến nội dung: **Viblo** (cần Tor). Vào được danh sách + chi tiết nhưng chưa xem được nội dung: PhimTV, HiHiPhim, quanben, Xôi Lạc TV. Không dùng được: Matt Reading, RoPhim, GuPhim, NetTruyen, MangaDex, WebtoonScan, Wiki Dịch.
+
+**Việc cần làm ở bản sau (từ lượt kiểm này)**
+- Viết bộ chọn `item`/`title`/`cover` (và chi tiết, mục lục, nội dung) cho 62 nguồn mẫu chung còn thiếu. Ưu tiên Wiki Dịch (đổi tên miền sang `wikicv.org`, đã có trang mẫu `_work/wd_home.html`) và NetTruyen.
+- MangaDex: viết lại theo API `api.mangadex.org` (vào được thẳng từ Việt Nam). Không cào `mangadex.org`, vì đó là trang dựng bằng JavaScript và bị chặn ở Việt Nam.
+- WebtoonScan: trang đã chết, nên gỡ khỏi kho hoặc đánh dấu ngừng.
+- quanben: sửa bộ chọn nội dung chương. PhimTV/Xôi Lạc: kiểm lại luồng phát.

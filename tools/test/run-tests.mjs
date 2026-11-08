@@ -7,6 +7,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const args = process.argv.slice(2); const opt = k => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : null; };
 const only = opt('--only') ? new Set(opt('--only').split(',')) : null;
 const CONC = +(opt('--conc') || 4);
+const OUTF = opt('--out') ? path.resolve(opt('--out')) : path.join(ROOT, 'test-results.json'); // 0.0.3: separate result files (e.g. runs through a VPN)
 const dir = path.join(ROOT, '.build');
 const { makeEngineFor } = await import(pathToFileURL(path.join(dir, '_runtime.mjs')).href);
 const ids = fs.readdirSync(dir).filter(f => f.endsWith('.scripts.js')).map(f => f.slice(0, -11)).filter(i => !i.startsWith('_') && (!only || only.has(i)));
@@ -41,8 +42,8 @@ const out = []; let i = 0;
 await Promise.all(Array.from({ length: CONC }, async () => { while (i < ids.length) out.push(await testOne(ids[i++])); }));
 // --only runs update their entries in the existing results instead of replacing the whole file
 let all = out;
-if (only) { try { const prev = JSON.parse(fs.readFileSync(path.join(ROOT, 'test-results.json'), 'utf8')).results || []; const mine = new Set(out.map(r => r.id)); all = prev.filter(r => !mine.has(r.id)).concat(out); } catch { } }
+if (only) { try { const prev = JSON.parse(fs.readFileSync(OUTF, 'utf8')).results || []; const mine = new Set(out.map(r => r.id)); all = prev.filter(r => !mine.has(r.id)).concat(out); } catch { } }
 all.sort((a, b) => a.id.localeCompare(b.id));
-fs.writeFileSync(path.join(ROOT, 'test-results.json'), JSON.stringify({ date: new Date().toISOString(), total: all.length, pass: all.filter(r => r.pass).length, results: all }, null, 1));
+fs.writeFileSync(OUTF, JSON.stringify({ date: new Date().toISOString(), total: all.length, pass: all.filter(r => r.pass).length, results: all }, null, 1));
 console.log(`PASS ${out.filter(r => r.pass).length}/${out.length}`);
 process.exit(0); // background requests of timed-out steps must not keep the process alive
