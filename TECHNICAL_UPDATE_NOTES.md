@@ -1,6 +1,6 @@
 # Kiritokmn - Extension Repo Project — Ghi chú kỹ thuật cập nhật
 
-**BẮT BUỘC ĐỌC TRƯỚC MỖI LẦN CẬP NHẬT.**
+**BẮT BUỘC ĐỌC TRƯỚC MỖI LẦN CẬP NHẬT.** Từ 0.0.4: đọc thư mục `A.I Brain - Second Brain/` trước tài liệu này.
 
 Chủ dự án yêu cầu tạo và duy trì tài liệu này ngày 25/10/2026. Quy định được ghi thêm trong `AGENTS.md` ở gốc dự án. Mỗi người hoặc tác nhân tự động cập nhật ứng dụng phải đọc toàn bộ tài liệu, kiểm tra trạng thái và bổ sung kết quả sau khi làm việc.
 
@@ -10,7 +10,7 @@ Chủ dự án yêu cầu tạo và duy trì tài liệu này ngày 25/10/2026. 
 
 | Hạng mục | Trạng thái |
 |---|---|
-| Phiên bản | **0.0.3** (08/11/2026) — trước đó 0.0.2 (08/11/2026), 0.0.1 (04/11/2026) |
+| Phiên bản | **0.0.4** (13/11/2026) — trước đó 0.0.3 (08/11/2026), 0.0.2 (08/11/2026), 0.0.1 (04/11/2026) |
 | Số nguồn | 196 (Phim 44 · Truyện tranh 36 · Tiểu thuyết 116) lấy từ `Project Extension Repo.xlsx` → sheet *Extension Repo Main* |
 | Ứng dụng hỗ trợ | Aniyomi, Nekoyomi (APK đa nguồn) · Mangayomi, YomiHub (JS) · LNReader, IReader (plugin JS ES5) · vBook, LeechText, YomiHub-vBook (zip vBook) · **Aidoku** (từ 0.0.3: 152 gói `.aix` — cầu nối Rust/WASM + JavaScriptCore, xem `docs/AIDOKU.md`) |
 | Kết quả kiểm thử | xem bảng trong `README.md` (tự sinh từ `data/test-results.json`) |
@@ -390,3 +390,98 @@ Chủ dự án yêu cầu: nguồn nào chưa kiểm được thì kiểm trên 
 - MangaDex: viết lại theo API `api.mangadex.org` (vào được thẳng từ Việt Nam). Không cào `mangadex.org`, vì đó là trang dựng bằng JavaScript và bị chặn ở Việt Nam.
 - WebtoonScan: trang đã chết, nên gỡ khỏi kho hoặc đánh dấu ngừng.
 - quanben: sửa bộ chọn nội dung chương. PhimTV/Xôi Lạc: kiểm lại luồng phát.
+
+### 13/11/2026 — Bản 0.0.4 (logo cho mọi nguồn, YouTube/TikTok/Douyin, sửa nguồn, đánh dấu nguồn ngừng hoạt động, kiểm thử trên máy ảo)
+
+**Yêu cầu (đã tóm tắt và được chủ dự án xác nhận):** làm theo sheet *Feature Check* → *Update* của `Project Extension Repo.xlsx` và quét các link trong `Project GitHub.xlsx`. Gồm:
+- Extension repo dùng chung cho Aniyomi, Nekoyomi, Mangayomi, YomiHub, LNReader, IReader, vBook, LeechText, Aidoku.
+- Short Video theo chuẩn YomiHub; Resume A Video cho Phim.
+- Tích hợp bộ *TikTok & Douyin Project*; logo cho mọi tiện ích.
+- Làm nốt việc của 0.0.3.
+
+Quyết định của chủ dự án:
+1. **Không sửa YomiHub ở bản này**, chỉ để lại hướng dẫn: `docs/YOMIHUB_SHORTS_GUIDE.md`.
+2. Nguồn chết **giữ lại và đánh dấu "ngừng hoạt động"**.
+3. Kiểm thử trên **máy ảo**.
+4. Giữa phiên: chuyển `.vscode` và `_work` vào thư mục `Kiritokmn - Extension Repo`.
+
+**Công cụ đã dùng:**
+- Máy Windows của chủ dự án: Node 24, Git (Git Credential Manager của GitHub Desktop), Android SDK 35/36 + Gradle 9.3.1 + JBR của Android Studio, Android Emulator (`Medium_Phone_API_37.0`, x86_64), adb.
+- Trình chạy lệnh nền mới `_work/!RUNNER.bat` → `_work/win_runner.ps1`: thả `.ps1` vào `_work/run/q/`, log ở `_work/run/o/`. Bật bằng computer-use: bấm đúp trong File Explorer.
+- File Explorer + máy ảo Linux của Cowork (`device_bash`) để đọc/sửa tệp.
+- Máy đám mây (Claude): Node 22 + esbuild/TypeScript, Python 3 + BeautifulSoup/Pillow/cairosvg, Rust 1.97 (`-Zbuild-std`, `library/` của rust-lang/rust lấy từ GitHub) để dựng gói Aidoku, Git CLI để clone `Evil0ctal/Douyin_TikTok_Download_API`, `kiritokmn1403/YomiHub-Project`, `apivideo/resumeAVideo`.
+- Kiểm thử thiết bị: `_work/phone4.ps1` (bản 0.0.4 của `phone2.ps1`, nhắm `emulator-5554`, ảnh/video vào `_work/shots/v004/`).
+
+**Hạng mục đã làm**
+1. **Ghi/phát lại HTTP:** `tools/test/run-tests.mjs` có thêm `--record <dir>` / `--replay <dir>` (bọc `fetch` toàn cục, mỗi request một JSON, khoá = sha1(method+url+body)). Sửa bộ chọn ngoại tuyến trên máy đám mây, kết quả giống hệt khi chạy mạng thật (54/196 = 54/196). Thêm `tools/test/one.mjs` (chạy từng bước một nguồn) và `tools/test/streamcheck.mjs` (tải thử link phát với header nguồn trả về).
+2. **Kiểm "tên truyện ≠ mục menu"** (việc tồn đọng của 0.0.3): `run-tests.mjs` → `MENU_NAME` / `MENU_LINK` / `menuLike()`. Bước popular trượt khi ≥ 50% mục giống menu/thể loại.
+3. **Sửa nguồn:**
+   - **Đổi tên miền:** Wiki Dịch (`wikicv.org`), LuotTruyen (`luottruyen21.com`), PhimTV (`phimtv2.com`), XTruyen (`xtruyen.vn`), Xôi Lạc (`xoilacxl.cc`), dùng `set_domain()` (sửa plugin.json + config.js).
+   - **Viết lại bộ chọn:** Navy Team Novel, TruyenC, TruyenQQ (truyenqq.com.vn), NetTruyenViet, Viblo, PornHub, novelnext, mintteanovel, cùng bộ chọn danh sách cho khoảng 20 nguồn mẫu chung (allin1/stvappvi, animevnnet, blvietsub, hentaivietsub, hhpanda, hihiphim, luphim, phimmoi, vfilm, watchhentai, moetruyen, sweetastes, lofter/sudugu, snapd, shubenshu, po18sm, douban, 8book, abcbiquge, 101minc).
+   - `lib/lib_generic.js`: thêm `ch_from` (mục lục qua AJAX theo mã trong trang). `lib/lib_madara.js`: báo rõ khi chương bị khoá bởi "WP Manga Images Protection".
+   - `sources/hhpanda/src/chap.js`: gọi `player/player.php?action=dox_ajax_player` của HalimMovies.
+4. **YouTube viết lại** (`sources/youtube/src/yt.js`): tìm kiếm qua InnerTube client WEB (tham số `EgIQAQ==` video, `EgIQCQ==` Shorts), phát qua client IOS (`formats` có tiếng, không cần giải mã). Tab Shorts / Âm nhạc / Tin tức / Hoạt hình / Game. Trang `FEtrending` đã bị YouTube gỡ (HTTP 400).
+5. **TikTok & Douyin** (`lib/lib_shortvideo.js`, `sources/tiktok`, `sources/douyin`):
+   - Cài đặt `DTK_SERVER` / `DTK_KEY` để gọi REST v1 của máy chủ Douyin_TikTok_Download_API do người dùng tự dựng (`/{platform}/video`, `/user/posts`, `/hashtag` + `/hashtag/posts`, `/trending`). Tiện ích **không** chứa thuật toán ký X-Bogus/a_bogus.
+   - TikTok khi không có máy chủ: dùng tikwm.com (feed theo `REGION`, hashtag, tìm kiếm POST, bài của người dùng, link HD/SD/có logo).
+   - Douyin khi không có máy chủ: chỉ bảng tìm kiếm nóng `iesdouyin.com/web/api/v2/hotsearch/billboard/word/`. Liên kết chủ đề là `/hot/<từ>` (vì `/search/` bị phép kiểm menu bắt); mở trên Douyin qua WebView.
+6. **Cài đặt nguồn mở rộng:** `hosts/mangayomi.tail.js` (`getSourcePreferences`) và APK (`SourceDef.prefs` trong `VBookRuntime.kt`, `setupPreferenceScreen` của `VBookAnimeFactory.kt` / `VBookMangaFactory.kt`, `prefs` trong `assets/vb/sources.json` do `build-all.mjs` sinh) hiện mọi mục `config` ngoài Tên miền.
+7. **Logo:**
+   - `_work/x/logofetch.mjs` gom icon ứng viên của 196 trang.
+   - `tools/gen/make_icons.py` dựng `sources/<id>/icon.png` 256×256: 146 logo từ trang, 50 logo chữ. Logo trống, logo trùng giữa các host khác nhau và danh sách `FORCE_LETTER` được thay bằng logo chữ. Góc logo có huy hiệu ▶/T/N và nhãn 18; lưu PNG bảng màu 128 màu.
+   - `build-all.mjs` chép logo vào `repo/icons/<id>.png` và dùng cho `iconUrl` của Mangayomi/YomiHub, LNReader/IReader, `icon` của vBook, `aidoku/icons`. Tiện ích YomiHub cùng host dùng chung logo (`yomihub-sources.mjs`).
+8. **Nguồn ngừng hoạt động:** `data/status.json` (`dead` 37 nguồn, cùng các nhóm `blocked`, `login`, `protected`, `api`). `build-all.mjs` thêm "(Ngừng hoạt động)" vào tên và lý do vào mô tả; `yomihub-sources.mjs` làm tương tự cho tiện ích YomiHub. `gen-readme.mjs` ghi ký hiệu ⛔ 🌐 🔐 🔒 🧩. Danh sách tên miền đã thử nằm ở `_work/x/domres.json`.
+9. **Tối ưu dung lượng:** plugin LNReader/IReader được nén lại sau khi hạ ES5 (`esbuild.transformSync`, target es5). `repo/lnreader` giảm từ 64 MB xuống 29 MB.
+10. **Phiên bản:** `package.json` 0.0.4; `android/build_apks.ps1` `$code = 4` (APK 14.4 / 1.4.4); mọi nguồn tăng `version`; Aidoku `BRIDGE_REV = 2`.
+11. **Tài liệu:** `CHANGELOG.md`, README (mục "Có gì mới", chú thích ký hiệu), `AGENTS.md` (quy định 0, 7, 8), thư mục `A.I Brain - Second Brain/` (7 tệp), `docs/YOMIHUB_SHORTS_GUIDE.md`.
+12. **Sắp xếp thư mục:** `_work/` và `.vscode/` chuyển vào thư mục dự án. Thêm `/_work/` và `/.vscode/` vào `.gitignore` (2,8 GB không lên GitHub). `build_all.ps1`, `build-all.mjs`, `asyncify.mjs` tìm `_work/deps` ở cả vị trí mới lẫn cũ. Tạo lại junction `node_modules` → `_work/deps/node_modules`.
+
+**Lỗi phát hiện & cách sửa**
+| # | Lỗi | Sửa (tệp / dòng lệnh) |
+|---|---|---|
+| 73 | `run-tests` báo đạt nhầm khi danh sách là mục menu (NetTruyenViet "Manhwa/Manhua/Manga", Novelpia "MORE", Mimimoe "Danh sách truyện / Thể loại / Album") | `menuLike()` trong `run-tests.mjs`. NetTruyenViet đổi tab sang `/tim-truyen?page={p}`, item `div.items div.item`. Mimimoe/Novelpia ghi vào `status.json → api` (cần API) |
+| 74 | TruyenQQ (truyenqq.com.vn): bộ chọn `.item` lẫn 59 mục thể loại | item `div.inner > div.item, .item:has(div.info h3.name)` → đạt trọn chuỗi |
+| 75 | Wiki Dịch: chỉ sửa BASE_URL trong config.js không có tác dụng, vì `DOMAIN.default` trong plugin.json vẫn là `wikicv.net` (bị chặn) | `set_domain()` sửa cả plugin.json (source, DOMAIN.default/values, regexp) |
+| 76 | PhimMoi: tên miền mặc định `messiahelartista.com` chỉ còn là trang demo của Wayback Downloader (HTTP 200); 4 tên miền khác ENOTFOUND | Đánh dấu ngừng hoạt động |
+| 77 | Nhiều tên miền "sống" nhưng đã thành trang cờ bạc (phimhaychill.net, phim4k.net), đang rao bán (motphimtv.com) hoặc báo "Tạm biệt!" (metruyencv.com) | Đánh dấu ngừng hoạt động. Không chuyển nguồn sang các tên miền đó |
+| 78 | Douyin: liên kết `/search/<từ>` bị phép kiểm menu đánh trượt | Đổi thành `/hot/<từ>`; `track.js` đổi lại `/search/` khi mở WebView |
+| 79 | Đọc Truyện Tranh BL: chương trả trang "Đang kiểm tra" (WP Manga Images Protection, bắt đăng nhập Google) → 0 ảnh, không báo lỗi | `lib_madara.js` → ném lỗi rõ ràng "cần đăng nhập trong WebView" |
+| 80 | `device_commit_files` từ chối tệp 26 MB ("HTTP 400 fetching session file") nhưng tệp job vẫn được ghi → job build chạy với mã cũ (`version: 0.0.3`) | Dừng tiến trình bằng `j016_kill.ps1`, gửi lại qua `SendUserFile` + `fileUuid`. Bài học: gửi tệp lớn trước, tệp job sau cùng, và kiểm tra `written` của từng tệp |
+| 81 | `sync.sh` bỏ sót tệp có dấu cách trong tên (`A.I Brain - Second Brain/…`) | Đóng gói bằng `git diff --name-only -z … \| tar --null -T -` |
+| 82 | Phát hiện khi kiểm trên máy ảo, **chưa sửa:** NguonC trong Aniyomi báo "loading failed: HTTP error 403". `run-tests` vẫn "đạt" vì chỉ kiểm có link. `streamcheck.mjs`: playlist (data URI) tải được nhưng mọi segment `seouls11.amass11.top/…/streamaaaNNNN.png` trả 403 dù thử mọi Referer/Origin; gọi thẳng bootstrap `embed.php` cũng 403 | Bản sau: phân tích lại cơ chế cấp quyền (`request_grant`) của streamc.xyz. `run-tests` nên tải thử 1 segment |
+| 83 | Phát hiện khi kiểm trên máy ảo, **chưa sửa:** YouTube trong Aniyomi (mpv) quay mãi khi phát, dù danh sách, chi tiết và link phát (client IOS) đều đúng; Node tải link đó 200 | Bản sau: thử luồng HLS hoặc client khác cho mpv; kiểm trên máy thật |
+| 84 | HHPanda (streamfree.vip) và LuPhim (moviking.ayama.fun) mã hoá trình phát (bytecode/nonce, dấu vân tay WebGL + chống DevTools); MoeTruyen cấp ảnh qua token | Ghi `status.json → protected` |
+
+**Kết quả kiểm thử**
+- `build-all.mjs`: 196/196 nguồn (đám mây và Windows). Gradle: 4 APK đã ký (`b92c172d…aa39d`), `versionCode 4`. `aidoku-build.mjs` (đám mây, Rust 1.97 + build-std): **152/152** gói, 20,6 MB.
+- `run-tests.mjs` trên mạng thật (Windows, 13/11/2026 12:20): **60/196** (Phim 6/44, Truyện tranh 20/37, Tiểu thuyết 34/115).
+  - Đầu phiên, chạy lại bản 0.0.3 trên mạng cùng ngày được 54/196 (0.0.3 ngày 08/11 là 63): mấy ngày qua nhiều trang đã đổi.
+  - Bản phát lại (replay) có cộng thêm vài nguồn đã sửa: 62/196. Mới đạt so với đầu phiên: YouTube, TikTok, Navy Team Novel, TruyenC, TruyenQQ (truyenqq.com.vn), Viblo, PornHub, ixdzs8. Không nguồn nào bị tụt.
+- `aidoku-sim.mjs --all` (mạng thật): **58/152**.
+- **Máy ảo Android** `Medium_Phone_API_37.0` (ảnh `_work/shots/v004/*.png`, video `_work/shots/v004/*.mp4`):
+  - **Aniyomi 0.18.2.1** (thiết lập lần đầu: thư mục Documents, Trust tiện ích 14.4; video `aniyomi_v004_*.mp4`):
+    - Danh sách nguồn hiện "(Ngừng hoạt động)" đúng như dự kiến ✅.
+    - **XemPhimGi**: danh sách → chi tiết → **phát phim** ✅. Thoát lúc 1:34, mở lại thì tập hiện "1:34/2:46:09" và phát tiếp từ 1:34 → **Resume A Video hoạt động** ✅ (`v004_ani_10/11`).
+    - **NguonC**: danh sách và chi tiết ✅, phát lỗi 403 ❌ (#82).
+    - **YouTube**: danh sách Shorts ✅, chi tiết ✅, phát thì quay mãi ❌ (#83).
+  - **Nekoyomi 0.20.6** (Trust tiện ích 1.4.4, bật Tiếng Việt; `nekoyomi_v004_*.mp4`): **TruyenQQ** danh sách → chi tiết 60 chương → **đọc chương** (176 ảnh) ✅.
+  - **Mangayomi 0.9.95** (`mangayomi_v004_*.mp4`):
+    - Kéo làm mới → *Update pending* → *Update all*: MangaDex, TruyenQQ, Truyện QQ, TikTok lên 0.5.x ✅.
+    - Trang cài đặt TikTok có đủ ô Khu vực / Máy chủ Douyin_TikTok_Download_API / Khoá API và **logo mới có huy hiệu ▶** ✅.
+    - **TikTok**: bảng tin đề xuất → chi tiết → **phát video** ✅ (hình răng cưa là do máy ảo giải mã bằng phần mềm).
+  - **LNReader 2.1.4** (thêm kho bằng deep link `lnreader://repo/add?url=…plugins.min.json`, bật Tiếng Việt; `lnreader_v004_*.mp4`):
+    - Danh sách plugin hiện "Mê Truyện CV (Ngừng hoạt động)" ✅.
+    - Cài **Navy Team Novel** → danh sách → *BITE BACK* (85 chương) → **đọc chương #1** ✅. Đây cũng là bằng chứng plugin đã nén lại vẫn chạy.
+  - **vBook 1.1.54** (`vbook_v004_*.mp4`):
+    - Thêm kho `repo/plugin.json` trong *Repository manager*: thư viện tăng từ 25 lên **221** tiện ích, có Navy Team Comic/Novel kèm logo ✅.
+    - Bấm cài thì vBook bắt cập nhật ứng dụng lên 1.1.57 trước ⚠️ (giới hạn của app). Lượt này chưa cập nhật app, nên chưa đọc thử trên vBook. LeechText dùng cùng định dạng vBook, chưa kiểm lượt này.
+  - Aidoku (iOS) không có thiết bị: chỉ kiểm bằng `aidoku-sim` (58/152).
+- **Phát hành** (lượt 1, 13:11): commit `d3e3ef3`, Release `v0.0.4` có **12/12 tệp**, `verify push match=True`. Lượt 2 sau khi ghi tài liệu: xem log `Output/publish.log`.
+
+**Việc cần làm ở bản sau**
+- #82 NguonC (403 segment) và #83 YouTube trong mpv. Cho `run-tests` tải thử 1 segment/byte đầu của link phát (dùng `streamcheck.mjs`).
+- Sửa YomiHub theo `docs/YOMIHUB_SHORTS_GUIDE.md` (đọc `additionalParams: "shorts"`, hiện huy hiệu Shorts).
+- Nguồn SPA cần viết theo API: bilibili, Dailymotion, iQIYI, MGTV, Twitch, VTV Go, FreeReels, Sáng Tác Việt (allin1/stvappvi), Mimimoe, Novelpia, MangaDex (`api.mangadex.org`, cần VPN ở VN).
+- Khoảng 30 nguồn Cloudflare: kiểm trong app bằng WebView. Nguồn cần đăng nhập: kiểm với tài khoản của chủ dự án.
+- vBook: cập nhật app trên máy ảo lên 1.1.57 rồi kiểm đọc. LeechText và YomiHub (Shorts TikTok) kiểm lượt sau.
+- Xoá thư mục rỗng `D:\A.I Project\A.I Project - Extension Repo\_work\shots` sau khi tắt máy ảo (Windows đang giữ).

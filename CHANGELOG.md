@@ -31,6 +31,17 @@
 ## Phiên bản
 - `package.json` 0.0.4 · APK Aniyomi/Nekoyomi `versionCode 4` (`14.4` anime, `1.4.4` manga) · mọi nguồn tăng `version` (có logo mới) · Aidoku `BRIDGE_REV 2` (gói `2xx`).
 
+## Kiểm thử
+- `run-tests.mjs` (mạng thật, máy Windows của chủ dự án, 13/11/2026): **60/196** nguồn đi trọn chuỗi; bản 0.0.3 chạy lại cùng ngày được 54. `aidoku-sim.mjs`: 58/152. Aidoku: 152/152 gói dựng thành công.
+- **Máy ảo Android (API 37):**
+  - Aniyomi: XemPhimGi phát phim, **Resume A Video** phát tiếp đúng mốc 1:34 ✅.
+  - Nekoyomi: TruyenQQ đọc chương ✅.
+  - Mangayomi: cập nhật tiện ích, cài đặt mới của TikTok, TikTok phát video ✅.
+  - LNReader: thêm kho, Navy Team Novel đọc chương ✅.
+  - vBook: thêm kho (221 tiện ích, có logo) ✅; app bắt cập nhật lên 1.1.57 mới cho cài tiện ích.
+  - Lỗi còn lại, để bản sau: NguonC trả 403 ở luồng phát trong Aniyomi; YouTube trong mpv của Aniyomi quay mãi.
+  - Ảnh và video ở `_work/shots/v004/` trên máy của chủ dự án.
+
 ---
 
 # Kiritokmn Extension Repo — v0.0.3 (08/11/2026)
