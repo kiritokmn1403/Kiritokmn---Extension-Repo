@@ -389,7 +389,9 @@ var VBookEngine = (function () {
                         quality: s.title + (tr.quality ? ' ' + tr.quality : ''),
                         headers: tr.headers || { Referer: this.base + '/' },
                         subtitles: (tr.subtitles || (tr.subtitle ? [{ data: tr.subtitle, label: 'Sub' }] : [])).map(function (x) { return ({ file: abs(_this.base + '/', x.data || x.file), label: str(x.label || x.language || 'Sub') }); }),
+                        audios: (tr.audios || []).map(function (x) { return ({ file: abs(_this.base + '/', x.data || x.file), label: str(x.label || x.language || 'Audio') }); }),
                         mimeType: str(tr.mimeType),
+                        http2: !!tr.http2,
                     });
                 }
             }

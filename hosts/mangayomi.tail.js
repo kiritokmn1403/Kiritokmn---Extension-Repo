@@ -44,7 +44,7 @@ class DefaultExtension extends MProvider {
     // open ("Resume video position"). The engine keeps episode URLs stable (default domain), so it survives refreshes
     // and domain switches; nothing has to be added to the stream URL.
     const list = await this.__eng().videos(url);
-    return list.map(v => ({ url: v.url, originalUrl: v.url, quality: v.quality, headers: v.headers, subtitles: v.subtitles, audios: [] }));
+    return list.map(v => ({ url: v.url, originalUrl: v.url, quality: v.quality, headers: v.headers, subtitles: v.subtitles, audios: v.audios || [] }));
   }
   async getHtmlContent(name, url) { const c = await this.__eng().content(url); return c.html; }
   async cleanHtmlContent(html) { return html; }

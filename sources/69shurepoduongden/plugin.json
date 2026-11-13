@@ -2,7 +2,7 @@
   "metadata": {
     "name": "69shuba",
     "author": "ivanzzz (Kiritokmn repack)",
-    "version": 3,
+    "version": 4,
     "source": "https://www.69shuba.com",
     "regexp": "(https?://)?(www\\.)?69shuba\\.com/(book/\\d+(\\.htm|/)?|txt/\\d+|novels/)",
     "description": "69书吧 - 69shuba.com — gốc: ivanzzz (Ivan1hai/ext)",

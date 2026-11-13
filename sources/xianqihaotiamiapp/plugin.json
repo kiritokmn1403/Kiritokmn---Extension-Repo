@@ -2,7 +2,7 @@
   "metadata": {
     "name": "言情小说阁 (APP)",
     "author": "Nhocconsr (Kiritokmn repack)",
-    "version": 2,
+    "version": 3,
     "source": "http://www.xianqihaotianmi.org",
     "regexp": "(www.)?api.(beiniai|basusan|daislou).com/novel/[A-za-z0-9]+/?",
     "description": "Mô tả — gốc: Nhocconsr (duongden/vbook)",

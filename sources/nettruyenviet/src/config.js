@@ -20,7 +20,7 @@ var G = {
  "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
  "d_genres": "li.kind a, .kind a",
  "d_status": "li.status .col-xs-8 || li.status p:last-child",
- "ch_list": "ul.comic-item a",
+ "ch_list": "#chapter_list a",
  "ch_reverse": true,
  "pages": "div.page-chapter img",
  "genre": ".dropdown-menu .megamenu a, ul.nav li.dropdown .megamenu a",

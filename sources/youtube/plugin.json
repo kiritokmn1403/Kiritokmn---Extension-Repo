@@ -2,7 +2,7 @@
   "metadata": {
     "name": "YouTube",
     "author": "Kiritokmn",
-    "version": 2,
+    "version": 3,
     "source": "https://www.youtube.com",
     "description": "YouTube — video & Shorts qua API InnerTube (không cần tài khoản).",
     "locale": "global",

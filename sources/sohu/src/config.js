@@ -8,9 +8,10 @@ var G = {
  "item": "section.f-list.f-new > div.f",
  "title": "a",
  "link": "a@href",
- "ch_list": "div.author-info a",
+ "ch_list": "a.__none__",
  "d_title": "meta[property=og:title]@content || title",
  "d_cover": "meta[property=og:image]@content || img@img",
  "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
- "content": "div.title"
+ "content": "div.hidden-content, div.display-content",
+ "ch_fallback_single": "正文"
 };

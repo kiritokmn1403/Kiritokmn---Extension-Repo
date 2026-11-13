@@ -10,9 +10,9 @@ Chủ dự án yêu cầu tạo và duy trì tài liệu này ngày 25/10/2026. 
 
 | Hạng mục | Trạng thái |
 |---|---|
-| Phiên bản | **0.0.4** (13/11/2026) — trước đó 0.0.3 (08/11/2026), 0.0.2 (08/11/2026), 0.0.1 (04/11/2026) |
+| Phiên bản | **0.0.5** (13/11/2026) — trước đó 0.0.4 (13/11/2026), 0.0.3 (08/11/2026), 0.0.2 (08/11/2026), 0.0.1 (04/11/2026) |
 | Số nguồn | 196 (Phim 44 · Truyện tranh 36 · Tiểu thuyết 116) lấy từ `Project Extension Repo.xlsx` → sheet *Extension Repo Main* |
-| Ứng dụng hỗ trợ | Aniyomi, Nekoyomi (APK đa nguồn) · Mangayomi, YomiHub (JS) · LNReader, IReader (plugin JS ES5) · vBook, LeechText, YomiHub-vBook (zip vBook) · **Aidoku** (từ 0.0.3: 152 gói `.aix` — cầu nối Rust/WASM + JavaScriptCore, xem `docs/AIDOKU.md`) |
+| Ứng dụng hỗ trợ | Aniyomi, Nekoyomi (từ 0.0.5: mỗi nguồn một APK — 44 Phim + 37 Truyện) · Mangayomi, YomiHub (JS) · LNReader, IReader (plugin JS ES5) · vBook, LeechText, YomiHub-vBook (zip vBook) · **Aidoku** (từ 0.0.3: 152 gói `.aix` — cầu nối Rust/WASM + JavaScriptCore, xem `docs/AIDOKU.md`) |
 | Kết quả kiểm thử | xem bảng trong `README.md` (tự sinh từ `data/test-results.json`) |
 
 ## Kiến trúc (0.0.1)
@@ -23,7 +23,7 @@ Chủ dự án yêu cầu tạo và duy trì tài liệu này ngày 25/10/2026. 
 - `runtime/vbook.js`: API vBook (`fetch` + `Response` có `html()/json()/text(charset)/base64()`, `Html`, `localStorage`, `cacheStorage`, `localConfig`, `localCookie`, `Http.get().html()`...).
 - `runtime/engine.js`: lớp điều phối chung (popular/latest/search/detail/chapters/pages/content/videos, phân trang bằng token vBook).
 - `hosts/`: Mangayomi/YomiHub (`MProvider`, `Client`, `SharedPreferences`, tùy chọn đổi **Tên miền**), LNReader/IReader (CommonJS + `@libs/fetch`, hạ cấp ES5 bằng TypeScript), Node (kiểm thử).
-- `android/`: 2 module APK (anime = Aniyomi lib 14, manga = Tachiyomi lib 1.4), mỗi module 2 flavor (`sfw`, `nsfw`) → 4 APK. Script vBook chạy **nguyên bản** bằng Mozilla Rhino 1.7.15 (chế độ thông dịch) + jsoup của ứng dụng chủ (`runtime/rhino-prelude.js` + engine hạ cấp ES5). Stub API tự biên dịch từ `aniyomiorg/extensions-lib@14` và `mihonapp/extensions-lib@1.4.2` (compileOnly).
+- `android/`: 2 module APK (anime = Aniyomi lib 14, manga = Tachiyomi lib 1.4), mỗi module 2 flavor (`sfw`, `nsfw`) → 4 APK (**từ 0.0.5:** mỗi nguồn một product flavor sinh từ `android/<mod>/flavors.json`, Kotlin + Rhino biên dịch một lần trong module thư viện `anime-core` / `manga-core` → 81 APK). Script vBook chạy **nguyên bản** bằng Mozilla Rhino 1.7.15 (chế độ thông dịch) + jsoup của ứng dụng chủ (`runtime/rhino-prelude.js` + engine hạ cấp ES5). Stub API tự biên dịch từ `aniyomiorg/extensions-lib@14` và `mihonapp/extensions-lib@1.4.2` (compileOnly).
 - `aidoku/bridge` + `hosts/aidoku.tail.js` (từ 0.0.3): gói Aidoku = WebAssembly Rust chạy engine JS trong `JsContext` của Aidoku (giao thức start/poll/resume); `tools/build/aidoku-build.mjs` dựng `repo/aidoku/`.
 - Định danh ổn định (từ 0.0.3): `engine.js` `canon()`/`decanon()` — URL trả cho ứng dụng luôn theo tên miền mặc định (giữ lịch sử / vị trí xem khi đổi tên miền).
 - `repo/`: đầu ra — `index.min.json` + `repo.json` + `apk/` (Aniyomi/Nekoyomi), `index.json` (Mangayomi/YomiHub), `plugins.min.json` (LNReader/IReader), `plugin.json` + `vbook/*.zip` (vBook/LeechText/YomiHub).
@@ -485,3 +485,71 @@ Quyết định của chủ dự án:
 - Khoảng 30 nguồn Cloudflare: kiểm trong app bằng WebView. Nguồn cần đăng nhập: kiểm với tài khoản của chủ dự án.
 - vBook: cập nhật app trên máy ảo lên 1.1.57 rồi kiểm đọc. LeechText và YomiHub (Shorts TikTok) kiểm lượt sau.
 - Xoá thư mục rỗng `D:\A.I Project\A.I Project - Extension Repo\_work\shots` sau khi tắt máy ảo (Windows đang giữ).
+
+### 13/11/2026 (tối) — Bản 0.0.5 (mỗi nguồn một APK cho Aniyomi/Nekoyomi, NguonC và YouTube phát được, kiểm thử trên điện thoại thật)
+
+**Yêu cầu của chủ dự án:**
+- "Làm luôn đi, xử lý làm sao cho Aniyomi và Nekoyomi vẫn có thể phân biệt các extension với nhau đi."
+- "Đã kết nối với điện thoại ngoài, hãy sử dụng thiết bị đó để kiểm thử."
+- Làm tiếp danh sách việc của 0.0.4.
+- Việc khó giao cho Fable 5.2, việc nhẹ giao cho Sonnet hoặc Haiku. Phiên này điều phối có dùng sub-agent `wa`, `wb`, `wc` trên máy đám mây.
+
+**Công cụ đã dùng:**
+- Máy Windows của chủ dự án: Node 24, Gradle 9.3.1, AGP 8.13.1, Kotlin 2.2.20, JBR, Android SDK 35 / build-tools 36.0.0, adb. Trình chạy nền `_work/!RUNNER.bat`, bật lại bằng computer-use (bấm đúp trong File Explorer) vì đã dừng từ 09:22 UTC.
+- **Điện thoại thật Samsung Galaxy Note9** (SM-N960N, Android 10, 1440×2960, adb `281038ac31217ece`). Bộ điều khiển `_work/phone5.ps1` là bản sao của `phone4.ps1` nhắm máy này; ảnh và video ở `_work/shots/v005/`. Cài đặt máy trước khi kiểm ghi ở `_work/shots/v005/phone_settings_before.txt`. Trong lúc kiểm chỉ tạm khoá xoay màn hình; đã trả lại `accelerometer_rotation=1`, `user_rotation=0`. Máy Xiaomi 15T có cắm nhưng chưa bật gỡ lỗi USB, nên không dùng.
+- Máy đám mây: Node 22, Git, Kotlin 2.2.20 + JDK 17. Phiên không có kết nối máy tính đã biên dịch `Http2Bridge.kt` và chạy `tools/test/Http2BridgeTest.kt`: 18/18 đạt.
+- Đồng bộ mã: `sync.tgz` gửi qua `SendUserFile` → `device_commit_files`, rồi chạy `_work/x/apply_sync.ps1` (giải nén + xoá theo `sync_deleted.txt`).
+
+**Hạng mục đã làm**
+1. **Mỗi nguồn một APK (Aniyomi/Nekoyomi):**
+   - `android/{anime,manga}/build.gradle.kts`: đọc `flavors.json` (JsonSlurper) và tạo một product flavor cho mỗi nguồn: `applicationId`, `versionCode/Name`, `manifestPlaceholders` appName/nsfw.
+   - `sourceSets[flavor]` lấy `gen/<flavor>/{assets,res}`. Bản debug bị tắt bằng `androidComponents.beforeVariants`.
+   - Module thư viện mới `android/anime-core`, `android/manga-core` chứa Kotlin (`src/main/kotlin` + `shared/kotlin`) và Rhino, biên dịch **một lần** cho mọi flavor. Thêm vào `settings.gradle.kts`; `gradle.properties` bật `org.gradle.parallel=true`.
+   - `tools/build/build-all.mjs`:
+     - `APK_REV = 1`, gói `…<lang>.kiri<id>`, `versionCode = 1000·APK_REV + version`.
+     - Sinh `android/<mod>/gen/<flavor>/assets/vb/{sources.json, src/<id>.js}` và `res/mipmap-xxxhdpi/ic_launcher.png`. Logo nguồn lấy từ `sources/<id>/icon.png`; nguồn không có logo dùng `default_icon.png`.
+   - `tools/build/aniyomi-index.mjs`: mỗi APK một mục trong `repo/index.min.json`, chép vào `repo/apk` + `repo/icon`, xoá tệp cũ. `make-output.mjs`: `Kiritokmn-Extension-0.0.5-aniyomi-apks.zip` / `-tachiyomi-apks.zip`.
+   - **Source ID giữ nguyên** `hash31('aniyomi:'+id)`, nên dữ liệu cũ trong app vẫn khớp.
+2. **NguonC 403 → cầu nối HTTP/2:**
+   - `sources/nguonc/src/track.js` trả cờ `http2: true`. `runtime/engine.js` chuyển cờ này đi.
+   - `android/shared/kotlin/kiritokmn/vbook/Http2Bridge.kt` là máy chủ HTTP/1.1 trên `127.0.0.1`:
+     - Viết lại URI trong playlist (variant, segment, `EXT-X-KEY`, `EXT-X-MEDIA`) để trỏ về cầu nối.
+     - Chuyển tiếp `Range` và `HEAD`, đổi nhãn `image/png` → `application/octet-stream`.
+     - Tải thật bằng OkHttp của ứng dụng (HTTP/2).
+   - `VBookAnimeFactory.bridged()` gọi cầu nối cho stream có cờ `http2`.
+3. **YouTube trong mpv:** `sources/youtube/src/chap.js` ghép luồng hình `avc1` (≤ 1080p, mỗi chất lượng một mục) với luồng `audio/mp4` có bitrate cao nhất thành `{"v":…,"a":…}`. `track.js` trả `audios: [{data, label: 'Âm thanh gốc'}]`. Engine (`audios`), `VBookAnimeFactory` (`Video(…, audioTracks)`) và `hosts/mangayomi.tail.js` (`audios`) đều chuyển rãnh tiếng.
+4. **Sửa nguồn:** do agent `wb`/`wc`, có ghi/phát lại trên máy Windows. Danh sách nguồn ở CHANGELOG. Thêm `lib_generic.js` `X.rel()`, bỏ link `#`/`javascript:`, `pages_suffix`.
+5. **Kiểm thử luồng phát:** `tools/test/streamprobe.mjs` (`h2fetch`, `probeStream`) + `run-tests.mjs --stream`.
+6. **Phiên bản:** `package.json` 0.0.5; mọi nguồn +1 `version` (do `lib_generic.js` đổi nên mọi nguồn dùng mẫu chung đều có mã mới); Aidoku `BRIDGE_REV = 3`.
+
+**Lỗi phát hiện & cách sửa**
+| # | Lỗi | Sửa (tệp / dòng lệnh) |
+|---|---|---|
+| 85 | Aniyomi/Nekoyomi: 4 APK gộp → mọi tiện ích cùng tên "Kiritokmn …" và cùng biểu tượng, không phân biệt được | Mỗi nguồn một flavor/APK (mục 1) |
+| 86 | NguonC (#82): segment `…/streamaaaNNNN.png` trả 403 với HTTP/1.1, trả 200 với HTTP/2 (`streamprobe.mjs h2fetch`) | Cờ `http2` + `Http2Bridge.kt` |
+| 87 | Cầu nối bản đầu mã hoá hex cả playlist `data:` vào đường dẫn → URL ~590 KB với phim 1500 đoạn, vượt giới hạn 16 KB của `readHead` | Gọi URL gốc bằng khoá ngắn `ROOT` (`/<token>/p/0.m3u8`); test 1500 đoạn trong `Http2BridgeTest.kt` |
+| 88 | YouTube (#83): client IOS không có `formats` có tiếng, không có HLS → mpv nhận luồng hình không tiếng và quay mãi | Ghép hình + tiếng (`audios` / `audioTracks`) |
+| 89 | Lệnh `git checkout -- android/anime/src` của script agent xoá luôn sửa đổi Kotlin (`VBookAnimeFactory` mất phần nối cầu HTTP/2) | Sửa script agent; gắn lại thủ công (commit `57837b8`). Từ 0.0.5 đầu ra build nằm ở `gen/` (gitignore) |
+| 90 | Trình chạy nền dừng giữa chừng (heartbeat 09:22 UTC) → job xếp hàng không chạy | Kiểm `heartbeat.txt` trước khi gửi job; bật lại `!RUNNER.bat` bằng File Explorer |
+| 91 | `build_apks.ps1` đếm cả APK cũ còn trong `build/outputs` (sfw/nsfw) | Job xoá `android/{anime,manga}/build/outputs` trước khi build |
+| 92 | Sau khi gỡ 4 APK gộp, Aniyomi gắn nhãn "LỖI THỜI" cho APK mới, vì `index.min.json` trên GitHub vẫn là bản cũ | Hết sau khi phát hành 0.0.5 (kho có đủ 81 mục) |
+
+**Kết quả kiểm thử**
+- `run-tests.mjs --stream` trên mạng thật (máy Windows, 13/11/2026 23:19): **66/196** (0.0.4: 60). Phim 5/44, Truyện tranh 21/37, Tiểu thuyết 40/115. Bước tải thử luồng phát đạt với NguonC, HotPhim, XemPhimGi, YouTube, TikTok.
+  - Mới đạt: Sohu, Syosetu, Sudugu, Lofter, Shubenshu, Weeb Central.
+  - Không đạt lần này do trang lỗi hoặc mạng: PornHub (bị chặn ở VN), PhimNhựa (HTTP 530), Tinh Linh (HTTP 525), ixdzs8, Mê Truyện Chữ.
+- `aidoku-sim.mjs --all`: **64/152** (0.0.4: 58). Aidoku: 152/152 gói dựng lại.
+- Gradle: **81/81 APK** (44 Phim, 26,6 MB + 37 Truyện, 22,4 MB), đã ký bằng khoá `b92c172d…aa39d` như các bản trước.
+- **Điện thoại thật Galaxy Note9** (Android 10). Ảnh và video ở `_work/shots/v005/`:
+  - Gỡ 4 APK gộp, cài 81 APK mới ✅.
+  - Aniyomi: mỗi tiện ích/nguồn hiện **tên + logo riêng** ✅.
+  - NguonC: phát phim 1:43:26, tua, thoát ra mở lại xem tiếp ✅.
+  - YouTube: phát được, có rãnh "Âm thanh gốc" ✅.
+  - Nekoyomi: nguồn truyện tranh có logo riêng, TruyenQQ đọc 160 trang ✅.
+
+**Việc cần làm ở bản sau**
+- Kiểm Mangayomi/YomiHub phát YouTube (rãnh `audios`) và NguonC. Mangayomi/YomiHub chưa có cầu nối HTTP/2, nên NguonC có thể vẫn lỗi ở đó.
+- Nguồn SPA cần viết theo API: bilibili, Twitch, Dailymotion, VTV Go, FreeReels, iQIYI, MGTV.
+- Sửa YomiHub theo `docs/YOMIHUB_SHORTS_GUIDE.md`.
+- vBook (app 1.1.57), LeechText, LNReader: kiểm lại trên Note9.
+- Thêm một vòng ghi trên mạng thật cho các nguồn gần đạt.

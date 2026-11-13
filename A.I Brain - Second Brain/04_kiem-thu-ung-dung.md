@@ -17,3 +17,12 @@
 - `run-tests` chỉ kiểm *có link phát*, chưa tải thử luồng. NguonC đạt `run-tests` nhưng mpv báo 403 trên segment. Dùng `tools/test/streamcheck.mjs <id…>` để tải thử link phát kèm header.
 - Video trên máy ảo hay bị răng cưa (giải mã bằng phần mềm). Vẫn tính là phát được nếu thời gian chạy.
 - Resume A Video kiểm như sau: phát khoảng 20 giây → Back → tập hiện `m:ss/tổng` → mở lại, phát tiếp từ đúng mốc đó.
+
+## Điện thoại thật Galaxy Note9 (bản 0.0.5, 13/11/2026)
+- Máy `SM-N960N`, Android 10, 1440×2960, adb `281038ac31217ece`. Đã có Aniyomi (`xyz.jmir.tachiyomi.mi`), Nekoyomi (`app.nekoyomi`), YomiHub, Mangayomi, LNReader, vBook, LeechText. Xiaomi 15T cắm cùng lúc nhưng không hiện trong `adb devices` vì chưa bật gỡ lỗi USB.
+- Bộ điều khiển: `_work/phone5.ps1` (bản sao của phone4, máy Note9, ảnh/video vào `_work/shots/v005`). Bật bằng job có một dòng `& "...\_work\phone5.ps1"`. Gửi lệnh bằng `~/pc5.sh` trong máy ảo Linux. Tắt bằng lệnh `quit`.
+- **Trước khi kiểm**, ghi cài đặt máy vào `shots/v005/phone_settings_before.txt` (xoay màn hình, độ sáng, hoạt ảnh, giữ màn hình sáng). **Sau khi kiểm**, trả lại đúng như cũ. Thoát trình phát thì Aniyomi giữ màn hình ngang, nên trong lúc kiểm phải khoá dọc (`accelerometer_rotation 0`, `user_rotation 0`), xong thì bật lại `accelerometer_rotation 1`.
+- `adb install` 81 APK mất khoảng 7 phút, mỗi APK 5–6 giây. Log của job chỉ ghi khi cả vòng lặp xong; muốn xem tiến độ thì đếm `pm list packages | Select-String kiri` bằng một job khác.
+- Cài APK qua adb trên máy thật thì Aniyomi không hỏi "Trust", nhưng gắn nhãn **LỖI THỜI** nếu kho trên GitHub chưa có gói đó. Nhãn này hết sau khi phát hành.
+- uiautomator không dump được màn hình trình phát mpv, nên xem ảnh `shot`. Thanh tua của mpv: chạm không tua được, phải `swipe` chậm (800 ms) từ nút tròn.
+- Kiểm rãnh tiếng: khi đang phát, chạm giữa màn hình, rồi bấm biểu tượng ♪ ở góc trên phải. Danh sách phải có "#1: Âm thanh gốc".

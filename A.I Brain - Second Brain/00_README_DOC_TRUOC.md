@@ -12,5 +12,6 @@ Mỗi phiên làm xong phải bổ sung kinh nghiệm mới vào đúng tệp, g
 | `05_phat-hanh-github.md` | Commit, push, Release, kiểm tra tệp đã lên đủ |
 | `06_video-ngan-tiktok-douyin-youtube.md` | Short Video, TikTok, Douyin, YouTube: điều làm được và không làm được |
 | `07_nhat-ky-phien.md` | Nhật ký ngắn từng phiên (ngày, việc, kết quả) |
+| `08_ban-giao-0.0.5.md` | Bàn giao bản 0.0.5 (đã phát hành 13/11/2026); phần "Việc còn lại" chuyển sang TECHNICAL_UPDATE_NOTES → mục 0.0.5 |
 
 Lần tạo: 13/11/2026 (bản 0.0.4).

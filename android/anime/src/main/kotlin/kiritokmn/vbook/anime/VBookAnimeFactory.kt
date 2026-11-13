@@ -13,6 +13,7 @@ import eu.kanade.tachiyomi.animesource.model.SEpisode
 import eu.kanade.tachiyomi.animesource.model.Track
 import eu.kanade.tachiyomi.animesource.model.Video
 import eu.kanade.tachiyomi.animesource.online.AnimeHttpSource
+import kiritokmn.vbook.Http2Bridge
 import kiritokmn.vbook.SourceDef
 import kiritokmn.vbook.VBookRuntime
 import kiritokmn.vbook.loadSourceDefs
@@ -93,9 +94,21 @@ class VBookAnimeSource(private val def: SourceDef) : AnimeHttpSource(), Configur
             val headers = if (hj == null) headers else hj.keys().asSequence().associateWith { hj.getString(it) }.toHeaders()
             val subs = v.optJSONArray("subtitles")
             val tracks = if (subs == null) emptyList() else (0 until subs.length()).map { s -> subs.getJSONObject(s).let { Track(it.getString("file"), it.optString("label", "Sub")) } }
-            Video(v.getString("url"), v.optString("quality", "Default"), v.getString("url"), headers, tracks)
+            // 0.0.5: streams whose CDN refuses HTTP/1.1 (flag `http2`, e.g. NguonC) are played through the loopback
+            // HTTP/2 bridge, because the mpv/ffmpeg player of Aniyomi cannot speak HTTP/2.
+            val url = if (v.optBoolean("http2")) bridged(v.getString("url"), headers) else v.getString("url")
+            val auds = v.optJSONArray("audios")
+            val audioTracks = if (auds == null) emptyList() else (0 until auds.length()).map { a -> auds.getJSONObject(a).let { Track(it.getString("file"), it.optString("label", "Audio")) } }
+            Video(url, v.optString("quality", "Default"), url, headers, tracks, audioTracks)
         }
     }
+
+    private fun bridged(url: String, h: Headers): String = try {
+        Http2Bridge.register(url, h.names().associateWith { h[it] ?: "" }) { u, hs ->
+            val r = client.newCall(Request.Builder().url(u).headers(hs.toHeaders()).build()).execute()
+            Http2Bridge.Upstream(r.code, r.headers.names().associateWith { r.header(it) ?: "" }, r.body?.byteStream()) { r.close() }
+        }
+    } catch (e: Exception) { url }
 
     override fun getAnimeUrl(anime: SAnime): String = anime.url
     override fun getEpisodeUrl(episode: SEpisode): String = episode.url

@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Qimao (七猫文化)",
     "author": "Nhocconsr (Kiritokmn repack)",
-    "version": 3,
+    "version": 4,
     "source": "https://www.qimao.com",
     "regexp": "(www.)?(qimao.com/shuku/\\d+/?)|(api-bc.wtzw.com/.*)",
     "description": "Qimao — gốc: Nhocconsr (lethituyen/vbooks-extension)",

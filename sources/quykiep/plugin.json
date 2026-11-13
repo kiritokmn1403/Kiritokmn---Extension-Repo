@@ -2,7 +2,7 @@
   "metadata": {
     "name": "LightNovel VN",
     "author": "Nhocconsr (Kiritokmn repack)",
-    "version": 6,
+    "version": 7,
     "source": "https://quykiep.com",
     "regexp": "(www.)?quykiep.com/truyen/?[0-9a-z-]+/?",
     "description": "LightNovel En — gốc: Nhocconsr (lethituyen/vbooks-extension)",

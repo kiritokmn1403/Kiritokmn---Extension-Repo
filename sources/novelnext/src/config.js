@@ -12,9 +12,5 @@ var G = {
  "d_title": "h3.title || h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
  "d_desc": "meta[name=description]@content",
- "ch_from": {
-  "re": "data-novel-id=\"([^\"]+)\"",
-  "url": "/ajax/chapter-archive?novelId=$1"
- },
  "content": "#chr-content, #chapter-content"
 };

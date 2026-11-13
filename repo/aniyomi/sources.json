@@ -7,7 +7,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 780775032,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kirianime47",
+  "version": "14.1003"
  },
  {
   "id": "animevnnet",
@@ -17,7 +19,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 1527072694,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kirianimevnnet",
+  "version": "14.1003"
  },
  {
   "id": "avsubanimevietsub",
@@ -27,7 +31,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 513314104,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kiriavsubanimevietsub",
+  "version": "14.1003"
  },
  {
   "id": "bilibili",
@@ -37,7 +43,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 948389851,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kiribilibili",
+  "version": "14.1003"
  },
  {
   "id": "blbattu",
@@ -47,7 +55,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 1487368103,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kiriblbattu",
+  "version": "1.4.1005"
  },
  {
   "id": "blvietsub",
@@ -57,7 +67,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 490751682,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kiriblvietsub",
+  "version": "14.1004"
  },
  {
   "id": "cbhentai",
@@ -67,7 +79,9 @@
   "type": "comic",
   "nsfw": true,
   "sourceId": 1580482674,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kiricbhentai",
+  "version": "1.4.1017"
  },
  {
   "id": "cbunucomic",
@@ -77,7 +91,9 @@
   "type": "comic",
   "nsfw": true,
   "sourceId": 123796528,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kiricbunucomic",
+  "version": "1.4.1003"
  },
  {
   "id": "cosplaytele",
@@ -87,7 +103,9 @@
   "type": "comic",
   "nsfw": true,
   "sourceId": 780546796,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.en.kiricosplaytele",
+  "version": "1.4.1007"
  },
  {
   "id": "dailymotion",
@@ -97,7 +115,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 440543255,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kiridailymotion",
+  "version": "14.1003"
  },
  {
   "id": "damconuong",
@@ -107,7 +127,9 @@
   "type": "comic",
   "nsfw": true,
   "sourceId": 178663909,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kiridamconuong",
+  "version": "1.4.1003"
  },
  {
   "id": "destinteam",
@@ -117,7 +139,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 764595440,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kiridestinteam",
+  "version": "1.4.1005"
  },
  {
   "id": "doctruyentranhbl",
@@ -127,7 +151,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 1323373370,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kiridoctruyentranhbl",
+  "version": "1.4.1003"
  },
  {
   "id": "douyin",
@@ -137,7 +163,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 200694529,
-  "short": true
+  "short": true,
+  "pkg": "eu.kanade.tachiyomi.animeextension.zh.kiridouyin",
+  "version": "14.1003"
  },
  {
   "id": "dualeotruyen",
@@ -147,7 +175,9 @@
   "type": "comic",
   "nsfw": true,
   "sourceId": 1548181525,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kiridualeotruyen",
+  "version": "1.4.1003"
  },
  {
   "id": "ehentai",
@@ -157,27 +187,33 @@
   "type": "comic",
   "nsfw": true,
   "sourceId": 1567453988,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kiriehentai",
+  "version": "1.4.1004"
  },
  {
   "id": "fapreel",
   "name": "FapReel",
-  "lang": "global",
+  "lang": "all",
   "baseUrl": "https://fapreel.com",
   "type": "video",
   "nsfw": true,
   "sourceId": 1629049543,
-  "short": true
+  "short": true,
+  "pkg": "eu.kanade.tachiyomi.animeextension.all.kirifapreel",
+  "version": "14.1003"
  },
  {
   "id": "fikfap",
   "name": "FikFap",
-  "lang": "global",
+  "lang": "all",
   "baseUrl": "https://fikfap.com",
   "type": "video",
   "nsfw": true,
   "sourceId": 1189313281,
-  "short": true
+  "short": true,
+  "pkg": "eu.kanade.tachiyomi.animeextension.all.kirifikfap",
+  "version": "14.1003"
  },
  {
   "id": "freereels",
@@ -187,7 +223,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 2073926051,
-  "short": true
+  "short": true,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kirifreereels",
+  "version": "14.1003"
  },
  {
   "id": "goctruyentranh",
@@ -197,7 +235,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 433674138,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kirigoctruyentranh",
+  "version": "1.4.1004"
  },
  {
   "id": "guphim",
@@ -207,7 +247,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 598979130,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kiriguphim",
+  "version": "14.1003"
  },
  {
   "id": "hacamchicac",
@@ -217,7 +259,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 144909108,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kirihacamchicac",
+  "version": "1.4.1004"
  },
  {
   "id": "haychill",
@@ -227,7 +271,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 272962811,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kirihaychill",
+  "version": "14.1003"
  },
  {
   "id": "hentaivietsubcom",
@@ -237,7 +283,9 @@
   "type": "video",
   "nsfw": true,
   "sourceId": 2088721693,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kirihentaivietsubcom",
+  "version": "14.1003"
  },
  {
   "id": "hentaivn",
@@ -247,7 +295,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 1484689734,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kirihentaivn",
+  "version": "1.4.1030"
  },
  {
   "id": "hhpanda",
@@ -257,7 +307,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 1350604402,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kirihhpanda",
+  "version": "14.1003"
  },
  {
   "id": "hhtqhayvip",
@@ -267,7 +319,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 369387596,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kirihhtqhayvip",
+  "version": "14.1003"
  },
  {
   "id": "hihiphim",
@@ -277,7 +331,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 1937000442,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kirihihiphim",
+  "version": "14.1004"
  },
  {
   "id": "hongqua",
@@ -287,7 +343,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 1801338919,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.zh.kirihongqua",
+  "version": "14.1004"
  },
  {
   "id": "hotphim",
@@ -297,7 +355,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 814750280,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kirihotphim",
+  "version": "14.1004"
  },
  {
   "id": "iqiyi",
@@ -307,7 +367,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 151140179,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.zh.kiriiqiyi",
+  "version": "14.1003"
  },
  {
   "id": "jellycomics",
@@ -317,7 +379,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 694480705,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kirijellycomics",
+  "version": "1.4.1003"
  },
  {
   "id": "julycomic",
@@ -327,17 +391,21 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 1334296365,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kirijulycomic",
+  "version": "1.4.1003"
  },
  {
   "id": "kwiky",
   "name": "Kwiky",
-  "lang": "global",
+  "lang": "all",
   "baseUrl": "https://kwiky.com",
   "type": "video",
   "nsfw": true,
   "sourceId": 957373704,
-  "short": true
+  "short": true,
+  "pkg": "eu.kanade.tachiyomi.animeextension.all.kirikwiky",
+  "version": "14.1003"
  },
  {
   "id": "luottruyen",
@@ -347,7 +415,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 857592572,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kiriluottruyen",
+  "version": "1.4.1010"
  },
  {
   "id": "luphim",
@@ -357,17 +427,21 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 675400803,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kiriluphim",
+  "version": "14.1005"
  },
  {
   "id": "mangadex",
   "name": "MangaDex",
-  "lang": "global",
+  "lang": "all",
   "baseUrl": "https://mangadex.org",
   "type": "comic",
   "nsfw": false,
   "sourceId": 881304093,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.all.kirimangadex",
+  "version": "1.4.1003"
  },
  {
   "id": "manhwabuddy",
@@ -377,7 +451,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 1056832606,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kirimanhwabuddy",
+  "version": "1.4.1003"
  },
  {
   "id": "mgtv",
@@ -387,7 +463,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 1641455956,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kirimgtv",
+  "version": "14.1003"
  },
  {
   "id": "mimimoe",
@@ -397,7 +475,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 512017899,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kirimimimoe",
+  "version": "1.4.1004"
  },
  {
   "id": "misskon",
@@ -407,7 +487,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 937496508,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kirimisskon",
+  "version": "1.4.1003"
  },
  {
   "id": "moetruyen",
@@ -417,7 +499,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 1908677364,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kirimoetruyen",
+  "version": "1.4.1004"
  },
  {
   "id": "motphim",
@@ -427,17 +511,21 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 1123614177,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kirimotphim",
+  "version": "14.1003"
  },
  {
   "id": "myreadingmanga",
   "name": "My Reading Manga",
-  "lang": "global",
+  "lang": "all",
   "baseUrl": "https://myreadingmanga.info",
   "type": "comic",
   "nsfw": false,
   "sourceId": 1068463358,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.all.kirimyreadingmanga",
+  "version": "1.4.1003"
  },
  {
   "id": "navyteamcomic",
@@ -447,7 +535,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 167984159,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kirinavyteamcomic",
+  "version": "1.4.1004"
  },
  {
   "id": "nettruyen18",
@@ -457,7 +547,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 822700156,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kirinettruyen18",
+  "version": "1.4.1003"
  },
  {
   "id": "nettruyenviet",
@@ -467,7 +559,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 806710346,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kirinettruyenviet",
+  "version": "1.4.1005"
  },
  {
   "id": "nettruyenz",
@@ -477,7 +571,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 735450128,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kirinettruyenz",
+  "version": "1.4.1003"
  },
  {
   "id": "nextphim",
@@ -487,7 +583,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 867552912,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kirinextphim",
+  "version": "14.1003"
  },
  {
   "id": "nguonc",
@@ -497,7 +595,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 1557924559,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kiringuonc",
+  "version": "14.1008"
  },
  {
   "id": "phim4k",
@@ -507,7 +607,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 1390062832,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kiriphim4k",
+  "version": "14.1003"
  },
  {
   "id": "phimmoi",
@@ -517,7 +619,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 1001551078,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kiriphimmoi",
+  "version": "14.1003"
  },
  {
   "id": "phimmoihd",
@@ -527,7 +631,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 1348774956,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kiriphimmoihd",
+  "version": "14.1003"
  },
  {
   "id": "phimnhua",
@@ -537,7 +643,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 1938158196,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kiriphimnhua",
+  "version": "14.1005"
  },
  {
   "id": "phimtv",
@@ -547,17 +655,21 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 1628167011,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kiriphimtv",
+  "version": "14.1003"
  },
  {
   "id": "pornhub",
   "name": "PornHub",
-  "lang": "global",
+  "lang": "all",
   "baseUrl": "https://www.pornhub.com",
   "type": "video",
   "nsfw": true,
   "sourceId": 1255718966,
-  "short": true
+  "short": true,
+  "pkg": "eu.kanade.tachiyomi.animeextension.all.kiripornhub",
+  "version": "14.1003"
  },
  {
   "id": "roadsteam",
@@ -567,7 +679,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 343353709,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kiriroadsteam",
+  "version": "1.4.1003"
  },
  {
   "id": "rophim",
@@ -577,7 +691,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 583423809,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kirirophim",
+  "version": "14.1003"
  },
  {
   "id": "sayhentai",
@@ -587,7 +703,9 @@
   "type": "comic",
   "nsfw": true,
   "sourceId": 492867322,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kirisayhentai",
+  "version": "1.4.1005"
  },
  {
   "id": "sexviettop",
@@ -597,7 +715,9 @@
   "type": "video",
   "nsfw": true,
   "sourceId": 2025759030,
-  "short": true
+  "short": true,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kirisexviettop",
+  "version": "14.1003"
  },
  {
   "id": "showbox",
@@ -607,7 +727,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 660522367,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kirishowbox",
+  "version": "14.1003"
  },
  {
   "id": "thegioitruyen",
@@ -617,27 +739,33 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 493894600,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kirithegioitruyen",
+  "version": "1.4.1005"
  },
  {
   "id": "tikporn",
   "name": "Tik.Porn",
-  "lang": "global",
+  "lang": "all",
   "baseUrl": "https://tik.porn",
   "type": "video",
   "nsfw": true,
   "sourceId": 855719270,
-  "short": true
+  "short": true,
+  "pkg": "eu.kanade.tachiyomi.animeextension.all.kiritikporn",
+  "version": "14.1005"
  },
  {
   "id": "tiktok",
   "name": "TikTok",
-  "lang": "global",
+  "lang": "all",
   "baseUrl": "https://www.tiktok.com",
   "type": "video",
   "nsfw": false,
   "sourceId": 389058404,
-  "short": true
+  "short": true,
+  "pkg": "eu.kanade.tachiyomi.animeextension.all.kiritiktok",
+  "version": "14.1003"
  },
  {
   "id": "truyengg",
@@ -647,7 +775,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 1324960807,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kiritruyengg",
+  "version": "1.4.1003"
  },
  {
   "id": "truyenqq",
@@ -657,7 +787,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 1174800879,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kiritruyenqq",
+  "version": "1.4.1027"
  },
  {
   "id": "truyenqqc",
@@ -667,7 +799,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 1038497603,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kiritruyenqqc",
+  "version": "1.4.1003"
  },
  {
   "id": "truyentranhdammyy",
@@ -677,7 +811,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 894955118,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kiritruyentranhdammyy",
+  "version": "1.4.1003"
  },
  {
   "id": "tvkh",
@@ -687,17 +823,21 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 1578784027,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kiritvkh",
+  "version": "1.4.1003"
  },
  {
   "id": "twitch",
   "name": "Twitch",
-  "lang": "global",
+  "lang": "all",
   "baseUrl": "https://m.twitch.tv",
   "type": "video",
   "nsfw": false,
   "sourceId": 860964554,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.all.kiritwitch",
+  "version": "14.1003"
  },
  {
   "id": "ungtycomics",
@@ -707,7 +847,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 377587904,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kiriungtycomics",
+  "version": "1.4.1003"
  },
  {
   "id": "vfilm",
@@ -717,7 +859,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 1856540070,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kirivfilm",
+  "version": "14.1003"
  },
  {
   "id": "vinahentai",
@@ -727,7 +871,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 923234510,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.vi.kirivinahentai",
+  "version": "1.4.1005"
  },
  {
   "id": "vtvgo",
@@ -737,7 +883,9 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 318684011,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kirivtvgo",
+  "version": "14.1003"
  },
  {
   "id": "watchhentainet",
@@ -747,7 +895,9 @@
   "type": "video",
   "nsfw": true,
   "sourceId": 113933994,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.en.kiriwatchhentainet",
+  "version": "14.1003"
  },
  {
   "id": "webtoonscan",
@@ -757,7 +907,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 269387873,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.en.kiriwebtoonscan",
+  "version": "1.4.1003"
  },
  {
   "id": "weebcentral",
@@ -767,7 +919,9 @@
   "type": "comic",
   "nsfw": false,
   "sourceId": 1706827870,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.extension.en.kiriweebcentral",
+  "version": "1.4.1003"
  },
  {
   "id": "xemphimgi",
@@ -777,17 +931,21 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 794722254,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kirixemphimgi",
+  "version": "14.1004"
  },
  {
   "id": "xfree",
   "name": "xFree",
-  "lang": "global",
+  "lang": "all",
   "baseUrl": "https://www.xfree.com",
   "type": "video",
   "nsfw": true,
   "sourceId": 841357653,
-  "short": true
+  "short": true,
+  "pkg": "eu.kanade.tachiyomi.animeextension.all.kirixfree",
+  "version": "14.1004"
  },
  {
   "id": "xoilac",
@@ -797,16 +955,20 @@
   "type": "video",
   "nsfw": false,
   "sourceId": 767844963,
-  "short": false
+  "short": false,
+  "pkg": "eu.kanade.tachiyomi.animeextension.vi.kirixoilac",
+  "version": "14.1003"
  },
  {
   "id": "youtube",
   "name": "YouTube",
-  "lang": "global",
+  "lang": "all",
   "baseUrl": "https://www.youtube.com",
   "type": "video",
   "nsfw": false,
   "sourceId": 1215186726,
-  "short": true
+  "short": true,
+  "pkg": "eu.kanade.tachiyomi.animeextension.all.kiriyoutube",
+  "version": "14.1003"
  }
 ]

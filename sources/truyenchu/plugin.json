@@ -2,7 +2,7 @@
   "metadata": {
     "name": "TruyenChu",
     "author": "Meo (Kiritokmn repack)",
-    "version": 10,
+    "version": 11,
     "source": "https://truyenchu.net",
     "regexp": "truyenchu\\.net\\/truyen\\/[^\\/]+\\/?$",
     "description": "TruyenChu - Đọc truyện chữ online miễn phí — gốc: Meo (hienpro00123/vbook_MeoU)",

@@ -1,3 +1,47 @@
+# Kiritokmn Extension Repo — v0.0.5 (13/11/2026)
+
+## Tính năng mới
+- **Aniyomi / Nekoyomi: mỗi nguồn là một tiện ích (APK) riêng.** Trước đây chỉ có 4 APK gộp (Phim, Phim 18+, Truyện, Truyện 18+) nên trong danh sách Tiện ích mọi nguồn trông giống nhau. Nay có **81 APK** (44 Phim + 37 Truyện tranh). Mỗi APK mang **tên và logo của nguồn**, nên phân biệt được ở cả tab *Tiện ích* lẫn *Nguồn*, và bạn chỉ cần cài nguồn mình dùng.
+  - Gói: `eu.kanade.tachiyomi.animeextension.<ngôn ngữ>.kiri<id>` (Phim) / `eu.kanade.tachiyomi.extension.<ngôn ngữ>.kiri<id>` (Truyện).
+  - **Source ID giữ nguyên** như 0.0.4. Gỡ 4 APK gộp cũ rồi cài APK mới thì thư viện, lịch sử và vị trí xem tiếp vẫn còn (đã kiểm trên Galaxy Note9).
+  - Phiên bản APK theo phiên bản từng nguồn (`14.1xxx` / `1.4.1xxx`), nên sửa nguồn nào thì chỉ nguồn đó báo cập nhật.
+- **Rãnh âm thanh riêng cho luồng phát:** nguồn có thể trả hình và tiếng tách rời (`audios`). Aniyomi/Nekoyomi dùng `audioTracks`, Mangayomi/YomiHub dùng `audios`.
+- Kiểm thử tự động có thêm bước **tải thử luồng phát** (`run-tests.mjs --stream`): tải vài KB đầu của link phát hoặc segment HLS đầu tiên, thử cả HTTP/2.
+
+## Sửa lỗi
+- **NguonC không phát trong Aniyomi (lỗi 403):** CDN segment của NguonC chỉ trả dữ liệu qua **HTTP/2** và từ chối HTTP/1.1, trong khi trình phát mpv của Aniyomi chỉ nói HTTP/1.1. APK nay có **cầu nối HTTP/2 nội bộ** (`127.0.0.1`): mpv gọi cầu nối, cầu nối tải lại bằng OkHttp (HTTP/2) của ứng dụng. Playlist cả phim (khoảng 1500 đoạn, gửi dạng `data:`) cũng được phục vụ đúng. **Kết quả trên điện thoại thật:** phim 1:43:26 phát được, tua được, thoát ra mở lại thì xem tiếp.
+- **YouTube quay mãi trong Aniyomi:** client iOS của YouTube chỉ trả luồng hình và luồng tiếng tách rời. Trước đây tiện ích đưa luồng hình không tiếng cho mpv. Nay mỗi chất lượng (1080p, 720p, 480p…) ghép với luồng tiếng AAC tốt nhất, thành rãnh "Âm thanh gốc". **Đã phát được trên điện thoại thật.**
+- **Sửa nguồn:**
+  - Sohu và Syosetu đạt trọn chuỗi.
+  - Mangadm hết báo "đạt nhầm" do link "Skip to content".
+  - Wiki Dịch, NetTruyenViet, Weeb Central, Sudugu, Lofter, PO18, Sweetastes, NovelNext, HiHiPhim, HentaiVietsub: sửa bộ chọn, các nguồn này qua thêm bước.
+- `lib_generic.js`:
+  - Link chương tương đối được tính theo trang hiện tại.
+  - Link `?page=2` giữ nguyên đường dẫn trang.
+  - Bỏ qua link `#…` và `javascript:`.
+  - Thêm `pages_suffix`.
+
+## Phiên bản
+- `package.json` 0.0.5.
+- Mọi nguồn tăng `version` 1 bậc.
+- APK `versionCode = 1000 + version nguồn`.
+- Aidoku `BRIDGE_REV 3`, 152 gói dựng lại.
+
+## Kiểm thử
+- `run-tests.mjs --stream` trên mạng thật (máy Windows, 13/11/2026 23:19): **66/196** (0.0.4: 60). Phim 5/44, Truyện tranh 21/37, Tiểu thuyết 40/115. Bước tải thử luồng phát đạt với NguonC, HotPhim, XemPhimGi, YouTube, TikTok.
+  - Mới đạt: Sohu, Syosetu, Sudugu, Lofter, Shubenshu, Weeb Central.
+  - Không đạt lần này do trang lỗi hoặc mạng: PornHub (bị chặn ở VN), PhimNhựa (HTTP 530), Tinh Linh (HTTP 525), ixdzs8, Mê Truyện Chữ.
+- `aidoku-sim.mjs --all`: **64/152** (0.0.4: 58). Aidoku: 152/152 gói dựng lại.
+- Gradle: **81/81 APK** (44 Phim, 26,6 MB + 37 Truyện, 22,4 MB), đã ký bằng khoá `b92c172d…aa39d` như các bản trước.
+- **Điện thoại thật Galaxy Note9** (Android 10). Ảnh và video ở `_work/shots/v005/`:
+  - Gỡ 4 APK gộp, cài 81 APK mới ✅.
+  - Aniyomi: mỗi tiện ích/nguồn hiện **tên + logo riêng** ✅.
+  - NguonC: phát phim 1:43:26, tua, thoát ra mở lại xem tiếp ✅.
+  - YouTube: phát được, có rãnh "Âm thanh gốc" ✅.
+  - Nekoyomi: nguồn truyện tranh có logo riêng, TruyenQQ đọc 160 trang ✅.
+
+---
+
 # Kiritokmn Extension Repo — v0.0.4 (13/11/2026)
 
 ## Tính năng mới

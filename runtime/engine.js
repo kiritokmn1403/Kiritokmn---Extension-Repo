@@ -163,7 +163,10 @@ export class VBookEngine {
             quality: s.title + (tr.quality ? ' ' + tr.quality : ''),
             headers: tr.headers || { Referer: this.base + '/' },
             subtitles: (tr.subtitles || (tr.subtitle ? [{ data: tr.subtitle, label: 'Sub' }] : [])).map(x => ({ file: abs(this.base + '/', x.data || x.file), label: str(x.label || x.language || 'Sub') })),
+            // 0.0.5: separate audio renditions (YouTube serves video-only + audio-only streams)
+            audios: (tr.audios || []).map(x => ({ file: abs(this.base + '/', x.data || x.file), label: str(x.label || x.language || 'Audio') })),
             mimeType: str(tr.mimeType),
+            http2: !!tr.http2, // 0.0.5: stream host refuses HTTP/1.1 (see sources/nguonc/src/track.js)
           });
         }
       } catch (e) { this.host.log && this.host.log('track ' + s.title + ': ' + e.message); }

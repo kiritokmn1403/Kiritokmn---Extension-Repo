@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Wattpad - Tiếng Việt",
     "author": "Meo (Kiritokmn repack)",
-    "version": 22,
+    "version": 23,
     "source": "https://www.wattpad.com",
     "regexp": "(www\\.|m\\.)?wattpad\\.com/(story/)?\\d+",
     "description": "Đọc truyện tiếng Việt trên Wattpad — gốc: Meo (hienpro00123/vbook_MeoU)",

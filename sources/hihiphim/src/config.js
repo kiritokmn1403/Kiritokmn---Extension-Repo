@@ -11,6 +11,6 @@ var G = {
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || img@img",
  "d_desc": "meta[property=og:description]@content || meta[name=description]@content",
- "ch_list": "div.hl-tags a",
+ "ch_list": "a[href*='/xem-phim/']",
  "cover": "img@img"
 };

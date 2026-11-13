@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Ưng Tỷ Comics",
     "author": "QuocBao (Kiritokmn repack)",
-    "version": 2,
+    "version": 3,
     "source": "https://ungtycomicseo.com/",
     "regexp": "https://ungtycomics[^/]+.com/[^/]+.html$",
     "description": "Đọc truyện trên trang Ưng Tỷ Comics — gốc: QuocBao (BaoBao666888/ext-vbook-w)",

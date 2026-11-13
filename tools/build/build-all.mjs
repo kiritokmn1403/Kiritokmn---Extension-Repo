@@ -6,7 +6,8 @@ import { fileURLToPath } from 'node:url';
 //   repo/mangayomi/<id>.js
 //   repo/plugins.min.json         LNReader / IReader       (novel sources)
 //   repo/lnreader/<id>.js
-//   repo/aniyomi/sources.json     consumed by the Android multi-source APK build (Aniyomi / Nekoyomi)
+//   repo/aniyomi/sources.json     list of Aniyomi / Nekoyomi sources (one extension APK per source since 0.0.5)
+//   android/{anime,manga}/flavors.json + gen/<flavor>/{assets,res}   input of the Gradle build (android/build_apks.ps1)
 // Usage: node tools/build/build-all.mjs [--only id1,id2] [--base https://raw.githubusercontent.com/<user>/<repo>/main]
 import fs from 'node:fs';
 import path from 'node:path';
@@ -150,7 +151,20 @@ function rhinoSourceFile(id, pj, dir) {
   return `__register({ META: ${JSON.stringify(META)}, SCRIPTS: {\n${parts.join(',\n')}\n} });\n`;
 }
 const ANDROID = path.join(ROOT, 'android');
-const androidAssets = { 'anime:sfw': [], 'anime:nsfw': [], 'manga:sfw': [], 'manga:nsfw': [] };
+// 0.0.5: one extension APK per source (own package / label / icon) so Aniyomi / Nekoyomi / Mihon can tell them apart.
+// versionCode = 1000 * APK_REV + plugin version. Bump APK_REV whenever the shared Android runtime changes
+// (android/shared, android/*/src/main/kotlin, runtime/engine.js, runtime/rhino-prelude.js, lib/*) so every APK gets an update.
+const APK_REV = 1;
+const APK_LANG = { vi: 'vi', 'zh-CN': 'zh', zh: 'zh', en: 'en', ja: 'ja', all: 'all', global: 'all' };
+const APK_MODS = { anime: { pkg: 'eu.kanade.tachiyomi.animeextension', label: 'Aniyomi: ', ver: c => '14.' + c }, manga: { pkg: 'eu.kanade.tachiyomi.extension', label: 'Tachiyomi: ', ver: c => '1.4.' + c } };
+// Java-identifier-safe package segment / Gradle flavor name. Always prefixed: ids may start with a digit, and the
+// prefix keeps our packages from colliding with other repos' extensions for the same site (different signing key).
+const apkName = id => 'kiri' + id.toLowerCase().replace(/[^a-z0-9]/g, '');
+const androidFlavors = { anime: [], manga: [] };
+if (!ONLY) for (const mod of ['anime', 'manga']) {
+  fs.rmSync(path.join(ANDROID, mod, 'gen'), { recursive: true, force: true });
+  for (const old of ['sfw', 'nsfw']) fs.rmSync(path.join(ANDROID, mod, 'src', old), { recursive: true, force: true }); // pre-0.0.5 bundle flavors
+}
 
 const AIDOKU_TAIL = fs.readFileSync(path.join(ROOT, 'hosts/aidoku.tail.js'), 'utf8');
 const akIndex = [];
@@ -216,13 +230,23 @@ for (const id of ids) {
     }
     // ---- Aniyomi / Nekoyomi (video + comic, built into multi-source APKs)
     if (md.type === 'video' || md.type === 'comic') {
-      const mod = md.type === 'video' ? 'anime' : 'manga', fl = md.nsfw ? 'nsfw' : 'sfw';
-      const adir = path.join(ANDROID, mod, 'src', fl, 'assets', 'vb', 'src'); fs.mkdirSync(adir, { recursive: true });
-      fs.writeFileSync(path.join(adir, id + '.js'), rhinoSourceFile(id, pj, dir));
+      const mod = md.type === 'video' ? 'anime' : 'manga', M = APK_MODS[mod];
+      const flavor = apkName(id), lang = md.locale === 'global' ? 'all' : md.locale, sourceId = hash31('aniyomi:' + id);
+      const code = 1000 * APK_REV + (+md.version || 0);
+      const gdir = path.join(ANDROID, mod, 'gen', flavor);
+      fs.rmSync(gdir, { recursive: true, force: true });
+      fs.mkdirSync(path.join(gdir, 'assets', 'vb', 'src'), { recursive: true });
+      fs.writeFileSync(path.join(gdir, 'assets', 'vb', 'src', id + '.js'), rhinoSourceFile(id, pj, dir));
       const doms = ((pj.config || {}).DOMAIN || {}).values || [md.source];
-      androidAssets[mod + ':' + fl].push({ id, name: md.name, lang: md.locale === 'all' ? 'all' : md.locale, baseUrl: md.source, type: md.type, nsfw: !!md.nsfw, sourceId: hash31('aniyomi:' + id), domains: doms, short: !!reg.short, prefs: Object.entries(pj.config || {}).filter(([k]) => k !== 'DOMAIN').map(([k, o]) => ({ key: k, title: o.title || k, summary: o.subtitle || '', default: String(o.default ?? '') })) });
+      const def = { id, name: md.name, lang, baseUrl: md.source, type: md.type, nsfw: !!md.nsfw, sourceId, domains: doms, short: !!reg.short, prefs: Object.entries(pj.config || {}).filter(([k]) => k !== 'DOMAIN').map(([k, o]) => ({ key: k, title: o.title || k, summary: o.subtitle || '', default: String(o.default ?? '') })) };
+      fs.writeFileSync(path.join(gdir, 'assets', 'vb', 'sources.json'), JSON.stringify([def]));
+      // launcher icon = the source's own logo (256x256); sources without one fall back to the module's default icon
+      fs.mkdirSync(path.join(gdir, 'res', 'mipmap-xxxhdpi'), { recursive: true });
+      fs.copyFileSync(hasIcon ? path.join(dir, 'icon.png') : path.join(ANDROID, mod, 'default_icon.png'), path.join(gdir, 'res', 'mipmap-xxxhdpi', 'ic_launcher.png'));
+      const fl = { id, flavor, pkg: `${M.pkg}.${APK_LANG[lang] || 'all'}.${flavor}`, label: M.label + md.name, name: md.name, lang, nsfw: md.nsfw ? 1 : 0, versionCode: code, versionName: M.ver(code), sourceId, baseUrl: md.source };
+      androidFlavors[mod].push(fl);
+      aniSources.push({ id, name: md.name, lang, baseUrl: md.source, type: md.type, nsfw: !!md.nsfw, sourceId, short: !!reg.short, pkg: fl.pkg, version: fl.versionName });
     }
-    if (md.type === 'video' || md.type === 'comic') aniSources.push({ id, name: md.name, lang: md.locale === 'all' ? 'all' : md.locale, baseUrl: md.source, type: md.type, nsfw: !!md.nsfw, sourceId: hash31('aniyomi:' + id), short: !!reg.short });
     report.push({ id, ok: true, type: md.type, ms: Date.now() - t0, mgKB: Math.round(mg.length / 1024), lnKB: Math.round(lnSize / 1024), stt: reg.stt });
   } catch (e) {
     report.push({ id, ok: false, error: String(e.message || e) });
@@ -237,12 +261,20 @@ for (const id of ids) {
   const r2 = await esbuild.build({ entryPoints: [path.join(GEN, '_offline_entry.js')], bundle: true, write: false, format: 'esm', platform: 'neutral', target: 'es2022', nodePaths: [path.join(ROOT, 'node_modules'), path.join(ROOT, '_work/deps/node_modules'), path.join(ROOT, '../_work/deps/node_modules')], mainFields: ['module', 'main'], logLevel: 'silent' });
   fs.writeFileSync(path.join(GEN, '_offline_runtime.mjs'), r2.outputFiles[0].text);
 }
-// Android assets: prelude + per-flavour source lists
+// Android assets: shared prelude + flavors.json (one product flavor = one source = one APK)
 fs.mkdirSync(path.join(ANDROID, 'shared/assets/vb'), { recursive: true });
 fs.writeFileSync(path.join(ANDROID, 'shared/assets/vb/prelude.js'), fs.readFileSync(path.join(ROOT, 'runtime/rhino-prelude.js'), 'utf8') + '\n' + rhinoEngine());
-if (!ONLY) for (const [k, list] of Object.entries(androidAssets)) {
-  const [mod, fl] = k.split(':'); const d = path.join(ANDROID, mod, 'src', fl, 'assets', 'vb'); fs.mkdirSync(d, { recursive: true });
-  fs.writeFileSync(path.join(d, 'sources.json'), JSON.stringify(list));
+for (const [mod, list] of Object.entries(androidFlavors)) {
+  const f = path.join(ANDROID, mod, 'flavors.json');
+  let all = list;
+  if (ONLY) { // partial build: keep the other flavors already generated
+    const old = fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : [];
+    const ids = new Set(list.map(x => x.id));
+    all = old.filter(x => !ids.has(x.id)).concat(list).sort((a, b) => a.id < b.id ? -1 : 1);
+  }
+  const dup = all.map(x => x.pkg).filter((p, i, a) => a.indexOf(p) !== i);
+  if (dup.length) throw new Error('android: duplicate package names ' + dup.join(', '));
+  fs.writeFileSync(f, JSON.stringify(all, null, 1));
 }
 if (!ONLY) {
   fs.writeFileSync(path.join(OUT, 'plugin.json'), JSON.stringify({ metadata: { author: 'Kiritokmn', description: `Kiritokmn Extension Repo v${VERSION}` }, data: vbookIndex }, null, 1));

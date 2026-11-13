@@ -2,7 +2,7 @@
   "metadata": {
     "name": "【VIP】Bạch Ngọc Sách",
     "author": "Nhocconsr (Kiritokmn repack)",
-    "version": 2,
+    "version": 3,
     "source": "https://bnsvip.net",
     "regexp": "(www.)?(bachngocsach.(info|pro|net.vn|io.vn)|bnsvip.(vn|com|com.vn|net))/truyen/[0-9a-z-]+/?",
     "description": "New vesion! phamgiavang@gmail.com — gốc: Nhocconsr (lethituyen/vbooks-extension)",

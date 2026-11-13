@@ -2,11 +2,11 @@
   "metadata": {
     "name": "Syosetu",
     "author": "Kiritokmn",
-    "version": 4,
-    "source": "https://syosetu.com",
+    "version": 5,
+    "source": "https://ncode.syosetu.com",
     "description": "Syosetu — Kiritokmn Extension Repo",
     "locale": "ja",
-    "regexp": "syosetu\\.com",
+    "regexp": "ncode\\.syosetu\\.com|syosetu\\.com",
     "type": "novel",
     "nsfw": false
   },
@@ -21,10 +21,10 @@
     "DOMAIN": {
       "title": "Tên miền",
       "subtitle": "Đổi khi trang đổi tên miền",
-      "default": "https://syosetu.com",
+      "default": "https://ncode.syosetu.com",
       "values": [
-        "https://syosetu.com",
-        "https://ncode.syosetu.com"
+        "https://ncode.syosetu.com",
+        "https://syosetu.com"
       ],
       "mode": "select",
       "format": "single"

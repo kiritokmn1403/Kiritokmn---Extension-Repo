@@ -1,4 +1,4 @@
-var BASE_URL = "https://syosetu.com";
+var BASE_URL = "https://ncode.syosetu.com";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {

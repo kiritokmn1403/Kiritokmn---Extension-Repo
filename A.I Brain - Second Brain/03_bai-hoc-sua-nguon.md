@@ -26,3 +26,9 @@
 ## Logo
 - `_work/x/logofetch.mjs` (Windows) gom mọi icon ứng viên → `tools/gen/make_icons.py` chọn ảnh lớn nhất, bỏ ảnh trống và ảnh trùng giữa các host khác nhau (hamming ≤ 12 trên average-hash 12×12), rồi tạo logo chữ nếu không còn ảnh nào. Xem lại bằng bảng ghép (contact sheet) và bổ sung `FORCE_LETTER` cho logo rác còn sót.
 - Aidoku yêu cầu logo **không trong suốt**. Lưu PNG bảng màu 128 màu cho nhẹ.
+
+## 0.0.5 (13/11/2026)
+- **"Có link phát" chưa phải "phát được".** Dùng `run-tests.mjs --stream`: bước `stream` tải thử vài KB, thử cả HTTP/2.
+- **CDN chỉ nhận HTTP/2** (NguonC: segment `.png` trả 403 với HTTP/1.1). Trong `track.js`, trả cờ `http2: true`. APK sẽ phát qua `Http2Bridge.kt`. Mangayomi/YomiHub chưa có cầu nối.
+- Nguồn có hình và tiếng tách rời: `track.js` trả `audios: [{data, label}]`.
+- Sửa `lib/*.js` thì phải tăng `version` của **mọi** nguồn dùng lib đó, không thì app không cập nhật (bản 0.0.5 tăng cả 196 nguồn).

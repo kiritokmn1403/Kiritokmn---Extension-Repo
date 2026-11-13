@@ -50,7 +50,7 @@ Mỗi nguồn được viết **một lần** theo chuẩn vBook (JavaScript). B
 
 | Ứng dụng | Thêm repo bằng đường dẫn | Định dạng |
 |---|---|---|
-| **Aniyomi / Nekoyomi** (Phim + Truyện tranh) | \`${RAW}/index.min.json\` | APK đa nguồn (Rhino + jsoup) |
+| **Aniyomi / Nekoyomi** (Phim + Truyện tranh) | \`${RAW}/index.min.json\` | Mỗi nguồn một APK riêng, có tên + logo riêng (Rhino + jsoup) |
 | **Mangayomi / YomiHub** | \`${RAW}/index.json\` | JS source (MProvider) |
 | **LNReader / IReader** (Tiểu thuyết) | \`${RAW}/plugins.min.json\` | Plugin JS (ES5) |
 | **vBook / LeechText / YomiHub (tab vBook)** | \`${RAW}/plugin.json\` | Gói vBook \`.zip\` |
@@ -59,7 +59,8 @@ Mỗi nguồn được viết **một lần** theo chuẩn vBook (JavaScript). B
 > Cả 4 đường dẫn đều nằm chung một gốc: **\`${RAW}/\`** — Aniyomi/Nekoyomi chỉ cần gốc này.
 
 ### Cách thêm nhanh
-- **Aniyomi / Nekoyomi**: Thêm → Cài đặt → Duyệt → Kho tiện ích → \`+\` → dán \`${RAW}/index.min.json\` (thêm ở cả mục Anime và Manga). Cài "Kiritokmn Phim" và "Kiritokmn Truyện" (bản 18+ là gói riêng).
+- **Aniyomi / Nekoyomi**: Thêm → Cài đặt → Duyệt → Kho tiện ích → \`+\` → dán \`${RAW}/index.min.json\` (thêm ở cả mục Anime và Manga). Từ 0.0.5 **mỗi nguồn là một tiện ích riêng** (tên + logo của nguồn): chỉ cài nguồn mình dùng.
+  - **Nâng cấp từ 0.0.4 trở về trước:** gỡ 4 tiện ích gộp cũ (*Kiritokmn Phim*, *Kiritokmn Phim 18+*, *Kiritokmn Truyện*, *Kiritokmn Truyện 18+*), rồi cài các nguồn mới. Mã nguồn (source ID) giữ nguyên, nên thư viện, lịch sử xem/đọc và vị trí xem tiếp không mất.
 - **Mangayomi / YomiHub**: Tiện ích → ⋮ → Kho tiện ích → thêm \`${RAW}/index.json\` cho từng tab (Truyện tranh / Phim / Tiểu thuyết).
 - **LNReader / IReader**: Tiện ích (Plugins) → Kho → thêm \`${RAW}/plugins.min.json\`.
 - **vBook / LeechText**: Cài đặt → Kho tiện ích → thêm \`${RAW}/plugin.json\`.
@@ -75,11 +76,11 @@ aidoku://addSourceList?url=${RAW}/aidoku/index.min.json
 
 ### Có gì mới trong ${VERSION}
 Xem [CHANGELOG.md](CHANGELOG.md) — tóm tắt:
-- **Logo riêng cho từng nguồn** (196 logo 256×256: logo thật của trang hoặc logo chữ viết tắt, góc có huy hiệu ▶ Phim / T Truyện tranh / N Tiểu thuyết và 18+) — hiển thị trên Mangayomi, YomiHub, LNReader, IReader, vBook, LeechText và Aidoku.
-- **YouTube** viết lại theo API InnerTube (có tab **Shorts**), **TikTok** (tikwm, không cần tài khoản) và **Douyin** (bảng tìm kiếm nóng; xem video qua máy chủ [Douyin_TikTok_Download_API](https://github.com/Evil0ctal/Douyin_TikTok_Download_API) tự dựng — đặt trong cài đặt nguồn).
-- Sửa nhiều nguồn (Navy Team Novel, TruyenC, TruyenQQ, Viblo, PornHub, ixdzs8, Wiki Dịch → wikicv.org, PhimTV → phimtv2.com…), đánh dấu **(Ngừng hoạt động)** cho nguồn đã chết.
-- Kiểm thử tự động bắt thêm lỗi "danh sách lấy nhầm mục menu"; LNReader/IReader nhỏ hơn ~50% (nén lại sau khi hạ ES5).
-- Hướng dẫn sửa YomiHub để nhận Shorts theo kho: [docs/YOMIHUB_SHORTS_GUIDE.md](docs/YOMIHUB_SHORTS_GUIDE.md).
+- **Aniyomi / Nekoyomi: mỗi nguồn một APK riêng** (44 Phim + 37 Truyện tranh), mỗi tiện ích có **tên và logo của nguồn**, nên phân biệt được với nhau trong danh sách Tiện ích và Nguồn. Thay cho 4 APK gộp cũ; source ID giữ nguyên.
+- **NguonC phát được trong Aniyomi** (trước báo lỗi 403): CDN chỉ nhận HTTP/2, APK có cầu nối HTTP/1.1 → HTTP/2 nội bộ cho trình phát mpv.
+- **YouTube phát được trong Aniyomi** (trước quay mãi): luồng hình được ghép với luồng tiếng gốc thành rãnh âm thanh riêng.
+- Sửa thêm nguồn (Sohu, Syosetu, Mangadm hết "đạt nhầm", nhiều nguồn khác qua thêm bước); kiểm thử tự động có bước tải thử luồng phát (\`--stream\`).
+- Bản 0.0.4: logo riêng cho 196 nguồn, YouTube/TikTok/Douyin, đánh dấu **(Ngừng hoạt động)** — xem CHANGELOG.
 
 ${yhSection()}
 ## Tải về (Releases v${VERSION})
@@ -102,7 +103,7 @@ lib/                 thư viện mẫu dùng chung (Madara, generic selector, ..
 runtime/             engine + DOM tương thích jsoup + vBook API (JS) và prelude Rhino
 hosts/               lớp chuyển đổi cho Mangayomi, LNReader/IReader, Aidoku, Node test
 aidoku/              cầu nối Rust/WASM cho Aidoku (bridge/) + biểu tượng nguồn
-android/             APK đa nguồn cho Aniyomi/Nekoyomi (anime + manga, bản 18+)
+android/             APK Aniyomi/Nekoyomi: mỗi nguồn một product flavor (anime-core / manga-core dùng chung)
 tools/               build, sinh nguồn, phân tích trang, kiểm thử
 repo/                ĐẦU RA cho các ứng dụng (index.json, plugins.min.json, plugin.json, index.min.json, apk/, aidoku/)
 data/                danh sách nguồn từ Excel, kết quả kiểm thử

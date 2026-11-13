@@ -1,4 +1,4 @@
-# Builds the 4 multi-source extension APKs (Aniyomi/Nekoyomi anime + manga, SFW / 18+), signs them,
+# Builds one extension APK per source (Aniyomi/Nekoyomi anime + Tachiyomi/Mihon manga), signs them,
 # and writes repo/index.min.json + repo/repo.json. Run from Windows (Android Studio JBR + Android SDK).
 $ErrorActionPreference = 'Continue'; $ProgressPreference = 'SilentlyContinue'
 $Here = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -32,14 +32,16 @@ $plat = Get-ChildItem (Join-Path $env:ANDROID_HOME 'platforms') -Directory -Erro
 $bt = Get-ChildItem (Join-Path $env:ANDROID_HOME 'build-tools') -Directory -ErrorAction SilentlyContinue | Where-Object { $_.Name -match '^\d+\.\d+\.\d+$' } | Sort-Object { [version]$_.Name } -Descending | Select-Object -First 1 -ExpandProperty Name
 L "installed platforms: $((Get-ChildItem (Join-Path $env:ANDROID_HOME 'platforms') -Directory).Name -join ',') build-tools: $((Get-ChildItem (Join-Path $env:ANDROID_HOME 'build-tools') -Directory).Name -join ',') -> using android-$plat / $bt"
 Push-Location $Here
-$code = 4  # 0.0.4
-& .\gradlew.bat --no-daemon --stacktrace "-PextVersionCode=$code" "-PcompileSdkOverride=$plat" "-PbuildToolsOverride=$bt" :anime:assembleSfwRelease :anime:assembleNsfwRelease :manga:assembleSfwRelease :manga:assembleNsfwRelease 2>&1 | Out-File -FilePath (Join-Path $Here 'gradle.log') -Encoding utf8
-L "gradle exit $LASTEXITCODE"
+$t0 = Get-Date
+# one release APK per source: flavors come from android\{anime,manga}\flavors.json (written by tools\build\build-all.mjs)
+& .\gradlew.bat --no-daemon --stacktrace "-PcompileSdkOverride=$plat" "-PbuildToolsOverride=$bt" :anime:assembleRelease :manga:assembleRelease 2>&1 | Out-File -FilePath (Join-Path $Here 'gradle.log') -Encoding utf8
+L "gradle exit $LASTEXITCODE in $([int]((Get-Date) - $t0).TotalSeconds)s"
 Pop-Location
-$out = Join-Path $Root 'Output\apk-build'; New-Item -ItemType Directory -Force -Path $out | Out-Null
-foreach ($m in 'anime', 'manga') { foreach ($f in 'sfw', 'nsfw') {
-  $apk = Get-ChildItem (Join-Path $Here "$m\build\outputs\apk\$f\release") -Filter *.apk -ErrorAction SilentlyContinue | Select-Object -First 1
-  if ($apk) { Copy-Item $apk.FullName (Join-Path $out "kiritokmn-$m-$f.apk") -Force; L "apk $m/$f $($apk.Length) bytes" } else { L "apk $m/$f MISSING" }
-} }
-& node (Join-Path $Root 'tools\build\aniyomi-index.mjs') $out $fp $code *>> $Log
+foreach ($m in 'anime', 'manga') {
+  $apks = @(Get-ChildItem (Join-Path $Here "$m\build\outputs\apk") -Recurse -Filter *.apk -ErrorAction SilentlyContinue)
+  $want = (Get-Content (Join-Path $Here "$m\flavors.json") -Raw -Encoding UTF8 | ConvertFrom-Json).Count
+  L "apk $m`: $($apks.Count)/$want built, $([math]::Round((($apks | Measure-Object Length -Sum).Sum) / 1MB, 1)) MB"
+}
+# copies the APKs to repo\apk (<pkg>-v<version>.apk), icons to repo\icon, writes repo\index.min.json + repo.json
+& node (Join-Path $Root 'tools\build\aniyomi-index.mjs') $fp 2>&1 | ForEach-Object { L "$_" }
 L 'FINISHED'
