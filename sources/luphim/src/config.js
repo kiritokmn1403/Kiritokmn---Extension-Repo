@@ -5,9 +5,9 @@ var G = {
   "Mới cập nhật": "/[?page={p}]"
  },
  "search": "/search?k={q}",
- "item": "div.sw-item > a.v-thumbnail",
- "title": "img@alt",
- "link": ":self@href",
+ "item": "div.sw-item",
+ "title": "h3 || .title || img@alt || a@title",
+ "link": "a@href",
  "ch_list": "div.de-eps a",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || img@img",

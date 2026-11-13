@@ -12,7 +12,14 @@ const byId = Object.fromEntries((tr ? tr.results : []).map(r => [r.id, r]));
 const assets = fs.existsSync(path.join(ROOT, 'Output')) ? fs.readdirSync(path.join(ROOT, 'Output')).filter(f => !fs.statSync(path.join(ROOT, 'Output', f)).isDirectory() && !/\.log$/.test(f)) : [];
 const TYPE = { movie: 'Phim & Video', comic: 'Truyện tranh', novel: 'Tiểu thuyết' };
 const CF = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/cloudflare.json'), 'utf8'));
+const ST = fs.existsSync(path.join(ROOT, 'data/status.json')) ? JSON.parse(fs.readFileSync(path.join(ROOT, 'data/status.json'), 'utf8')) : {};
 function status(r, id) {
+  if (r && r.pass) return '✅ hoạt động';
+  if ((ST.dead || {})[id]) return '⛔ **Ngừng hoạt động** – ' + ST.dead[id];
+  if ((ST.blocked || {})[id]) return '🌐 ' + ST.blocked[id];
+  if ((ST.login || {})[id]) return '🔐 ' + ST.login[id];
+  if ((ST.protected || {})[id]) return '🔒 ' + ST.protected[id];
+  if ((ST.api || {})[id]) return '🧩 ' + ST.api[id];
   if (CF.interactive.includes(id)) return '🛡️ Cloudflare Turnstile – cần **xác minh thủ công** trong WebView';
   if (CF.ipblock.includes(id)) return '🛡️ Cloudflare chặn IP Việt Nam – cần VPN';
   if (CF.notcf[id]) return '🟠 ' + CF.notcf[id];
@@ -67,7 +74,12 @@ aidoku://addSourceList?url=${RAW}/aidoku/index.min.json
 \`\`\`
 
 ### Có gì mới trong ${VERSION}
-Xem [CHANGELOG.md](CHANGELOG.md) — tóm tắt: nguồn **Aidoku** (iOS) cho ${akCount()} nguồn truyện tranh + tiểu thuyết; **Resume A Video** làm lại cho đúng cơ chế của từng ứng dụng (định danh tập phim ổn định, giữ vị trí xem khi đổi tên miền); bộ nhớ đệm phản hồi giảm số lượt tải trang khi mở truyện/phim.
+Xem [CHANGELOG.md](CHANGELOG.md) — tóm tắt:
+- **Logo riêng cho từng nguồn** (196 logo 256×256: logo thật của trang hoặc logo chữ viết tắt, góc có huy hiệu ▶ Phim / T Truyện tranh / N Tiểu thuyết và 18+) — hiển thị trên Mangayomi, YomiHub, LNReader, IReader, vBook, LeechText và Aidoku.
+- **YouTube** viết lại theo API InnerTube (có tab **Shorts**), **TikTok** (tikwm, không cần tài khoản) và **Douyin** (bảng tìm kiếm nóng; xem video qua máy chủ [Douyin_TikTok_Download_API](https://github.com/Evil0ctal/Douyin_TikTok_Download_API) tự dựng — đặt trong cài đặt nguồn).
+- Sửa nhiều nguồn (Navy Team Novel, TruyenC, TruyenQQ, Viblo, PornHub, ixdzs8, Wiki Dịch → wikicv.org, PhimTV → phimtv2.com…), đánh dấu **(Ngừng hoạt động)** cho nguồn đã chết.
+- Kiểm thử tự động bắt thêm lỗi "danh sách lấy nhầm mục menu"; LNReader/IReader nhỏ hơn ~50% (nén lại sau khi hạ ES5).
+- Hướng dẫn sửa YomiHub để nhận Shorts theo kho: [docs/YOMIHUB_SHORTS_GUIDE.md](docs/YOMIHUB_SHORTS_GUIDE.md).
 
 ${yhSection()}
 ## Tải về (Releases v${VERSION})
@@ -80,7 +92,7 @@ Trang phát hành: https://github.com/${GH}/releases/tag/v${VERSION}
 
 ## Trạng thái nguồn (kiểm thử tự động ${tr ? tr.date.slice(0, 10) : ''}: ${pass}/${src.length} chạy trọn chuỗi danh sách → chi tiết → mục lục → nội dung)
 
-Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự án). Nguồn "không truy cập được" thường do tên miền đã đổi — vào cài đặt nguồn để đổi **Tên miền**.
+Kiểm thử chạy thật trên mạng Việt Nam (máy của chủ dự án). Ký hiệu: ✅ hoạt động · ⛔ ngừng hoạt động (vẫn giữ trong kho) · 🛡️ Cloudflare · 🌐 bị chặn ở Việt Nam (cần VPN) · 🔐 cần đăng nhập · 🔒 trang chống lấy dữ liệu · 🧩 cần API/máy chủ riêng · 🟡 chạy một phần. Nguồn "không truy cập được" thường do tên miền đã đổi — vào cài đặt nguồn để đổi **Tên miền**.
 ${rows}
 ## Cấu trúc dự án
 

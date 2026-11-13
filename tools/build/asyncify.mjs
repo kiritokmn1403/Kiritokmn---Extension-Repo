@@ -10,7 +10,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const candidates = [path.join(here, '../../../_work/deps/node_modules'), path.join(here, '../../node_modules'), path.join(here, '../../../deps/node_modules'), '/opt/node-tools/node_modules'];
+const candidates = [path.join(here, '../../_work/deps/node_modules'), path.join(here, '../../../_work/deps/node_modules'), path.join(here, '../../node_modules'), path.join(here, '../../../deps/node_modules'), '/opt/node-tools/node_modules'];
 let req = null;
 for (const c of candidates) if (fs.existsSync(path.join(c, 'acorn'))) { req = createRequire(path.join(c, 'x.js')); break; }
 if (!req) throw new Error('acorn/escodegen not found; run npm install');

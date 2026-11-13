@@ -1,4 +1,4 @@
-__register({ META: {"id":"nguonc","name":"NguonC","source":"https://phim.nguonc.com","type":"video","locale":"vi","nsfw":false,"version":6,"config":{},"configDefaults":{}}, SCRIPTS: {
+__register({ META: {"id":"nguonc","name":"NguonC","source":"https://phim.nguonc.com","type":"video","locale":"vi","nsfw":false,"version":7,"config":{},"configDefaults":{}}, SCRIPTS: {
 "home": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
 

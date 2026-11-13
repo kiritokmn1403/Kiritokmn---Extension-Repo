@@ -1,344 +1,255 @@
-__register({ META: {"id":"tiktok","name":"TikTok","source":"https://www.tiktok.com","type":"video","locale":"global","nsfw":false,"version":1,"config":{"DOMAIN":{"title":"Tên miền","subtitle":"Đổi khi trang đổi tên miền","default":"https://www.tiktok.com","values":["https://www.tiktok.com"],"mode":"input","format":"text"}},"configDefaults":{"DOMAIN":"https://www.tiktok.com"}}, SCRIPTS: {
+__register({ META: {"id":"tiktok","name":"TikTok","source":"https://www.tiktok.com","type":"video","locale":"global","nsfw":false,"version":2,"config":{"DOMAIN":{"title":"Tên miền","subtitle":"Đổi khi trang đổi tên miền","default":"https://www.tiktok.com","values":["https://www.tiktok.com"],"mode":"input","format":"text"},"REGION":{"title":"Khu vực (mã quốc gia)","subtitle":"Bảng tin đề xuất theo quốc gia: VN, US, JP, KR…","default":"VN","mode":"input","format":"text"},"DTK_SERVER":{"title":"Máy chủ Douyin_TikTok_Download_API","subtitle":"Tuỳ chọn. VD: http://192.168.1.10:8000 (tự dựng từ github.com/Evil0ctal/Douyin_TikTok_Download_API)","default":"","mode":"input","format":"text"},"DTK_KEY":{"title":"Khoá API của máy chủ (X-API-Key)","subtitle":"Để trống nếu máy chủ không yêu cầu","default":"","mode":"input","format":"text"}},"configDefaults":{"DOMAIN":"https://www.tiktok.com","REGION":"VN","DTK_SERVER":"","DTK_KEY":""}}, SCRIPTS: {
 "home": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
-var DOMAIN = __cfg("DOMAIN");
+var DOMAIN = __cfg("DOMAIN"); var REGION = __cfg("REGION"); var DTK_SERVER = __cfg("DTK_SERVER"); var DTK_KEY = __cfg("DTK_KEY");
 return (function () {
 
 var BASE_URL = "https://www.tiktok.com";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
-var G = {
- "tabs": {
-  "Mới cập nhật": "/[?page={p}]"
- },
- "search": "/tim-kiem?keyword={q}[&page={p}]",
- "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-};
 
 
 
-// Shared helpers for Kiritokmn Extension Repo sources (vBook API, ES5 so it also runs on Rhino).
-var C = {
-  img: function (el) {
-    if (!el) return '';
-    var a = ['data-src', 'data-lazy-src', 'data-original', 'data-lazyload', 'data-cfsrc', 'data-url', 'src'];
-    for (var i = 0; i < a.length; i++) {
-      var v = el.attr(a[i]);
-      if (v && v.indexOf('data:image') !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(v)) return C.fix(v.trim());
+// 0.0.4 — TikTok & Douyin short-video sources (ES5: runs in Rhino, QuickJS, JavaScriptCore and Node).
+//
+// Two back ends, picked by the source settings:
+//  1. DTK_SERVER set  -> the user's own instance of Evil0ctal/Douyin_TikTok_Download_API (REST v1, envelope
+//     {success, data, error, meta}). The instance signs requests itself (X-Bogus / a_bogus / msToken) with its
+//     identity pool, so this source never has to carry those signing algorithms. Optional key: DTK_KEY (X-API-Key).
+//  2. no server       -> public endpoints that need no signature:
+//       TikTok: tikwm.com (region feed, keyword search, video by URL)
+//       Douyin: iesdouyin.com hot-search board (topics); playback needs the DTK server, otherwise the topic
+//               opens on douyin.com in the app's WebView.
+// Item links are always the platform's own canonical URL (https://www.tiktok.com/@user/video/<id>,
+// https://www.douyin.com/video/<id>) so the apps keep watch history / "resume" per clip.
+var SV = {
+  // config globals are declared by the build (var DTK_SERVER = __cfg('DTK_SERVER')); referenced directly, no eval
+  cfg: function (name, def) {
+    var v = '';
+    try { if (name === 'DTK_SERVER') v = DTK_SERVER; else if (name === 'DTK_KEY') v = DTK_KEY; else if (name === 'REGION') v = REGION; } catch (e) { }
+    v = String(v == null ? '' : v).trim(); return v || def || '';
+  },
+  server: function () { return SV.cfg('DTK_SERVER').replace(/\/+$/, ''); },
+  region: function () { return SV.cfg('REGION', 'VN').toUpperCase(); },
+  qs: function (q) { var a = []; for (var k in q) if (q[k] !== null && q[k] !== undefined && q[k] !== '') a.push(k + '=' + encodeURIComponent(q[k])); return a.join('&'); },
+  // ---- back end 1: Douyin_TikTok_Download_API (self-hosted)
+  dtk: function (path, q) {
+    q = q || {}; q.wait = q.wait || 25;
+    var h = { 'Accept': 'application/json' }, key = SV.cfg('DTK_KEY');
+    if (key) h['X-API-Key'] = key;
+    var u = SV.server() + '/api/v1/' + path + '?' + SV.qs(q);
+    var r = fetch(u, { headers: h });
+    var j = null; try { j = r.json(); } catch (e) { }
+    if (!r.ok || !j || j.success === false) {
+      var msg = j && j.error ? (j.error.message || j.error.code) : ('HTTP ' + r.status);
+      throw new Error('Máy chủ Douyin_TikTok_Download_API (' + path + '): ' + msg);
     }
-    var ss = el.attr('data-srcset') || el.attr('srcset');
-    if (ss) return C.fix(ss.split(',').pop().trim().split(' ')[0]);
-    return '';
+    return j;
   },
-  fix: function (u) {
-    if (!u) return '';
-    u = String(u).trim();
-    if (u.indexOf('//') === 0) return 'https:' + u;
-    if (u.indexOf('http') === 0) return u;
-    if (u.charAt(0) === '/') return BASE_URL + u;
-    return BASE_URL + '/' + u;
+  // hashtag posts are keyed by the numeric id: look the name up once and keep it
+  dtkTag: function (platform, name) {
+    var k = 'dtk_tag_' + platform + '_' + name, id = '';
+    try { id = localStorage.getItem(k) || ''; } catch (e) { }
+    if (!id) { id = String((SV.dtk(platform + '/hashtag', { name: name }).data || {}).hashtag_id || ''); try { if (id) localStorage.setItem(k, id); } catch (e) { } }
+    if (!id) throw new Error('Không tìm thấy hashtag #' + name);
+    return id;
   },
-  text: function (doc, sels) {
-    for (var i = 0; i < sels.length; i++) { var t = doc.select(sels[i]).text(); if (t) return t.trim(); }
-    return '';
+  dtkItems: function (j) { var d = j.data; if (d && d.items) d = d.items; return d && d.length !== undefined ? d : []; },
+  dtkNext: function (j) { var c = j.data && j.data.cursor, more = j.data && j.data.has_more; if (!c && j.meta && j.meta.cursor) { c = j.meta.cursor.next; more = j.meta.cursor.has_more; } return more && c ? String(c) : ''; },
+  dtkCover: function (c) { var m = c.media || {}; return m.covers && m.covers.length ? m.covers[0].url : (m.images && m.images.length ? m.images[0].url : ''); },
+  dtkItem: function (c) {
+    var who = c.author ? (c.author.nickname || c.author.unique_id || '') : '';
+    return { name: SV.title(c.title || c.description, c.content_id), link: c.web_url, cover: SV.dtkCover(c), description: who, host: BASE_URL };
   },
-  get: function (url, opt) {
-    opt = opt || {};
-    var h = { 'Referer': BASE_URL + '/' };
-    if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
-    var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
-    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
-    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
-    return r;
-  },
-  cf: function (r) {
-    if (r.status !== 403 && r.status !== 503 && r.status !== 429) return false;
-    var t = r.text() || '';
-    return /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(t.slice(0, 20000));
-  },
-  check: function (r, url) {
-    if (r.ok) return r;
-    if (C.cf(r)) throw new Error('CLOUDFLARE: trang ' + url.split('/').slice(0, 3).join('/') + ' yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
-    throw new Error('HTTP ' + r.status + ' ' + url);
-  },
-  html: function (url, opt) {
-    var r = C.check(C.get(url, opt), url);
-    return r.html(opt && opt.charset);
-  },
-  json: function (url, opt) {
-    var r = C.check(C.get(url, opt), url);
-    return r.json();
-  },
-  page: function (p) { var n = parseInt(p || '1', 10); return isNaN(n) || n < 1 ? 1 : n; },
-  next: function (hasMore, p) { return hasMore ? String(C.page(p) + 1) : ''; },
-  isUrl: function (s) { return /^(https?:)?\/\//.test(s || '') || (s || '').charAt(0) === '/'; },
-  enc: function (s) { return encodeURIComponent(s || ''); },
-  // Remove ads/scripts and empty paragraphs from novel content
-  cleanContent: function (el) {
-    el.select('script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form').remove();
-    return el.html().replace(/\r\n?/g, '\n').replace(/&#13;|&#x0?[dD];/g, '').replace(/&nbsp;/g, ' ').replace(/(<br\s*\/?>\s*){3,}/gi, '<br><br>');
-  },
-  ongoing: function (s) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(s || ''); }
-};
-
-
-
-// Selector-driven template. A site's config.js defines `var G = {...}` (see docs/SOURCE_SPEC.md).
-// Selector syntax: "css" (text), "css@attr" (attribute), "css@html" (inner html), "css@img" (best image url),
-// alternatives separated by " || ". URL patterns use {p} (page), {q} (query), {base}.
-var X = {
-  pick: function (root, spec) {
-    if (!spec || !root) return '';
-    var alts = String(spec).split(' || ');
-    for (var i = 0; i < alts.length; i++) {
-      var s = alts[i], at = 'text', k = s.lastIndexOf('@');
-      if (k > 0 && !/\[[^\]]*@/.test(s.slice(k))) { at = s.slice(k + 1); s = s.slice(0, k); }
-      var els = s === ':self' ? null : root.select(s);
-      var el = s === ':self' ? root : (els.size() ? els.first() : null);
-      if (!el) continue;
-      var v = at === 'text' ? el.text() : at === 'html' ? el.html() : at === 'img' ? C.img(el.is('img') ? el : el.select('img').first()) : at === 'own' ? el.ownText() : el.attr(at);
-      if (v) return String(v).trim();
-    }
-    return '';
-  },
-  url: function (pat, p, q) {
-    var n = C.page(p);
-    var u = String(pat);
-    // {p} -> page number; [..{p}..] optional block removed on page 1
-    u = u.replace(/\[([^\]]*)\]/g, function (m, inner) { return n > 1 ? inner : ''; });
-    u = u.replace(/\{p\}/g, String(n)).replace(/\{p0\}/g, String(n - 1)).replace(/\{q\}/g, C.enc(q || '')).replace(/\{base\}/g, BASE_URL);
-    return C.fix(u);
-  },
-  // `s` = 's_' when parsing a search result page whose cards differ from the list pages (G.s_item, G.s_title, ...)
-  items: function (doc, s) {
-    var k = function (n) { return (s && G[s + n]) || G[n]; };
-    var els = doc.select(k('item')), out = [], seen = {};
-    for (var i = 0; i < els.size(); i++) {
-      var e = els.get(i);
-      var link = X.pick(e, k('link') || 'a@href');
-      if (!link || seen[link] || /^javascript|#$/.test(link)) continue;
-      var name = X.pick(e, k('title') || 'h3 || h2 || a@title || img@alt');
-      if (!name) continue;
-      seen[link] = 1;
-      out.push({ name: name, link: C.fix(link), cover: X.pick(e, k('cover') || 'img@img'), description: X.pick(e, k('desc') || ''), host: BASE_URL });
-    }
+  dtkStreams: function (c) {
+    var m = c.media || {}, out = [], seen = {};
+    var add = function (t, s) { if (s && s.url && !seen[s.url]) { seen[s.url] = 1; out.push({ title: t, data: s.url }); } };
+    add('Không logo', m.video);
+    (m.streams || []).forEach(function (s, i) { add((s.height ? s.height + 'p' : 'Luồng ' + (i + 2)) + (s.watermark ? ' (logo)' : ''), s); });
+    (m.images || []).forEach(function (im, i) { if (im.video) add('Ảnh động ' + (i + 1), im.video); });
     return out;
   },
-  listPage: function (pat, p, q) {
-    var doc = C.html(X.url(pat, p, q), G.req);
-    var items = X.items(doc, q ? 's_' : '');
-    var more = G.next ? doc.select(G.next).size() > 0 : items.length >= (G.pageSize || 10);
-    return Response.success(items, C.next(more && items.length > 0, p));
+  title: function (t, id) { t = String(t || '').replace(/\s+/g, ' ').trim(); return t ? (t.length > 110 ? t.slice(0, 108) + '…' : t) : ('Video ' + (id || '')); },
+  // ---- back end 2a: tikwm (TikTok, no signature)
+  TW: 'https://www.tikwm.com',
+  tw: function (path, q, post) {
+    var u = SV.TW + path, opt = { headers: { 'Accept': 'application/json', 'Referer': SV.TW + '/' } };
+    if (post) { opt.method = 'POST'; opt.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'; opt.body = SV.qs(q); } else u += '?' + SV.qs(q);
+    var r = fetch(u, opt), j = null;
+    try { j = r.json(); } catch (e) { }
+    if (!r.ok || !j || j.code !== 0) throw new Error('tikwm.com: ' + (j && j.msg ? j.msg : 'HTTP ' + r.status) + ' — có thể đặt máy chủ Douyin_TikTok_Download_API trong cài đặt nguồn');
+    return j.data;
   },
-  browse: function (input, p) {
-    var pat = (G.tabs && G.tabs[input]) || input;
-    return X.listPage(pat, p, '');
-  },
-  search: function (key, p) {
-    // q_cut: regex; sites whose search breaks on punctuation only get the text before it
-    if (G.q_cut && !C.isUrl(key)) key = String(key).split(new RegExp(G.q_cut))[0].trim() || key;
-    if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
-    if (G.search_post) {
-      // POST search form: { url, body } — body uses {q}; results are parsed like any list page
-      var doc = C.html(X.url(G.search_post.url, p, key), { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: String(G.search_post.body).replace(/\{q\}/g, C.enc(key)) });
-      var items = X.items(doc, 's_');
-      return Response.success(items, null);
-    }
-    if (G.search_json) return X.jsonSearch(G.search_json, key, p);
-    return X.listPage(G.search, p, key);
-  },
-  // JSON search API: { url, list: 'data.items' (dot path, '' = root array), title, link ('/truyen/{slug}' template or field), cover }
-  jsonSearch: function (J, key, p) {
-    var d = C.json(X.url(J.url, p, key), G.req);
-    if (J.list) J.list.split('.').forEach(function (k) { d = d && d[k]; });
-    var fill = function (o, t) { return String(t || '').indexOf('{') >= 0 ? String(t).replace(/\{(\w+)\}/g, function (m, k) { return o[k] == null ? '' : o[k]; }) : (o[t] == null ? '' : String(o[t])); };
+  twUrl: function (v) { var u = v.author && v.author.unique_id ? v.author.unique_id : 'user'; return 'https://www.tiktok.com/@' + u + '/video/' + (v.video_id || v.id); },
+  twAbs: function (u) { return !u ? '' : /^https?:/.test(u) ? u : SV.TW + (u.charAt(0) === '/' ? '' : '/') + u; },
+  twItem: function (v) { return { name: SV.title(v.title, v.video_id), link: SV.twUrl(v), cover: SV.twAbs(v.cover || v.origin_cover), description: v.author ? (v.author.nickname || v.author.unique_id) : '', host: BASE_URL }; },
+  twStreams: function (v) {
     var out = [];
-    (d || []).forEach(function (o) {
-      var name = fill(o, J.title || 'title'), link = fill(o, J.link || 'url');
-      if (name && link) out.push({ name: name, link: C.fix(link), cover: C.fix(fill(o, J.cover || 'cover')), description: J.desc ? fill(o, J.desc) : '', host: BASE_URL });
-    });
-    return Response.success(out, J.paged && out.length ? C.next(true, p) : null);
+    if (v.hdplay) out.push({ title: 'HD không logo', data: SV.twAbs(v.hdplay) });
+    if (v.play) out.push({ title: 'SD không logo', data: SV.twAbs(v.play) });
+    if (v.wmplay) out.push({ title: 'Có logo', data: SV.twAbs(v.wmplay) });
+    return out;
   },
-  genre: function () {
-    if (!G.genre) return Response.success([]);
-    var doc = C.html(C.fix(G.genrePage || '/'));
-    var out = doc.select(G.genre).map(function (a) { return { title: a.text(), input: C.fix(a.attr('href')), script: 'search.js' }; });
-    return Response.success(out.filter(function (g) { return g.title; }));
-  },
-  detail: function (url) {
-    var doc = C.html(url, G.req);
-    var genres = G.d_genres ? doc.select(G.d_genres).map(function (a) { return { title: a.text(), input: C.fix(a.attr('href')), script: 'search.js' }; }) : [];
-    var status = X.pick(doc, G.d_status);
-    return Response.success({
-      name: X.pick(doc, G.d_title || 'h1'), cover: C.fix(X.pick(doc, G.d_cover || 'meta[property=og:image]@content')),
-      author: X.pick(doc, G.d_author), description: X.pick(doc, (G.d_desc || 'meta[name=description]@content').replace(/$/, '')),
-      detail: status ? 'Tình trạng: ' + status : '', ongoing: C.ongoing(status), genres: genres, host: BASE_URL
-    });
-  },
-  toc: function (url) {
-    if (G.ch_action) return X.actionToc(url);
-    if (G.single) return Response.success([{ name: G.single === true ? 'Xem / Đọc' : G.single, url: url, host: BASE_URL }]);
-    var pages = [url], list = [], seen = {};
-    var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
-    if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
-    for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
-      var els = doc.select(G.ch_list);
-      for (var i = 0; i < els.size(); i++) {
-        var a = els.get(i); var href = G.ch_attr ? a.attr(G.ch_attr) : (a.attr('href') || a.attr('data-href'));
-        if (!href || href === '#' || seen[href]) continue;
-        seen[href] = 1; list.push({ name: (G.ch_name ? X.pick(a, G.ch_name) : a.text()) || a.attr('title'), url: C.fix(href), host: BASE_URL });
-      }
-      var nx = G.ch_next ? doc.select(G.ch_next).first() : null;
-      if (!nx || !nx.attr('href')) break;
-      var nu = C.fix(nx.attr('href'));
-      if (pages.indexOf(nu) >= 0) break;
-      pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
+  // ---- shared helpers
+  videoId: function (url) { var m = /\/(?:video|note|photo)\/(\d{8,})/.exec(url) || /[?&](?:aweme_id|item_id|modal_id)=(\d{8,})/.exec(url); return m ? m[1] : ''; },
+  page: function (p) { var n = parseInt(p || '1', 10); return isNaN(n) || n < 1 ? 1 : n; },
+  webview: function (url) { return Response.success({ type: 'webview', data: url }); },
+  // TikTok list: "feed" (region feed) | "tag:<hashtag>" | "user:<unique_id>"
+  ttList: function (input, page) {
+    input = String(input || 'feed');
+    if (SV.server()) {
+      var j;
+      var cur = page && page !== '1' ? page : '';
+      if (input.indexOf('user:') === 0) j = SV.dtk('tiktok/user/posts', { url: 'https://www.tiktok.com/@' + input.slice(5), cursor: cur, count: 20 });
+      else j = SV.dtk('tiktok/hashtag/posts', { hashtag_id: SV.dtkTag('tiktok', input.indexOf('tag:') === 0 ? input.slice(4) : 'fyp'), cursor: cur, count: 20 });
+      return Response.success(SV.dtkItems(j).map(SV.dtkItem), SV.dtkNext(j));
     }
-    if (G.ch_reverse) list.reverse();
-    // A movie page without an episode list is itself the one episode
-    if (!list.length && G.ch_fallback_single) list.push({ name: G.ch_fallback_single === true ? 'Xem phim' : G.ch_fallback_single, url: url, host: BASE_URL });
-    return Response.success(list);
-  },
-  pages: function (url) {
-    var out = [], visited = [url], u = url;
-    for (var guard = 0; guard < (G.pages_max || 40); guard++) {
-      var doc;
-      if (G.initmanga) {
-        var rr = C.check(C.get(u, G.req), u), bb = rr.text() || '', dec = X.initManga(bb);
-        doc = Html.parse(dec ? '<div id="imc-dec">' + dec + '</div>' : bb, u);
-      } else doc = C.html(u, G.req);
-      var imgs = doc.select(G.initmanga ? '#imc-dec img, ' + (G.pages || '#chapter-content img') : (G.pages || '.page-chapter img, .reading-content img, .chapter-content img'));
-      if (G.initmanga) {
-        // protected canvases: data-enc = base64 of the reversed image url
-        var cv = doc.select('#imc-dec canvas[data-enc]');
-        for (var ci = 0; ci < cv.size(); ci++) {
-          var cu = CryptoJS.enc.Latin1.stringify(CryptoJS.enc.Base64.parse(cv.get(ci).attr('data-enc'))).split('').reverse().join('');
-          if (cu && out.indexOf(cu) < 0) out.push(cu);
-        }
-      }
-      for (var i = 0; i < imgs.size(); i++) { var s = C.img(imgs.get(i)); if (s && out.indexOf(s) < 0) out.push(s); }
-      if (!G.pages_next) break;
-      var nx = doc.select(G.pages_next).first();
-      if (!nx) break;
-      var nu = C.fix(nx.attr('href'));
-      if (!nu || visited.indexOf(nu) >= 0) break;
-      visited.push(nu); u = nu;
+    var n = SV.page(page), d;
+    if (input.indexOf('user:') === 0) {
+      d = SV.tw('/api/user/posts', { unique_id: input.slice(5), count: 20, cursor: page && page !== '1' ? page : 0 });
+      return Response.success((d.videos || []).map(SV.twItem), d.hasMore ? String(d.cursor) : '');
     }
-    return Response.success(out);
-  },
-  text: function (url) {
-    var r = C.check(C.get(url, G.req), url), body = r.text() || '';
-    if (G.content_rsc) {
-      var raw = X.rscText(body), locked = G.c_locked && new RegExp(G.c_locked, 'i').test(body);
-      var lockMsg = locked ? '<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại ' + BASE_URL + ' để đọc tiếp.</i></p>' : '';
-      if (raw || locked) return Response.success(X.toParas(raw) + lockMsg, X.pick(Html.parse(body, url), G.c_title || 'h1 || title'));
+    if (input.indexOf('tag:') === 0) {
+      d = SV.tw('/api/feed/search', { keywords: '#' + input.slice(4), count: 20, cursor: (n - 1) * 20, HD: 1 }, true);
+      return Response.success((d.videos || []).map(SV.twItem), d.hasMore ? String(n + 1) : '');
     }
-    if (G.initmanga) { var dc = X.initManga(body); if (dc) return Response.success(C.cleanContent(Html.parse('<div id="imc-dec">' + dc + '</div>', url).select('#imc-dec').first()), X.pick(Html.parse(body, url), G.c_title || 'h1 || h2')); }
-    var doc = Html.parse(body, url);
-    var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
-    if (!el) {
-      if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(body.slice(0, 20000))) throw new Error('CLOUDFLARE: trang ' + BASE_URL + ' yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
-      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
-    }
-    return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
-  },
-  // ---- WordPress "Init Manga" theme: chapter body is AES-256-CBC encrypted in the page
-  // (key = PBKDF2-SHA512(passphrase from InitMangaData.decryption_key, salt, 999 iter, 32 bytes)); needs CryptoJS (load('crypto.js')).
-  initManga: function (body) {
-    var m = /InitMangaEncryptedChapter\s*=\s*(\{[\s\S]*?\})\s*;/.exec(body), k = /"decryption_key"\s*:\s*"([^"]+)"/.exec(body);
-    if (!m || !k || typeof CryptoJS === 'undefined') return '';
-    var o; try { o = JSON.parse(m[1]); } catch (e) { return ''; }
-    if (!o || !o.ciphertext) return '';
-    var pass = CryptoJS.enc.Utf8.stringify(CryptoJS.enc.Base64.parse(k[1]));
-    var key = CryptoJS.PBKDF2(pass, CryptoJS.enc.Hex.parse(o.salt), { hasher: CryptoJS.algo.SHA512, keySize: 8, iterations: 999 });
-    try { return CryptoJS.AES.decrypt(o.ciphertext, key, { iv: CryptoJS.enc.Hex.parse(o.iv) }).toString(CryptoJS.enc.Utf8); } catch (e) { return ''; }
-  },
-  // ---- Next.js App Router helpers (sites whose TOC comes from a Server Action and whose text lives in the RSC stream)
-  // Server Action ids change on every deploy: try the known id first, then look the id up by its exported name in the page's chunks.
-  rscAction: function (html, name) {
-    var srcs = [], m, re = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g;
-    while ((m = re.exec(html))) if (srcs.indexOf(m[0]) < 0) srcs.push(m[0]);
-    var pat = new RegExp('"([0-9a-f]{40,44})"[^"]{0,200}?"' + name + '"');
-    for (var i = 0; i < srcs.length && i < 60; i++) {
-      var r = C.get(BASE_URL + srcs[i]); if (!r || !r.ok) continue;
-      var mm = pat.exec(r.text() || ''); if (mm) return mm[1];
-    }
-    return '';
-  },
-  rscArray: function (body) {
-    var lines = String(body || '').split('\n');
-    for (var i = 0; i < lines.length; i++) {
-      var mm = /^[0-9a-f]+:(\[.*)$/.exec(lines[i]);
-      if (mm) { try { var a = JSON.parse(mm[1]); if (a && a.length) return a; } catch (e) { } }
-    }
-    return null;
-  },
-  actionToc: function (url) {
-    var A = G.ch_action, html = C.check(C.get(url, G.req), url).text() || '';
-    var am = new RegExp(A.arg).exec(html);
-    if (!am) return Response.error('Không tìm thấy mã truyện trên trang ' + url);
-    var payload = JSON.stringify([am[1]]);
-    var post = function (id) {
-      var r = C.get(url, { method: 'POST', headers: { 'Next-Action': id, 'Accept': 'text/x-component', 'Content-Type': 'text/plain;charset=UTF-8' }, body: payload });
-      return r && r.ok ? X.rscArray(r.text()) : null;
-    };
-    var arr = A.id ? post(A.id) : null;
-    if (!arr) { var id2 = X.rscAction(html, A.name); if (id2 && id2 !== A.id) arr = post(id2); }
-    if (!arr) return Response.error('Không lấy được danh sách chương (Server Action "' + A.name + '")');
-    var base = url.replace(/[?#].*$/, '').replace(/\/+$/, '');
-    return Response.success(arr.map(function (c) {
-      return { name: String(c[A.title || 'label'] || '') + (A.lock && c[A.lock] ? ' 🔒' : ''), url: base + '/' + c[A.slug || 'slugId'], host: BASE_URL };
-    }));
-  },
-  // Join the self.__next_f.push([1,"..."]) chunks and return the longest text row ("<id>:T<hex byte length>,<text>").
-  rscText: function (html) {
-    var s = '', m, re = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g;
-    while ((m = re.exec(html))) { try { s += JSON.parse(m[1]); } catch (e) { } }
-    var best = '', tr = /([0-9a-f]+):T([0-9a-f]+),/g, t;
-    while ((t = tr.exec(s))) {
-      var n = parseInt(t[2], 16), i = tr.lastIndex, b = 0;
-      while (i < s.length && b < n) { var c = s.charCodeAt(i); if (c < 0x80) b += 1; else if (c < 0x800) b += 2; else if (c >= 0xD800 && c <= 0xDBFF) { b += 4; i++; } else b += 3; i++; }
-      var txt = s.slice(tr.lastIndex, i);
-      if (txt.length > best.length) best = txt;
-      tr.lastIndex = i;
-    }
-    return best;
-  },
-  toParas: function (txt) {
-    if (/<p[\s>]|<br\s*\/?>/i.test(txt)) return txt;
-    return txt.split(/\n+/).map(function (l) { l = l.trim(); return l ? '<p>' + l.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</p>' : ''; }).join('');
-  },
-  // Video: list servers on the episode page, then sniff a playable stream from each.
-  servers: function (url) {
-    if (!G.servers) return Response.success([{ title: 'Server', data: url }]);
-    var doc = C.html(url, G.req);
-    var out = doc.select(G.servers).map(function (e) {
-      var d = X.pick(e, G.server_data || ':self@data-link || :self@data-src || :self@href');
-      return { title: e.text() || 'Server', data: C.fix(d) };
-    }).filter(function (s) { return s.data; });
-    return Response.success(out.length ? out : [{ title: 'Server', data: url }]);
-  },
-  sniff: function (text) {
-    text = String(text || '').replace(/\\\//g, '/');
-    var m = text.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || text.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i);
-    return m ? m[0] : '';
-  },
-  track: function (data, depth) {
-    depth = depth || 0;
-    if (/\.(m3u8|mp4)(\?|$)/i.test(data)) return Response.success({ type: 'native', data: data, headers: { Referer: BASE_URL + '/' } });
-    var r = C.get(data);
-    var body = r.text();
-    if (G.video && !depth) { var vv = X.pick(Html.parse(body, data), G.video); if (vv) return Response.success({ type: 'native', data: C.fix(vv), headers: { Referer: BASE_URL + '/' } }); }
-    var s = X.sniff(body);
-    if (s) return Response.success({ type: 'native', data: s, headers: { Referer: (depth ? data : BASE_URL + '/') } });
-    var doc = Html.parse(body, data);
-    var ifr = doc.select(G.iframe || 'iframe[src], iframe[data-src]').first();
-    if (ifr && depth < 2) { var src = C.fix(ifr.attr('src') || ifr.attr('data-src')); if (src) return X.track(src, depth + 1); }
-    return Response.success({ type: 'webview', data: data });
+    d = SV.tw('/api/feed/list', { region: SV.region(), count: 20 });
+    // the region feed is a fresh random batch on every call: "next page" just asks again (endless Shorts scroll)
+    return Response.success((d || []).map(SV.twItem), n < 30 ? String(n + 1) : '');
   }
 };
 
 
-function execute() { var t = []; for (var k in G.tabs) t.push({ title: k, input: k, script: "browse.js" }); return Response.success(t); }
+function execute() {
+  var tabs = [{ title: 'Đề xuất (' + SV.region() + ')', input: 'feed', script: 'genre.js' }];
+  ['xuhuong', 'funny', 'cat', 'music', 'dance', 'food'].forEach(function (t) { tabs.push({ title: '#' + t, input: 'tag:' + t, script: 'genre.js' }); });
+  return Response.success(tabs);
+}
+
+return typeof execute === 'function' ? execute : undefined;
+})();
+})(__env.fetch, __env.Http, __env.Html, __env.Response, __env.localStorage, __env.cacheStorage, __env.localConfig, __env.localCookie, __env.sleep, __env.Log, __env.console, __env.Console, __env.log, __env.UserAgent, __env.Engine, __env.Graphics, __env.Script);
+},
+"genre": function (__env, __cfg) {
+return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
+var DOMAIN = __cfg("DOMAIN"); var REGION = __cfg("REGION"); var DTK_SERVER = __cfg("DTK_SERVER"); var DTK_KEY = __cfg("DTK_KEY");
+return (function () {
+
+var BASE_URL = "https://www.tiktok.com";
+try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
+
+
+
+// 0.0.4 — TikTok & Douyin short-video sources (ES5: runs in Rhino, QuickJS, JavaScriptCore and Node).
+//
+// Two back ends, picked by the source settings:
+//  1. DTK_SERVER set  -> the user's own instance of Evil0ctal/Douyin_TikTok_Download_API (REST v1, envelope
+//     {success, data, error, meta}). The instance signs requests itself (X-Bogus / a_bogus / msToken) with its
+//     identity pool, so this source never has to carry those signing algorithms. Optional key: DTK_KEY (X-API-Key).
+//  2. no server       -> public endpoints that need no signature:
+//       TikTok: tikwm.com (region feed, keyword search, video by URL)
+//       Douyin: iesdouyin.com hot-search board (topics); playback needs the DTK server, otherwise the topic
+//               opens on douyin.com in the app's WebView.
+// Item links are always the platform's own canonical URL (https://www.tiktok.com/@user/video/<id>,
+// https://www.douyin.com/video/<id>) so the apps keep watch history / "resume" per clip.
+var SV = {
+  // config globals are declared by the build (var DTK_SERVER = __cfg('DTK_SERVER')); referenced directly, no eval
+  cfg: function (name, def) {
+    var v = '';
+    try { if (name === 'DTK_SERVER') v = DTK_SERVER; else if (name === 'DTK_KEY') v = DTK_KEY; else if (name === 'REGION') v = REGION; } catch (e) { }
+    v = String(v == null ? '' : v).trim(); return v || def || '';
+  },
+  server: function () { return SV.cfg('DTK_SERVER').replace(/\/+$/, ''); },
+  region: function () { return SV.cfg('REGION', 'VN').toUpperCase(); },
+  qs: function (q) { var a = []; for (var k in q) if (q[k] !== null && q[k] !== undefined && q[k] !== '') a.push(k + '=' + encodeURIComponent(q[k])); return a.join('&'); },
+  // ---- back end 1: Douyin_TikTok_Download_API (self-hosted)
+  dtk: function (path, q) {
+    q = q || {}; q.wait = q.wait || 25;
+    var h = { 'Accept': 'application/json' }, key = SV.cfg('DTK_KEY');
+    if (key) h['X-API-Key'] = key;
+    var u = SV.server() + '/api/v1/' + path + '?' + SV.qs(q);
+    var r = fetch(u, { headers: h });
+    var j = null; try { j = r.json(); } catch (e) { }
+    if (!r.ok || !j || j.success === false) {
+      var msg = j && j.error ? (j.error.message || j.error.code) : ('HTTP ' + r.status);
+      throw new Error('Máy chủ Douyin_TikTok_Download_API (' + path + '): ' + msg);
+    }
+    return j;
+  },
+  // hashtag posts are keyed by the numeric id: look the name up once and keep it
+  dtkTag: function (platform, name) {
+    var k = 'dtk_tag_' + platform + '_' + name, id = '';
+    try { id = localStorage.getItem(k) || ''; } catch (e) { }
+    if (!id) { id = String((SV.dtk(platform + '/hashtag', { name: name }).data || {}).hashtag_id || ''); try { if (id) localStorage.setItem(k, id); } catch (e) { } }
+    if (!id) throw new Error('Không tìm thấy hashtag #' + name);
+    return id;
+  },
+  dtkItems: function (j) { var d = j.data; if (d && d.items) d = d.items; return d && d.length !== undefined ? d : []; },
+  dtkNext: function (j) { var c = j.data && j.data.cursor, more = j.data && j.data.has_more; if (!c && j.meta && j.meta.cursor) { c = j.meta.cursor.next; more = j.meta.cursor.has_more; } return more && c ? String(c) : ''; },
+  dtkCover: function (c) { var m = c.media || {}; return m.covers && m.covers.length ? m.covers[0].url : (m.images && m.images.length ? m.images[0].url : ''); },
+  dtkItem: function (c) {
+    var who = c.author ? (c.author.nickname || c.author.unique_id || '') : '';
+    return { name: SV.title(c.title || c.description, c.content_id), link: c.web_url, cover: SV.dtkCover(c), description: who, host: BASE_URL };
+  },
+  dtkStreams: function (c) {
+    var m = c.media || {}, out = [], seen = {};
+    var add = function (t, s) { if (s && s.url && !seen[s.url]) { seen[s.url] = 1; out.push({ title: t, data: s.url }); } };
+    add('Không logo', m.video);
+    (m.streams || []).forEach(function (s, i) { add((s.height ? s.height + 'p' : 'Luồng ' + (i + 2)) + (s.watermark ? ' (logo)' : ''), s); });
+    (m.images || []).forEach(function (im, i) { if (im.video) add('Ảnh động ' + (i + 1), im.video); });
+    return out;
+  },
+  title: function (t, id) { t = String(t || '').replace(/\s+/g, ' ').trim(); return t ? (t.length > 110 ? t.slice(0, 108) + '…' : t) : ('Video ' + (id || '')); },
+  // ---- back end 2a: tikwm (TikTok, no signature)
+  TW: 'https://www.tikwm.com',
+  tw: function (path, q, post) {
+    var u = SV.TW + path, opt = { headers: { 'Accept': 'application/json', 'Referer': SV.TW + '/' } };
+    if (post) { opt.method = 'POST'; opt.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'; opt.body = SV.qs(q); } else u += '?' + SV.qs(q);
+    var r = fetch(u, opt), j = null;
+    try { j = r.json(); } catch (e) { }
+    if (!r.ok || !j || j.code !== 0) throw new Error('tikwm.com: ' + (j && j.msg ? j.msg : 'HTTP ' + r.status) + ' — có thể đặt máy chủ Douyin_TikTok_Download_API trong cài đặt nguồn');
+    return j.data;
+  },
+  twUrl: function (v) { var u = v.author && v.author.unique_id ? v.author.unique_id : 'user'; return 'https://www.tiktok.com/@' + u + '/video/' + (v.video_id || v.id); },
+  twAbs: function (u) { return !u ? '' : /^https?:/.test(u) ? u : SV.TW + (u.charAt(0) === '/' ? '' : '/') + u; },
+  twItem: function (v) { return { name: SV.title(v.title, v.video_id), link: SV.twUrl(v), cover: SV.twAbs(v.cover || v.origin_cover), description: v.author ? (v.author.nickname || v.author.unique_id) : '', host: BASE_URL }; },
+  twStreams: function (v) {
+    var out = [];
+    if (v.hdplay) out.push({ title: 'HD không logo', data: SV.twAbs(v.hdplay) });
+    if (v.play) out.push({ title: 'SD không logo', data: SV.twAbs(v.play) });
+    if (v.wmplay) out.push({ title: 'Có logo', data: SV.twAbs(v.wmplay) });
+    return out;
+  },
+  // ---- shared helpers
+  videoId: function (url) { var m = /\/(?:video|note|photo)\/(\d{8,})/.exec(url) || /[?&](?:aweme_id|item_id|modal_id)=(\d{8,})/.exec(url); return m ? m[1] : ''; },
+  page: function (p) { var n = parseInt(p || '1', 10); return isNaN(n) || n < 1 ? 1 : n; },
+  webview: function (url) { return Response.success({ type: 'webview', data: url }); },
+  // TikTok list: "feed" (region feed) | "tag:<hashtag>" | "user:<unique_id>"
+  ttList: function (input, page) {
+    input = String(input || 'feed');
+    if (SV.server()) {
+      var j;
+      var cur = page && page !== '1' ? page : '';
+      if (input.indexOf('user:') === 0) j = SV.dtk('tiktok/user/posts', { url: 'https://www.tiktok.com/@' + input.slice(5), cursor: cur, count: 20 });
+      else j = SV.dtk('tiktok/hashtag/posts', { hashtag_id: SV.dtkTag('tiktok', input.indexOf('tag:') === 0 ? input.slice(4) : 'fyp'), cursor: cur, count: 20 });
+      return Response.success(SV.dtkItems(j).map(SV.dtkItem), SV.dtkNext(j));
+    }
+    var n = SV.page(page), d;
+    if (input.indexOf('user:') === 0) {
+      d = SV.tw('/api/user/posts', { unique_id: input.slice(5), count: 20, cursor: page && page !== '1' ? page : 0 });
+      return Response.success((d.videos || []).map(SV.twItem), d.hasMore ? String(d.cursor) : '');
+    }
+    if (input.indexOf('tag:') === 0) {
+      d = SV.tw('/api/feed/search', { keywords: '#' + input.slice(4), count: 20, cursor: (n - 1) * 20, HD: 1 }, true);
+      return Response.success((d.videos || []).map(SV.twItem), d.hasMore ? String(n + 1) : '');
+    }
+    d = SV.tw('/api/feed/list', { region: SV.region(), count: 20 });
+    // the region feed is a fresh random batch on every call: "next page" just asks again (endless Shorts scroll)
+    return Response.success((d || []).map(SV.twItem), n < 30 ? String(n + 1) : '');
+  }
+};
+
+
+function execute(input, page) { return SV.ttList(input, page); }
 
 return typeof execute === 'function' ? execute : undefined;
 })();
@@ -346,344 +257,137 @@ return typeof execute === 'function' ? execute : undefined;
 },
 "search": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
-var DOMAIN = __cfg("DOMAIN");
+var DOMAIN = __cfg("DOMAIN"); var REGION = __cfg("REGION"); var DTK_SERVER = __cfg("DTK_SERVER"); var DTK_KEY = __cfg("DTK_KEY");
 return (function () {
 
 var BASE_URL = "https://www.tiktok.com";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
-var G = {
- "tabs": {
-  "Mới cập nhật": "/[?page={p}]"
- },
- "search": "/tim-kiem?keyword={q}[&page={p}]",
- "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-};
 
 
 
-// Shared helpers for Kiritokmn Extension Repo sources (vBook API, ES5 so it also runs on Rhino).
-var C = {
-  img: function (el) {
-    if (!el) return '';
-    var a = ['data-src', 'data-lazy-src', 'data-original', 'data-lazyload', 'data-cfsrc', 'data-url', 'src'];
-    for (var i = 0; i < a.length; i++) {
-      var v = el.attr(a[i]);
-      if (v && v.indexOf('data:image') !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(v)) return C.fix(v.trim());
+// 0.0.4 — TikTok & Douyin short-video sources (ES5: runs in Rhino, QuickJS, JavaScriptCore and Node).
+//
+// Two back ends, picked by the source settings:
+//  1. DTK_SERVER set  -> the user's own instance of Evil0ctal/Douyin_TikTok_Download_API (REST v1, envelope
+//     {success, data, error, meta}). The instance signs requests itself (X-Bogus / a_bogus / msToken) with its
+//     identity pool, so this source never has to carry those signing algorithms. Optional key: DTK_KEY (X-API-Key).
+//  2. no server       -> public endpoints that need no signature:
+//       TikTok: tikwm.com (region feed, keyword search, video by URL)
+//       Douyin: iesdouyin.com hot-search board (topics); playback needs the DTK server, otherwise the topic
+//               opens on douyin.com in the app's WebView.
+// Item links are always the platform's own canonical URL (https://www.tiktok.com/@user/video/<id>,
+// https://www.douyin.com/video/<id>) so the apps keep watch history / "resume" per clip.
+var SV = {
+  // config globals are declared by the build (var DTK_SERVER = __cfg('DTK_SERVER')); referenced directly, no eval
+  cfg: function (name, def) {
+    var v = '';
+    try { if (name === 'DTK_SERVER') v = DTK_SERVER; else if (name === 'DTK_KEY') v = DTK_KEY; else if (name === 'REGION') v = REGION; } catch (e) { }
+    v = String(v == null ? '' : v).trim(); return v || def || '';
+  },
+  server: function () { return SV.cfg('DTK_SERVER').replace(/\/+$/, ''); },
+  region: function () { return SV.cfg('REGION', 'VN').toUpperCase(); },
+  qs: function (q) { var a = []; for (var k in q) if (q[k] !== null && q[k] !== undefined && q[k] !== '') a.push(k + '=' + encodeURIComponent(q[k])); return a.join('&'); },
+  // ---- back end 1: Douyin_TikTok_Download_API (self-hosted)
+  dtk: function (path, q) {
+    q = q || {}; q.wait = q.wait || 25;
+    var h = { 'Accept': 'application/json' }, key = SV.cfg('DTK_KEY');
+    if (key) h['X-API-Key'] = key;
+    var u = SV.server() + '/api/v1/' + path + '?' + SV.qs(q);
+    var r = fetch(u, { headers: h });
+    var j = null; try { j = r.json(); } catch (e) { }
+    if (!r.ok || !j || j.success === false) {
+      var msg = j && j.error ? (j.error.message || j.error.code) : ('HTTP ' + r.status);
+      throw new Error('Máy chủ Douyin_TikTok_Download_API (' + path + '): ' + msg);
     }
-    var ss = el.attr('data-srcset') || el.attr('srcset');
-    if (ss) return C.fix(ss.split(',').pop().trim().split(' ')[0]);
-    return '';
+    return j;
   },
-  fix: function (u) {
-    if (!u) return '';
-    u = String(u).trim();
-    if (u.indexOf('//') === 0) return 'https:' + u;
-    if (u.indexOf('http') === 0) return u;
-    if (u.charAt(0) === '/') return BASE_URL + u;
-    return BASE_URL + '/' + u;
+  // hashtag posts are keyed by the numeric id: look the name up once and keep it
+  dtkTag: function (platform, name) {
+    var k = 'dtk_tag_' + platform + '_' + name, id = '';
+    try { id = localStorage.getItem(k) || ''; } catch (e) { }
+    if (!id) { id = String((SV.dtk(platform + '/hashtag', { name: name }).data || {}).hashtag_id || ''); try { if (id) localStorage.setItem(k, id); } catch (e) { } }
+    if (!id) throw new Error('Không tìm thấy hashtag #' + name);
+    return id;
   },
-  text: function (doc, sels) {
-    for (var i = 0; i < sels.length; i++) { var t = doc.select(sels[i]).text(); if (t) return t.trim(); }
-    return '';
+  dtkItems: function (j) { var d = j.data; if (d && d.items) d = d.items; return d && d.length !== undefined ? d : []; },
+  dtkNext: function (j) { var c = j.data && j.data.cursor, more = j.data && j.data.has_more; if (!c && j.meta && j.meta.cursor) { c = j.meta.cursor.next; more = j.meta.cursor.has_more; } return more && c ? String(c) : ''; },
+  dtkCover: function (c) { var m = c.media || {}; return m.covers && m.covers.length ? m.covers[0].url : (m.images && m.images.length ? m.images[0].url : ''); },
+  dtkItem: function (c) {
+    var who = c.author ? (c.author.nickname || c.author.unique_id || '') : '';
+    return { name: SV.title(c.title || c.description, c.content_id), link: c.web_url, cover: SV.dtkCover(c), description: who, host: BASE_URL };
   },
-  get: function (url, opt) {
-    opt = opt || {};
-    var h = { 'Referer': BASE_URL + '/' };
-    if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
-    var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
-    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
-    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
-    return r;
-  },
-  cf: function (r) {
-    if (r.status !== 403 && r.status !== 503 && r.status !== 429) return false;
-    var t = r.text() || '';
-    return /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(t.slice(0, 20000));
-  },
-  check: function (r, url) {
-    if (r.ok) return r;
-    if (C.cf(r)) throw new Error('CLOUDFLARE: trang ' + url.split('/').slice(0, 3).join('/') + ' yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
-    throw new Error('HTTP ' + r.status + ' ' + url);
-  },
-  html: function (url, opt) {
-    var r = C.check(C.get(url, opt), url);
-    return r.html(opt && opt.charset);
-  },
-  json: function (url, opt) {
-    var r = C.check(C.get(url, opt), url);
-    return r.json();
-  },
-  page: function (p) { var n = parseInt(p || '1', 10); return isNaN(n) || n < 1 ? 1 : n; },
-  next: function (hasMore, p) { return hasMore ? String(C.page(p) + 1) : ''; },
-  isUrl: function (s) { return /^(https?:)?\/\//.test(s || '') || (s || '').charAt(0) === '/'; },
-  enc: function (s) { return encodeURIComponent(s || ''); },
-  // Remove ads/scripts and empty paragraphs from novel content
-  cleanContent: function (el) {
-    el.select('script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form').remove();
-    return el.html().replace(/\r\n?/g, '\n').replace(/&#13;|&#x0?[dD];/g, '').replace(/&nbsp;/g, ' ').replace(/(<br\s*\/?>\s*){3,}/gi, '<br><br>');
-  },
-  ongoing: function (s) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(s || ''); }
-};
-
-
-
-// Selector-driven template. A site's config.js defines `var G = {...}` (see docs/SOURCE_SPEC.md).
-// Selector syntax: "css" (text), "css@attr" (attribute), "css@html" (inner html), "css@img" (best image url),
-// alternatives separated by " || ". URL patterns use {p} (page), {q} (query), {base}.
-var X = {
-  pick: function (root, spec) {
-    if (!spec || !root) return '';
-    var alts = String(spec).split(' || ');
-    for (var i = 0; i < alts.length; i++) {
-      var s = alts[i], at = 'text', k = s.lastIndexOf('@');
-      if (k > 0 && !/\[[^\]]*@/.test(s.slice(k))) { at = s.slice(k + 1); s = s.slice(0, k); }
-      var els = s === ':self' ? null : root.select(s);
-      var el = s === ':self' ? root : (els.size() ? els.first() : null);
-      if (!el) continue;
-      var v = at === 'text' ? el.text() : at === 'html' ? el.html() : at === 'img' ? C.img(el.is('img') ? el : el.select('img').first()) : at === 'own' ? el.ownText() : el.attr(at);
-      if (v) return String(v).trim();
-    }
-    return '';
-  },
-  url: function (pat, p, q) {
-    var n = C.page(p);
-    var u = String(pat);
-    // {p} -> page number; [..{p}..] optional block removed on page 1
-    u = u.replace(/\[([^\]]*)\]/g, function (m, inner) { return n > 1 ? inner : ''; });
-    u = u.replace(/\{p\}/g, String(n)).replace(/\{p0\}/g, String(n - 1)).replace(/\{q\}/g, C.enc(q || '')).replace(/\{base\}/g, BASE_URL);
-    return C.fix(u);
-  },
-  // `s` = 's_' when parsing a search result page whose cards differ from the list pages (G.s_item, G.s_title, ...)
-  items: function (doc, s) {
-    var k = function (n) { return (s && G[s + n]) || G[n]; };
-    var els = doc.select(k('item')), out = [], seen = {};
-    for (var i = 0; i < els.size(); i++) {
-      var e = els.get(i);
-      var link = X.pick(e, k('link') || 'a@href');
-      if (!link || seen[link] || /^javascript|#$/.test(link)) continue;
-      var name = X.pick(e, k('title') || 'h3 || h2 || a@title || img@alt');
-      if (!name) continue;
-      seen[link] = 1;
-      out.push({ name: name, link: C.fix(link), cover: X.pick(e, k('cover') || 'img@img'), description: X.pick(e, k('desc') || ''), host: BASE_URL });
-    }
+  dtkStreams: function (c) {
+    var m = c.media || {}, out = [], seen = {};
+    var add = function (t, s) { if (s && s.url && !seen[s.url]) { seen[s.url] = 1; out.push({ title: t, data: s.url }); } };
+    add('Không logo', m.video);
+    (m.streams || []).forEach(function (s, i) { add((s.height ? s.height + 'p' : 'Luồng ' + (i + 2)) + (s.watermark ? ' (logo)' : ''), s); });
+    (m.images || []).forEach(function (im, i) { if (im.video) add('Ảnh động ' + (i + 1), im.video); });
     return out;
   },
-  listPage: function (pat, p, q) {
-    var doc = C.html(X.url(pat, p, q), G.req);
-    var items = X.items(doc, q ? 's_' : '');
-    var more = G.next ? doc.select(G.next).size() > 0 : items.length >= (G.pageSize || 10);
-    return Response.success(items, C.next(more && items.length > 0, p));
+  title: function (t, id) { t = String(t || '').replace(/\s+/g, ' ').trim(); return t ? (t.length > 110 ? t.slice(0, 108) + '…' : t) : ('Video ' + (id || '')); },
+  // ---- back end 2a: tikwm (TikTok, no signature)
+  TW: 'https://www.tikwm.com',
+  tw: function (path, q, post) {
+    var u = SV.TW + path, opt = { headers: { 'Accept': 'application/json', 'Referer': SV.TW + '/' } };
+    if (post) { opt.method = 'POST'; opt.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'; opt.body = SV.qs(q); } else u += '?' + SV.qs(q);
+    var r = fetch(u, opt), j = null;
+    try { j = r.json(); } catch (e) { }
+    if (!r.ok || !j || j.code !== 0) throw new Error('tikwm.com: ' + (j && j.msg ? j.msg : 'HTTP ' + r.status) + ' — có thể đặt máy chủ Douyin_TikTok_Download_API trong cài đặt nguồn');
+    return j.data;
   },
-  browse: function (input, p) {
-    var pat = (G.tabs && G.tabs[input]) || input;
-    return X.listPage(pat, p, '');
-  },
-  search: function (key, p) {
-    // q_cut: regex; sites whose search breaks on punctuation only get the text before it
-    if (G.q_cut && !C.isUrl(key)) key = String(key).split(new RegExp(G.q_cut))[0].trim() || key;
-    if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
-    if (G.search_post) {
-      // POST search form: { url, body } — body uses {q}; results are parsed like any list page
-      var doc = C.html(X.url(G.search_post.url, p, key), { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: String(G.search_post.body).replace(/\{q\}/g, C.enc(key)) });
-      var items = X.items(doc, 's_');
-      return Response.success(items, null);
-    }
-    if (G.search_json) return X.jsonSearch(G.search_json, key, p);
-    return X.listPage(G.search, p, key);
-  },
-  // JSON search API: { url, list: 'data.items' (dot path, '' = root array), title, link ('/truyen/{slug}' template or field), cover }
-  jsonSearch: function (J, key, p) {
-    var d = C.json(X.url(J.url, p, key), G.req);
-    if (J.list) J.list.split('.').forEach(function (k) { d = d && d[k]; });
-    var fill = function (o, t) { return String(t || '').indexOf('{') >= 0 ? String(t).replace(/\{(\w+)\}/g, function (m, k) { return o[k] == null ? '' : o[k]; }) : (o[t] == null ? '' : String(o[t])); };
+  twUrl: function (v) { var u = v.author && v.author.unique_id ? v.author.unique_id : 'user'; return 'https://www.tiktok.com/@' + u + '/video/' + (v.video_id || v.id); },
+  twAbs: function (u) { return !u ? '' : /^https?:/.test(u) ? u : SV.TW + (u.charAt(0) === '/' ? '' : '/') + u; },
+  twItem: function (v) { return { name: SV.title(v.title, v.video_id), link: SV.twUrl(v), cover: SV.twAbs(v.cover || v.origin_cover), description: v.author ? (v.author.nickname || v.author.unique_id) : '', host: BASE_URL }; },
+  twStreams: function (v) {
     var out = [];
-    (d || []).forEach(function (o) {
-      var name = fill(o, J.title || 'title'), link = fill(o, J.link || 'url');
-      if (name && link) out.push({ name: name, link: C.fix(link), cover: C.fix(fill(o, J.cover || 'cover')), description: J.desc ? fill(o, J.desc) : '', host: BASE_URL });
-    });
-    return Response.success(out, J.paged && out.length ? C.next(true, p) : null);
+    if (v.hdplay) out.push({ title: 'HD không logo', data: SV.twAbs(v.hdplay) });
+    if (v.play) out.push({ title: 'SD không logo', data: SV.twAbs(v.play) });
+    if (v.wmplay) out.push({ title: 'Có logo', data: SV.twAbs(v.wmplay) });
+    return out;
   },
-  genre: function () {
-    if (!G.genre) return Response.success([]);
-    var doc = C.html(C.fix(G.genrePage || '/'));
-    var out = doc.select(G.genre).map(function (a) { return { title: a.text(), input: C.fix(a.attr('href')), script: 'search.js' }; });
-    return Response.success(out.filter(function (g) { return g.title; }));
-  },
-  detail: function (url) {
-    var doc = C.html(url, G.req);
-    var genres = G.d_genres ? doc.select(G.d_genres).map(function (a) { return { title: a.text(), input: C.fix(a.attr('href')), script: 'search.js' }; }) : [];
-    var status = X.pick(doc, G.d_status);
-    return Response.success({
-      name: X.pick(doc, G.d_title || 'h1'), cover: C.fix(X.pick(doc, G.d_cover || 'meta[property=og:image]@content')),
-      author: X.pick(doc, G.d_author), description: X.pick(doc, (G.d_desc || 'meta[name=description]@content').replace(/$/, '')),
-      detail: status ? 'Tình trạng: ' + status : '', ongoing: C.ongoing(status), genres: genres, host: BASE_URL
-    });
-  },
-  toc: function (url) {
-    if (G.ch_action) return X.actionToc(url);
-    if (G.single) return Response.success([{ name: G.single === true ? 'Xem / Đọc' : G.single, url: url, host: BASE_URL }]);
-    var pages = [url], list = [], seen = {};
-    var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
-    if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
-    for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
-      var els = doc.select(G.ch_list);
-      for (var i = 0; i < els.size(); i++) {
-        var a = els.get(i); var href = G.ch_attr ? a.attr(G.ch_attr) : (a.attr('href') || a.attr('data-href'));
-        if (!href || href === '#' || seen[href]) continue;
-        seen[href] = 1; list.push({ name: (G.ch_name ? X.pick(a, G.ch_name) : a.text()) || a.attr('title'), url: C.fix(href), host: BASE_URL });
-      }
-      var nx = G.ch_next ? doc.select(G.ch_next).first() : null;
-      if (!nx || !nx.attr('href')) break;
-      var nu = C.fix(nx.attr('href'));
-      if (pages.indexOf(nu) >= 0) break;
-      pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
+  // ---- shared helpers
+  videoId: function (url) { var m = /\/(?:video|note|photo)\/(\d{8,})/.exec(url) || /[?&](?:aweme_id|item_id|modal_id)=(\d{8,})/.exec(url); return m ? m[1] : ''; },
+  page: function (p) { var n = parseInt(p || '1', 10); return isNaN(n) || n < 1 ? 1 : n; },
+  webview: function (url) { return Response.success({ type: 'webview', data: url }); },
+  // TikTok list: "feed" (region feed) | "tag:<hashtag>" | "user:<unique_id>"
+  ttList: function (input, page) {
+    input = String(input || 'feed');
+    if (SV.server()) {
+      var j;
+      var cur = page && page !== '1' ? page : '';
+      if (input.indexOf('user:') === 0) j = SV.dtk('tiktok/user/posts', { url: 'https://www.tiktok.com/@' + input.slice(5), cursor: cur, count: 20 });
+      else j = SV.dtk('tiktok/hashtag/posts', { hashtag_id: SV.dtkTag('tiktok', input.indexOf('tag:') === 0 ? input.slice(4) : 'fyp'), cursor: cur, count: 20 });
+      return Response.success(SV.dtkItems(j).map(SV.dtkItem), SV.dtkNext(j));
     }
-    if (G.ch_reverse) list.reverse();
-    // A movie page without an episode list is itself the one episode
-    if (!list.length && G.ch_fallback_single) list.push({ name: G.ch_fallback_single === true ? 'Xem phim' : G.ch_fallback_single, url: url, host: BASE_URL });
-    return Response.success(list);
-  },
-  pages: function (url) {
-    var out = [], visited = [url], u = url;
-    for (var guard = 0; guard < (G.pages_max || 40); guard++) {
-      var doc;
-      if (G.initmanga) {
-        var rr = C.check(C.get(u, G.req), u), bb = rr.text() || '', dec = X.initManga(bb);
-        doc = Html.parse(dec ? '<div id="imc-dec">' + dec + '</div>' : bb, u);
-      } else doc = C.html(u, G.req);
-      var imgs = doc.select(G.initmanga ? '#imc-dec img, ' + (G.pages || '#chapter-content img') : (G.pages || '.page-chapter img, .reading-content img, .chapter-content img'));
-      if (G.initmanga) {
-        // protected canvases: data-enc = base64 of the reversed image url
-        var cv = doc.select('#imc-dec canvas[data-enc]');
-        for (var ci = 0; ci < cv.size(); ci++) {
-          var cu = CryptoJS.enc.Latin1.stringify(CryptoJS.enc.Base64.parse(cv.get(ci).attr('data-enc'))).split('').reverse().join('');
-          if (cu && out.indexOf(cu) < 0) out.push(cu);
-        }
-      }
-      for (var i = 0; i < imgs.size(); i++) { var s = C.img(imgs.get(i)); if (s && out.indexOf(s) < 0) out.push(s); }
-      if (!G.pages_next) break;
-      var nx = doc.select(G.pages_next).first();
-      if (!nx) break;
-      var nu = C.fix(nx.attr('href'));
-      if (!nu || visited.indexOf(nu) >= 0) break;
-      visited.push(nu); u = nu;
+    var n = SV.page(page), d;
+    if (input.indexOf('user:') === 0) {
+      d = SV.tw('/api/user/posts', { unique_id: input.slice(5), count: 20, cursor: page && page !== '1' ? page : 0 });
+      return Response.success((d.videos || []).map(SV.twItem), d.hasMore ? String(d.cursor) : '');
     }
-    return Response.success(out);
-  },
-  text: function (url) {
-    var r = C.check(C.get(url, G.req), url), body = r.text() || '';
-    if (G.content_rsc) {
-      var raw = X.rscText(body), locked = G.c_locked && new RegExp(G.c_locked, 'i').test(body);
-      var lockMsg = locked ? '<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại ' + BASE_URL + ' để đọc tiếp.</i></p>' : '';
-      if (raw || locked) return Response.success(X.toParas(raw) + lockMsg, X.pick(Html.parse(body, url), G.c_title || 'h1 || title'));
+    if (input.indexOf('tag:') === 0) {
+      d = SV.tw('/api/feed/search', { keywords: '#' + input.slice(4), count: 20, cursor: (n - 1) * 20, HD: 1 }, true);
+      return Response.success((d.videos || []).map(SV.twItem), d.hasMore ? String(n + 1) : '');
     }
-    if (G.initmanga) { var dc = X.initManga(body); if (dc) return Response.success(C.cleanContent(Html.parse('<div id="imc-dec">' + dc + '</div>', url).select('#imc-dec').first()), X.pick(Html.parse(body, url), G.c_title || 'h1 || h2')); }
-    var doc = Html.parse(body, url);
-    var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
-    if (!el) {
-      if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(body.slice(0, 20000))) throw new Error('CLOUDFLARE: trang ' + BASE_URL + ' yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
-      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
-    }
-    return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
-  },
-  // ---- WordPress "Init Manga" theme: chapter body is AES-256-CBC encrypted in the page
-  // (key = PBKDF2-SHA512(passphrase from InitMangaData.decryption_key, salt, 999 iter, 32 bytes)); needs CryptoJS (load('crypto.js')).
-  initManga: function (body) {
-    var m = /InitMangaEncryptedChapter\s*=\s*(\{[\s\S]*?\})\s*;/.exec(body), k = /"decryption_key"\s*:\s*"([^"]+)"/.exec(body);
-    if (!m || !k || typeof CryptoJS === 'undefined') return '';
-    var o; try { o = JSON.parse(m[1]); } catch (e) { return ''; }
-    if (!o || !o.ciphertext) return '';
-    var pass = CryptoJS.enc.Utf8.stringify(CryptoJS.enc.Base64.parse(k[1]));
-    var key = CryptoJS.PBKDF2(pass, CryptoJS.enc.Hex.parse(o.salt), { hasher: CryptoJS.algo.SHA512, keySize: 8, iterations: 999 });
-    try { return CryptoJS.AES.decrypt(o.ciphertext, key, { iv: CryptoJS.enc.Hex.parse(o.iv) }).toString(CryptoJS.enc.Utf8); } catch (e) { return ''; }
-  },
-  // ---- Next.js App Router helpers (sites whose TOC comes from a Server Action and whose text lives in the RSC stream)
-  // Server Action ids change on every deploy: try the known id first, then look the id up by its exported name in the page's chunks.
-  rscAction: function (html, name) {
-    var srcs = [], m, re = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g;
-    while ((m = re.exec(html))) if (srcs.indexOf(m[0]) < 0) srcs.push(m[0]);
-    var pat = new RegExp('"([0-9a-f]{40,44})"[^"]{0,200}?"' + name + '"');
-    for (var i = 0; i < srcs.length && i < 60; i++) {
-      var r = C.get(BASE_URL + srcs[i]); if (!r || !r.ok) continue;
-      var mm = pat.exec(r.text() || ''); if (mm) return mm[1];
-    }
-    return '';
-  },
-  rscArray: function (body) {
-    var lines = String(body || '').split('\n');
-    for (var i = 0; i < lines.length; i++) {
-      var mm = /^[0-9a-f]+:(\[.*)$/.exec(lines[i]);
-      if (mm) { try { var a = JSON.parse(mm[1]); if (a && a.length) return a; } catch (e) { } }
-    }
-    return null;
-  },
-  actionToc: function (url) {
-    var A = G.ch_action, html = C.check(C.get(url, G.req), url).text() || '';
-    var am = new RegExp(A.arg).exec(html);
-    if (!am) return Response.error('Không tìm thấy mã truyện trên trang ' + url);
-    var payload = JSON.stringify([am[1]]);
-    var post = function (id) {
-      var r = C.get(url, { method: 'POST', headers: { 'Next-Action': id, 'Accept': 'text/x-component', 'Content-Type': 'text/plain;charset=UTF-8' }, body: payload });
-      return r && r.ok ? X.rscArray(r.text()) : null;
-    };
-    var arr = A.id ? post(A.id) : null;
-    if (!arr) { var id2 = X.rscAction(html, A.name); if (id2 && id2 !== A.id) arr = post(id2); }
-    if (!arr) return Response.error('Không lấy được danh sách chương (Server Action "' + A.name + '")');
-    var base = url.replace(/[?#].*$/, '').replace(/\/+$/, '');
-    return Response.success(arr.map(function (c) {
-      return { name: String(c[A.title || 'label'] || '') + (A.lock && c[A.lock] ? ' 🔒' : ''), url: base + '/' + c[A.slug || 'slugId'], host: BASE_URL };
-    }));
-  },
-  // Join the self.__next_f.push([1,"..."]) chunks and return the longest text row ("<id>:T<hex byte length>,<text>").
-  rscText: function (html) {
-    var s = '', m, re = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g;
-    while ((m = re.exec(html))) { try { s += JSON.parse(m[1]); } catch (e) { } }
-    var best = '', tr = /([0-9a-f]+):T([0-9a-f]+),/g, t;
-    while ((t = tr.exec(s))) {
-      var n = parseInt(t[2], 16), i = tr.lastIndex, b = 0;
-      while (i < s.length && b < n) { var c = s.charCodeAt(i); if (c < 0x80) b += 1; else if (c < 0x800) b += 2; else if (c >= 0xD800 && c <= 0xDBFF) { b += 4; i++; } else b += 3; i++; }
-      var txt = s.slice(tr.lastIndex, i);
-      if (txt.length > best.length) best = txt;
-      tr.lastIndex = i;
-    }
-    return best;
-  },
-  toParas: function (txt) {
-    if (/<p[\s>]|<br\s*\/?>/i.test(txt)) return txt;
-    return txt.split(/\n+/).map(function (l) { l = l.trim(); return l ? '<p>' + l.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</p>' : ''; }).join('');
-  },
-  // Video: list servers on the episode page, then sniff a playable stream from each.
-  servers: function (url) {
-    if (!G.servers) return Response.success([{ title: 'Server', data: url }]);
-    var doc = C.html(url, G.req);
-    var out = doc.select(G.servers).map(function (e) {
-      var d = X.pick(e, G.server_data || ':self@data-link || :self@data-src || :self@href');
-      return { title: e.text() || 'Server', data: C.fix(d) };
-    }).filter(function (s) { return s.data; });
-    return Response.success(out.length ? out : [{ title: 'Server', data: url }]);
-  },
-  sniff: function (text) {
-    text = String(text || '').replace(/\\\//g, '/');
-    var m = text.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || text.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i);
-    return m ? m[0] : '';
-  },
-  track: function (data, depth) {
-    depth = depth || 0;
-    if (/\.(m3u8|mp4)(\?|$)/i.test(data)) return Response.success({ type: 'native', data: data, headers: { Referer: BASE_URL + '/' } });
-    var r = C.get(data);
-    var body = r.text();
-    if (G.video && !depth) { var vv = X.pick(Html.parse(body, data), G.video); if (vv) return Response.success({ type: 'native', data: C.fix(vv), headers: { Referer: BASE_URL + '/' } }); }
-    var s = X.sniff(body);
-    if (s) return Response.success({ type: 'native', data: s, headers: { Referer: (depth ? data : BASE_URL + '/') } });
-    var doc = Html.parse(body, data);
-    var ifr = doc.select(G.iframe || 'iframe[src], iframe[data-src]').first();
-    if (ifr && depth < 2) { var src = C.fix(ifr.attr('src') || ifr.attr('data-src')); if (src) return X.track(src, depth + 1); }
-    return Response.success({ type: 'webview', data: data });
+    d = SV.tw('/api/feed/list', { region: SV.region(), count: 20 });
+    // the region feed is a fresh random batch on every call: "next page" just asks again (endless Shorts scroll)
+    return Response.success((d || []).map(SV.twItem), n < 30 ? String(n + 1) : '');
   }
 };
 
 
-function execute(key, page) { return X.search(key, page); }
+function execute(key, page) {
+  key = String(key || '').trim();
+  var m = /tiktok\.com\/@([\w.-]+)\/?(?:\?|$)/.exec(key) || /^@([\w.-]+)$/.exec(key);
+  if (m) return SV.ttList('user:' + m[1], page);
+  if (SV.videoId(key) || /vm\.tiktok\.com|vt\.tiktok\.com/.test(key)) return Response.success([{ name: 'Video TikTok', link: key, cover: '', description: key, host: BASE_URL }], '');
+  var n = SV.page(page);
+  if (SV.server()) {
+    var j = SV.dtk('tiktok/search/posts', { keyword: key, cursor: n > 1 ? page : '', count: 20 });
+    return Response.success(SV.dtkItems(j).map(SV.dtkItem), SV.dtkNext(j));
+  }
+  var d = SV.tw('/api/feed/search', { keywords: key, count: 20, cursor: (n - 1) * 20, HD: 1 }, true);
+  return Response.success((d.videos || []).map(SV.twItem), d.hasMore ? String(n + 1) : '');
+}
 
 return typeof execute === 'function' ? execute : undefined;
 })();
@@ -691,344 +395,134 @@ return typeof execute === 'function' ? execute : undefined;
 },
 "detail": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
-var DOMAIN = __cfg("DOMAIN");
+var DOMAIN = __cfg("DOMAIN"); var REGION = __cfg("REGION"); var DTK_SERVER = __cfg("DTK_SERVER"); var DTK_KEY = __cfg("DTK_KEY");
 return (function () {
 
 var BASE_URL = "https://www.tiktok.com";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
-var G = {
- "tabs": {
-  "Mới cập nhật": "/[?page={p}]"
- },
- "search": "/tim-kiem?keyword={q}[&page={p}]",
- "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-};
 
 
 
-// Shared helpers for Kiritokmn Extension Repo sources (vBook API, ES5 so it also runs on Rhino).
-var C = {
-  img: function (el) {
-    if (!el) return '';
-    var a = ['data-src', 'data-lazy-src', 'data-original', 'data-lazyload', 'data-cfsrc', 'data-url', 'src'];
-    for (var i = 0; i < a.length; i++) {
-      var v = el.attr(a[i]);
-      if (v && v.indexOf('data:image') !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(v)) return C.fix(v.trim());
+// 0.0.4 — TikTok & Douyin short-video sources (ES5: runs in Rhino, QuickJS, JavaScriptCore and Node).
+//
+// Two back ends, picked by the source settings:
+//  1. DTK_SERVER set  -> the user's own instance of Evil0ctal/Douyin_TikTok_Download_API (REST v1, envelope
+//     {success, data, error, meta}). The instance signs requests itself (X-Bogus / a_bogus / msToken) with its
+//     identity pool, so this source never has to carry those signing algorithms. Optional key: DTK_KEY (X-API-Key).
+//  2. no server       -> public endpoints that need no signature:
+//       TikTok: tikwm.com (region feed, keyword search, video by URL)
+//       Douyin: iesdouyin.com hot-search board (topics); playback needs the DTK server, otherwise the topic
+//               opens on douyin.com in the app's WebView.
+// Item links are always the platform's own canonical URL (https://www.tiktok.com/@user/video/<id>,
+// https://www.douyin.com/video/<id>) so the apps keep watch history / "resume" per clip.
+var SV = {
+  // config globals are declared by the build (var DTK_SERVER = __cfg('DTK_SERVER')); referenced directly, no eval
+  cfg: function (name, def) {
+    var v = '';
+    try { if (name === 'DTK_SERVER') v = DTK_SERVER; else if (name === 'DTK_KEY') v = DTK_KEY; else if (name === 'REGION') v = REGION; } catch (e) { }
+    v = String(v == null ? '' : v).trim(); return v || def || '';
+  },
+  server: function () { return SV.cfg('DTK_SERVER').replace(/\/+$/, ''); },
+  region: function () { return SV.cfg('REGION', 'VN').toUpperCase(); },
+  qs: function (q) { var a = []; for (var k in q) if (q[k] !== null && q[k] !== undefined && q[k] !== '') a.push(k + '=' + encodeURIComponent(q[k])); return a.join('&'); },
+  // ---- back end 1: Douyin_TikTok_Download_API (self-hosted)
+  dtk: function (path, q) {
+    q = q || {}; q.wait = q.wait || 25;
+    var h = { 'Accept': 'application/json' }, key = SV.cfg('DTK_KEY');
+    if (key) h['X-API-Key'] = key;
+    var u = SV.server() + '/api/v1/' + path + '?' + SV.qs(q);
+    var r = fetch(u, { headers: h });
+    var j = null; try { j = r.json(); } catch (e) { }
+    if (!r.ok || !j || j.success === false) {
+      var msg = j && j.error ? (j.error.message || j.error.code) : ('HTTP ' + r.status);
+      throw new Error('Máy chủ Douyin_TikTok_Download_API (' + path + '): ' + msg);
     }
-    var ss = el.attr('data-srcset') || el.attr('srcset');
-    if (ss) return C.fix(ss.split(',').pop().trim().split(' ')[0]);
-    return '';
+    return j;
   },
-  fix: function (u) {
-    if (!u) return '';
-    u = String(u).trim();
-    if (u.indexOf('//') === 0) return 'https:' + u;
-    if (u.indexOf('http') === 0) return u;
-    if (u.charAt(0) === '/') return BASE_URL + u;
-    return BASE_URL + '/' + u;
+  // hashtag posts are keyed by the numeric id: look the name up once and keep it
+  dtkTag: function (platform, name) {
+    var k = 'dtk_tag_' + platform + '_' + name, id = '';
+    try { id = localStorage.getItem(k) || ''; } catch (e) { }
+    if (!id) { id = String((SV.dtk(platform + '/hashtag', { name: name }).data || {}).hashtag_id || ''); try { if (id) localStorage.setItem(k, id); } catch (e) { } }
+    if (!id) throw new Error('Không tìm thấy hashtag #' + name);
+    return id;
   },
-  text: function (doc, sels) {
-    for (var i = 0; i < sels.length; i++) { var t = doc.select(sels[i]).text(); if (t) return t.trim(); }
-    return '';
+  dtkItems: function (j) { var d = j.data; if (d && d.items) d = d.items; return d && d.length !== undefined ? d : []; },
+  dtkNext: function (j) { var c = j.data && j.data.cursor, more = j.data && j.data.has_more; if (!c && j.meta && j.meta.cursor) { c = j.meta.cursor.next; more = j.meta.cursor.has_more; } return more && c ? String(c) : ''; },
+  dtkCover: function (c) { var m = c.media || {}; return m.covers && m.covers.length ? m.covers[0].url : (m.images && m.images.length ? m.images[0].url : ''); },
+  dtkItem: function (c) {
+    var who = c.author ? (c.author.nickname || c.author.unique_id || '') : '';
+    return { name: SV.title(c.title || c.description, c.content_id), link: c.web_url, cover: SV.dtkCover(c), description: who, host: BASE_URL };
   },
-  get: function (url, opt) {
-    opt = opt || {};
-    var h = { 'Referer': BASE_URL + '/' };
-    if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
-    var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
-    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
-    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
-    return r;
-  },
-  cf: function (r) {
-    if (r.status !== 403 && r.status !== 503 && r.status !== 429) return false;
-    var t = r.text() || '';
-    return /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(t.slice(0, 20000));
-  },
-  check: function (r, url) {
-    if (r.ok) return r;
-    if (C.cf(r)) throw new Error('CLOUDFLARE: trang ' + url.split('/').slice(0, 3).join('/') + ' yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
-    throw new Error('HTTP ' + r.status + ' ' + url);
-  },
-  html: function (url, opt) {
-    var r = C.check(C.get(url, opt), url);
-    return r.html(opt && opt.charset);
-  },
-  json: function (url, opt) {
-    var r = C.check(C.get(url, opt), url);
-    return r.json();
-  },
-  page: function (p) { var n = parseInt(p || '1', 10); return isNaN(n) || n < 1 ? 1 : n; },
-  next: function (hasMore, p) { return hasMore ? String(C.page(p) + 1) : ''; },
-  isUrl: function (s) { return /^(https?:)?\/\//.test(s || '') || (s || '').charAt(0) === '/'; },
-  enc: function (s) { return encodeURIComponent(s || ''); },
-  // Remove ads/scripts and empty paragraphs from novel content
-  cleanContent: function (el) {
-    el.select('script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form').remove();
-    return el.html().replace(/\r\n?/g, '\n').replace(/&#13;|&#x0?[dD];/g, '').replace(/&nbsp;/g, ' ').replace(/(<br\s*\/?>\s*){3,}/gi, '<br><br>');
-  },
-  ongoing: function (s) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(s || ''); }
-};
-
-
-
-// Selector-driven template. A site's config.js defines `var G = {...}` (see docs/SOURCE_SPEC.md).
-// Selector syntax: "css" (text), "css@attr" (attribute), "css@html" (inner html), "css@img" (best image url),
-// alternatives separated by " || ". URL patterns use {p} (page), {q} (query), {base}.
-var X = {
-  pick: function (root, spec) {
-    if (!spec || !root) return '';
-    var alts = String(spec).split(' || ');
-    for (var i = 0; i < alts.length; i++) {
-      var s = alts[i], at = 'text', k = s.lastIndexOf('@');
-      if (k > 0 && !/\[[^\]]*@/.test(s.slice(k))) { at = s.slice(k + 1); s = s.slice(0, k); }
-      var els = s === ':self' ? null : root.select(s);
-      var el = s === ':self' ? root : (els.size() ? els.first() : null);
-      if (!el) continue;
-      var v = at === 'text' ? el.text() : at === 'html' ? el.html() : at === 'img' ? C.img(el.is('img') ? el : el.select('img').first()) : at === 'own' ? el.ownText() : el.attr(at);
-      if (v) return String(v).trim();
-    }
-    return '';
-  },
-  url: function (pat, p, q) {
-    var n = C.page(p);
-    var u = String(pat);
-    // {p} -> page number; [..{p}..] optional block removed on page 1
-    u = u.replace(/\[([^\]]*)\]/g, function (m, inner) { return n > 1 ? inner : ''; });
-    u = u.replace(/\{p\}/g, String(n)).replace(/\{p0\}/g, String(n - 1)).replace(/\{q\}/g, C.enc(q || '')).replace(/\{base\}/g, BASE_URL);
-    return C.fix(u);
-  },
-  // `s` = 's_' when parsing a search result page whose cards differ from the list pages (G.s_item, G.s_title, ...)
-  items: function (doc, s) {
-    var k = function (n) { return (s && G[s + n]) || G[n]; };
-    var els = doc.select(k('item')), out = [], seen = {};
-    for (var i = 0; i < els.size(); i++) {
-      var e = els.get(i);
-      var link = X.pick(e, k('link') || 'a@href');
-      if (!link || seen[link] || /^javascript|#$/.test(link)) continue;
-      var name = X.pick(e, k('title') || 'h3 || h2 || a@title || img@alt');
-      if (!name) continue;
-      seen[link] = 1;
-      out.push({ name: name, link: C.fix(link), cover: X.pick(e, k('cover') || 'img@img'), description: X.pick(e, k('desc') || ''), host: BASE_URL });
-    }
+  dtkStreams: function (c) {
+    var m = c.media || {}, out = [], seen = {};
+    var add = function (t, s) { if (s && s.url && !seen[s.url]) { seen[s.url] = 1; out.push({ title: t, data: s.url }); } };
+    add('Không logo', m.video);
+    (m.streams || []).forEach(function (s, i) { add((s.height ? s.height + 'p' : 'Luồng ' + (i + 2)) + (s.watermark ? ' (logo)' : ''), s); });
+    (m.images || []).forEach(function (im, i) { if (im.video) add('Ảnh động ' + (i + 1), im.video); });
     return out;
   },
-  listPage: function (pat, p, q) {
-    var doc = C.html(X.url(pat, p, q), G.req);
-    var items = X.items(doc, q ? 's_' : '');
-    var more = G.next ? doc.select(G.next).size() > 0 : items.length >= (G.pageSize || 10);
-    return Response.success(items, C.next(more && items.length > 0, p));
+  title: function (t, id) { t = String(t || '').replace(/\s+/g, ' ').trim(); return t ? (t.length > 110 ? t.slice(0, 108) + '…' : t) : ('Video ' + (id || '')); },
+  // ---- back end 2a: tikwm (TikTok, no signature)
+  TW: 'https://www.tikwm.com',
+  tw: function (path, q, post) {
+    var u = SV.TW + path, opt = { headers: { 'Accept': 'application/json', 'Referer': SV.TW + '/' } };
+    if (post) { opt.method = 'POST'; opt.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'; opt.body = SV.qs(q); } else u += '?' + SV.qs(q);
+    var r = fetch(u, opt), j = null;
+    try { j = r.json(); } catch (e) { }
+    if (!r.ok || !j || j.code !== 0) throw new Error('tikwm.com: ' + (j && j.msg ? j.msg : 'HTTP ' + r.status) + ' — có thể đặt máy chủ Douyin_TikTok_Download_API trong cài đặt nguồn');
+    return j.data;
   },
-  browse: function (input, p) {
-    var pat = (G.tabs && G.tabs[input]) || input;
-    return X.listPage(pat, p, '');
-  },
-  search: function (key, p) {
-    // q_cut: regex; sites whose search breaks on punctuation only get the text before it
-    if (G.q_cut && !C.isUrl(key)) key = String(key).split(new RegExp(G.q_cut))[0].trim() || key;
-    if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
-    if (G.search_post) {
-      // POST search form: { url, body } — body uses {q}; results are parsed like any list page
-      var doc = C.html(X.url(G.search_post.url, p, key), { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: String(G.search_post.body).replace(/\{q\}/g, C.enc(key)) });
-      var items = X.items(doc, 's_');
-      return Response.success(items, null);
-    }
-    if (G.search_json) return X.jsonSearch(G.search_json, key, p);
-    return X.listPage(G.search, p, key);
-  },
-  // JSON search API: { url, list: 'data.items' (dot path, '' = root array), title, link ('/truyen/{slug}' template or field), cover }
-  jsonSearch: function (J, key, p) {
-    var d = C.json(X.url(J.url, p, key), G.req);
-    if (J.list) J.list.split('.').forEach(function (k) { d = d && d[k]; });
-    var fill = function (o, t) { return String(t || '').indexOf('{') >= 0 ? String(t).replace(/\{(\w+)\}/g, function (m, k) { return o[k] == null ? '' : o[k]; }) : (o[t] == null ? '' : String(o[t])); };
+  twUrl: function (v) { var u = v.author && v.author.unique_id ? v.author.unique_id : 'user'; return 'https://www.tiktok.com/@' + u + '/video/' + (v.video_id || v.id); },
+  twAbs: function (u) { return !u ? '' : /^https?:/.test(u) ? u : SV.TW + (u.charAt(0) === '/' ? '' : '/') + u; },
+  twItem: function (v) { return { name: SV.title(v.title, v.video_id), link: SV.twUrl(v), cover: SV.twAbs(v.cover || v.origin_cover), description: v.author ? (v.author.nickname || v.author.unique_id) : '', host: BASE_URL }; },
+  twStreams: function (v) {
     var out = [];
-    (d || []).forEach(function (o) {
-      var name = fill(o, J.title || 'title'), link = fill(o, J.link || 'url');
-      if (name && link) out.push({ name: name, link: C.fix(link), cover: C.fix(fill(o, J.cover || 'cover')), description: J.desc ? fill(o, J.desc) : '', host: BASE_URL });
-    });
-    return Response.success(out, J.paged && out.length ? C.next(true, p) : null);
+    if (v.hdplay) out.push({ title: 'HD không logo', data: SV.twAbs(v.hdplay) });
+    if (v.play) out.push({ title: 'SD không logo', data: SV.twAbs(v.play) });
+    if (v.wmplay) out.push({ title: 'Có logo', data: SV.twAbs(v.wmplay) });
+    return out;
   },
-  genre: function () {
-    if (!G.genre) return Response.success([]);
-    var doc = C.html(C.fix(G.genrePage || '/'));
-    var out = doc.select(G.genre).map(function (a) { return { title: a.text(), input: C.fix(a.attr('href')), script: 'search.js' }; });
-    return Response.success(out.filter(function (g) { return g.title; }));
-  },
-  detail: function (url) {
-    var doc = C.html(url, G.req);
-    var genres = G.d_genres ? doc.select(G.d_genres).map(function (a) { return { title: a.text(), input: C.fix(a.attr('href')), script: 'search.js' }; }) : [];
-    var status = X.pick(doc, G.d_status);
-    return Response.success({
-      name: X.pick(doc, G.d_title || 'h1'), cover: C.fix(X.pick(doc, G.d_cover || 'meta[property=og:image]@content')),
-      author: X.pick(doc, G.d_author), description: X.pick(doc, (G.d_desc || 'meta[name=description]@content').replace(/$/, '')),
-      detail: status ? 'Tình trạng: ' + status : '', ongoing: C.ongoing(status), genres: genres, host: BASE_URL
-    });
-  },
-  toc: function (url) {
-    if (G.ch_action) return X.actionToc(url);
-    if (G.single) return Response.success([{ name: G.single === true ? 'Xem / Đọc' : G.single, url: url, host: BASE_URL }]);
-    var pages = [url], list = [], seen = {};
-    var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
-    if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
-    for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
-      var els = doc.select(G.ch_list);
-      for (var i = 0; i < els.size(); i++) {
-        var a = els.get(i); var href = G.ch_attr ? a.attr(G.ch_attr) : (a.attr('href') || a.attr('data-href'));
-        if (!href || href === '#' || seen[href]) continue;
-        seen[href] = 1; list.push({ name: (G.ch_name ? X.pick(a, G.ch_name) : a.text()) || a.attr('title'), url: C.fix(href), host: BASE_URL });
-      }
-      var nx = G.ch_next ? doc.select(G.ch_next).first() : null;
-      if (!nx || !nx.attr('href')) break;
-      var nu = C.fix(nx.attr('href'));
-      if (pages.indexOf(nu) >= 0) break;
-      pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
+  // ---- shared helpers
+  videoId: function (url) { var m = /\/(?:video|note|photo)\/(\d{8,})/.exec(url) || /[?&](?:aweme_id|item_id|modal_id)=(\d{8,})/.exec(url); return m ? m[1] : ''; },
+  page: function (p) { var n = parseInt(p || '1', 10); return isNaN(n) || n < 1 ? 1 : n; },
+  webview: function (url) { return Response.success({ type: 'webview', data: url }); },
+  // TikTok list: "feed" (region feed) | "tag:<hashtag>" | "user:<unique_id>"
+  ttList: function (input, page) {
+    input = String(input || 'feed');
+    if (SV.server()) {
+      var j;
+      var cur = page && page !== '1' ? page : '';
+      if (input.indexOf('user:') === 0) j = SV.dtk('tiktok/user/posts', { url: 'https://www.tiktok.com/@' + input.slice(5), cursor: cur, count: 20 });
+      else j = SV.dtk('tiktok/hashtag/posts', { hashtag_id: SV.dtkTag('tiktok', input.indexOf('tag:') === 0 ? input.slice(4) : 'fyp'), cursor: cur, count: 20 });
+      return Response.success(SV.dtkItems(j).map(SV.dtkItem), SV.dtkNext(j));
     }
-    if (G.ch_reverse) list.reverse();
-    // A movie page without an episode list is itself the one episode
-    if (!list.length && G.ch_fallback_single) list.push({ name: G.ch_fallback_single === true ? 'Xem phim' : G.ch_fallback_single, url: url, host: BASE_URL });
-    return Response.success(list);
-  },
-  pages: function (url) {
-    var out = [], visited = [url], u = url;
-    for (var guard = 0; guard < (G.pages_max || 40); guard++) {
-      var doc;
-      if (G.initmanga) {
-        var rr = C.check(C.get(u, G.req), u), bb = rr.text() || '', dec = X.initManga(bb);
-        doc = Html.parse(dec ? '<div id="imc-dec">' + dec + '</div>' : bb, u);
-      } else doc = C.html(u, G.req);
-      var imgs = doc.select(G.initmanga ? '#imc-dec img, ' + (G.pages || '#chapter-content img') : (G.pages || '.page-chapter img, .reading-content img, .chapter-content img'));
-      if (G.initmanga) {
-        // protected canvases: data-enc = base64 of the reversed image url
-        var cv = doc.select('#imc-dec canvas[data-enc]');
-        for (var ci = 0; ci < cv.size(); ci++) {
-          var cu = CryptoJS.enc.Latin1.stringify(CryptoJS.enc.Base64.parse(cv.get(ci).attr('data-enc'))).split('').reverse().join('');
-          if (cu && out.indexOf(cu) < 0) out.push(cu);
-        }
-      }
-      for (var i = 0; i < imgs.size(); i++) { var s = C.img(imgs.get(i)); if (s && out.indexOf(s) < 0) out.push(s); }
-      if (!G.pages_next) break;
-      var nx = doc.select(G.pages_next).first();
-      if (!nx) break;
-      var nu = C.fix(nx.attr('href'));
-      if (!nu || visited.indexOf(nu) >= 0) break;
-      visited.push(nu); u = nu;
+    var n = SV.page(page), d;
+    if (input.indexOf('user:') === 0) {
+      d = SV.tw('/api/user/posts', { unique_id: input.slice(5), count: 20, cursor: page && page !== '1' ? page : 0 });
+      return Response.success((d.videos || []).map(SV.twItem), d.hasMore ? String(d.cursor) : '');
     }
-    return Response.success(out);
-  },
-  text: function (url) {
-    var r = C.check(C.get(url, G.req), url), body = r.text() || '';
-    if (G.content_rsc) {
-      var raw = X.rscText(body), locked = G.c_locked && new RegExp(G.c_locked, 'i').test(body);
-      var lockMsg = locked ? '<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại ' + BASE_URL + ' để đọc tiếp.</i></p>' : '';
-      if (raw || locked) return Response.success(X.toParas(raw) + lockMsg, X.pick(Html.parse(body, url), G.c_title || 'h1 || title'));
+    if (input.indexOf('tag:') === 0) {
+      d = SV.tw('/api/feed/search', { keywords: '#' + input.slice(4), count: 20, cursor: (n - 1) * 20, HD: 1 }, true);
+      return Response.success((d.videos || []).map(SV.twItem), d.hasMore ? String(n + 1) : '');
     }
-    if (G.initmanga) { var dc = X.initManga(body); if (dc) return Response.success(C.cleanContent(Html.parse('<div id="imc-dec">' + dc + '</div>', url).select('#imc-dec').first()), X.pick(Html.parse(body, url), G.c_title || 'h1 || h2')); }
-    var doc = Html.parse(body, url);
-    var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
-    if (!el) {
-      if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(body.slice(0, 20000))) throw new Error('CLOUDFLARE: trang ' + BASE_URL + ' yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
-      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
-    }
-    return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
-  },
-  // ---- WordPress "Init Manga" theme: chapter body is AES-256-CBC encrypted in the page
-  // (key = PBKDF2-SHA512(passphrase from InitMangaData.decryption_key, salt, 999 iter, 32 bytes)); needs CryptoJS (load('crypto.js')).
-  initManga: function (body) {
-    var m = /InitMangaEncryptedChapter\s*=\s*(\{[\s\S]*?\})\s*;/.exec(body), k = /"decryption_key"\s*:\s*"([^"]+)"/.exec(body);
-    if (!m || !k || typeof CryptoJS === 'undefined') return '';
-    var o; try { o = JSON.parse(m[1]); } catch (e) { return ''; }
-    if (!o || !o.ciphertext) return '';
-    var pass = CryptoJS.enc.Utf8.stringify(CryptoJS.enc.Base64.parse(k[1]));
-    var key = CryptoJS.PBKDF2(pass, CryptoJS.enc.Hex.parse(o.salt), { hasher: CryptoJS.algo.SHA512, keySize: 8, iterations: 999 });
-    try { return CryptoJS.AES.decrypt(o.ciphertext, key, { iv: CryptoJS.enc.Hex.parse(o.iv) }).toString(CryptoJS.enc.Utf8); } catch (e) { return ''; }
-  },
-  // ---- Next.js App Router helpers (sites whose TOC comes from a Server Action and whose text lives in the RSC stream)
-  // Server Action ids change on every deploy: try the known id first, then look the id up by its exported name in the page's chunks.
-  rscAction: function (html, name) {
-    var srcs = [], m, re = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g;
-    while ((m = re.exec(html))) if (srcs.indexOf(m[0]) < 0) srcs.push(m[0]);
-    var pat = new RegExp('"([0-9a-f]{40,44})"[^"]{0,200}?"' + name + '"');
-    for (var i = 0; i < srcs.length && i < 60; i++) {
-      var r = C.get(BASE_URL + srcs[i]); if (!r || !r.ok) continue;
-      var mm = pat.exec(r.text() || ''); if (mm) return mm[1];
-    }
-    return '';
-  },
-  rscArray: function (body) {
-    var lines = String(body || '').split('\n');
-    for (var i = 0; i < lines.length; i++) {
-      var mm = /^[0-9a-f]+:(\[.*)$/.exec(lines[i]);
-      if (mm) { try { var a = JSON.parse(mm[1]); if (a && a.length) return a; } catch (e) { } }
-    }
-    return null;
-  },
-  actionToc: function (url) {
-    var A = G.ch_action, html = C.check(C.get(url, G.req), url).text() || '';
-    var am = new RegExp(A.arg).exec(html);
-    if (!am) return Response.error('Không tìm thấy mã truyện trên trang ' + url);
-    var payload = JSON.stringify([am[1]]);
-    var post = function (id) {
-      var r = C.get(url, { method: 'POST', headers: { 'Next-Action': id, 'Accept': 'text/x-component', 'Content-Type': 'text/plain;charset=UTF-8' }, body: payload });
-      return r && r.ok ? X.rscArray(r.text()) : null;
-    };
-    var arr = A.id ? post(A.id) : null;
-    if (!arr) { var id2 = X.rscAction(html, A.name); if (id2 && id2 !== A.id) arr = post(id2); }
-    if (!arr) return Response.error('Không lấy được danh sách chương (Server Action "' + A.name + '")');
-    var base = url.replace(/[?#].*$/, '').replace(/\/+$/, '');
-    return Response.success(arr.map(function (c) {
-      return { name: String(c[A.title || 'label'] || '') + (A.lock && c[A.lock] ? ' 🔒' : ''), url: base + '/' + c[A.slug || 'slugId'], host: BASE_URL };
-    }));
-  },
-  // Join the self.__next_f.push([1,"..."]) chunks and return the longest text row ("<id>:T<hex byte length>,<text>").
-  rscText: function (html) {
-    var s = '', m, re = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g;
-    while ((m = re.exec(html))) { try { s += JSON.parse(m[1]); } catch (e) { } }
-    var best = '', tr = /([0-9a-f]+):T([0-9a-f]+),/g, t;
-    while ((t = tr.exec(s))) {
-      var n = parseInt(t[2], 16), i = tr.lastIndex, b = 0;
-      while (i < s.length && b < n) { var c = s.charCodeAt(i); if (c < 0x80) b += 1; else if (c < 0x800) b += 2; else if (c >= 0xD800 && c <= 0xDBFF) { b += 4; i++; } else b += 3; i++; }
-      var txt = s.slice(tr.lastIndex, i);
-      if (txt.length > best.length) best = txt;
-      tr.lastIndex = i;
-    }
-    return best;
-  },
-  toParas: function (txt) {
-    if (/<p[\s>]|<br\s*\/?>/i.test(txt)) return txt;
-    return txt.split(/\n+/).map(function (l) { l = l.trim(); return l ? '<p>' + l.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</p>' : ''; }).join('');
-  },
-  // Video: list servers on the episode page, then sniff a playable stream from each.
-  servers: function (url) {
-    if (!G.servers) return Response.success([{ title: 'Server', data: url }]);
-    var doc = C.html(url, G.req);
-    var out = doc.select(G.servers).map(function (e) {
-      var d = X.pick(e, G.server_data || ':self@data-link || :self@data-src || :self@href');
-      return { title: e.text() || 'Server', data: C.fix(d) };
-    }).filter(function (s) { return s.data; });
-    return Response.success(out.length ? out : [{ title: 'Server', data: url }]);
-  },
-  sniff: function (text) {
-    text = String(text || '').replace(/\\\//g, '/');
-    var m = text.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || text.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i);
-    return m ? m[0] : '';
-  },
-  track: function (data, depth) {
-    depth = depth || 0;
-    if (/\.(m3u8|mp4)(\?|$)/i.test(data)) return Response.success({ type: 'native', data: data, headers: { Referer: BASE_URL + '/' } });
-    var r = C.get(data);
-    var body = r.text();
-    if (G.video && !depth) { var vv = X.pick(Html.parse(body, data), G.video); if (vv) return Response.success({ type: 'native', data: C.fix(vv), headers: { Referer: BASE_URL + '/' } }); }
-    var s = X.sniff(body);
-    if (s) return Response.success({ type: 'native', data: s, headers: { Referer: (depth ? data : BASE_URL + '/') } });
-    var doc = Html.parse(body, data);
-    var ifr = doc.select(G.iframe || 'iframe[src], iframe[data-src]').first();
-    if (ifr && depth < 2) { var src = C.fix(ifr.attr('src') || ifr.attr('data-src')); if (src) return X.track(src, depth + 1); }
-    return Response.success({ type: 'webview', data: data });
+    d = SV.tw('/api/feed/list', { region: SV.region(), count: 20 });
+    // the region feed is a fresh random batch on every call: "next page" just asks again (endless Shorts scroll)
+    return Response.success((d || []).map(SV.twItem), n < 30 ? String(n + 1) : '');
   }
 };
 
 
-function execute(url) { return X.detail(url); }
+function execute(url) {
+  var v, c;
+  if (SV.server()) {
+    c = SV.dtk('tiktok/video', { url: url }).data;
+    return Response.success({ name: SV.title(c.title || c.description, c.content_id), cover: SV.dtkCover(c), author: c.author ? c.author.nickname : '', description: c.description || '', detail: c.stats ? '▶ ' + (c.stats.play_count || 0) + ' · ♥ ' + (c.stats.digg_count || 0) : '', ongoing: false, genres: (c.tags || []).map(function (t) { return { title: '#' + t, input: 'tag:' + t, script: 'genre.js' }; }), host: BASE_URL });
+  }
+  v = SV.tw('/api/', { url: url, hd: 1 });
+  var a = v.author || {};
+  return Response.success({ name: SV.title(v.title, v.id), cover: SV.twAbs(v.cover || v.origin_cover), author: a.nickname || a.unique_id || '', description: v.title || '', detail: '▶ ' + (v.play_count || 0) + ' · ♥ ' + (v.digg_count || 0) + (v.duration ? ' · ' + v.duration + 's' : ''), ongoing: false, genres: a.unique_id ? [{ title: '@' + a.unique_id, input: 'user:' + a.unique_id, script: 'genre.js' }] : [], host: BASE_URL });
+}
 
 return typeof execute === 'function' ? execute : undefined;
 })();
@@ -1036,344 +530,15 @@ return typeof execute === 'function' ? execute : undefined;
 },
 "toc": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
-var DOMAIN = __cfg("DOMAIN");
+var DOMAIN = __cfg("DOMAIN"); var REGION = __cfg("REGION"); var DTK_SERVER = __cfg("DTK_SERVER"); var DTK_KEY = __cfg("DTK_KEY");
 return (function () {
 
 var BASE_URL = "https://www.tiktok.com";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
-var G = {
- "tabs": {
-  "Mới cập nhật": "/[?page={p}]"
- },
- "search": "/tim-kiem?keyword={q}[&page={p}]",
- "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-};
 
 
-
-// Shared helpers for Kiritokmn Extension Repo sources (vBook API, ES5 so it also runs on Rhino).
-var C = {
-  img: function (el) {
-    if (!el) return '';
-    var a = ['data-src', 'data-lazy-src', 'data-original', 'data-lazyload', 'data-cfsrc', 'data-url', 'src'];
-    for (var i = 0; i < a.length; i++) {
-      var v = el.attr(a[i]);
-      if (v && v.indexOf('data:image') !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(v)) return C.fix(v.trim());
-    }
-    var ss = el.attr('data-srcset') || el.attr('srcset');
-    if (ss) return C.fix(ss.split(',').pop().trim().split(' ')[0]);
-    return '';
-  },
-  fix: function (u) {
-    if (!u) return '';
-    u = String(u).trim();
-    if (u.indexOf('//') === 0) return 'https:' + u;
-    if (u.indexOf('http') === 0) return u;
-    if (u.charAt(0) === '/') return BASE_URL + u;
-    return BASE_URL + '/' + u;
-  },
-  text: function (doc, sels) {
-    for (var i = 0; i < sels.length; i++) { var t = doc.select(sels[i]).text(); if (t) return t.trim(); }
-    return '';
-  },
-  get: function (url, opt) {
-    opt = opt || {};
-    var h = { 'Referer': BASE_URL + '/' };
-    if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
-    var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
-    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
-    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
-    return r;
-  },
-  cf: function (r) {
-    if (r.status !== 403 && r.status !== 503 && r.status !== 429) return false;
-    var t = r.text() || '';
-    return /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(t.slice(0, 20000));
-  },
-  check: function (r, url) {
-    if (r.ok) return r;
-    if (C.cf(r)) throw new Error('CLOUDFLARE: trang ' + url.split('/').slice(0, 3).join('/') + ' yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
-    throw new Error('HTTP ' + r.status + ' ' + url);
-  },
-  html: function (url, opt) {
-    var r = C.check(C.get(url, opt), url);
-    return r.html(opt && opt.charset);
-  },
-  json: function (url, opt) {
-    var r = C.check(C.get(url, opt), url);
-    return r.json();
-  },
-  page: function (p) { var n = parseInt(p || '1', 10); return isNaN(n) || n < 1 ? 1 : n; },
-  next: function (hasMore, p) { return hasMore ? String(C.page(p) + 1) : ''; },
-  isUrl: function (s) { return /^(https?:)?\/\//.test(s || '') || (s || '').charAt(0) === '/'; },
-  enc: function (s) { return encodeURIComponent(s || ''); },
-  // Remove ads/scripts and empty paragraphs from novel content
-  cleanContent: function (el) {
-    el.select('script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form').remove();
-    return el.html().replace(/\r\n?/g, '\n').replace(/&#13;|&#x0?[dD];/g, '').replace(/&nbsp;/g, ' ').replace(/(<br\s*\/?>\s*){3,}/gi, '<br><br>');
-  },
-  ongoing: function (s) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(s || ''); }
-};
-
-
-
-// Selector-driven template. A site's config.js defines `var G = {...}` (see docs/SOURCE_SPEC.md).
-// Selector syntax: "css" (text), "css@attr" (attribute), "css@html" (inner html), "css@img" (best image url),
-// alternatives separated by " || ". URL patterns use {p} (page), {q} (query), {base}.
-var X = {
-  pick: function (root, spec) {
-    if (!spec || !root) return '';
-    var alts = String(spec).split(' || ');
-    for (var i = 0; i < alts.length; i++) {
-      var s = alts[i], at = 'text', k = s.lastIndexOf('@');
-      if (k > 0 && !/\[[^\]]*@/.test(s.slice(k))) { at = s.slice(k + 1); s = s.slice(0, k); }
-      var els = s === ':self' ? null : root.select(s);
-      var el = s === ':self' ? root : (els.size() ? els.first() : null);
-      if (!el) continue;
-      var v = at === 'text' ? el.text() : at === 'html' ? el.html() : at === 'img' ? C.img(el.is('img') ? el : el.select('img').first()) : at === 'own' ? el.ownText() : el.attr(at);
-      if (v) return String(v).trim();
-    }
-    return '';
-  },
-  url: function (pat, p, q) {
-    var n = C.page(p);
-    var u = String(pat);
-    // {p} -> page number; [..{p}..] optional block removed on page 1
-    u = u.replace(/\[([^\]]*)\]/g, function (m, inner) { return n > 1 ? inner : ''; });
-    u = u.replace(/\{p\}/g, String(n)).replace(/\{p0\}/g, String(n - 1)).replace(/\{q\}/g, C.enc(q || '')).replace(/\{base\}/g, BASE_URL);
-    return C.fix(u);
-  },
-  // `s` = 's_' when parsing a search result page whose cards differ from the list pages (G.s_item, G.s_title, ...)
-  items: function (doc, s) {
-    var k = function (n) { return (s && G[s + n]) || G[n]; };
-    var els = doc.select(k('item')), out = [], seen = {};
-    for (var i = 0; i < els.size(); i++) {
-      var e = els.get(i);
-      var link = X.pick(e, k('link') || 'a@href');
-      if (!link || seen[link] || /^javascript|#$/.test(link)) continue;
-      var name = X.pick(e, k('title') || 'h3 || h2 || a@title || img@alt');
-      if (!name) continue;
-      seen[link] = 1;
-      out.push({ name: name, link: C.fix(link), cover: X.pick(e, k('cover') || 'img@img'), description: X.pick(e, k('desc') || ''), host: BASE_URL });
-    }
-    return out;
-  },
-  listPage: function (pat, p, q) {
-    var doc = C.html(X.url(pat, p, q), G.req);
-    var items = X.items(doc, q ? 's_' : '');
-    var more = G.next ? doc.select(G.next).size() > 0 : items.length >= (G.pageSize || 10);
-    return Response.success(items, C.next(more && items.length > 0, p));
-  },
-  browse: function (input, p) {
-    var pat = (G.tabs && G.tabs[input]) || input;
-    return X.listPage(pat, p, '');
-  },
-  search: function (key, p) {
-    // q_cut: regex; sites whose search breaks on punctuation only get the text before it
-    if (G.q_cut && !C.isUrl(key)) key = String(key).split(new RegExp(G.q_cut))[0].trim() || key;
-    if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
-    if (G.search_post) {
-      // POST search form: { url, body } — body uses {q}; results are parsed like any list page
-      var doc = C.html(X.url(G.search_post.url, p, key), { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: String(G.search_post.body).replace(/\{q\}/g, C.enc(key)) });
-      var items = X.items(doc, 's_');
-      return Response.success(items, null);
-    }
-    if (G.search_json) return X.jsonSearch(G.search_json, key, p);
-    return X.listPage(G.search, p, key);
-  },
-  // JSON search API: { url, list: 'data.items' (dot path, '' = root array), title, link ('/truyen/{slug}' template or field), cover }
-  jsonSearch: function (J, key, p) {
-    var d = C.json(X.url(J.url, p, key), G.req);
-    if (J.list) J.list.split('.').forEach(function (k) { d = d && d[k]; });
-    var fill = function (o, t) { return String(t || '').indexOf('{') >= 0 ? String(t).replace(/\{(\w+)\}/g, function (m, k) { return o[k] == null ? '' : o[k]; }) : (o[t] == null ? '' : String(o[t])); };
-    var out = [];
-    (d || []).forEach(function (o) {
-      var name = fill(o, J.title || 'title'), link = fill(o, J.link || 'url');
-      if (name && link) out.push({ name: name, link: C.fix(link), cover: C.fix(fill(o, J.cover || 'cover')), description: J.desc ? fill(o, J.desc) : '', host: BASE_URL });
-    });
-    return Response.success(out, J.paged && out.length ? C.next(true, p) : null);
-  },
-  genre: function () {
-    if (!G.genre) return Response.success([]);
-    var doc = C.html(C.fix(G.genrePage || '/'));
-    var out = doc.select(G.genre).map(function (a) { return { title: a.text(), input: C.fix(a.attr('href')), script: 'search.js' }; });
-    return Response.success(out.filter(function (g) { return g.title; }));
-  },
-  detail: function (url) {
-    var doc = C.html(url, G.req);
-    var genres = G.d_genres ? doc.select(G.d_genres).map(function (a) { return { title: a.text(), input: C.fix(a.attr('href')), script: 'search.js' }; }) : [];
-    var status = X.pick(doc, G.d_status);
-    return Response.success({
-      name: X.pick(doc, G.d_title || 'h1'), cover: C.fix(X.pick(doc, G.d_cover || 'meta[property=og:image]@content')),
-      author: X.pick(doc, G.d_author), description: X.pick(doc, (G.d_desc || 'meta[name=description]@content').replace(/$/, '')),
-      detail: status ? 'Tình trạng: ' + status : '', ongoing: C.ongoing(status), genres: genres, host: BASE_URL
-    });
-  },
-  toc: function (url) {
-    if (G.ch_action) return X.actionToc(url);
-    if (G.single) return Response.success([{ name: G.single === true ? 'Xem / Đọc' : G.single, url: url, host: BASE_URL }]);
-    var pages = [url], list = [], seen = {};
-    var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
-    if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
-    for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
-      var els = doc.select(G.ch_list);
-      for (var i = 0; i < els.size(); i++) {
-        var a = els.get(i); var href = G.ch_attr ? a.attr(G.ch_attr) : (a.attr('href') || a.attr('data-href'));
-        if (!href || href === '#' || seen[href]) continue;
-        seen[href] = 1; list.push({ name: (G.ch_name ? X.pick(a, G.ch_name) : a.text()) || a.attr('title'), url: C.fix(href), host: BASE_URL });
-      }
-      var nx = G.ch_next ? doc.select(G.ch_next).first() : null;
-      if (!nx || !nx.attr('href')) break;
-      var nu = C.fix(nx.attr('href'));
-      if (pages.indexOf(nu) >= 0) break;
-      pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
-    }
-    if (G.ch_reverse) list.reverse();
-    // A movie page without an episode list is itself the one episode
-    if (!list.length && G.ch_fallback_single) list.push({ name: G.ch_fallback_single === true ? 'Xem phim' : G.ch_fallback_single, url: url, host: BASE_URL });
-    return Response.success(list);
-  },
-  pages: function (url) {
-    var out = [], visited = [url], u = url;
-    for (var guard = 0; guard < (G.pages_max || 40); guard++) {
-      var doc;
-      if (G.initmanga) {
-        var rr = C.check(C.get(u, G.req), u), bb = rr.text() || '', dec = X.initManga(bb);
-        doc = Html.parse(dec ? '<div id="imc-dec">' + dec + '</div>' : bb, u);
-      } else doc = C.html(u, G.req);
-      var imgs = doc.select(G.initmanga ? '#imc-dec img, ' + (G.pages || '#chapter-content img') : (G.pages || '.page-chapter img, .reading-content img, .chapter-content img'));
-      if (G.initmanga) {
-        // protected canvases: data-enc = base64 of the reversed image url
-        var cv = doc.select('#imc-dec canvas[data-enc]');
-        for (var ci = 0; ci < cv.size(); ci++) {
-          var cu = CryptoJS.enc.Latin1.stringify(CryptoJS.enc.Base64.parse(cv.get(ci).attr('data-enc'))).split('').reverse().join('');
-          if (cu && out.indexOf(cu) < 0) out.push(cu);
-        }
-      }
-      for (var i = 0; i < imgs.size(); i++) { var s = C.img(imgs.get(i)); if (s && out.indexOf(s) < 0) out.push(s); }
-      if (!G.pages_next) break;
-      var nx = doc.select(G.pages_next).first();
-      if (!nx) break;
-      var nu = C.fix(nx.attr('href'));
-      if (!nu || visited.indexOf(nu) >= 0) break;
-      visited.push(nu); u = nu;
-    }
-    return Response.success(out);
-  },
-  text: function (url) {
-    var r = C.check(C.get(url, G.req), url), body = r.text() || '';
-    if (G.content_rsc) {
-      var raw = X.rscText(body), locked = G.c_locked && new RegExp(G.c_locked, 'i').test(body);
-      var lockMsg = locked ? '<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại ' + BASE_URL + ' để đọc tiếp.</i></p>' : '';
-      if (raw || locked) return Response.success(X.toParas(raw) + lockMsg, X.pick(Html.parse(body, url), G.c_title || 'h1 || title'));
-    }
-    if (G.initmanga) { var dc = X.initManga(body); if (dc) return Response.success(C.cleanContent(Html.parse('<div id="imc-dec">' + dc + '</div>', url).select('#imc-dec').first()), X.pick(Html.parse(body, url), G.c_title || 'h1 || h2')); }
-    var doc = Html.parse(body, url);
-    var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
-    if (!el) {
-      if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(body.slice(0, 20000))) throw new Error('CLOUDFLARE: trang ' + BASE_URL + ' yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
-      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
-    }
-    return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
-  },
-  // ---- WordPress "Init Manga" theme: chapter body is AES-256-CBC encrypted in the page
-  // (key = PBKDF2-SHA512(passphrase from InitMangaData.decryption_key, salt, 999 iter, 32 bytes)); needs CryptoJS (load('crypto.js')).
-  initManga: function (body) {
-    var m = /InitMangaEncryptedChapter\s*=\s*(\{[\s\S]*?\})\s*;/.exec(body), k = /"decryption_key"\s*:\s*"([^"]+)"/.exec(body);
-    if (!m || !k || typeof CryptoJS === 'undefined') return '';
-    var o; try { o = JSON.parse(m[1]); } catch (e) { return ''; }
-    if (!o || !o.ciphertext) return '';
-    var pass = CryptoJS.enc.Utf8.stringify(CryptoJS.enc.Base64.parse(k[1]));
-    var key = CryptoJS.PBKDF2(pass, CryptoJS.enc.Hex.parse(o.salt), { hasher: CryptoJS.algo.SHA512, keySize: 8, iterations: 999 });
-    try { return CryptoJS.AES.decrypt(o.ciphertext, key, { iv: CryptoJS.enc.Hex.parse(o.iv) }).toString(CryptoJS.enc.Utf8); } catch (e) { return ''; }
-  },
-  // ---- Next.js App Router helpers (sites whose TOC comes from a Server Action and whose text lives in the RSC stream)
-  // Server Action ids change on every deploy: try the known id first, then look the id up by its exported name in the page's chunks.
-  rscAction: function (html, name) {
-    var srcs = [], m, re = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g;
-    while ((m = re.exec(html))) if (srcs.indexOf(m[0]) < 0) srcs.push(m[0]);
-    var pat = new RegExp('"([0-9a-f]{40,44})"[^"]{0,200}?"' + name + '"');
-    for (var i = 0; i < srcs.length && i < 60; i++) {
-      var r = C.get(BASE_URL + srcs[i]); if (!r || !r.ok) continue;
-      var mm = pat.exec(r.text() || ''); if (mm) return mm[1];
-    }
-    return '';
-  },
-  rscArray: function (body) {
-    var lines = String(body || '').split('\n');
-    for (var i = 0; i < lines.length; i++) {
-      var mm = /^[0-9a-f]+:(\[.*)$/.exec(lines[i]);
-      if (mm) { try { var a = JSON.parse(mm[1]); if (a && a.length) return a; } catch (e) { } }
-    }
-    return null;
-  },
-  actionToc: function (url) {
-    var A = G.ch_action, html = C.check(C.get(url, G.req), url).text() || '';
-    var am = new RegExp(A.arg).exec(html);
-    if (!am) return Response.error('Không tìm thấy mã truyện trên trang ' + url);
-    var payload = JSON.stringify([am[1]]);
-    var post = function (id) {
-      var r = C.get(url, { method: 'POST', headers: { 'Next-Action': id, 'Accept': 'text/x-component', 'Content-Type': 'text/plain;charset=UTF-8' }, body: payload });
-      return r && r.ok ? X.rscArray(r.text()) : null;
-    };
-    var arr = A.id ? post(A.id) : null;
-    if (!arr) { var id2 = X.rscAction(html, A.name); if (id2 && id2 !== A.id) arr = post(id2); }
-    if (!arr) return Response.error('Không lấy được danh sách chương (Server Action "' + A.name + '")');
-    var base = url.replace(/[?#].*$/, '').replace(/\/+$/, '');
-    return Response.success(arr.map(function (c) {
-      return { name: String(c[A.title || 'label'] || '') + (A.lock && c[A.lock] ? ' 🔒' : ''), url: base + '/' + c[A.slug || 'slugId'], host: BASE_URL };
-    }));
-  },
-  // Join the self.__next_f.push([1,"..."]) chunks and return the longest text row ("<id>:T<hex byte length>,<text>").
-  rscText: function (html) {
-    var s = '', m, re = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g;
-    while ((m = re.exec(html))) { try { s += JSON.parse(m[1]); } catch (e) { } }
-    var best = '', tr = /([0-9a-f]+):T([0-9a-f]+),/g, t;
-    while ((t = tr.exec(s))) {
-      var n = parseInt(t[2], 16), i = tr.lastIndex, b = 0;
-      while (i < s.length && b < n) { var c = s.charCodeAt(i); if (c < 0x80) b += 1; else if (c < 0x800) b += 2; else if (c >= 0xD800 && c <= 0xDBFF) { b += 4; i++; } else b += 3; i++; }
-      var txt = s.slice(tr.lastIndex, i);
-      if (txt.length > best.length) best = txt;
-      tr.lastIndex = i;
-    }
-    return best;
-  },
-  toParas: function (txt) {
-    if (/<p[\s>]|<br\s*\/?>/i.test(txt)) return txt;
-    return txt.split(/\n+/).map(function (l) { l = l.trim(); return l ? '<p>' + l.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</p>' : ''; }).join('');
-  },
-  // Video: list servers on the episode page, then sniff a playable stream from each.
-  servers: function (url) {
-    if (!G.servers) return Response.success([{ title: 'Server', data: url }]);
-    var doc = C.html(url, G.req);
-    var out = doc.select(G.servers).map(function (e) {
-      var d = X.pick(e, G.server_data || ':self@data-link || :self@data-src || :self@href');
-      return { title: e.text() || 'Server', data: C.fix(d) };
-    }).filter(function (s) { return s.data; });
-    return Response.success(out.length ? out : [{ title: 'Server', data: url }]);
-  },
-  sniff: function (text) {
-    text = String(text || '').replace(/\\\//g, '/');
-    var m = text.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || text.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i);
-    return m ? m[0] : '';
-  },
-  track: function (data, depth) {
-    depth = depth || 0;
-    if (/\.(m3u8|mp4)(\?|$)/i.test(data)) return Response.success({ type: 'native', data: data, headers: { Referer: BASE_URL + '/' } });
-    var r = C.get(data);
-    var body = r.text();
-    if (G.video && !depth) { var vv = X.pick(Html.parse(body, data), G.video); if (vv) return Response.success({ type: 'native', data: C.fix(vv), headers: { Referer: BASE_URL + '/' } }); }
-    var s = X.sniff(body);
-    if (s) return Response.success({ type: 'native', data: s, headers: { Referer: (depth ? data : BASE_URL + '/') } });
-    var doc = Html.parse(body, data);
-    var ifr = doc.select(G.iframe || 'iframe[src], iframe[data-src]').first();
-    if (ifr && depth < 2) { var src = C.fix(ifr.attr('src') || ifr.attr('data-src')); if (src) return X.track(src, depth + 1); }
-    return Response.success({ type: 'webview', data: data });
-  }
-};
-
-
-function execute(url) { return X.toc(url); }
+// one clip = one episode; the episode URL is the clip's own canonical URL (stable for watch history / resume)
+function execute(url) { return Response.success([{ name: 'Xem video', url: url, host: BASE_URL }]); }
 
 return typeof execute === 'function' ? execute : undefined;
 })();
@@ -1381,344 +546,131 @@ return typeof execute === 'function' ? execute : undefined;
 },
 "chap": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
-var DOMAIN = __cfg("DOMAIN");
+var DOMAIN = __cfg("DOMAIN"); var REGION = __cfg("REGION"); var DTK_SERVER = __cfg("DTK_SERVER"); var DTK_KEY = __cfg("DTK_KEY");
 return (function () {
 
 var BASE_URL = "https://www.tiktok.com";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
-var G = {
- "tabs": {
-  "Mới cập nhật": "/[?page={p}]"
- },
- "search": "/tim-kiem?keyword={q}[&page={p}]",
- "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-};
 
 
 
-// Shared helpers for Kiritokmn Extension Repo sources (vBook API, ES5 so it also runs on Rhino).
-var C = {
-  img: function (el) {
-    if (!el) return '';
-    var a = ['data-src', 'data-lazy-src', 'data-original', 'data-lazyload', 'data-cfsrc', 'data-url', 'src'];
-    for (var i = 0; i < a.length; i++) {
-      var v = el.attr(a[i]);
-      if (v && v.indexOf('data:image') !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(v)) return C.fix(v.trim());
+// 0.0.4 — TikTok & Douyin short-video sources (ES5: runs in Rhino, QuickJS, JavaScriptCore and Node).
+//
+// Two back ends, picked by the source settings:
+//  1. DTK_SERVER set  -> the user's own instance of Evil0ctal/Douyin_TikTok_Download_API (REST v1, envelope
+//     {success, data, error, meta}). The instance signs requests itself (X-Bogus / a_bogus / msToken) with its
+//     identity pool, so this source never has to carry those signing algorithms. Optional key: DTK_KEY (X-API-Key).
+//  2. no server       -> public endpoints that need no signature:
+//       TikTok: tikwm.com (region feed, keyword search, video by URL)
+//       Douyin: iesdouyin.com hot-search board (topics); playback needs the DTK server, otherwise the topic
+//               opens on douyin.com in the app's WebView.
+// Item links are always the platform's own canonical URL (https://www.tiktok.com/@user/video/<id>,
+// https://www.douyin.com/video/<id>) so the apps keep watch history / "resume" per clip.
+var SV = {
+  // config globals are declared by the build (var DTK_SERVER = __cfg('DTK_SERVER')); referenced directly, no eval
+  cfg: function (name, def) {
+    var v = '';
+    try { if (name === 'DTK_SERVER') v = DTK_SERVER; else if (name === 'DTK_KEY') v = DTK_KEY; else if (name === 'REGION') v = REGION; } catch (e) { }
+    v = String(v == null ? '' : v).trim(); return v || def || '';
+  },
+  server: function () { return SV.cfg('DTK_SERVER').replace(/\/+$/, ''); },
+  region: function () { return SV.cfg('REGION', 'VN').toUpperCase(); },
+  qs: function (q) { var a = []; for (var k in q) if (q[k] !== null && q[k] !== undefined && q[k] !== '') a.push(k + '=' + encodeURIComponent(q[k])); return a.join('&'); },
+  // ---- back end 1: Douyin_TikTok_Download_API (self-hosted)
+  dtk: function (path, q) {
+    q = q || {}; q.wait = q.wait || 25;
+    var h = { 'Accept': 'application/json' }, key = SV.cfg('DTK_KEY');
+    if (key) h['X-API-Key'] = key;
+    var u = SV.server() + '/api/v1/' + path + '?' + SV.qs(q);
+    var r = fetch(u, { headers: h });
+    var j = null; try { j = r.json(); } catch (e) { }
+    if (!r.ok || !j || j.success === false) {
+      var msg = j && j.error ? (j.error.message || j.error.code) : ('HTTP ' + r.status);
+      throw new Error('Máy chủ Douyin_TikTok_Download_API (' + path + '): ' + msg);
     }
-    var ss = el.attr('data-srcset') || el.attr('srcset');
-    if (ss) return C.fix(ss.split(',').pop().trim().split(' ')[0]);
-    return '';
+    return j;
   },
-  fix: function (u) {
-    if (!u) return '';
-    u = String(u).trim();
-    if (u.indexOf('//') === 0) return 'https:' + u;
-    if (u.indexOf('http') === 0) return u;
-    if (u.charAt(0) === '/') return BASE_URL + u;
-    return BASE_URL + '/' + u;
+  // hashtag posts are keyed by the numeric id: look the name up once and keep it
+  dtkTag: function (platform, name) {
+    var k = 'dtk_tag_' + platform + '_' + name, id = '';
+    try { id = localStorage.getItem(k) || ''; } catch (e) { }
+    if (!id) { id = String((SV.dtk(platform + '/hashtag', { name: name }).data || {}).hashtag_id || ''); try { if (id) localStorage.setItem(k, id); } catch (e) { } }
+    if (!id) throw new Error('Không tìm thấy hashtag #' + name);
+    return id;
   },
-  text: function (doc, sels) {
-    for (var i = 0; i < sels.length; i++) { var t = doc.select(sels[i]).text(); if (t) return t.trim(); }
-    return '';
+  dtkItems: function (j) { var d = j.data; if (d && d.items) d = d.items; return d && d.length !== undefined ? d : []; },
+  dtkNext: function (j) { var c = j.data && j.data.cursor, more = j.data && j.data.has_more; if (!c && j.meta && j.meta.cursor) { c = j.meta.cursor.next; more = j.meta.cursor.has_more; } return more && c ? String(c) : ''; },
+  dtkCover: function (c) { var m = c.media || {}; return m.covers && m.covers.length ? m.covers[0].url : (m.images && m.images.length ? m.images[0].url : ''); },
+  dtkItem: function (c) {
+    var who = c.author ? (c.author.nickname || c.author.unique_id || '') : '';
+    return { name: SV.title(c.title || c.description, c.content_id), link: c.web_url, cover: SV.dtkCover(c), description: who, host: BASE_URL };
   },
-  get: function (url, opt) {
-    opt = opt || {};
-    var h = { 'Referer': BASE_URL + '/' };
-    if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
-    var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
-    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
-    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
-    return r;
-  },
-  cf: function (r) {
-    if (r.status !== 403 && r.status !== 503 && r.status !== 429) return false;
-    var t = r.text() || '';
-    return /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(t.slice(0, 20000));
-  },
-  check: function (r, url) {
-    if (r.ok) return r;
-    if (C.cf(r)) throw new Error('CLOUDFLARE: trang ' + url.split('/').slice(0, 3).join('/') + ' yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
-    throw new Error('HTTP ' + r.status + ' ' + url);
-  },
-  html: function (url, opt) {
-    var r = C.check(C.get(url, opt), url);
-    return r.html(opt && opt.charset);
-  },
-  json: function (url, opt) {
-    var r = C.check(C.get(url, opt), url);
-    return r.json();
-  },
-  page: function (p) { var n = parseInt(p || '1', 10); return isNaN(n) || n < 1 ? 1 : n; },
-  next: function (hasMore, p) { return hasMore ? String(C.page(p) + 1) : ''; },
-  isUrl: function (s) { return /^(https?:)?\/\//.test(s || '') || (s || '').charAt(0) === '/'; },
-  enc: function (s) { return encodeURIComponent(s || ''); },
-  // Remove ads/scripts and empty paragraphs from novel content
-  cleanContent: function (el) {
-    el.select('script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form').remove();
-    return el.html().replace(/\r\n?/g, '\n').replace(/&#13;|&#x0?[dD];/g, '').replace(/&nbsp;/g, ' ').replace(/(<br\s*\/?>\s*){3,}/gi, '<br><br>');
-  },
-  ongoing: function (s) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(s || ''); }
-};
-
-
-
-// Selector-driven template. A site's config.js defines `var G = {...}` (see docs/SOURCE_SPEC.md).
-// Selector syntax: "css" (text), "css@attr" (attribute), "css@html" (inner html), "css@img" (best image url),
-// alternatives separated by " || ". URL patterns use {p} (page), {q} (query), {base}.
-var X = {
-  pick: function (root, spec) {
-    if (!spec || !root) return '';
-    var alts = String(spec).split(' || ');
-    for (var i = 0; i < alts.length; i++) {
-      var s = alts[i], at = 'text', k = s.lastIndexOf('@');
-      if (k > 0 && !/\[[^\]]*@/.test(s.slice(k))) { at = s.slice(k + 1); s = s.slice(0, k); }
-      var els = s === ':self' ? null : root.select(s);
-      var el = s === ':self' ? root : (els.size() ? els.first() : null);
-      if (!el) continue;
-      var v = at === 'text' ? el.text() : at === 'html' ? el.html() : at === 'img' ? C.img(el.is('img') ? el : el.select('img').first()) : at === 'own' ? el.ownText() : el.attr(at);
-      if (v) return String(v).trim();
-    }
-    return '';
-  },
-  url: function (pat, p, q) {
-    var n = C.page(p);
-    var u = String(pat);
-    // {p} -> page number; [..{p}..] optional block removed on page 1
-    u = u.replace(/\[([^\]]*)\]/g, function (m, inner) { return n > 1 ? inner : ''; });
-    u = u.replace(/\{p\}/g, String(n)).replace(/\{p0\}/g, String(n - 1)).replace(/\{q\}/g, C.enc(q || '')).replace(/\{base\}/g, BASE_URL);
-    return C.fix(u);
-  },
-  // `s` = 's_' when parsing a search result page whose cards differ from the list pages (G.s_item, G.s_title, ...)
-  items: function (doc, s) {
-    var k = function (n) { return (s && G[s + n]) || G[n]; };
-    var els = doc.select(k('item')), out = [], seen = {};
-    for (var i = 0; i < els.size(); i++) {
-      var e = els.get(i);
-      var link = X.pick(e, k('link') || 'a@href');
-      if (!link || seen[link] || /^javascript|#$/.test(link)) continue;
-      var name = X.pick(e, k('title') || 'h3 || h2 || a@title || img@alt');
-      if (!name) continue;
-      seen[link] = 1;
-      out.push({ name: name, link: C.fix(link), cover: X.pick(e, k('cover') || 'img@img'), description: X.pick(e, k('desc') || ''), host: BASE_URL });
-    }
+  dtkStreams: function (c) {
+    var m = c.media || {}, out = [], seen = {};
+    var add = function (t, s) { if (s && s.url && !seen[s.url]) { seen[s.url] = 1; out.push({ title: t, data: s.url }); } };
+    add('Không logo', m.video);
+    (m.streams || []).forEach(function (s, i) { add((s.height ? s.height + 'p' : 'Luồng ' + (i + 2)) + (s.watermark ? ' (logo)' : ''), s); });
+    (m.images || []).forEach(function (im, i) { if (im.video) add('Ảnh động ' + (i + 1), im.video); });
     return out;
   },
-  listPage: function (pat, p, q) {
-    var doc = C.html(X.url(pat, p, q), G.req);
-    var items = X.items(doc, q ? 's_' : '');
-    var more = G.next ? doc.select(G.next).size() > 0 : items.length >= (G.pageSize || 10);
-    return Response.success(items, C.next(more && items.length > 0, p));
+  title: function (t, id) { t = String(t || '').replace(/\s+/g, ' ').trim(); return t ? (t.length > 110 ? t.slice(0, 108) + '…' : t) : ('Video ' + (id || '')); },
+  // ---- back end 2a: tikwm (TikTok, no signature)
+  TW: 'https://www.tikwm.com',
+  tw: function (path, q, post) {
+    var u = SV.TW + path, opt = { headers: { 'Accept': 'application/json', 'Referer': SV.TW + '/' } };
+    if (post) { opt.method = 'POST'; opt.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'; opt.body = SV.qs(q); } else u += '?' + SV.qs(q);
+    var r = fetch(u, opt), j = null;
+    try { j = r.json(); } catch (e) { }
+    if (!r.ok || !j || j.code !== 0) throw new Error('tikwm.com: ' + (j && j.msg ? j.msg : 'HTTP ' + r.status) + ' — có thể đặt máy chủ Douyin_TikTok_Download_API trong cài đặt nguồn');
+    return j.data;
   },
-  browse: function (input, p) {
-    var pat = (G.tabs && G.tabs[input]) || input;
-    return X.listPage(pat, p, '');
-  },
-  search: function (key, p) {
-    // q_cut: regex; sites whose search breaks on punctuation only get the text before it
-    if (G.q_cut && !C.isUrl(key)) key = String(key).split(new RegExp(G.q_cut))[0].trim() || key;
-    if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
-    if (G.search_post) {
-      // POST search form: { url, body } — body uses {q}; results are parsed like any list page
-      var doc = C.html(X.url(G.search_post.url, p, key), { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: String(G.search_post.body).replace(/\{q\}/g, C.enc(key)) });
-      var items = X.items(doc, 's_');
-      return Response.success(items, null);
-    }
-    if (G.search_json) return X.jsonSearch(G.search_json, key, p);
-    return X.listPage(G.search, p, key);
-  },
-  // JSON search API: { url, list: 'data.items' (dot path, '' = root array), title, link ('/truyen/{slug}' template or field), cover }
-  jsonSearch: function (J, key, p) {
-    var d = C.json(X.url(J.url, p, key), G.req);
-    if (J.list) J.list.split('.').forEach(function (k) { d = d && d[k]; });
-    var fill = function (o, t) { return String(t || '').indexOf('{') >= 0 ? String(t).replace(/\{(\w+)\}/g, function (m, k) { return o[k] == null ? '' : o[k]; }) : (o[t] == null ? '' : String(o[t])); };
+  twUrl: function (v) { var u = v.author && v.author.unique_id ? v.author.unique_id : 'user'; return 'https://www.tiktok.com/@' + u + '/video/' + (v.video_id || v.id); },
+  twAbs: function (u) { return !u ? '' : /^https?:/.test(u) ? u : SV.TW + (u.charAt(0) === '/' ? '' : '/') + u; },
+  twItem: function (v) { return { name: SV.title(v.title, v.video_id), link: SV.twUrl(v), cover: SV.twAbs(v.cover || v.origin_cover), description: v.author ? (v.author.nickname || v.author.unique_id) : '', host: BASE_URL }; },
+  twStreams: function (v) {
     var out = [];
-    (d || []).forEach(function (o) {
-      var name = fill(o, J.title || 'title'), link = fill(o, J.link || 'url');
-      if (name && link) out.push({ name: name, link: C.fix(link), cover: C.fix(fill(o, J.cover || 'cover')), description: J.desc ? fill(o, J.desc) : '', host: BASE_URL });
-    });
-    return Response.success(out, J.paged && out.length ? C.next(true, p) : null);
+    if (v.hdplay) out.push({ title: 'HD không logo', data: SV.twAbs(v.hdplay) });
+    if (v.play) out.push({ title: 'SD không logo', data: SV.twAbs(v.play) });
+    if (v.wmplay) out.push({ title: 'Có logo', data: SV.twAbs(v.wmplay) });
+    return out;
   },
-  genre: function () {
-    if (!G.genre) return Response.success([]);
-    var doc = C.html(C.fix(G.genrePage || '/'));
-    var out = doc.select(G.genre).map(function (a) { return { title: a.text(), input: C.fix(a.attr('href')), script: 'search.js' }; });
-    return Response.success(out.filter(function (g) { return g.title; }));
-  },
-  detail: function (url) {
-    var doc = C.html(url, G.req);
-    var genres = G.d_genres ? doc.select(G.d_genres).map(function (a) { return { title: a.text(), input: C.fix(a.attr('href')), script: 'search.js' }; }) : [];
-    var status = X.pick(doc, G.d_status);
-    return Response.success({
-      name: X.pick(doc, G.d_title || 'h1'), cover: C.fix(X.pick(doc, G.d_cover || 'meta[property=og:image]@content')),
-      author: X.pick(doc, G.d_author), description: X.pick(doc, (G.d_desc || 'meta[name=description]@content').replace(/$/, '')),
-      detail: status ? 'Tình trạng: ' + status : '', ongoing: C.ongoing(status), genres: genres, host: BASE_URL
-    });
-  },
-  toc: function (url) {
-    if (G.ch_action) return X.actionToc(url);
-    if (G.single) return Response.success([{ name: G.single === true ? 'Xem / Đọc' : G.single, url: url, host: BASE_URL }]);
-    var pages = [url], list = [], seen = {};
-    var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
-    if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
-    for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
-      var els = doc.select(G.ch_list);
-      for (var i = 0; i < els.size(); i++) {
-        var a = els.get(i); var href = G.ch_attr ? a.attr(G.ch_attr) : (a.attr('href') || a.attr('data-href'));
-        if (!href || href === '#' || seen[href]) continue;
-        seen[href] = 1; list.push({ name: (G.ch_name ? X.pick(a, G.ch_name) : a.text()) || a.attr('title'), url: C.fix(href), host: BASE_URL });
-      }
-      var nx = G.ch_next ? doc.select(G.ch_next).first() : null;
-      if (!nx || !nx.attr('href')) break;
-      var nu = C.fix(nx.attr('href'));
-      if (pages.indexOf(nu) >= 0) break;
-      pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
+  // ---- shared helpers
+  videoId: function (url) { var m = /\/(?:video|note|photo)\/(\d{8,})/.exec(url) || /[?&](?:aweme_id|item_id|modal_id)=(\d{8,})/.exec(url); return m ? m[1] : ''; },
+  page: function (p) { var n = parseInt(p || '1', 10); return isNaN(n) || n < 1 ? 1 : n; },
+  webview: function (url) { return Response.success({ type: 'webview', data: url }); },
+  // TikTok list: "feed" (region feed) | "tag:<hashtag>" | "user:<unique_id>"
+  ttList: function (input, page) {
+    input = String(input || 'feed');
+    if (SV.server()) {
+      var j;
+      var cur = page && page !== '1' ? page : '';
+      if (input.indexOf('user:') === 0) j = SV.dtk('tiktok/user/posts', { url: 'https://www.tiktok.com/@' + input.slice(5), cursor: cur, count: 20 });
+      else j = SV.dtk('tiktok/hashtag/posts', { hashtag_id: SV.dtkTag('tiktok', input.indexOf('tag:') === 0 ? input.slice(4) : 'fyp'), cursor: cur, count: 20 });
+      return Response.success(SV.dtkItems(j).map(SV.dtkItem), SV.dtkNext(j));
     }
-    if (G.ch_reverse) list.reverse();
-    // A movie page without an episode list is itself the one episode
-    if (!list.length && G.ch_fallback_single) list.push({ name: G.ch_fallback_single === true ? 'Xem phim' : G.ch_fallback_single, url: url, host: BASE_URL });
-    return Response.success(list);
-  },
-  pages: function (url) {
-    var out = [], visited = [url], u = url;
-    for (var guard = 0; guard < (G.pages_max || 40); guard++) {
-      var doc;
-      if (G.initmanga) {
-        var rr = C.check(C.get(u, G.req), u), bb = rr.text() || '', dec = X.initManga(bb);
-        doc = Html.parse(dec ? '<div id="imc-dec">' + dec + '</div>' : bb, u);
-      } else doc = C.html(u, G.req);
-      var imgs = doc.select(G.initmanga ? '#imc-dec img, ' + (G.pages || '#chapter-content img') : (G.pages || '.page-chapter img, .reading-content img, .chapter-content img'));
-      if (G.initmanga) {
-        // protected canvases: data-enc = base64 of the reversed image url
-        var cv = doc.select('#imc-dec canvas[data-enc]');
-        for (var ci = 0; ci < cv.size(); ci++) {
-          var cu = CryptoJS.enc.Latin1.stringify(CryptoJS.enc.Base64.parse(cv.get(ci).attr('data-enc'))).split('').reverse().join('');
-          if (cu && out.indexOf(cu) < 0) out.push(cu);
-        }
-      }
-      for (var i = 0; i < imgs.size(); i++) { var s = C.img(imgs.get(i)); if (s && out.indexOf(s) < 0) out.push(s); }
-      if (!G.pages_next) break;
-      var nx = doc.select(G.pages_next).first();
-      if (!nx) break;
-      var nu = C.fix(nx.attr('href'));
-      if (!nu || visited.indexOf(nu) >= 0) break;
-      visited.push(nu); u = nu;
+    var n = SV.page(page), d;
+    if (input.indexOf('user:') === 0) {
+      d = SV.tw('/api/user/posts', { unique_id: input.slice(5), count: 20, cursor: page && page !== '1' ? page : 0 });
+      return Response.success((d.videos || []).map(SV.twItem), d.hasMore ? String(d.cursor) : '');
     }
-    return Response.success(out);
-  },
-  text: function (url) {
-    var r = C.check(C.get(url, G.req), url), body = r.text() || '';
-    if (G.content_rsc) {
-      var raw = X.rscText(body), locked = G.c_locked && new RegExp(G.c_locked, 'i').test(body);
-      var lockMsg = locked ? '<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại ' + BASE_URL + ' để đọc tiếp.</i></p>' : '';
-      if (raw || locked) return Response.success(X.toParas(raw) + lockMsg, X.pick(Html.parse(body, url), G.c_title || 'h1 || title'));
+    if (input.indexOf('tag:') === 0) {
+      d = SV.tw('/api/feed/search', { keywords: '#' + input.slice(4), count: 20, cursor: (n - 1) * 20, HD: 1 }, true);
+      return Response.success((d.videos || []).map(SV.twItem), d.hasMore ? String(n + 1) : '');
     }
-    if (G.initmanga) { var dc = X.initManga(body); if (dc) return Response.success(C.cleanContent(Html.parse('<div id="imc-dec">' + dc + '</div>', url).select('#imc-dec').first()), X.pick(Html.parse(body, url), G.c_title || 'h1 || h2')); }
-    var doc = Html.parse(body, url);
-    var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
-    if (!el) {
-      if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(body.slice(0, 20000))) throw new Error('CLOUDFLARE: trang ' + BASE_URL + ' yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
-      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
-    }
-    return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
-  },
-  // ---- WordPress "Init Manga" theme: chapter body is AES-256-CBC encrypted in the page
-  // (key = PBKDF2-SHA512(passphrase from InitMangaData.decryption_key, salt, 999 iter, 32 bytes)); needs CryptoJS (load('crypto.js')).
-  initManga: function (body) {
-    var m = /InitMangaEncryptedChapter\s*=\s*(\{[\s\S]*?\})\s*;/.exec(body), k = /"decryption_key"\s*:\s*"([^"]+)"/.exec(body);
-    if (!m || !k || typeof CryptoJS === 'undefined') return '';
-    var o; try { o = JSON.parse(m[1]); } catch (e) { return ''; }
-    if (!o || !o.ciphertext) return '';
-    var pass = CryptoJS.enc.Utf8.stringify(CryptoJS.enc.Base64.parse(k[1]));
-    var key = CryptoJS.PBKDF2(pass, CryptoJS.enc.Hex.parse(o.salt), { hasher: CryptoJS.algo.SHA512, keySize: 8, iterations: 999 });
-    try { return CryptoJS.AES.decrypt(o.ciphertext, key, { iv: CryptoJS.enc.Hex.parse(o.iv) }).toString(CryptoJS.enc.Utf8); } catch (e) { return ''; }
-  },
-  // ---- Next.js App Router helpers (sites whose TOC comes from a Server Action and whose text lives in the RSC stream)
-  // Server Action ids change on every deploy: try the known id first, then look the id up by its exported name in the page's chunks.
-  rscAction: function (html, name) {
-    var srcs = [], m, re = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g;
-    while ((m = re.exec(html))) if (srcs.indexOf(m[0]) < 0) srcs.push(m[0]);
-    var pat = new RegExp('"([0-9a-f]{40,44})"[^"]{0,200}?"' + name + '"');
-    for (var i = 0; i < srcs.length && i < 60; i++) {
-      var r = C.get(BASE_URL + srcs[i]); if (!r || !r.ok) continue;
-      var mm = pat.exec(r.text() || ''); if (mm) return mm[1];
-    }
-    return '';
-  },
-  rscArray: function (body) {
-    var lines = String(body || '').split('\n');
-    for (var i = 0; i < lines.length; i++) {
-      var mm = /^[0-9a-f]+:(\[.*)$/.exec(lines[i]);
-      if (mm) { try { var a = JSON.parse(mm[1]); if (a && a.length) return a; } catch (e) { } }
-    }
-    return null;
-  },
-  actionToc: function (url) {
-    var A = G.ch_action, html = C.check(C.get(url, G.req), url).text() || '';
-    var am = new RegExp(A.arg).exec(html);
-    if (!am) return Response.error('Không tìm thấy mã truyện trên trang ' + url);
-    var payload = JSON.stringify([am[1]]);
-    var post = function (id) {
-      var r = C.get(url, { method: 'POST', headers: { 'Next-Action': id, 'Accept': 'text/x-component', 'Content-Type': 'text/plain;charset=UTF-8' }, body: payload });
-      return r && r.ok ? X.rscArray(r.text()) : null;
-    };
-    var arr = A.id ? post(A.id) : null;
-    if (!arr) { var id2 = X.rscAction(html, A.name); if (id2 && id2 !== A.id) arr = post(id2); }
-    if (!arr) return Response.error('Không lấy được danh sách chương (Server Action "' + A.name + '")');
-    var base = url.replace(/[?#].*$/, '').replace(/\/+$/, '');
-    return Response.success(arr.map(function (c) {
-      return { name: String(c[A.title || 'label'] || '') + (A.lock && c[A.lock] ? ' 🔒' : ''), url: base + '/' + c[A.slug || 'slugId'], host: BASE_URL };
-    }));
-  },
-  // Join the self.__next_f.push([1,"..."]) chunks and return the longest text row ("<id>:T<hex byte length>,<text>").
-  rscText: function (html) {
-    var s = '', m, re = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g;
-    while ((m = re.exec(html))) { try { s += JSON.parse(m[1]); } catch (e) { } }
-    var best = '', tr = /([0-9a-f]+):T([0-9a-f]+),/g, t;
-    while ((t = tr.exec(s))) {
-      var n = parseInt(t[2], 16), i = tr.lastIndex, b = 0;
-      while (i < s.length && b < n) { var c = s.charCodeAt(i); if (c < 0x80) b += 1; else if (c < 0x800) b += 2; else if (c >= 0xD800 && c <= 0xDBFF) { b += 4; i++; } else b += 3; i++; }
-      var txt = s.slice(tr.lastIndex, i);
-      if (txt.length > best.length) best = txt;
-      tr.lastIndex = i;
-    }
-    return best;
-  },
-  toParas: function (txt) {
-    if (/<p[\s>]|<br\s*\/?>/i.test(txt)) return txt;
-    return txt.split(/\n+/).map(function (l) { l = l.trim(); return l ? '<p>' + l.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</p>' : ''; }).join('');
-  },
-  // Video: list servers on the episode page, then sniff a playable stream from each.
-  servers: function (url) {
-    if (!G.servers) return Response.success([{ title: 'Server', data: url }]);
-    var doc = C.html(url, G.req);
-    var out = doc.select(G.servers).map(function (e) {
-      var d = X.pick(e, G.server_data || ':self@data-link || :self@data-src || :self@href');
-      return { title: e.text() || 'Server', data: C.fix(d) };
-    }).filter(function (s) { return s.data; });
-    return Response.success(out.length ? out : [{ title: 'Server', data: url }]);
-  },
-  sniff: function (text) {
-    text = String(text || '').replace(/\\\//g, '/');
-    var m = text.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || text.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i);
-    return m ? m[0] : '';
-  },
-  track: function (data, depth) {
-    depth = depth || 0;
-    if (/\.(m3u8|mp4)(\?|$)/i.test(data)) return Response.success({ type: 'native', data: data, headers: { Referer: BASE_URL + '/' } });
-    var r = C.get(data);
-    var body = r.text();
-    if (G.video && !depth) { var vv = X.pick(Html.parse(body, data), G.video); if (vv) return Response.success({ type: 'native', data: C.fix(vv), headers: { Referer: BASE_URL + '/' } }); }
-    var s = X.sniff(body);
-    if (s) return Response.success({ type: 'native', data: s, headers: { Referer: (depth ? data : BASE_URL + '/') } });
-    var doc = Html.parse(body, data);
-    var ifr = doc.select(G.iframe || 'iframe[src], iframe[data-src]').first();
-    if (ifr && depth < 2) { var src = C.fix(ifr.attr('src') || ifr.attr('data-src')); if (src) return X.track(src, depth + 1); }
-    return Response.success({ type: 'webview', data: data });
+    d = SV.tw('/api/feed/list', { region: SV.region(), count: 20 });
+    // the region feed is a fresh random batch on every call: "next page" just asks again (endless Shorts scroll)
+    return Response.success((d || []).map(SV.twItem), n < 30 ? String(n + 1) : '');
   }
 };
 
 
-function execute(url) { return X.servers(url); }
+function execute(url) {
+  var out;
+  if (SV.server()) out = SV.dtkStreams(SV.dtk('tiktok/video', { url: url }).data);
+  else out = SV.twStreams(SV.tw('/api/', { url: url, hd: 1 }));
+  if (!out.length) return Response.success([{ title: 'Mở trên TikTok', data: url }]);
+  return Response.success(out);
+}
 
 return typeof execute === 'function' ? execute : undefined;
 })();
@@ -1726,689 +678,131 @@ return typeof execute === 'function' ? execute : undefined;
 },
 "track": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
-var DOMAIN = __cfg("DOMAIN");
+var DOMAIN = __cfg("DOMAIN"); var REGION = __cfg("REGION"); var DTK_SERVER = __cfg("DTK_SERVER"); var DTK_KEY = __cfg("DTK_KEY");
 return (function () {
 
 var BASE_URL = "https://www.tiktok.com";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
-var G = {
- "tabs": {
-  "Mới cập nhật": "/[?page={p}]"
- },
- "search": "/tim-kiem?keyword={q}[&page={p}]",
- "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-};
 
 
 
-// Shared helpers for Kiritokmn Extension Repo sources (vBook API, ES5 so it also runs on Rhino).
-var C = {
-  img: function (el) {
-    if (!el) return '';
-    var a = ['data-src', 'data-lazy-src', 'data-original', 'data-lazyload', 'data-cfsrc', 'data-url', 'src'];
-    for (var i = 0; i < a.length; i++) {
-      var v = el.attr(a[i]);
-      if (v && v.indexOf('data:image') !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(v)) return C.fix(v.trim());
+// 0.0.4 — TikTok & Douyin short-video sources (ES5: runs in Rhino, QuickJS, JavaScriptCore and Node).
+//
+// Two back ends, picked by the source settings:
+//  1. DTK_SERVER set  -> the user's own instance of Evil0ctal/Douyin_TikTok_Download_API (REST v1, envelope
+//     {success, data, error, meta}). The instance signs requests itself (X-Bogus / a_bogus / msToken) with its
+//     identity pool, so this source never has to carry those signing algorithms. Optional key: DTK_KEY (X-API-Key).
+//  2. no server       -> public endpoints that need no signature:
+//       TikTok: tikwm.com (region feed, keyword search, video by URL)
+//       Douyin: iesdouyin.com hot-search board (topics); playback needs the DTK server, otherwise the topic
+//               opens on douyin.com in the app's WebView.
+// Item links are always the platform's own canonical URL (https://www.tiktok.com/@user/video/<id>,
+// https://www.douyin.com/video/<id>) so the apps keep watch history / "resume" per clip.
+var SV = {
+  // config globals are declared by the build (var DTK_SERVER = __cfg('DTK_SERVER')); referenced directly, no eval
+  cfg: function (name, def) {
+    var v = '';
+    try { if (name === 'DTK_SERVER') v = DTK_SERVER; else if (name === 'DTK_KEY') v = DTK_KEY; else if (name === 'REGION') v = REGION; } catch (e) { }
+    v = String(v == null ? '' : v).trim(); return v || def || '';
+  },
+  server: function () { return SV.cfg('DTK_SERVER').replace(/\/+$/, ''); },
+  region: function () { return SV.cfg('REGION', 'VN').toUpperCase(); },
+  qs: function (q) { var a = []; for (var k in q) if (q[k] !== null && q[k] !== undefined && q[k] !== '') a.push(k + '=' + encodeURIComponent(q[k])); return a.join('&'); },
+  // ---- back end 1: Douyin_TikTok_Download_API (self-hosted)
+  dtk: function (path, q) {
+    q = q || {}; q.wait = q.wait || 25;
+    var h = { 'Accept': 'application/json' }, key = SV.cfg('DTK_KEY');
+    if (key) h['X-API-Key'] = key;
+    var u = SV.server() + '/api/v1/' + path + '?' + SV.qs(q);
+    var r = fetch(u, { headers: h });
+    var j = null; try { j = r.json(); } catch (e) { }
+    if (!r.ok || !j || j.success === false) {
+      var msg = j && j.error ? (j.error.message || j.error.code) : ('HTTP ' + r.status);
+      throw new Error('Máy chủ Douyin_TikTok_Download_API (' + path + '): ' + msg);
     }
-    var ss = el.attr('data-srcset') || el.attr('srcset');
-    if (ss) return C.fix(ss.split(',').pop().trim().split(' ')[0]);
-    return '';
+    return j;
   },
-  fix: function (u) {
-    if (!u) return '';
-    u = String(u).trim();
-    if (u.indexOf('//') === 0) return 'https:' + u;
-    if (u.indexOf('http') === 0) return u;
-    if (u.charAt(0) === '/') return BASE_URL + u;
-    return BASE_URL + '/' + u;
+  // hashtag posts are keyed by the numeric id: look the name up once and keep it
+  dtkTag: function (platform, name) {
+    var k = 'dtk_tag_' + platform + '_' + name, id = '';
+    try { id = localStorage.getItem(k) || ''; } catch (e) { }
+    if (!id) { id = String((SV.dtk(platform + '/hashtag', { name: name }).data || {}).hashtag_id || ''); try { if (id) localStorage.setItem(k, id); } catch (e) { } }
+    if (!id) throw new Error('Không tìm thấy hashtag #' + name);
+    return id;
   },
-  text: function (doc, sels) {
-    for (var i = 0; i < sels.length; i++) { var t = doc.select(sels[i]).text(); if (t) return t.trim(); }
-    return '';
+  dtkItems: function (j) { var d = j.data; if (d && d.items) d = d.items; return d && d.length !== undefined ? d : []; },
+  dtkNext: function (j) { var c = j.data && j.data.cursor, more = j.data && j.data.has_more; if (!c && j.meta && j.meta.cursor) { c = j.meta.cursor.next; more = j.meta.cursor.has_more; } return more && c ? String(c) : ''; },
+  dtkCover: function (c) { var m = c.media || {}; return m.covers && m.covers.length ? m.covers[0].url : (m.images && m.images.length ? m.images[0].url : ''); },
+  dtkItem: function (c) {
+    var who = c.author ? (c.author.nickname || c.author.unique_id || '') : '';
+    return { name: SV.title(c.title || c.description, c.content_id), link: c.web_url, cover: SV.dtkCover(c), description: who, host: BASE_URL };
   },
-  get: function (url, opt) {
-    opt = opt || {};
-    var h = { 'Referer': BASE_URL + '/' };
-    if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
-    var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
-    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
-    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
-    return r;
-  },
-  cf: function (r) {
-    if (r.status !== 403 && r.status !== 503 && r.status !== 429) return false;
-    var t = r.text() || '';
-    return /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(t.slice(0, 20000));
-  },
-  check: function (r, url) {
-    if (r.ok) return r;
-    if (C.cf(r)) throw new Error('CLOUDFLARE: trang ' + url.split('/').slice(0, 3).join('/') + ' yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
-    throw new Error('HTTP ' + r.status + ' ' + url);
-  },
-  html: function (url, opt) {
-    var r = C.check(C.get(url, opt), url);
-    return r.html(opt && opt.charset);
-  },
-  json: function (url, opt) {
-    var r = C.check(C.get(url, opt), url);
-    return r.json();
-  },
-  page: function (p) { var n = parseInt(p || '1', 10); return isNaN(n) || n < 1 ? 1 : n; },
-  next: function (hasMore, p) { return hasMore ? String(C.page(p) + 1) : ''; },
-  isUrl: function (s) { return /^(https?:)?\/\//.test(s || '') || (s || '').charAt(0) === '/'; },
-  enc: function (s) { return encodeURIComponent(s || ''); },
-  // Remove ads/scripts and empty paragraphs from novel content
-  cleanContent: function (el) {
-    el.select('script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form').remove();
-    return el.html().replace(/\r\n?/g, '\n').replace(/&#13;|&#x0?[dD];/g, '').replace(/&nbsp;/g, ' ').replace(/(<br\s*\/?>\s*){3,}/gi, '<br><br>');
-  },
-  ongoing: function (s) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(s || ''); }
-};
-
-
-
-// Selector-driven template. A site's config.js defines `var G = {...}` (see docs/SOURCE_SPEC.md).
-// Selector syntax: "css" (text), "css@attr" (attribute), "css@html" (inner html), "css@img" (best image url),
-// alternatives separated by " || ". URL patterns use {p} (page), {q} (query), {base}.
-var X = {
-  pick: function (root, spec) {
-    if (!spec || !root) return '';
-    var alts = String(spec).split(' || ');
-    for (var i = 0; i < alts.length; i++) {
-      var s = alts[i], at = 'text', k = s.lastIndexOf('@');
-      if (k > 0 && !/\[[^\]]*@/.test(s.slice(k))) { at = s.slice(k + 1); s = s.slice(0, k); }
-      var els = s === ':self' ? null : root.select(s);
-      var el = s === ':self' ? root : (els.size() ? els.first() : null);
-      if (!el) continue;
-      var v = at === 'text' ? el.text() : at === 'html' ? el.html() : at === 'img' ? C.img(el.is('img') ? el : el.select('img').first()) : at === 'own' ? el.ownText() : el.attr(at);
-      if (v) return String(v).trim();
-    }
-    return '';
-  },
-  url: function (pat, p, q) {
-    var n = C.page(p);
-    var u = String(pat);
-    // {p} -> page number; [..{p}..] optional block removed on page 1
-    u = u.replace(/\[([^\]]*)\]/g, function (m, inner) { return n > 1 ? inner : ''; });
-    u = u.replace(/\{p\}/g, String(n)).replace(/\{p0\}/g, String(n - 1)).replace(/\{q\}/g, C.enc(q || '')).replace(/\{base\}/g, BASE_URL);
-    return C.fix(u);
-  },
-  // `s` = 's_' when parsing a search result page whose cards differ from the list pages (G.s_item, G.s_title, ...)
-  items: function (doc, s) {
-    var k = function (n) { return (s && G[s + n]) || G[n]; };
-    var els = doc.select(k('item')), out = [], seen = {};
-    for (var i = 0; i < els.size(); i++) {
-      var e = els.get(i);
-      var link = X.pick(e, k('link') || 'a@href');
-      if (!link || seen[link] || /^javascript|#$/.test(link)) continue;
-      var name = X.pick(e, k('title') || 'h3 || h2 || a@title || img@alt');
-      if (!name) continue;
-      seen[link] = 1;
-      out.push({ name: name, link: C.fix(link), cover: X.pick(e, k('cover') || 'img@img'), description: X.pick(e, k('desc') || ''), host: BASE_URL });
-    }
+  dtkStreams: function (c) {
+    var m = c.media || {}, out = [], seen = {};
+    var add = function (t, s) { if (s && s.url && !seen[s.url]) { seen[s.url] = 1; out.push({ title: t, data: s.url }); } };
+    add('Không logo', m.video);
+    (m.streams || []).forEach(function (s, i) { add((s.height ? s.height + 'p' : 'Luồng ' + (i + 2)) + (s.watermark ? ' (logo)' : ''), s); });
+    (m.images || []).forEach(function (im, i) { if (im.video) add('Ảnh động ' + (i + 1), im.video); });
     return out;
   },
-  listPage: function (pat, p, q) {
-    var doc = C.html(X.url(pat, p, q), G.req);
-    var items = X.items(doc, q ? 's_' : '');
-    var more = G.next ? doc.select(G.next).size() > 0 : items.length >= (G.pageSize || 10);
-    return Response.success(items, C.next(more && items.length > 0, p));
+  title: function (t, id) { t = String(t || '').replace(/\s+/g, ' ').trim(); return t ? (t.length > 110 ? t.slice(0, 108) + '…' : t) : ('Video ' + (id || '')); },
+  // ---- back end 2a: tikwm (TikTok, no signature)
+  TW: 'https://www.tikwm.com',
+  tw: function (path, q, post) {
+    var u = SV.TW + path, opt = { headers: { 'Accept': 'application/json', 'Referer': SV.TW + '/' } };
+    if (post) { opt.method = 'POST'; opt.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'; opt.body = SV.qs(q); } else u += '?' + SV.qs(q);
+    var r = fetch(u, opt), j = null;
+    try { j = r.json(); } catch (e) { }
+    if (!r.ok || !j || j.code !== 0) throw new Error('tikwm.com: ' + (j && j.msg ? j.msg : 'HTTP ' + r.status) + ' — có thể đặt máy chủ Douyin_TikTok_Download_API trong cài đặt nguồn');
+    return j.data;
   },
-  browse: function (input, p) {
-    var pat = (G.tabs && G.tabs[input]) || input;
-    return X.listPage(pat, p, '');
-  },
-  search: function (key, p) {
-    // q_cut: regex; sites whose search breaks on punctuation only get the text before it
-    if (G.q_cut && !C.isUrl(key)) key = String(key).split(new RegExp(G.q_cut))[0].trim() || key;
-    if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
-    if (G.search_post) {
-      // POST search form: { url, body } — body uses {q}; results are parsed like any list page
-      var doc = C.html(X.url(G.search_post.url, p, key), { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: String(G.search_post.body).replace(/\{q\}/g, C.enc(key)) });
-      var items = X.items(doc, 's_');
-      return Response.success(items, null);
-    }
-    if (G.search_json) return X.jsonSearch(G.search_json, key, p);
-    return X.listPage(G.search, p, key);
-  },
-  // JSON search API: { url, list: 'data.items' (dot path, '' = root array), title, link ('/truyen/{slug}' template or field), cover }
-  jsonSearch: function (J, key, p) {
-    var d = C.json(X.url(J.url, p, key), G.req);
-    if (J.list) J.list.split('.').forEach(function (k) { d = d && d[k]; });
-    var fill = function (o, t) { return String(t || '').indexOf('{') >= 0 ? String(t).replace(/\{(\w+)\}/g, function (m, k) { return o[k] == null ? '' : o[k]; }) : (o[t] == null ? '' : String(o[t])); };
+  twUrl: function (v) { var u = v.author && v.author.unique_id ? v.author.unique_id : 'user'; return 'https://www.tiktok.com/@' + u + '/video/' + (v.video_id || v.id); },
+  twAbs: function (u) { return !u ? '' : /^https?:/.test(u) ? u : SV.TW + (u.charAt(0) === '/' ? '' : '/') + u; },
+  twItem: function (v) { return { name: SV.title(v.title, v.video_id), link: SV.twUrl(v), cover: SV.twAbs(v.cover || v.origin_cover), description: v.author ? (v.author.nickname || v.author.unique_id) : '', host: BASE_URL }; },
+  twStreams: function (v) {
     var out = [];
-    (d || []).forEach(function (o) {
-      var name = fill(o, J.title || 'title'), link = fill(o, J.link || 'url');
-      if (name && link) out.push({ name: name, link: C.fix(link), cover: C.fix(fill(o, J.cover || 'cover')), description: J.desc ? fill(o, J.desc) : '', host: BASE_URL });
-    });
-    return Response.success(out, J.paged && out.length ? C.next(true, p) : null);
+    if (v.hdplay) out.push({ title: 'HD không logo', data: SV.twAbs(v.hdplay) });
+    if (v.play) out.push({ title: 'SD không logo', data: SV.twAbs(v.play) });
+    if (v.wmplay) out.push({ title: 'Có logo', data: SV.twAbs(v.wmplay) });
+    return out;
   },
-  genre: function () {
-    if (!G.genre) return Response.success([]);
-    var doc = C.html(C.fix(G.genrePage || '/'));
-    var out = doc.select(G.genre).map(function (a) { return { title: a.text(), input: C.fix(a.attr('href')), script: 'search.js' }; });
-    return Response.success(out.filter(function (g) { return g.title; }));
-  },
-  detail: function (url) {
-    var doc = C.html(url, G.req);
-    var genres = G.d_genres ? doc.select(G.d_genres).map(function (a) { return { title: a.text(), input: C.fix(a.attr('href')), script: 'search.js' }; }) : [];
-    var status = X.pick(doc, G.d_status);
-    return Response.success({
-      name: X.pick(doc, G.d_title || 'h1'), cover: C.fix(X.pick(doc, G.d_cover || 'meta[property=og:image]@content')),
-      author: X.pick(doc, G.d_author), description: X.pick(doc, (G.d_desc || 'meta[name=description]@content').replace(/$/, '')),
-      detail: status ? 'Tình trạng: ' + status : '', ongoing: C.ongoing(status), genres: genres, host: BASE_URL
-    });
-  },
-  toc: function (url) {
-    if (G.ch_action) return X.actionToc(url);
-    if (G.single) return Response.success([{ name: G.single === true ? 'Xem / Đọc' : G.single, url: url, host: BASE_URL }]);
-    var pages = [url], list = [], seen = {};
-    var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
-    if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
-    for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
-      var els = doc.select(G.ch_list);
-      for (var i = 0; i < els.size(); i++) {
-        var a = els.get(i); var href = G.ch_attr ? a.attr(G.ch_attr) : (a.attr('href') || a.attr('data-href'));
-        if (!href || href === '#' || seen[href]) continue;
-        seen[href] = 1; list.push({ name: (G.ch_name ? X.pick(a, G.ch_name) : a.text()) || a.attr('title'), url: C.fix(href), host: BASE_URL });
-      }
-      var nx = G.ch_next ? doc.select(G.ch_next).first() : null;
-      if (!nx || !nx.attr('href')) break;
-      var nu = C.fix(nx.attr('href'));
-      if (pages.indexOf(nu) >= 0) break;
-      pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
+  // ---- shared helpers
+  videoId: function (url) { var m = /\/(?:video|note|photo)\/(\d{8,})/.exec(url) || /[?&](?:aweme_id|item_id|modal_id)=(\d{8,})/.exec(url); return m ? m[1] : ''; },
+  page: function (p) { var n = parseInt(p || '1', 10); return isNaN(n) || n < 1 ? 1 : n; },
+  webview: function (url) { return Response.success({ type: 'webview', data: url }); },
+  // TikTok list: "feed" (region feed) | "tag:<hashtag>" | "user:<unique_id>"
+  ttList: function (input, page) {
+    input = String(input || 'feed');
+    if (SV.server()) {
+      var j;
+      var cur = page && page !== '1' ? page : '';
+      if (input.indexOf('user:') === 0) j = SV.dtk('tiktok/user/posts', { url: 'https://www.tiktok.com/@' + input.slice(5), cursor: cur, count: 20 });
+      else j = SV.dtk('tiktok/hashtag/posts', { hashtag_id: SV.dtkTag('tiktok', input.indexOf('tag:') === 0 ? input.slice(4) : 'fyp'), cursor: cur, count: 20 });
+      return Response.success(SV.dtkItems(j).map(SV.dtkItem), SV.dtkNext(j));
     }
-    if (G.ch_reverse) list.reverse();
-    // A movie page without an episode list is itself the one episode
-    if (!list.length && G.ch_fallback_single) list.push({ name: G.ch_fallback_single === true ? 'Xem phim' : G.ch_fallback_single, url: url, host: BASE_URL });
-    return Response.success(list);
-  },
-  pages: function (url) {
-    var out = [], visited = [url], u = url;
-    for (var guard = 0; guard < (G.pages_max || 40); guard++) {
-      var doc;
-      if (G.initmanga) {
-        var rr = C.check(C.get(u, G.req), u), bb = rr.text() || '', dec = X.initManga(bb);
-        doc = Html.parse(dec ? '<div id="imc-dec">' + dec + '</div>' : bb, u);
-      } else doc = C.html(u, G.req);
-      var imgs = doc.select(G.initmanga ? '#imc-dec img, ' + (G.pages || '#chapter-content img') : (G.pages || '.page-chapter img, .reading-content img, .chapter-content img'));
-      if (G.initmanga) {
-        // protected canvases: data-enc = base64 of the reversed image url
-        var cv = doc.select('#imc-dec canvas[data-enc]');
-        for (var ci = 0; ci < cv.size(); ci++) {
-          var cu = CryptoJS.enc.Latin1.stringify(CryptoJS.enc.Base64.parse(cv.get(ci).attr('data-enc'))).split('').reverse().join('');
-          if (cu && out.indexOf(cu) < 0) out.push(cu);
-        }
-      }
-      for (var i = 0; i < imgs.size(); i++) { var s = C.img(imgs.get(i)); if (s && out.indexOf(s) < 0) out.push(s); }
-      if (!G.pages_next) break;
-      var nx = doc.select(G.pages_next).first();
-      if (!nx) break;
-      var nu = C.fix(nx.attr('href'));
-      if (!nu || visited.indexOf(nu) >= 0) break;
-      visited.push(nu); u = nu;
+    var n = SV.page(page), d;
+    if (input.indexOf('user:') === 0) {
+      d = SV.tw('/api/user/posts', { unique_id: input.slice(5), count: 20, cursor: page && page !== '1' ? page : 0 });
+      return Response.success((d.videos || []).map(SV.twItem), d.hasMore ? String(d.cursor) : '');
     }
-    return Response.success(out);
-  },
-  text: function (url) {
-    var r = C.check(C.get(url, G.req), url), body = r.text() || '';
-    if (G.content_rsc) {
-      var raw = X.rscText(body), locked = G.c_locked && new RegExp(G.c_locked, 'i').test(body);
-      var lockMsg = locked ? '<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại ' + BASE_URL + ' để đọc tiếp.</i></p>' : '';
-      if (raw || locked) return Response.success(X.toParas(raw) + lockMsg, X.pick(Html.parse(body, url), G.c_title || 'h1 || title'));
+    if (input.indexOf('tag:') === 0) {
+      d = SV.tw('/api/feed/search', { keywords: '#' + input.slice(4), count: 20, cursor: (n - 1) * 20, HD: 1 }, true);
+      return Response.success((d.videos || []).map(SV.twItem), d.hasMore ? String(n + 1) : '');
     }
-    if (G.initmanga) { var dc = X.initManga(body); if (dc) return Response.success(C.cleanContent(Html.parse('<div id="imc-dec">' + dc + '</div>', url).select('#imc-dec').first()), X.pick(Html.parse(body, url), G.c_title || 'h1 || h2')); }
-    var doc = Html.parse(body, url);
-    var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
-    if (!el) {
-      if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(body.slice(0, 20000))) throw new Error('CLOUDFLARE: trang ' + BASE_URL + ' yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
-      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
-    }
-    return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
-  },
-  // ---- WordPress "Init Manga" theme: chapter body is AES-256-CBC encrypted in the page
-  // (key = PBKDF2-SHA512(passphrase from InitMangaData.decryption_key, salt, 999 iter, 32 bytes)); needs CryptoJS (load('crypto.js')).
-  initManga: function (body) {
-    var m = /InitMangaEncryptedChapter\s*=\s*(\{[\s\S]*?\})\s*;/.exec(body), k = /"decryption_key"\s*:\s*"([^"]+)"/.exec(body);
-    if (!m || !k || typeof CryptoJS === 'undefined') return '';
-    var o; try { o = JSON.parse(m[1]); } catch (e) { return ''; }
-    if (!o || !o.ciphertext) return '';
-    var pass = CryptoJS.enc.Utf8.stringify(CryptoJS.enc.Base64.parse(k[1]));
-    var key = CryptoJS.PBKDF2(pass, CryptoJS.enc.Hex.parse(o.salt), { hasher: CryptoJS.algo.SHA512, keySize: 8, iterations: 999 });
-    try { return CryptoJS.AES.decrypt(o.ciphertext, key, { iv: CryptoJS.enc.Hex.parse(o.iv) }).toString(CryptoJS.enc.Utf8); } catch (e) { return ''; }
-  },
-  // ---- Next.js App Router helpers (sites whose TOC comes from a Server Action and whose text lives in the RSC stream)
-  // Server Action ids change on every deploy: try the known id first, then look the id up by its exported name in the page's chunks.
-  rscAction: function (html, name) {
-    var srcs = [], m, re = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g;
-    while ((m = re.exec(html))) if (srcs.indexOf(m[0]) < 0) srcs.push(m[0]);
-    var pat = new RegExp('"([0-9a-f]{40,44})"[^"]{0,200}?"' + name + '"');
-    for (var i = 0; i < srcs.length && i < 60; i++) {
-      var r = C.get(BASE_URL + srcs[i]); if (!r || !r.ok) continue;
-      var mm = pat.exec(r.text() || ''); if (mm) return mm[1];
-    }
-    return '';
-  },
-  rscArray: function (body) {
-    var lines = String(body || '').split('\n');
-    for (var i = 0; i < lines.length; i++) {
-      var mm = /^[0-9a-f]+:(\[.*)$/.exec(lines[i]);
-      if (mm) { try { var a = JSON.parse(mm[1]); if (a && a.length) return a; } catch (e) { } }
-    }
-    return null;
-  },
-  actionToc: function (url) {
-    var A = G.ch_action, html = C.check(C.get(url, G.req), url).text() || '';
-    var am = new RegExp(A.arg).exec(html);
-    if (!am) return Response.error('Không tìm thấy mã truyện trên trang ' + url);
-    var payload = JSON.stringify([am[1]]);
-    var post = function (id) {
-      var r = C.get(url, { method: 'POST', headers: { 'Next-Action': id, 'Accept': 'text/x-component', 'Content-Type': 'text/plain;charset=UTF-8' }, body: payload });
-      return r && r.ok ? X.rscArray(r.text()) : null;
-    };
-    var arr = A.id ? post(A.id) : null;
-    if (!arr) { var id2 = X.rscAction(html, A.name); if (id2 && id2 !== A.id) arr = post(id2); }
-    if (!arr) return Response.error('Không lấy được danh sách chương (Server Action "' + A.name + '")');
-    var base = url.replace(/[?#].*$/, '').replace(/\/+$/, '');
-    return Response.success(arr.map(function (c) {
-      return { name: String(c[A.title || 'label'] || '') + (A.lock && c[A.lock] ? ' 🔒' : ''), url: base + '/' + c[A.slug || 'slugId'], host: BASE_URL };
-    }));
-  },
-  // Join the self.__next_f.push([1,"..."]) chunks and return the longest text row ("<id>:T<hex byte length>,<text>").
-  rscText: function (html) {
-    var s = '', m, re = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g;
-    while ((m = re.exec(html))) { try { s += JSON.parse(m[1]); } catch (e) { } }
-    var best = '', tr = /([0-9a-f]+):T([0-9a-f]+),/g, t;
-    while ((t = tr.exec(s))) {
-      var n = parseInt(t[2], 16), i = tr.lastIndex, b = 0;
-      while (i < s.length && b < n) { var c = s.charCodeAt(i); if (c < 0x80) b += 1; else if (c < 0x800) b += 2; else if (c >= 0xD800 && c <= 0xDBFF) { b += 4; i++; } else b += 3; i++; }
-      var txt = s.slice(tr.lastIndex, i);
-      if (txt.length > best.length) best = txt;
-      tr.lastIndex = i;
-    }
-    return best;
-  },
-  toParas: function (txt) {
-    if (/<p[\s>]|<br\s*\/?>/i.test(txt)) return txt;
-    return txt.split(/\n+/).map(function (l) { l = l.trim(); return l ? '<p>' + l.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</p>' : ''; }).join('');
-  },
-  // Video: list servers on the episode page, then sniff a playable stream from each.
-  servers: function (url) {
-    if (!G.servers) return Response.success([{ title: 'Server', data: url }]);
-    var doc = C.html(url, G.req);
-    var out = doc.select(G.servers).map(function (e) {
-      var d = X.pick(e, G.server_data || ':self@data-link || :self@data-src || :self@href');
-      return { title: e.text() || 'Server', data: C.fix(d) };
-    }).filter(function (s) { return s.data; });
-    return Response.success(out.length ? out : [{ title: 'Server', data: url }]);
-  },
-  sniff: function (text) {
-    text = String(text || '').replace(/\\\//g, '/');
-    var m = text.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || text.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i);
-    return m ? m[0] : '';
-  },
-  track: function (data, depth) {
-    depth = depth || 0;
-    if (/\.(m3u8|mp4)(\?|$)/i.test(data)) return Response.success({ type: 'native', data: data, headers: { Referer: BASE_URL + '/' } });
-    var r = C.get(data);
-    var body = r.text();
-    if (G.video && !depth) { var vv = X.pick(Html.parse(body, data), G.video); if (vv) return Response.success({ type: 'native', data: C.fix(vv), headers: { Referer: BASE_URL + '/' } }); }
-    var s = X.sniff(body);
-    if (s) return Response.success({ type: 'native', data: s, headers: { Referer: (depth ? data : BASE_URL + '/') } });
-    var doc = Html.parse(body, data);
-    var ifr = doc.select(G.iframe || 'iframe[src], iframe[data-src]').first();
-    if (ifr && depth < 2) { var src = C.fix(ifr.attr('src') || ifr.attr('data-src')); if (src) return X.track(src, depth + 1); }
-    return Response.success({ type: 'webview', data: data });
+    d = SV.tw('/api/feed/list', { region: SV.region(), count: 20 });
+    // the region feed is a fresh random batch on every call: "next page" just asks again (endless Shorts scroll)
+    return Response.success((d || []).map(SV.twItem), n < 30 ? String(n + 1) : '');
   }
 };
 
 
-function execute(data) { return X.track(data); }
-
-return typeof execute === 'function' ? execute : undefined;
-})();
-})(__env.fetch, __env.Http, __env.Html, __env.Response, __env.localStorage, __env.cacheStorage, __env.localConfig, __env.localCookie, __env.sleep, __env.Log, __env.console, __env.Console, __env.log, __env.UserAgent, __env.Engine, __env.Graphics, __env.Script);
-},
-"browse": function (__env, __cfg) {
-return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
-var DOMAIN = __cfg("DOMAIN");
-return (function () {
-
-var BASE_URL = "https://www.tiktok.com";
-try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
-var G = {
- "tabs": {
-  "Mới cập nhật": "/[?page={p}]"
- },
- "search": "/tim-kiem?keyword={q}[&page={p}]",
- "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
-};
-
-
-
-// Shared helpers for Kiritokmn Extension Repo sources (vBook API, ES5 so it also runs on Rhino).
-var C = {
-  img: function (el) {
-    if (!el) return '';
-    var a = ['data-src', 'data-lazy-src', 'data-original', 'data-lazyload', 'data-cfsrc', 'data-url', 'src'];
-    for (var i = 0; i < a.length; i++) {
-      var v = el.attr(a[i]);
-      if (v && v.indexOf('data:image') !== 0 && !/dflazy|lazy\.|placeholder|blank\.(gif|png)/i.test(v)) return C.fix(v.trim());
-    }
-    var ss = el.attr('data-srcset') || el.attr('srcset');
-    if (ss) return C.fix(ss.split(',').pop().trim().split(' ')[0]);
-    return '';
-  },
-  fix: function (u) {
-    if (!u) return '';
-    u = String(u).trim();
-    if (u.indexOf('//') === 0) return 'https:' + u;
-    if (u.indexOf('http') === 0) return u;
-    if (u.charAt(0) === '/') return BASE_URL + u;
-    return BASE_URL + '/' + u;
-  },
-  text: function (doc, sels) {
-    for (var i = 0; i < sels.length; i++) { var t = doc.select(sels[i]).text(); if (t) return t.trim(); }
-    return '';
-  },
-  get: function (url, opt) {
-    opt = opt || {};
-    var h = { 'Referer': BASE_URL + '/' };
-    if (opt.headers) for (var k in opt.headers) h[k] = opt.headers[k];
-    var r = fetch(url, { method: opt.method, headers: h, body: opt.body });
-    // 429 Too Many Requests: back off and retry (WordPress/Cloudflare rate limits when paging a long TOC)
-    for (var tries = 0; r && r.status === 429 && tries < 3 && !C.cf(r); tries++) { sleep(1500 * (tries + 1)); r = fetch(url, { method: opt.method, headers: h, body: opt.body }); }
-    return r;
-  },
-  cf: function (r) {
-    if (r.status !== 403 && r.status !== 503 && r.status !== 429) return false;
-    var t = r.text() || '';
-    return /cf_chl|challenge-platform|Just a moment|Attention Required|cf-turnstile|Verifying you are human/i.test(t.slice(0, 20000));
-  },
-  check: function (r, url) {
-    if (r.ok) return r;
-    if (C.cf(r)) throw new Error('CLOUDFLARE: trang ' + url.split('/').slice(0, 3).join('/') + ' yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
-    throw new Error('HTTP ' + r.status + ' ' + url);
-  },
-  html: function (url, opt) {
-    var r = C.check(C.get(url, opt), url);
-    return r.html(opt && opt.charset);
-  },
-  json: function (url, opt) {
-    var r = C.check(C.get(url, opt), url);
-    return r.json();
-  },
-  page: function (p) { var n = parseInt(p || '1', 10); return isNaN(n) || n < 1 ? 1 : n; },
-  next: function (hasMore, p) { return hasMore ? String(C.page(p) + 1) : ''; },
-  isUrl: function (s) { return /^(https?:)?\/\//.test(s || '') || (s || '').charAt(0) === '/'; },
-  enc: function (s) { return encodeURIComponent(s || ''); },
-  // Remove ads/scripts and empty paragraphs from novel content
-  cleanContent: function (el) {
-    el.select('script, style, ins, iframe, noscript, .ads, .ad, [class*=ads-], [id*=ads], .adsbygoogle, button, form').remove();
-    return el.html().replace(/\r\n?/g, '\n').replace(/&#13;|&#x0?[dD];/g, '').replace(/&nbsp;/g, ' ').replace(/(<br\s*\/?>\s*){3,}/gi, '<br><br>');
-  },
-  ongoing: function (s) { return !/(hoàn thành|hoàn tất|full|completed|完结|完本|已完结|finished|end)/i.test(s || ''); }
-};
-
-
-
-// Selector-driven template. A site's config.js defines `var G = {...}` (see docs/SOURCE_SPEC.md).
-// Selector syntax: "css" (text), "css@attr" (attribute), "css@html" (inner html), "css@img" (best image url),
-// alternatives separated by " || ". URL patterns use {p} (page), {q} (query), {base}.
-var X = {
-  pick: function (root, spec) {
-    if (!spec || !root) return '';
-    var alts = String(spec).split(' || ');
-    for (var i = 0; i < alts.length; i++) {
-      var s = alts[i], at = 'text', k = s.lastIndexOf('@');
-      if (k > 0 && !/\[[^\]]*@/.test(s.slice(k))) { at = s.slice(k + 1); s = s.slice(0, k); }
-      var els = s === ':self' ? null : root.select(s);
-      var el = s === ':self' ? root : (els.size() ? els.first() : null);
-      if (!el) continue;
-      var v = at === 'text' ? el.text() : at === 'html' ? el.html() : at === 'img' ? C.img(el.is('img') ? el : el.select('img').first()) : at === 'own' ? el.ownText() : el.attr(at);
-      if (v) return String(v).trim();
-    }
-    return '';
-  },
-  url: function (pat, p, q) {
-    var n = C.page(p);
-    var u = String(pat);
-    // {p} -> page number; [..{p}..] optional block removed on page 1
-    u = u.replace(/\[([^\]]*)\]/g, function (m, inner) { return n > 1 ? inner : ''; });
-    u = u.replace(/\{p\}/g, String(n)).replace(/\{p0\}/g, String(n - 1)).replace(/\{q\}/g, C.enc(q || '')).replace(/\{base\}/g, BASE_URL);
-    return C.fix(u);
-  },
-  // `s` = 's_' when parsing a search result page whose cards differ from the list pages (G.s_item, G.s_title, ...)
-  items: function (doc, s) {
-    var k = function (n) { return (s && G[s + n]) || G[n]; };
-    var els = doc.select(k('item')), out = [], seen = {};
-    for (var i = 0; i < els.size(); i++) {
-      var e = els.get(i);
-      var link = X.pick(e, k('link') || 'a@href');
-      if (!link || seen[link] || /^javascript|#$/.test(link)) continue;
-      var name = X.pick(e, k('title') || 'h3 || h2 || a@title || img@alt');
-      if (!name) continue;
-      seen[link] = 1;
-      out.push({ name: name, link: C.fix(link), cover: X.pick(e, k('cover') || 'img@img'), description: X.pick(e, k('desc') || ''), host: BASE_URL });
-    }
-    return out;
-  },
-  listPage: function (pat, p, q) {
-    var doc = C.html(X.url(pat, p, q), G.req);
-    var items = X.items(doc, q ? 's_' : '');
-    var more = G.next ? doc.select(G.next).size() > 0 : items.length >= (G.pageSize || 10);
-    return Response.success(items, C.next(more && items.length > 0, p));
-  },
-  browse: function (input, p) {
-    var pat = (G.tabs && G.tabs[input]) || input;
-    return X.listPage(pat, p, '');
-  },
-  search: function (key, p) {
-    // q_cut: regex; sites whose search breaks on punctuation only get the text before it
-    if (G.q_cut && !C.isUrl(key)) key = String(key).split(new RegExp(G.q_cut))[0].trim() || key;
-    if (C.isUrl(key)) { var u = C.fix(key); return X.listPage(u + (u.indexOf('?') > 0 ? '&' : '?') + (G.pageParam || 'page') + '={p}', p, ''); }
-    if (G.search_post) {
-      // POST search form: { url, body } — body uses {q}; results are parsed like any list page
-      var doc = C.html(X.url(G.search_post.url, p, key), { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: String(G.search_post.body).replace(/\{q\}/g, C.enc(key)) });
-      var items = X.items(doc, 's_');
-      return Response.success(items, null);
-    }
-    if (G.search_json) return X.jsonSearch(G.search_json, key, p);
-    return X.listPage(G.search, p, key);
-  },
-  // JSON search API: { url, list: 'data.items' (dot path, '' = root array), title, link ('/truyen/{slug}' template or field), cover }
-  jsonSearch: function (J, key, p) {
-    var d = C.json(X.url(J.url, p, key), G.req);
-    if (J.list) J.list.split('.').forEach(function (k) { d = d && d[k]; });
-    var fill = function (o, t) { return String(t || '').indexOf('{') >= 0 ? String(t).replace(/\{(\w+)\}/g, function (m, k) { return o[k] == null ? '' : o[k]; }) : (o[t] == null ? '' : String(o[t])); };
-    var out = [];
-    (d || []).forEach(function (o) {
-      var name = fill(o, J.title || 'title'), link = fill(o, J.link || 'url');
-      if (name && link) out.push({ name: name, link: C.fix(link), cover: C.fix(fill(o, J.cover || 'cover')), description: J.desc ? fill(o, J.desc) : '', host: BASE_URL });
-    });
-    return Response.success(out, J.paged && out.length ? C.next(true, p) : null);
-  },
-  genre: function () {
-    if (!G.genre) return Response.success([]);
-    var doc = C.html(C.fix(G.genrePage || '/'));
-    var out = doc.select(G.genre).map(function (a) { return { title: a.text(), input: C.fix(a.attr('href')), script: 'search.js' }; });
-    return Response.success(out.filter(function (g) { return g.title; }));
-  },
-  detail: function (url) {
-    var doc = C.html(url, G.req);
-    var genres = G.d_genres ? doc.select(G.d_genres).map(function (a) { return { title: a.text(), input: C.fix(a.attr('href')), script: 'search.js' }; }) : [];
-    var status = X.pick(doc, G.d_status);
-    return Response.success({
-      name: X.pick(doc, G.d_title || 'h1'), cover: C.fix(X.pick(doc, G.d_cover || 'meta[property=og:image]@content')),
-      author: X.pick(doc, G.d_author), description: X.pick(doc, (G.d_desc || 'meta[name=description]@content').replace(/$/, '')),
-      detail: status ? 'Tình trạng: ' + status : '', ongoing: C.ongoing(status), genres: genres, host: BASE_URL
-    });
-  },
-  toc: function (url) {
-    if (G.ch_action) return X.actionToc(url);
-    if (G.single) return Response.success([{ name: G.single === true ? 'Xem / Đọc' : G.single, url: url, host: BASE_URL }]);
-    var pages = [url], list = [], seen = {};
-    var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
-    if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
-    for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
-      var els = doc.select(G.ch_list);
-      for (var i = 0; i < els.size(); i++) {
-        var a = els.get(i); var href = G.ch_attr ? a.attr(G.ch_attr) : (a.attr('href') || a.attr('data-href'));
-        if (!href || href === '#' || seen[href]) continue;
-        seen[href] = 1; list.push({ name: (G.ch_name ? X.pick(a, G.ch_name) : a.text()) || a.attr('title'), url: C.fix(href), host: BASE_URL });
-      }
-      var nx = G.ch_next ? doc.select(G.ch_next).first() : null;
-      if (!nx || !nx.attr('href')) break;
-      var nu = C.fix(nx.attr('href'));
-      if (pages.indexOf(nu) >= 0) break;
-      pages.push(nu); if (G.ch_delay) sleep(G.ch_delay); doc = C.html(nu, G.req);
-    }
-    if (G.ch_reverse) list.reverse();
-    // A movie page without an episode list is itself the one episode
-    if (!list.length && G.ch_fallback_single) list.push({ name: G.ch_fallback_single === true ? 'Xem phim' : G.ch_fallback_single, url: url, host: BASE_URL });
-    return Response.success(list);
-  },
-  pages: function (url) {
-    var out = [], visited = [url], u = url;
-    for (var guard = 0; guard < (G.pages_max || 40); guard++) {
-      var doc;
-      if (G.initmanga) {
-        var rr = C.check(C.get(u, G.req), u), bb = rr.text() || '', dec = X.initManga(bb);
-        doc = Html.parse(dec ? '<div id="imc-dec">' + dec + '</div>' : bb, u);
-      } else doc = C.html(u, G.req);
-      var imgs = doc.select(G.initmanga ? '#imc-dec img, ' + (G.pages || '#chapter-content img') : (G.pages || '.page-chapter img, .reading-content img, .chapter-content img'));
-      if (G.initmanga) {
-        // protected canvases: data-enc = base64 of the reversed image url
-        var cv = doc.select('#imc-dec canvas[data-enc]');
-        for (var ci = 0; ci < cv.size(); ci++) {
-          var cu = CryptoJS.enc.Latin1.stringify(CryptoJS.enc.Base64.parse(cv.get(ci).attr('data-enc'))).split('').reverse().join('');
-          if (cu && out.indexOf(cu) < 0) out.push(cu);
-        }
-      }
-      for (var i = 0; i < imgs.size(); i++) { var s = C.img(imgs.get(i)); if (s && out.indexOf(s) < 0) out.push(s); }
-      if (!G.pages_next) break;
-      var nx = doc.select(G.pages_next).first();
-      if (!nx) break;
-      var nu = C.fix(nx.attr('href'));
-      if (!nu || visited.indexOf(nu) >= 0) break;
-      visited.push(nu); u = nu;
-    }
-    return Response.success(out);
-  },
-  text: function (url) {
-    var r = C.check(C.get(url, G.req), url), body = r.text() || '';
-    if (G.content_rsc) {
-      var raw = X.rscText(body), locked = G.c_locked && new RegExp(G.c_locked, 'i').test(body);
-      var lockMsg = locked ? '<p><i>🔒 Chương này bị khoá trên trang gốc — cần đăng nhập/mở khoá tại ' + BASE_URL + ' để đọc tiếp.</i></p>' : '';
-      if (raw || locked) return Response.success(X.toParas(raw) + lockMsg, X.pick(Html.parse(body, url), G.c_title || 'h1 || title'));
-    }
-    if (G.initmanga) { var dc = X.initManga(body); if (dc) return Response.success(C.cleanContent(Html.parse('<div id="imc-dec">' + dc + '</div>', url).select('#imc-dec').first()), X.pick(Html.parse(body, url), G.c_title || 'h1 || h2')); }
-    var doc = Html.parse(body, url);
-    var el = doc.select(G.content || '#chapter-c, .chapter-c, #chapter-content, .chapter-content, .reading-content').first();
-    if (!el) {
-      if (/cf_chl|challenge-platform|cf-turnstile|Just a moment/i.test(body.slice(0, 20000))) throw new Error('CLOUDFLARE: trang ' + BASE_URL + ' yêu cầu xác minh. Mở chương bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.');
-      return Response.error('Không tìm thấy nội dung — trang nhận được: "' + (X.pick(doc, 'title') || '?').slice(0, 60) + '" (' + r.status + ', ' + body.length + ' ký tự)' + (body.length < 400 ? ': ' + body.replace(/\s+/g, ' ').slice(0, 200) : ''));
-    }
-    return Response.success(C.cleanContent(el), X.pick(doc, G.c_title || 'h1 || h2'));
-  },
-  // ---- WordPress "Init Manga" theme: chapter body is AES-256-CBC encrypted in the page
-  // (key = PBKDF2-SHA512(passphrase from InitMangaData.decryption_key, salt, 999 iter, 32 bytes)); needs CryptoJS (load('crypto.js')).
-  initManga: function (body) {
-    var m = /InitMangaEncryptedChapter\s*=\s*(\{[\s\S]*?\})\s*;/.exec(body), k = /"decryption_key"\s*:\s*"([^"]+)"/.exec(body);
-    if (!m || !k || typeof CryptoJS === 'undefined') return '';
-    var o; try { o = JSON.parse(m[1]); } catch (e) { return ''; }
-    if (!o || !o.ciphertext) return '';
-    var pass = CryptoJS.enc.Utf8.stringify(CryptoJS.enc.Base64.parse(k[1]));
-    var key = CryptoJS.PBKDF2(pass, CryptoJS.enc.Hex.parse(o.salt), { hasher: CryptoJS.algo.SHA512, keySize: 8, iterations: 999 });
-    try { return CryptoJS.AES.decrypt(o.ciphertext, key, { iv: CryptoJS.enc.Hex.parse(o.iv) }).toString(CryptoJS.enc.Utf8); } catch (e) { return ''; }
-  },
-  // ---- Next.js App Router helpers (sites whose TOC comes from a Server Action and whose text lives in the RSC stream)
-  // Server Action ids change on every deploy: try the known id first, then look the id up by its exported name in the page's chunks.
-  rscAction: function (html, name) {
-    var srcs = [], m, re = /\/_next\/static\/chunks\/[0-9A-Za-z_.-]+\.js/g;
-    while ((m = re.exec(html))) if (srcs.indexOf(m[0]) < 0) srcs.push(m[0]);
-    var pat = new RegExp('"([0-9a-f]{40,44})"[^"]{0,200}?"' + name + '"');
-    for (var i = 0; i < srcs.length && i < 60; i++) {
-      var r = C.get(BASE_URL + srcs[i]); if (!r || !r.ok) continue;
-      var mm = pat.exec(r.text() || ''); if (mm) return mm[1];
-    }
-    return '';
-  },
-  rscArray: function (body) {
-    var lines = String(body || '').split('\n');
-    for (var i = 0; i < lines.length; i++) {
-      var mm = /^[0-9a-f]+:(\[.*)$/.exec(lines[i]);
-      if (mm) { try { var a = JSON.parse(mm[1]); if (a && a.length) return a; } catch (e) { } }
-    }
-    return null;
-  },
-  actionToc: function (url) {
-    var A = G.ch_action, html = C.check(C.get(url, G.req), url).text() || '';
-    var am = new RegExp(A.arg).exec(html);
-    if (!am) return Response.error('Không tìm thấy mã truyện trên trang ' + url);
-    var payload = JSON.stringify([am[1]]);
-    var post = function (id) {
-      var r = C.get(url, { method: 'POST', headers: { 'Next-Action': id, 'Accept': 'text/x-component', 'Content-Type': 'text/plain;charset=UTF-8' }, body: payload });
-      return r && r.ok ? X.rscArray(r.text()) : null;
-    };
-    var arr = A.id ? post(A.id) : null;
-    if (!arr) { var id2 = X.rscAction(html, A.name); if (id2 && id2 !== A.id) arr = post(id2); }
-    if (!arr) return Response.error('Không lấy được danh sách chương (Server Action "' + A.name + '")');
-    var base = url.replace(/[?#].*$/, '').replace(/\/+$/, '');
-    return Response.success(arr.map(function (c) {
-      return { name: String(c[A.title || 'label'] || '') + (A.lock && c[A.lock] ? ' 🔒' : ''), url: base + '/' + c[A.slug || 'slugId'], host: BASE_URL };
-    }));
-  },
-  // Join the self.__next_f.push([1,"..."]) chunks and return the longest text row ("<id>:T<hex byte length>,<text>").
-  rscText: function (html) {
-    var s = '', m, re = /self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g;
-    while ((m = re.exec(html))) { try { s += JSON.parse(m[1]); } catch (e) { } }
-    var best = '', tr = /([0-9a-f]+):T([0-9a-f]+),/g, t;
-    while ((t = tr.exec(s))) {
-      var n = parseInt(t[2], 16), i = tr.lastIndex, b = 0;
-      while (i < s.length && b < n) { var c = s.charCodeAt(i); if (c < 0x80) b += 1; else if (c < 0x800) b += 2; else if (c >= 0xD800 && c <= 0xDBFF) { b += 4; i++; } else b += 3; i++; }
-      var txt = s.slice(tr.lastIndex, i);
-      if (txt.length > best.length) best = txt;
-      tr.lastIndex = i;
-    }
-    return best;
-  },
-  toParas: function (txt) {
-    if (/<p[\s>]|<br\s*\/?>/i.test(txt)) return txt;
-    return txt.split(/\n+/).map(function (l) { l = l.trim(); return l ? '<p>' + l.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</p>' : ''; }).join('');
-  },
-  // Video: list servers on the episode page, then sniff a playable stream from each.
-  servers: function (url) {
-    if (!G.servers) return Response.success([{ title: 'Server', data: url }]);
-    var doc = C.html(url, G.req);
-    var out = doc.select(G.servers).map(function (e) {
-      var d = X.pick(e, G.server_data || ':self@data-link || :self@data-src || :self@href');
-      return { title: e.text() || 'Server', data: C.fix(d) };
-    }).filter(function (s) { return s.data; });
-    return Response.success(out.length ? out : [{ title: 'Server', data: url }]);
-  },
-  sniff: function (text) {
-    text = String(text || '').replace(/\\\//g, '/');
-    var m = text.match(/https?:[^"'\s<>\\]+?\.m3u8[^"'\s<>\\]*/i) || text.match(/https?:[^"'\s<>\\]+?\.mp4[^"'\s<>\\]*/i);
-    return m ? m[0] : '';
-  },
-  track: function (data, depth) {
-    depth = depth || 0;
-    if (/\.(m3u8|mp4)(\?|$)/i.test(data)) return Response.success({ type: 'native', data: data, headers: { Referer: BASE_URL + '/' } });
-    var r = C.get(data);
-    var body = r.text();
-    if (G.video && !depth) { var vv = X.pick(Html.parse(body, data), G.video); if (vv) return Response.success({ type: 'native', data: C.fix(vv), headers: { Referer: BASE_URL + '/' } }); }
-    var s = X.sniff(body);
-    if (s) return Response.success({ type: 'native', data: s, headers: { Referer: (depth ? data : BASE_URL + '/') } });
-    var doc = Html.parse(body, data);
-    var ifr = doc.select(G.iframe || 'iframe[src], iframe[data-src]').first();
-    if (ifr && depth < 2) { var src = C.fix(ifr.attr('src') || ifr.attr('data-src')); if (src) return X.track(src, depth + 1); }
-    return Response.success({ type: 'webview', data: data });
+function execute(data) {
+  if (/tiktok\.com\/@|tiktok\.com\/video/.test(data) && !/\.mp4|tikwm\.com\/video/.test(data)) {
+    var id = SV.videoId(data);
+    return SV.webview(id ? 'https://www.tiktok.com/player/v1/' + id + '?autoplay=1' : data);
   }
-};
-
-
-function execute(input, page) { return X.browse(input, page); }
+  return Response.success({ type: 'native', data: data, headers: { 'Referer': 'https://www.tiktok.com/', 'User-Agent': 'Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Mobile Safari/537.36' } });
+}
 
 return typeof execute === 'function' ? execute : undefined;
 })();

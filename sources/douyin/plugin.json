@@ -2,9 +2,9 @@
   "metadata": {
     "name": "Douyin",
     "author": "Kiritokmn",
-    "version": 1,
+    "version": 2,
     "source": "https://www.douyin.com",
-    "description": "Douyin — Kiritokmn Extension Repo",
+    "description": "Douyin (抖音) — video ngắn. Bảng tìm kiếm nóng không cần máy chủ; xem video cần máy chủ Douyin_TikTok_Download_API tự dựng.",
     "locale": "zh-CN",
     "regexp": "douyin\\.com",
     "type": "video",
@@ -12,6 +12,7 @@
   },
   "script": {
     "home": "home.js",
+    "genre": "genre.js",
     "search": "search.js",
     "detail": "detail.js",
     "toc": "toc.js",
@@ -26,6 +27,20 @@
       "values": [
         "https://www.douyin.com"
       ],
+      "mode": "input",
+      "format": "text"
+    },
+    "DTK_SERVER": {
+      "title": "Máy chủ Douyin_TikTok_Download_API",
+      "subtitle": "Cần để xem video Douyin. VD: http://192.168.1.10:8000 (github.com/Evil0ctal/Douyin_TikTok_Download_API)",
+      "default": "",
+      "mode": "input",
+      "format": "text"
+    },
+    "DTK_KEY": {
+      "title": "Khoá API của máy chủ (X-API-Key)",
+      "subtitle": "Để trống nếu máy chủ không yêu cầu",
+      "default": "",
       "mode": "input",
       "format": "text"
     }

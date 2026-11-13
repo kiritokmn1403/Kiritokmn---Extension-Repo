@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Truyện Dịch AI",
     "author": "kychi (Kiritokmn repack)",
-    "version": 1,
+    "version": 2,
     "source": "https://truyendichai.top/",
     "regexp": "(?:www\\.)?truyendichai\\.top/.*",
     "description": "Đọc truyện chữ dịch AI chất lượng cao tại TruyenDichAI.top — gốc: kychi (kychitoge-vbook-ext)",

@@ -1,4 +1,4 @@
-__register({ META: {"id":"doctruyentranhbl","name":"Đọc Truyện Tranh BL","source":"https://truyentranhbl.com","type":"comic","locale":"vi","nsfw":false,"version":1,"config":{"DOMAIN":{"title":"Tên miền","subtitle":"Đổi khi trang đổi tên miền","default":"https://truyentranhbl.com","values":["https://truyentranhbl.com"],"mode":"input","format":"text"}},"configDefaults":{"DOMAIN":"https://truyentranhbl.com"}}, SCRIPTS: {
+__register({ META: {"id":"doctruyentranhbl","name":"Đọc Truyện Tranh BL","source":"https://truyentranhbl.com","type":"comic","locale":"vi","nsfw":false,"version":2,"config":{"DOMAIN":{"title":"Tên miền","subtitle":"Đổi khi trang đổi tên miền","default":"https://truyentranhbl.com","values":["https://truyentranhbl.com"],"mode":"input","format":"text"}},"configDefaults":{"DOMAIN":"https://truyentranhbl.com"}}, SCRIPTS: {
 "home": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
 var DOMAIN = __cfg("DOMAIN");
@@ -163,6 +163,8 @@ var M = {
   pages: function (url) {
     var u = url.indexOf('?') > 0 ? url : url.replace(/\/$/, '') + '/?style=list';
     var doc = C.html(u);
+    // 0.0.4: "WP Manga Images Protection" gate — the chapter is only served to logged-in (Google) readers
+    if (!doc.select('.reading-content, .read-container').size() && /WpmipAccess|wpmip-access/.test(doc.html())) throw new Error('Trang ' + BASE_URL + ' chỉ cho đọc khi đã đăng nhập (Google). Mở chương bằng WebView trong ứng dụng, đăng nhập rồi tải lại.');
     var imgs = doc.select('.reading-content img, .page-break img, .read-container img');
     var out = [];
     for (var i = 0; i < imgs.size(); i++) { var s = C.img(imgs.get(i)); if (s) out.push(s); }
@@ -347,6 +349,8 @@ var M = {
   pages: function (url) {
     var u = url.indexOf('?') > 0 ? url : url.replace(/\/$/, '') + '/?style=list';
     var doc = C.html(u);
+    // 0.0.4: "WP Manga Images Protection" gate — the chapter is only served to logged-in (Google) readers
+    if (!doc.select('.reading-content, .read-container').size() && /WpmipAccess|wpmip-access/.test(doc.html())) throw new Error('Trang ' + BASE_URL + ' chỉ cho đọc khi đã đăng nhập (Google). Mở chương bằng WebView trong ứng dụng, đăng nhập rồi tải lại.');
     var imgs = doc.select('.reading-content img, .page-break img, .read-container img');
     var out = [];
     for (var i = 0; i < imgs.size(); i++) { var s = C.img(imgs.get(i)); if (s) out.push(s); }
@@ -531,6 +535,8 @@ var M = {
   pages: function (url) {
     var u = url.indexOf('?') > 0 ? url : url.replace(/\/$/, '') + '/?style=list';
     var doc = C.html(u);
+    // 0.0.4: "WP Manga Images Protection" gate — the chapter is only served to logged-in (Google) readers
+    if (!doc.select('.reading-content, .read-container').size() && /WpmipAccess|wpmip-access/.test(doc.html())) throw new Error('Trang ' + BASE_URL + ' chỉ cho đọc khi đã đăng nhập (Google). Mở chương bằng WebView trong ứng dụng, đăng nhập rồi tải lại.');
     var imgs = doc.select('.reading-content img, .page-break img, .read-container img');
     var out = [];
     for (var i = 0; i < imgs.size(); i++) { var s = C.img(imgs.get(i)); if (s) out.push(s); }
@@ -715,6 +721,8 @@ var M = {
   pages: function (url) {
     var u = url.indexOf('?') > 0 ? url : url.replace(/\/$/, '') + '/?style=list';
     var doc = C.html(u);
+    // 0.0.4: "WP Manga Images Protection" gate — the chapter is only served to logged-in (Google) readers
+    if (!doc.select('.reading-content, .read-container').size() && /WpmipAccess|wpmip-access/.test(doc.html())) throw new Error('Trang ' + BASE_URL + ' chỉ cho đọc khi đã đăng nhập (Google). Mở chương bằng WebView trong ứng dụng, đăng nhập rồi tải lại.');
     var imgs = doc.select('.reading-content img, .page-break img, .read-container img');
     var out = [];
     for (var i = 0; i < imgs.size(); i++) { var s = C.img(imgs.get(i)); if (s) out.push(s); }
@@ -899,6 +907,8 @@ var M = {
   pages: function (url) {
     var u = url.indexOf('?') > 0 ? url : url.replace(/\/$/, '') + '/?style=list';
     var doc = C.html(u);
+    // 0.0.4: "WP Manga Images Protection" gate — the chapter is only served to logged-in (Google) readers
+    if (!doc.select('.reading-content, .read-container').size() && /WpmipAccess|wpmip-access/.test(doc.html())) throw new Error('Trang ' + BASE_URL + ' chỉ cho đọc khi đã đăng nhập (Google). Mở chương bằng WebView trong ứng dụng, đăng nhập rồi tải lại.');
     var imgs = doc.select('.reading-content img, .page-break img, .read-container img');
     var out = [];
     for (var i = 0; i < imgs.size(); i++) { var s = C.img(imgs.get(i)); if (s) out.push(s); }
@@ -1083,6 +1093,8 @@ var M = {
   pages: function (url) {
     var u = url.indexOf('?') > 0 ? url : url.replace(/\/$/, '') + '/?style=list';
     var doc = C.html(u);
+    // 0.0.4: "WP Manga Images Protection" gate — the chapter is only served to logged-in (Google) readers
+    if (!doc.select('.reading-content, .read-container').size() && /WpmipAccess|wpmip-access/.test(doc.html())) throw new Error('Trang ' + BASE_URL + ' chỉ cho đọc khi đã đăng nhập (Google). Mở chương bằng WebView trong ứng dụng, đăng nhập rồi tải lại.');
     var imgs = doc.select('.reading-content img, .page-break img, .read-container img');
     var out = [];
     for (var i = 0; i < imgs.size(); i++) { var s = C.img(imgs.get(i)); if (s) out.push(s); }

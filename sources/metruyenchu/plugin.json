@@ -2,7 +2,7 @@
   "metadata": {
     "name": "MeTruyenChu",
     "author": "Meo (Kiritokmn repack)",
-    "version": 17,
+    "version": 18,
     "source": "https://metruyenchu.com.vn",
     "regexp": "metruyenchu\\.com\\.vn\\/[^\\/]+\\/?$",
     "description": "MeTruyenChu - Đọc truyện chữ online miễn phí, không quảng cáo — gốc: Meo (hienpro00123/vbook_MeoU)",

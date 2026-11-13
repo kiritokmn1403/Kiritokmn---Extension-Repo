@@ -2,11 +2,11 @@
   "metadata": {
     "name": "PhimTV",
     "author": "Kiritokmn",
-    "version": 1,
-    "source": "https://phimtv.my",
+    "version": 2,
+    "source": "https://phimtv2.com",
     "description": "PhimTV — Kiritokmn Extension Repo",
     "locale": "vi",
-    "regexp": "phimtv\\.my",
+    "regexp": "phimtv2\\.com|phimtv\\.my",
     "type": "video",
     "nsfw": false
   },
@@ -22,10 +22,10 @@
     "DOMAIN": {
       "title": "Tên miền",
       "subtitle": "Đổi khi trang đổi tên miền",
-      "default": "https://phimtv.my",
+      "default": "https://phimtv2.com",
       "values": [
-        "https://phimtv.my",
-        "https://phimtv2.com"
+        "https://phimtv2.com",
+        "https://phimtv.my"
       ],
       "mode": "select",
       "format": "single"

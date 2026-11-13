@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Kho Truyện Chữ",
     "author": "ivanzzz (Kiritokmn repack)",
-    "version": 1,
+    "version": 2,
     "source": "https://khotruyenchu.me/",
     "regexp": "(www\\.)?khotruyenchu\\.me\\/.*",
     "description": "Đọc truyện trên Kho Truyện Chữ (khotruyenchu.me) — gốc: ivanzzz (Ivan1hai/ext)",

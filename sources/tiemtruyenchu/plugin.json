@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Tiệm Truyện Chữ (Demo)",
     "author": "kychi (Kiritokmn repack)",
-    "version": 1,
+    "version": 2,
     "source": "https://tiemtruyenchu.cloud",
     "regexp": "(www\\.)?tiemtruyenchu\\.(com|cloud)/.*",
     "description": "Tiệm Truyện Chữ - demo - kychi — gốc: kychi (kychitoge-vbook-ext)",

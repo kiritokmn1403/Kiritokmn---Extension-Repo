@@ -2,9 +2,9 @@
   "metadata": {
     "name": "TikTok",
     "author": "Kiritokmn",
-    "version": 1,
+    "version": 2,
     "source": "https://www.tiktok.com",
-    "description": "TikTok — Kiritokmn Extension Repo",
+    "description": "TikTok — video ngắn (Shorts). Không cần máy chủ: dùng tikwm.com; có máy chủ Douyin_TikTok_Download_API thì dùng máy chủ đó.",
     "locale": "global",
     "regexp": "tiktok\\.com",
     "type": "video",
@@ -12,6 +12,7 @@
   },
   "script": {
     "home": "home.js",
+    "genre": "genre.js",
     "search": "search.js",
     "detail": "detail.js",
     "toc": "toc.js",
@@ -26,6 +27,27 @@
       "values": [
         "https://www.tiktok.com"
       ],
+      "mode": "input",
+      "format": "text"
+    },
+    "REGION": {
+      "title": "Khu vực (mã quốc gia)",
+      "subtitle": "Bảng tin đề xuất theo quốc gia: VN, US, JP, KR…",
+      "default": "VN",
+      "mode": "input",
+      "format": "text"
+    },
+    "DTK_SERVER": {
+      "title": "Máy chủ Douyin_TikTok_Download_API",
+      "subtitle": "Tuỳ chọn. VD: http://192.168.1.10:8000 (tự dựng từ github.com/Evil0ctal/Douyin_TikTok_Download_API)",
+      "default": "",
+      "mode": "input",
+      "format": "text"
+    },
+    "DTK_KEY": {
+      "title": "Khoá API của máy chủ (X-API-Key)",
+      "subtitle": "Để trống nếu máy chủ không yêu cầu",
+      "default": "",
       "mode": "input",
       "format": "text"
     }

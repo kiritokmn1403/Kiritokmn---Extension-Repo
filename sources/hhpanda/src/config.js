@@ -7,9 +7,9 @@ var G = {
   "Phim lẻ": "/phim-le/[page/{p}/]"
  },
  "search": "/[page/{p}/]?s={q}",
- "item": ".halim-item, article.thumb",
- "link": "a.halim-thumb@href || a@href",
- "title": ".entry-title || a@title",
+ "item": "div.halim-item",
+ "link": "a@href",
+ "title": "h2.entry-title || .entry-title || a@title",
  "cover": "img@img",
  "desc": ".episode || .status",
  "next": ".pagination a.next, a.next.page-numbers, .page-numbers.next",

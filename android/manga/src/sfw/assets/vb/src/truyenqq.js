@@ -1,4 +1,4 @@
-__register({ META: {"id":"truyenqq","name":"Truyện QQ","source":"https://truyenqqko.com","type":"comic","locale":"vi","nsfw":false,"version":25,"config":{},"configDefaults":{}}, SCRIPTS: {
+__register({ META: {"id":"truyenqq","name":"Truyện QQ","source":"https://truyenqqko.com","type":"comic","locale":"vi","nsfw":false,"version":26,"config":{},"configDefaults":{}}, SCRIPTS: {
 "home": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
 

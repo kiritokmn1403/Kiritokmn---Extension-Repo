@@ -1,4 +1,4 @@
-__register({ META: {"id":"sayhentai","name":"SayHentai -18+","source":"https://sayhentai.cx","type":"comic","locale":"vi","nsfw":true,"version":3,"config":{},"configDefaults":{}}, SCRIPTS: {
+__register({ META: {"id":"sayhentai","name":"SayHentai -18+","source":"https://sayhentai.cx","type":"comic","locale":"vi","nsfw":true,"version":4,"config":{},"configDefaults":{}}, SCRIPTS: {
 "home": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
 

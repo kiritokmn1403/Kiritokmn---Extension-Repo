@@ -5,8 +5,8 @@ var G = {
   "Mới cập nhật": "/[?page={p}]"
  },
  "search": "/?id={q}[&page={p}]",
- "item": ".book-list-item",
- "title": "a@title || img@alt || a@title || img@alt",
+ "item": "div.book-list-item",
+ "title": "h3 || .book-title || img@alt || a@title",
  "link": "a@href",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",

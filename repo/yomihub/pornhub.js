@@ -1,4 +1,4 @@
-const mangayomiSources = [{"name":"Pornhub (18+)","lang":"all","id":920260007,"baseUrl":"https://www.pornhub.com","apiUrl":"","iconUrl":"","typeSource":"single","itemType":1,"isNsfw":true,"version":"0.5.3","dateFormat":"","dateFormatLocale":"","pkgPath":"repo/yomihub/pornhub.js"}];
+const mangayomiSources = [{"name":"Pornhub (18+)","lang":"all","id":920260007,"baseUrl":"https://www.pornhub.com","apiUrl":"","iconUrl":"https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/icons/pornhub.png","typeSource":"single","itemType":1,"isNsfw":true,"version":"0.5.3","dateFormat":"","dateFormatLocale":"","pkgPath":"repo/yomihub/pornhub.js"}];
 // ---- YomiHub shared helpers (prepended to every bundled extension) ----
 const YH_UA = "Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36";
 function yhPref(key, def) {

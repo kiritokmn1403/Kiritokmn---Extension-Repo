@@ -4,10 +4,10 @@ var G = {
  "tabs": {
   "Mới cập nhật": "/[?page={p}]"
  },
- "search": "/tim-kiem?q={q}",
- "item": "div.grid-3x2 > div.h-item",
- "title": "h4 a",
- "link": "[class*=title] a@href",
+ "search": "/tim-kiem?q={q}[&page={p}]",
+ "item": "div.h-item",
+ "title": "h4.item-title || h3 || img@alt",
+ "link": "a@href",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || img@img",
  "d_desc": "meta[property=og:description]@content || meta[name=description]@content",

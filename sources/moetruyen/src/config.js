@@ -5,9 +5,9 @@ var G = {
   "Mới cập nhật": "/[?page={p}]"
  },
  "search": "/manga?q={q}[&page={p}]",
- "item": ".manga-card",
- "title": "h3 || a@title || img@alt",
- "link": "a@href",
+ "item": "article.manga-card",
+ "title": "h3 || .manga-card__title || img@alt",
+ "link": "a[href*=/manga/]@href",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
  "d_desc": "meta[name=description]@content",

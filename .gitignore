@@ -12,3 +12,6 @@ test-results.json
 *.log
 Output/apk-build/
 node_modules
+# 0.0.4: local work folder (tools, logs, screenshots, recordings) and editor settings stay on the owner's machine
+/_work/
+/.vscode/

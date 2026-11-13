@@ -5,11 +5,12 @@ var G = {
   "Mới cập nhật": "/[?page={p}]"
  },
  "search": "/modules/article/search.php?searchkey={q}[&page={p}]",
- "item": ".rank_right",
- "title": "a@title || img@alt || a@title || img@alt",
- "link": "a@href",
+ "item": "div.review-item",
+ "title": "img@alt",
+ "link": "a.imgsmall@href",
  "ch_list": "div.newbox a",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",
- "d_desc": "meta[name=description]@content"
+ "d_desc": "meta[name=description]@content",
+ "cover": "img@data-imgurl"
 };

@@ -1,4 +1,4 @@
-var BASE_URL = "https://xoilac32.org";
+var BASE_URL = "https://xoilacxl.cc";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {

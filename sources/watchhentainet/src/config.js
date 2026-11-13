@@ -5,8 +5,8 @@ var G = {
   "Mới cập nhật": "/[page/{p}/]"
  },
  "search": "/?s={q}[&page={p}]",
- "item": ".poster",
- "title": "a@title || img@alt || a@title || img@alt",
+ "item": "article.item.tvshows",
+ "title": "h3 || .data h3 || img@alt",
  "link": "a@href",
  "ch_list": "#dt_contenedor a",
  "d_title": "h1 || meta[property=og:title]@content",

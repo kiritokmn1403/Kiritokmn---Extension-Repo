@@ -1,4 +1,4 @@
-__register({ META: {"id":"nettruyenviet","name":"NetTruyenViet","source":"https://nettruyenviet10.com","type":"comic","locale":"vi","nsfw":false,"version":3,"config":{"DOMAIN":{"title":"Tên miền","subtitle":"Đổi khi trang đổi tên miền","default":"https://nettruyenviet10.com","values":["https://nettruyenviet10.com"],"mode":"input","format":"text"}},"configDefaults":{"DOMAIN":"https://nettruyenviet10.com"}}, SCRIPTS: {
+__register({ META: {"id":"nettruyenviet","name":"NetTruyenViet","source":"https://nettruyenviet10.com","type":"comic","locale":"vi","nsfw":false,"version":4,"config":{"DOMAIN":{"title":"Tên miền","subtitle":"Đổi khi trang đổi tên miền","default":"https://nettruyenviet10.com","values":["https://nettruyenviet10.com"],"mode":"input","format":"text"}},"configDefaults":{"DOMAIN":"https://nettruyenviet10.com"}}, SCRIPTS: {
 "home": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
 var DOMAIN = __cfg("DOMAIN");
@@ -8,17 +8,17 @@ var BASE_URL = "https://nettruyenviet10.com";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
-  "Mới cập nhật": "/?page={p}",
+  "Mới cập nhật": "/tim-truyen?page={p}",
   "Top ngày": "/tim-truyen?status=-1&sort=13&page={p}",
   "Truyện mới": "/tim-truyen?status=-1&sort=15&page={p}",
   "Hoàn thành": "/tim-truyen?status=2&page={p}"
  },
  "search": "/tim-truyen?keyword={q}",
- "item": "div.button-container > a.button-secondary",
- "link": ":self@href",
- "title": ":self",
+ "item": "div.items div.item",
+ "link": "figcaption h3 a@href || a@href",
+ "title": "figcaption h3 a || h3",
  "cover": "img@img",
- "desc": ".comic-item li.chapter a || .chapter a",
+ "desc": "li.chapter a",
  "next": ".pagination a[rel=next], .pagination li.active + li a, a.next-page",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || img@img",
@@ -202,6 +202,9 @@ var X = {
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
+    // 0.0.4: chapter list served by an AJAX endpoint keyed by an id found in the detail page
+    //   ch_from: { re: 'data-novel-id="([^"]+)"', url: '/ajax/chapter-archive?novelId=$1' }
+    if (G.ch_from) { var cm = new RegExp(G.ch_from.re).exec(doc.html()); if (cm) doc = C.html(C.fix(G.ch_from.url.replace(/\$(\d)/g, function (m, i) { return encodeURIComponent(cm[+i] || ''); })), G.req); }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
@@ -375,17 +378,17 @@ var BASE_URL = "https://nettruyenviet10.com";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
-  "Mới cập nhật": "/?page={p}",
+  "Mới cập nhật": "/tim-truyen?page={p}",
   "Top ngày": "/tim-truyen?status=-1&sort=13&page={p}",
   "Truyện mới": "/tim-truyen?status=-1&sort=15&page={p}",
   "Hoàn thành": "/tim-truyen?status=2&page={p}"
  },
  "search": "/tim-truyen?keyword={q}",
- "item": "div.button-container > a.button-secondary",
- "link": ":self@href",
- "title": ":self",
+ "item": "div.items div.item",
+ "link": "figcaption h3 a@href || a@href",
+ "title": "figcaption h3 a || h3",
  "cover": "img@img",
- "desc": ".comic-item li.chapter a || .chapter a",
+ "desc": "li.chapter a",
  "next": ".pagination a[rel=next], .pagination li.active + li a, a.next-page",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || img@img",
@@ -569,6 +572,9 @@ var X = {
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
+    // 0.0.4: chapter list served by an AJAX endpoint keyed by an id found in the detail page
+    //   ch_from: { re: 'data-novel-id="([^"]+)"', url: '/ajax/chapter-archive?novelId=$1' }
+    if (G.ch_from) { var cm = new RegExp(G.ch_from.re).exec(doc.html()); if (cm) doc = C.html(C.fix(G.ch_from.url.replace(/\$(\d)/g, function (m, i) { return encodeURIComponent(cm[+i] || ''); })), G.req); }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
@@ -742,17 +748,17 @@ var BASE_URL = "https://nettruyenviet10.com";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
-  "Mới cập nhật": "/?page={p}",
+  "Mới cập nhật": "/tim-truyen?page={p}",
   "Top ngày": "/tim-truyen?status=-1&sort=13&page={p}",
   "Truyện mới": "/tim-truyen?status=-1&sort=15&page={p}",
   "Hoàn thành": "/tim-truyen?status=2&page={p}"
  },
  "search": "/tim-truyen?keyword={q}",
- "item": "div.button-container > a.button-secondary",
- "link": ":self@href",
- "title": ":self",
+ "item": "div.items div.item",
+ "link": "figcaption h3 a@href || a@href",
+ "title": "figcaption h3 a || h3",
  "cover": "img@img",
- "desc": ".comic-item li.chapter a || .chapter a",
+ "desc": "li.chapter a",
  "next": ".pagination a[rel=next], .pagination li.active + li a, a.next-page",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || img@img",
@@ -936,6 +942,9 @@ var X = {
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
+    // 0.0.4: chapter list served by an AJAX endpoint keyed by an id found in the detail page
+    //   ch_from: { re: 'data-novel-id="([^"]+)"', url: '/ajax/chapter-archive?novelId=$1' }
+    if (G.ch_from) { var cm = new RegExp(G.ch_from.re).exec(doc.html()); if (cm) doc = C.html(C.fix(G.ch_from.url.replace(/\$(\d)/g, function (m, i) { return encodeURIComponent(cm[+i] || ''); })), G.req); }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
@@ -1109,17 +1118,17 @@ var BASE_URL = "https://nettruyenviet10.com";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
-  "Mới cập nhật": "/?page={p}",
+  "Mới cập nhật": "/tim-truyen?page={p}",
   "Top ngày": "/tim-truyen?status=-1&sort=13&page={p}",
   "Truyện mới": "/tim-truyen?status=-1&sort=15&page={p}",
   "Hoàn thành": "/tim-truyen?status=2&page={p}"
  },
  "search": "/tim-truyen?keyword={q}",
- "item": "div.button-container > a.button-secondary",
- "link": ":self@href",
- "title": ":self",
+ "item": "div.items div.item",
+ "link": "figcaption h3 a@href || a@href",
+ "title": "figcaption h3 a || h3",
  "cover": "img@img",
- "desc": ".comic-item li.chapter a || .chapter a",
+ "desc": "li.chapter a",
  "next": ".pagination a[rel=next], .pagination li.active + li a, a.next-page",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || img@img",
@@ -1303,6 +1312,9 @@ var X = {
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
+    // 0.0.4: chapter list served by an AJAX endpoint keyed by an id found in the detail page
+    //   ch_from: { re: 'data-novel-id="([^"]+)"', url: '/ajax/chapter-archive?novelId=$1' }
+    if (G.ch_from) { var cm = new RegExp(G.ch_from.re).exec(doc.html()); if (cm) doc = C.html(C.fix(G.ch_from.url.replace(/\$(\d)/g, function (m, i) { return encodeURIComponent(cm[+i] || ''); })), G.req); }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
@@ -1476,17 +1488,17 @@ var BASE_URL = "https://nettruyenviet10.com";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
-  "Mới cập nhật": "/?page={p}",
+  "Mới cập nhật": "/tim-truyen?page={p}",
   "Top ngày": "/tim-truyen?status=-1&sort=13&page={p}",
   "Truyện mới": "/tim-truyen?status=-1&sort=15&page={p}",
   "Hoàn thành": "/tim-truyen?status=2&page={p}"
  },
  "search": "/tim-truyen?keyword={q}",
- "item": "div.button-container > a.button-secondary",
- "link": ":self@href",
- "title": ":self",
+ "item": "div.items div.item",
+ "link": "figcaption h3 a@href || a@href",
+ "title": "figcaption h3 a || h3",
  "cover": "img@img",
- "desc": ".comic-item li.chapter a || .chapter a",
+ "desc": "li.chapter a",
  "next": ".pagination a[rel=next], .pagination li.active + li a, a.next-page",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || img@img",
@@ -1670,6 +1682,9 @@ var X = {
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
+    // 0.0.4: chapter list served by an AJAX endpoint keyed by an id found in the detail page
+    //   ch_from: { re: 'data-novel-id="([^"]+)"', url: '/ajax/chapter-archive?novelId=$1' }
+    if (G.ch_from) { var cm = new RegExp(G.ch_from.re).exec(doc.html()); if (cm) doc = C.html(C.fix(G.ch_from.url.replace(/\$(\d)/g, function (m, i) { return encodeURIComponent(cm[+i] || ''); })), G.req); }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
@@ -1843,17 +1858,17 @@ var BASE_URL = "https://nettruyenviet10.com";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
-  "Mới cập nhật": "/?page={p}",
+  "Mới cập nhật": "/tim-truyen?page={p}",
   "Top ngày": "/tim-truyen?status=-1&sort=13&page={p}",
   "Truyện mới": "/tim-truyen?status=-1&sort=15&page={p}",
   "Hoàn thành": "/tim-truyen?status=2&page={p}"
  },
  "search": "/tim-truyen?keyword={q}",
- "item": "div.button-container > a.button-secondary",
- "link": ":self@href",
- "title": ":self",
+ "item": "div.items div.item",
+ "link": "figcaption h3 a@href || a@href",
+ "title": "figcaption h3 a || h3",
  "cover": "img@img",
- "desc": ".comic-item li.chapter a || .chapter a",
+ "desc": "li.chapter a",
  "next": ".pagination a[rel=next], .pagination li.active + li a, a.next-page",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || img@img",
@@ -2037,6 +2052,9 @@ var X = {
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
+    // 0.0.4: chapter list served by an AJAX endpoint keyed by an id found in the detail page
+    //   ch_from: { re: 'data-novel-id="([^"]+)"', url: '/ajax/chapter-archive?novelId=$1' }
+    if (G.ch_from) { var cm = new RegExp(G.ch_from.re).exec(doc.html()); if (cm) doc = C.html(C.fix(G.ch_from.url.replace(/\$(\d)/g, function (m, i) { return encodeURIComponent(cm[+i] || ''); })), G.req); }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
@@ -2210,17 +2228,17 @@ var BASE_URL = "https://nettruyenviet10.com";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
-  "Mới cập nhật": "/?page={p}",
+  "Mới cập nhật": "/tim-truyen?page={p}",
   "Top ngày": "/tim-truyen?status=-1&sort=13&page={p}",
   "Truyện mới": "/tim-truyen?status=-1&sort=15&page={p}",
   "Hoàn thành": "/tim-truyen?status=2&page={p}"
  },
  "search": "/tim-truyen?keyword={q}",
- "item": "div.button-container > a.button-secondary",
- "link": ":self@href",
- "title": ":self",
+ "item": "div.items div.item",
+ "link": "figcaption h3 a@href || a@href",
+ "title": "figcaption h3 a || h3",
  "cover": "img@img",
- "desc": ".comic-item li.chapter a || .chapter a",
+ "desc": "li.chapter a",
  "next": ".pagination a[rel=next], .pagination li.active + li a, a.next-page",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || img@img",
@@ -2404,6 +2422,9 @@ var X = {
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
+    // 0.0.4: chapter list served by an AJAX endpoint keyed by an id found in the detail page
+    //   ch_from: { re: 'data-novel-id="([^"]+)"', url: '/ajax/chapter-archive?novelId=$1' }
+    if (G.ch_from) { var cm = new RegExp(G.ch_from.re).exec(doc.html()); if (cm) doc = C.html(C.fix(G.ch_from.url.replace(/\$(\d)/g, function (m, i) { return encodeURIComponent(cm[+i] || ''); })), G.req); }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {

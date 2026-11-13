@@ -2,11 +2,11 @@
   "metadata": {
     "name": "Xôi Lạc",
     "author": "Kiritokmn",
-    "version": 1,
-    "source": "https://xoilac32.org",
+    "version": 2,
+    "source": "https://xoilacxl.cc",
     "description": "Xôi Lạc — Kiritokmn Extension Repo",
     "locale": "vi",
-    "regexp": "xoilac32\\.org",
+    "regexp": "xoilac32\\.org|xoilacvb\\.cc|xoilacxl\\.cc|xoilacxxi\\.cc",
     "type": "video",
     "nsfw": false
   },
@@ -22,8 +22,9 @@
     "DOMAIN": {
       "title": "Tên miền",
       "subtitle": "Đổi khi trang đổi tên miền",
-      "default": "https://xoilac32.org",
+      "default": "https://xoilacxl.cc",
       "values": [
+        "https://xoilacxl.cc",
         "https://xoilac32.org",
         "https://xoilacxxi.cc",
         "https://xoilacvb.cc"

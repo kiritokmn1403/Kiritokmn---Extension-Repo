@@ -1,4 +1,5 @@
 load('config.js');
-load('lib_common.js');
-load('lib_generic.js');
-function execute() { var t = []; for (var k in G.tabs) t.push({ title: k, input: k, script: "browse.js" }); return Response.success(t); }
+function execute() {
+  var t = [['Shorts', 'shorts:#shorts'], ['Âm nhạc', 'video:nhạc mới nhất'], ['Tin tức', 'video:tin tức hôm nay'], ['Phim hoạt hình', 'video:phim hoạt hình'], ['Game', 'video:gaming'], ['Shorts hài', 'shorts:hài hước']];
+  return Response.success(t.map(function (x) { return { title: x[0], input: x[1], script: 'genre.js' }; }));
+}

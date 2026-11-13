@@ -1,4 +1,4 @@
-var BASE_URL = "https://luottruyen7.com";
+var BASE_URL = "https://luottruyen21.com";
 var HOST = "https://luottruyen7.com";
 
 var FETCH_HEADERS = {

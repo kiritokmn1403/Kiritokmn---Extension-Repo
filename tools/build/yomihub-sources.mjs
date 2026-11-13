@@ -20,8 +20,17 @@ export function buildYomihubSources(root, base) {
   const common = fs.readFileSync(path.join(SRC, '_common.js'), 'utf8');
   fs.mkdirSync(OUT, { recursive: true });
   const host = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return ''; } };
+  // 0.0.4: link every YomiHub-format entry to the repo source of the same website: shared logo + dead-source marking
+  const status = fs.existsSync(path.join(root, 'data', 'status.json')) ? JSON.parse(fs.readFileSync(path.join(root, 'data', 'status.json'), 'utf8')) : {};
+  const byHost = {};
+  for (const id of fs.readdirSync(path.join(root, 'sources'))) {
+    try { const pj = JSON.parse(fs.readFileSync(path.join(root, 'sources', id, 'plugin.json'), 'utf8')); for (const u of [pj.metadata.source, ...(((pj.config || {}).DOMAIN || {}).values || [])]) { const h = host(u); if (h && !byHost[h]) byHost[h] = id; } } catch (e) { }
+  }
   const entries = [];
   for (const s of meta.sources) {
+    const rid = byHost[host(s.baseUrl)];
+    if (rid && fs.existsSync(path.join(root, 'sources', rid, 'icon.png'))) s.iconUrl = `${base}/repo/icons/${rid}.png`;
+    if (rid && (status.dead || {})[rid] && !/Ngừng hoạt động/.test(s.name)) { s.name += ' (Ngừng hoạt động)'; s.notes = '⛔ Ngừng hoạt động: ' + status.dead[rid]; }
     const body = fs.readFileSync(path.join(SRC, s.asset), 'utf8');
     const m = {
       name: s.name, lang: s.lang, id: s.id, baseUrl: s.baseUrl, apiUrl: '', iconUrl: s.iconUrl || '',

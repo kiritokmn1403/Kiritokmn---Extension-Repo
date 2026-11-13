@@ -5,8 +5,8 @@ var G = {
   "Mới cập nhật": "/[?page={p}]"
  },
  "search": "/tim-kiem?s={q}[&page={p}]",
- "item": ".item",
- "title": "h3 || a@title || img@alt",
- "link": "a@href",
+ "item": "div.inner > div.item, .item:has(div.info h3.name)",
+ "title": "h3.name a || .caption h3 || h3 || img@alt",
+ "link": "h3.name a@href || a@href",
  "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
 };

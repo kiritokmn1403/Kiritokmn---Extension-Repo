@@ -22,12 +22,12 @@ const BASE = (opt('--base') || 'https://raw.githubusercontent.com/kiritokmn1403/
 const VERSION = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')).version;
 
 function loadEsbuild() {
-  const cands = process.platform === 'linux' ? ['/opt/npm-tools/node_modules', path.join(ROOT, 'node_modules')] : [path.join(ROOT, 'node_modules'), path.join(ROOT, '../_work/deps/node_modules')];
+  const cands = process.platform === 'linux' ? ['/opt/npm-tools/node_modules', path.join(ROOT, 'node_modules')] : [path.join(ROOT, 'node_modules'), path.join(ROOT, '_work/deps/node_modules'), path.join(ROOT, '../_work/deps/node_modules')];
   for (const c of cands) if (fs.existsSync(path.join(c, 'esbuild'))) { try { const r = createRequire(path.join(c, 'x.js'))('esbuild'); r.version; return r; } catch (e) { } }
   throw new Error('esbuild not found');
 }
 function loadTs() {
-  for (const c of [path.join(ROOT, 'node_modules'), '/opt/npm-tools/node_modules', path.join(ROOT, '../_work/deps/node_modules')]) if (fs.existsSync(path.join(c, 'typescript'))) return createRequire(path.join(c, 'x.js'))('typescript');
+  for (const c of [path.join(ROOT, 'node_modules'), '/opt/npm-tools/node_modules', path.join(ROOT, '_work/deps/node_modules'), path.join(ROOT, '../_work/deps/node_modules')]) if (fs.existsSync(path.join(c, 'typescript'))) return createRequire(path.join(c, 'x.js'))('typescript');
   return null;
 }
 const esbuild = loadEsbuild();
@@ -46,6 +46,7 @@ const LIB_DIR = path.join(ROOT, 'lib');
 const registry = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sources.json'), 'utf8')); // metadata from the Excel sheet
 const regById = Object.fromEntries(registry.map(r => [r.id, r]));
 const CF = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/cloudflare.json'), 'utf8'));
+const STATUS = fs.existsSync(path.join(ROOT, 'data/status.json')) ? JSON.parse(fs.readFileSync(path.join(ROOT, 'data/status.json'), 'utf8')) : {};
 const CF_IDS = new Set([...(CF.auto || []), ...(CF.interactive || []), ...(CF.ipblock || [])]);
 
 function hash31(s) { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return (h >>> 1) % 2000000000 + 100000000; }
@@ -119,7 +120,7 @@ async function bundle(entry, genFile, format, extra = {}) {
   const r = await esbuild.build({
     entryPoints: [path.join(ROOT, 'hosts', entry)], bundle: true, write: false, format, platform: 'neutral', target: extra.target || 'es2020',
     minify: true, legalComments: 'none', charset: 'utf8', mainFields: ['module', 'main'],
-    alias: { '__generated__/scripts.js': genFile }, nodePaths: [path.join(ROOT, 'node_modules'), path.join(ROOT, '../_work/deps/node_modules')], external: extra.external || [],
+    alias: { '__generated__/scripts.js': genFile }, nodePaths: [path.join(ROOT, 'node_modules'), path.join(ROOT, '_work/deps/node_modules'), path.join(ROOT, '../_work/deps/node_modules')], external: extra.external || [],
     globalName: extra.globalName, logLevel: 'silent',
   });
   return r.outputFiles[0].text;
@@ -161,7 +162,12 @@ for (const id of ids) {
   try {
     const pj = JSON.parse(fs.readFileSync(path.join(dir, 'plugin.json'), 'utf8'));
     const md = pj.metadata; const reg = regById[id] || {};
-    const icon = `https://www.google.com/s2/favicons?sz=128&domain=${encodeURIComponent(md.source)}`;
+    // 0.0.4: dead sources stay in the repo (owner's choice) but are clearly marked in every app
+    if (STATUS.dead && STATUS.dead[id] && !/Ngừng hoạt động/.test(md.name)) { md.name = md.name + ' (Ngừng hoạt động)'; md.description = '⛔ Ngừng hoạt động: ' + STATUS.dead[id] + '. ' + (md.description || ''); }
+    // 0.0.4: every source ships its own logo (tools/gen/make_icons.py) -> repo/icons/<id>.png; Google favicon only as fallback
+    const hasIcon = fs.existsSync(path.join(dir, 'icon.png'));
+    if (hasIcon) { fs.mkdirSync(path.join(OUT, 'icons'), { recursive: true }); fs.copyFileSync(path.join(dir, 'icon.png'), path.join(OUT, 'icons', id + '.png')); }
+    const icon = hasIcon ? `${BASE}/repo/icons/${id}.png` : `https://www.google.com/s2/favicons?sz=128&domain=${encodeURIComponent(md.source)}`;
     // ---- vBook package (+ libraries it loads)
     const files = [{ name: 'plugin.json', data: JSON.stringify(pj, null, 2) }];
     // Other hosts group sources by language code: repacked vBook sources use vi_VN / zh_CN / en_US, ours use vi / zh-CN / en.
@@ -172,12 +178,12 @@ for (const id of ids) {
     for (const lib of usedLibs(allCode, path.join(dir, 'src'))) files.push({ name: 'src/' + lib, data: fs.readFileSync(path.join(LIB_DIR, lib), 'utf8') });
     if (fs.existsSync(path.join(dir, 'icon.png'))) files.push({ name: 'icon.png', data: fs.readFileSync(path.join(dir, 'icon.png')) });
     fs.writeFileSync(path.join(OUT, 'vbook', id + '.zip'), makeZip(files));
-    vbookIndex.push({ name: md.name, author: md.author, path: `${BASE}/repo/vbook/${id}.zip`, version: md.version, source: md.source, icon: fs.existsSync(path.join(dir, 'icon.png')) ? `${BASE}/sources/${id}/icon.png` : icon, description: md.description, type: md.type, locale: VB_LOCALE[md.locale] || md.locale, nsfw: !!md.nsfw });
+    vbookIndex.push({ name: md.name, author: md.author, path: `${BASE}/repo/vbook/${id}.zip`, version: md.version, source: md.source, icon, description: md.description, type: md.type, locale: VB_LOCALE[md.locale] || md.locale, nsfw: !!md.nsfw });
     // ---- shared async scripts module
     const genFile = path.join(GEN, id + '.scripts.js');
     fs.writeFileSync(genFile, generateScriptsModule(id, pj, dir, reg));
     // ---- self-contained script module for the Node test runners
-    { const r = await esbuild.build({ entryPoints: [genFile], bundle: true, write: false, format: 'esm', platform: 'neutral', target: 'es2022', nodePaths: [path.join(ROOT, 'node_modules'), path.join(ROOT, '../_work/deps/node_modules')], mainFields: ['module', 'main'], logLevel: 'silent' });
+    { const r = await esbuild.build({ entryPoints: [genFile], bundle: true, write: false, format: 'esm', platform: 'neutral', target: 'es2022', nodePaths: [path.join(ROOT, 'node_modules'), path.join(ROOT, '_work/deps/node_modules'), path.join(ROOT, '../_work/deps/node_modules')], mainFields: ['module', 'main'], logLevel: 'silent' });
       fs.mkdirSync(path.join(GEN, 'test'), { recursive: true }); fs.writeFileSync(path.join(GEN, 'test', id + '.mjs'), r.outputFiles[0].text); }
     // ---- Mangayomi / YomiHub
     const ver = `0.5.${md.version}`; // 0.1.x: pure-JS URL resolver; 0.2.x: image Referer; 0.3.x: lazy fallback; 0.4.x: Shorts flag; 0.5.x: stable URLs (resume/history keep across domains) + GET cache
@@ -200,6 +206,8 @@ for (const id of ids) {
     if (md.type === 'novel') {
       let ln = await bundle('lnreader.js', genFile, 'cjs', { external: ['@libs/*'], target: 'es2017' });
       ln = downlevelES5(ln);
+      // 0.0.4: TypeScript's ES5 output is pretty-printed; minify it again (ES5 in, ES5 out): ~30% smaller plugins
+      try { ln = esbuild.transformSync(ln, { minify: true, target: 'es5', legalComments: 'none', charset: 'utf8' }).code; } catch (e) { }
       // LNReader's loader wraps the code as `const exports = module.exports = {}; <code>; return exports.default`,
       // so a bundle that reassigns module.exports must also put default on the original exports object.
       ln += '\nif (typeof exports === "object" && exports && module.exports !== exports && module.exports && module.exports.default) exports.default = module.exports.default;\n';
@@ -212,7 +220,7 @@ for (const id of ids) {
       const adir = path.join(ANDROID, mod, 'src', fl, 'assets', 'vb', 'src'); fs.mkdirSync(adir, { recursive: true });
       fs.writeFileSync(path.join(adir, id + '.js'), rhinoSourceFile(id, pj, dir));
       const doms = ((pj.config || {}).DOMAIN || {}).values || [md.source];
-      androidAssets[mod + ':' + fl].push({ id, name: md.name, lang: md.locale === 'all' ? 'all' : md.locale, baseUrl: md.source, type: md.type, nsfw: !!md.nsfw, sourceId: hash31('aniyomi:' + id), domains: doms, short: !!reg.short });
+      androidAssets[mod + ':' + fl].push({ id, name: md.name, lang: md.locale === 'all' ? 'all' : md.locale, baseUrl: md.source, type: md.type, nsfw: !!md.nsfw, sourceId: hash31('aniyomi:' + id), domains: doms, short: !!reg.short, prefs: Object.entries(pj.config || {}).filter(([k]) => k !== 'DOMAIN').map(([k, o]) => ({ key: k, title: o.title || k, summary: o.subtitle || '', default: String(o.default ?? '') })) });
     }
     if (md.type === 'video' || md.type === 'comic') aniSources.push({ id, name: md.name, lang: md.locale === 'all' ? 'all' : md.locale, baseUrl: md.source, type: md.type, nsfw: !!md.nsfw, sourceId: hash31('aniyomi:' + id), short: !!reg.short });
     report.push({ id, ok: true, type: md.type, ms: Date.now() - t0, mgKB: Math.round(mg.length / 1024), lnKB: Math.round(lnSize / 1024), stt: reg.stt });
@@ -223,10 +231,10 @@ for (const id of ids) {
 }
 // Node test runtime (shared engine) — per-source modules are .build/<id>.scripts.js
 {
-  const r = await esbuild.build({ entryPoints: [path.join(ROOT, 'hosts/node-runtime.js')], bundle: true, write: false, format: 'esm', platform: 'neutral', target: 'es2022', minify: false, nodePaths: [path.join(ROOT, 'node_modules'), path.join(ROOT, '../_work/deps/node_modules')], mainFields: ['module', 'main'], logLevel: 'silent' });
+  const r = await esbuild.build({ entryPoints: [path.join(ROOT, 'hosts/node-runtime.js')], bundle: true, write: false, format: 'esm', platform: 'neutral', target: 'es2022', minify: false, nodePaths: [path.join(ROOT, 'node_modules'), path.join(ROOT, '_work/deps/node_modules'), path.join(ROOT, '../_work/deps/node_modules')], mainFields: ['module', 'main'], logLevel: 'silent' });
   fs.writeFileSync(path.join(GEN, '_runtime.mjs'), r.outputFiles[0].text);
   fs.writeFileSync(path.join(GEN, '_offline_entry.js'), "export { VBookEngine } from '../runtime/engine.js';\n");
-  const r2 = await esbuild.build({ entryPoints: [path.join(GEN, '_offline_entry.js')], bundle: true, write: false, format: 'esm', platform: 'neutral', target: 'es2022', nodePaths: [path.join(ROOT, 'node_modules'), path.join(ROOT, '../_work/deps/node_modules')], mainFields: ['module', 'main'], logLevel: 'silent' });
+  const r2 = await esbuild.build({ entryPoints: [path.join(GEN, '_offline_entry.js')], bundle: true, write: false, format: 'esm', platform: 'neutral', target: 'es2022', nodePaths: [path.join(ROOT, 'node_modules'), path.join(ROOT, '_work/deps/node_modules'), path.join(ROOT, '../_work/deps/node_modules')], mainFields: ['module', 'main'], logLevel: 'silent' });
   fs.writeFileSync(path.join(GEN, '_offline_runtime.mjs'), r2.outputFiles[0].text);
 }
 // Android assets: prelude + per-flavour source lists

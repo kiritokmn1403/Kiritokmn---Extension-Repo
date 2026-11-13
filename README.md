@@ -1,6 +1,6 @@
 # Kiritokmn - Extension Repo
 
-**Phiên bản: 0.0.3** · Một kho tiện ích dùng chung cho **Aniyomi, Nekoyomi, Mangayomi, YomiHub, LNReader, IReader, vBook, LeechText và Aidoku** — 196 nguồn Phim, Truyện tranh, Tiểu thuyết (Tiếng Việt, Trung, Anh, Nhật).
+**Phiên bản: 0.0.4** · Một kho tiện ích dùng chung cho **Aniyomi, Nekoyomi, Mangayomi, YomiHub, LNReader, IReader, vBook, LeechText và Aidoku** — 196 nguồn Phim, Truyện tranh, Tiểu thuyết (Tiếng Việt, Trung, Anh, Nhật).
 
 Mỗi nguồn được viết **một lần** theo chuẩn vBook (JavaScript). Bộ build tự chuyển sang định dạng của từng ứng dụng:
 
@@ -29,8 +29,13 @@ mangayomi://add-repo?repo_name=Kiritokmn&manga_url=https://raw.githubusercontent
 aidoku://addSourceList?url=https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/aidoku/index.min.json
 ```
 
-### Có gì mới trong 0.0.3
-Xem [CHANGELOG.md](CHANGELOG.md) — tóm tắt: nguồn **Aidoku** (iOS) cho 152 nguồn truyện tranh + tiểu thuyết; **Resume A Video** làm lại cho đúng cơ chế của từng ứng dụng (định danh tập phim ổn định, giữ vị trí xem khi đổi tên miền); bộ nhớ đệm phản hồi giảm số lượt tải trang khi mở truyện/phim.
+### Có gì mới trong 0.0.4
+Xem [CHANGELOG.md](CHANGELOG.md) — tóm tắt:
+- **Logo riêng cho từng nguồn** (196 logo 256×256: logo thật của trang hoặc logo chữ viết tắt, góc có huy hiệu ▶ Phim / T Truyện tranh / N Tiểu thuyết và 18+) — hiển thị trên Mangayomi, YomiHub, LNReader, IReader, vBook, LeechText và Aidoku.
+- **YouTube** viết lại theo API InnerTube (có tab **Shorts**), **TikTok** (tikwm, không cần tài khoản) và **Douyin** (bảng tìm kiếm nóng; xem video qua máy chủ [Douyin_TikTok_Download_API](https://github.com/Evil0ctal/Douyin_TikTok_Download_API) tự dựng — đặt trong cài đặt nguồn).
+- Sửa nhiều nguồn (Navy Team Novel, TruyenC, TruyenQQ, Viblo, PornHub, ixdzs8, Wiki Dịch → wikicv.org, PhimTV → phimtv2.com…), đánh dấu **(Ngừng hoạt động)** cho nguồn đã chết.
+- Kiểm thử tự động bắt thêm lỗi "danh sách lấy nhầm mục menu"; LNReader/IReader nhỏ hơn ~50% (nén lại sau khi hạ ES5).
+- Hướng dẫn sửa YomiHub để nhận Shorts theo kho: [docs/YOMIHUB_SHORTS_GUIDE.md](docs/YOMIHUB_SHORTS_GUIDE.md).
 
 ## Tiện ích YomiHub (29) — chuyển từ bản tích hợp sẵn trong YomiHub 0.5.3
 
@@ -69,28 +74,28 @@ Từ YomiHub 0.5.3, các tiện ích website này **không còn tích hợp tron
 | 29 | PhimMoiHD | Phim & Điện ảnh | https://phimmoihd.online | vi |  | [phimmoihd.js](repo/yomihub/phimmoihd.js) |
 
 
-## Tải về (Releases v0.0.3)
+## Tải về (Releases v0.0.4)
 
 | Tệp |
 |---|
-| [index.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/index.json) |
-| [index.min.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/index.min.json) |
-| [Kiritokmn-Extension-0.0.3-aidoku.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/Kiritokmn-Extension-0.0.3-aidoku.zip) |
-| [Kiritokmn-Extension-0.0.3-anime-nsfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/Kiritokmn-Extension-0.0.3-anime-nsfw.apk) |
-| [Kiritokmn-Extension-0.0.3-anime-sfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/Kiritokmn-Extension-0.0.3-anime-sfw.apk) |
-| [Kiritokmn-Extension-0.0.3-lnreader-ireader.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/Kiritokmn-Extension-0.0.3-lnreader-ireader.zip) |
-| [Kiritokmn-Extension-0.0.3-manga-nsfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/Kiritokmn-Extension-0.0.3-manga-nsfw.apk) |
-| [Kiritokmn-Extension-0.0.3-manga-sfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/Kiritokmn-Extension-0.0.3-manga-sfw.apk) |
-| [Kiritokmn-Extension-0.0.3-mangayomi-yomihub.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/Kiritokmn-Extension-0.0.3-mangayomi-yomihub.zip) |
-| [Kiritokmn-Extension-0.0.3-vbook-leechtext.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/Kiritokmn-Extension-0.0.3-vbook-leechtext.zip) |
-| [plugin.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/plugin.json) |
-| [plugins.min.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.3/plugins.min.json) |
+| [index.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.4/index.json) |
+| [index.min.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.4/index.min.json) |
+| [Kiritokmn-Extension-0.0.4-aidoku.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.4/Kiritokmn-Extension-0.0.4-aidoku.zip) |
+| [Kiritokmn-Extension-0.0.4-anime-nsfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.4/Kiritokmn-Extension-0.0.4-anime-nsfw.apk) |
+| [Kiritokmn-Extension-0.0.4-anime-sfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.4/Kiritokmn-Extension-0.0.4-anime-sfw.apk) |
+| [Kiritokmn-Extension-0.0.4-lnreader-ireader.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.4/Kiritokmn-Extension-0.0.4-lnreader-ireader.zip) |
+| [Kiritokmn-Extension-0.0.4-manga-nsfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.4/Kiritokmn-Extension-0.0.4-manga-nsfw.apk) |
+| [Kiritokmn-Extension-0.0.4-manga-sfw.apk](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.4/Kiritokmn-Extension-0.0.4-manga-sfw.apk) |
+| [Kiritokmn-Extension-0.0.4-mangayomi-yomihub.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.4/Kiritokmn-Extension-0.0.4-mangayomi-yomihub.zip) |
+| [Kiritokmn-Extension-0.0.4-vbook-leechtext.zip](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.4/Kiritokmn-Extension-0.0.4-vbook-leechtext.zip) |
+| [plugin.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.4/plugin.json) |
+| [plugins.min.json](https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/download/v0.0.4/plugins.min.json) |
 
-Trang phát hành: https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/tag/v0.0.3
+Trang phát hành: https://github.com/kiritokmn1403/Kiritokmn---Extension-Repo/releases/tag/v0.0.4
 
-## Trạng thái nguồn (kiểm thử tự động 2026-11-08: 63/196 chạy trọn chuỗi danh sách → chi tiết → mục lục → nội dung)
+## Trạng thái nguồn (kiểm thử tự động 2026-11-13: 60/196 chạy trọn chuỗi danh sách → chi tiết → mục lục → nội dung)
 
-Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự án). Nguồn "không truy cập được" thường do tên miền đã đổi — vào cài đặt nguồn để đổi **Tên miền**.
+Kiểm thử chạy thật trên mạng Việt Nam (máy của chủ dự án). Ký hiệu: ✅ hoạt động · ⛔ ngừng hoạt động (vẫn giữ trong kho) · 🛡️ Cloudflare · 🌐 bị chặn ở Việt Nam (cần VPN) · 🔐 cần đăng nhập · 🔒 trang chống lấy dữ liệu · 🧩 cần API/máy chủ riêng · 🟡 chạy một phần. Nguồn "không truy cập được" thường do tên miền đã đổi — vào cài đặt nguồn để đổi **Tên miền**.
 
 ### Phim & Video (44)
 
@@ -98,77 +103,77 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 |---|---|---|---|---|---|
 | 1 | Anime47 | anime47.best | vi |  | 🟡 một phần (popular lỗi) |
 | 2 | AnimeVn.Net | animevn.net/the-loai/anime | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
-| 3 | Bilibili | www.bilibili.tv | vi |  | 🟡 một phần (popular lỗi) |
-| 4 | VTV Go | vtvgo.vn | vi |  | 🟡 một phần (popular lỗi) |
-| 5 | Rổ Phim | www.rophimhd.com/phimhay | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 3 | Bilibili | www.bilibili.tv | vi |  | 🧩 trang dựng bằng JavaScript (SPA) — cần viết theo API, để bản sau |
+| 4 | VTV Go | vtvgo.vn | vi |  | 🧩 SPA — cần API, để bản sau |
+| 5 | Rổ Phim | www.rophimhd.com/phimhay | vi |  | ⛔ **Ngừng hoạt động** – mọi tên miền chết |
 | 6 | HotPhim | hotphim.org | vi |  | ✅ hoạt động |
-| 7 | AVSub – AnimeVietsub | animevietsub.nl | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 8 | HayChill | phimhaychill.org | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 7 | AVSub – AnimeVietsub | animevietsub.nl | vi |  | ⛔ **Ngừng hoạt động** – mọi tên miền không phân giải (ENOTFOUND) / chứng chỉ lỗi |
+| 8 | HayChill | phimhaychill.org | vi |  | ⛔ **Ngừng hoạt động** – tên miền chết; phimhaychill.net là trang cờ bạc |
 | 9 | XemPhimGi | xemphimgi.com | vi |  | ✅ hoạt động |
-| 10 | NextPhim | nextphim.net | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; videos lỗi) |
-| 11 | Vfilm | vfilm.vn | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; videos lỗi) |
-| 12 | Phimmoi | phimmoii.mom | vi |  | 🟡 một phần (popular, search ✓; detail lỗi) |
-| 13 | PornHub | www.pornhub.com | all | Có | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 14 | FikFap | fikfap.com | all | Có | 🟡 một phần (popular lỗi) |
+| 10 | NextPhim | nextphim.net | vi |  | 🔒 nextphim.net hiện là trang tin tức/review phim, không có phim để xem |
+| 11 | Vfilm | vfilm.vn | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
+| 12 | Phimmoi | phimmoii.mom | vi |  | ⛔ **Ngừng hoạt động** – mọi tên miền chết; tên miền mặc định chỉ còn trang demo |
+| 13 | PornHub | www.pornhub.com | all | Có | ✅ hoạt động |
+| 14 | FikFap | fikfap.com | all | Có | 🌐 không kết nối được từ mạng Việt Nam — cần VPN |
 | 15 | Tik.Porn | tik.porn | all | Có | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 16 | Kwiky | kwiky.com/cams?AFNO=2-162764.38182 | all | Có | 🟡 một phần (popular lỗi) |
 | 17 | xFree | www.xfree.com | all | Có | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 18 | FapReel | fapreel.com | all | Có | 🟡 một phần (popular lỗi) |
-| 19 | SexVietTop | top1sexvn.com | vi | Có | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 20 | Xôi Lạc | xoilacxxi.cc | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 21 | MotPhim | motphimc.my | vi |  | 🟠 bị Cloudflare/máy chủ chặn |
-| 22 | HiHiPhim | hihiphim.com | vi |  | 🟡 một phần (popular ✓; search lỗi) |
-| 23 | PhimMoiHD | phimmoihd.online | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 19 | SexVietTop | top1sexvn.com | vi | Có | ⛔ **Ngừng hoạt động** – tên miền chết |
+| 20 | Xôi Lạc | xoilacxxi.cc | vi |  | 🟡 một phần (popular lỗi) |
+| 21 | MotPhim | motphimc.my | vi |  | ⛔ **Ngừng hoạt động** – tên miền chết / motphimtv.com đang rao bán |
+| 22 | HiHiPhim | hihiphim.com | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
+| 23 | PhimMoiHD | phimmoihd.online | vi |  | ⛔ **Ngừng hoạt động** – tên miền chết (ENOTFOUND / 530) |
 | 24 | BLVietsub | www.blvietsub.vip | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; videos lỗi) |
-| 25 | Dailymotion | www.dailymotion.com/vn | vi |  | 🟡 một phần (popular lỗi) |
-| 26 | Douyin | www.douyin.com | zh |  | 🟡 một phần (popular lỗi) |
-| 27 | FreeReels | free-reels.com | vi |  | 🟡 một phần (popular lỗi) |
-| 28 | GuPhim | guphimz.com | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 25 | Dailymotion | www.dailymotion.com/vn | vi |  | 🧩 SPA — cần API, để bản sau |
+| 26 | Douyin | www.douyin.com | zh |  | 🧩 danh sách chủ đề nóng chạy không cần máy chủ; xem video cần máy chủ Douyin_TikTok_Download_API tự dựng (đặt trong cài đặt nguồn) |
+| 27 | FreeReels | free-reels.com | vi |  | 🧩 SPA — cần API, để bản sau |
+| 28 | GuPhim | guphimz.com | vi |  | ⛔ **Ngừng hoạt động** – tên miền chết (guphimz.com, guphim.com/.net) |
 | 29 | HentaiVietsub.com | hentaivietsub.com | vi | Có | 🟡 một phần (popular, search, detail, chapters ✓; videos lỗi) |
-| 30 | HHPanda | hhpanda.st | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; videos lỗi) |
+| 30 | HHPanda | hhpanda.st | vi |  | 🔒 trình phát (streamfree.vip) mã hoá luồng phát bằng bytecode + nonce, không lấy được link phát |
 | 31 | HHTQHAY.VIP | hhtqhay.vip | vi |  | 🛡️ Cloudflare Turnstile – cần **xác minh thủ công** trong WebView |
 | 32 | Hồng Quả | hongguoduanju.com | zh |  | 🟡 một phần (popular, detail ✓; search lỗi) |
-| 33 | iQIYI | www.iq.com | zh |  | 🟡 một phần (popular lỗi) |
-| 34 | LuPhim | luphim.com | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; videos lỗi) |
-| 35 | MGTV | w.mgtv.com | vi |  | 🟡 một phần (popular lỗi) |
+| 33 | iQIYI | www.iq.com | zh |  | 🧩 SPA — cần API, để bản sau |
+| 34 | LuPhim | luphim.com | vi |  | 🔒 trình phát dùng dấu vân tay WebGL + chống DevTools, không lấy được luồng phát |
+| 35 | MGTV | w.mgtv.com | vi |  | 🧩 SPA — cần API, để bản sau |
 | 36 | NguonC | phim.nguonc.com | vi |  | ✅ hoạt động |
-| 37 | Phim Nhựa | phimnhua.online | vi |  | ✅ hoạt động |
-| 38 | Phim4K | phim4k.xyz | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 39 | PhimTV | phimtv.my | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 40 | Showbox | pixnet.cc | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 41 | TikTok | www.tiktok.com | all |  | 🟡 một phần (popular lỗi) |
-| 42 | Twitch | www.twitch.tv | all |  | 🟡 một phần (popular lỗi) |
+| 37 | Phim Nhựa | phimnhua.online | vi |  | ⛔ **Ngừng hoạt động** – Cloudflare 530 (máy chủ gốc ngừng) |
+| 38 | Phim4K | phim4k.xyz | vi |  | ⛔ **Ngừng hoạt động** – tên miền chết; phim4k.net là trang cờ bạc |
+| 39 | PhimTV | phimtv.my | vi |  | 🟡 một phần (popular lỗi) |
+| 40 | Showbox | pixnet.cc | vi |  | ⛔ **Ngừng hoạt động** – pixnet.cc không phân giải |
+| 41 | TikTok | www.tiktok.com | all |  | ✅ hoạt động |
+| 42 | Twitch | www.twitch.tv | all |  | 🧩 SPA — cần API GraphQL, để bản sau |
 | 43 | WatchHentai.net | watchhentai.net | en | Có | 🟡 một phần (popular, search, detail, chapters ✓; videos lỗi) |
-| 44 | YouTube | www.youtube.com | all |  | 🟡 một phần (popular lỗi) |
+| 44 | YouTube | www.youtube.com | all |  | ✅ hoạt động |
 
 ### Truyện tranh (37)
 
 | # | Nguồn | Trang | Ngôn ngữ | 18+ | Trạng thái |
 |---|---|---|---|---|---|
 | 1 | CBHentai | hentaicube.xyz | vi | Có | 🛡️ Cloudflare Turnstile – cần **xác minh thủ công** trong WebView |
-| 2 | Dâm Cô Nương | damconuong.pet | vi | Có | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 2 | Dâm Cô Nương | damconuong.pet | vi | Có | ⛔ **Ngừng hoạt động** – tên miền chết (ENOTFOUND / 525) |
 | 3 | SayHentai | sayhentai.cx | vi | Có | 🟡 một phần (popular lỗi) |
 | 4 | CBunu Comic | cucbongunu.com | vi | Có | ✅ hoạt động |
 | 5 | cosplaytele | cosplaytele.com | vi | Có | ✅ hoạt động |
 | 6 | Destin Team | destinteam.xyz | vi |  | ✅ hoạt động |
-| 7 | Dưa Leo truyện | dualeotruyenbet.com | vi | Có | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 7 | Dưa Leo truyện | dualeotruyenbet.com | vi | Có | ⛔ **Ngừng hoạt động** – tên miền chết |
 | 8 | E Hentai | e-hentai.org | vi | Có | ✅ hoạt động |
 | 9 | Góc Truyện Tranh | goctruyentranhvui41.com | vi |  | ✅ hoạt động |
-| 10 | HentaiVN | hentaivnreal.com | vi |  | 🟡 một phần (popular lỗi) |
+| 10 | HentaiVN | hentaivnreal.com | vi |  | ⛔ **Ngừng hoạt động** – tên miền chết |
 | 11 | Hắc Ám Chi Các | haccbl.xyz | vi |  | ✅ hoạt động |
 | 12 | Jelly Comics | jellycomics.online | vi |  | ✅ hoạt động |
-| 13 | JulyComic | julycomics.site | vi |  | 🟠 bị Cloudflare/máy chủ chặn |
-| 14 | LuotTruyen | luottruyen.net | vi |  | 🟡 một phần (popular lỗi) |
-| 15 | MangaDex | mangadex.org | all |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 13 | JulyComic | julycomics.site | vi |  | ⛔ **Ngừng hoạt động** – Cloudflare 522 (máy chủ gốc ngừng) |
+| 14 | LuotTruyen | luottruyen.net | vi |  | 🔐 chương truyện yêu cầu đăng nhập trong WebView |
+| 15 | MangaDex | mangadex.org | all |  | 🌐 mangadex.org và api.mangadex.org bị chặn ở Việt Nam — bật VPN (ví dụ VPN của YomiHub) |
 | 16 | ManhwaBuddy | manhwabuddy.com | vi |  | ✅ hoạt động |
-| 17 | Mimimoe | mimimoe.moe | vi |  | ✅ hoạt động |
+| 17 | Mimimoe | mimimoe.moe | vi |  | 🧩 trang dựng bằng Next.js; danh sách truyện tải bằng API — bản trước "đạt" nhầm vì lấy menu (Danh sách truyện, Thể loại…) |
 | 18 | Misskon | misskon.com | vi |  | ✅ hoạt động |
-| 19 | MoeTruyen | truyen.moe | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; pages lỗi) |
+| 19 | MoeTruyen | truyen.moe | vi |  | 🔒 ảnh chương cấp qua token "page-access" (bảo vệ ảnh) |
 | 20 | My Reading Manga | myreadingmanga.info | all |  | 🛡️ Cloudflare Turnstile – cần **xác minh thủ công** trong WebView |
 | 21 | Navy Team Comic | navyteams.com | vi |  | ✅ hoạt động |
 | 22 | NetTruyen18 | nettruyen18.com | vi |  | ✅ hoạt động |
-| 23 | NetTruyenViet | nettruyenviet10.com | vi |  | ✅ hoạt động |
-| 24 | NetTruyenZ | nettruyenz.com | vi |  | 🟡 một phần (popular lỗi) |
+| 23 | NetTruyenViet | nettruyenviet10.com | vi |  | 🟡 một phần (popular, search, detail ✓; chapters lỗi) |
+| 24 | NetTruyenZ | nettruyenz.com | vi |  | ⛔ **Ngừng hoạt động** – tên miền chỉ còn trang "Site is created successfully!" |
 | 25 | Roads Team | roadsteami.net | vi |  | ✅ hoạt động |
 | 26 | Thế Giới Truyện | thegioitruyen.vn | vi |  | ✅ hoạt động |
 | 27 | TruyenGG | truyenggvn.com | vi |  | ✅ hoạt động |
@@ -177,10 +182,10 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 30 | Truyentranhdammyy | truyentranhdammyy.site | vi |  | ✅ hoạt động |
 | 31 | TVKH | bananacoo.com | vi |  | ✅ hoạt động |
 | 32 | VinaHentai | vinahentai.bond | vi |  | ✅ hoạt động |
-| 33 | WebtoonScan | webtoonscan.com | en |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 33 | WebtoonScan | webtoonscan.com | en |  | ⛔ **Ngừng hoạt động** – trang đã chết (máy chủ không trả lời) |
 | 34 | Weeb Central | weebcentral.com | en |  | 🟡 một phần (popular, search, detail ✓; chapters lỗi) |
-| 35 | Đọc Truyện Tranh BL | truyentranhbl.com | vi |  | 🟠 bắt đăng nhập Google để xem ảnh chương |
-| 36 | Ưng Tỷ Comics | ungtycomics.net | vi |  | 🟡 một phần (popular lỗi) |
+| 35 | Đọc Truyện Tranh BL | truyentranhbl.com | vi |  | 🔐 chương truyện chỉ mở khi đăng nhập Google (WP Manga Images Protection) — đăng nhập trong WebView |
+| 36 | Ưng Tỷ Comics | ungtycomics.net | vi |  | ⛔ **Ngừng hoạt động** – tên miền chết / chứng chỉ lỗi |
 | 37 | BL Bất Tử | blbattu.com | vi |  | ✅ hoạt động |
 
 ### Tiểu thuyết (115)
@@ -196,17 +201,17 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 7 | 69shu - repo Đường đen | 69shuba.com | zh |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 8 | 69书吧 | www.69shuba.com | zh |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 9 | 75zwcom | m.qiwubiquge.com | zh |  | ✅ hoạt động |
-| 10 | 8book | www.8book.com | zh |  | 🟡 một phần (popular, search, detail, chapters ✓; content lỗi) |
+| 10 | 8book | www.8book.com | zh |  | 🔒 nội dung chương tải bằng JavaScript (read.js) |
 | 11 | alicesw | www.alicesw.com | zh | Có | ✅ hoạt động |
-| 12 | allin1 | 14.225.254.182 | vi |  | 🟡 một phần (popular lỗi) |
+| 12 | allin1 | 14.225.254.182 | vi |  | 🧩 Sáng Tác Việt (IP) — danh sách tải bằng JavaScript |
 | 13 | App Truyện Chữ | apptruyenchu.pro | vi |  | ✅ hoạt động |
 | 14 | Boylove Bất Tử | boylovebattu.com | vi |  | ✅ hoạt động |
 | 15 | Bàn Long | blhvip.vn | vi |  | ✅ hoạt động |
-| 16 | ciyuanji | www.ciyuanji.com | zh |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
+| 16 | ciyuanji | www.ciyuanji.com | zh |  | ⛔ **Ngừng hoạt động** – không phản hồi / 403 |
 | 17 | czbooks - repo Đường đen | czbooks.net | zh |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
-| 18 | Deqixs | www.deqixss.com | zh |  | ✅ hoạt động |
-| 19 | douban | read.douban.com | zh |  | 🟡 một phần (popular lỗi) |
-| 20 | Dưa Hấu | xgmf.zuanqianyi.com | zh |  | 🟡 một phần (popular lỗi) |
+| 18 | Deqixs | www.deqixss.com | zh |  | ⛔ **Ngừng hoạt động** – HTTP 500 trên mọi tên miền |
+| 19 | douban | read.douban.com | zh |  | 🟡 một phần (popular, detail ✓; search lỗi) |
+| 20 | Dưa Hấu | xgmf.zuanqianyi.com | zh |  | ⛔ **Ngừng hoạt động** – HTTP 404 toàn trang |
 | 21 | Faloo | faloo.com | zh |  | ✅ hoạt động |
 | 22 | Fan MTL | www.fanmtl.com | en |  | ✅ hoạt động |
 | 23 | Giới Truyện | gioitruyen.com | vi |  | ✅ hoạt động |
@@ -217,88 +222,88 @@ Kiểm thử chạy thật trên mạng Việt Nam (máy chủ của chủ dự 
 | 28 | html5.qq.com | bookshelf.html5.qq.com | zh |  | 🟡 một phần (popular lỗi) |
 | 29 | idejian | www.idejian.com | zh |  | 🟡 một phần (popular lỗi) |
 | 30 | ijjjxsxzw | m.ijjjxsxzw.com | zh |  | ✅ hoạt động |
-| 31 | ixdzs8 | ixdzs8.com | zh |  | ✅ hoạt động |
+| 31 | ixdzs8 | ixdzs8.com | zh |  | 🟡 một phần (search ✓; popular lỗi) |
 | 32 | JJWXC · Tấn Giang | www.jjwxc.net | zh |  | 🟡 một phần (popular, detail ✓; search lỗi) |
 | 33 | Jjwxc-repo duongden💰✅ | www.jjwxc.net | zh |  | 🟡 một phần (popular, detail ✓; search lỗi) |
 | 34 | Kakuyomu | kakuyomu.jp | ja |  | ✅ hoạt động |
-| 35 | Kho Truyện Chữ | khotruyenchu.fun | vi |  | 🟡 một phần (popular lỗi) |
-| 36 | La Cà Truyện | lacatruyen.live | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 37 | Langgee | v5.langge.uk | zh |  | 🟠 bị Cloudflare/máy chủ chặn |
+| 35 | Kho Truyện Chữ | khotruyenchu.fun | vi |  | ⛔ **Ngừng hoạt động** – tên miền chết / không phản hồi |
+| 36 | La Cà Truyện | lacatruyen.live | vi |  | ⛔ **Ngừng hoạt động** – tên miền chết |
+| 37 | Langgee | v5.langge.uk | zh |  | ⛔ **Ngừng hoạt động** – HTTP 502 |
 | 38 | LN Kuro | lnkuro.top | vi |  | 🟡 một phần (popular lỗi) |
 | 39 | LOFTER | www.sudugu.org | zh |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 40 | LoHi | lohi2.com | vi |  | 🟡 một phần (popular lỗi) |
-| 41 | LoppyToon | loppytoon.com | vi | Có | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 41 | LoppyToon | loppytoon.com | vi | Có | ⛔ **Ngừng hoạt động** – tên miền chết |
 | 42 | Luvevaland | luvevalandn2.co | vi |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 43 | MangaDM | mangadm.me | vi |  | ✅ hoạt động |
 | 44 | Matt Reading Translations | mattreadingtranslations.com | en |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 45 | Mino Truyện | minotruyenv6.xyz | vi |  | 🟡 một phần (popular lỗi) |
-| 46 | Minttea Novel | mintteanovel.com | vi |  | ✅ hoạt động |
+| 46 | Minttea Novel | mintteanovel.com | vi |  | 🔐 chương mới bị khoá (cần đăng nhập/mở khoá trên trang) |
 | 47 | MonkeyD | monkeydd.com | vi |  | ✅ hoạt động |
 | 48 | Moyue · Mặc Duyệt | moyue.app | vi |  | 🟡 một phần (popular, detail ✓; search lỗi) |
-| 49 | MTC | metruyencv.biz | vi |  | 🟡 một phần (popular lỗi) |
-| 50 | Mê Truyện Chữ | metruyenchu.com.vn | vi |  | ✅ hoạt động |
-| 51 | Mê Truyện CV | metruyencv.com.vn | vi |  | 🟡 một phần (popular lỗi) |
+| 49 | MTC | metruyencv.biz | vi |  | ⛔ **Ngừng hoạt động** – metruyencv.xyz không phân giải |
+| 50 | Mê Truyện Chữ | metruyenchu.com.vn | vi |  | 🟡 một phần (popular lỗi) |
+| 51 | Mê Truyện CV | metruyencv.com.vn | vi |  | ⛔ **Ngừng hoạt động** – trang báo "Tạm biệt!" (đóng cửa) |
 | 52 | Mê Đọc Truyện | medoctruyen.vn | vi |  | ✅ hoạt động |
 | 53 | Mọt Truyện | mottruyen.app | vi |  | ✅ hoạt động |
-| 54 | Navy Team Novel | navyteams.com | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; content lỗi) |
-| 55 | NetTruyen | nettruyen.com.vn | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 56 | Novel Next | www.novelnext.me | en |  | 🟡 một phần (popular, search, detail, chapters ✓; content lỗi) |
+| 54 | Navy Team Novel | navyteams.com | vi |  | ✅ hoạt động |
+| 55 | NetTruyen | nettruyen.com.vn | vi |  | 🌐 máy chủ dùng khoá TLS cũ (DH key too small), ứng dụng Android từ chối kết nối |
+| 56 | Novel Next | www.novelnext.me | en |  | 🟡 một phần (popular, detail ✓; search lỗi) |
 | 57 | NovelFull.Net | novelfull.net | en |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 58 | NovelPhoenix | novelphoenix.net | en |  | ✅ hoạt động |
-| 59 | Novelpia Global | global.novelpia.com | en |  | ✅ hoạt động |
+| 59 | Novelpia Global | global.novelpia.com | en |  | 🧩 danh sách tải bằng JavaScript; bản trước "đạt" nhầm vì lấy các nút "MORE" |
 | 60 | piaotian-app | www.piaotianapp.com | zh |  | 🟡 một phần (popular lỗi) |
-| 61 | po18 | www.po18.tw | zh | Có | 🟡 một phần (popular lỗi) |
+| 61 | po18 | www.po18.tw | zh | Có | 🔐 yêu cầu xác minh 18+/đăng nhập |
 | 62 | po18sm | www.po18sm.com | zh | Có | 🟡 một phần (popular, detail ✓; search lỗi) |
-| 63 | qimao | www.qimao.com | zh |  | 🟡 một phần (popular lỗi) |
+| 63 | qimao | www.qimao.com | zh |  | ⛔ **Ngừng hoạt động** – không kết nối được |
 | 64 | qmbook | m.bqg998.cc/# | zh |  | 🟡 một phần (popular lỗi) |
 | 65 | quanben | quanben.io | zh |  | 🟠 máy chủ trả trang mặc định CentOS (403) – trang hỏng |
-| 66 | quanwenyuedu | www.quanwenyuedu.io | zh |  | 🟡 một phần (popular, search, detail ✓; chapters lỗi) |
+| 66 | quanwenyuedu | www.quanwenyuedu.io | zh |  | ⛔ **Ngừng hoạt động** – chứng chỉ SSL hết hạn |
 | 67 | QuyKiep | quykiep.com | vi |  | 🟡 một phần (popular lỗi) |
 | 68 | Shinigami LN Team | shinigamilnteam.com | vi |  | ✅ hoạt động |
-| 69 | Si Truyện CV | sitruyencv.com | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
-| 70 | Snapd | m.snapd.net | zh |  | 🟡 một phần (popular lỗi) |
+| 69 | Si Truyện CV | sitruyencv.com | vi |  | ⛔ **Ngừng hoạt động** – máy chủ không phản hồi |
+| 70 | Snapd | m.snapd.net | zh |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
 | 71 | sohu | www.sohu.com | zh |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
-| 72 | STV App Vi | sangtacviet.com | vi |  | 🟡 một phần (popular lỗi) |
+| 72 | STV App Vi | sangtacviet.com | vi |  | 🧩 Sáng Tác Việt — danh sách tải bằng JavaScript |
 | 73 | sudugu | www.sudugu.org | zh |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
 | 74 | sweetastes | www.bjtriz.com | zh |  | 🟡 một phần (popular, detail ✓; search lỗi) |
 | 75 | Syosetu | syosetu.com | ja |  | 🟡 một phần (popular ✓; search lỗi) |
 | 76 | Syosetu R18 | novel18.syosetu.com | ja | Có | 🟡 một phần (popular lỗi) |
-| 77 | Sói Xám (Fanqie) | api.langge.cf | zh |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 77 | Sói Xám (Fanqie) | api.langge.cf | zh |  | ⛔ **Ngừng hoạt động** – api.langge.cf không phân giải |
 | 78 | TaoNovel | tybook.taoyuewenhua.net | zh |  | 🟡 một phần (popular lỗi) |
-| 79 | Tinh Linh | tinhlinh.com | vi |  | ✅ hoạt động |
-| 80 | Tiệm Truyện Chữ | tiemtruyenchu.cloud | vi |  | 🟡 một phần (popular lỗi) |
+| 79 | Tinh Linh | tinhlinh.com | vi |  | ⛔ **Ngừng hoạt động** – Cloudflare 525 (máy chủ gốc lỗi SSL) |
+| 80 | Tiệm Truyện Chữ | tiemtruyenchu.cloud | vi |  | 🔐 toàn trang yêu cầu đăng nhập |
 | 81 | Truyen H | truyenh.top | vi | Có | 🟡 một phần (popular lỗi) |
-| 82 | TruyenC | truyenc.net | vi |  | 🟡 một phần (popular, detail, chapters ✓; search lỗi) |
+| 82 | TruyenC | truyenc.net | vi |  | ✅ hoạt động |
 | 83 | TruyenCV.io | truyencv.io | vi |  | 🟡 một phần (popular, search, detail, chapters ✓; content lỗi) |
 | 84 | TruyenDich.AI | truyendich.space | vi |  | ✅ hoạt động |
 | 85 | truyenfull | truyenfull.live | vi |  | ✅ hoạt động |
 | 86 | Truyện Chữ | truyenchu.net | vi |  | ✅ hoạt động |
 | 87 | Truyện Dịch AI | truyendichai.com | vi |  | 🟡 một phần (popular lỗi) |
 | 88 | Truyện Full | truyenfull.today | vi |  | ✅ hoạt động |
-| 89 | Truyện Mới | truyenmoi.app | vi |  | 🟡 một phần (popular lỗi) |
-| 90 | Truyện Mới KK | truyenmoikk.com | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 89 | Truyện Mới | truyenmoi.app | vi |  | ⛔ **Ngừng hoạt động** – tên miền chết |
+| 90 | Truyện Mới KK | truyenmoikk.com | vi |  | ⛔ **Ngừng hoạt động** – tên miền chết |
 | 91 | Truyện Net | truyennet.vn | vi |  | 🟡 một phần (popular ✓; search lỗi) |
 | 92 | Truyện Zhihu Tổng Hợp | www.truyendexuat.com | vi |  | ✅ hoạt động |
-| 93 | TruyệnCV | metruyencv.com | vi |  | 🟡 một phần (popular lỗi) |
+| 93 | TruyệnCV | metruyencv.com | vi |  | ⛔ **Ngừng hoạt động** – metruyencv.com đóng cửa ("Tạm biệt!") |
 | 94 | Tu Tiên (.pro) | tutien.pro | vi |  | 🟡 một phần (popular lỗi) |
 | 95 | uukanshu | uukanshu.cc | zh |  | 🛡️ Cloudflare (tự vượt qua trong WebView) – mở WebView 1 lần |
 | 96 | Valvrareteam | valvrareteam.net | vi |  | ✅ hoạt động |
-| 97 | Viblo | viblo.asia | vi |  | 🟡 một phần (popular, detail ✓; search lỗi) |
+| 97 | Viblo | viblo.asia | vi |  | ✅ hoạt động |
 | 98 | vivutruyencom | vivutruyen.com | vi |  | ✅ hoạt động |
 | 99 | Việt Nam Thư Quán | vnthuquan.org | vi |  | ✅ hoạt động |
-| 100 | Wattpad | www.wattpad.com | all |  | 🟡 một phần (popular lỗi) |
+| 100 | Wattpad | www.wattpad.com | all |  | 🌐 wattpad.com bị chặn ở Việt Nam — cần VPN |
 | 101 | Web Truyện Chữ | webtruyenchu.com | vi |  | ✅ hoạt động |
 | 102 | Web Truyện Dịch | webtruyendich.com | vi |  | 🟡 một phần (popular lỗi) |
 | 103 | Weibo | m.weibo.cn | zh |  | 🟡 một phần (popular lỗi) |
-| 104 | Wiki Dịch | wikicv.org | vi |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 104 | Wiki Dịch | wikicv.org | vi |  | 🟡 một phần (popular, chapters ✓; search lỗi) |
 | 105 | wodeshucheng5 | www.wodeshucheng5.com | zh |  | 🟠 nginx 403 – chặn IP/khu vực |
 | 106 | Xbanxia - repo Đường đen | www.xbanxia.cc | zh |  | ✅ hoạt động |
 | 107 | Xianqihaotiami APP | www.xianqihaotianmi.org | zh |  | 🟡 một phần (popular lỗi) |
-| 108 | xsw | m.xsw.tw | zh |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 108 | xsw | m.xsw.tw | zh |  | ⛔ **Ngừng hoạt động** – chứng chỉ SSL không hợp lệ |
 | 109 | XTruyen | www.xtruyen.net | vi |  | 🟡 một phần (popular lỗi) |
-| 110 | YPShuo - Bình luận sách | www.ypshuo.com | zh |  | 🟡 một phần (popular lỗi) |
-| 111 | 【VIP】Bạch Ngọc Sách | bnsvip.net | vi |  | 🟡 một phần (popular lỗi) |
-| 112 | 书本书 Shubenshu | www.shubenshu.com | zh |  | 🟡 một phần (popular, search, detail, chapters ✓; content lỗi) |
+| 110 | YPShuo - Bình luận sách | www.ypshuo.com | zh |  | 🔴 không truy cập được (tên miền chết / bị chặn) |
+| 111 | 【VIP】Bạch Ngọc Sách | bnsvip.net | vi |  | ⛔ **Ngừng hoạt động** – máy chủ ngắt kết nối (ECONNRESET) |
+| 112 | 书本书 Shubenshu | www.shubenshu.com | zh |  | 🔒 trang chương chuyển về trang chủ khi không có cookie/Referer hợp lệ |
 | 113 | 搜笔趣阁 | www.sobqg.com | zh |  | ✅ hoạt động |
 | 114 | 笔趣阁-abcbiquge | m.abcbiquge.com | zh |  | 🟡 một phần (popular, search, detail ✓; chapters lỗi) |
 | 115 | 飘天文学 | www.piaotia.com | zh |  | ✅ hoạt động |

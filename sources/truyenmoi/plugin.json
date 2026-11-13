@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Truyện Mới",
     "author": "kychi (Kiritokmn repack)",
-    "version": 7,
+    "version": 8,
     "source": "https://truyenmoiqq.com/",
     "regexp": "(www.)?truyenmoiqq.com/[^/]+/?$",
     "description": "Fork TruyenMoi của HieuDM, đã refactor parser + null guard + tối ưu toc/search/detail — gốc: kychi (kychitoge-vbook-ext)",

@@ -2,17 +2,17 @@ var BASE_URL = "https://nettruyenviet10.com";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
-  "Mới cập nhật": "/?page={p}",
+  "Mới cập nhật": "/tim-truyen?page={p}",
   "Top ngày": "/tim-truyen?status=-1&sort=13&page={p}",
   "Truyện mới": "/tim-truyen?status=-1&sort=15&page={p}",
   "Hoàn thành": "/tim-truyen?status=2&page={p}"
  },
  "search": "/tim-truyen?keyword={q}",
- "item": "div.button-container > a.button-secondary",
- "link": ":self@href",
- "title": ":self",
+ "item": "div.items div.item",
+ "link": "figcaption h3 a@href || a@href",
+ "title": "figcaption h3 a || h3",
  "cover": "img@img",
- "desc": ".comic-item li.chapter a || .chapter a",
+ "desc": "li.chapter a",
  "next": ".pagination a[rel=next], .pagination li.active + li a, a.next-page",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || img@img",

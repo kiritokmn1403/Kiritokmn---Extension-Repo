@@ -2,16 +2,17 @@
   "metadata": {
     "name": "YouTube",
     "author": "Kiritokmn",
-    "version": 1,
-    "source": "https://m.youtube.com",
-    "description": "YouTube — Kiritokmn Extension Repo",
+    "version": 2,
+    "source": "https://www.youtube.com",
+    "description": "YouTube — video & Shorts qua API InnerTube (không cần tài khoản).",
     "locale": "global",
-    "regexp": "m\\.youtube\\.com",
+    "regexp": "youtube\\.com|youtu\\.be",
     "type": "video",
     "nsfw": false
   },
   "script": {
     "home": "home.js",
+    "genre": "genre.js",
     "search": "search.js",
     "detail": "detail.js",
     "toc": "toc.js",
@@ -22,13 +23,20 @@
     "DOMAIN": {
       "title": "Tên miền",
       "subtitle": "Đổi khi trang đổi tên miền",
-      "default": "https://m.youtube.com",
+      "default": "https://www.youtube.com",
       "values": [
-        "https://m.youtube.com",
-        "https://www.youtube.com"
+        "https://www.youtube.com",
+        "https://m.youtube.com"
       ],
       "mode": "select",
       "format": "single"
+    },
+    "REGION": {
+      "title": "Khu vực (mã quốc gia)",
+      "subtitle": "VN, US, JP…",
+      "default": "VN",
+      "mode": "input",
+      "format": "text"
     }
   }
 }

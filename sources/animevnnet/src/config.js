@@ -4,9 +4,9 @@ var G = {
  "tabs": {
   "Mới cập nhật": "/[?page={p}]"
  },
- "search": "/search?q={q}[&page={p}]",
- "item": ".anime-cover",
- "title": "a@title || img@alt || a@title || img@alt",
+ "search": "/search?q={q}",
+ "item": "div.item:has(div.anime-cover)",
+ "title": "h3 || .name || img@alt || a@title",
  "link": "a@href",
  "ch_list": "div.glo_contents a",
  "d_title": "h1 || meta[property=og:title]@content",

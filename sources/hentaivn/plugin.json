@@ -2,7 +2,7 @@
   "metadata": {
     "name": "HentaiVN",
     "author": "vBook (Kiritokmn repack)",
-    "version": 28,
+    "version": 29,
     "source": "https://hentaihvn.tv",
     "regexp": "(www.)?hen(tai)?(vn|ayame|hvn).[a-z]+/\\d+-[^/]+.html$",
     "description": "Đọc truyện trên trang HentaiVN — gốc: vBook (vbook-extensions)",

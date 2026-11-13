@@ -31,6 +31,8 @@ data class SourceDef(
     val nsfw: Boolean,
     val sourceId: Long,
     val domains: List<String>,
+    /** 0.0.4: extra settings from plugin.json "config" (key, title, summary, default), e.g. TikTok/Douyin API server. */
+    val prefs: List<Array<String>> = emptyList(),
 )
 
 fun loadSourceDefs(json: String): List<SourceDef> {
@@ -47,6 +49,7 @@ fun loadSourceDefs(json: String): List<SourceDef> {
             nsfw = o.optBoolean("nsfw"),
             sourceId = o.getLong("sourceId"),
             domains = if (doms == null) emptyList() else (0 until doms.length()).map { doms.getString(it) },
+            prefs = o.optJSONArray("prefs")?.let { a -> (0 until a.length()).map { j -> a.getJSONObject(j).let { p -> arrayOf(p.getString("key"), p.optString("title", p.getString("key")), p.optString("summary"), p.optString("default")) } } } ?: emptyList(),
         )
     }
 }

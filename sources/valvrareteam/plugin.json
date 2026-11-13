@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Valvrareteam",
     "author": "Meo (Kiritokmn repack)",
-    "version": 10,
+    "version": 11,
     "source": "https://valvrareteam.net",
     "regexp": "valvrareteam\\.net/truyen/__ID__[0-9a-fA-F]{24}$",
     "description": "Light Novel Vietsub - Valvrareteam — gốc: Meo (hienpro00123/vbook_MeoU)",

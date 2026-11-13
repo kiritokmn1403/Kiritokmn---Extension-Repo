@@ -1,4 +1,4 @@
-var BASE_URL = "https://phimtv.my";
+var BASE_URL = "https://phimtv2.com";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {

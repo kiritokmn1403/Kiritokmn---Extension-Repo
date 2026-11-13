@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Web Truyện Dịch",
     "author": "kychi (Kiritokmn repack)",
-    "version": 1,
+    "version": 2,
     "source": "https://webtruyendich.com/",
     "regexp": "^https://webtruyendich\\.com/truyen/.*",
     "description": "Đọc truyện chữ Web Truyện Dịch online, cập nhật nhanh chóng với bản dịch chất lượng cao và AI. \n\nV1: chỉ load được vietphrase (convert) — gốc: kychi (kychitoge-vbook-ext)",

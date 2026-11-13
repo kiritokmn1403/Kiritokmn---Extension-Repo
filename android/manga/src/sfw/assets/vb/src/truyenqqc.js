@@ -1,4 +1,4 @@
-__register({ META: {"id":"truyenqqc","name":"TruyenQQ","source":"https://truyenqq.com.vn","type":"comic","locale":"vi","nsfw":false,"version":1,"config":{"DOMAIN":{"title":"Tên miền","subtitle":"Đổi khi trang đổi tên miền","default":"https://truyenqq.com.vn","values":["https://truyenqq.com.vn"],"mode":"input","format":"text"}},"configDefaults":{"DOMAIN":"https://truyenqq.com.vn"}}, SCRIPTS: {
+__register({ META: {"id":"truyenqqc","name":"TruyenQQ","source":"https://truyenqq.com.vn","type":"comic","locale":"vi","nsfw":false,"version":2,"config":{"DOMAIN":{"title":"Tên miền","subtitle":"Đổi khi trang đổi tên miền","default":"https://truyenqq.com.vn","values":["https://truyenqq.com.vn"],"mode":"input","format":"text"}},"configDefaults":{"DOMAIN":"https://truyenqq.com.vn"}}, SCRIPTS: {
 "home": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
 var DOMAIN = __cfg("DOMAIN");
@@ -11,9 +11,9 @@ var G = {
   "Mới cập nhật": "/[?page={p}]"
  },
  "search": "/tim-kiem?s={q}[&page={p}]",
- "item": ".item",
- "title": "h3 || a@title || img@alt",
- "link": "a@href",
+ "item": "div.inner > div.item, .item:has(div.info h3.name)",
+ "title": "h3.name a || .caption h3 || h3 || img@alt",
+ "link": "h3.name a@href || a@href",
  "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
 };
 
@@ -183,6 +183,9 @@ var X = {
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
+    // 0.0.4: chapter list served by an AJAX endpoint keyed by an id found in the detail page
+    //   ch_from: { re: 'data-novel-id="([^"]+)"', url: '/ajax/chapter-archive?novelId=$1' }
+    if (G.ch_from) { var cm = new RegExp(G.ch_from.re).exec(doc.html()); if (cm) doc = C.html(C.fix(G.ch_from.url.replace(/\$(\d)/g, function (m, i) { return encodeURIComponent(cm[+i] || ''); })), G.req); }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
@@ -359,9 +362,9 @@ var G = {
   "Mới cập nhật": "/[?page={p}]"
  },
  "search": "/tim-kiem?s={q}[&page={p}]",
- "item": ".item",
- "title": "h3 || a@title || img@alt",
- "link": "a@href",
+ "item": "div.inner > div.item, .item:has(div.info h3.name)",
+ "title": "h3.name a || .caption h3 || h3 || img@alt",
+ "link": "h3.name a@href || a@href",
  "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
 };
 
@@ -531,6 +534,9 @@ var X = {
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
+    // 0.0.4: chapter list served by an AJAX endpoint keyed by an id found in the detail page
+    //   ch_from: { re: 'data-novel-id="([^"]+)"', url: '/ajax/chapter-archive?novelId=$1' }
+    if (G.ch_from) { var cm = new RegExp(G.ch_from.re).exec(doc.html()); if (cm) doc = C.html(C.fix(G.ch_from.url.replace(/\$(\d)/g, function (m, i) { return encodeURIComponent(cm[+i] || ''); })), G.req); }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
@@ -707,9 +713,9 @@ var G = {
   "Mới cập nhật": "/[?page={p}]"
  },
  "search": "/tim-kiem?s={q}[&page={p}]",
- "item": ".item",
- "title": "h3 || a@title || img@alt",
- "link": "a@href",
+ "item": "div.inner > div.item, .item:has(div.info h3.name)",
+ "title": "h3.name a || .caption h3 || h3 || img@alt",
+ "link": "h3.name a@href || a@href",
  "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
 };
 
@@ -879,6 +885,9 @@ var X = {
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
+    // 0.0.4: chapter list served by an AJAX endpoint keyed by an id found in the detail page
+    //   ch_from: { re: 'data-novel-id="([^"]+)"', url: '/ajax/chapter-archive?novelId=$1' }
+    if (G.ch_from) { var cm = new RegExp(G.ch_from.re).exec(doc.html()); if (cm) doc = C.html(C.fix(G.ch_from.url.replace(/\$(\d)/g, function (m, i) { return encodeURIComponent(cm[+i] || ''); })), G.req); }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
@@ -1055,9 +1064,9 @@ var G = {
   "Mới cập nhật": "/[?page={p}]"
  },
  "search": "/tim-kiem?s={q}[&page={p}]",
- "item": ".item",
- "title": "h3 || a@title || img@alt",
- "link": "a@href",
+ "item": "div.inner > div.item, .item:has(div.info h3.name)",
+ "title": "h3.name a || .caption h3 || h3 || img@alt",
+ "link": "h3.name a@href || a@href",
  "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
 };
 
@@ -1227,6 +1236,9 @@ var X = {
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
+    // 0.0.4: chapter list served by an AJAX endpoint keyed by an id found in the detail page
+    //   ch_from: { re: 'data-novel-id="([^"]+)"', url: '/ajax/chapter-archive?novelId=$1' }
+    if (G.ch_from) { var cm = new RegExp(G.ch_from.re).exec(doc.html()); if (cm) doc = C.html(C.fix(G.ch_from.url.replace(/\$(\d)/g, function (m, i) { return encodeURIComponent(cm[+i] || ''); })), G.req); }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
@@ -1403,9 +1415,9 @@ var G = {
   "Mới cập nhật": "/[?page={p}]"
  },
  "search": "/tim-kiem?s={q}[&page={p}]",
- "item": ".item",
- "title": "h3 || a@title || img@alt",
- "link": "a@href",
+ "item": "div.inner > div.item, .item:has(div.info h3.name)",
+ "title": "h3.name a || .caption h3 || h3 || img@alt",
+ "link": "h3.name a@href || a@href",
  "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
 };
 
@@ -1575,6 +1587,9 @@ var X = {
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
+    // 0.0.4: chapter list served by an AJAX endpoint keyed by an id found in the detail page
+    //   ch_from: { re: 'data-novel-id="([^"]+)"', url: '/ajax/chapter-archive?novelId=$1' }
+    if (G.ch_from) { var cm = new RegExp(G.ch_from.re).exec(doc.html()); if (cm) doc = C.html(C.fix(G.ch_from.url.replace(/\$(\d)/g, function (m, i) { return encodeURIComponent(cm[+i] || ''); })), G.req); }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
@@ -1751,9 +1766,9 @@ var G = {
   "Mới cập nhật": "/[?page={p}]"
  },
  "search": "/tim-kiem?s={q}[&page={p}]",
- "item": ".item",
- "title": "h3 || a@title || img@alt",
- "link": "a@href",
+ "item": "div.inner > div.item, .item:has(div.info h3.name)",
+ "title": "h3.name a || .caption h3 || h3 || img@alt",
+ "link": "h3.name a@href || a@href",
  "ch_list": "a[href*=chuong], a[href*=chap], a[href*=tap-], a[href*=episode]"
 };
 
@@ -1923,6 +1938,9 @@ var X = {
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
+    // 0.0.4: chapter list served by an AJAX endpoint keyed by an id found in the detail page
+    //   ch_from: { re: 'data-novel-id="([^"]+)"', url: '/ajax/chapter-archive?novelId=$1' }
+    if (G.ch_from) { var cm = new RegExp(G.ch_from.re).exec(doc.html()); if (cm) doc = C.html(C.fix(G.ch_from.url.replace(/\$(\d)/g, function (m, i) { return encodeURIComponent(cm[+i] || ''); })), G.req); }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {

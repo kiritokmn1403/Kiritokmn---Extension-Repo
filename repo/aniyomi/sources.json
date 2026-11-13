@@ -21,7 +21,7 @@
  },
  {
   "id": "avsubanimevietsub",
-  "name": "AVSub – AnimeVietsub",
+  "name": "AVSub – AnimeVietsub (Ngừng hoạt động)",
   "lang": "vi",
   "baseUrl": "https://animevietsub.sale",
   "type": "video",
@@ -101,7 +101,7 @@
  },
  {
   "id": "damconuong",
-  "name": "Dâm Cô Nương",
+  "name": "Dâm Cô Nương (Ngừng hoạt động)",
   "lang": "vi",
   "baseUrl": "https://damconuong.name",
   "type": "comic",
@@ -141,7 +141,7 @@
  },
  {
   "id": "dualeotruyen",
-  "name": "Dưa Leo truyện",
+  "name": "Dưa Leo truyện (Ngừng hoạt động)",
   "lang": "vi",
   "baseUrl": "https://dualeotruyenbet.com",
   "type": "comic",
@@ -201,7 +201,7 @@
  },
  {
   "id": "guphim",
-  "name": "GuPhim",
+  "name": "GuPhim (Ngừng hoạt động)",
   "lang": "vi",
   "baseUrl": "https://guphimz.com",
   "type": "video",
@@ -221,7 +221,7 @@
  },
  {
   "id": "haychill",
-  "name": "HayChill",
+  "name": "HayChill (Ngừng hoạt động)",
   "lang": "vi",
   "baseUrl": "https://phimhaychill.org",
   "type": "video",
@@ -241,7 +241,7 @@
  },
  {
   "id": "hentaivn",
-  "name": "HentaiVN",
+  "name": "HentaiVN (Ngừng hoạt động)",
   "lang": "vi",
   "baseUrl": "https://hentaihvn.tv",
   "type": "comic",
@@ -321,7 +321,7 @@
  },
  {
   "id": "julycomic",
-  "name": "JulyComic",
+  "name": "JulyComic (Ngừng hoạt động)",
   "lang": "vi",
   "baseUrl": "https://julycomics.site",
   "type": "comic",
@@ -343,7 +343,7 @@
   "id": "luottruyen",
   "name": "LuotTruyen",
   "lang": "vi",
-  "baseUrl": "https://luottruyen7.com",
+  "baseUrl": "https://luottruyen21.com",
   "type": "comic",
   "nsfw": false,
   "sourceId": 857592572,
@@ -421,7 +421,7 @@
  },
  {
   "id": "motphim",
-  "name": "MotPhim",
+  "name": "MotPhim (Ngừng hoạt động)",
   "lang": "vi",
   "baseUrl": "https://motphimc.my",
   "type": "video",
@@ -471,7 +471,7 @@
  },
  {
   "id": "nettruyenz",
-  "name": "NetTruyenZ",
+  "name": "NetTruyenZ (Ngừng hoạt động)",
   "lang": "vi",
   "baseUrl": "https://nettruyenz.com",
   "type": "comic",
@@ -501,7 +501,7 @@
  },
  {
   "id": "phim4k",
-  "name": "Phim4K",
+  "name": "Phim4K (Ngừng hoạt động)",
   "lang": "vi",
   "baseUrl": "https://phim4k.xyz",
   "type": "video",
@@ -511,7 +511,7 @@
  },
  {
   "id": "phimmoi",
-  "name": "Phimmoi",
+  "name": "Phimmoi (Ngừng hoạt động)",
   "lang": "vi",
   "baseUrl": "https://messiahelartista.com",
   "type": "video",
@@ -521,7 +521,7 @@
  },
  {
   "id": "phimmoihd",
-  "name": "PhimMoiHD",
+  "name": "PhimMoiHD (Ngừng hoạt động)",
   "lang": "vi",
   "baseUrl": "https://phimmoihd.online",
   "type": "video",
@@ -531,7 +531,7 @@
  },
  {
   "id": "phimnhua",
-  "name": "Phim Nhựa",
+  "name": "Phim Nhựa (Ngừng hoạt động)",
   "lang": "vi",
   "baseUrl": "https://phimnhua.online",
   "type": "video",
@@ -543,7 +543,7 @@
   "id": "phimtv",
   "name": "PhimTV",
   "lang": "vi",
-  "baseUrl": "https://phimtv.my",
+  "baseUrl": "https://phimtv2.com",
   "type": "video",
   "nsfw": false,
   "sourceId": 1628167011,
@@ -571,7 +571,7 @@
  },
  {
   "id": "rophim",
-  "name": "Rổ Phim",
+  "name": "Rổ Phim (Ngừng hoạt động)",
   "lang": "vi",
   "baseUrl": "https://www.rophim.soy",
   "type": "video",
@@ -591,7 +591,7 @@
  },
  {
   "id": "sexviettop",
-  "name": "SexVietTop",
+  "name": "SexVietTop (Ngừng hoạt động)",
   "lang": "vi",
   "baseUrl": "https://top1sexvn.com",
   "type": "video",
@@ -601,7 +601,7 @@
  },
  {
   "id": "showbox",
-  "name": "Showbox",
+  "name": "Showbox (Ngừng hoạt động)",
   "lang": "vi",
   "baseUrl": "https://pixnet.cc",
   "type": "video",
@@ -701,7 +701,7 @@
  },
  {
   "id": "ungtycomics",
-  "name": "Ưng Tỷ Comics",
+  "name": "Ưng Tỷ Comics (Ngừng hoạt động)",
   "lang": "vi",
   "baseUrl": "https://ungtycomicseo.com/",
   "type": "comic",
@@ -751,7 +751,7 @@
  },
  {
   "id": "webtoonscan",
-  "name": "WebtoonScan",
+  "name": "WebtoonScan (Ngừng hoạt động)",
   "lang": "en",
   "baseUrl": "https://webtoonscan.com",
   "type": "comic",
@@ -793,7 +793,7 @@
   "id": "xoilac",
   "name": "Xôi Lạc",
   "lang": "vi",
-  "baseUrl": "https://xoilac32.org",
+  "baseUrl": "https://xoilacxl.cc",
   "type": "video",
   "nsfw": false,
   "sourceId": 767844963,
@@ -803,7 +803,7 @@
   "id": "youtube",
   "name": "YouTube",
   "lang": "global",
-  "baseUrl": "https://m.youtube.com",
+  "baseUrl": "https://www.youtube.com",
   "type": "video",
   "nsfw": false,
   "sourceId": 1215186726,

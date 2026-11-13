@@ -4,9 +4,9 @@ var G = {
  "tabs": {
   "Mới cập nhật": "/[?page={p}]"
  },
- "search": "/Home/filter?keyword={q}[&page={p}]",
- "item": ".col-xs-4",
- "title": "a@title || img@alt || a@title || img@alt",
+ "search": "/Home/filter?keyword={q}",
+ "item": "div.content-film-item",
+ "title": "h3 || .title || a@title || img@alt",
  "link": "a@href",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",

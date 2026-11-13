@@ -2,7 +2,7 @@
   "metadata": {
     "name": "NguonC",
     "author": "hieu05 (Kiritokmn repack)",
-    "version": 6,
+    "version": 7,
     "source": "https://phim.nguonc.com",
     "regexp": "(www\\.)?phim\\.nguonc\\.com/phim/.*",
     "description": "Xem phim từ NguonC — gốc: hieu05 (yae-miko-313/ext-vbook)",

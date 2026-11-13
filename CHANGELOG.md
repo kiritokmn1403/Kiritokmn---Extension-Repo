@@ -1,3 +1,38 @@
+# Kiritokmn Extension Repo — v0.0.4 (13/11/2026)
+
+## Tính năng mới
+- **Logo cho từng tiện ích (196 nguồn).** Mỗi nguồn có logo 256×256 riêng (`sources/<id>/icon.png`, `repo/icons/<id>.png`). Logo lấy từ chính trang web: apple-touch-icon, `<link rel=icon>`, web manifest, favicon. Trang không có logo, hoặc có logo mặc định trùng với trang khác (biểu tượng của bộ mã CMS, trang lỗi Cloudflare, chữ W của WordPress), được tạo **logo chữ viết tắt** với màu riêng. Góc logo có huy hiệu **▶ Phim / T Truyện tranh / N Tiểu thuyết** và nhãn **18**. Nhờ đó các tiện ích phân biệt được với nhau trên Mangayomi, YomiHub, LNReader, IReader, vBook, LeechText và Aidoku. Trước đây Mangayomi/LNReader lấy favicon qua dịch vụ Google, nên trang chết hiện hình quả địa cầu giống hệt nhau.
+  - Aniyomi/Nekoyomi dùng một biểu tượng cho mỗi APK đa nguồn. Đây là giới hạn của ứng dụng; các nguồn bên trong phân biệt bằng tên.
+- **YouTube viết lại** theo API InnerTube (API của chính ứng dụng YouTube). Dùng client WEB để tìm kiếm và client iOS để lấy link phát trực tiếp, không cần giải mã chữ ký. Có tab **Shorts**, Âm nhạc, Tin tức, Hoạt hình, Game; dán link YouTube vào ô tìm kiếm cũng mở được video.
+- **TikTok và Douyin**:
+  - Đã quét bộ *TikTok & Douyin Project* (Evil0ctal/Douyin_TikTok_Download_API).
+  - Cả hai tiện ích có ô cài đặt **Máy chủ Douyin_TikTok_Download_API** và **Khoá API**. Khi đặt máy chủ, tiện ích gọi REST API v1 của máy chủ đó (`/{platform}/video`, `/user/posts`, `/hashtag/posts`, `/trending`). Máy chủ tự ký yêu cầu (X-Bogus/a_bogus) bằng nhóm danh tính của nó, nên tiện ích không phải mang thuật toán ký.
+  - TikTok khi không có máy chủ: dùng tikwm.com, gồm bảng tin đề xuất theo quốc gia (cài đặt **Khu vực**, mặc định VN), hashtag, tìm kiếm, video của người dùng. Có link HD/SD không logo.
+  - Douyin khi không có máy chủ: chỉ có bảng **tìm kiếm nóng** (iesdouyin, không cần chữ ký); bấm vào chủ đề thì mở trên Douyin. **Xem video Douyin trong ứng dụng cần máy chủ**, vì Douyin từ chối khách và mọi API video đều đòi chữ ký.
+  - Liên kết video luôn là địa chỉ gốc (`tiktok.com/@user/video/<id>`, `douyin.com/video/<id>`), nên ứng dụng giữ đúng lịch sử xem / Resume A Video.
+- **Cài đặt nguồn mở rộng:** mọi mục `config` trong `plugin.json` (ngoài Tên miền) hiện thành ô nhập trong cài đặt nguồn của Mangayomi/YomiHub và của APK Aniyomi/Nekoyomi.
+- **Đánh dấu nguồn ngừng hoạt động:** 37 nguồn có tên miền chết, đang rao bán, thành trang cờ bạc hoặc lỗi máy chủ vĩnh viễn. Các nguồn này **vẫn giữ trong kho** nhưng tên có thêm **(Ngừng hoạt động)** và mô tả ghi lý do, áp dụng ở mọi định dạng kể cả tiện ích YomiHub. Danh sách và lý do ở `data/status.json`.
+- **README** ghi trạng thái từng nguồn: ✅ / ⛔ / 🛡️ Cloudflare / 🌐 bị chặn ở VN / 🔐 cần đăng nhập / 🔒 chống lấy dữ liệu / 🧩 cần API.
+- **Hướng dẫn sửa YomiHub** để nhận Shorts theo cờ của kho (`docs/YOMIHUB_SHORTS_GUIDE.md`). Theo quyết định của chủ dự án, phần này để bản sau.
+
+## Sửa lỗi
+- **Kiểm thử báo "đạt" nhầm:** danh sách lấy phải mục menu hoặc thể loại ("Manhwa | Manhua | Manga", "MORE"). `run-tests.mjs` nay đánh trượt khi từ 50% mục trở lên giống menu. Phép kiểm phát hiện **NetTruyenViet**, **TruyenQQ (truyenqq.com.vn)** và **Novelpia**; hai nguồn đầu đã được viết lại bộ chọn.
+- **Navy Team Novel:** trước đây lấy cả truyện tranh. Nay dùng mục *Tiểu thuyết*, sửa tên truyện (`h2`) và nội dung chương (`.reader-content`).
+- **TruyenC:** mục lục lấy nhầm liên kết menu → chỉ lấy `/chuong-`, đảo thứ tự. **Viblo:** mỗi bài viết là một "chương", đọc được nội dung. **PornHub:** trang video là tập duy nhất, có link phát. **ixdzs8:** chạy lại được.
+- **Đổi tên miền:** Wiki Dịch → `wikicv.org`, LuotTruyen → `luottruyen21.com`, PhimTV → `phimtv2.com` (`phimtv.my` bị chặn), XTruyen → `xtruyen.vn`, Xôi Lạc → `xoilacxl.cc`. Tên miền cũ vẫn có trong danh sách chọn.
+- **Madara (Đọc Truyện Tranh BL):** khi trang bật "WP Manga Images Protection" (bắt đăng nhập Google), tiện ích báo rõ "cần đăng nhập trong WebView" thay vì trả về 0 ảnh.
+- `lib_generic.js`: thêm `ch_from` để lấy mục lục từ API AJAX theo mã trong trang chi tiết (kiểu novelfull/novelnext).
+
+## Tối ưu
+- **LNReader/IReader nhỏ đi ~55%:** mã sau khi hạ xuống ES5 được nén lại. Thư mục `repo/lnreader` giảm từ 64 MB xuống 29 MB; tải plugin và cập nhật nhanh hơn.
+- Logo lưu dạng PNG bảng màu 128 màu, tổng 2,2 MB cho 196 logo, nhỏ hơn khoảng 4 lần so với PNG RGB.
+- Công cụ phát triển: `run-tests.mjs --record/--replay` ghi lại phản hồi HTTP trên mạng thật để sửa bộ chọn ngoại tuyến; `tools/test/one.mjs` chạy từng bước một nguồn; `tools/gen/make_icons.py` dựng logo.
+
+## Phiên bản
+- `package.json` 0.0.4 · APK Aniyomi/Nekoyomi `versionCode 4` (`14.4` anime, `1.4.4` manga) · mọi nguồn tăng `version` (có logo mới) · Aidoku `BRIDGE_REV 2` (gói `2xx`).
+
+---
+
 # Kiritokmn Extension Repo — v0.0.3 (08/11/2026)
 
 ## Tính năng mới

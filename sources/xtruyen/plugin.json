@@ -2,11 +2,11 @@
   "metadata": {
     "name": "XTruyen",
     "author": "Kiritokmn",
-    "version": 1,
-    "source": "https://www.xtruyen.net",
+    "version": 2,
+    "source": "https://xtruyen.vn",
     "description": "XTruyen — Kiritokmn Extension Repo",
     "locale": "vi",
-    "regexp": "xtruyen\\.net",
+    "regexp": "xtruyen\\.net|xtruyen\\.vn",
     "type": "novel",
     "nsfw": false
   },
@@ -21,8 +21,9 @@
     "DOMAIN": {
       "title": "Tên miền",
       "subtitle": "Đổi khi trang đổi tên miền",
-      "default": "https://www.xtruyen.net",
+      "default": "https://xtruyen.vn",
       "values": [
+        "https://xtruyen.vn",
         "https://www.xtruyen.net"
       ],
       "mode": "input",

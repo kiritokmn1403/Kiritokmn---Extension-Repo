@@ -1,4 +1,4 @@
-var BASE_URL = "https://www.xtruyen.net";
+var BASE_URL = "https://xtruyen.vn";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {

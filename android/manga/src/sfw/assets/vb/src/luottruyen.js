@@ -1,10 +1,10 @@
-__register({ META: {"id":"luottruyen","name":"LuotTruyen","source":"https://luottruyen7.com","type":"comic","locale":"vi","nsfw":false,"version":8,"config":{},"configDefaults":{}}, SCRIPTS: {
+__register({ META: {"id":"luottruyen","name":"LuotTruyen","source":"https://luottruyen21.com","type":"comic","locale":"vi","nsfw":false,"version":9,"config":{"DOMAIN":{"title":"Tên miền","subtitle":"Đổi khi trang đổi tên miền","mode":"input","format":"text","default":"https://luottruyen21.com","values":["https://luottruyen21.com","https://luottruyen7.com"]}},"configDefaults":{"DOMAIN":"https://luottruyen21.com"}}, SCRIPTS: {
 "home": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
-
+var DOMAIN = __cfg("DOMAIN");
 return (function () {
 
-var BASE_URL = "https://luottruyen7.com";
+var BASE_URL = "https://luottruyen21.com";
 var HOST = "https://luottruyen7.com";
 
 var FETCH_HEADERS = {
@@ -132,10 +132,10 @@ return typeof execute === 'function' ? execute : undefined;
 },
 "genre": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
-
+var DOMAIN = __cfg("DOMAIN");
 return (function () {
 
-var BASE_URL = "https://luottruyen7.com";
+var BASE_URL = "https://luottruyen21.com";
 var HOST = "https://luottruyen7.com";
 
 var FETCH_HEADERS = {
@@ -295,10 +295,10 @@ return typeof execute === 'function' ? execute : undefined;
 },
 "detail": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
-
+var DOMAIN = __cfg("DOMAIN");
 return (function () {
 
-var BASE_URL = "https://luottruyen7.com";
+var BASE_URL = "https://luottruyen21.com";
 var HOST = "https://luottruyen7.com";
 
 var FETCH_HEADERS = {
@@ -545,10 +545,10 @@ return typeof execute === 'function' ? execute : undefined;
 },
 "search": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
-
+var DOMAIN = __cfg("DOMAIN");
 return (function () {
 
-var BASE_URL = "https://luottruyen7.com";
+var BASE_URL = "https://luottruyen21.com";
 var HOST = "https://luottruyen7.com";
 
 var FETCH_HEADERS = {
@@ -676,10 +676,10 @@ return typeof execute === 'function' ? execute : undefined;
 },
 "toc": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
-
+var DOMAIN = __cfg("DOMAIN");
 return (function () {
 
-var BASE_URL = "https://luottruyen7.com";
+var BASE_URL = "https://luottruyen21.com";
 var HOST = "https://luottruyen7.com";
 
 var FETCH_HEADERS = {
@@ -912,10 +912,10 @@ return typeof execute === 'function' ? execute : undefined;
 },
 "chap": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
-
+var DOMAIN = __cfg("DOMAIN");
 return (function () {
 
-var BASE_URL = "https://luottruyen7.com";
+var BASE_URL = "https://luottruyen21.com";
 var HOST = "https://luottruyen7.com";
 
 var FETCH_HEADERS = {
@@ -1130,10 +1130,10 @@ return typeof execute === 'function' ? execute : undefined;
 },
 "comment": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
-
+var DOMAIN = __cfg("DOMAIN");
 return (function () {
 
-var BASE_URL = "https://luottruyen7.com";
+var BASE_URL = "https://luottruyen21.com";
 var HOST = "https://luottruyen7.com";
 
 var FETCH_HEADERS = {
@@ -1386,10 +1386,10 @@ return typeof execute === 'function' ? execute : undefined;
 },
 "gen": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
-
+var DOMAIN = __cfg("DOMAIN");
 return (function () {
 
-var BASE_URL = "https://luottruyen7.com";
+var BASE_URL = "https://luottruyen21.com";
 var HOST = "https://luottruyen7.com";
 
 var FETCH_HEADERS = {

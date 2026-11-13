@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Truyện QQ",
     "author": "hieu05 (Kiritokmn repack)",
-    "version": 25,
+    "version": 26,
     "source": "https://truyenqqko.com",
     "regexp": "(www.)?truyenqq.*?/truyen-tranh/[0-9a-z-]+/?$",
     "description": "Đọc truyện trên trang Truyện QQ (forked from vBook) — gốc: hieu05 (yae-miko-313/ext-vbook)",

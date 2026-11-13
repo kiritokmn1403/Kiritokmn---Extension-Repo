@@ -109,6 +109,11 @@ class VBookAnimeSource(private val def: SourceDef) : AnimeHttpSource(), Configur
             dialogMessage = "Mặc định: ${def.baseUrl}" + if (def.domains.size > 1) "\nKhác: " + def.domains.joinToString(", ") else ""
             setDefaultValue(def.baseUrl)
         }.also(screen::addPreference)
+        def.prefs.forEach { p ->
+            EditTextPreference(screen.context).apply {
+                key = p[0]; title = p[1]; summary = p[2].ifBlank { null }; dialogTitle = p[1]; dialogMessage = p[2]; setDefaultValue(p[3])
+            }.also(screen::addPreference)
+        }
     }
 
     // The request/parse pairs are unused: every fetch* above is overridden and delegates to the vBook runtime.

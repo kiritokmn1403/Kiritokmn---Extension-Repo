@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Vivu Truyện",
     "author": "kychi (Kiritokmn repack)",
-    "version": 1,
+    "version": 2,
     "source": "https://vivutruyen.net/",
     "regexp": "(?:www\\.)?vivutruyen\\.net/[^/]+/?$",
     "description": "Trang đọc truyện online - vivutruyen — gốc: kychi (kychitoge-vbook-ext)",

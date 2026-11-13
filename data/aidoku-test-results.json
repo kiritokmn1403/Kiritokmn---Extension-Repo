@@ -11,7 +11,7 @@
   },
   "type": "novel",
   "requests": 4,
-  "ms": 810
+  "ms": 762
  },
  {
   "id": "101kks",
@@ -21,7 +21,7 @@
   },
   "type": "novel",
   "error": "CLOUDFLARE: trang https://101kks.com yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.",
-  "ms": 385
+  "ms": 586
  },
  {
   "id": "101minc",
@@ -31,7 +31,7 @@
   },
   "type": "novel",
   "error": "CLOUDFLARE: trang https://www.101minc.com yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.",
-  "ms": 430
+  "ms": 481
  },
  {
   "id": "52shukubyquocbao",
@@ -41,7 +41,7 @@
   },
   "type": "novel",
   "error": "Cannot read properties of null (reading 'text')",
-  "ms": 633
+  "ms": 570
  },
  {
   "id": "69shuba",
@@ -52,7 +52,7 @@
   },
   "type": "novel",
   "error": "empty list",
-  "ms": 529
+  "ms": 354
  },
  {
   "id": "69shurepoduongden",
@@ -63,7 +63,7 @@
   },
   "type": "novel",
   "error": "empty list",
-  "ms": 488
+  "ms": 423
  },
  {
   "id": "75zwcom",
@@ -71,13 +71,13 @@
   "steps": {
    "listings": 1,
    "popular": 26,
-   "title": "大明：从死囚犯开始成为皇太孙",
+   "title": "我哥斯拉，苟在寒武纪进化五亿年",
    "chapters": 11,
-   "textLen": 1761
+   "textLen": 679
   },
   "type": "novel",
   "requests": 3,
-  "ms": 5072
+  "ms": 2420
  },
  {
   "id": "8book",
@@ -85,26 +85,26 @@
   "steps": {
    "listings": 1,
    "popular": 42,
-   "title": "閃婚夫妻寵娃日常",
-   "chapters": 3189,
+   "title": "詭異降臨：我能看見詭異殺人規則",
+   "chapters": 230,
    "textLen": 10
   },
   "type": "novel",
   "requests": 3,
-  "ms": 2099
+  "ms": 2818
  },
  {
   "id": "abcbiquge",
   "ok": false,
   "steps": {
    "listings": 1,
-   "popular": 39,
-   "title": "نզȋ",
+   "popular": 5,
+   "title": "ͲϠ֮͵",
    "chapters": 0
   },
   "type": "novel",
   "error": "no chapters",
-  "ms": 687
+  "ms": 750
  },
  {
   "id": "alicesw",
@@ -113,12 +113,12 @@
    "listings": 6,
    "popular": 50,
    "title": "地铁求生地狱开局怎么活？",
-   "chapters": 95,
+   "chapters": 100,
    "textLen": 5510
   },
   "type": "novel",
   "requests": 4,
-  "ms": 2119
+  "ms": 2369
  },
  {
   "id": "allin1",
@@ -129,7 +129,7 @@
   },
   "type": "novel",
   "error": "empty list",
-  "ms": 159
+  "ms": 178
  },
  {
   "id": "apptruyenchu",
@@ -137,27 +137,27 @@
   "steps": {
    "listings": 8,
    "popular": 20,
-   "title": "[Dịch] Ta Bồi Dưỡng Nữ Thần Điện Tử, Xưng Bá Đô Thị",
-   "chapters": 882,
-   "textLen": 9703
+   "title": "Xuyên Không Rồi Không Chỉ Phải Cẩu, Còn Phải Ôm Đùi!",
+   "chapters": 556,
+   "textLen": 9419
   },
   "type": "novel",
   "requests": 4,
-  "ms": 1076
+  "ms": 794
  },
  {
   "id": "banlong",
   "ok": true,
   "steps": {
    "listings": 7,
-   "popular": 50,
-   "title": "Đại Văn Hào 1978",
-   "chapters": 991,
-   "textLen": 6562
+   "popular": 48,
+   "title": "Cơ Giáp Cảm Thấu",
+   "chapters": 6561,
+   "textLen": 3976
   },
   "type": "novel",
-  "requests": 23,
-  "ms": 4656
+  "requests": 135,
+  "ms": 27588
  },
  {
   "id": "blbattu",
@@ -165,13 +165,13 @@
   "steps": {
    "listings": 1,
    "popular": 24,
-   "title": "Chờ Đợi Phước Báo",
-   "chapters": 1,
+   "title": "Bias Là Trúc Mã, Đu Idol Khó Nhất Hệ Mặt Trời!",
+   "chapters": 4,
    "pages": 1
   },
   "type": "comic",
   "requests": 3,
-  "ms": 761
+  "ms": 752
  },
  {
   "id": "boylovebattu",
@@ -185,7 +185,7 @@
   },
   "type": "novel",
   "requests": 3,
-  "ms": 2377
+  "ms": 1875
  },
  {
   "id": "cbhentai",
@@ -196,7 +196,7 @@
   },
   "type": "comic",
   "error": "empty list",
-  "ms": 185
+  "ms": 285
  },
  {
   "id": "cbunucomic",
@@ -204,13 +204,13 @@
   "steps": {
    "listings": 1,
    "popular": 40,
-   "title": "IN A SCENT",
-   "chapters": 18,
-   "pages": 135
+   "title": "Bí Mật Bạn Cùng Phòng",
+   "chapters": 29,
+   "pages": 118
   },
   "type": "comic",
   "requests": 3,
-  "ms": 479
+  "ms": 921
  },
  {
   "id": "ciyuanji",
@@ -219,8 +219,8 @@
    "listings": 6
   },
   "type": "novel",
-  "error": "HTTP 404 https://m.ciyuanji.com/l_c_0_0_0_0_1.html",
-  "ms": 1030
+  "error": "HTTP 0 https://m.ciyuanji.com/l_c_0_0_0_0_1.html",
+  "ms": 10895
  },
  {
   "id": "cosplaytele",
@@ -228,13 +228,13 @@
   "steps": {
    "listings": 5,
    "popular": 12,
-   "title": "Tiny Asa アサ (tiny.asababy) cosplay Scheherazade – Brown Dust 2 “55 photos and 1 video”",
+   "title": "Machi馬吉 cosplay The Herta Swimsuit – Honkai:Star Rail – Part 2 “90 photos”",
    "chapters": 1,
-   "pages": 55
+   "pages": 90
   },
   "type": "comic",
   "requests": 2,
-  "ms": 1502
+  "ms": 1523
  },
  {
   "id": "czbooksrepoduongden",
@@ -244,7 +244,7 @@
   },
   "type": "novel",
   "error": "CLOUDFLARE: trang https://czbooks.net yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.",
-  "ms": 151
+  "ms": 251
  },
  {
   "id": "damconuong",
@@ -254,52 +254,10 @@
   },
   "type": "comic",
   "error": "HTTP 0 https://damconuong.name/",
-  "ms": 30
+  "ms": 112
  },
  {
   "id": "deqixs",
-  "ok": true,
-  "steps": {
-   "listings": 1,
-   "popular": 11,
-   "title": "没钱修什么仙？最新章节",
-   "chapters": 999,
-   "textLen": 511
-  },
-  "type": "novel",
-  "requests": 3,
-  "ms": 1313
- },
- {
-  "id": "destinteam",
-  "ok": true,
-  "steps": {
-   "listings": 1,
-   "popular": 28,
-   "title": "About Mind",
-   "chapters": 7,
-   "pages": 1
-  },
-  "type": "comic",
-  "requests": 3,
-  "ms": 394
- },
- {
-  "id": "doctruyentranhbl",
-  "ok": false,
-  "steps": {
-   "listings": 4,
-   "popular": 30,
-   "title": "Yêu Cậu Nhất Vũ Trụ",
-   "chapters": 18,
-   "pages": 0
-  },
-  "type": "comic",
-  "error": "no pages",
-  "ms": 723
- },
- {
-  "id": "douban",
   "ok": false,
   "steps": {
    "listings": 1,
@@ -307,7 +265,47 @@
   },
   "type": "novel",
   "error": "empty list",
-  "ms": 1745
+  "ms": 922
+ },
+ {
+  "id": "destinteam",
+  "ok": true,
+  "steps": {
+   "listings": 1,
+   "popular": 28,
+   "title": "Hành Trình Thoát Kiếp Solo Tank",
+   "chapters": 1,
+   "pages": 1
+  },
+  "type": "comic",
+  "requests": 3,
+  "ms": 1572
+ },
+ {
+  "id": "doctruyentranhbl",
+  "ok": false,
+  "steps": {
+   "listings": 4,
+   "popular": 30,
+   "title": "Dạ Ký – Dạ Họa Tập",
+   "chapters": 148
+  },
+  "type": "comic",
+  "error": "Trang https://truyentranhbl.com chỉ cho đọc khi đã đăng nhập (Google). Mở chương bằng WebView trong ứng dụng, đăng nhập rồi tải lại.",
+  "ms": 2131
+ },
+ {
+  "id": "douban",
+  "ok": false,
+  "steps": {
+   "listings": 1,
+   "popular": 40,
+   "title": "岭南十三讲：叶兆言文学讲稿",
+   "chapters": 0
+  },
+  "type": "novel",
+  "error": "no chapters",
+  "ms": 4039
  },
  {
   "id": "duahau",
@@ -317,7 +315,7 @@
   },
   "type": "novel",
   "error": "HTTP 404 https://xgmf.zuanqianyi.com/",
-  "ms": 520
+  "ms": 1758
  },
  {
   "id": "dualeotruyen",
@@ -327,7 +325,7 @@
   },
   "type": "comic",
   "error": "HTTP 0 https://dualeotruyenbet.com/",
-  "ms": 29
+  "ms": 124
  },
  {
   "id": "ehentai",
@@ -335,13 +333,13 @@
   "steps": {
    "listings": 1,
    "popular": 25,
-   "title": "Ascentina Draco Malfoid (Futa) [AI Generated]",
+   "title": "[JAMEArts] Closer Encounters with the Kissy Kind",
    "chapters": 2,
    "pages": 1
   },
   "type": "comic",
   "requests": 3,
-  "ms": 951
+  "ms": 1214
  },
  {
   "id": "faloo",
@@ -355,7 +353,7 @@
   },
   "type": "novel",
   "requests": 4,
-  "ms": 2401
+  "ms": 2023
  },
  {
   "id": "fanmtl",
@@ -369,7 +367,7 @@
   },
   "type": "novel",
   "requests": 3,
-  "ms": 2970
+  "ms": 4042
  },
  {
   "id": "gaumeoteam",
@@ -377,13 +375,13 @@
   "steps": {
    "listings": 4,
    "popular": 12,
-   "title": "Deflower Me If You Can Novel",
-   "chapters": 201,
-   "textLen": 8271
+   "title": "Black Swan Novel",
+   "chapters": 232,
+   "textLen": 10703
   },
   "type": "novel",
   "requests": 4,
-  "ms": 862
+  "ms": 1221
  },
  {
   "id": "gioitruyen",
@@ -391,13 +389,13 @@
   "steps": {
    "listings": 2,
    "popular": 20,
-   "title": "Vô Tình Mang Thai Con Của Anh Trai Crush",
-   "chapters": 110,
-   "textLen": 2829
+   "title": "Cực Hạn Trầm Mê",
+   "chapters": 52,
+   "textLen": 14207
   },
   "type": "novel",
-  "requests": 5,
-  "ms": 970
+  "requests": 4,
+  "ms": 1122
  },
  {
   "id": "goctruyentranh",
@@ -405,13 +403,13 @@
   "steps": {
    "listings": 1,
    "popular": 30,
-   "title": "Mạt Thế Kiếm Thần: Ta Chấn Kinh Toàn Cầu [Tới Chương 159]",
-   "chapters": 21,
+   "title": "Cyberpunk: Truyền Kỳ Hiệp Khách [Tới Chương 7]",
+   "chapters": 7,
    "pages": 1
   },
   "type": "comic",
   "requests": 3,
-  "ms": 1135
+  "ms": 1547
  },
  {
   "id": "gongzicp",
@@ -422,7 +420,7 @@
   },
   "type": "novel",
   "error": "empty list",
-  "ms": 607
+  "ms": 1252
  },
  {
   "id": "hacamchicac",
@@ -430,13 +428,13 @@
   "steps": {
    "listings": 1,
    "popular": 24,
-   "title": "Nhân Viên Cấp Dưới | Mongmong",
-   "chapters": 19,
+   "title": "Điểm Hội Tụ | Convergence Point",
+   "chapters": 17,
    "pages": 1
   },
   "type": "comic",
   "requests": 3,
-  "ms": 652
+  "ms": 1052
  },
  {
   "id": "hamelnsyosetuorg",
@@ -446,7 +444,7 @@
   },
   "type": "novel",
   "error": "CLOUDFLARE: trang https://syosetu.org yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.",
-  "ms": 229
+  "ms": 567
  },
  {
   "id": "hangtruyenchu",
@@ -460,7 +458,7 @@
   },
   "type": "novel",
   "requests": 3,
-  "ms": 2328
+  "ms": 1383
  },
  {
   "id": "hentaivn",
@@ -470,7 +468,7 @@
   },
   "type": "comic",
   "error": "gen: empty result",
-  "ms": 15
+  "ms": 123
  },
  {
   "id": "html5qqcom",
@@ -481,7 +479,7 @@
   },
   "type": "novel",
   "error": "empty list",
-  "ms": 363
+  "ms": 1536
  },
  {
   "id": "idejian",
@@ -492,7 +490,7 @@
   },
   "type": "novel",
   "error": "empty list",
-  "ms": 887
+  "ms": 734
  },
  {
   "id": "ijjjxsxzw",
@@ -506,21 +504,18 @@
   },
   "type": "novel",
   "requests": 3,
-  "ms": 1308
+  "ms": 1495
  },
  {
   "id": "ixdzs8",
-  "ok": true,
+  "ok": false,
   "steps": {
    "listings": 1,
-   "popular": 36,
-   "title": "斗破苍穹",
-   "chapters": 1663,
-   "textLen": 2844
+   "popular": 0
   },
   "type": "novel",
-  "requests": 3,
-  "ms": 1239
+  "error": "empty list",
+  "ms": 597
  },
  {
   "id": "jellycomics",
@@ -529,12 +524,12 @@
    "listings": 4,
    "popular": 24,
    "title": "Jelly Comics - Ổ Truyện Hay",
-   "chapters": 34,
-   "pages": 7
+   "chapters": 7,
+   "pages": 4
   },
   "type": "comic",
   "requests": 4,
-  "ms": 2117
+  "ms": 2562
  },
  {
   "id": "jjwxcrepoduongden",
@@ -547,7 +542,7 @@
   },
   "type": "novel",
   "error": "no chapters",
-  "ms": 349
+  "ms": 457
  },
  {
   "id": "jjwxctangiang",
@@ -560,7 +555,7 @@
   },
   "type": "novel",
   "error": "no chapters",
-  "ms": 447
+  "ms": 697
  },
  {
   "id": "julycomic",
@@ -570,21 +565,21 @@
   },
   "type": "comic",
   "error": "HTTP 522 https://julycomics.site/",
-  "ms": 19918
+  "ms": 20121
  },
  {
   "id": "kakuyomu",
   "ok": true,
   "steps": {
    "listings": 1,
-   "popular": 57,
-   "title": "ゲーム世界転生〈ダン活〉～ゲーマーは【ダンジョン就活のススメ】を 〈はじめから〉プレイする～",
-   "chapters": 7,
-   "textLen": 1429
+   "popular": 56,
+   "title": "【Web版】ガラス工房の錬金術師",
+   "chapters": 1,
+   "textLen": 2045
   },
   "type": "novel",
   "requests": 3,
-  "ms": 910
+  "ms": 733
  },
  {
   "id": "khotruyenchu",
@@ -595,7 +590,7 @@
   },
   "type": "novel",
   "error": "empty list",
-  "ms": 230
+  "ms": 10535
  },
  {
   "id": "lacatruyen",
@@ -605,7 +600,7 @@
   },
   "type": "novel",
   "error": "HTTP 0 https://lacatruyen.homes/",
-  "ms": 26
+  "ms": 153
  },
  {
   "id": "langgee",
@@ -615,7 +610,7 @@
   },
   "type": "novel",
   "error": "HTTP 502 https://v5.langge.uk/",
-  "ms": 208
+  "ms": 483
  },
  {
   "id": "lnhakovnhako",
@@ -625,7 +620,7 @@
   },
   "type": "novel",
   "error": "Headless browser is not available in this app (Aidoku)",
-  "ms": 12
+  "ms": 42
  },
  {
   "id": "lnkuro",
@@ -636,20 +631,20 @@
   },
   "type": "novel",
   "error": "empty list",
-  "ms": 308
+  "ms": 246
  },
  {
   "id": "lofter",
   "ok": false,
   "steps": {
    "listings": 1,
-   "popular": 8,
-   "title": "置顶捞尸人",
-   "chapters": 44
+   "popular": 12,
+   "title": "495.0万字苟在武道世界成圣",
+   "chapters": 5
   },
   "type": "novel",
-  "error": "chap: Không tìm thấy nội dung — trang nhận được: \"捞尸人-完本小说全文阅读-全本完整版免费阅读-纯洁滴小龙-速读谷\" (200, 39342 ký tự)",
-  "ms": 2102
+  "error": "chap: Không tìm thấy nội dung — trang nhận được: \"苟在武道世界成圣-速读谷-在水中的纸老虎小说-最新章节无错字免费阅读\" (200, 56722 ký tự)",
+  "ms": 3104
  },
  {
   "id": "lohi",
@@ -660,7 +655,7 @@
   },
   "type": "novel",
   "error": "empty list",
-  "ms": 314
+  "ms": 352
  },
  {
   "id": "loppytoon",
@@ -670,18 +665,20 @@
   },
   "type": "novel",
   "error": "HTTP 0 https://loppytoon.com/",
-  "ms": 40
+  "ms": 176
  },
  {
   "id": "luottruyen",
   "ok": false,
   "steps": {
    "listings": 10,
-   "popular": 0
+   "popular": 54,
+   "title": "Hiệp Sĩ Cyberpunk",
+   "chapters": 7
   },
   "type": "comic",
-  "error": "empty list",
-  "ms": 1078
+  "error": "chap: Vui lòng đăng nhập bằng Webview để xem chương này",
+  "ms": 1144
  },
  {
   "id": "luvevaland",
@@ -691,7 +688,7 @@
   },
   "type": "novel",
   "error": "CLOUDFLARE: trang https://luvevalandn2.co yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.",
-  "ms": 338
+  "ms": 432
  },
  {
   "id": "mangadex",
@@ -700,8 +697,8 @@
    "listings": 1
   },
   "type": "comic",
-  "error": "HTTP 0 https://mangadex.org/",
-  "ms": 5175
+  "error": "HTTP 403 https://mangadex.org/",
+  "ms": 348
  },
  {
   "id": "mangadm",
@@ -710,12 +707,12 @@
    "listings": 1,
    "popular": 8,
    "title": "Những ngày nắng của đôi ta",
-   "chapters": 163,
-   "textLen": 6060
+   "chapters": 165,
+   "textLen": 6100
   },
   "type": "novel",
   "requests": 3,
-  "ms": 669
+  "ms": 884
  },
  {
   "id": "manhwabuddy",
@@ -723,13 +720,13 @@
   "steps": {
    "listings": 1,
    "popular": 24,
-   "title": "When I moved to another world, my dog became the strongest ~ When Silver Fenrir and I started living in another world ~",
-   "chapters": 48,
-   "pages": 27
+   "title": "I Got Married to the Girl I Hate Most in Class",
+   "chapters": 104,
+   "pages": 22
   },
   "type": "comic",
   "requests": 3,
-  "ms": 2163
+  "ms": 2167
  },
  {
   "id": "mattreadingtranslations",
@@ -739,7 +736,7 @@
   },
   "type": "novel",
   "error": "HTTP 403 https://mattreadingtranslations.com/novels/",
-  "ms": 114
+  "ms": 353
  },
  {
   "id": "medoctruyen",
@@ -748,26 +745,22 @@
    "listings": 1,
    "popular": 35,
    "title": "Mê Đọc Truyện — Đọc truyện online, truyện convert, truyện dịch, truyện full, truyện hay",
-   "chapters": 102,
+   "chapters": 94,
    "textLen": 649
   },
   "type": "novel",
   "requests": 2,
-  "ms": 755
+  "ms": 786
  },
  {
   "id": "metruyenchu",
-  "ok": true,
+  "ok": false,
   "steps": {
-   "listings": 3,
-   "popular": 20,
-   "title": "Con Rể Quyền Quý (FULL)",
-   "chapters": 2981,
-   "textLen": 8712
+   "listings": 3
   },
   "type": "novel",
-  "requests": 32,
-  "ms": 5334
+  "error": "homecontent: Không tải được trang https://metruyenchu.com.vn/danh-sach/truyen-hot?page=1",
+  "ms": 25386
  },
  {
   "id": "metruyencv",
@@ -777,7 +770,7 @@
   },
   "type": "novel",
   "error": "book: empty result",
-  "ms": 61
+  "ms": 237
  },
  {
   "id": "mimimoe",
@@ -787,11 +780,11 @@
    "popular": 13,
    "title": "Tất cả Truyện",
    "chapters": 58,
-   "pages": 2
+   "pages": 1
   },
   "type": "comic",
   "requests": 3,
-  "ms": 427
+  "ms": 832
  },
  {
   "id": "minotruyen",
@@ -802,21 +795,20 @@
   },
   "type": "novel",
   "error": "empty list",
-  "ms": 301
+  "ms": 450
  },
  {
   "id": "mintteanovel",
-  "ok": true,
+  "ok": false,
   "steps": {
    "listings": 1,
-   "popular": 23,
-   "title": "Bẫy Hồ Ly",
-   "chapters": 28,
-   "textLen": 275
+   "popular": 22,
+   "title": "Dirty Harleking",
+   "chapters": 20
   },
   "type": "novel",
-  "requests": 3,
-  "ms": 629
+  "error": "chap: Không tìm thấy nội dung — trang nhận được: \"Dirty Harleking – Chương 1: Phần 1 – Minttea Novel\" (200, 129217 ký tự)",
+  "ms": 1049
  },
  {
   "id": "misskon",
@@ -824,41 +816,41 @@
   "steps": {
    "listings": 1,
    "popular": 12,
-   "title": "[Bimilstory] Mina (민아): Vol.19 – NieR Automata Wedding Black (88 photos + 2 videos)",
+   "title": "XIUREN No.4796: 利世 (93 photos)",
    "chapters": 1,
-   "pages": 19
+   "pages": 14
   },
   "type": "comic",
   "requests": 3,
-  "ms": 1654
+  "ms": 1937
  },
  {
   "id": "moetruyen",
   "ok": false,
   "steps": {
    "listings": 1,
-   "popular": 90,
-   "title": "TÔ ĐÔNG PHA HÃY YÊU TA ĐI",
-   "chapters": 31,
+   "popular": 79,
+   "title": "CÔ THỎ SÁT NHÂN VS OOO",
+   "chapters": 15,
    "pages": 0
   },
   "type": "comic",
   "error": "no pages",
-  "ms": 704
+  "ms": 758
  },
  {
   "id": "monkeyd",
   "ok": true,
   "steps": {
    "listings": 1,
-   "popular": 48,
+   "popular": 54,
    "title": "MonkeyD - Thế giới truyện chữ, truyện Zhihu hay nhất, Đọc Truyện Online, Truyện Full",
-   "chapters": 24,
-   "textLen": 4911
+   "chapters": 23,
+   "textLen": 4931
   },
   "type": "novel",
   "requests": 3,
-  "ms": 1090
+  "ms": 1265
  },
  {
   "id": "mottruyen",
@@ -866,26 +858,26 @@
   "steps": {
    "listings": 9,
    "popular": 20,
-   "title": "[HP] Về Chuyện Hệ Thống Magic Awakened Của Tôi Không Được Dễ Dùng Cho Lắm",
-   "chapters": 2,
-   "textLen": 13198
+   "title": "TÂM LÝ TUỔI 17",
+   "chapters": 17,
+   "textLen": 3135
   },
   "type": "novel",
   "requests": 4,
-  "ms": 764
+  "ms": 1289
  },
  {
   "id": "moyuemacduyet",
   "ok": false,
   "steps": {
    "listings": 1,
-   "popular": 22,
+   "popular": 20,
    "title": "书籍名称加载中",
    "chapters": 0
   },
   "type": "novel",
   "error": "no chapters",
-  "ms": 358
+  "ms": 394
  },
  {
   "id": "mtc",
@@ -895,7 +887,7 @@
   },
   "type": "novel",
   "error": "book: empty result",
-  "ms": 15
+  "ms": 52
  },
  {
   "id": "myreadingmanga",
@@ -905,34 +897,35 @@
   },
   "type": "comic",
   "error": "CLOUDFLARE: trang https://myreadingmanga.info yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.",
-  "ms": 177
+  "ms": 341
  },
  {
   "id": "navyteamcomic",
   "ok": true,
   "steps": {
    "listings": 1,
-   "popular": 22,
+   "popular": 24,
    "title": "Navy",
-   "chapters": 13,
-   "pages": 6
+   "chapters": 3,
+   "pages": 27
   },
   "type": "comic",
   "requests": 3,
-  "ms": 1149
+  "ms": 1260
  },
  {
   "id": "navyteamnovel",
-  "ok": false,
+  "ok": true,
   "steps": {
    "listings": 1,
-   "popular": 31,
-   "title": "Navy",
-   "chapters": 20
+   "popular": 30,
+   "title": "Tôi Đã Thuần Hoá Người Đứng Đầu Bảng Xếp Hạng",
+   "chapters": 139,
+   "textLen": 9543
   },
   "type": "novel",
-  "error": "chap: Không tìm thấy nội dung — trang nhận được: \"Pittosporum - Chap 13 - Navy Team\" (200, 36212 ký tự)",
-  "ms": 967
+  "requests": 3,
+  "ms": 2423
  },
  {
   "id": "nettruyen",
@@ -942,7 +935,7 @@
   },
   "type": "novel",
   "error": "HTTP 0 https://nettruyen.com.vn/",
-  "ms": 80
+  "ms": 279
  },
  {
   "id": "nettruyen18",
@@ -950,27 +943,26 @@
   "steps": {
    "listings": 4,
    "popular": 36,
-   "title": "Thiên Tài Dùng Thương Bất Tử",
-   "chapters": 20,
-   "pages": 124
+   "title": "Cô Thỏ Sát Nhân Vs Ooo",
+   "chapters": 13,
+   "pages": 13
   },
   "type": "comic",
   "requests": 3,
-  "ms": 457
+  "ms": 882
  },
  {
   "id": "nettruyenviet",
-  "ok": true,
+  "ok": false,
   "steps": {
    "listings": 4,
-   "popular": 4,
-   "title": "Tất Cả Truyện Tranh Manhwa",
-   "chapters": 108,
-   "pages": 105
+   "popular": 36,
+   "title": "Nữ Phụ Ác Độc Không Muốn Diễn Nữa",
+   "chapters": 0
   },
   "type": "comic",
-  "requests": 3,
-  "ms": 480
+  "error": "no chapters",
+  "ms": 718
  },
  {
   "id": "nettruyenz",
@@ -981,7 +973,7 @@
   },
   "type": "comic",
   "error": "empty list",
-  "ms": 312
+  "ms": 409
  },
  {
   "id": "novelfullnet",
@@ -991,20 +983,18 @@
   },
   "type": "novel",
   "error": "CLOUDFLARE: trang https://novelfull.net yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.",
-  "ms": 203
+  "ms": 306
  },
  {
   "id": "novelnext",
   "ok": false,
   "steps": {
    "listings": 1,
-   "popular": 13,
-   "title": "Conquest of Taboo and Debauchery",
-   "chapters": 242
+   "popular": 13
   },
   "type": "novel",
-  "error": "chap: Không tìm thấy nội dung — trang nhận được: \"Action Radiant Reads\" (200, 83182 ký tự)",
-  "ms": 417
+  "error": "HTTP 404 https://novelnext.me/ajax/chapter-archive?novelId=conquest-of-taboo-and-debauchery-2",
+  "ms": 623
  },
  {
   "id": "novelphoenix",
@@ -1012,13 +1002,13 @@
   "steps": {
    "listings": 1,
    "popular": 30,
-   "title": "Ancient Woman Transmigrates to the Body of a Modern Man",
+   "title": "My Superpower Is Piloting Magical Girl Corpses?",
    "chapters": 40,
-   "textLen": 10083
+   "textLen": 9744
   },
   "type": "novel",
   "requests": 3,
-  "ms": 1274
+  "ms": 1329
  },
  {
   "id": "novelpiaglobal",
@@ -1028,11 +1018,11 @@
    "popular": 8,
    "title": "Novelpia - Awaken Your Fantasy Through Webnovels",
    "chapters": 200,
-   "textLen": 418
+   "textLen": 200
   },
   "type": "novel",
   "requests": 3,
-  "ms": 2483
+  "ms": 2905
  },
  {
   "id": "piaotia",
@@ -1040,13 +1030,13 @@
   "steps": {
    "listings": 1,
    "popular": 6,
-   "title": "הͪÀʀݧߪʼ׮ЂՂݚ,׷Ʒѡ-Ʈ̬΄ѧ",
+   "title": "ωخӤɺ׮ЂՂݚ,׷Ʒѡ-Ʈ̬΄ѧ",
    "chapters": 12,
    "textLen": 128
   },
   "type": "novel",
   "requests": 2,
-  "ms": 702
+  "ms": 829
  },
  {
   "id": "piaotianapp",
@@ -1057,7 +1047,7 @@
   },
   "type": "novel",
   "error": "empty list",
-  "ms": 165
+  "ms": 199
  },
  {
   "id": "po18",
@@ -1067,20 +1057,20 @@
   },
   "type": "novel",
   "error": "gen2: Bạn phải xác minh trên 18 tuổi/đăng nhập ở website này để có thể đọc.",
-  "ms": 3809
+  "ms": 1133
  },
  {
   "id": "po18sm",
   "ok": false,
   "steps": {
    "listings": 1,
-   "popular": 11,
-   "title": "գAЇЇՄȋ",
+   "popular": 47,
+   "title": "قӬ֛֮è۹ϫһئָѰÿԙŜһضʔʔá1v1é",
    "chapters": 0
   },
   "type": "novel",
   "error": "no chapters",
-  "ms": 7042
+  "ms": 2638
  },
  {
   "id": "qimao",
@@ -1090,7 +1080,7 @@
   },
   "type": "novel",
   "error": "gen: empty result",
-  "ms": 721
+  "ms": 529
  },
  {
   "id": "qmbook",
@@ -1101,7 +1091,7 @@
   },
   "type": "novel",
   "error": "empty list",
-  "ms": 138
+  "ms": 495
  },
  {
   "id": "quanben",
@@ -1111,20 +1101,17 @@
   },
   "type": "novel",
   "error": "HTTP 403 https://quanben.io/",
-  "ms": 1414
+  "ms": 891
  },
  {
   "id": "quanwenyuedu",
   "ok": false,
   "steps": {
-   "listings": 1,
-   "popular": 12,
-   "title": "傲世丹神",
-   "chapters": 0
+   "listings": 1
   },
   "type": "novel",
-  "error": "no chapters",
-  "ms": 1092
+  "error": "HTTP 0 https://www.quanwenyuedu.io/",
+  "ms": 636
  },
  {
   "id": "quykiep",
@@ -1134,7 +1121,7 @@
   },
   "type": "novel",
   "error": "gen: empty result",
-  "ms": 980
+  "ms": 1427
  },
  {
   "id": "roadsteam",
@@ -1142,13 +1129,13 @@
   "steps": {
    "listings": 4,
    "popular": 10,
-   "title": "MONSTER IN THE CLOSET",
-   "chapters": 3,
-   "pages": 35
+   "title": "NHỮNG ĐIỀU XX GIẤU KÍN",
+   "chapters": 14,
+   "pages": 19
   },
   "type": "comic",
   "requests": 3,
-  "ms": 2041
+  "ms": 1847
  },
  {
   "id": "sayhentai",
@@ -1158,7 +1145,7 @@
   },
   "type": "comic",
   "error": "homecontent: Khong tai duoc danh sach",
-  "ms": 245
+  "ms": 240
  },
  {
   "id": "shinigamilnteam",
@@ -1172,7 +1159,7 @@
   },
   "type": "novel",
   "requests": 3,
-  "ms": 1904
+  "ms": 2141
  },
  {
   "id": "shubenshu",
@@ -1184,8 +1171,8 @@
    "chapters": 58
   },
   "type": "novel",
-  "error": "chap: Không tìm thấy nội dung — trang nhận được: \"书本书\" (200, 29366 ký tự)",
-  "ms": 1643
+  "error": "chap: Không tìm thấy nội dung — trang nhận được: \"书本书\" (200, 29467 ký tự)",
+  "ms": 2840
  },
  {
   "id": "sitruyencv",
@@ -1195,18 +1182,20 @@
   },
   "type": "novel",
   "error": "HTTP 0 https://sitruyencv.com/",
-  "ms": 10662
+  "ms": 10385
  },
  {
   "id": "snapd",
   "ok": false,
   "steps": {
    "listings": 1,
-   "popular": 0
+   "popular": 42,
+   "title": "深海余烬",
+   "chapters": 13
   },
   "type": "novel",
-  "error": "empty list",
-  "ms": 151
+  "error": "HTTP 404 https://m.bqgsn.cc/javascript:book_error('105390','深海余烬','1763193422');",
+  "ms": 530
  },
  {
   "id": "sobqg",
@@ -1220,21 +1209,21 @@
   },
   "type": "novel",
   "requests": 3,
-  "ms": 520
+  "ms": 672
  },
  {
   "id": "sohu",
   "ok": true,
   "steps": {
    "listings": 1,
-   "popular": 133,
-   "title": "安庆市凌晨发布情况通报",
+   "popular": 126,
+   "title": "黄仁勋时代落幕，英伟达33年来首次换帅",
    "chapters": 1,
-   "textLen": 23
+   "textLen": 14
   },
   "type": "novel",
   "requests": 3,
-  "ms": 1048
+  "ms": 708
  },
  {
   "id": "soixamfanqie",
@@ -1244,7 +1233,7 @@
   },
   "type": "novel",
   "error": "HTTP 0 https://api.langge.cf/",
-  "ms": 22
+  "ms": 237
  },
  {
   "id": "sonako",
@@ -1254,7 +1243,7 @@
   },
   "type": "novel",
   "error": "CLOUDFLARE: trang https://sonako.fandom.com yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.",
-  "ms": 187
+  "ms": 355
  },
  {
   "id": "stvappvi",
@@ -1265,33 +1254,33 @@
   },
   "type": "novel",
   "error": "empty list",
-  "ms": 156
+  "ms": 336
  },
  {
   "id": "sudugu",
   "ok": false,
   "steps": {
    "listings": 1,
-   "popular": 8,
-   "title": "置顶捞尸人",
-   "chapters": 44
+   "popular": 12,
+   "title": "495.0万字苟在武道世界成圣",
+   "chapters": 5
   },
   "type": "novel",
-  "error": "chap: Không tìm thấy nội dung — trang nhận được: \"捞尸人-完本小说全文阅读-全本完整版免费阅读-纯洁滴小龙-速读谷\" (200, 39342 ký tự)",
-  "ms": 1989
+  "error": "chap: Không tìm thấy nội dung — trang nhận được: \"苟在武道世界成圣-速读谷-在水中的纸老虎小说-最新章节无错字免费阅读\" (200, 56722 ký tự)",
+  "ms": 2702
  },
  {
   "id": "sweetastes",
   "ok": false,
   "steps": {
    "listings": 1,
-   "popular": 47,
+   "popular": 46,
    "title": "熱門",
    "chapters": 0
   },
   "type": "novel",
   "error": "no chapters",
-  "ms": 2467
+  "ms": 1104
  },
  {
   "id": "syosetu",
@@ -1301,8 +1290,8 @@
    "popular": 50
   },
   "type": "novel",
-  "error": "HTTP 404 https://syosetu.com/n7912my/",
-  "ms": 936
+  "error": "HTTP 404 https://syosetu.com/n3214mz/",
+  "ms": 1185
  },
  {
   "id": "syosetur18",
@@ -1313,7 +1302,7 @@
   },
   "type": "novel",
   "error": "empty list",
-  "ms": 785
+  "ms": 1152
  },
  {
   "id": "taonovel",
@@ -1324,21 +1313,21 @@
   },
   "type": "novel",
   "error": "empty list",
-  "ms": 345
+  "ms": 630
  },
  {
   "id": "thegioitruyen",
   "ok": true,
   "steps": {
    "listings": 1,
-   "popular": 69,
-   "title": "Trùng Sinh Thành Con Út Của Gia Tộc Ma Kiếm",
-   "chapters": 39,
-   "pages": 42
+   "popular": 73,
+   "title": "Kiếm Vương",
+   "chapters": 117,
+   "pages": 32
   },
   "type": "comic",
   "requests": 3,
-  "ms": 1977
+  "ms": 2113
  },
  {
   "id": "tiemtruyenchu",
@@ -1348,34 +1337,31 @@
   },
   "type": "novel",
   "error": "search: error",
-  "ms": 13
+  "ms": 80
  },
  {
   "id": "tinhlinh",
-  "ok": true,
+  "ok": false,
   "steps": {
-   "listings": 1,
-   "popular": 11,
-   "title": "Thỉnh nam xứng hưởng thụ nhân sinh [ xuyên nhanh ]",
-   "chapters": 973,
-   "textLen": 12129
+   "listings": 1
   },
   "type": "novel",
-  "requests": 3,
-  "ms": 3445
+  "error": "HTTP 525 https://tinhlinh.com/",
+  "ms": 12764
  },
  {
   "id": "truyenc",
-  "ok": false,
+  "ok": true,
   "steps": {
    "listings": 1,
    "popular": 30,
-   "title": "Thần Điêu: Mộng Đoạn Chung Nam",
-   "chapters": 29
+   "title": "Nơi Ta Gặp Nhau",
+   "chapters": 5,
+   "textLen": 3734
   },
   "type": "novel",
-  "error": "chap: Không tìm thấy nội dung — trang nhận được: \"TruyenC - Đọc truyện online\" (200, 395957 ký tự)",
-  "ms": 554
+  "requests": 3,
+  "ms": 901
  },
  {
   "id": "truyenchu",
@@ -1389,7 +1375,7 @@
   },
   "type": "novel",
   "requests": 4,
-  "ms": 1682
+  "ms": 1951
  },
  {
   "id": "truyencv",
@@ -1399,7 +1385,7 @@
   },
   "type": "novel",
   "error": "book: empty result",
-  "ms": 70
+  "ms": 59
  },
  {
   "id": "truyencvio",
@@ -1411,8 +1397,8 @@
    "chapters": 7
   },
   "type": "novel",
-  "error": "chap: Không tìm thấy nội dung — trang nhận được: \"‎TruyenCV - Mê Truyện Chữ Mới App - App Store\" (200, 595909 ký tự)",
-  "ms": 535
+  "error": "chap: Không tìm thấy nội dung — trang nhận được: \"‎TruyenCV - Mê Truyện Chữ Mới App - App Store\" (200, 600303 ký tự)",
+  "ms": 841
  },
  {
   "id": "truyendichai",
@@ -1421,12 +1407,12 @@
    "listings": 6,
    "popular": 20,
    "title": "Tụ Bảo Tiên Bồn",
-   "chapters": 2314,
-   "textLen": 8301
+   "chapters": 2341,
+   "textLen": 8489
   },
   "type": "novel",
   "requests": 49,
-  "ms": 11855
+  "ms": 14829
  },
  {
   "id": "truyendichain",
@@ -1436,7 +1422,7 @@
   },
   "type": "novel",
   "error": "search: error",
-  "ms": 967
+  "ms": 895
  },
  {
   "id": "truyenfull",
@@ -1444,13 +1430,13 @@
   "steps": {
    "listings": 15,
    "popular": 27,
-   "title": "Nữ Phụ Pháo Hôi Ở Tu Tiên Giới Liều Mạng Cày Cuốc",
-   "chapters": 794,
-   "textLen": 7967
+   "title": "Thâm Tình Dẫn Dụ - Điểu Tùng Mễ",
+   "chapters": 236,
+   "textLen": 9554
   },
   "type": "novel",
-  "requests": 19,
-  "ms": 1537
+  "requests": 8,
+  "ms": 1591
  },
  {
   "id": "truyenfulln",
@@ -1458,13 +1444,13 @@
   "steps": {
    "listings": 15,
    "popular": 27,
-   "title": "Nữ Phụ Pháo Hôi Ở Tu Tiên Giới Liều Mạng Cày Cuốc",
-   "chapters": 794,
-   "textLen": 7967
+   "title": "Thâm Tình Dẫn Dụ - Điểu Tùng Mễ",
+   "chapters": 236,
+   "textLen": 9554
   },
   "type": "novel",
-  "requests": 19,
-  "ms": 1623
+  "requests": 8,
+  "ms": 1591
  },
  {
   "id": "truyengg",
@@ -1478,7 +1464,7 @@
   },
   "type": "comic",
   "requests": 3,
-  "ms": 1630
+  "ms": 1818
  },
  {
   "id": "truyenh",
@@ -1489,7 +1475,7 @@
   },
   "type": "novel",
   "error": "empty list",
-  "ms": 385
+  "ms": 409
  },
  {
   "id": "truyenmoi",
@@ -1499,7 +1485,7 @@
   },
   "type": "novel",
   "error": "gen: HTTP Error: 0",
-  "ms": 20
+  "ms": 315
  },
  {
   "id": "truyenmoikk",
@@ -1509,7 +1495,7 @@
   },
   "type": "novel",
   "error": "HTTP 0 https://truyenmoikk.com/",
-  "ms": 32
+  "ms": 290
  },
  {
   "id": "truyennet",
@@ -1520,7 +1506,7 @@
   },
   "type": "novel",
   "error": "detail: empty result",
-  "ms": 4858
+  "ms": 5856
  },
  {
   "id": "truyenqq",
@@ -1534,21 +1520,21 @@
   },
   "type": "comic",
   "requests": 3,
-  "ms": 2788
+  "ms": 3021
  },
  {
   "id": "truyenqqc",
   "ok": true,
   "steps": {
    "listings": 1,
-   "popular": 102,
-   "title": "Cường Giả Đến Từ Trại Tâm Thần",
-   "chapters": 376,
-   "pages": 42
+   "popular": 20,
+   "title": "Cựu Chí Tôn",
+   "chapters": 24,
+   "pages": 52
   },
   "type": "comic",
   "requests": 3,
-  "ms": 776
+  "ms": 2131
  },
  {
   "id": "truyentranhdammyy",
@@ -1556,13 +1542,13 @@
   "steps": {
    "listings": 4,
    "popular": 12,
-   "title": "Ngọc Lâu Xuân",
-   "chapters": 47,
-   "pages": 6
+   "title": "Chiếm Hữu Cực Đoan",
+   "chapters": 24,
+   "pages": 7
   },
   "type": "comic",
   "requests": 5,
-  "ms": 3132
+  "ms": 3050
  },
  {
   "id": "truyenzhihutonghop",
@@ -1576,7 +1562,7 @@
   },
   "type": "novel",
   "requests": 3,
-  "ms": 1162
+  "ms": 630
  },
  {
   "id": "tutienpro",
@@ -1587,7 +1573,7 @@
   },
   "type": "novel",
   "error": "empty list",
-  "ms": 72
+  "ms": 1261
  },
  {
   "id": "tvkh",
@@ -1601,7 +1587,7 @@
   },
   "type": "comic",
   "requests": 4,
-  "ms": 1926
+  "ms": 1694
  },
  {
   "id": "ungtycomics",
@@ -1611,7 +1597,7 @@
   },
   "type": "comic",
   "error": "gen: Kiểm tra lại?",
-  "ms": 27
+  "ms": 238
  },
  {
   "id": "uukanshu",
@@ -1621,7 +1607,7 @@
   },
   "type": "novel",
   "error": "CLOUDFLARE: trang https://uukanshu.cc yêu cầu xác minh. Mở nguồn bằng WebView trong ứng dụng, đợi qua bước kiểm tra rồi tải lại.",
-  "ms": 155
+  "ms": 246
  },
  {
   "id": "valvrareteam",
@@ -1629,26 +1615,27 @@
   "steps": {
    "listings": 3,
    "popular": 20,
-   "title": "Trọng Sinh Tu Tiên Đời Thường",
-   "chapters": 319,
-   "textLen": 9851
+   "title": "Cuộc Sống Bình Phàm Của Một Con Người Bình Thường",
+   "chapters": 185,
+   "textLen": 7978
   },
   "type": "novel",
   "requests": 3,
-  "ms": 684
+  "ms": 945
  },
  {
   "id": "viblo",
-  "ok": false,
+  "ok": true,
   "steps": {
    "listings": 1,
-   "popular": 20,
-   "title": "Joomla Bài học 17: Thiết lập tìm kiếm thông minh (Smart Search / Finder) và lập chỉ mục nội dung (Indexing)",
-   "chapters": 0
+   "popular": 23,
+   "title": "[IMPORTANT UPDATE] VIBLO CV CẬP NHẬT CHÍNH SÁCH BẢO MẬT VÀ QUẢN LÝ DỮ LIỆU NGƯỜI DÙNG",
+   "chapters": 1,
+   "textLen": 2253
   },
   "type": "novel",
-  "error": "no chapters",
-  "ms": 985
+  "requests": 2,
+  "ms": 876
  },
  {
   "id": "vietnamthuquan",
@@ -1656,13 +1643,13 @@
   "steps": {
    "listings": 1,
    "popular": 50,
-   "title": "Anh Hùng Vô Lệ",
-   "chapters": 19,
-   "textLen": 34472
+   "title": "Siêu Cấp Cưng Chiều",
+   "chapters": 100,
+   "textLen": 6847
   },
   "type": "novel",
   "requests": 3,
-  "ms": 1091
+  "ms": 1369
  },
  {
   "id": "vinahentai",
@@ -1670,13 +1657,13 @@
   "steps": {
    "listings": 1,
    "popular": 40,
-   "title": "Tập truyện không lời của nhiều tác giả",
-   "chapters": 2,
+   "title": "Dê Dừa",
+   "chapters": 1,
    "pages": 3
   },
   "type": "comic",
   "requests": 3,
-  "ms": 427
+  "ms": 836
  },
  {
   "id": "vipbachngocsach",
@@ -1686,7 +1673,7 @@
   },
   "type": "novel",
   "error": "source: empty result",
-  "ms": 10600
+  "ms": 10599
  },
  {
   "id": "vivutruyencom",
@@ -1700,17 +1687,18 @@
   },
   "type": "novel",
   "requests": 3,
-  "ms": 586
+  "ms": 1061
  },
  {
   "id": "wattpad",
   "ok": false,
   "steps": {
-   "listings": 4
+   "listings": 4,
+   "popular": 0
   },
   "type": "novel",
-  "error": "homecontent: Không thể tải dữ liệu",
-  "ms": 21105
+  "error": "empty list",
+  "ms": 10981
  },
  {
   "id": "webtoonscan",
@@ -1720,7 +1708,7 @@
   },
   "type": "comic",
   "error": "HTTP 0 https://webtoonscan.com/",
-  "ms": 10322
+  "ms": 1697
  },
  {
   "id": "webtruyenchu",
@@ -1728,13 +1716,13 @@
   "steps": {
    "listings": 1,
    "popular": 22,
-   "title": "Ngự Thú Gia Tộc: Ta Có Một Bản Vạn Linh Đồ Giám",
+   "title": "Thôn Phệ Tinh Không",
    "chapters": 56,
-   "textLen": 2239
+   "textLen": 31606
   },
   "type": "novel",
   "requests": 3,
-  "ms": 1521
+  "ms": 1508
  },
  {
   "id": "webtruyendich",
@@ -1744,20 +1732,20 @@
   },
   "type": "novel",
   "error": "search: error",
-  "ms": 180
+  "ms": 277
  },
  {
   "id": "weebcentral",
   "ok": false,
   "steps": {
    "listings": 1,
-   "popular": 56,
-   "title": "Chapter 220 | The Swordmaster's Son | Weeb Central",
+   "popular": 54,
+   "title": "Episode 187 | Return of the Blossoming Blade | Weeb Central",
    "chapters": 0
   },
   "type": "comic",
   "error": "no chapters",
-  "ms": 1320
+  "ms": 1172
  },
  {
   "id": "weibo",
@@ -1768,17 +1756,20 @@
   },
   "type": "novel",
   "error": "empty list",
-  "ms": 1446
+  "ms": 1057
  },
  {
   "id": "wikidich",
   "ok": false,
   "steps": {
-   "listings": 1
+   "listings": 1,
+   "popular": 46,
+   "title": "",
+   "chapters": 2
   },
   "type": "novel",
-  "error": "HTTP 0 https://wikicv.net/",
-  "ms": 10481
+  "error": "chap: Không tìm thấy nội dung — trang nhận được: \"Wiki Dịch Tiếng Hoa\" (200, 56966 ký tự)",
+  "ms": 1008
  },
  {
   "id": "wodeshucheng5",
@@ -1789,7 +1780,7 @@
   },
   "type": "novel",
   "error": "empty list",
-  "ms": 1908
+  "ms": 3132
  },
  {
   "id": "xbanxiarepoduongden",
@@ -1803,7 +1794,7 @@
   },
   "type": "novel",
   "requests": 3,
-  "ms": 4570
+  "ms": 1702
  },
  {
   "id": "xianqihaotiamiapp",
@@ -1813,7 +1804,7 @@
   },
   "type": "novel",
   "error": "w.data.forEach is not a function",
-  "ms": 962
+  "ms": 1248
  },
  {
   "id": "xsw",
@@ -1823,20 +1814,10 @@
   },
   "type": "novel",
   "error": "HTTP 0 https://m.xsw.tw/",
-  "ms": 272
+  "ms": 296
  },
  {
   "id": "xtruyen",
-  "ok": false,
-  "steps": {
-   "listings": 1
-  },
-  "type": "novel",
-  "error": "HTTP 0 https://www.xtruyen.net/",
-  "ms": 10311
- },
- {
-  "id": "ypshuobinhluansach",
   "ok": false,
   "steps": {
    "listings": 1,
@@ -1844,6 +1825,16 @@
   },
   "type": "novel",
   "error": "empty list",
-  "ms": 6702
+  "ms": 527
+ },
+ {
+  "id": "ypshuobinhluansach",
+  "ok": false,
+  "steps": {
+   "listings": 1
+  },
+  "type": "novel",
+  "error": "HTTP 0 https://www.ypshuo.com/",
+  "ms": 10691
  }
 ]

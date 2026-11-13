@@ -2,7 +2,7 @@
   "metadata": {
     "name": "52shuku",
     "author": "Moleys (Kiritokmn repack)",
-    "version": 12,
+    "version": 13,
     "source": "https://www.52shuku.net",
     "regexp": "(www.|m.)?52shuku.(vip|net)/(.*?)/(.*?).html",
     "description": "Đọc truyện trên trang https://www.52shuku.net — gốc: Moleys (Moleys/vbook-ext)",

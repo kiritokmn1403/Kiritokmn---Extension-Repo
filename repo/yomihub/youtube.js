@@ -1,4 +1,4 @@
-const mangayomiSources = [{"name":"YouTube (NewPipe · Pure Tuber)","lang":"all","id":920260006,"baseUrl":"https://www.youtube.com","apiUrl":"","iconUrl":"https://www.gstatic.com/youtube/img/branding/favicon/favicon_144x144.png","typeSource":"single","itemType":1,"isNsfw":false,"version":"0.5.3","dateFormat":"","dateFormatLocale":"","pkgPath":"repo/yomihub/youtube.js"}];
+const mangayomiSources = [{"name":"YouTube (NewPipe · Pure Tuber)","lang":"all","id":920260006,"baseUrl":"https://www.youtube.com","apiUrl":"","iconUrl":"https://raw.githubusercontent.com/kiritokmn1403/Kiritokmn---Extension-Repo/main/repo/icons/youtube.png","typeSource":"single","itemType":1,"isNsfw":false,"version":"0.5.3","dateFormat":"","dateFormatLocale":"","pkgPath":"repo/yomihub/youtube.js"}];
 // ---- YomiHub shared helpers (prepended to every bundled extension) ----
 const YH_UA = "Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36";
 function yhPref(key, def) {

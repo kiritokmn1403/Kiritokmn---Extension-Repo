@@ -2,9 +2,9 @@
   "metadata": {
     "name": "LuotTruyen",
     "author": "Gold2k2k2k (Kiritokmn repack)",
-    "version": 8,
-    "source": "https://luottruyen7.com",
-    "regexp": "luottruyen\\d*\\.com\\/truyen-tranh\\/[^\\/]+\\/?$",
+    "version": 9,
+    "source": "https://luottruyen21.com",
+    "regexp": "luottruyen21\\.com|luottruyen7\\.com",
     "description": "Lượt Truyện - Đọc truyện tranh online — gốc: Gold2k2k2k (Gold2k2k2k/HTri-Vbook-Ext)",
     "locale": "vi_VN",
     "type": "comic",
@@ -19,5 +19,18 @@
     "toc": "toc.js",
     "chap": "chap.js",
     "comment": "comment.js"
+  },
+  "config": {
+    "DOMAIN": {
+      "title": "Tên miền",
+      "subtitle": "Đổi khi trang đổi tên miền",
+      "mode": "input",
+      "format": "text",
+      "default": "https://luottruyen21.com",
+      "values": [
+        "https://luottruyen21.com",
+        "https://luottruyen7.com"
+      ]
+    }
   }
 }

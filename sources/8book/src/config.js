@@ -2,11 +2,11 @@ var BASE_URL = "https://www.8book.com";
 try { if (DOMAIN) BASE_URL = String(DOMAIN).replace(/\/+$/, ""); } catch (e) {}
 var G = {
  "tabs": {
-  "Mới cập nhật": "/[?page={p}]"
+  "Mới cập nhật": "/"
  },
- "search": "/search/?key={q}[&page={p}]",
- "item": ".picsize",
- "title": "a@title || img@alt || a@title || img@alt",
+ "search": "/search/?key={q}",
+ "item": "div.col-4.col-sm-4 > div.mb-1",
+ "title": "img@alt || a@title || a",
  "link": "a@href",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || .thumb img@img || .poster img@img || img@img",

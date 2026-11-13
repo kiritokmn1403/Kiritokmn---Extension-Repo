@@ -72,6 +72,11 @@ class DefaultExtension extends MProvider {
     } else {
       prefs.push({ key: 'DOMAIN', editTextPreference: { title: 'Tên miền / Domain', summary: m.source, value: m.source, dialogTitle: 'Domain', dialogMessage: 'Đổi khi trang đổi tên miền (VD: https://example.com)' } });
     }
+    // 0.0.4: every other plugin.json config entry becomes an editable setting (e.g. TikTok/Douyin API server, region)
+    Object.keys(m.config || {}).forEach(k => {
+      if (k === 'DOMAIN') return; const o = m.config[k] || {};
+      prefs.push({ key: k, editTextPreference: { title: o.title || k, summary: o.subtitle || '', value: String(o.default == null ? '' : o.default), dialogTitle: o.title || k, dialogMessage: o.subtitle || '' } });
+    });
     return prefs;
   }
 }

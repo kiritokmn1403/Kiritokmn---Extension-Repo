@@ -22,7 +22,7 @@ const WS = path.join(ROOT, '.build/aidoku-ws');
 const OUT = path.join(ROOT, 'repo/aidoku');
 const VERSION = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')).version;
 // Bump when the bridge or the Aidoku adapter changes: package version = BRIDGE_REV * 100 + source version.
-const BRIDGE_REV = 1;
+const BRIDGE_REV = 2; // 0.0.4: engine + generic library changes (ch_from, login gate, logos)
 const LANG = { vi: 'vi', 'zh-CN': 'zh', zh: 'zh', en: 'en', ja: 'ja', global: 'multi', all: 'multi' };
 const crate = id => 'kiri-' + id.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 export const aidokuId = s => `${LANG[s.lang] || 'multi'}.kiritokmn.${s.id.toLowerCase().replace(/[^a-z0-9]+/g, '')}`;

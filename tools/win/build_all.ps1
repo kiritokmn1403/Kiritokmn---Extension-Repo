@@ -2,7 +2,8 @@
 #   sources -> repo/ (vBook, Mangayomi, LNReader/IReader)  ->  APKs (Aniyomi/Nekoyomi)  ->  live tests  ->  README
 $ErrorActionPreference = 'Continue'; $ProgressPreference = 'SilentlyContinue'
 $Root = Resolve-Path (Join-Path (Split-Path -Parent $MyInvocation.MyCommand.Path) '..\..')
-$Work = Join-Path (Split-Path -Parent $Root) '_work'
+# 0.0.4: _work lives inside the repo folder (ignored by git); older layout had it next to the repo
+$Work = Join-Path $Root '_work'; if (-not (Test-Path (Join-Path $Work 'deps'))) { $Work = Join-Path (Split-Path -Parent $Root) '_work' }
 $Log = Join-Path $Root 'Output\build_all.log'
 New-Item -ItemType Directory -Force -Path (Join-Path $Root 'Output') | Out-Null
 function L($m) { $t = (Get-Date).ToString('HH:mm:ss'); Add-Content -Path $Log -Value "$t $m" -Encoding UTF8; Write-Host "$t $m" }

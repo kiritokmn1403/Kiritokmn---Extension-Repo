@@ -2,11 +2,11 @@
   "metadata": {
     "name": "Wiki Dịch",
     "author": "Kiritokmn",
-    "version": 1,
-    "source": "https://wikicv.net",
+    "version": 2,
+    "source": "https://wikicv.org",
     "description": "Wiki Dịch — Kiritokmn Extension Repo",
     "locale": "vi",
-    "regexp": "wikicv\\.net",
+    "regexp": "wikicv\\.net|wikicv\\.org",
     "type": "novel",
     "nsfw": false
   },
@@ -21,10 +21,10 @@
     "DOMAIN": {
       "title": "Tên miền",
       "subtitle": "Đổi khi trang đổi tên miền",
-      "default": "https://wikicv.net",
+      "default": "https://wikicv.org",
       "values": [
-        "https://wikicv.net",
-        "https://wikicv.org"
+        "https://wikicv.org",
+        "https://wikicv.net"
       ],
       "mode": "select",
       "format": "single"

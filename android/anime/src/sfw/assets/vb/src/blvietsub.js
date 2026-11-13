@@ -1,4 +1,4 @@
-__register({ META: {"id":"blvietsub","name":"BLVietsub","source":"https://www.blvietsub.vip","type":"video","locale":"vi","nsfw":false,"version":2,"config":{"DOMAIN":{"title":"Tên miền","subtitle":"Đổi khi trang đổi tên miền","default":"https://www.blvietsub.vip","values":["https://www.blvietsub.vip"],"mode":"input","format":"text"}},"configDefaults":{"DOMAIN":"https://www.blvietsub.vip"}}, SCRIPTS: {
+__register({ META: {"id":"blvietsub","name":"BLVietsub","source":"https://www.blvietsub.vip","type":"video","locale":"vi","nsfw":false,"version":3,"config":{"DOMAIN":{"title":"Tên miền","subtitle":"Đổi khi trang đổi tên miền","default":"https://www.blvietsub.vip","values":["https://www.blvietsub.vip"],"mode":"input","format":"text"}},"configDefaults":{"DOMAIN":"https://www.blvietsub.vip"}}, SCRIPTS: {
 "home": function (__env, __cfg) {
 return (function (fetch, Http, Html, Response, localStorage, cacheStorage, localConfig, localCookie, sleep, Log, console, Console, log, UserAgent, Engine, Graphics, Script) {
 var DOMAIN = __cfg("DOMAIN");
@@ -12,9 +12,9 @@ var G = {
  },
  "search": "/search?q={q}",
  "ch_list": "ul.sub-menu a",
- "item": "div.row-flex > article.phimitem",
+ "item": "article.phimitem",
  "link": "a@href",
- "title": "h3",
+ "title": "h2 || h3 || a@title || img@alt",
  "cover": "img@img",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || img@img",
@@ -187,6 +187,9 @@ var X = {
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
+    // 0.0.4: chapter list served by an AJAX endpoint keyed by an id found in the detail page
+    //   ch_from: { re: 'data-novel-id="([^"]+)"', url: '/ajax/chapter-archive?novelId=$1' }
+    if (G.ch_from) { var cm = new RegExp(G.ch_from.re).exec(doc.html()); if (cm) doc = C.html(C.fix(G.ch_from.url.replace(/\$(\d)/g, function (m, i) { return encodeURIComponent(cm[+i] || ''); })), G.req); }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
@@ -364,9 +367,9 @@ var G = {
  },
  "search": "/search?q={q}",
  "ch_list": "ul.sub-menu a",
- "item": "div.row-flex > article.phimitem",
+ "item": "article.phimitem",
  "link": "a@href",
- "title": "h3",
+ "title": "h2 || h3 || a@title || img@alt",
  "cover": "img@img",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || img@img",
@@ -539,6 +542,9 @@ var X = {
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
+    // 0.0.4: chapter list served by an AJAX endpoint keyed by an id found in the detail page
+    //   ch_from: { re: 'data-novel-id="([^"]+)"', url: '/ajax/chapter-archive?novelId=$1' }
+    if (G.ch_from) { var cm = new RegExp(G.ch_from.re).exec(doc.html()); if (cm) doc = C.html(C.fix(G.ch_from.url.replace(/\$(\d)/g, function (m, i) { return encodeURIComponent(cm[+i] || ''); })), G.req); }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
@@ -716,9 +722,9 @@ var G = {
  },
  "search": "/search?q={q}",
  "ch_list": "ul.sub-menu a",
- "item": "div.row-flex > article.phimitem",
+ "item": "article.phimitem",
  "link": "a@href",
- "title": "h3",
+ "title": "h2 || h3 || a@title || img@alt",
  "cover": "img@img",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || img@img",
@@ -891,6 +897,9 @@ var X = {
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
+    // 0.0.4: chapter list served by an AJAX endpoint keyed by an id found in the detail page
+    //   ch_from: { re: 'data-novel-id="([^"]+)"', url: '/ajax/chapter-archive?novelId=$1' }
+    if (G.ch_from) { var cm = new RegExp(G.ch_from.re).exec(doc.html()); if (cm) doc = C.html(C.fix(G.ch_from.url.replace(/\$(\d)/g, function (m, i) { return encodeURIComponent(cm[+i] || ''); })), G.req); }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
@@ -1068,9 +1077,9 @@ var G = {
  },
  "search": "/search?q={q}",
  "ch_list": "ul.sub-menu a",
- "item": "div.row-flex > article.phimitem",
+ "item": "article.phimitem",
  "link": "a@href",
- "title": "h3",
+ "title": "h2 || h3 || a@title || img@alt",
  "cover": "img@img",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || img@img",
@@ -1243,6 +1252,9 @@ var X = {
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
+    // 0.0.4: chapter list served by an AJAX endpoint keyed by an id found in the detail page
+    //   ch_from: { re: 'data-novel-id="([^"]+)"', url: '/ajax/chapter-archive?novelId=$1' }
+    if (G.ch_from) { var cm = new RegExp(G.ch_from.re).exec(doc.html()); if (cm) doc = C.html(C.fix(G.ch_from.url.replace(/\$(\d)/g, function (m, i) { return encodeURIComponent(cm[+i] || ''); })), G.req); }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
@@ -1420,9 +1432,9 @@ var G = {
  },
  "search": "/search?q={q}",
  "ch_list": "ul.sub-menu a",
- "item": "div.row-flex > article.phimitem",
+ "item": "article.phimitem",
  "link": "a@href",
- "title": "h3",
+ "title": "h2 || h3 || a@title || img@alt",
  "cover": "img@img",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || img@img",
@@ -1595,6 +1607,9 @@ var X = {
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
+    // 0.0.4: chapter list served by an AJAX endpoint keyed by an id found in the detail page
+    //   ch_from: { re: 'data-novel-id="([^"]+)"', url: '/ajax/chapter-archive?novelId=$1' }
+    if (G.ch_from) { var cm = new RegExp(G.ch_from.re).exec(doc.html()); if (cm) doc = C.html(C.fix(G.ch_from.url.replace(/\$(\d)/g, function (m, i) { return encodeURIComponent(cm[+i] || ''); })), G.req); }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
@@ -1772,9 +1787,9 @@ var G = {
  },
  "search": "/search?q={q}",
  "ch_list": "ul.sub-menu a",
- "item": "div.row-flex > article.phimitem",
+ "item": "article.phimitem",
  "link": "a@href",
- "title": "h3",
+ "title": "h2 || h3 || a@title || img@alt",
  "cover": "img@img",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || img@img",
@@ -1947,6 +1962,9 @@ var X = {
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
+    // 0.0.4: chapter list served by an AJAX endpoint keyed by an id found in the detail page
+    //   ch_from: { re: 'data-novel-id="([^"]+)"', url: '/ajax/chapter-archive?novelId=$1' }
+    if (G.ch_from) { var cm = new RegExp(G.ch_from.re).exec(doc.html()); if (cm) doc = C.html(C.fix(G.ch_from.url.replace(/\$(\d)/g, function (m, i) { return encodeURIComponent(cm[+i] || ''); })), G.req); }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
@@ -2124,9 +2142,9 @@ var G = {
  },
  "search": "/search?q={q}",
  "ch_list": "ul.sub-menu a",
- "item": "div.row-flex > article.phimitem",
+ "item": "article.phimitem",
  "link": "a@href",
- "title": "h3",
+ "title": "h2 || h3 || a@title || img@alt",
  "cover": "img@img",
  "d_title": "h1 || meta[property=og:title]@content",
  "d_cover": "meta[property=og:image]@content || img@img",
@@ -2299,6 +2317,9 @@ var X = {
     var pages = [url], list = [], seen = {};
     var doc = C.html(G.ch_rewrite ? url.replace(new RegExp(G.ch_rewrite[0]), G.ch_rewrite[1]) : url, G.req);
     if (G.ch_url) { var cu = X.pick(doc, G.ch_url); if (cu) { doc = C.html(C.fix(cu), G.req); } }
+    // 0.0.4: chapter list served by an AJAX endpoint keyed by an id found in the detail page
+    //   ch_from: { re: 'data-novel-id="([^"]+)"', url: '/ajax/chapter-archive?novelId=$1' }
+    if (G.ch_from) { var cm = new RegExp(G.ch_from.re).exec(doc.html()); if (cm) doc = C.html(C.fix(G.ch_from.url.replace(/\$(\d)/g, function (m, i) { return encodeURIComponent(cm[+i] || ''); })), G.req); }
     for (var guard = 0; guard < (G.ch_maxPages || 60); guard++) {
       var els = doc.select(G.ch_list);
       for (var i = 0; i < els.size(); i++) {
